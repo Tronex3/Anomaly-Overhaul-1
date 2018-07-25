@@ -1,16 +1,16 @@
 # Anomaly-Overhaul-1
 Improving the item system and the progression behind it.
 
-*Crafting System*
-	[DONE] Create new craft kits with new improved UI, each kit has 7 max uses:
+**Crafting System**
+	- {DONE} Create new craft kits with new improved UI, each kit has 7 max uses:
 		- Basic tools (craft basic items and kits, tier 1 upgrade parts etc..)
 		- Advanced tools (craft better items, devices and kits, awr simple kits, tier 2 upgrade parts)
 		- Export tools (craft important kits, tier 3 upgrade parts)
 		- Drug kit (craft all meds and drugs)
 		- Ammo kit (craft better ammo using bad and damaged types)
-	[TODO] add items (recipes) that can be found on corpses, using them will unlock new recipes for the craft kits in note section of encyclopedia
-	[TODO] fill the recipes list
-	[ON WORK] Rework the UI of old repair kits
+	- {TODO} add items (recipes) that can be found on corpses, using them will unlock new recipes for the craft kits in note section of encyclopedia
+	- {TODO} fill the recipes list
+	- {ON WORK} Rework the UI of old repair kits
 
 Item management:
 ======================
