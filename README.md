@@ -6,7 +6,7 @@ Improving the item system and the progression behind it.
 
 
 
-## Crafting System
+### Crafting System
 - [x] add new craft kits with new improved UI, each kit has 7 max uses:
    - [x] Basic toolkit *(craft basic items and kits, tier 1 upgrade parts etc..)*
    - [x] Advanced toolkit *(craft better items, devices and kits, awr simple kits, tier 2 upgrade parts)*
@@ -17,7 +17,7 @@ Improving the item system and the progression behind it.
 - [ ] fill the recipes list file
 - [x] Rework the UI of old repair kits
 
-## Item management
+### Item management
 - [x] add the ability to combine multi-use items
 - [x] add the ability to separate multi-use items
 - [ ] add the ability to disassemble misc items and create useful parts for crafting
@@ -25,7 +25,7 @@ Improving the item system and the progression behind it.
 - [x] (Swiss Knife) and (Grooming kit) will have 7 max uses, both are used to disassemble misc items, both are cheap
 - [ ] canned food will no longer require (Swiss Knife) to open
  
-## New items:
+### New items:
 - [x] add (Anomaly Maps), new items that can be found on corpses, show the location of known anomaly locations
 - [x] remove the old location discovery
 - [ ] add (GPS tracker), using it will show the location of nearby natural/friendly npcs for a brief amount of time, consumes UPD power
@@ -34,21 +34,21 @@ Improving the item system and the progression behind it.
 - [ ] add more misc items that can be used for crafting
 - [ ] (Guitar) and (Harmonica) as usable items
 
-## Cooking:
+### Cooking:
 - [x] add special mutant parts (meat,parts,hide) for the new mutants (Lurker, Psysucker)
 - [ ] update the cooking UI
 - [ ] (Field cooking kit) has 3 max uses, it can be used on campfires for low-tier meat or (charcoal) for high-tier meat, can be found on corpses
 - [ ] (Army Kettle) has 7 max uses, it can be used on campfires or (charcoal), cook all kind of meat, can be found on corpses
 - [ ] (Multi-fuel stove) has unlimited uses, can cook all meat, requires (Kerosene) exclusively, can be bought only.
 
-## Encyclopedia:
+### Encyclopedia:
 - [x] dynamic encyclopedia, unlock articles on discovery of many things
 - [x] update the articles with content (anomaly, artefacts, awr)
 - [x] new category (Notes), store personal notes like crafting recipes, notes from special characters
 - [ ] new category (Tools), contains articles about tools and how to use them in general
 - [ ] fill the note list
 
-## General:
+### General:
 - [ ] rework the *death_items_by_communities* after finish adding all the new items
 - [x] organize item files
 - [x] remove the inventory grid
@@ -60,7 +60,7 @@ Improving the item system and the progression behind it.
 - [ ] improve mutant looting UI, add new button "loot all"
 - [ ] update old Zone FM scripts
 
-## Plans For the Future!
+### Plans For the Future!
 - [ ] fix special npcs look doesn't match the icon
 - [ ] improve rain texture
 - [ ] add new inventory slots for backpacks, binocular, knife, pistol *(require engine edits!! might cancel it if it went behind my reach)*
