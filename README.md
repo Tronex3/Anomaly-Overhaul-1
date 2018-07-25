@@ -4,6 +4,8 @@ Improving the item system and the progression behind it.
 - [ ] on work, or haven't started yet
 
 
+
+
 ## Crafting System
 - [x] add new craft kits with new improved UI, each kit has 7 max uses:
    - [x] Basic toolkit *(craft basic items and kits, tier 1 upgrade parts etc..)*
