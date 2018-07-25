@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="windows-1251"?>
+
+<!--
+	Junk/Misc Items
+-->
+
+<string_table>
+	
+	<string id="st_porn">
+		<text>Russian PLAYBOY</text>
+	</string>
+	<string id="st_porn_descr">
+		<text>100-pages worth of prime nude Russian girls. Probably the best way to travel to a better place, at least mentally. Westerners often joke about it saying "From Russia with love".\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon cleaning and lubrication (+2%)</text>
+	</string>
+	
+	<string id="st_survivalguide">
+		<text>Ukrainian Special Forces Survival Guide</text>
+	</string>
+	<string id="st_survivalguide_descr">
+		<text>You have studied this survival guide many times before. For this reason, it does not have any educational value, but you should be able to sell it for some quick cash. Some stalkers may want to take a look at it.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon cleaning and lubrication (+3%)</text>
+	</string>
+	
+	<string id="st_guitar_name">
+		<text>Guitar</text>
+	</string>
+	<string id="st_guitar_descr">
+		<text>Guitar is a string instrument widely used by stalkers of all factions throughout the Zone in order to raise spirits and fraternize. Stalkers can often be seen playing the guitar in camps, outposts or other places of relative safety - usually by the fire. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item</text>
+	</string>
+
+	<string id="st_harmonica_name">
+		<text>Harmonica</text>
+	</string>
+	<string id="st_harmonica_descr">
+		<text>For blues and prison romance lovers.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item</text>
+	</string>
+	
+	<string id="st_textile_patch_b">
+		<text>Cloth sheet</text>
+	</string>
+	<string id="st_textile_patch_b_descr">
+		<text>Simple cloth sheet, commonly used both to patch clothing and spread oils and cleaning solvents onto firearm mechanisms. Can be applied by any needle or glue.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+3%)</text>
+	</string>
+	
+	<string id="st_textile_patch_m">
+		<text>Textile sheet</text>
+	</string>
+	<string id="st_textile_patch_m_descr">
+		<text>Sheet of military-grade textile that can be used for field repairs of clothing and light armor. Valued for its relatively low price and high versatility, this material is commonly used by the Zoners. Medium-grade sewing equipment and advanced glue required for use. It can also be used to improve spread of liquids during weapon maintenance.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] military item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+4%)</text>
+	</string>
+	
+	<string id="st_textile_patch_e">
+		<text>Reinforced textile sheet</text>
+	</string>
+	<string id="st_textile_patch_e_descr">
+		<text>Thick textile patch reinforced with kevlar padding. Can be used to repair medium and heavy armors. Large enough to cover multiple damaged areas. High quality sewing kits and adhesives are required to make use of it. Its alternative usage is weapon lubrication and cleaning - due to increased hardness it's able reach even less accessible areas of firearm parts.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] military item\n
+		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+6%)</text>
+	</string>
+	
+	<string id="st_steel_wool">
+		<text>Steel wool</text>
+	</string>
+	<string id="st_steel_wool_descr">
+		<text>Steel wool, also known as wire wool or wire sponge, is a bundle of strands of very fine soft steel filaments. It is used as an abrasive in finishing and repair work for polishing wood or metal objects, cleaning household cookware, and sanding in light painting. Steel wool is made from low-carbon steel (carbon content is low enough to be close to plain iron). It is not made by drawing "steel wool wire" through a tapered die, but rather by a process more like broaching where a heavy steel wire is pulled through a toothed die that removes a thin wire shaving. Bundles of steel wool can be used in precision equipment cleaning and to improve spreading of lubricants and cleaning solvents.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+6%)</text>
+	</string>
+	
+	<string id="st_grease">
+		<text>Industrial grease</text>
+	</string>
+	<string id="st_grease_descr">
+		<text>Grease is a semisolid lubricant. It generally consists of a soap emulsified with mineral or vegetable oil. Greases are applied to mechanisms that cannot be lubricated constantly or where typical lubricating oil would not stay in position. They also act as sealants to prevent ingress of water and incompressible materials. Grease-lubricated bearings have greater frictional characteristics due to their high viscosity.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+6%)</text>
+	</string>
+	
+	<string id="st_roubles">
+		<text>Old coins</text>
+	</string>
+	<string id="st_roubles_descr">
+		<text>Trade in the Zone is conducted mainly by means of electronic transactions for safety and managing reasons. But many stalkers keep at least a few coins in their pockets in case they want to buy smaller things like cigarettes. This makes life easier and conserves battery life.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item</text>
+	</string>
+	
+	<string id="st_shovel_old">
+		<text>Metal shovel</text>
+	</string>
+	<string id="st_shovel_old_descr">
+		<text>An old metal shovel used for various field purposes. Few people actually keep shovels in their backpacks as they are quite commonly found in the Zone, especially in industrial areas.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item</text>
+	</string>
+	
+	<string id="st_shovel_mili">
+		<text>Military field shovel</text>
+	</string>
+	<string id="st_shovel_mili_descr">
+		<text>High-quality black military shovel. Used for numerous field purposes. Training regimen of Spetsnaz soldiers covers hand-to-hand combat and use of hand-held weapons and other equipment for the purposes of eliminating enemies. One famous example is the entrenching shovel which is a formidable weapon in close combat when used by a Spetsnaz operator.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] military item</text>
+	</string>
+	
+	<string id="st_meinkampf">
+		<text>Mein Kampf</text>
+	</string>
+	<string id="st_meinkampf_descr">
+		<text>Adolf Hitler's strategic memoires collected in a single book. The book and all that it stands for are hated by many, which makes this an item of high symbolic value. Adolf Hitler (20 April 1889 - 30 April 1945) was an Austrian-born German politician and the leader of the National Socialist German Workers Party (German: Nationalsozialistische Deutsche Arbeiterpartei (NSDAP), commonly referred to as the Nazi Party). He was chancellor of Germany from 1933 to 1945 and dictator of Nazi Germany (as Fuhrer und Reichskanzler) from 1934 to 1945. Hitler is responsible for the founding of Nazism, the start of World War II, and the Holocaust.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] personal belongings\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+2%)</text>
+	</string>
+	
+	<string id="st_jar">
+		<text>Plastic jar</text>
+	</string>
+	<string id="st_jar_descr">
+		<text>A handful of gold teeth in a small plastic jar filled with sand and leaves to minimize the noise while running. Liberating a fallen stalker of his teeth is a favored practice among bandits.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] personal belongings\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable</text>
+	</string>
+	
+	<string id="st_journal">
+		<text>Personal journal</text>
+	</string>
+	<string id="st_journal_descr">
+		<text>Personal journal with a number of primitive maps and notations. In a leather binding. Simple survival tips for the common man and nothing of much value.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] personal belongings\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+2%)</text>
+	</string>
+	
+	<string id="st_maps_kit">
+		<text>Mapmaking kit</text>
+	</string>
+	<string id="st_maps_kit_descr">
+		<text>Mapmaking kit containing a set of pens and measurement instruments. All in a waterproof and camouflaged cover of high quality. Used by and issued to Ukrainian artillery personnel. Some maps have not yet been completed. Your PDA is much more useful than any of this.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,204,0,51] • %c[0,140,140,140] unusable</text>
+	</string>
+	
+	<string id="st_welding_goggles">
+		<text>Welding goggles</text>
+	</string>
+	<string id="st_welding_goggles_descr">
+		<text>Old and corroded welding goggles with a broken leather band. Welding goggles are designed to provide eye protection while welding or cutting. Useless in their current state and of no to little value.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item</text>
+	</string>
+	
+	<string id="st_survival_kit">
+		<text>Small survival kit</text>
+	</string>
+	<string id="st_survival_kit_descr">
+		<text>Survival kit containing fabric, sewing needles and a few leather strips. Primarily used as a means to stop the bleeding and treat lacerations, in the hands of a skilled user this small survival kit may prove essential during prolonged excursions in the Zone. It can also be utilized for outfit repairs of even most severe damage.\n \n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
+		%c[0,204,0,51] • %c[0,140,140,140] slow usage (field kit)\n
+		%c[0,100,100,255] • %c[0,140,140,140] immediately stops heavy bleeding\n
+		%c[0,204,0,51] • %c[0,140,140,140] prolonged body recovery time\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs (+7%)</text>
+	</string>
+	
+	<string id="st_jewelry_box">
+		<text>Decorated jewelry box</text>
+	</string>
+	<string id="st_jewelry_box_descr">
+		<text>A small box full of woman jewelry. It seems quite valuable but Zoners generally don't wear jewelry, except for bloodsucker teeth, so it's not likely to fetch a good price.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable</text>
+	</string>
+	
+	<string id="st_book1">
+		<text>Mechanics manual</text>
+	</string>
+	<string id="st_book1_descr">
+		<text>Manual of mechanical engineering. Some people read such books to expand their expertise and learn more about the facilities and factories in the Zone. Low sale value.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+2%)</text>
+	</string>
+	
+	<string id="st_book2">
+		<text>Engineering manual</text>
+	</string>
+	<string id="st_book2_descr">
+		<text>Manual of industrial engineering. Some people read such books to expand their expertise and learn more about the facilities and factories in the Zone. Low sale value.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+2%)</text>
+	</string>
+	
+	<string id="st_drugnotes">
+		<text>Drug distribution notes</text>
+	</string>
+	<string id="st_drugnotes_descr">
+		<text>This notebook describes various drug deals in detail. Specific nicknames, locations and time of meets. Some deals are executed through equipment exchanges and others are paid in large amounts of rubles. When browsing the pages, it becomes clear that Freedom is the main distributor of natural drugs such as marijuana. Bandits are producers and distributors of the more powerful (and dangerous) synthetic drugs like salicylic acid and cocaine. Apparently, every faction in the Zone takes part in these deals. In particular, Monolith seems to be taking in large amounts drugs in exchange for more expensive types of ammunition and equipment.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] personal belongings\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+2%)</text>
+	</string>
+	
+	<string id="st_picture_woman">
+		<text>Picture of a woman</text>
+	</string>
+	<string id="st_picture_woman_descr">
+		<text>A small picture of a beautiful woman with blond hair. The name at the bottom of the picture has been crossed out. Wrapped in plastic.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] personal belongings\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+1%)</text>
+	</string>
+	
+	<string id="st_porn2">
+		<text>Ukrainian MAXIM</text>
+	</string>
+	<string id="st_porn2_descr">
+		<text>Glossy spreads with beautiful Slavic girls, featuring Joanna Krupa as the star of the month. A popular find among Zoners who need a psychological escape on a daily basis. The poster with Joanna has been removed.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+2%)</text>
+	</string>
+	
+	<string id="st_boots">
+		<text>Leather boots</text>
+	</string>
+	<string id="st_boots_descr">
+		<text>Everyone is aware of the importance of good gear. An extra pair of boots can prove extremely useful and may be the object of envy of other stalkers since it is such a rarity.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[0,100,100,255] • %c[0,140,140,140] personal belongings\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs (+4%)</text>
+	</string>
+	
+	<string id="st_batteries_dead_empty">
+		<text>Old batteries (emptied)</text>
+	</string>
+	<string id="st_batteries_dead_empty_descr">
+		<text>Only one out of ten batteries found in the Zone still carry some juice. These, however, are completely drained and because of that do not have any value whatsoever.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] UPD charge: %c[0,204,0,51] none\n
+		%c[0,204,0,51] • %c[0,140,140,140] depleted</text>
+	</string>
+	
+	<string id="st_batteries_empty">
+		<text>Batteries (emptied)</text>
+	</string>
+	<string id="st_batteries_empty_descr">
+		<text>These batteries have been completely drained of whatever energy they once had. Their only value is the amount of metal they are made of.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] UPD charge: %c[0,204,0,51] none\n
+		%c[0,204,0,51] • %c[0,140,140,140] depleted</text>
+	</string>
+	
+	<string id="st_batteries_ccell_empty">
+		<text>Military battery unit (emptied)</text>
+	</string>
+	<string id="st_batteries_ccell_empty_descr">
+		<text>An empty military battery unit. If full they are very valuable and in high demand due to the relative scarcity of batteries in the Zone. However, now that the juice has run out they constitute a backpack burden.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] UPD charge: %c[0,204,0,51] none\n
+		%c[0,204,0,51] • %c[0,140,140,140] depleted</text>
+	</string>
+	
+	<string id="st_flashlight_broken">
+		<text>Broken flashlight</text>
+	</string>
+	<string id="st_flashlight_broken_descr">
+		<text>The handle is broken and even duct tape wouldn't be able to keep the batteries in place. This is no longer of any value.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,204,0,51] • %c[0,140,140,140] broken beyond repair\n
+		%c[0,204,0,51] • %c[0,140,140,140] unusable</text>
+	</string>
+	
+	<string id="st_underwear">
+		<text>Soaked underwear</text>
+	</string>
+	<string id="st_underwear_descr">
+		<text>An extra pair of socks, a shirt and pants could substantially increase your comfort. Unfortunately, this set is completely soaked. There is little chance any stalker will pay for this garbage. Although they might seem worthless, the material the underwear is made of can be used in armor and weapon maintenance.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[0,100,100,255] • %c[0,140,140,140] personal belongings\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+3%)</text>
+	</string>
+	
+	<string id="st_wpn_spareparts">
+		<text>Weapon spare parts</text>
+	</string>
+	<string id="st_wpn_spareparts_descr">
+		<text>Spare parts for what looks to be an AKM assault rifle. The wooden parts are not in a very good condition, and the same can be said of metal elements. Only novices would be interested in buying them. However, it seems that they may be useful for equipment repairs. Certain Zoners replace some parts when finding a new weapon out in the open in order to avoid being hunted for stealing from someone's stash.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] military item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+10%)</text>
+	</string>
+	
+	<string id="st_beadspread">
+		<text>Bed spread</text>
+	</string>
+	<string id="st_beadspread_descr">
+		<text>Luxury item in the Zone. It gives you extra 10 percent chance of a good night's sleep. Since there are only a few beds in safehouses in the Zone, having a sleeping bag and a bed spread may prove essential if you don't want to hit the wall in most inappropriate of circumstances. Bed spreads are included in the equipment of some military units.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs (+3%)</text>
+	</string>
+	
+	<string id="st_walkie">
+		<text>Walkie talkie</text>
+	</string>
+	<string id="st_walkie_descr">
+		<text>The display is dead and there is a constant hiss from the speaker indicating that this is of no use. Has what appears to be mutant teeth marks on it.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,204,0,51] • %c[0,140,140,140] broken beyond repair\n
+		%c[0,204,0,51] • %c[0,140,140,140] unusable</text>
+	</string>
+	
+	<string id="st_cards">
+		<text>Deck of cards</text>
+	</string>
+	<string id="st_cards_descr">
+		<text>It is important to divert your mind from suffering in this hellhole and focus on other, more pleasant things. Playing cards is a popular pastime, but a deck of cards can also be used for sorting special trades. The cover depicts the proud architectural design of the Moscow Metro.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item</text>
+	</string>
+	
+	<string id="st_ammo_bad">
+		<text>Bad ammo</text>
+	</string>
+	<string id="st_ammo_bad_descr">
+		<text>Every stalker is aware of the importance of reliable weaponry. That's the reason a daily and thorough examination of your shooter is vital to your survival. Stalkers often count their ammo and clean it to minimize the risk of a weapon jam in the heat of battle. This ammo is in a bad condition and should be discarded.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] military item\n
+		%c[0,204,0,51] • %c[0,140,140,140] broken beyond repair\n
+		%c[0,204,0,51] • %c[0,140,140,140] unusable</text>
+	</string>
+	
+	<string id="st_mili_maps">
+		<text>Military maps</text>
+	</string>
+	<string id="st_mili_maps_descr">
+		<text>Maps showing the location of military camps around the Zone. Each PDA comes with these maps installed, so this item is of little use to anyone.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] military item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+3%)</text>
+	</string>
+	
+	<string id="st_headlamp">
+		<text>Old head lamp</text>
+	</string>
+	<string id="st_headlamp_descr">
+		<text>Although few dare to explore the Zone during the night, there are circumstances where a head lamp is crucial. And another source of light won't hurt, because you never know when you'll have to move from place to place. Unfortunately, this particular unit has long seen its working days and can now only serve as a source of cheap spare parts.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,204,0,51] • %c[0,140,140,140] broken beyond repair\n
+		%c[0,204,0,51] • %c[0,140,140,140] unusable</text>
+	</string>
+	
+	<string id="st_mirror">
+		<text>Telescopic mirror</text>
+	</string>
+	<string id="st_mirror_descr">
+		<text>Small mirror mounted on a telescopic iron tube. A handy item used by fighters versed in the arts of urban combat as it allows to peek around corners without getting shot.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] military item</text>
+	</string>
+	
+	<string id="st_hammer">
+		<text>Old hammer (reusable)</text>
+	</string>
+	<string id="st_hammer_descr">
+		<text>Hammer with a wooden handle and an iron head. A common sight in industrial areas of the Zone. Despite its heavy weight, it's often carried in backpack due to its versatility.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+3%)\n
+		%c[255,238,153,26] • %c[0,140,140,140] unlimited usages</text>
+	</string>
+
+	<string id="st_tarpaulin">
+		<text>Camouflaged tarpaulin</text>
+	</string>
+	<string id="st_tarpaulin_descr">
+		<text>A tarpaulin (or hootch) is a large sheet of strong, flexible, water-resistant or waterproof material, often cloth such as canvas or polyester coated with urethane, or made of plastics such as polyethylene. It has reinforced grommets at the corners and along the sides to form attachment points for rope, allowing them to be tied down or suspended. Serves many purposes, but is mainly used to create small and simple tent-like hideouts. Trading value is low due to easily found alternatives.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] military item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+5%)</text>
+	</string>
+	
+	<string id="st_rope">
+		<text>Rope</text>
+	</string>
+	<string id="st_rope_descr">
+		<text>A good rope serves many purposes, especially in a place like the Zone. Many stalkers can put it to good use, which generates a rather high trading value. About 10-meters long.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs (+3%)</text>
+	</string>
+	
+	<string id="st_synthrope">
+		<text>2 synthetic ropes</text>
+	</string>
+	<string id="st_synthrope_descr">
+		<text>Synthetic ropes are commonly found in military warehouses. But for some reason few military stalkers actually carry them. A good rope serves many purposes, especially in a place like the Zone. Many stalkers can put this to good use, which generates a rather high trading value. Each is about 5 meters long.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs (+4%)</text>
+	</string>
+	
+	<string id="st_cutlery">
+		<text>Field cutlery</text>
+	</string>
+	<string id="st_cutlery_descr">
+		<text>A spoon, a knife and a fork made of heavy steel. A robust and reasonably light cutlery set, ideal for backpacking and field exploration. The cutlery is held together by a copper cord. If cleaned properly and derusted, it would be safe to use.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon cleaning and lubrication (+2%)</text>
+	</string>
+	
+	<string id="st_radio">
+		<text>Small radio</text>
+	</string>
+	<string id="st_radio_descr">
+		<text>Music is a good way to calm your nerves. But with a broken antenna this radio is of little use. Moisture and dirt have also damaged this item.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,204,0,51] • %c[0,140,140,140] broken beyond repair\n
+		%c[0,204,0,51] • %c[0,140,140,140] unusable</text>
+	</string>
+	
+	<string id="st_radio2">
+		<text>Broken radio</text>
+	</string>
+	<string id="st_radio2_descr">
+		<text>A small radio in a poor condition. Dirty and damaged by moisture. The interior seems to be in quite a bad shape as the radio rattles when moved around. No to little value.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,204,0,51] • %c[0,140,140,140] broken beyond repair\n
+		%c[0,204,0,51] • %c[0,140,140,140] unusable</text>
+	</string>
+	
+	<string id="st_textolite">
+		<text>Textolite base</text>
+	</string>
+	<string id="st_textolite_descr"> <!-- revision -->
+		<text>Layered plastic based on fabric of fibers and polymeric binder (bakelite, polyester resin, epoxy resin). With proper skill it can be great help in repairing.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] high value</text>
+	</string>
+	
+	<string id="st_capacitors">
+		<text>A pack of capacitors</text>
+	</string>
+	<string id="st_capacitors_descr">
+		<text>Electric capacitors can store electricity. The simplest capacitor consists of two metal plates and a dielectric between them. It is a main component is most of electrical devices due to its important job in rectifying alternative current, storing electrical energy and bypassing noise. They are quite rare in the Zone, but they are very useful.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] high value</text>
+	</string>
+	
+	<string id="st_transistor">
+		<text>A box of transistors</text>
+	</string>
+	<string id="st_transistor_descr">
+		<text>A box of high-quality BJT transistors. A transistor consists of three Semiconductor parts (base, emitter, collector) that serve together to generate, convert and amplify electrical oscillations. The ultimate dream of electronics engineers, if such a miracle will bring to the Area.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] high value</text>
+	</string>
+	
+	<string id="st_copper_coil">
+		<text>Copper wire</text>
+	</string>
+	<string id="st_copper_coil_descr">
+		<text>Electrotechnical copper wire is used practically in all devices, devices, apparatuses, installations, machines where the production, transmission or use of electric energy occurs. In its pure form it is rare, but if necessary it can be easily extracted from common old radios, walkie-talkies and other electronics.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] high value</text>
+	</string>
+	
+</string_table>

@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="windows-1251"?>
+
+<!--
+	Explosive items + Mines
+-->
+
+<string_table>
+
+	<string id="st_mine_name">
+		<text>PFM-1 scatterable anti-personnel mine</text>
+	</string>
+	<string id="st_mine_descr">
+		<text>PFM-1 (short for противопехотная фугасная мина; NATO name: "Green parrot") used to be a standard-issue anti-personnel mine of the Red Army, employed mainly during the Soviet invasion of Afghanistan. Its widespread utilization during the conflict led to high civilian casualties, especially among children, since randomly scattered mines were often mistaken for toys due to their familiar shape and color. For this reason, the PFM-1 earned a sinister nickname: "Child killer." Since then, the mine has been replaced by newer models. However, as was the case with a variety of other 'retired' weaponry, a large number of these mines has somehow made its way into the Zone, becoming its primary booby-trap explosive. The mine is highly valued mainly for its functionality, user-friendliness, compact size and low weight, while its main drawback is a relatively small amount of explosive material: its power is often insufficient to kill a heavily armored stalker with a single blast. For this reason, the mine should be used in combination with other explosive materials and it acts as an igniter. If it is not armed, the mine will not detonate, even when hit with a gun.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] explosive\n
+		%c[0,100,100,255] • %c[0,140,140,140] military item\n
+		%c[0,100,100,255] • %c[0,140,140,140] anti-personnel mine\n
+		%c[0,93,0,116] • %c[0,140,140,140] triggering mechanism: %c[0,170,170,170]pressure\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast power: %c[0,170,170,170]small\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast radius: %c[0,170,170,170]2.2 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] fragments' radius: %c[0,170,170,170]none\n
+		%c[0,93,0,116] • %c[0,140,140,140] av. number of fragments: %c[0,170,170,170]none\n
+		%c[0,93,0,116] • %c[0,140,140,140] explosion delay: %c[0,170,170,170]none</text>
+	</string>
+	
+	<string id="st_ied_rpg">
+		<text>Improvised explosive device (based on OG-7V warhead)</text>
+	</string>
+	<string id="st_ied_rpg_descr">
+		<text>Improvised explosive device based on OG-7V warhead and parts of a car battery. It looks like it has been carried around for quite some time and could go off any second. Fortunately, the triggering mechanism ensures that it won't unless the explosive is directly hit by a bullet or subjected to other potent physical force. In the Zone, IEDs are quite popular and Zoners use them for a variety of purposes, from gaining access to closed areas to ambushes. They are also often placed next to mines to greatly amplify the power of explosion. IED can be effectively concealed making it virtually invisible to everyone else.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] explosive\n
+		%c[0,100,100,255] • %c[0,140,140,140] military item\n
+		%c[0,100,100,255] • %c[0,140,140,140] unnoticeable when placed on ground\n
+		%c[0,93,0,116] • %c[0,140,140,140] triggering mechanism: %c[0,170,170,170]proximity\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast power: %c[0,170,170,170]high\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast radius: %c[0,170,170,170]7.8 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] fragments' radius: %c[0,170,170,170]56 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] av. number of fragments: %c[0,170,170,170]440 (shrapnels)\n
+		%c[0,93,0,116] • %c[0,140,140,140] explosion delay: %c[0,170,170,170]none</text>
+	</string>
+	
+	<string id="st_ied">
+		<text>Improvised explosive device (based on chemicals)</text>
+	</string>
+	<string id="st_ied_descr">
+		<text>Improvised explosive device produced from various chemical substances, with a broken electrical igniter and in steel ball container. Chemicals used in the device produce intense odor and are heavily toxic. This IED is significantly more powerful than a more common OG-7V version. In the Zone, IEDs are quite popular and Zoners use them for a variety of purposes, from gaining access to closed areas to ambushes. They are also often placed next to mines to greatly amplify the explosion's power. IED can be effectively concealed making it virtually invisible to everyone else.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] explosive\n
+		%c[0,100,100,255] • %c[0,140,140,140] military item\n
+		%c[0,100,100,255] • %c[0,140,140,140] unnoticeable when placed on ground\n
+		%c[0,93,0,116] • %c[0,140,140,140] triggering mechanism: %c[0,170,170,170]proximity\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast power: %c[0,170,170,170]very high\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast radius: %c[0,170,170,170]12.9 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] fragments radius: 
+		%c[0,170,170,170]74 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] av. number of fragments: %c[0,170,170,170]580 (steel balls)\n
+		%c[0,93,0,116] • %c[0,140,140,140] explosion delay: %c[0,170,170,170]none</text>
+	</string>
+	
+	<string id="st_balon_gas">
+		<text>Gas balloon (8 kg)</text>
+	</string>
+	<string id="st_balon_gas_descr">
+		<text>\n \n
+		%c[0,204,0,51]WARNING: Explodes upon impact\n \n
+		%c[0,170,170,170]Heavy metal gas balloon impregnated with compatible polymer on the inside and on the outside with Hypalon for weather abrasion and UV resistance. This gas holder balloon is a collapsible, intermediated storage tank for any industrial gas, prior to bottling under pressure. In the Zone such canisters most often contain a composition of methane, propane, ethane and butane, and can be used for cooking or heating as well as for combat purposes. Upon direct gunfire, the canister may ignite and after a short while a rapid release of a considerable amount of energy may follow, causing the gas in the balloon to expand instantly and resulting in a delayed but powerful explosion with metal shrapnels going in every direction. Such canisters have been utilized as a weapon in the feuds between factions in the Zone killing many and crippling even more. If emptied, the balloon can be utilized for armor repairs.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] explosive\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] contains: %c[0,170,170,170] refined natural gas\n
+		%c[0,0,255,30] • %c[0,140,140,140] hi-tier cooking fuel\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs (+3%)\n
+		%c[0,93,0,116] • %c[0,140,140,140] triggering mechanism: %c[0,170,170,170]bullet impact or explosion\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast power: %c[0,170,170,170]very high\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast radius: %c[0,170,170,170]6.4 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] fragments' radius: %c[0,170,170,170]36 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] av. number of fragments: %c[0,170,170,170]28 (heavy metal fragments)\n
+		%c[0,93,0,116] • %c[0,140,140,140] explosion delay: %c[0,170,170,170]~2 seconds</text>
+	</string>
+	
+	<string id="st_balon_gas2">
+		<text>Gas balloon (7 kg left)</text>
+	</string>
+	<string id="st_balon_gas2_descr">
+		<text>\n \n
+		%c[0,204,0,51]WARNING: Explodes upon impact\n \n
+		%c[0,170,170,170]Heavy metal gas balloon impregnated with compatible polymer on the inside and on the outside with Hypalon for weather abrasion and UV resistance. This gas holder balloon is a collapsible, intermediated storage tank for any industrial gas, prior to bottling under pressure. In the Zone such canisters most often contain a composition of methane, propane, ethane and butane, and can be used for cooking or heating as well as for combat purposes. Upon direct gunfire, the canister may ignite and after a short while a rapid release of a considerable amount of energy may follow, causing the gas in the balloon to expand instantly and resulting in a delayed but powerful explosion with metal shrapnels going in every direction. Such canisters have been utilized as a weapon in the feuds between factions in the Zone killing many and crippling even more. If emptied, the balloon can be utilized for armor repairs.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] explosive\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] contains: %c[0,170,170,170] refined natural gas\n
+		%c[0,0,255,30] • %c[0,140,140,140] hi-tier cooking fuel\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs (+3%)\n
+		%c[0,93,0,116] • %c[0,140,140,140] triggering mechanism: %c[0,170,170,170]bullet impact or explosion\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast power: %c[0,170,170,170]very high\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast radius: %c[0,170,170,170]5.6 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] fragments' radius: %c[0,170,170,170]31.5 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] av. number of fragments: %c[0,170,170,170]28 (heavy metal fragments)\n
+		%c[0,93,0,116] • %c[0,140,140,140] explosion delay: %c[0,170,170,170]~2 seconds</text>
+	</string>
+	
+	<string id="st_balon_gas3">
+		<text>Gas balloon (6 kg left)</text>
+	</string>
+	<string id="st_balon_gas3_descr">
+		<text>\n \n
+		%c[0,204,0,51]WARNING: Explodes upon impact\n \n
+		%c[0,170,170,170]Heavy metal gas balloon impregnated with compatible polymer on the inside and on the outside with Hypalon for weather abrasion and UV resistance. This gas holder balloon is a collapsible, intermediated storage tank for any industrial gas, prior to bottling under pressure. In the Zone such canisters most often contain a composition of methane, propane, ethane and butane, and can be used for cooking or heating as well as for combat purposes. Upon direct gunfire, the canister may ignite and after a short while a rapid release of a considerable amount of energy may follow, causing the gas in the balloon to expand instantly and resulting in a delayed but powerful explosion with metal shrapnels going in every direction. Such canisters have been utilized as a weapon in the feuds between factions in the Zone killing many and crippling even more. If emptied, the balloon can be utilized for armor repairs.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] explosive\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] contains: %c[0,170,170,170] refined natural gas\n
+		%c[0,0,255,30] • %c[0,140,140,140] hi-tier cooking fuel\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs (+3%)\n
+		%c[0,93,0,116] • %c[0,140,140,140] triggering mechanism: %c[0,170,170,170]bullet impact or explosion\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast power: %c[0,170,170,170]high\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast radius: %c[0,170,170,170]4.8 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] fragments' radius: %c[0,170,170,170]27 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] av. number of fragments: %c[0,170,170,170]28 (heavy metal fragments)\n
+		%c[0,93,0,116] • %c[0,140,140,140] explosion delay: %c[0,170,170,170]~2 seconds</text>
+	</string>
+	
+	<string id="st_balon_gas4">
+		<text>Gas balloon (5 kg left)</text>
+	</string>
+	<string id="st_balon_gas4_descr">
+		<text>\n \n
+		%c[0,204,0,51]WARNING: Explodes upon impact\n \n
+		%c[0,170,170,170]Heavy metal gas balloon impregnated with compatible polymer on the inside and on the outside with Hypalon for weather abrasion and UV resistance. This gas holder balloon is a collapsible, intermediated storage tank for any industrial gas, prior to bottling under pressure. In the Zone such canisters most often contain a composition of methane, propane, ethane and butane, and can be used for cooking or heating as well as for combat purposes. Upon direct gunfire, the canister may ignite and after a short while a rapid release of a considerable amount of energy may follow, causing the gas in the balloon to expand instantly and resulting in a delayed but powerful explosion with metal shrapnels going in every direction. Such canisters have been utilized as a weapon in the feuds between factions in the Zone killing many and crippling even more. If emptied, the balloon can be utilized for armor repairs.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] explosive\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] contains: %c[0,170,170,170] refined natural gas\n
+		%c[0,0,255,30] • %c[0,140,140,140] hi-tier cooking fuel\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs (+3%)\n
+		%c[0,93,0,116] • %c[0,140,140,140] triggering mechanism: %c[0,170,170,170]bullet impact or explosion\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast power: %c[0,170,170,170]high\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast radius: %c[0,170,170,170]4 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] fragments' radius: %c[0,170,170,170]22.5 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] av. number of fragments: %c[0,170,170,170]28 (heavy metal fragments)\n
+		%c[0,93,0,116] • %c[0,140,140,140] explosion delay: %c[0,170,170,170]~2 seconds</text>
+	</string>
+	
+	<string id="st_balon_gas5">
+		<text>Gas balloon (4 kg left)</text>
+	</string>
+	<string id="st_balon_gas5_descr">
+		<text>\n \n
+		%c[0,204,0,51]WARNING: Explodes upon impact\n \n
+		%c[0,170,170,170]Heavy metal gas balloon impregnated with compatible polymer on the inside and on the outside with Hypalon for weather abrasion and UV resistance. This gas holder balloon is a collapsible, intermediated storage tank for any industrial gas, prior to bottling under pressure. In the Zone such canisters most often contain a composition of methane, propane, ethane and butane, and can be used for cooking or heating as well as for combat purposes. Upon direct gunfire, the canister may ignite and after a short while a rapid release of a considerable amount of energy may follow, causing the gas in the balloon to expand instantly and resulting in a delayed but powerful explosion with metal shrapnels going in every direction. Such canisters have been utilized as a weapon in the feuds between factions in the Zone killing many and crippling even more. If emptied, the balloon can be utilized for armor repairs.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] explosive\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] contains: %c[0,170,170,170] refined natural gas\n
+		%c[0,0,255,30] • %c[0,140,140,140] hi-tier cooking fuel\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs (+3%)\n
+		%c[0,93,0,116] • %c[0,140,140,140] triggering mechanism: %c[0,170,170,170]bullet impact or explosion\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast power: %c[0,170,170,170]medium\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast radius: %c[0,170,170,170]3.2 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] fragments' radius: %c[0,170,170,170]18 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] av. number of fragments: %c[0,170,170,170]28 (heavy metal fragments)\n
+		%c[0,93,0,116] • %c[0,140,140,140] explosion delay: %c[0,170,170,170]~2 seconds</text>
+	</string>
+	
+	<string id="st_balon_gas6">
+		<text>Gas balloon (3 kg left)</text>
+	</string>
+	<string id="st_balon_gas6_descr">
+		<text>\n \n
+		%c[0,204,0,51]WARNING: Explodes upon impact\n \n
+		%c[0,170,170,170]Heavy metal gas balloon impregnated with compatible polymer on the inside and on the outside with Hypalon for weather abrasion and UV resistance. This gas holder balloon is a collapsible, intermediated storage tank for any industrial gas, prior to bottling under pressure. In the Zone such canisters most often contain a composition of methane, propane, ethane and butane, and can be used for cooking or heating as well as for combat purposes. Upon direct gunfire, the canister may ignite and after a short while a rapid release of a considerable amount of energy may follow, causing the gas in the balloon to expand instantly and resulting in a delayed but powerful explosion with metal shrapnels going in every direction. Such canisters have been utilized as a weapon in the feuds between factions in the Zone killing many and crippling even more. If emptied, the balloon can be utilized for armor repairs.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] explosive\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] contains: %c[0,170,170,170] refined natural gas\n
+		%c[0,0,255,30] • %c[0,140,140,140] hi-tier cooking fuel\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs (+3%)\n
+		%c[0,93,0,116] • %c[0,140,140,140] triggering mechanism: %c[0,170,170,170]bullet impact or explosion\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast power: %c[0,170,170,170]medium\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast radius: %c[0,170,170,170]2.4 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] fragments' radius: %c[0,170,170,170]13.5 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] av. number of fragments: %c[0,170,170,170]28 (heavy metal fragments)\n
+		%c[0,93,0,116] • %c[0,140,140,140] explosion delay: %c[0,170,170,170]~2 seconds</text>
+	</string>
+	
+	<string id="st_balon_gas7">
+		<text>Gas balloon (2 kg left)</text>
+	</string>
+	<string id="st_balon_gas7_descr">
+		<text>\n \n
+		%c[0,204,0,51]WARNING: Explodes upon impact\n \n
+		%c[0,170,170,170]Heavy metal gas balloon impregnated with compatible polymer on the inside and on the outside with Hypalon for weather abrasion and UV resistance. This gas holder balloon is a collapsible, intermediated storage tank for any industrial gas, prior to bottling under pressure. In the Zone such canisters most often contain a composition of methane, propane, ethane and butane, and can be used for cooking or heating as well as for combat purposes. Upon direct gunfire, the canister may ignite and after a short while a rapid release of a considerable amount of energy may follow, causing the gas in the balloon to expand instantly and resulting in a delayed but powerful explosion with metal shrapnels going in every direction. Such canisters have been utilized as a weapon in the feuds between factions in the Zone killing many and crippling even more. If emptied, the balloon can be utilized for armor repairs.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] explosive\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] contains: %c[0,170,170,170] refined natural gas\n
+		%c[0,0,255,30] • %c[0,140,140,140] hi-tier cooking fuel\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs (+3%)\n
+		%c[0,93,0,116] • %c[0,140,140,140] triggering mechanism: %c[0,170,170,170]bullet impact or explosion\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast power: %c[0,170,170,170]low\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast radius: %c[0,170,170,170]1.6 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] fragments' radius: %c[0,170,170,170]9 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] av. number of fragments: %c[0,170,170,170]28 (heavy metal fragments)\n
+		%c[0,93,0,116] • %c[0,140,140,140] explosion delay: %c[0,170,170,170]~2 seconds</text>
+	</string>
+	
+	<string id="st_balon_gas8">
+		<text>Gas balloon (1 kg left)</text>
+	</string>
+	<string id="st_balon_gas8_descr">
+		<text>\n \n
+		%c[0,204,0,51]WARNING: Explodes upon impact\n \n
+		%c[0,170,170,170]Heavy metal gas balloon impregnated with compatible polymer on the inside and on the outside with Hypalon for weather abrasion and UV resistance. This gas holder balloon is a collapsible, intermediated storage tank for any industrial gas, prior to bottling under pressure. In the Zone such canisters most often contain a composition of methane, propane, ethane and butane, and can be used for cooking or heating as well as for combat purposes. Upon direct gunfire, the canister may ignite and after a short while a rapid release of a considerable amount of energy may follow, causing the gas in the balloon to expand instantly and resulting in a delayed but powerful explosion with metal shrapnels going in every direction. Such canisters have been utilized as a weapon in the feuds between factions in the Zone killing many and crippling even more. If emptied, the balloon can be utilized for armor repairs.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] explosive\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] contains: %c[0,170,170,170] refined natural gas\n
+		%c[0,0,255,30] • %c[0,140,140,140] hi-tier cooking fuel\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs (+3%)\n
+		%c[0,93,0,116] • %c[0,140,140,140] triggering mechanism: %c[0,170,170,170]bullet impact or explosion\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast power: %c[0,170,170,170]low\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast radius: %c[0,170,170,170]0.8 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] fragments' radius: %c[0,170,170,170]4.5 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] av. number of fragments: %c[0,170,170,170]28 (heavy metal fragments)\n
+		%c[0,93,0,116] • %c[0,140,140,140] explosion delay: %c[0,170,170,170]~2 seconds</text>
+	</string>
+	
+	<string id="st_balon_gas_empty">
+		<text>Gas balloon (empty)</text>
+	</string>
+	<string id="st_balon_gas_empty_descr">
+		<text>Emptied heavy metal gas balloon impregnated with compatible polymer on the inside and on the outside with Hypalon for weather abrasion and UV resistance. This gas holder balloon is a collapsible, intermediated storage tank for any industrial gas, prior to bottling under pressure. In the Zone such canisters most often contain a composition of methane, propane, ethane and butane, and can be used for cooking or heating as well as for combat purposes. It is empty now, but you can still put it to good use in outfit maintenance.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs (+3%)</text>
+	</string>
+	
+	<string id="st_metalcan_powder">
+		<text>Powder can</text>
+	</string>
+	<string id="st_metalcan_powder_descr">
+		<text>\n \n
+		%c[0,204,0,51]WARNING: Explodes upon impact\n \n
+		%c[0,170,170,170]A small and moderately heavy metal can filled with a mixture of explosive industrial chemicals, metal bolts and nuts as well as black gunpowder retrieved from old ammunition. A notorious death trap designed by a group of Russian bandits known as "the Swireksters" and sold to various bandit groups operating in the Zone. Upon direct gunfire, the can will instantly explode with metal bolts and corrosive chemicals bursting in every direction. No one in their right mind should drop their guard when planning to make use of this deadly weapon. You can also use the metal parts of the can for emergency maintenance of outfits.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] explosive\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs (+1%)\n
+		%c[0,93,0,116] • %c[0,140,140,140] triggering mechanism: %c[0,170,170,170]bullet impact or explosion\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast power: %c[0,170,170,170]low\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast radius: %c[0,170,170,170]1.8 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] fragments' radius: %c[0,170,170,170]14 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] av. number of fragments: %c[0,170,170,170]77 (small metal pieces)\n
+		%c[0,93,0,116] • %c[0,140,140,140] explosion delay: %c[0,170,170,170]none</text>
+	</string>
+	
+	<string id="st_jerrycan_item">
+		<text>Jerrycan</text>
+	</string>
+	
+	<string id="st_jerrycan_fuel">
+		<text>Jerrycan (8 liters)</text>
+	</string>
+	<string id="st_jerrycan_fuel_descr">
+		<text>\n \n
+		%c[0,204,0,51]WARNING: Explodes upon impact\n \n
+		%c[0,170,170,170]A large metal can filled with E95 gasoline. Jerrycans were brought to the Zone in large quantities by the Ukrainian military for their armored vehicles. Initially, they served their purpose, but after the second Chernobyl Disaster vehicles for reasons still unknown were no longer operational. While some Zoners are still trying to make the wrecks work again, others have found alternate ways of utilizing the jerrycans, namely, as improvised explosives. Upon direct hit, the canister will catch fire and explode after a slight delay. Although heavy and cumbersome, it is extremely powerful, and a well-placed jerrycan can be lethal even if the target wears the heaviest of body armors. On the other hand, the explosion is often so potent that the killer becomes the victim himself, so it's best to use these canisters with caution. There are rumors that a veteran stalker named Yuya once saved his skin by luring a pseudogiant into a jerrycan trap. He emptied his last Makarov magazine and the giant burst into flames with a roar that was heard throughout the Jupiter.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] explosive\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] contains: %c[0,170,170,170] E95 gasoline\n
+		%c[0,0,255,30] • %c[0,140,140,140] hi-tier cooking fuel\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+4%)\n
+		%c[0,93,0,116] • %c[0,140,140,140] triggering mechanism: %c[0,170,170,170]bullet impact or explosion\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast power: %c[0,170,170,170]high\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast radius: %c[0,170,170,170]5.6 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] fragments' radius: %c[0,170,170,170]28 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] av. number of fragments: %c[0,170,170,170]39 (heavy metal fragments)\n
+		%c[0,93,0,116] • %c[0,140,140,140] explosion delay: %c[0,170,170,170]~3 seconds</text>
+	</string>
+	
+	<string id="st_jerrycan_fuel2">
+		<text>Jerrycan (7 liters left)</text>
+	</string>
+	<string id="st_jerrycan_fuel2_descr">
+		<text>\n \n
+		%c[0,204,0,51]WARNING: Explodes upon impact\n \n
+		%c[0,170,170,170]A large metal can filled with E95 gasoline. Jerrycans were brought to the Zone in large quantities by the Ukrainian military for their armored vehicles. Initially, they served their purpose, but after the second Chernobyl Disaster vehicles for reasons still unknown were no longer operational. While some Zoners are still trying to make the wrecks work again, others have found alternate ways of utilizing the jerrycans, namely, as improvised explosives. Upon direct hit, the canister will catch fire and explode after a slight delay. Although heavy and cumbersome, it is extremely powerful, and a well-placed jerrycan can be lethal even if the target wears the heaviest of body armors. On the other hand, the explosion is often so potent that the killer becomes the victim himself, so it's best to use these canisters with caution. There are rumors that a veteran stalker named Yuya once saved his skin by luring a pseudogiant into a jerrycan trap. He emptied his last Makarov magazine and the giant burst into flames with a roar that was heard throughout the Jupiter.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] explosive\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] contains: %c[0,170,170,170] E95 gasoline\n
+		%c[0,0,255,30] • %c[0,140,140,140] hi-tier cooking fuel\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+4%)\n
+		%c[0,93,0,116] • %c[0,140,140,140] triggering mechanism: %c[0,170,170,170]bullet impact or explosion\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast power: %c[0,170,170,170]high\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast radius: %c[0,170,170,170]4.9 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] fragments' radius: %c[0,170,170,170]24.5 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] av. number of fragments: %c[0,170,170,170]39 (heavy metal fragments)\n
+		%c[0,93,0,116] • %c[0,140,140,140] explosion delay: %c[0,170,170,170]~3 seconds</text>
+	</string>
+	
+	<string id="st_jerrycan_fuel3">
+		<text>Jerrycan (6 liters left)</text>
+	</string>
+	<string id="st_jerrycan_fuel3_descr">
+		<text>\n \n
+		%c[0,204,0,51]WARNING: Explodes upon impact\n \n
+		%c[0,170,170,170]A large metal can filled with E95 gasoline. Jerrycans were brought to the Zone in large quantities by the Ukrainian military for their armored vehicles. Initially, they served their purpose, but after the second Chernobyl Disaster vehicles for reasons still unknown were no longer operational. While some Zoners are still trying to make the wrecks work again, others have found alternate ways of utilizing the jerrycans, namely, as improvised explosives. Upon direct hit, the canister will catch fire and explode after a slight delay. Although heavy and cumbersome, it is extremely powerful, and a well-placed jerrycan can be lethal even if the target wears the heaviest of body armors. On the other hand, the explosion is often so potent that the killer becomes the victim himself, so it's best to use these canisters with caution. There are rumors that a veteran stalker named Yuya once saved his skin by luring a pseudogiant into a jerrycan trap. He emptied his last Makarov magazine and the giant burst into flames with a roar that was heard throughout the Jupiter.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] explosive\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] contains: %c[0,170,170,170] E95 gasoline\n
+		%c[0,0,255,30] • %c[0,140,140,140] hi-tier cooking fuel\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+4%)\n
+		%c[0,93,0,116] • %c[0,140,140,140] triggering mechanism: %c[0,170,170,170]bullet impact or explosion\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast power: %c[0,170,170,170]medium\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast radius: %c[0,170,170,170]4.2 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] fragments' radius: %c[0,170,170,170]21 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] av. number of fragments: %c[0,170,170,170]39 (heavy metal fragments)\n
+		%c[0,93,0,116] • %c[0,140,140,140] explosion delay: %c[0,170,170,170]~3 seconds</text>
+	</string>
+	
+	<string id="st_jerrycan_fuel4">
+		<text>Jerrycan (5 liters left)</text>
+	</string>
+	<string id="st_jerrycan_fuel4_descr">
+		<text>\n \n
+		%c[0,204,0,51]WARNING: Explodes upon impact\n \n
+		%c[0,170,170,170]A large metal can filled with E95 gasoline. Jerrycans were brought to the Zone in large quantities by the Ukrainian military for their armored vehicles. Initially, they served their purpose, but after the second Chernobyl Disaster vehicles for reasons still unknown were no longer operational. While some Zoners are still trying to make the wrecks work again, others have found alternate ways of utilizing the jerrycans, namely, as improvised explosives. Upon direct hit, the canister will catch fire and explode after a slight delay. Although heavy and cumbersome, it is extremely powerful, and a well-placed jerrycan can be lethal even if the target wears the heaviest of body armors. On the other hand, the explosion is often so potent that the killer becomes the victim himself, so it's best to use these canisters with caution. There are rumors that a veteran stalker named Yuya once saved his skin by luring a pseudogiant into a jerrycan trap. He emptied his last Makarov magazine and the giant burst into flames with a roar that was heard throughout the Jupiter.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] explosive\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] contains: %c[0,170,170,170] E95 gasoline\n
+		%c[0,0,255,30] • %c[0,140,140,140] hi-tier cooking fuel\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+4%)\n
+		%c[0,93,0,116] • %c[0,140,140,140] triggering mechanism: %c[0,170,170,170]bullet impact or explosion\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast power: %c[0,170,170,170]medium\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast radius: %c[0,170,170,170]3.5 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] fragments' radius: %c[0,170,170,170]17.5 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] av. number of fragments: %c[0,170,170,170]39 (heavy metal fragments)\n
+		%c[0,93,0,116] • %c[0,140,140,140] explosion delay: %c[0,170,170,170]~3 seconds</text>
+	</string>
+	
+	<string id="st_jerrycan_fuel5">
+		<text>Jerrycan (4 liters left)</text>
+	</string>
+	<string id="st_jerrycan_fuel5_descr">
+		<text>\n \n
+		%c[0,204,0,51]WARNING: Explodes upon impact\n \n
+		%c[0,170,170,170]A large metal can filled with E95 gasoline. Jerrycans were brought to the Zone in large quantities by the Ukrainian military for their armored vehicles. Initially, they served their purpose, but after the second Chernobyl Disaster vehicles for reasons still unknown were no longer operational. While some Zoners are still trying to make the wrecks work again, others have found alternate ways of utilizing the jerrycans, namely, as improvised explosives. Upon direct hit, the canister will catch fire and explode after a slight delay. Although heavy and cumbersome, it is extremely powerful, and a well-placed jerrycan can be lethal even if the target wears the heaviest of body armors. On the other hand, the explosion is often so potent that the killer becomes the victim himself, so it's best to use these canisters with caution. There are rumors that a veteran stalker named Yuya once saved his skin by luring a pseudogiant into a jerrycan trap. He emptied his last Makarov magazine and the giant burst into flames with a roar that was heard throughout the Jupiter.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] explosive\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] contains: %c[0,170,170,170] E95 gasoline\n
+		%c[0,0,255,30] • %c[0,140,140,140] hi-tier cooking fuel\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+4%)\n
+		%c[0,93,0,116] • %c[0,140,140,140] triggering mechanism: %c[0,170,170,170]bullet impact or explosion\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast power: %c[0,170,170,170]medium\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast radius: %c[0,170,170,170]2.8 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] fragments' radius: %c[0,170,170,170]14 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] av. number of fragments: %c[0,170,170,170]39 (heavy metal fragments)\n
+		%c[0,93,0,116] • %c[0,140,140,140] explosion delay: %c[0,170,170,170]~3 seconds</text>
+	</string>
+	
+	<string id="st_jerrycan_fuel6">
+		<text>Jerrycan (3 liters left)</text>
+	</string>
+	<string id="st_jerrycan_fuel6_descr">
+		<text>\n \n
+		%c[0,204,0,51]WARNING: Explodes upon impact\n \n
+		%c[0,170,170,170]A large metal can filled with E95 gasoline. Jerrycans were brought to the Zone in large quantities by the Ukrainian military for their armored vehicles. Initially, they served their purpose, but after the second Chernobyl Disaster vehicles for reasons still unknown were no longer operational. While some Zoners are still trying to make the wrecks work again, others have found alternate ways of utilizing the jerrycans, namely, as improvised explosives. Upon direct hit, the canister will catch fire and explode after a slight delay. Although heavy and cumbersome, it is extremely powerful, and a well-placed jerrycan can be lethal even if the target wears the heaviest of body armors. On the other hand, the explosion is often so potent that the killer becomes the victim himself, so it's best to use these canisters with caution. There are rumors that a veteran stalker named Yuya once saved his skin by luring a pseudogiant into a jerrycan trap. He emptied his last Makarov magazine and the giant burst into flames with a roar that was heard throughout the Jupiter.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] explosive\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] contains: %c[0,170,170,170] E95 gasoline\n
+		%c[0,0,255,30] • %c[0,140,140,140] hi-tier cooking fuel\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+4%)\n
+		%c[0,93,0,116] • %c[0,140,140,140] triggering mechanism: %c[0,170,170,170]bullet impact or explosion\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast power: %c[0,170,170,170]low\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast radius: %c[0,170,170,170]2.1 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] fragments' radius: %c[0,170,170,170]10.5 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] av. number of fragments: %c[0,170,170,170]39 (heavy metal fragments)\n
+		%c[0,93,0,116] • %c[0,140,140,140] explosion delay: %c[0,170,170,170]~3 seconds</text>
+	</string>
+	
+	<string id="st_jerrycan_fuel7">
+		<text>Jerrycan (2 liters left)</text>
+	</string>
+	<string id="st_jerrycan_fuel7_descr">
+		<text>\n \n
+		%c[0,204,0,51]WARNING: Explodes upon impact\n \n
+		%c[0,170,170,170]A large metal can filled with E95 gasoline. Jerrycans were brought to the Zone in large quantities by the Ukrainian military for their armored vehicles. Initially, they served their purpose, but after the second Chernobyl Disaster vehicles for reasons still unknown were no longer operational. While some Zoners are still trying to make the wrecks work again, others have found alternate ways of utilizing the jerrycans, namely, as improvised explosives. Upon direct hit, the canister will catch fire and explode after a slight delay. Although heavy and cumbersome, it is extremely powerful, and a well-placed jerrycan can be lethal even if the target wears the heaviest of body armors. On the other hand, the explosion is often so potent that the killer becomes the victim himself, so it's best to use these canisters with caution. There are rumors that a veteran stalker named Yuya once saved his skin by luring a pseudogiant into a jerrycan trap. He emptied his last Makarov magazine and the giant burst into flames with a roar that was heard throughout the Jupiter.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] explosive\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] contains: %c[0,170,170,170] E95 gasoline\n
+		%c[0,0,255,30] • %c[0,140,140,140] hi-tier cooking fuel\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+4%)\n
+		%c[0,93,0,116] • %c[0,140,140,140] triggering mechanism: %c[0,170,170,170]bullet impact or explosion\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast power: %c[0,170,170,170]low\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast radius: %c[0,170,170,170]1.4 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] fragments' radius: %c[0,170,170,170]7 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] av. number of fragments: %c[0,170,170,170]39 (heavy metal fragments)\n
+		%c[0,93,0,116] • %c[0,140,140,140] explosion delay: %c[0,170,170,170]~3 seconds</text>
+	</string>
+	
+	<string id="st_jerrycan_fuel8">
+		<text>Jerrycan (1 liter left)</text>
+	</string>
+	<string id="st_jerrycan_fuel8_descr">
+		<text>\n \n
+		%c[0,204,0,51]WARNING: Explodes upon impact\n \n
+		%c[0,170,170,170]A large metal can filled with E95 gasoline. Jerrycans were brought to the Zone in large quantities by the Ukrainian military for their armored vehicles. Initially, they served their purpose, but after the second Chernobyl Disaster vehicles for reasons still unknown were no longer operational. While some Zoners are still trying to make the wrecks work again, others have found alternate ways of utilizing the jerrycans, namely, as improvised explosives. Upon direct hit, the canister will catch fire and explode after a slight delay. Although heavy and cumbersome, it is extremely powerful, and a well-placed jerrycan can be lethal even if the target wears the heaviest of body armors. On the other hand, the explosion is often so potent that the killer becomes the victim himself, so it's best to use these canisters with caution. There are rumors that a veteran stalker named Yuya once saved his skin by luring a pseudogiant into a jerrycan trap. He emptied his last Makarov magazine and the giant burst into flames with a roar that was heard throughout the Jupiter.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] explosive\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] contains: %c[0,170,170,170] E95 gasoline\n
+		%c[0,0,255,30] • %c[0,140,140,140] hi-tier cooking fuel\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+4%)\n
+		%c[0,93,0,116] • %c[0,140,140,140] triggering mechanism: %c[0,170,170,170]bullet impact or explosion\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast power: %c[0,170,170,170]low\n
+		%c[0,93,0,116] • %c[0,140,140,140] blast radius: %c[0,170,170,170]0.7 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] fragments' radius: %c[0,170,170,170]3.5 m\n
+		%c[0,93,0,116] • %c[0,140,140,140] av. number of fragments: %c[0,170,170,170]39 (heavy metal fragments)\n
+		%c[0,93,0,116] • %c[0,140,140,140] explosion delay: %c[0,170,170,170]~3 seconds</text>
+	</string>
+	
+	<string id="st_jerrycan_fuel_empty">
+		<text>Jerrycan (empty)</text>
+	</string>
+	<string id="st_jerrycan_fuel_empty_descr">
+		<text>Empty metal can. It can only be used as material for the purposes of basic outfit repairs or sold to traders.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] explosive\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs (+2%)</text>
+	</string>
+	
+</string_table>

@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="windows-1251"?>
+
+<!--
+	Consumable Items (Alcohol + Food + Smoke)
+-->
+
+<string_table>
+
+<!-------------------------------------------------------------< ALCOHOL >------------------------------------------------------------->
+	<string id="st_vodka">
+		<text>Nemiroff vodka</text>
+	</string>
+	<string id="st_vodka_descr">
+		<text>Nemiroff is a Ukrainian producer of alcoholic beverages, specializing in vodkas and other spirits, based in the town of Nemyriv in the Vinnytska oblast. One of the best vodkas in the world and - by extension - in the Zone.\n \n
+		%c[0,210,210,210]NOTE:\n \n
+		%c[0,170,170,170]It is commonly known that this brand of alcohol is preferred by one of the Zone's most famous technicians - Cardan - currently residing in Skadovsk. With deteriorating mental condition, he lately refuses to even touch his tools without a shot of his beloved drink. Moreover due to his well-known pride he will only accept full bottles so that he can always says that it was just a token of gratitude.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] drink\n
+		%c[0,100,100,255] • %c[0,140,140,140] stimulant\n
+		%c[0,204,0,51] • %c[0,140,140,140] strong alcohol\n
+		%c[0,204,0,51] • %c[0,140,140,140] moderate sleepiness increase\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+3%)\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Radiation: %c[0,170,170,170] -10 mSv / sec\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +22 kcal eq.\n
+		%c[255,238,153,26] • %c[0,140,140,140] Duration: %c[0,170,170,170] 35 seconds\n
+		</text>
+	</string>
+	
+	<string id="st_vodka2">
+		<text>Putinka vodka</text>
+	</string>
+	<string id="st_vodka2_descr">
+		<text>Following the tradition of naming vodka brands after Russian leaders, Putinka first went into production after Vladimir Putin was elected president. Produced in Russia from the finest grain and crystal clear water from Siberian springs. Triple purification, smooth texture, unique taste are not the only characteristics of this beverage. Drink with moderation.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] drink\n
+		%c[0,100,100,255] • %c[0,140,140,140] stimulant\n
+		%c[0,204,0,51] • %c[0,140,140,140] strong alcohol\n
+		%c[0,204,0,51] • %c[0,140,140,140] moderate sleepiness increase\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+3%)\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Radiation: %c[0,170,170,170] -11 mSv / sec\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +42 kcal eq.\n
+		%c[255,238,153,26] • %c[0,140,140,140] Duration: %c[0,170,170,170] 37 seconds\n
+		</text>
+	</string>
+	
+	<string id="st_vodka_quality">
+		<text>Stolichnaya vodka</text>
+	</string>
+	<string id="st_vodka_quality_descr">
+		<text>A favorite amongst Russians and many people the world over. A Russian vodka of high quality. Highly popular in the Zone and widely available most probably owing to an outside connection of one of the traders. In order to avoid detection by the military units stationing around the Zone, it is usually shipped in army containers or metal barrels, and then distributed in sturdy metal bottles.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] stimulant\n
+		%c[0,204,0,51] • %c[0,140,140,140] strong alcohol\n
+		%c[0,204,0,51] • %c[0,140,140,140] substantial sleepiness increase\n
+		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+4%)\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Radiation: %c[0,170,170,170] -13 mSv / sec\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +28 kcal eq.\n
+		%c[255,238,153,26] • %c[0,140,140,140] Duration: %c[0,170,170,170] 35 seconds\n
+		</text>
+	</string>
+	
+		<string id="st_beer">
+		<text>Ukrainian beer (500 ml, imported)</text>
+	</string>
+	<string id="st_beer_descr">
+		<text>Ukrainian beer. Another - beside vodka - popular beverage in the Zone.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] drink\n
+		%c[0,100,100,255] • %c[0,140,140,140] stimulant\n
+		%c[0,204,0,51] • %c[0,140,140,140] light alcohol\n
+		%c[0,204,0,51] • %c[0,140,140,140] slight sleepiness increase\n
+		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source\n
+		%c[0,100,100,255] • %c[0,140,140,140] high quality\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Radiation: %c[0,170,170,170] -8 mSv / sec\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +247 kcal eq.\n
+		%c[255,238,153,26] • %c[0,140,140,140] Duration: %c[0,170,170,170] 30 seconds\n
+		</text>
+	</string>
+	
+	<string id="st_bottle_metal">
+		<text>Metal bottle</text>
+	</string>
+	<string id="st_bottle_metal_descr">
+		<text>Metal bottle containing a portion of what seems to be Zone-produced vodka. It doesn't smell right and the fumes are strong.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] stimulant\n
+		%c[0,204,0,51] • %c[0,140,140,140] strong, low quality alcohol\n
+		%c[0,204,0,51] • %c[0,140,140,140] significant sleepiness increase\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+2%)\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Radiation: %c[0,170,170,170] -11 mSv / sec\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +18 kcal eq.\n
+		%c[255,238,153,26] • %c[0,140,140,140] Duration: %c[0,170,170,170] 29 seconds\n
+		</text>
+	</string>
+	
+<!-------------------------------------------------------------< FOOD >------------------------------------------------------------->
+	<string id="st_energy_drink">
+		<text>Strong energy drink (250 ml, imported)</text>
+	</string>
+	<string id="st_energy_drink_descr">
+		<text>Often used by stalkers on long trips due to its exhilarating effect when you're tired. The drink also sobers you up a bit if you're drunk as well as induces the release of adrenaline into the bloodstream. Do not overdose.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] drink\n
+		%c[0,100,100,255] • %c[0,140,140,140] stimulant\n
+		%c[0,100,100,255] • %c[0,140,140,140] potent alcohol sobering effect\n
+		%c[0,100,100,255] • %c[0,140,140,140] significant sleepiness decrease\n
+		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Radiation: %c[0,170,170,170] -1 mSv / sec\n
+		%c[0,0,255,30] • %c[0,140,140,140] Endurance: %c[0,170,170,170] +140 mcg adrene\n
+		%c[0,0,255,30] • %c[0,140,140,140] Carry Weight: %c[0,170,170,170] +1554 g\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +113 kcal eq.\n
+		%c[255,238,153,26] • %c[0,140,140,140] Duration: %c[0,170,170,170] 280 seconds\n
+		</text>
+	</string>
+	
+	<string id="st_flask">
+		<text>Purified water</text>
+	</string>
+	<string id="st_flask_descr">
+		<text>Military flasks are intended for storing small amounts of water. Prepared by medics and scientists. First, the water - combined with a special type of alcohol - is boiled at a very high temperature for purification and disinfection. Afterwards, it is cooled in refrigerators, to which it owes its refreshing "spark." The end result is water that is completely radiation-free. If in spite of the above, you still have doubts concerning its purity, you can always use akvatab. Due to the cost of production, military flasks are in a limited supply and are sold at a moderate price. Medics also have them in stock, but they're slightly more expensive as they include the cost of transportation.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] drink\n
+		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+1%)\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Radiation: %c[0,170,170,170] -6 mSv / sec\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +66 kcal eq.\n
+		%c[255,238,153,26] • %c[0,140,140,140] Duration: %c[0,170,170,170] 31 seconds\n
+		</text>
+	</string>
+		
+	<string id="st_kolbasa">
+		<text>Pack of old meat (Zone-produced)</text>
+	</string>
+	<string id="st_kolbasa_descr">
+		<text>A package containing a meal of old bread and some smelly meat of unknown origin wrapped in brown paper. The look and smell suggest that some of it is moldy.\n \n
+		%c[0,204,0,51] • %c[0,140,140,140] unhealthy food\n
+		%c[0,204,0,51] • %c[0,140,140,140] low quality</text>
+	</string>
+	
+	<string id="st_tea">
+		<text>Beard's tea</text>
+	</string>
+	<string id="st_tea_descr">
+		<text>Beard's popular hot tea made from a mixture of sugar, edible dried mushrooms and boiled water that is said to be radiation-free. Stalkers who can afford to buy the drink often take it for long trips in the Zone. It's a good and healthy way to stay on your toes when you're getting tired or when you're out exploring on cold nights.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] drink\n
+		%c[0,100,100,255] • %c[0,140,140,140] potent alcohol sobering effect\n
+		%c[0,100,100,255] • %c[0,140,140,140] moderate sleepiness decrease\n
+		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source \n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Radiation: %c[0,170,170,170] -13 mSv / sec\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +226 kcal eq.\n
+		%c[255,238,153,26] • %c[0,140,140,140] Duration: %c[0,170,170,170] 38 seconds\n
+		</text>
+	</string>
+	
+	<string id="st_tomato">
+		<text>Canned tomatoes (imported)</text>
+	</string>
+	<string id="st_tomato_opened">
+		<text>Canned tomatoes (imported, opened)</text>
+	</string>
+	<string id="st_tomato_descr">
+		<text>Canned, sliced and diced tomatoes are imported to the Zone on a regular basis. The best before date on the bottom suggests they're still fresh.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +281 kcal eq.\n
+		%c[0,93,0,116] • %c[0,140,140,140] Requires: %c[0,170,170,170] Swiss knife
+		</text>
+	</string>
+	
+	<string id="st_sausage">
+		<text>Smoked sausage (imported)</text>
+	</string>
+	<string id="st_sausage_descr">
+		<text>Made of beef and pork. Smoked and vacuum packaged, it can be preserved for long periods of time. This particular piece has been imported from the Russian Federation. Famous among certain Russian mafia leaders for its exceptional flavor and taste.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source</text>
+	</string>
+	
+	<string id="st_corn">
+		<text>Canned corn (imported)</text>
+	</string>
+	<string id="st_corn_opened">
+		<text>Canned corn (imported, opened)</text>
+    </string>
+	<string id="st_corn_descr">
+		<text>Canned sweet corn imported from the outside. Can be eaten as it is, but there are some who use it as a soup ingredient.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +249 kcal eq.\n
+		%c[0,93,0,116] • %c[0,140,140,140] Requires: %c[0,170,170,170] Swiss knife
+		</text>
+	</string>
+	
+	<string id="st_beans">
+		<text>Baked beans (imported)</text>
+	</string>
+	<string id="st_beans_opened">
+		<text>Baked beans (imported, opened)</text>
+	</string>
+	<string id="st_beans_descr">
+		<text>Canned baked beans brought from the West. The kidney beans with tomato sauce may bring back nice memories for some people.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +437 kcal eq.\n
+		%c[0,93,0,116] • %c[0,140,140,140] Requires: %c[0,170,170,170] Swiss knife
+		</text>
+	</string>
+	
+	<string id="st_chili">
+		<text>Chili beans (imported)</text>
+	</string>
+	<string id="st_chili_opened">
+		<text>Chili beans (imported, opened)</text>
+    </string>
+	<string id="st_chili_descr">
+		<text>Canned chili beans imported from the West. Popular as an ingredient in some dishes in the Zone.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +322 kcal eq.\n
+		%c[0,93,0,116] • %c[0,140,140,140] Requires: %c[0,170,170,170] Swiss knife
+		</text>
+	</string>
+	
+	<string id="st_conserva">
+		<text>Can of tuna (imported)</text>
+	</string>
+	<string id="st_conserva_opened">
+		<text>Can of tuna (imported, opened)</text>
+	</string>
+	<string id="st_conserva_descr">
+		<text>The best before date at the back of the tin can indicates that you shouldn't expect delicacies.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +228 kcal eq.\n
+		%c[0,93,0,116] • %c[0,140,140,140] Requires: %c[0,170,170,170] Swiss knife
+		</text>
+	</string>
+	
+	<string id="st_tushonka">
+		<text>"Abakan" beef tushonka (imported)</text>
+	</string>
+	<string id="st_tushonka_opened">
+		<text>"Abakan" beef tushonka (imported, opened)</text>
+	</string>
+	<string id="st_tushonka_descr">
+		<text>Tushonka is a common name of canned, stewed meat produced in the Soviet Union and other Warsaw Pact countries. The irony is that the idea originally came to Russia in a form of World War II aid transports from the United States. Since then, various kinds of tushonkas have become a primary means of long-time meat preservation, used both by the civilian population and as a standard-issue Red Army food ration. Despite their long expiry date, tushonkas are known for their high nutrition value (mostly owing to high fat content) and a relatively good taste. The Chernobyl Exclusion Zone has seen hundreds of types and tastes of tushonkas. In the spring of 2013 'Abakan' minced-meat brand remains the unquestionable king, and certainly the Zone has seen worse than that.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +584 kcal eq.\n
+		%c[0,93,0,116] • %c[0,140,140,140] Requires: %c[0,170,170,170] Swiss knife
+		</text>
+	</string>
+	
+	<string id="st_salmon">
+		<text>Smoked salmon (imported)</text>
+	</string>
+	<string id="st_salmon_descr">
+		<text>Ukrainian smoked salmon. As soon as it's brought to the Zone, the fish changes hands until it finds its way to the highest bidder. Very valuable.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
+		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source</text>
+	</string>
+	
+	<string id="st_raisins">
+		<text>Raisins (imported)</text>
+	</string>
+	<string id="st_raisins_descr">
+		<text>A pack of raisins. Rich in nutrients, balances sugar in the blood.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source</text>
+	</string>
+	
+	<string id="st_chocolate">
+		<text>Russian chocolate (imported)</text>
+	</string>
+	<string id="st_chocolate_descr">
+		<text>Russian chocolate. Very rare in the Zone and quite valuable even though its taste is nothing special. Brings back many fond childhood memories, which may help soothe the pain of living in the harsh and unforgiving conditions of the Zone.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source</text>
+	</string>
+	
+    <string id="st_chocolate_p">
+		<text>Russian chocolate (half-consumed)</text>
+	</string>
+    <string id="st_chocolate_p_descr">
+		<text>Russian chocolate. Very rare in the Zone and quite valuable even though its taste is nothing special. Brings back many fond childhood memories, which may help soothe the pain of living in the harsh and unforgiving conditions of the Zone.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source</text>
+	</string>
+	
+	<string id="st_mint">
+		<text>Altoids</text>
+	</string>
+	<string id="st_mint_descr">
+		<text>Mint-flavored altoids imported from the West. They are highly refreshing and remove radiation particles from the mouth. They also seem to reduce sleepiness for a short while. You can take as many as 10 mints at a time but that's only because your mouth isn't able to fit any more.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] slight sleepiness reduction\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Radiation: %c[0,170,170,170] -4 mSv / sec\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +2 kcal eq.\n
+		%c[255,238,153,26] • %c[0,140,140,140] Duration: %c[0,170,170,170] 14 seconds\n
+		</text>
+	</string>
+	
+	<string id="st_nuts">
+		<text>Mixed nuts (imported)</text>
+	</string>
+	<string id="st_nuts_descr">
+		<text>Assorted peanuts, hazelnuts, cashews and almonds in a nice and popular blend. Nutrition value is quite high. Imported from South Africa.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
+		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source</text>
+	</string>
+	
+	<string id="st_mineral_water">
+		<text>Mineral water</text>
+	</string>
+	<string id="st_mineral_water_descr">
+		<text>Mineral water from Ukrainian springs. Carbonated and with additional calcium.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] drink\n
+		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
+		%c[0,100,100,255] • %c[0,140,140,140] mild alcohol sobering effect\n
+		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+1%)\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Radiation: %c[0,170,170,170] -7 mSv / sec\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +127 kcal eq.\n
+		%c[255,238,153,26] • %c[0,140,140,140] Duration: %c[0,170,170,170] 34 seconds\n
+		</text>
+	</string>
+	
+	<string id="st_mre">
+		<text>MRE</text>
+	</string>
+	<string id="st_mre_descr">
+		<text>The Meal, Ready-to-Eat (commonly known as the MRE) is a self-contained, individual field ration in lightweight packaging, developed by the United States military for its service members for use in combat or other field conditions where organized food facilities are not available. One MRE can be used as one meal. The packaging of an MRE is designed to withstand rough conditions and exposure to the elements. Contains one course along with a variety of other food and drink items. While it can be eaten cold, it usually tastes much better when heated up with the included flameless ration heater (FRH, a water-activated exothermic reaction device that emits heat).\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] military ration\n\n
+		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
+		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source\n
+		%c[0,100,100,255] • %c[0,140,140,140] 3 portions in one package. 1398 kcal in total</text>
+	</string>
+	
+	<string id="st_ration_ru">
+		<text>Russian IRP-B combat ration</text>
+	</string>
+	<string id="st_ration_ru_descr">
+		<text>Breakfast, dinner and supper all in one package. Includes various food items whose function is to provide the body with all minerals and microelements essential for your health as well as cooking equipment (small metal frame, fuel tablets, matches, striker) and other items (e.g. napkins) facilitating use in field conditions. Comes with a polymeric box that protects the ingredients from hazardous environmental conditions. The polymeric box has 3 sections, each respectively for breakfast, dinner and supper.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] military ration\n
+		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source\n
+		%c[0,100,100,255] • %c[0,140,140,140] 7 portions in one package. 3661 kcal in total</text>
+	</string>
+	
+	<string id="st_ration_ukr">
+		<text>Ukrainian combat ration</text>
+	</string>
+	<string id="st_ration_ukr_descr">
+		<text>This Ukrainian combat ration is based on a previous Russian version, and comprises commercially available cans and dried food items packed together in a sectioned box (resembling a takeout tray) made of very thin green plastic. Contains all that is necessary to provide a healthy adult with all calories and minerals needed during a single day.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] military ration\n
+		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source\n
+		%c[0,100,100,255] • %c[0,140,140,140] 6 portions in one package. 3186 kcal in total</text>
+	</string>
+	
+	<string id="st_bread">
+		<text>Bread loaf (imported)</text>
+	</string>
+	<string id="st_bread_descr">
+		<text>A fine bread loaf baked by Nimble's wife living outside the Zone. It was the first commodity Nimble started to sell before his business expanded. Nowadays, he provides barkeepers with this fine bread, acting as an intermediary. After all, he has more pressing matters to attend to as he has his own company to manage.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source</text>
+	</string>
+	
+	<string id="st_breadold">
+		<text>Breadcrumbs (imported)</text>
+	</string>
+	<string id="st_breadold_descr">
+		<text>Crumbs of bread baked in the Great Land.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source</text>
+	</string>
+	
+	<string id="st_protein">
+		<text>Chocolate protein bar (imported)</text>
+	</string>
+	<string id="st_protein_descr">
+		<text>This bar provides the body with necessary proteins and sugars which give you a welcome boost. Useful on longer trips when you're on the go and need to eat something fast.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source\n
+		%c[0,100,100,255] • %c[0,140,140,140] high quality</text>
+	</string>
+	
+	<string id="st_water_drink">
+		<text>Sparkling water (350 ml, imported)</text>
+	</string>
+	<string id="st_water_drink_descr">
+		<text>Sparkling water for thirsty stalkers. It has some exhilarating effect when you're tired.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] drink\n
+		%c[0,100,100,255] • %c[0,140,140,140] mild alcohol sobering effect\n
+		%c[0,100,100,255] • %c[0,140,140,140] slight sleepiness decrease\n
+		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+1%)\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Radiation: %c[0,170,170,170] -6 mSv / sec\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +112 kcal eq.\n
+		%c[255,238,153,26] • %c[0,140,140,140] Duration: %c[0,170,170,170] 32 seconds\n
+		</text>
+	</string>
+	
+	<string id="st_drink_crow">
+		<text>"The Beak" (Zone-produced)</text>
+	</string>
+	<string id="st_drink_crow_descr">
+		<text>"The Beak" is a powerful mixture of Zone-produced vodka and pulverized beak of a black crow. Not every beak can be used as an ingredient, because only black male crows that have lived in the Zone for more than 15 years have mutated sufficiently. The rumor has it that such beaks contain a form of enriched protein that cleanses moderate amounts of radiation from the body. Some even say that drinking "the Beak" makes you feel like you have wings for a few seconds. On the downside, however, the taste itself is awful.\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Radiation: %c[0,170,170,170] -13 mSv / sec\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +446 kcal eq.\n
+		%c[255,238,153,26] • %c[0,140,140,140] Duration: %c[0,170,170,170] 174 seconds\n
+		</text>
+	</string>
+	
+<!-------------------------------------------------------------< SMOKE >------------------------------------------------------------->
+	<string id="st_cuban_cigar">
+		<text>Cuban cigar (imported)</text>
+	</string>
+	<string id="st_cuban_cigar_descr">
+		<text>This valuable Cuban cigar can bring you bliss for a short while, especially when you're admiring a nice sunset. Some stalkers noticed that smoking strong tobacco repels mosquitoes. Cuban cigars are considered the finest in the world. A rare commodity.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] stimulant\n
+		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		%c[0,100,100,255] • %c[0,140,140,140] potent alcohol sobering effect\n
+		%c[0,100,100,255] • %c[0,140,140,140] significant sleepiness decrease\n
+		%c[255,238,153,26] • %c[0,140,140,140] requires a: %c[0,170,170,170] matchbox\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Radiation: %c[0,170,170,170] -20 mSv / sec\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +32 kcal eq.\n
+		%c[255,238,153,26] • %c[0,140,140,140] Duration: %c[0,170,170,170] 54 seconds\n
+		</text>
+	</string>
+	
+	<string id="st_cigarettes_lucky">
+		<text>Lucky Strike cigarettes</text>
+	</string>
+	<string id="st_cigarettes_lucky_descr">
+		<text>Cigarettes imported from the West. Some stalkers trade them for a few rounds of ammo within their faction.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] stimulant\n
+		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
+		%c[0,100,100,255] • %c[0,140,140,140] mild alcohol sobering effect\n
+		%c[0,100,100,255] • %c[0,140,140,140] significant sleepiness decrease\n
+		%c[255,238,153,26] • %c[0,140,140,140] requires a: %c[0,170,170,170] matchbox\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Radiation: %c[0,170,170,170] -13 mSv / sec\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +14 kcal eq.\n
+		%c[255,238,153,26] • %c[0,140,140,140] Duration: %c[0,170,170,170] 54 seconds\n
+		</text>
+	</string>
+	
+	<string id="st_cigarettes_russian">
+		<text>Russian brand of cigarettes</text>
+	</string>
+	<string id="st_cigarettes_russian_descr">
+		<text>The cheapest pack of cigarettes in the Zone. Russian budget brand.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] stimulant\n
+		%c[0,204,0,51] • %c[0,140,140,140] low quality\n
+		%c[0,100,100,255] • %c[0,140,140,140] mild alcohol sobering effect\n
+		%c[0,100,100,255] • %c[0,140,140,140] slight sleepiness decrease\n
+		%c[255,238,153,26] • %c[0,140,140,140] requires a: %c[0,170,170,170] matchbox\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Radiation: %c[0,170,170,170] -5 mSv / sec\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +32 kcal eq.\n
+		%c[255,238,153,26] • %c[0,140,140,140] Duration: %c[0,170,170,170] 48 seconds\n
+		</text>
+	</string>
+	
+	<string id="st_cigar1">
+		<text>Soviet cigarettes</text>
+	</string>
+	<string id="st_cigar1_descr">
+		<text>A pack of budget, strong and very low quality cigarettes. Someone must have smoked most of them since there are only a few left. Genuine USSR flavor has been carefully preserved.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] stimulant\n
+		%c[0,100,100,255] • %c[0,140,140,140] mild alcohol sobering effect\n
+		%c[0,100,100,255] • %c[0,140,140,140] slight sleepiness decrease\n
+		%c[255,238,153,26] • %c[0,140,140,140] requires a: %c[0,170,170,170] matchbox\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Radiation: %c[0,170,170,170] -13 mSv / sec\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +31 kcal eq.\n
+		%c[255,238,153,26] • %c[0,140,140,140] Duration: %c[0,170,170,170] 59 seconds\n
+		</text>
+	</string>
+	
+	<string id="st_cigar2">
+		<text>Soviet cigarettes</text>
+	</string>
+	<string id="st_cigar2_descr">
+		<text>A pack of budget, strong and very low quality cigarettes. Someone must have smoked most of them since there are only a few left. Genuine USSR flavor has been carefully preserved.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] stimulant\n
+		%c[0,100,100,255] • %c[0,140,140,140] mild alcohol sobering effect\n
+		%c[0,100,100,255] • %c[0,140,140,140] slight sleepiness decrease\n
+		%c[255,238,153,26] • %c[0,140,140,140] requires a: %c[0,170,170,170] matchbox\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Radiation: %c[0,170,170,170] -15 mSv / sec\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +26 kcal eq.\n
+		%c[255,238,153,26] • %c[0,140,140,140] Duration: %c[0,170,170,170] 52 seconds\n
+		</text>
+	</string>
+	
+	<string id="st_cigar3">
+		<text>Soviet cigarettes</text>
+	</string>
+	<string id="st_cigar3_descr">
+		<text>A pack of budget, strong and very low quality cigarettes. Someone must have smoked most of them since there are only a few left. Genuine USSR flavor has been carefully preserved.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] stimulant\n
+		%c[0,100,100,255] • %c[0,140,140,140] mild alcohol sobering effect\n
+		%c[0,100,100,255] • %c[0,140,140,140] slight sleepiness decrease\n
+		%c[255,238,153,26] • %c[0,140,140,140] requires a: %c[0,170,170,170] matchbox\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Radiation: %c[0,170,170,170] -18 mSv / sec\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +23 kcal eq.\n
+		%c[255,238,153,26] • %c[0,140,140,140] Duration: %c[0,170,170,170] 54 seconds\n
+		</text>
+	</string>
+	
+	<string id="st_hand_rolling_tobacco">
+		<text>Hand-rolling tobacco</text>
+	</string>
+	<string id="st_hand_rolling_tobacco_descr">
+		<text>Precious hand-rolling tobacco, imported from the West. With no additional ingredients, so it's possible to enjoy the original taste of tobacco leaf itself.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] stimulant\n
+		%c[0,204,0,51] • %c[0,140,140,140] slow usage (roll up)\n
+		%c[0,100,100,255] • %c[0,140,140,140] potent alcohol sobering effect\n
+		%c[0,100,100,255] • %c[0,140,140,140] significant sleepiness decrease\n
+		%c[0,100,100,255] • %c[0,140,140,140] high quality\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Radiation: %c[0,170,170,170] -29 mSv / sec\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +72 kcal eq.\n
+		%c[255,238,153,26] • %c[0,140,140,140] Duration: %c[0,170,170,170] 22 seconds\n
+		</text>
+	</string>
+	
+	<string id="st_cigarettes">
+		<text>Marlboro cigarettes</text>
+	</string>
+	<string id="st_cigarettes_descr">
+		<text>Cigarettes imported from the West. Someone must have smoked most of them since there are only a few left. Smoking just one may stabilize your mental state and satisfies hunger a bit. They are rare in the Zone and quite valuable.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] stimulant\n
+		%c[0,100,100,255] • %c[0,140,140,140] mild alcohol sobering effect\n
+		%c[0,100,100,255] • %c[0,140,140,140] slight sleepiness decrease\n
+		%c[255,238,153,26] • %c[0,140,140,140] requires a: %c[0,170,170,170] matchbox\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Radiation: %c[0,170,170,170] -14 mSv / sec\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +29 kcal eq.\n
+		%c[255,238,153,26] • %c[0,140,140,140] Duration: %c[0,170,170,170] 52 seconds\n
+		</text>
+	</string>
+	
+	<string id="st_tobacco">
+		<text>Russian tobacco</text>
+	</string>
+	<string id="st_tobacco_descr">
+		<text>Cigarettes are expensive and rare in the Zone, and having raw tobacco enables you to produce your own cigs at a lower cost. This tin is sealed, which ensures that the tobacco will stay fresh for days or weeks depending on the conditions it's kept in.\n \n
+		%c[0,100,100,255] • %c[0,140,140,140] stimulant\n
+		%c[0,204,0,51] • %c[0,140,140,140] slow usage (roll up)\n
+		%c[0,100,100,255] • %c[0,140,140,140] potent alcohol sobering effect\n
+		%c[0,204,0,51] • %c[0,140,140,140] low quality\n
+		%c[0,204,0,51] • %c[0,140,140,140] unhealthy\n \n
+		%c[0,200,200,200]DETAILS:\n
+		%c[0,0,255,30] • %c[0,140,140,140] Radiation: %c[0,170,170,170] -24 mSv / sec\n
+		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +58 kcal eq.\n
+		%c[255,238,153,26] • %c[0,140,140,140] Duration: %c[0,170,170,170] 28 seconds\n
+		</text>
+	</string>
+	
+</string_table>

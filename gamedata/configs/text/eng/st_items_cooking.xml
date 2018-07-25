@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="windows-1251"?>
+
+<!--
+	Faction Patches
+-->
+<string_table>
+	<string id="st_matches">
+		<text>Firestarter set</text>
+	</string>
+	<string id="st_matches_descr">
+		<text>A simple set of sticks of pine wood impregnated with resin. Anyone who has ever tried to light a fire in the open air knows that random gusts of wind can extinguish the flames very quickly. The firestarter set allows you to create a small but steady hearth fire, the temperature of which is significantly higher than that of paper or wax. An indispensable thing in any campaign, because it easy to light up even in the wet.\n\n\n
+		%c[0,0,255,30] • %c[0,140,140,140] is used for starting fires</text>
+	</string>
+	
+	<string id="st_cooking">
+		<text>Field cooking kit</text>
+	</string>
+	<string id="st_cooking_descr">
+		<text>A field cooking travel kit. Contains cooking accessories and utensils for use when camping and travelling. Produces a lot of noise and is unwieldy due to its heavy weight. Very popular among larger groups of stalkers.\n \n
+		%c[0,210,210,210]NOTES:\n \n
+		%c[0,170,170,170]Although charcoal is available in the Zone at relatively cheap prices, you need to use a significant amount of it in order to prepare a single meal. For this reason, charcoal is not as cost effective as it would seem. On the other hand, it is relatively light, which makes it perfect for longer trips deep in the Zone.\n \n
+		%c[0,170,170,170]Mutant meats that do not require high temperature to be prepared are referred to as 'low-tier', whereas those that require high temperature - 'high-tier'.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,0,255,30] • %c[0,140,140,140] low-tier field cooking equipment\n
+		%c[0,0,255,30] • %c[0,140,140,140] fuel: %c[0,170,170,170] charcoal\n
+		%c[0,0,255,30] • %c[0,140,140,140] usable for cooking meats of lesser mutants</text>
+	</string>
+	
+	<string id="st_wood_stove">
+		<text>Hexagon wood stove</text>
+	</string>
+	<string id="st_wood_stove_descr">
+		<text>This compact foldable oven is intended for cooking single entree meals with dry wood. However, since wood found within the Zone is far too contaminated to be used for that purpose, stalkers rely on imported charcoal as the cheapest and most widely available burnable material. The stove can produce temperatures sufficient to grill less poisoned mutant meat, but preparing more toxic meat requires the utilization of more advanced equipment. Basic fire skills are needed. Made of stainless steel and ultralight titanium.\n \n
+		%c[0,210,210,210]NOTES:\n \n
+		%c[0,170,170,170]Although charcoal is available in the Zone at relatively cheap prices, you need to use a significant amount of it in order to prepare a single meal. For this reason, charcoal is not as cost effective as it would seem. On the other hand, it is relatively light, which makes it perfect for longer trips deep in the Zone.\n \n
+		%c[0,170,170,170]Mutant meats that do not require high temperature to be prepared are referred to as 'low-tier', whereas those that require high temperature - 'high-tier'.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,0,255,30] • %c[0,140,140,140] low-tier field cooking equipment\n
+		%c[0,0,255,30] • %c[0,140,140,140] fuel: %c[0,170,170,170] charcoal\n
+		%c[0,0,255,30] • %c[0,140,140,140] usable for cooking meats of lesser mutants</text>
+	</string>
+	
+	<string id="st_fieldcooker">
+		<text>Multi-fuel stove</text>
+	</string>
+	<string id="st_fieldcooker_descr">
+		<text>The stove has been tested extensively over many years and has been used on countless expeditions. It is extremely robust, reliable and powerful and was designed to handle demanding situations, extreme altitudes and both low and high temperatures. It has a very high output and can be used with virtually any kind of fuel, including butane, gasoline / petrol, diesel, kerosene / paraffin, and even aviation fuel. Using the separate control knob, you can adjust the flame to the heat you want, even if you are wearing gloves.\n \n
+		%c[0,210,210,210]NOTES:\n \n
+		%c[0,170,170,170]Since fuels used in the multi-fuel stove are much more efficient energy-carriers than the wood or coal, the multi-fuel stove is - in the long run - significantly more cost-effective than traditional wood or coal stoves. On the other hand, these fuels are usually carried in heavy metal containers, which makes them more suited for use at bases, rather than in field operations.\n \n
+		%c[0,170,170,170]Mutant meats that do not require high temperature to be prepared are referred to as 'low-tier', whereas those that require high temperature - 'high-tier'.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
+		%c[0,0,255,30] • %c[0,140,140,140] high-tier cooking equipment\n
+		%c[0,0,255,30] • %c[0,140,140,140] av. fuel: %c[0,170,170,170] gasoline, natural gas, kerosene\n
+		%c[0,0,255,30] • %c[0,140,140,140] usable for cooking meats of all mutants</text>
+	</string>
+	
+	<string id="st_army_bowler">
+		<text>Army kettle</text>
+	</string>
+	<string id="st_army_bowler_descr">
+		<text>This army kettle features a convex-concave bottom profile, concave on one side. It is supplied with a wire handle-loop for hanging and carrying. When worn on the waist belt, the concave side should be placed to the body. The bowl cover can be used as a pan when heating or preparing a second dish. The handle of the lid is designed to hold it, securely closing the lid when carrying, and a tablespoon is inserted into the special holes on the handle.\n \n
+		%c[0,210,210,210]NOTES:\n \n
+		%c[0,170,170,170]Since fuels used in the multi-fuel stove are much more efficient energy-carriers than the wood or coal, the multi-fuel stove is - in the long run - significantly more cost-effective than traditional wood or coal stoves. On the other hand, these fuels are usually carried in heavy metal containers, which makes them more suited for use at bases, rather than in field operations.\n \n
+		%c[0,170,170,170]Mutant meats that do not require high temperature to be prepared are referred to as 'low-tier', whereas those that require high temperature - 'high-tier'.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
+		%c[0,0,255,30] • %c[0,140,140,140] high-tier cooking equipment\n
+		%c[0,0,255,30] • %c[0,140,140,140] av. fuel: %c[0,170,170,170] gasoline, natural gas, kerosene\n
+		%c[0,0,255,30] • %c[0,140,140,140] usable for cooking meats of all mutants</text>
+	</string>
+	
+	<string id="st_box_matches_1">
+		<text>Matchbox</text>
+	</string>
+	<string id="st_box_matches_1_descr">
+		<text>A box of matches is the second most important item in the Zone after a weapon. With the help of matches, a fire can be created, a light can be passed to a friend, and small spaces can be illuminated. This particular box was produced in an unknown underground factory in the roundabouts of the Zone, therefore high quality is not to be expected, though the price is not high, either. The box has been permanently crumpled, crumbling sulfur and broken wet matches. Only a quarter of its contents remains usable. Even so, lighting a fire or a cigarette is very difficult if using the matchbox - thus, stalkers tend to purchase a more expensive but practical lighter.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] starting a fire, lighting a cigarette</text>
+	</string>
+	
+		<string id="st_kerosene">
+		<text>Kerosene (5 liters)</text>
+	</string>
+	<string id="st_kerosene2">
+		<text>Kerosene (4 liters left)</text>
+	</string>
+	<string id="st_kerosene3">
+		<text>Kerosene (3 liters left)</text>
+	</string>
+	<string id="st_kerosene4">
+		<text>Kerosene (2 liters left)</text>
+	</string>
+	<string id="st_kerosene5">
+		<text>Kerosene (1 liter left)</text>
+	</string>
+	<string id="st_kerosene_descr">
+		<text>Kerosene is used widely, for example in aviation as rocket fuel, and as firing in glass products, household lighting and heating devices. Being an excellent solvent, it easily reaches internal mechanisms and is therefore widely used in the cleaning and repair of various components.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,0,255,30] • %c[0,140,140,140] hi-tier cooking fuel\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+3%)</text>
+	</string>
+	
+	<string id="st_charcoal">
+		<text>Charcoal (3 kg)</text>
+	</string>
+	<string id="st_charcoal2">
+		<text>Charcoal (2 kg left)</text>
+	</string>
+	<string id="st_charcoal3">
+		<text>Charcoal (1 kg left)</text>
+	</string>
+	<string id="st_charcoal_descr">
+		<text>Charcoal from hardwood timber for cooking meat, fish, vegetables in the brazier and barbecue.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,0,255,30] • %c[0,140,140,140] low-tier cooking fuel</text>
+	</string>
+
+</string_table>

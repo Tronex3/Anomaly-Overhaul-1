@@ -1,0 +1,66 @@
+
+-- =======================================================================================
+-- Created by Tronex
+-- Last modification: 2018/7/20
+-- Anomaly Maps UI
+-- =======================================================================================
+
+
+
+--=======================================< Map UI >=======================================--
+class "map_ui" (CUIScriptWnd)
+
+function map_ui:__init(owner,obj,section) super()
+	self.owner = owner
+	self.section = section
+	self.object = obj
+	self.map = system_ini():r_string_ex(section,"use_map") or "mil"
+	
+	self:InitControls()
+	self:InitCallBacks()
+end
+
+function map_ui:__finalize()
+end
+
+function map_ui:InitControls()
+	self:SetWndRect			(Frect():set(0,0,1024,768))
+	self:SetAutoDelete(true)
+	
+	self.xml				= CScriptXmlInit()
+	local xml = self.xml
+	xml:ParseFile			("ui_items.xml")
+
+	self.dialog					= xml:InitStatic("itm_map:frame", self)
+	
+	self.box_map = xml:InitStatic("itm_map:box_map",self.dialog)
+	self.box_map:InitTexture("ui_itm_map_" .. self.map)
+	self.box_map:SetStretchTexture(true)
+
+	local btn = xml:Init3tButton("itm_map:btn_ok", self.dialog)
+	self:Register(btn,"btn_ok")
+end
+
+function map_ui:InitCallBacks()
+	self:AddCallback("btn_ok", ui_events.BUTTON_CLICKED, self.OnAccept, self)
+end
+
+
+---------------< Callbacks >---------------
+
+function map_ui:OnAccept()
+	self:HideDialog()
+end
+
+function map_ui:OnKeyboard(dik, keyboard_action)
+	local res = CUIScriptWnd.OnKeyboard(self,dik,keyboard_action)
+	if (res == false) then
+		local bind = dik_to_bind(dik)
+		if keyboard_action == ui_events.WINDOW_KEY_PRESSED then
+			if dik == DIK_keys.DIK_ESCAPE then
+				self:OnAccept()
+			end
+		end
+	end
+	return res
+end

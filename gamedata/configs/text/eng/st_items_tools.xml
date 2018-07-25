@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="windows-1251"?>
+
+<!--
+	Usable Items (Special Purposes)
+-->
+
+<string_table>
+	
+	<string id="st_itm_basickit_name">
+		<text>Basic tools (1 use)</text>
+	</string>
+	<string id="st_itm_basickit2_name">
+		<text>Basic tools (2 uses)</text>
+	</string>
+	<string id="st_itm_basickit3_name">
+		<text>Basic tools (3 uses)</text>
+	</string>
+	<string id="st_itm_basickit4_name">
+		<text>Basic tools (4 uses)</text>
+	</string>
+	<string id="st_itm_basickit5_name">
+		<text>Basic tools (5 uses)</text>
+	</string>
+	<string id="st_itm_basickit6_name">
+		<text>Basic tools (6 uses)</text>
+	</string>
+	<string id="st_itm_basickit7_name">
+		<text>Basic tools (7 uses)</text>
+	</string>
+	<string id="st_itm_basickit_descr">
+		<text>A children's toolkit. Unlikely to be suitable for maintenance, but they could be useful in the hands of a thrifty technician.\n \n
+		%c[0,200,200,200]NOTES:\n
+		%c[0,250,250,0] • %c[0,140,140,140] A technician could use these to fully modify weapons and armour.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,93,0,116] • %c[0,140,140,140] craftsman toolkit\n
+		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		%c[0,204,0,51] • %c[0,140,140,140] requires suitable materials</text>
+	</string>
+
+	
+	<string id="st_itm_advancedkit_name">
+		<text>Advanced tools (1 use)</text>
+	</string>
+	<string id="st_itm_advancedkit2_name">
+		<text>Advanced tools (2 uses)</text>
+	</string>
+	<string id="st_itm_advancedkit3_name">
+		<text>Advanced tools (3 uses)</text>
+	</string>
+	<string id="st_itm_advancedkit4_name">
+		<text>Advanced tools (4 uses)</text>
+	</string>
+	<string id="st_itm_advancedkit5_name">
+		<text>Advanced tools (5 uses)</text>
+	</string>
+	<string id="st_itm_advancedkit6_name">
+		<text>Advanced tools (6 uses)</text>
+	</string>
+	<string id="st_itm_advancedkit7_name">
+		<text>Advanced tools (7 uses)</text>
+	</string>
+	<string id="st_itm_advancedkit_descr">
+		<text>A decent set of old tools, but despite their age they appear to be in good condition.\n \n
+		%c[0,200,200,200]NOTES:\n
+		%c[0,250,250,0] • %c[0,140,140,140] A technician could use these to fully modify weapons and armour.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,93,0,116] • %c[0,140,140,140] craftsman toolkit\n
+		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		%c[0,204,0,51] • %c[0,140,140,140] requires suitable materials</text>
+	</string>
+	
+	<string id="st_itm_expertkit_name">
+		<text>Expert tools (1 use)</text>
+	</string>
+	<string id="st_itm_expertkit2_name">
+		<text>Expert tools (2 uses)</text>
+	</string>
+	<string id="st_itm_expertkit3_name">
+		<text>Expert tools (3 uses)</text>
+	</string>
+	<string id="st_itm_expertkit4_name">
+		<text>Expert tools (4 uses)</text>
+	</string>
+	<string id="st_itm_expertkit5_name">
+		<text>Expert tools (5 uses)</text>
+	</string>
+	<string id="st_itm_expertkit6_name">
+		<text>Expert tools (6 uses)</text>
+	</string>
+	<string id="st_itm_expertkit7_name">
+		<text>Expert tools (7 uses)</text>
+	</string>
+	<string id="st_itm_expertkit_descr">
+		<text>A professional set of high quality tools for fine-tuning equipment.\n \n
+		%c[0,200,200,200]NOTES:\n
+		%c[0,250,250,0] • %c[0,140,140,140] A technician could use these to fully modify weapons and armour.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,93,0,116] • %c[0,140,140,140] craftsman toolkit\n
+		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		%c[0,204,0,51] • %c[0,140,140,140] requires suitable materials</text>
+	</string>
+	
+	<string id="st_itm_drugkit">
+		<text>Drug-making kit (1 use)</text>
+	</string>
+	<string id="st_itm_drugkit2_name">
+		<text>Drug-making kit (2 uses)</text>
+	</string>
+	<string id="st_itm_drugkit3_name">
+		<text>Drug-making kit (3 uses)</text>
+	</string>
+	<string id="st_itm_drugkit4_name">
+		<text>Drug-making kit (4 uses)</text>
+	</string>
+	<string id="st_itm_drugkit5_name">
+		<text>Drug-making kit (5 uses)</text>
+	</string>
+	<string id="st_itm_drugkit6_name">
+		<text>Drug-making kit (6 uses)</text>
+	</string>
+	<string id="st_itm_drugkit7_name">
+		<text>Drug-making kit (7 uses)</text>
+	</string>
+	<string id="st_itm_drugkit_descr">
+		<text>Small cases and various metal objects constitute a kit for managing and producing drugs. Contains some plastic packages, tablets and ampoules.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,93,0,116] • %c[0,140,140,140] craftsman toolkit\n
+		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		%c[0,204,0,51] • %c[0,140,140,140] requires suitable materials</text>
+	</string>
+	
+	<string id="st_itm_ammokit">
+		<text>Ammunition kit (1 use)</text>
+	</string>
+	<string id="st_itm_ammokit2_name">
+		<text>Ammunition kit (2 uses)</text>
+	</string>
+	<string id="st_itm_ammokit3_name">
+		<text>Ammunition kit (3 uses)</text>
+	</string>
+	<string id="st_itm_ammokit4_name">
+		<text>Ammunition kit (4 uses)</text>
+	</string>
+	<string id="st_itm_ammokit5_name">
+		<text>Ammunition kit (5 uses)</text>
+	</string>
+	<string id="st_itm_ammokit6_name">
+		<text>Ammunition kit (6 uses)</text>
+	</string>
+	<string id="st_itm_ammokit7_name">
+		<text>Ammunition kit (7 uses)</text>
+	</string>
+	<string id="st_itm_ammokit_descr">
+		<text>This kit is used for crafting better ammo quality out of bad variants.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,93,0,116] • %c[0,140,140,140] craftsman tool kit\n
+		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		%c[0,204,0,51] • %c[0,140,140,140] requires suitable materials</text>
+	</string>
+	
+	<string id="st_binocular_name">
+		<text>Military binoculars</text>
+	</string>
+	<string id="st_binocular_descr">
+		<text>Standard Ukrainian-issue military binoculars. Useful in the Zone in that they allow its owner to observe things from a distance. Very durable.</text>
+	</string>
+	
+	<string id="st_con_checker_name">
+		<text>Paper of equipment condition</text>
+	</string>
+	<string id="st_con_checker_descr">
+		<text>A scrap of paper with your equipment condition written on it.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] equipment condition assessment</text>
+	</string>
+	
+	<string id="st_container_tool_name">
+		<text>Artifact handling tool</text>
+	</string>
+	<string id="st_container_tool_descr">
+		<text>Tongs made from hardened steel, intended exclusively for handling artifacts. Due to specific mechanics of operation, there is no other way of removing an artifact from containers. The tongs will also let you avoid burns that normally follow touching an artifact with bare hands; they will not, however, protect you from effects of artifacts on your psyche and neural system. No true artifact hunter in the Zone ever leaves the base without a similar tool.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,225,225,225] • %c[0,140,140,140] usable for handling artifacts\n
+		%c[0,225,225,225] • %c[0,140,140,140] essential for manipulating contents of artifact storage devices</text>
+	</string>
+	
+	<string id="st_lead_box_name">
+		<text>Lead-lined metal container (empty)</text>
+	</string>
+	<string id="st_lead_box_descr">
+		<text>The lead-lined metal container (LLMC) is a simple metal box with thick walls and foam inserts as well as a heavy lid with pressure-sealing mechanism. Specifically designed for transporting radioactive materials, in the Zone LLMC is most commonly employed as artifact storage and transportation device. It stops all radiation from leaking, thus ensuring safety of the user when in possession of artifacts. However, the device cannot be attached to the belt, which means that both positive and negative properties of artifacts won't apply. The contents can be manipulated with an artifact handling tool.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] does not require UPD\n
+		%c[0,225,225,225] • %c[0,140,140,140] artifact storage device\n
+		%c[0,225,225,225] • %c[0,140,140,140] capacity: %c[0,170,170,170] 1\n
+		%c[0,225,225,225] • %c[0,140,140,140] state: %c[0,170,170,170] empty\n \n
+		%c[0,204,0,51]WARNING:\n \n
+		%c[default]You have to remove artifacts from the container prior to selling them.</text>
+	</string>
+	
+	<string id="st_lead_box_half_name">
+		<text>Lead-lined metal container (half-filled)</text>
+	</string>
+	<string id="st_lead_box_half_descr">
+		<text>The lead-lined metal container (LLMC) is a simple metal box with thick walls and foam inserts as well as a heavy lid with pressure-sealing mechanism. Specifically designed for transporting radioactive materials, in the Zone LLMC is most commonly employed as artifact storage and transportation device. It stops all radiation from leaking, thus ensuring safety of the user when in possession of artifacts. However, the device cannot be attached to the belt, which means that both positive and negative properties of artifacts won't apply. The contents can be manipulated with an artifact handling tool.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] does not require UPD\n
+		%c[0,225,225,225] • %c[0,140,140,140] artifact storage device\n
+		%c[0,225,225,225] • %c[0,140,140,140] capacity: %c[0,170,170,170] 1\n
+		%c[0,225,225,225] • %c[0,140,140,140] state: %c[0,170,170,170] 50% full\n \n
+		%c[0,204,0,51]WARNING:\n \n
+		%c[default]You have to remove artifacts from the container prior to selling them.</text>
+	</string>
+	
+	<string id="st_lead_box_closed_name">
+		<text>Lead-lined metal container (full)</text>
+	</string>
+	<string id="st_lead_box_closed_descr">
+		<text>The lead-lined metal container (LLMC) is a simple metal box with thick walls and foam inserts as well as a heavy lid with pressure-sealing mechanism. Specifically designed for transporting radioactive materials, in the Zone LLMC is most commonly employed as artifact storage and transportation device. It stops all radiation from leaking, thus ensuring safety of the user when in possession of artifacts. However, the device cannot be attached to the belt, which means that both positive and negative properties of artifacts won't apply. The contents can be manipulated with an artifact handling tool.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] does not require UPD\n
+		%c[0,225,225,225] • %c[0,140,140,140] artifact storage device\n
+		%c[0,225,225,225] • %c[0,140,140,140] capacity: %c[0,170,170,170] 1\n
+		%c[0,225,225,225] • %c[0,140,140,140] state: %c[0,170,170,170] full\n \n
+		%c[0,204,0,51]WARNING:\n \n
+		%c[default]You have to remove artifacts from the container prior to selling them.</text>
+	</string>
+	
+	<string id="st_crowbar">
+		<text>Crowbar (reusable)</text>
+	</string>
+	<string id="st_crowbar_descr">
+		<text>The best tool for opening locks and unhinging doors. A common find in industrial areas. Some stalkers for reasons unknown keep it in their inventories in spite of its heavy weight. Low value. There was a famous Stalker who carried around a unique crowbar with the inscription saying "Property of Black Mesa". It is sought after to such an extent that some stalkers are searching for it as if they were looking for rare and valuable artifacts.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+3%)\n
+		%c[255,238,153,26] • %c[0,140,140,140] unlimited usages</text>
+	</string>
+	
+	<string id="st_swiss">
+		<text>Swiss knife</text>
+	</string>
+	<string id="st_swiss_descr">
+		<text>Want to open cans of food, keep your mechanical gear tight, cut ropes or sharpen your best bullets? Use the universal and elegant Swiss knife. Packed in a small box. Commonly found in the Zone, so it is of little value. However, it can be utilized as a supportive material in both weapon and outfit repairs.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+2%)\n
+		%c[255,238,153,26] • %c[0,140,140,140] disassembling tool</text>
+	</string>
+	
+	<string id="st_grooming">
+		<text>Grooming kit</text>
+	</string>
+	<string id="st_grooming_descr">
+		<text>Grooming kit that packs a ballistic nylon travel case with a beard and moustache comb and detail facial scissors, featuring man-sized finger rings, ultra-sharp cutting blades of stainless steel, non-slip rubberized grip, and a precision trimming tip.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+2%)\n
+		%c[255,238,153,26] • %c[0,140,140,140] disassembling tool</text>
+	</string>
+	
+	<string id="st_cash_name">
+		<text>Wallet</text>
+	</string>
+	<string id="st_cash_descr">
+		<text>A worn leather wallet for banknotes.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[0,100,100,255] • %c[0,140,140,140] storage for currency</text>
+	</string>
+	
+	<string id="st_roubles_5000_name">
+		<text>5000 rubles</text>
+	</string>
+	<string id="st_roubles_5000_descr">
+		<text>Trade in the Zone is conducted mainly by means of electronic transactions for safety and managing risks. But many stalkers keep at least a few banknotes in their pockets in case they want to buy smaller things like cigarettes. This makes life easier and conserves battery life.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[0,100,100,255] • %c[0,140,140,140] cash\n
+		%c[0,100,100,255] • %c[0,140,140,140] universally recognized currency unit</text>
+	</string>
+	
+	<string id="st_roubles_1000_name">
+		<text>1000 rubles</text>
+	</string>
+	<string id="st_roubles_1000_descr">
+		<text>Trade in the Zone is conducted mainly by means of electronic transactions for safety and managing risks. But many stalkers keep at least a few banknotes in their pockets in case they want to buy smaller things like cigarettes. This makes life easier and conserves battery life.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[0,100,100,255] • %c[0,140,140,140] cash\n
+		%c[0,100,100,255] • %c[0,140,140,140] universally recognized currency unit</text>
+	</string>
+	
+	<string id="st_roubles_500_name">
+		<text>500 rubles</text>
+	</string>
+	<string id="st_roubles_500_descr">
+		<text>Trade in the Zone is conducted mainly by means of electronic transactions for safety and managing risks. But many stalkers keep at least a few banknotes in their pockets in case they want to buy smaller things like cigarettes. This makes life easier and conserves battery life.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[0,100,100,255] • %c[0,140,140,140] cash\n
+		%c[0,100,100,255] • %c[0,140,140,140] universally recognized currency unit</text>
+	</string>
+	
+	<string id="st_roubles_100_name">
+		<text>100 rubles</text>
+	</string>
+	<string id="st_roubles_100_descr">
+		<text>Trade in the Zone is conducted mainly by means of electronic transactions for safety and managing risks. But many stalkers keep at least a few banknotes in their pockets in case they want to buy smaller things like cigarettes. This makes life easier and conserves battery life.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[0,100,100,255] • %c[0,140,140,140] cash\n
+		%c[0,100,100,255] • %c[0,140,140,140] universally recognized currency unit</text>
+	</string>
+	
+	<string id="st_roubles_50_name">
+		<text>50 rubles</text>
+	</string>
+	<string id="st_roubles_50_descr">
+		<text>Trade in the Zone is conducted mainly by means of electronic transactions for safety and managing risks. But many stalkers keep at least a few banknotes in their pockets in case they want to buy smaller things like cigarettes. This makes life easier and conserves battery life.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[0,100,100,255] • %c[0,140,140,140] cash\n
+		%c[0,100,100,255] • %c[0,140,140,140] universally recognized currency unit</text>
+	</string>
+	
+	<string id="st_roubles_10_name">
+		<text>10 rubles</text>
+	</string>
+	<string id="st_roubles_10_descr">
+		<text>Trade in the Zone is conducted mainly by means of electronic transactions for safety and managing risks. But many stalkers keep at least a few banknotes in their pockets in case they want to buy smaller things like cigarettes. This makes life easier and conserves battery life.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[0,100,100,255] • %c[0,140,140,140] cash\n
+		%c[0,100,100,255] • %c[0,140,140,140] universally recognized currency unit</text>
+	</string>
+	
+	<string id="st_drugs_kit">
+		<text>Small drug kit</text>
+	</string>
+	<string id="st_drugs_kit_descr">
+		<text>Small cases and various metal objects constitute a kit for managing and producing drugs. Some plastic bags contain pills and herbs.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		%c[0,204,0,51] • %c[0,140,140,140] unusable</text>
+	</string>
+	
+	<string id="st_itm_sleepbag_name">
+		<text>Sleeping bag</text>
+	</string>
+	<string id="st_itm_sleepbag_descr">
+		<text>A light sleeping bag that will keep you warm and dry when you need to rest. Be sure to pick a safe spot with a possible escape route. The bag is automatically picked up after sleeping or if hit "cancel" button.\n \n
+		%c[0,153,255,255]WARNING:\n \n
+		%c[0,170,170,170]Sleeping in the open may attract predators. Does not protect from radiation.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] sets up portable bed\n
+		%c[0,100,100,255] • %c[0,140,140,140] infinite usages\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item</text>
+	</string>
+	
+	<string id="st_compression_bag">
+		<text>Compression bag</text>
+	</string>
+	<string id="st_compression_bag_descr">
+		<text>Holds a small sleeping bag or a small number of clothes\n \n
+		%c[0,140,140,140] PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] use near unrolled sleeping bag to pack it up\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item</text>
+	</string>
+	
+	<string id="st_itm_tent_bag">
+		<text>Empty bag for camping tent</text>
+	</string>
+	<string id="st_itm_tent_bag_descr">
+		<text>A bag, intended for the storage and transportation of a camping tent. Disassembly and packing takes some time.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[255,238,153,26] • %c[0,140,140,140] used for packing a tent\n
+		%c[0,100,100,255] • %c[0,140,140,140] unlimited usages</text>
+	</string>
+
+	
+	<string id="st_itm_tent_name">
+		<text>Bag with a camping tent</text>
+	</string>
+	<string id="st_itm_tent_descr">
+		<text>A bag containing a tent for camping, sheltering from rain and wind. Assembly and installation takes some time. In the Zone, it is best deployed in a place with escape routes in case of danger.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[255,238,153,26] • %c[0,140,140,140] used for deploying tent\n
+		%c[0,100,100,255] • %c[0,140,140,140] unlimited usages</text>
+	</string>
+	
+	<string id="st_kit_hunt">
+		<text>Hunter's kit</text>
+	</string>
+	<string id="st_kit_hunt_descr">
+		<text>A whole bag full of hooks, knives and other equipment used for skinning and gutting animals and mutants. Few stalkers carry professional equipment for mutant hunting. That is probably the reason why so many Zoners suffer from indigestion after eating mutant meat. Thanks to the variety of tools, the kit can effectively improve weapon and armor maintenance.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[255,238,153,26] • %c[0,140,140,140] possession increases number of body parts obtained from mutants</text>
+	</string>
+	
+	<string id="st_itm_actor_backpack_name">
+		<text>Quick Release System</text>
+	</string>
+	<string id="st_itm_actor_backpack_descr">
+		<text>Being caught by surprise in the Zone is one of the worst things that can happen to you. Although the QR-system does not help you prevent such situations, it certainly helps with getting out of danger. Its function is simple: it almost immediately removes the straps from your backpack and lets you escape to a safe place without the heavy backpack hampering your movement. To use it, set it as a hotkey item. Push the hotkey to activate the emergency release that instantly drops your backpack (and everything inside it) to the ground. Your equipped weapon(s), ammunition, armor and armor attachments as well as UPD remain in your possession, so you are ready to fight. You can retrieve your backpack afterwards.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] military item\n
+		%c[0,100,100,255] • %c[0,140,140,140] build in GPS\n
+		%c[0,100,100,255] • %c[0,140,140,140] very fast usage (release clamp)\n
+		%c[0,100,100,255] • %c[0,140,140,140] combat gear remains with user</text>
+	</string>
+	
+	<string id="st_itm_backpack_stash_name">
+		<text>PDA marked backpack</text>
+	</string>
+	<string id="st_itm_backpack_stash_desc">
+		<text>An extremely durable backpack with implemented GPS devices. Automatically synchronized with your PDA once dropped to generate a stash that is marked on your PDA. The backpack is made of strong and durable materials that will keep your equipment safe and dry regardless of environmental conditions. The camouflaged design assures that it doesn't stand out from the surroundings.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] military item\n
+		%c[0,100,100,255] • %c[0,140,140,140] built-in GPS\n
+		%c[0,204,0,51] • %c[0,140,140,140] single usage</text>
+	</string>
+	
+	<string id="st_lighter">
+		<text>Lighter</text>
+	</string>
+	<string id="st_lighter_descr">
+		<text>A reliable, water-proof source of fire in the Zone is essential not only for cooking meals, but also for lighting a smoke or something stronger before - knock on wood - a fight with a controller. This durable and robust metal gas lighter is a perfect choice in light of the Zone's toxic and harmful environment.\n \n
+		%c[0,200,200,200]PROPERTIES: \n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] cooking, smoking</text>
+	</string>
+	
+	<string id="st_lighter_refillers_descr">
+		<text>There is almost no point in carrying a lighter if you can't use it to light anything. Experienced stalkers always remember to fill their lighters with fuel before departing on longer excursions deep into the Zone. Commonly available "Carcinoleum" lighter fuel is relatively cheap and serves the purpose sufficiently well.\n \n
+		%c[0,200,200,200]PROPERTIES:\n 
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] fueling lighters (+100%)</text>
+	</string>
+	
+	<string id="st_lighter_refiller5">
+		<text>Lighter fuel (133 ml left)</text>
+	</string>
+	<string id="st_lighter_refiller4">
+		<text>Lighter fuel (107 ml left)</text>
+	</string>
+	<string id="st_lighter_refiller3">
+		<text>Lighter fuel (80 ml left)</text>
+	</string>
+	<string id="st_lighter_refiller2">
+		<text>Lighter fuel (54 ml left)</text>
+	</string>
+	<string id="st_lighter_refiller1">
+		<text>Lighter fuel (27 ml left)</text>
+	</string>
+	
+	<string id="st_itm_mapkit">
+		<text>Anomaly Map</text>
+	</string>
+	<string id="st_itm_mapkit_descr">
+		<text>It seems that some artefact hunter has marked the location of important anomalous fields in specific part of the Zone.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,51,255,102] • %c[0,140,140,140] informative\n
+		%c[0,153,255,255] • %c[0,140,140,140] personal belongings\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit maintenance (+3%)</text>
+	</string>
+	<string id="st_itm_mapkit_1">
+		<text>Anomaly map (Army Warehouses)</text>
+	</string>
+	<string id="st_itm_mapkit_2">
+		<text>Anomaly map (Yantar)</text>
+	</string>
+	<string id="st_itm_mapkit_3">
+		<text>Anomaly map (Red Forest)</text>
+	</string>
+	<string id="st_itm_mapkit_4">
+		<text>Anomaly map (Dead City)</text>
+	</string>
+	<string id="st_itm_mapkit_5">
+		<text>Anomaly map (Truck Cemetery)</text>
+	</string>
+	<string id="st_itm_mapkit_6">
+		<text>Anomaly map (Jupiter)</text>
+	</string>
+	<string id="st_itm_mapkit_7">
+		<text>Anomaly map (Zaton)</text>
+	</string>
+	<string id="st_itm_mapkit_8">
+		<text>Anomaly map (Garbage)</text>
+	</string>
+	<string id="st_itm_mapkit_9">
+		<text>Anomaly map (Agroprom)</text>
+	</string>
+	
+</string_table>

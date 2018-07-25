@@ -1,0 +1,25 @@
+<w>
+	<!-- Maps -->
+	<file name="ui\items\ui_map_main">
+		<texture id="ui_itm_map_frame" x="0" y="0" width="965" height="635"/>
+	</file>
+	<file name="ui\items\ui_map_1">
+		<texture id="ui_itm_map_yan" x="0" y="0" width="711" height="504"/>
+		<texture id="ui_itm_map_agr" x="0" y="504" width="711" height="504"/>
+	</file>
+	<file name="ui\items\ui_map_2">
+		<texture id="ui_itm_map_gar" x="0" y="0" width="711" height="504"/>
+		<texture id="ui_itm_map_jup" x="0" y="504" width="711" height="504"/>
+	</file>
+	<file name="ui\items\ui_map_3">
+		<texture id="ui_itm_map_zat" x="0" y="0" width="711" height="504"/>
+		<texture id="ui_itm_map_mil" x="0" y="504" width="711" height="504"/>
+	</file>
+	<file name="ui\items\ui_map_4">
+		<texture id="ui_itm_map_trc" x="0" y="0" width="711" height="504"/>
+		<texture id="ui_itm_map_dc" x="0" y="504" width="711" height="504"/>
+	</file>
+	<file name="ui\items\ui_map_5">
+		<texture id="ui_itm_map_red" x="0" y="0" width="711" height="504"/>
+	</file>
+</w>

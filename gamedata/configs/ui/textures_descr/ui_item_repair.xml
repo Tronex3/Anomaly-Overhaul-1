@@ -1,0 +1,9 @@
+<w>
+	<!-- Repair -->
+	<file name="ui\items\ui_repair">
+		<texture id="ui_itm_repair" x="0" y="0" width="681" height="451"/>
+		<texture id="ui_itm_repair_box_b1" x="756" y="8" width="245" height="155"/>
+		<texture id="ui_itm_repair_box_b2" x="756" y="181" width="245" height="155"/>
+		<texture id="ui_itm_repair_box_s1" x="767" y="352" width="223" height="125"/>
+	</file>
+</w>

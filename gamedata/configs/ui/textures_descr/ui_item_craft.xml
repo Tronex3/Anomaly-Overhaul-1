@@ -1,0 +1,24 @@
+<w>
+	<!-- Craft -->
+	<file name="ui\items\ui_craft_tools_basic">
+		<texture id="ui_itm_repairkit_tier_1" x="0" y="0" width="737" height="578" />
+	</file>
+	
+	<file name="ui\items\ui_craft_tools_advanced">
+		<texture id="ui_itm_repairkit_tier_2" x="0" y="0" width="737" height="578" />
+		<texture id="ui_craft_lines_2i" x="0" y="720" width="536" height="304" />
+	</file>
+	
+	<file name="ui\items\ui_craft_tools_expert">
+		<texture id="ui_itm_repairkit_tier_3" x="0" y="0" width="737" height="578" />
+		<texture id="ui_craft_lines_3i" x="0" y="720" width="536" height="304" />
+	</file>
+	
+	<file name="ui\items\ui_craft_kit_ammo">
+		<texture id="ui_itm_ammokit" x="0" y="0" width="737" height="578" />
+	</file>
+	
+	<file name="ui\items\ui_craft_kit_drug">
+		<texture id="ui_itm_drugkit" x="0" y="0" width="737" height="578" />
+	</file>
+</w>

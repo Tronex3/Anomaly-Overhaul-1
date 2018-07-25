@@ -1,0 +1,1109 @@
+<?xml version="1.0" encoding="windows-1251"?>
+
+<!--
+	Upgrading Parts
+-->
+
+<string_table>
+
+	<string id="st_broneplastina_seva">
+		<text>Armored SEVA plates (upgrade)</text>
+	</string>
+	<string id="st_broneplastina_seva_descr">
+		<text>An armored plate for improving the properties of a SEVA suit.
+		</text>
+	</string>
+	
+	<string id="upgr_1_01_name">
+		<text>Steel plates</text>
+	</string>
+	<string id="upgr_1_01_description">
+		<text>A set of steel plates of various lengths, widths, thicknesses and shapes. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] steel item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of light armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_01_name">
+		<text>Thickened frames</text>
+	</string>
+	<string id="upgr_2_01_description">
+		<text>A set of various frames and devices for improving the properties of protective suits. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] metallic and plastic items\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of light armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_01_name">
+		<text>Chain shirt</text>
+	</string>
+	<string id="upgr_3_01_description">
+		<text>Homemade chain shirt, made of small steel rings. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] steel item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of light armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_02_name">
+		<text>Rubberized insert</text>
+	</string>
+	<string id="upgr_1_02_description">
+		<text>A durable roll of rubberized industrial fabric. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] rubber item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of light armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_02_name">
+		<text>Tarpaulin</text>
+	</string>
+	<string id="upgr_2_02_description">
+		<text>A large piece of durable industrial canvas cloth. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] fabric\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of light armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_03_name">
+		<text>Fireproof fabric</text>
+	</string>
+	<string id="upgr_2_03_description">
+		<text>A roll of fire-resistant fabric, capable of withstanding high temperatures for a short period of time. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] fabric\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of light armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_03_name">
+		<text>Distributive vest</text>
+	</string>
+	<string id="upgr_1_03_description">
+		<text>A vest with extra lining, fitted with several capacious pockets. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] fabric\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of light armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_04_name">
+		<text>Polycarbonate plates</text>
+	</string>
+	<string id="upgr_1_04_description">
+		<text>A set of polycarbonate plates of varying length, width, thickness and shape. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] polycarbonate\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of light and medium armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_04_name">
+		<text>Second layer of armor</text>
+	</string>
+	<string id="upgr_2_04_description">
+		<text>A specially lined layer of armor with extra protective elements, intended for usage with armored suits. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] polycarbonate\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of light and medium armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_02_name">
+		<text>Ceramic plates</text>
+	</string>
+	<string id="upgr_3_02_description">
+		<text>A set of ceramic plates of varying length, width, thickness and shape. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] ceramic\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of light and medium armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_05_name">
+		<text>Lightweight polymeric materials</text>
+	</string>
+	<string id="upgr_1_05_description">
+		<text>A set of lightweight polymeric materials of varying length, width, thickness and shape, as well as various properties. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] polymers and related items\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of light and medium armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_05_name">
+		<text>Magnesium inserts</text>
+	</string>
+	<string id="upgr_2_05_description">
+		<text>A set of fireproof materials containing magnesium elements of varying length, width, thickness and shape. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] contains magnesium\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of light and medium armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_06_name">
+		<text>Plastic inserts</text>
+	</string>
+	<string id="upgr_2_06_description">
+		<text>A set of plastic elements of varying length, width, thickness and shape. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] plastic items\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of light and medium armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_03_name">
+		<text>Materials for treatment of fabric</text>
+	</string>
+	<string id="upgr_3_03_description">
+		<text>Chemical compound for the treatment of textile products, which can improve the protective performance of suits of armor against chemical effects. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] chemicals\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of light and medium armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_04_name">
+		<text>Rubberized fabric</text>
+	</string>
+	<string id="upgr_3_04_description">
+		<text>A roll of durable rubberized fabric. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] fabric\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of light and medium armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_06_name">
+		<text>Gas cylinder</text>
+	</string>
+	<string id="upgr_1_06_description">
+		<text>A gas balloon filled with oxygen. It is intended for breathing in chemically poisonous environments, as well as in places with a strong air discharge, such as mountains.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] special item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of light and medium armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_07_name">
+		<text>Integrated human care system</text>
+	</string>
+	<string id="upgr_2_07_description">
+		<text>A complex medical device designed for automatic administration of medicines into the human body.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] complex medical product\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of light and medium armor\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_08_name">
+		<text>Fastening system for load distribution</text>
+	</string>
+	<string id="upgr_2_08_description">
+		<text>A set of various fasteners for load distribution. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technical item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_05_name">
+		<text>Fastening for attachments (reinforced)</text>
+	</string>
+	<string id="upgr_3_05_description">
+		<text>A suit belt attachment to increase the number of simultaneously usable modules and artifact containers.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technical item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_07_name">
+		<text>Reinforced servo drives (prototype, v1)</text>
+	</string>
+	<string id="upgr_1_07_description">
+		<text>Enhanced prototypical servo drives for first and second generation exoskeletons, allowing the user to sprint.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technical item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_06_name">
+		<text>Sovereign compound</text>
+	</string>
+	<string id="upgr_3_06_description">
+		<text>Special reinforcement for fabric, designed to increase strength and durability.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] chemical item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_09_name">
+		<text>Fastening for attachments (regular)</text>
+	</string>
+	<string id="upgr_2_09_description">
+		<text>A suit belt attachment to increase the number of simultaneously usable modules and artifact containers.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technical item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_08_name">
+		<text>Kevlar plates</text>
+	</string>
+	<string id="upgr_1_08_description">
+		<text>A set of kevlar plates of varying length, width, thickness and shape. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] kevlar\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of light and medium armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_10_name">
+		<text>Second layer of armor</text>
+	</string>
+	<string id="upgr_2_10_description">
+		<text>A specially lined layer of armor with extra protective elements, intended for usage with armored suits. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] armored plats\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of light and medium armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_09_name">
+		<text>Damping inserts</text>
+	</string>
+	<string id="upgr_1_09_description">
+		<text>Specially lined rubber inserts for bulletproof vests. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] rubber item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of light and medium armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_11_name">
+		<text>Rubber suit</text>
+	</string>
+	<string id="upgr_2_11_description">
+		<text>A special radio- and chemical-repellent rubber suit lining, designed for installation in armored suits to improve their protective properties. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] rubber item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of light and medium armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_07_name">
+		<text>Protective frame</text>
+	</string>
+	<string id="upgr_3_07_description">
+		<text>A frame matching the contours of an armored vest, designed to improve the protective properties of armored suits.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] polymeric materials\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_08_name">
+		<text>Varyag life support system</text>
+	</string>
+	<string id="upgr_3_08_description">
+		<text>A complex medical device designed for automatic administration of medicines into the human body.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] polymeric materials\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_09_name">
+		<text>Polymer bismuth inserts</text>
+	</string>
+	<string id="upgr_3_09_description">
+		<text>Polymeric protective materials created with bismuth, featuring increased resistance to chemical and thermal effects.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] polymeric materials\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_10_name">
+		<text>Lead mesh</text>
+	</string>
+	<string id="upgr_3_10_description">
+		<text>Regular lead mesh with a shallow cell.   \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] lead\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_10_name">
+		<text>Compensating armor layer</text>
+	</string>
+	<string id="upgr_1_10_description">
+		<text>Specially crafted armored plates, slightly increasing bullet resistance.   \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] metallic item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_12_name">
+		<text>Aluminium frame</text>
+	</string>
+	<string id="upgr_2_12_description">
+		<text>A universal aluminum frame for insertion into medium armor. Replaces any similar steel or titanium frame, reducing the the weight of the armor. However, the aluminum frame has less strength.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] aluminium item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_11_name">
+		<text>Titanium and beryl matrices</text>
+	</string>
+	<string id="upgr_3_11_description">
+		<text>A set of titanium and beryl matrices connected to a solid, high-quality armored plate. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] reinforced armor plate\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_11_name">
+		<text>Polymer inserts</text>
+	</string>
+	<string id="upgr_1_11_description">
+		<text>Special polymeric inserts for embedding in light and medium armored suits in place of fabric. Increase the endurance and lifespan of an armored suit.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] polymeric materials\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_13_name">
+		<text>Constantan thermal insulation</text>
+	</string>
+	<string id="upgr_2_13_description">
+		<text>Special constantan thermal insulation layer. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] constantan\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_12_name">
+		<text>SBK protective suit</text>
+	</string>
+	<string id="upgr_3_12_description">
+		<text>A special supportive suit for protection against chemical and radioactive effects. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] rubber item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_12_name">
+		<text>Doctor wound healing system</text>
+	</string>
+	<string id="upgr_1_12_description">
+		<text>A medical device designed for continuous administration of medicines in the field.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] medical device\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_13_name">
+		<text>Carbon fiber</text>
+	</string>
+	<string id="upgr_3_13_description">
+		<text>Light protective armor plates made of carbon fiber, featuring high viscosity and excellent stopping action. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] polymeric materials\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_14_name">
+		<text>Plexiglas</text>
+	</string>
+	<string id="upgr_2_14_description">
+		<text>A set of plexiglas plates of various lengths, widths, thicknesses and shapes \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] polymeric materials\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_15_name">
+		<text>Flexible plastic inserts</text>
+	</string>
+	<string id="upgr_2_15_description">
+		<text>A set of elastic plastic elements of varying length, width, thickness and shape. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] polymeric materials\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_14_name">
+		<text>Refractory nickel inserts</text>
+	</string>
+	<string id="upgr_3_14_description">
+		<text>Light flame-resistant inserts made out of nickel. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] никель\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_13_name">
+		<text>Complex Marathoner</text>
+	</string>
+	<string id="upgr_1_13_description">
+		<text>A medical device designed for continuous administration of medicines in the field.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] medical device\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_16_name">
+		<text>Skat anti-electric protection system</text>
+	</string>
+	<string id="upgr_2_16_description">
+		<text>A special device that reads currents and increases protection against electric shock. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] scientific item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_14_name">
+		<text>Hemostimulator</text>
+	</string>
+	<string id="upgr_1_14_description">
+		<text>A medical device designed for continuous administration of medicines in the field.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] medical device\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_17_name">
+		<text>Solar biostimulator</text>
+	</string>
+	<string id="upgr_2_17_description">
+		<text>A medical device featuring a stand-alone power supply for continuous administration of drugs in the field.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] medical device\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_15_name">
+		<text>Neurowave emitter</text>
+	</string>
+	<string id="upgr_3_15_description">
+		<text>A portable research device for studying the effect of psy-waves on living organisms. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] scientific item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_15_name">
+		<text>Aluminium-titanium alloy</text>
+	</string>
+	<string id="upgr_1_15_description">
+		<text>Durable armor plates of titanium and aluminum alloy.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] metal alloy\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_16_name">
+		<text>Artifact locator</text>
+	</string>
+	<string id="upgr_1_16_description">
+		<text>A portable scientific device for measuring the three-dimensional position of artifacts. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] scientific item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_16_name">
+		<text>Insulating magnesium inserts</text>
+	</string>
+	<string id="upgr_3_16_description">
+		<text>A set of protective magnesium inserts, designed to reduce the impact of electrical charges on armor. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] magnesium product\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_17_name">
+		<text>Carbon fiber</text>
+	</string>
+	<string id="upgr_1_17_description">
+		<text>Special lightweight inserts made of carbon fiber. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] polymeric materials\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_18_name">
+		<text>Segmented protection</text>
+	</string>
+	<string id="upgr_2_18_description">
+		<text>A set of protective armored plates able to connect with each other, forming larger armored plates.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] polymeric materials\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_19_name">
+		<text>Titanium and aluminum plates</text>
+	</string>
+	<string id="upgr_2_19_description">
+		<text>A set of protective armored plates, made of titanium and aluminum.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] metallic item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_17_name">
+		<text>Sapphire crystals</text>
+	</string>
+	<string id="upgr_3_17_description">
+		<text>Synthetic crystals made of sapphire. Very strong. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] magnesium product\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_20_name">
+		<text>Constantan isolation</text>
+	</string>
+	<string id="upgr_2_20_description">
+		<text>A set of plates made out of constantan, increasing protection against electrical effects. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] polymeric materials\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_21_name">
+		<text>Fiberglass thermal insulation</text>
+	</string>
+	<string id="upgr_2_21_description">
+		<text>A set of plates made out of fiberglass, increasing protection against thermal effects. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] polymeric materials\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_22_name">
+		<text>Poison filtration system</text>
+	</string>
+	<string id="upgr_2_22_description">
+		<text>Portable medical device for filtering poisons from the human body in the field. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] medical device\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_18_name">
+		<text>Rage injector</text>
+	</string>
+	<string id="upgr_1_18_description">
+		<text>A portable medical device for intravenous injections in the field. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] medical device\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_23_name">
+		<text>Rage injector</text>
+	</string>
+	<string id="upgr_2_23_description">
+		<text>A portable medical device for intravenous injections in the field. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] medical device\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_18_name">
+		<text>Phoenix recovery system</text>
+	</string>
+	<string id="upgr_3_18_description">
+		<text>A portable medical device for intravenous injections in the field. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] medical device\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_24_name">
+		<text>Lead inserts</text>
+	</string>
+	<string id="upgr_2_24_description">
+		<text>Very heavy plates of lead. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] lead item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_25_name">
+		<text>Second Skin vest</text>
+	</string>
+	<string id="upgr_2_25_description">
+		<text>Armored lining for vests, providing additional protection from bullets. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] lining\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_26_name">
+		<text>Spare armor layer</text>
+	</string>
+	<string id="upgr_2_26_description">
+		<text>Kevlar armor plates, installed as additional or reserve armor for medium and heavy armored suits. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] armor plates\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_19_name">
+		<text>Reinforced ceramic plates</text>
+	</string>
+	<string id="upgr_3_19_description">
+		<text>Thickened and reinforced ceramic plates for insertion into armored suits. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] ceramic item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_20_name">
+		<text>Plastic and synthetic parts</text>
+	</string>
+	<string id="upgr_3_20_description">
+		<text>Synthetic and plastic parts from various armored suits, designed to reduce the weight of armor and increase mobility and endurance. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] polymeric materials\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_19_name">
+		<text>Synthetic layer (cloth)</text>
+	</string>
+	<string id="upgr_1_19_description">
+		<text>Strong synthetic fabric for sewing into outfits and armor suits. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] polymeric materials\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_27_name">
+		<text>Carcass weight distribution device</text>
+	</string>
+	<string id="upgr_2_27_description">
+		<text>A device for insertion in armored suits, increasing of carrying capacity. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technical item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_20_name">
+		<text>Dust protection system</text>
+	</string>
+	<string id="upgr_1_20_description">
+		<text>Built-in dust protection system with replaceable filters. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technical item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_28_name">
+		<text>Oracle psy-stimulator</text>
+	</string>
+	<string id="upgr_2_28_description">
+		<text>A scientific item that slightly reduces exposure to psy-effects. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] scientific item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_21_name">
+		<text>Light life support system</text>
+	</string>
+	<string id="upgr_3_21_description">
+		<text>Portable life support system for stabilizing critical states. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] medical device\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_21_name">
+		<text>Active filters</text>
+	</string>
+	<string id="upgr_1_21_description">
+		<text>Built-in active filter system. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technical item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_29_name">
+		<text>Protective coating</text>
+	</string>
+	<string id="upgr_2_29_description">
+		<text>Screening cover for helmets and armored suits, slightly reducing the effects of psy-influences. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] special item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_30_name">
+		<text>1PN93-1 analogue night vision goggles</text>
+	</string>
+	<string id="upgr_2_30_description">
+		<text>A military night vision device for performing missions in darkness. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] military item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_22_name">
+		<text>Protective dome</text>
+	</string>
+	<string id="upgr_3_22_description">
+		<text>Special lining for helmets, reducing the effects of psy-influences.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] scientific item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_23_name">
+		<text>Ion Wind cooling system</text>
+	</string>
+	<string id="upgr_3_23_description">
+		<text>A cooling system for use in medium and heavy armor suits, increasing endurance. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] scientific equipment\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_31_name">
+		<text>PN21KL night vision goggles</text>
+	</string>
+	<string id="upgr_2_31_description">
+		<text>Digital military night vision for performing missions in darkness. It produces a gray color. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] military item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_32_name">
+		<text>PN2KL digital night vision goggles</text>
+	</string>
+	<string id="upgr_2_32_description">
+		<text>Digital military night vision for performing missions in darkness. It produces a violet color. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] military item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_22_name">
+		<text>Respiratory mask cleaning system</text>
+	</string>
+	<string id="upgr_1_22_description">
+		<text>An integrated cleaning system for gas masks and helmets. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technical item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of headgear\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_33_name">
+		<text>Coal filter</text>
+	</string>
+	<string id="upgr_2_33_description">
+		<text>A supplementary replaceable charcoal filter. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technical item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of headgear\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_24_name">
+		<text>Protective antenna</text>
+	</string>
+	<string id="upgr_3_24_description">
+		<text>A protective antenna, designed for installation in gas masks and helmets. Offers slight protection against psy-influences.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] scientific equipment\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_23_name">
+		<text>Respirator for two filters</text>
+	</string>
+	<string id="upgr_1_23_description">
+		<text>A respirator for two filters, replacing other single-filter respirators. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technical item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of headgear\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_24_name">
+		<text>Harmful particle filter</text>
+	</string>
+	<string id="upgr_1_24_description">
+		<text>A protective filter, preventing the entry of harmful particles into the body through respiratory systems. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technical item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of headgear\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_34_name">
+		<text>Poison filter</text>
+	</string>
+	<string id="upgr_2_34_description">
+		<text>A protective filter, preventing the entry of various poisons and chemicals into the body through respiratory systems. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technical item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of headgear\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_35_name">
+		<text>Constantan mask</text>
+	</string>
+	<string id="upgr_2_35_description">
+		<text>A protective mask made of constantan, increasing resistance to chemical and thermal effects. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] constantan item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of headgear\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_25_name">
+		<text>Enhanced poison filter</text>
+	</string>
+	<string id="upgr_1_25_description">
+		<text>A filter with a supplementary protective coating, preventing the entry of various poisons and chemicals into the body through respiratory systems. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technical item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of headgear\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_36_name">
+		<text>SPB-VPZ.m.IV device</text>
+	</string>
+	<string id="upgr_2_36_description">
+		<text>A modern protection system, increasing protection against psy-influences. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] scientific equipment\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of headgear\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_26_name">
+		<text>Reinforced titanium parts</text>
+	</string>
+	<string id="upgr_1_26_description">
+		<text>Strengthened exoskeleton parts made of titanium and its alloys. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] titanium item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_37_name">
+		<text>Mobile plates</text>
+	</string>
+	<string id="upgr_2_37_description">
+		<text>Supplementary protective steel plates for insertion into exoskeletons and heavy armor suits. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] steel item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_38_name">
+		<text>Segmented protection</text>
+	</string>
+	<string id="upgr_2_38_description">
+		<text>A set of thin armor plates of various length, width and shape for insertion into exoskeletons and heavy armored suits. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] steel item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_25_name">
+		<text>Titanium armor</text>
+	</string>
+	<string id="upgr_3_25_description">
+		<text>Reinforced titanium armor plates of various lengths, widths and shapes for insertion into exoskeletons and heavy armored suits.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] titanium item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_26_name">
+		<text>Multilayered protection</text>
+	</string>
+	<string id="upgr_3_26_description">
+		<text>Multilayered polymer-ceramic armored plates of various lengths, widths and shapes for insertion into exoskeletons and heavy armored suits.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] ceramic item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_27_name">
+		<text>Silicone shock absorbers</text>
+	</string>
+	<string id="upgr_1_27_description">
+		<text>	Reinforced silicone dampers, designed to replace similar ones from rubber. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] polymeric materials\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_27_name">
+		<text>Polymer suit with bismuth inserts</text>
+	</string>
+	<string id="upgr_3_27_description">
+		<text>A protective suit-lining made of polymer materials, featuring volumes of bismuth.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] polymeric materials\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_28_name">
+		<text>Aluminum inserts</text>
+	</string>
+	<string id="upgr_3_28_description">
+		<text>Aluminum version of a few plastic parts, designed for exoskeletons and heavy armored suits.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] aluminium item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_1_28_name">
+		<text>Integrated temperature control system</text>
+	</string>
+	<string id="upgr_1_28_description">
+		<text>An integrated temperature control system for installation in exoskeleton- and heavy armored suit life support systems. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] medical device\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_2_39_name">
+		<text>Motor protection system</text>
+	</string>
+	<string id="upgr_2_39_description">
+		<text>A set of protective armored plates of various lengths, widths and shapes for insertion into moving elements of exoskeletons and heavy armored suits. \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] steel item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_29_name">
+		<text>Walker motor system</text>
+	</string>
+	<string id="upgr_3_29_description">
+		<text>A system with additional springs and moving parts for exoskeletons and heavy armored suits.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] steel item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of heavy armor\n
+		</text>
+	</string>
+	
+	<string id="upgr_3_30_name">
+		<text>Hydraulic servo drive amplification system</text>
+	</string>
+	<string id="upgr_3_30_description">
+		<text>
+		A hydraulic amplification system for servo drives for exoskeletons and heavy armored suits.  \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technical item\n
+		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of heavy armor\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		</text>
+	</string>
+	
+</string_table>

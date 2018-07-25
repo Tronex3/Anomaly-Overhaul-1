@@ -1,0 +1,522 @@
+-- ui_itm_cooking
+-- ponney68
+--[[
+Copyright (C) 2012 Alundaio
+This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License-]]
+--]]
+-------------------------------------------------------------------
+class "load_item" (CUIListBoxItem)
+function load_item:__init(height) super(height)
+	self.file_name		= "filename"
+
+	self:SetTextColor(GetARGB(255, 170, 170, 170))
+
+	self.fn = self:GetTextItem()
+	self.fn:SetFont(GetFontLetterica18Russian())
+	self.fn:SetEllipsis(true)
+end
+
+function load_item:__finalize()
+end
+
+-------------------------------------------------------------------
+class "cooking_ui" (CUIScriptWnd)
+
+function cooking_ui:__init(owner,section) super()
+	self.owner = owner
+	self.section = section
+
+	self.use_parts = rx_utils.read_from_ini2(nil,section,"cooking_use_parts","bool",false)
+	self.cooking_type = rx_utils.read_from_ini2(nil,section,"cooking_type","string","weapon")
+
+	self.cooking_only = rx_utils.parse_list2(nil,section,"cooking_only",true)
+	self.cooking_refuse = rx_utils.parse_list2(nil,section,"cooking_refuse",true)
+
+	self.parts_include = rx_utils.parse_list2(nil,section,"cooking_parts_include",true)
+	self.parts_exclude = rx_utils.parse_list2(nil,section,"cooking_parts_exclude",true)
+
+	self.use_actor_effects = rx_utils.read_from_ini2(nil,section,"cooking_use_actor_effects","bool",false)
+
+	self:InitControls()
+	self:InitCallBacks()
+end
+
+function cooking_ui:__finalize()
+end
+
+function cooking_ui:FillList()
+	self.list_box:RemoveAll()
+
+	local function fill_list(actor,obj)
+		if (obj) and (self.cooking_only and self.cooking_only[obj:section()]) or (self.cooking_refuse == nil) or (self.cooking_refuse[obj:section()] == nil) then
+			if (self.cooking_type == "fuel" and rx_utils.item_is_explosive(obj)) then
+
+					self:AddItemToList(obj,self.list_box)
+
+			end
+		end
+	end
+
+	db.actor:iterate_inventory(fill_list,db.actor)
+end
+
+function cooking_ui:FillPartsList()
+	self.list_box_parts:RemoveAll()
+
+	if self.list_box:GetSize()==0 then return end
+
+	local item = self.list_box:GetSelectedItem()
+	if not (item) then
+		return
+	end
+
+	local obj = level.object_by_id(item.item_id)
+	local function fill_list(actor,itm)
+		if (itm and itm:id() ~= item.item_id) then
+			if (self.parts_include and self.parts_include[itm:section()]) or (self.parts_exclude == nil and string.find(obj:section(),itm:section())) or (self.parts_exclude and self.parts_exclude[itm:section()] == nil and string.find(obj:section(),itm:section())) then
+				self:AddItemToList(itm,self.list_box_parts,rx_utils.read_from_ini2(nil,itm:section(),"float",nil))
+			end
+		end
+	end
+
+	db.actor:iterate_inventory(fill_list,db.actor)
+end
+
+function cooking_ui:InitControls()
+	self:SetWndRect			(Frect():set(0,0,1024,768))
+
+	self:SetWndPos			(vector2():set(240,120))
+	self:SetAutoDelete(true)
+	self.xml				= CScriptXmlInit()
+	local ctrl
+	self.xml:ParseFile			("ui_itm_main.xml")
+
+	ctrl					= CUIWindow()
+	self.xml:InitWindow			("itm_cooking:file_item:main",0,ctrl)
+
+	self.file_item_main_sz	= vector2():set(ctrl:GetWidth(),ctrl:GetHeight())
+
+	self.xml:InitWindow			("itm_cooking:file_item:fn",0,ctrl)
+	self.file_item_fn_sz	= vector2():set(ctrl:GetWidth(),ctrl:GetHeight())
+
+	self.xml:InitWindow			("itm_cooking:file_item:fd",0,ctrl)
+	self.file_item_fd_sz	= vector2():set(ctrl:GetWidth(),ctrl:GetHeight())
+
+	self.form				= self.xml:InitStatic("itm_cooking:form",self)
+	--self.form:SetWndPos(vector2():set(device().width/2-(self.form:GetWidth()+70), device().height/2 - self.form:GetHeight()))
+	self.form:SetWndPos(vector2():set(0, 0))
+
+	-- Background for forms
+	--self.xml:InitStatic("itm_cooking:form:list_background",self.form)
+
+	if (self.use_parts) then
+		--self.xml:InitStatic("itm_cooking:form:list_parts_background",self.form)
+	end
+
+	-- Item picture
+	self.picture			= self.xml:InitStatic("itm_cooking:form:icon",self.form)
+	self.picture_parts		= self.xml:InitStatic("itm_cooking:form:icon_parts",self.form)
+
+	-- cooking tool picture
+	self.pic = self.xml:InitStatic("itm_cooking:form:icon_tool",self.form)
+
+	local inv_grid_width = rx_utils.read_from_ini2(ini,self.section,"inv_grid_width","float",0)
+	local inv_grid_height = rx_utils.read_from_ini2(ini,self.section,"inv_grid_height","float",0)
+	local inv_grid_x = rx_utils.read_from_ini2(ini,self.section,"inv_grid_x","float",0)
+	local inv_grid_y = rx_utils.read_from_ini2(ini,self.section,"inv_grid_y","float",0)
+
+	local x1 = inv_grid_x*50
+	local y1 = inv_grid_y*50
+
+	local w = inv_grid_width*50
+	local h = inv_grid_height*50
+
+	local x2 = x1 + w
+	local y2 = y1 + h
+
+	local w,h = w,h
+	if (utils.is_widescreen()) then
+	w,h = w/1.5,h/1.2
+	else
+	w,h = w/1.3,h/1.3
+	end
+	self.pic:InitTexture("ui\\ui_icon_equipment")
+	self.pic:SetTextureRect(Frect():set(x1,y1,x2,y2))
+	self.pic:SetWndSize(vector2():set(w,h))
+
+	if not (self.pic.x) then
+		local pos = self.pic:GetWndPos()
+		local posform = self.form:GetWndPos()
+		self.pic.x = pos.x + posform.x
+		self.pic.y = pos.y + posform.y
+	end
+
+	self.pic:SetWndPos(vector2():set(self.pic.x-w/2, self.pic.y-h/2))
+
+	-- Caption
+	self.caption_parts 		= self.xml:InitTextWnd("itm_cooking:form:caption_parts",self.form)
+	self.caption_cooking		= self.xml:InitTextWnd("itm_cooking:form:caption_cooking",self.form)
+
+	-- List Box
+	self.xml:InitFrame			("itm_cooking:form:list_frame",self.form)
+
+	self.list_box			= self.xml:InitListBox("itm_cooking:form:list",self.form)
+
+	self.list_box:ShowSelectedItem	(true)
+	self:Register			(self.list_box, "list_window")
+
+	if (self.use_parts) then
+		-- Parts List Box
+		self.list_pos = self.list_box:GetWndPos()
+
+		self.list_box_parts			= self.xml:InitListBox("itm_cooking:form:list_parts",self.form)
+		--self.list_box_parts:SetWndPos(vector2():set(self.list_pos.x+self.list_box:GetWidth()+5, self.list_pos.y))
+
+		local frame = self.xml:InitFrame("itm_cooking:form:list_frame_parts",self.form)
+		--frame:SetWndPos(vector2():set(self.list_pos.x+self.list_box:GetWidth()+5, self.list_pos.y))
+
+		self.list_box_parts:ShowSelectedItem(true)
+		self:Register(self.list_box_parts, "list_window_parts")
+	else
+		--self.form:SetWndSize(vector2():set(self.list_box:GetWidth()+35, self.form:GetHeight()))
+	end
+	-- Button cooking
+	ctrl					= self.xml:Init3tButton("itm_cooking:form:btn_cooking",	self.form)
+	self:Register			(ctrl, "button_cooking")
+
+	-- Button Cancel
+	ctrl = self.xml:Init3tButton	("itm_cooking:form:btn_cancel",	self.form)
+	self:Register			(ctrl, "button_back")
+end
+
+function cooking_ui:InitCallBacks()
+	self:AddCallback("button_cooking",		ui_events.BUTTON_CLICKED,         self.OnButton_cooking,			self)
+	self:AddCallback("button_back",		ui_events.BUTTON_CLICKED,             self.OnButton_back_clicked,	self)
+
+	self:AddCallback("list_window", ui_events.LIST_ITEM_CLICKED, 			  self.OnListItemClicked,		self)
+	self:AddCallback("list_window", ui_events.WINDOW_LBUTTON_DB_CLICK,		  self.OnListItemDbClicked,		self)
+
+	self:AddCallback("list_window_parts", ui_events.LIST_ITEM_CLICKED, 		  self.OnPartsListItemClicked,		self)
+	self:AddCallback("list_window_parts", ui_events.WINDOW_LBUTTON_DB_CLICK,  self.OnPartsListItemDbClicked,	self)
+end
+
+function cooking_ui:OnPartsListItemClicked()
+	if self.list_box_parts:GetSize()==0 then return end
+
+	local item = self.list_box_parts:GetSelectedItem()
+	if not (item) then
+		self.picture_parts:SetTextureRect(Frect():set(0,0,0,0))
+		self.caption_parts:SetText("")
+		return
+	end
+
+	local se_item = item.item_id and alife():object(item.item_id)
+	if (se_item == nil or not db.actor:object(se_item:section_name())) then
+		self.list_box_parts:RemoveItem(item)
+		return
+	end
+
+	local sec = se_item:section_name()
+
+	local w,h = item.width,item.height
+	if (utils.is_widescreen()) then
+	w,h = item.width/1.5,item.height/1.2
+	else
+	w,h = item.width/1.2,item.height/1.2
+	end
+	self.picture_parts:InitTexture("ui\\ui_icon_equipment")
+	self.picture_parts:SetTextureRect(Frect():set(item.x1,item.y1,item.x2,item.y2))
+	self.picture_parts:SetWndSize(vector2():set(w,h))
+
+	if not (self.picture_parts.x) then
+		local pos = self.picture_parts:GetWndPos()
+		self.picture_parts.x = pos.x
+		self.picture_parts.y = pos.y
+	end
+
+	self.picture_parts:SetWndPos(vector2():set(self.picture_parts.x-w/2, self.picture_parts.y-h/2))
+
+	self.caption_parts:SetText(game.translate_string("st_ui_selected"))
+
+end
+
+function cooking_ui:OnPartsListItemDbClicked()
+	self:OnButton_cooking()
+end
+
+function cooking_ui:OnListItemClicked()
+	if self.list_box:GetSize()==0 then return end
+
+	local item = self.list_box:GetSelectedItem()
+
+	if not (item) then
+		self.picture:SetTextureRect(Frect():set(0,0,0,0))
+		return
+	end
+
+	local se_item = alife():object(item.item_id)
+	if (se_item == nil or not db.actor:object(se_item:section_name())) then
+		self.list_box:RemoveItem(item)
+		return
+	end
+
+	local w,h = item.width,item.height
+	if (utils.is_widescreen()) then
+	w,h = item.width/1.5,item.height/1.2
+	else
+	w,h = item.width/1.2,item.height/1.2
+	end
+	self.picture:InitTexture("ui\\ui_icon_equipment")
+	self.picture:SetTextureRect(Frect():set(item.x1,item.y1,item.x2,item.y2))
+	self.picture:SetWndSize(vector2():set(w,h))
+
+	if not (self.picture.x) then
+		local pos = self.picture:GetWndPos()
+		self.picture.x = pos.x
+		self.picture.y = pos.y
+	end
+
+	self.picture:SetWndPos(vector2():set(self.picture.x-w/2, self.picture.y-h/2))
+
+	self.caption_cooking:SetText(game.translate_string("st_ui_selected"))
+
+	if (self.use_parts) then
+		self.picture_parts:SetTextureRect(Frect():set(0,0,0,0))
+		self.caption_parts:SetText("")
+		self:FillPartsList()
+	end
+end
+
+function cooking_ui:OnButton_back_clicked()
+	alife():create(self.section,db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id(),db.actor:id())
+	self:HideDialog()
+end
+
+function cooking_ui:OnKeyboard(dik, keyboard_action)
+	local bind = dik_to_bind(dik)
+	CUIScriptWnd.OnKeyboard(self,dik,keyboard_action)
+	if (keyboard_action == ui_events.WINDOW_KEY_PRESSED) then
+		if (dik == DIK_keys.DIK_RETURN) then
+
+		elseif (dik == DIK_keys.DIK_ESCAPE) then
+			self:OnButton_back_clicked()
+		elseif (bind == key_bindings.kUSE) then
+			self:OnButton_back_clicked()
+		end
+	end
+	return true
+end
+
+-- Drengor - multi-cook
+function cooking_ui:GetPartCount(part_name)
+	local cnt = 0
+
+	local function countparts(npc, item)
+		if item:section() == part_name then
+			cnt = cnt + 1
+		end
+	end
+
+	db.actor:iterate_inventory(countparts, nil)
+
+	alun_utils.printf("Counted %d %s",cnt,part_name);
+
+	return cnt
+end
+
+function cooking_ui:GetFuelCharges(fuel_item)
+	-- fuel_name begins with fuel type, and optionally has a 2-8 on the end indicating reduced charges
+	local fuel_name = fuel_item:section_name()
+	local last_char = fuel_name:byte(fuel_name:len())
+	local base_charges = 1
+	local charge_adjust = 0
+
+	if(last_char > 49) and (last_char < 57) then
+		charge_adjust = last_char - 49
+	end
+
+	if(alun_utils.startsWith(fuel_name,"kerosene")) then base_charges = 5 end
+	if(alun_utils.startsWith(fuel_name,"charcoal")) then base_charges = 3 end
+	if(alun_utils.startsWith(fuel_name,"explo_jerrycan_fuel"))	then base_charges = 8 end
+	if(alun_utils.startsWith(fuel_name,"explo_balon_gas"))	then base_charges = 8 end
+
+	return base_charges - charge_adjust
+end
+
+function cooking_ui:MakeFuelCharges(fuel_item,charges)
+	-- fuel_name begins with fuel type, and optionally has a 2-8 on the end indicating reduced charges, or _empty
+	local fuel_name = fuel_item:section_name()
+	local last_char = fuel_name:byte(fuel_name:len())
+	local base_charges = 1
+
+	if(last_char > 49) and (last_char < 57) then
+		fuel_name = fuel_name:sub(1,fuel_name:len()-1)
+	end
+
+	if(fuel_name == "kerosene") then base_charges = 5 end
+	if(fuel_name == "charcoal") then base_charges = 3 end
+	if(fuel_name == "explo_jerrycan_fuel") then base_charges = 8 end
+	if(fuel_name == "explo_balon_gas") then base_charges = 8 end
+
+	if (charges > 0) then
+		fuel_name = string.format("%s%d",fuel_name,base_charges + 1 - charges)
+	else
+		fuel_name = string.format("%s%s",fuel_name,"_empty")
+	end
+
+	alife():create(fuel_name, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+end
+
+function cooking_ui:ConsumeFuel(fuel_item, charges)
+	local c = self:GetFuelCharges(fuel_item) - charges
+	local fuel_name = fuel_item:section_name()
+
+	if(c > 0 or (alun_utils.startsWith(fuel_name,"explo_jerrycan_fuel") or alun_utils.startsWith(fuel_name,"explo_balon_gas"))) then
+		self:MakeFuelCharges(fuel_item,c)
+	end
+
+	alife():release(fuel_item,true)
+end
+
+function cooking_ui:ConsumePart(part, count)
+	local part_name = part:section_name()
+	local cnt = 0
+
+	local function consumeparts(npc, item)
+		if cnt < count and item:section() == part_name then
+			alife():release(alife():object(item:id()),true)
+			cnt = cnt + 1
+		end
+	end
+
+	db.actor:iterate_inventory(consumeparts, nil)
+end
+
+function cooking_ui:CreateMeal(part_name,count)
+	for i=1,count,1 do
+		alife():create(part_name, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+	end
+end
+-- end Drengor - multi-cook
+
+function cooking_ui:OnButton_cooking()
+	index = self.list_box_parts:GetSelectedIndex()
+	if (index ~= -1) then
+		item = self.list_box_parts:GetItemByIndex(index)
+		local se_parts = item and item.item_id and alife():object(item.item_id)
+		if not (se_parts) then
+			return
+		end
+	end
+
+	local index = self.list_box:GetSelectedIndex()
+ 	if index == -1 then return end
+	local item  = self.list_box:GetItemByIndex(index)
+
+	local obj = item and level.object_by_id(item.item_id)
+	local se_obj = item and item.item_id and alife():object(item.item_id)
+
+	if not (obj) then
+		return
+	end
+
+	if (self.list_box_parts) then
+		if (index ~= -1) then
+			index = self.list_box_parts:GetSelectedIndex()
+			item = self.list_box_parts:GetItemByIndex(index)
+			local se_parts = item and item.item_id and alife():object(item.item_id)
+			local sec = se_parts:section_name()
+
+			if (se_parts) then
+
+				-- Drengor - multi-cook
+				local part_count = self:GetPartCount(sec)
+				local fuel_charges = self:GetFuelCharges(se_obj)
+				local cook_count = part_count
+
+				if(part_count >= fuel_charges) then cook_count = fuel_charges end
+				-- end Drengor - multi-cook
+
+				-- ponney68 cooking item
+				if self.section =="fieldcooker" then
+				alife():create("fieldcooker", db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+				end
+				if self.section =="wood_stove" then
+				alife():create("wood_stove", db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+				end
+				-- End ponney68
+
+				-- Drengor - multi-cook
+				-- mutant_part_tushkano_meat
+				if(sec=="mutant_part_tushkano_meat")then self:CreateMeal("meat_tushkano",cook_count) end
+				-- mutant_part_flesh_meat
+				if(sec=="mutant_part_flesh_meat")then self:CreateMeal("meat_flesh",cook_count) end
+				-- mutant_part_boar_chop
+				if(sec=="mutant_part_boar_chop")then self:CreateMeal("meat_boar",cook_count) end
+				-- mutant_part_dog_meat
+				if(sec=="mutant_part_dog_meat")then self:CreateMeal("meat_dog",cook_count) end
+				-- mutant_part_psevdodog_meat
+				if(sec=="mutant_part_psevdodog_meat")then self:CreateMeal("meat_pseudodog",cook_count) end
+				-- mutant_part_krovosos_meat
+				if(sec=="mutant_part_krovosos_meat")then self:CreateMeal("meat_bloodsucker",cook_count) end
+				-- mutant_part_snork_hand
+				if(sec=="mutant_part_snork_hand")then self:CreateMeal("meat_snork",cook_count) end
+				-- mutant_part_chimera_meat
+				if(sec=="mutant_part_chimera_meat")then self:CreateMeal("meat_chimera",cook_count) end
+				-- mutant_part_crow_beak
+				if(sec=="mutant_part_crow_beak")then self:CreateMeal("drink_crow",cook_count) end
+
+				self:ConsumeFuel(se_obj,cook_count)
+				self:ConsumePart(se_parts,cook_count)
+				-- end Drengor - multi-cook
+			end
+		end
+	end
+
+	self:HideDialog()
+
+	if (self.use_actor_effects and actor_effects) then
+		actor_effects.use_item(self.section.."_dummy")
+		level_weathers.get_weather_manager():forced_weather_change()
+	end
+end
+
+function cooking_ui:AddItemToList(item,listbox)
+
+	local _itm			= load_item(self.file_item_main_sz.y)
+	local sec = item and item:section()
+	local inv_name 		= item and game.translate_string(rx_utils.read_from_ini2(nil,sec,"inv_name","string","error")) or "none"
+
+	_itm:SetWndSize		(self.file_item_main_sz)
+
+	_itm.fn:SetWndPos(vector2():set(0,0))
+	_itm.fn:SetWndSize	(self.file_item_fn_sz)
+	_itm.fn:SetText		(inv_name)
+
+	if (item) then
+		_itm.item_id = item:id()
+
+		local inv_grid_width = rx_utils.read_from_ini2(ini,sec,"inv_grid_width","float",0)
+		local inv_grid_height = rx_utils.read_from_ini2(ini,sec,"inv_grid_height","float",0)
+		local inv_grid_x = rx_utils.read_from_ini2(ini,sec,"inv_grid_x","float",0)
+		local inv_grid_y = rx_utils.read_from_ini2(ini,sec,"inv_grid_y","float",0)
+
+		_itm.x1 = inv_grid_x*50
+		_itm.y1 = inv_grid_y*50
+
+		_itm.width = inv_grid_width*50
+		_itm.height = inv_grid_height*50
+
+		_itm.x2 = _itm.x1 + _itm.width
+		_itm.y2 = _itm.y1 + _itm.height
+	end
+
+	--[[
+	_itm.picture = self.xml:InitStatic("itm_cooking:form:picture",self.form)
+	_itm.picture:InitTexture("ui\\ui_icon_equipment")
+	_itm.picture:SetTextureRect(Frect():set(_itm.x1,_itm.y1,_itm.x2,_itm.y2))
+	_itm.picture:SetWndSize(vector2():set(inv_grid_width*50,inv_grid_height*50))
+	--]]
+
+	listbox:AddExistingItem(_itm)
+end

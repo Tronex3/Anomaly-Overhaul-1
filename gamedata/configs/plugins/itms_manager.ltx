@@ -1,0 +1,802 @@
+[backpack_stash]
+enable = true
+allow_in_base = true
+map_spot = treasure
+enable_news_tip = true
+enable_ui = true
+
+[sleeping_bag]
+enable = true
+dangerous_sleep = false			;Enable hostile squads to hunt actor if he sleeps in unsafe area ; DISABLED AS FAULTY (NO SAFE SPOTS)
+unsafe_radius = 10000			;Distance in which hostile squads will be drawn to actor if he sleeps in unsafe area
+use_placeable = true			;Places sleeping bag at actor location instead of using item directly
+have_at_start = false 			;player starts with sleeping bag in inventory
+
+[sleeping_bag_sections]
+itm_sleepbag
+sleep_bag
+
+[sleeping_bag_ph_sections]
+ph_sleepbag = itm_sleepbag
+
+[tent_i_bag]
+unsafe_radius = 10000			;Distance in which hostile squads will be drawn to actor if he sleeps in unsafe area
+use_placeable = true			;Places sleeping bag at actor location instead of using item directly
+
+[tent_i_bag_sections]
+itm_tent
+tent_bag
+
+[tent_i_bag_ph_sections]
+ph_tent = itm_tent
+[actor_backpack]
+enable = true
+actor_backpack_always_have = false	;Force actor to always have this item
+map_spot = treasure
+quick_slot = slot_4					;Slot forced if actor_backpack_always_have is true
+
+[repair_mod]
+enable = true
+use_ui = true 			;If false, you drag icon on to which item you want to repair instead of using a UI
+
+
+[repair_mod_tools]   ;Add sections that will open repair ui
+barrelkit_762
+barrelkit_545
+barrelkit_556
+barrelkit_9x
+barrelkit_792
+sharpening_stones
+sharpening_stones_2
+sharpening_stones_3
+sharpening_stones_4
+gun_oil
+gun_oil_2
+gun_oil_ru_d
+gun_oil_ru_d_2
+gun_oil_ru
+gun_oil_ru_2
+solvent
+solvent_2
+steel_wool
+steel_wool_2
+grease
+grease_2
+cleaning_kit_p
+cleaning_kit_p_2
+cleaning_kit_p_3
+cleaning_kit_s
+cleaning_kit_s_2
+cleaning_kit_s_3
+cleaning_kit_r5
+cleaning_kit_r5_2
+cleaning_kit_r5_3
+cleaning_kit_r7
+cleaning_kit_r7_2
+cleaning_kit_r7_3
+cleaning_kit_u
+cleaning_kit_u_2
+cleaning_kit_u_3
+toolkit_p
+toolkit_p_2
+toolkit_p_3
+toolkit_p_4
+toolkit_s
+toolkit_s_2
+toolkit_s_3
+toolkit_s_4
+toolkit_r5
+toolkit_r5_2
+toolkit_r5_3
+toolkit_r5_4
+toolkit_r7
+toolkit_r7_2
+toolkit_r7_3
+toolkit_r7_4
+sewing_kit_b
+sewing_kit_b_2
+sewing_kit_b_3
+sewing_kit_b_4
+sewing_kit_a
+sewing_kit_a_2
+sewing_kit_a_3
+sewing_kit_a_4
+sewing_kit_h
+sewing_kit_h_2
+sewing_kit_h_3
+sewing_kit_h_4
+glue_b
+glue_b_2
+glue_a
+glue_a_2
+glue_e
+glue_e_2
+armor_repair_fa
+armor_repair_fa_2
+helmet_repair_kit
+helmet_repair_kit_2
+helmet_repair_kit_3
+armor_repair_pro
+armor_repair_pro_2
+armor_repair_pro_3
+armor_repair_pro_4
+toolkit_u
+toolkit_u_2
+toolkit_u_3
+toolkit_u_4
+exo_repair_kit
+exo_repair_kit_2
+exo_repair_kit_3
+exo_repair_kit_4
+exolight_repair_kit
+exolight_repair_kit_2
+exolight_repair_kit_3
+exolight_repair_kit_4
+seva_repair_kit
+seva_repair_kit_2
+seva_repair_kit_3
+seva_repair_kit_4
+medium_repair_kit
+medium_repair_kit_2
+medium_repair_kit_3
+medium_repair_kit_4
+light_repair_kit
+light_repair_kit_2
+light_repair_kit_3
+light_repair_kit_4
+proto_repair_kit
+proto_repair_kit_2
+proto_repair_kit_3
+proto_repair_kit_4	
+
+[cooking_mod]
+enable = true
+
+[cooking_mod_tools]   ;Add sections that will open repair ui
+cooking
+fieldcooker
+wood_stove
+
+[camp_cooking_tool]
+army_bowler
+[flashlight_mod]
+enable = true
+
+[flashlight_sections]
+device_flashlight
+
+[mutant_loot_mod]
+enable = true
+enable_ui = true
+decay_time = 12000            ;Seconds until cannot loot decayed corpse
+
+[mutant_loot_drop_sections]
+bloodsucker
+boar
+burer
+chimera
+controller
+dog
+flesh
+gigant
+psy_dog
+pseudodog
+snork
+tushkano
+cat
+fracture
+zombie
+crow
+;-->
+lurker
+psysucker
+karlik
+
+;;------;------;------;--------- Mutant Loot Sections  [section,amount,chance]
+[crow]
+mutant_part_crow_beak, 1, 0.02
+joint, 1, 0.03
+picture_woman, 1, 0.01
+ammo_bad, 1, 0.1
+swiss, 1, 0.022
+mirror, 1, 0.022
+batteries, 1, 0.01
+batteries_dead, 1, 0.03
+cutlery, 1, 0.012
+roubles, 2, 0.12
+
+[bloodsucker]
+hide_bloodsucker, 1, 0.21
+mutant_part_krovosos_jaw, 1, 0.21
+mutant_part_krovosos_meat, 2, 0.22
+mutant_part_heart_bloodsucker, 1, 0.4
+
+[boar]
+hide_boar, 1, 0.16
+mutant_part_boar_leg, 4, 0.12
+mutant_part_boar_chop, 2, 0.33
+mutant_part_tusk_boar, 2, 0.33
+
+[burer]
+hide_burer, 1, 0.31
+mutant_part_burer_hand, 2, 0.31
+bandage, 3, 0.025
+medkit, 4, 0.02
+medkit_army, 2, 0.02
+medkit_scientic, 1, 0.005
+stimpack, 4, 0.01
+stimpack_army, 2, 0.01
+stimpack_scientic, 1, 0.0035
+antirad, 1, 0.02
+survival_kit, 1, 0.004
+drug_booster, 1, 0.004
+drug_coagulant, 1, 0.002
+drug_psy_blockade, 1, 0.001
+drug_antidot, 1, 0.001
+drug_radioprotector, 1, 0.003
+drug_anabiotic, 1, 0.002
+roubles, 8, 0.08
+breadold, 3, 0.0035
+conserva, 1, 0.003
+vodka, 1, 0.002
+vodka2, 1, 0.002
+tea, 1, 0.001
+bottle_metal, 1, 0.0054
+energy_drink, 1, 0.003
+water_drink, 2, 0.0052
+vodka_quality, 1, 0.0015
+cocaine, 1, 0.0025
+tetanus, 1, 0.0035
+adrenalin, 1, 0.002
+salicidic_acid, 2, 0.0052
+morphine, 1, 0.0045
+meat_tushkano, 3, 0.0045
+meat_dog, 3, 0.0045
+meat_pseudodog, 2, 0.003
+meat_flesh, 3, 0.0045
+meat_boar, 2, 0.004
+meat_bloodsucker, 1, 0.002
+meat_snork, 2, 0.0025
+meat_chimera, 1, 0.0015
+itm_sleepbag, 1, 0.0035
+marijuana, 1, 0.022
+tobacco, 1, 0.02
+joint, 4, 0.025
+cigarettes, 1, 0.0015
+cigarettes_lucky, 1, 0.0015
+cigarettes_russian, 1, 0.0015
+cigar1, 1, 0.005
+cigar2, 1, 0.005
+cigar3, 1, 0.005
+porn, 1, 0.007
+shovel_old, 1, 0.0045
+shovel_mili, 1, 0.002
+ied_rpg, 2, 0.0025
+ied, 1, 0.0015
+grooming, 1, 0.0052
+journal, 1, 0.005
+maps_kit, 1, 0.005
+jewelry_box, 1, 0.002
+book1, 1, 0.0025
+book2, 1, 0.0025
+book3, 1, 0.0025
+picture_woman, 1, 0.0052
+hammer_inv, 1, 0.0051
+crowbar, 1, 0.0051
+spareparts, 2, 0.0051
+beadspread, 1, 0.0045
+walkie, 1, 0.005
+cards, 2, 0.0052
+ammo_bad, 20, 0.004
+boots, 1, 0.004
+mili_maps, 1, 0.0025
+swiss, 1, 0.0052
+headlamp, 1, 0.004
+mirror, 1, 0.0051
+device_flashlight, 1, 0.005
+flashlight_broken, 1, 0.003
+underwear, 1, 0.005
+porn2, 1, 0.011
+batteries, 3, 0.004
+batteries_dead, 4, 0.003
+batteries_ccell, 2, 0.002
+tarpaulin, 3, 0.0052
+rope, 2, 0.0052
+synthrope, 1, 0.0045
+cutlery, 2, 0.0055
+radio, 1, 0.005
+radio2, 1, 0.005
+fieldcooker, 1, 0.003
+wood_stove, 1, 0.003
+kerosene,1,0.001
+kerosene2,1,0.001
+kerosene3,1,0.001
+kerosene4,1,0.001
+kerosene5,1,0.001
+charcoal,1,0.001
+charcoal2,1,0.001
+charcoal3,1,0.001
+mutant_part_boar_leg, 3, 0.022
+mutant_part_dog_tail, 5, 0.022
+mutant_part_flesh_eye, 4, 0.022
+mutant_part_chimera_kogot, 2, 0.0025
+mutant_part_psevdodog_tail, 3, 0.01
+mutant_part_snork_leg, 3, 0.01
+mutant_part_tushkano_head, 2, 0.004
+mutant_part_pseudogigant_hand, 2, 0.003
+mutant_part_controller_glass, 1, 0.003
+mutant_part_krovosos_jaw, 2, 0.0035
+mutant_part_flesh_meat, 4, 0.022
+mutant_part_boar_chop, 4, 0.022
+mutant_part_dog_meat, 4, 0.022
+mutant_part_psevdodog_meat, 3, 0.01
+mutant_part_krovosos_meat, 2, 0.0035
+mutant_part_snork_hand, 3, 0.01
+mutant_part_tushkano_meat, 3, 0.004
+mutant_part_chimera_meat, 1, 0.0025
+mutant_part_brain_burer, 1, 0.0025
+
+[chimera]
+hide_chimera, 1, 0.44
+mutant_part_chimera_kogot, 4, 0.45
+mutant_part_chimera_claw, 8, 0.24
+mutant_part_chimera_meat, 2, 0.66
+mutant_part_heart_chimera, 1, 0.25
+
+[controller]
+mutant_part_controller_glass, 1, 0.38
+mutant_part_controller_hand, 2, 0.28
+hide_controller, 1, 0.55
+shovel_old, 1, 0.005 
+ied_rpg, 1, 0.003 
+grooming, 1, 0.005 
+journal, 1, 0.006 
+welding_goggles, 1, 0.004 
+jewelry_box, 1, 0.001 
+book1, 1, 0.006 
+book2, 1, 0.006 
+book3, 1, 0.006 
+picture_woman, 1, 0.006 
+drugs_kit, 1, 0.002 
+hammer_inv, 1, 0.005 
+crowbar, 1, 0.005 
+spareparts, 1, 0.004 
+beadspread, 1, 0.006 
+walkie, 1, 0.002 
+cards, 2, 0.006 
+ammo_bad, 10, 0.002 
+boots, 1, 0.004 
+swiss, 1, 0.007 
+headlamp, 1, 0.003 
+mirror, 1, 0.008 
+device_flashlight, 1, 0.004 
+flashlight_broken, 1, 0.004 
+underwear, 1, 0.006 
+porn2, 1, 0.008 
+tarpaulin, 2, 0.004 
+rope, 2, 0.006 
+cutlery, 1, 0.009 
+batteries, 3, 0.008
+batteries_dead, 4, 0.006
+batteries_ccell, 2, 0.004
+cutlery, 2, 0.015
+bandage, 3, 0.05
+medkit, 4, 0.03
+medkit_army, 2, 0.03
+medkit_scientic, 1, 0.01
+medkit_ai1, 1, 0.01
+medkit_ai1, 1, 0.01
+medkit_ai1, 1, 0.01
+antirad_kalium, 1, 0.01
+antirad_cystamine, 1, 0.01
+antibio_sulfad, 1, 0.01
+antiemetic, 1, 0.01
+antibio_chlor, 1, 0.01
+jgut, 1, 0.01
+yadylin, 1, 0.01
+analgetic, 1, 0.01
+survival_kit, 1, 0.008
+roubles, 8, 0.08
+vodka, 1, 0.006
+vodka2, 1, 0.006
+bottle_metal, 1, 0.007
+tetanus, 1, 0.007
+adrenalin, 1, 0.004
+salicidic_acid, 2, 0.012
+morphine, 1, 0.009
+
+[dog]
+mutant_part_dog_liver, 1, 0.3
+mutant_part_dog_heart, 1, 0.3
+mutant_part_dog_tail, 1, 0.22
+mutant_part_dog_meat, 2, 0.37
+
+[flesh]
+hide_flesh, 1, 0.45
+mutant_part_flesh_eye, 2, 0.22
+mutant_part_flesh_meat, 3, 0.37
+
+[gigant]
+hide_pseudogiant, 1, 0.66
+mutant_part_pseudogigant_hand, 2, 0.44
+mutant_part_pseudogigant_eye, 2, 0.44
+
+[psy_dog]
+mutant_part_fang_psevdodog, 4, 0.33
+hide_psy_dog, 1, 0.44
+mutant_part_controller_glass, 1, 0.22
+mutant_part_psevdodog_tail, 1, 0.44
+mutant_part_psevdodog_meat, 2, 0.44
+
+[pseudodog]
+mutant_part_fang_psevdodog, 4, 0.33
+hide_pseudodog, 1, 0.37
+mutant_part_psevdodog_tail, 1, 0.27
+mutant_part_psevdodog_meat, 2, 0.33
+
+[snork]
+mutant_part_snork_leg, 2, 0.37
+mutant_part_snork_hand, 2, 0.22
+mutant_part_snork_mask, 1, 0.22
+
+[tushkano]
+mutant_part_tushkano_head, 1, 0.31
+mutant_part_tushkano_meat, 1, 0.44
+
+[cat]
+mutant_part_cat_thyroid, 2, 0.4
+mutant_part_cat_claw, 10, 0.33
+mutant_part_cat_tail, 1, 0.44
+artefact_black_spray, 1, 0.05
+
+[fracture]
+mutant_part_fracture_hand, 2, 0.44
+bandage, 3, 0.015
+medkit, 4, 0.01
+medkit_army, 2, 0.01
+medkit_scientic, 1, 0.0025
+stimpack, 4, 0.005
+stimpack_army, 2, 0.005
+stimpack_scientic, 1, 0.00155
+antirad, 1, 0.01
+survival_kit, 1, 0.002
+drug_booster, 1, 0.002
+drug_coagulant, 1, 0.001
+drug_psy_blockade, 1, 0.0005
+drug_antidot, 1, 0.0005
+drug_radioprotector, 1, 0.0015
+drug_radioprotector, 1, 0.0015
+drug_anabiotic, 1, 0.001
+roubles, 8, 0.08
+breadold, 3, 0.00155
+conserva, 1, 0.0015
+vodka, 1, 0.001
+vodka2, 1, 0.001
+tea, 1, 0.0005
+bottle_metal, 1, 0.0025
+energy_drink, 1, 0.0015
+water_drink, 2, 0.0025
+vodka_quality, 1, 0.0005
+cocaine, 1, 0.0015
+tetanus, 1, 0.00155
+adrenalin, 1, 0.001
+salicidic_acid, 2, 0.0025
+morphine, 1, 0.0025
+meat_tushkano, 3, 0.0025
+meat_dog, 3, 0.0025
+meat_pseudodog, 2, 0.0015
+meat_flesh, 3, 0.0025
+meat_boar, 2, 0.002
+meat_bloodsucker, 1, 0.001
+meat_snork, 2, 0.0015
+meat_chimera, 1, 0.0005
+itm_sleepbag, 1, 0.0015
+marijuana, 1, 0.012
+tobacco, 1, 0.01
+joint, 4, 0.015
+cigarettes, 1, 0.0005
+cigarettes_lucky, 1, 0.0005
+cigarettes_russian, 1, 0.0005
+cigar1, 1, 0.0025
+cigar2, 1, 0.0025
+cigar3, 1, 0.0025
+porn, 1, 0.0035
+shovel_old, 1, 0.0025
+shovel_mili, 1, 0.001
+ied_rpg, 2, 0.0015
+ied, 1, 0.0005
+grooming, 1, 0.0025
+journal, 1, 0.0025
+maps_kit, 1, 0.0025
+jewelry_box, 1, 0.001
+book1, 1, 0.0015
+book2, 1, 0.0015
+book3, 1, 0.0015
+picture_woman, 1, 0.0025
+hammer_inv, 1, 0.0025
+crowbar, 1, 0.0025
+spareparts, 2, 0.0025
+beadspread, 1, 0.0025
+walkie, 1, 0.0025
+cards, 2, 0.0025
+ammo_bad, 20, 0.002
+boots, 1, 0.002
+mili_maps, 1, 0.0015
+swiss, 1, 0.0025
+headlamp, 1, 0.002
+mirror, 1, 0.0025
+device_flashlight, 1, 0.0025
+flashlight_broken, 1, 0.0015
+underwear, 1, 0.0025
+porn2, 1, 0.0051
+batteries, 3, 0.002
+batteries_dead, 4, 0.0015
+batteries_ccell, 2, 0.001
+tarpaulin, 3, 0.0025
+rope, 2, 0.0025
+synthrope, 1, 0.0025
+cutlery, 2, 0.00255
+radio, 1, 0.0025
+radio2, 1, 0.0025
+fieldcooker, 1, 0.0015
+wood_stove, 1, 0.0015
+kerosene,1,0.0005
+kerosene2,1,0.0005
+kerosene3,1,0.0005
+kerosene4,1,0.0005
+kerosene5,1,0.0005
+charcoal,1,0.0005
+charcoal2,1,0.0005
+charcoal3,1,0.0005
+mutant_part_boar_leg, 3, 0.012
+mutant_part_dog_tail, 5, 0.012
+mutant_part_flesh_eye, 4, 0.012
+mutant_part_chimera_kogot, 2, 0.0015
+mutant_part_psevdodog_tail, 3, 0.005
+mutant_part_snork_leg, 3, 0.005
+mutant_part_tushkano_head, 2, 0.002
+mutant_part_pseudogigant_hand, 2, 0.0015
+mutant_part_controller_glass, 1, 0.0015
+mutant_part_krovosos_jaw, 2, 0.00155
+mutant_part_flesh_meat, 4, 0.012
+mutant_part_boar_chop, 4, 0.012
+mutant_part_dog_meat, 4, 0.012
+mutant_part_psevdodog_meat, 3, 0.005
+mutant_part_krovosos_meat, 2, 0.00155
+mutant_part_snork_hand, 3, 0.005
+mutant_part_tushkano_meat, 3, 0.002
+mutant_part_chimera_meat, 1, 0.0015
+
+[zombie]
+mutant_part_zombi_hand, 2, 0.31
+bandage, 3, 0.015
+medkit, 4, 0.01
+medkit_army, 2, 0.01
+medkit_scientic, 1, 0.0025
+antirad, 1, 0.01
+survival_kit, 1, 0.002
+drug_booster, 1, 0.002
+drug_coagulant, 1, 0.001
+drug_psy_blockade, 1, 0.0005
+drug_antidot, 1, 0.0005
+drug_radioprotector, 1, 0.0015
+drug_anabiotic, 1, 0.001
+roubles, 8, 0.08
+breadold, 3, 0.00155
+conserva, 1, 0.0015
+tea, 1, 0.0005
+bottle_metal, 1, 0.0025
+energy_drink, 1, 0.0015
+water_drink, 2, 0.0025
+tetanus, 1, 0.00155
+adrenalin, 1, 0.001
+salicidic_acid, 2, 0.0025
+morphine, 1, 0.0025
+meat_tushkano, 3, 0.0025
+meat_dog, 3, 0.0025
+meat_pseudodog, 2, 0.0015
+meat_flesh, 3, 0.0025
+meat_boar, 2, 0.002
+meat_bloodsucker, 1, 0.001
+meat_snork, 2, 0.0015
+meat_chimera, 1, 0.0005
+itm_sleepbag, 1, 0.0015
+porn, 1, 0.0035
+shovel_old, 1, 0.0025
+shovel_mili, 1, 0.001
+ied_rpg, 2, 0.0015
+ied, 1, 0.0005
+grooming, 1, 0.0025
+journal, 1, 0.0025
+maps_kit, 1, 0.0025
+jewelry_box, 1, 0.001
+book1, 1, 0.0015
+book2, 1, 0.0015
+book3, 1, 0.0015
+picture_woman, 1, 0.0025
+hammer_inv, 1, 0.0025
+crowbar, 1, 0.0025
+spareparts, 2, 0.0025
+beadspread, 1, 0.0025
+walkie, 1, 0.0025
+cards, 2, 0.0025
+ammo_bad, 20, 0.002
+boots, 1, 0.002
+mili_maps, 1, 0.0015
+swiss, 1, 0.0025
+headlamp, 1, 0.002
+mirror, 1, 0.0025
+device_flashlight, 1, 0.0025
+flashlight_broken, 1, 0.0015
+underwear, 1, 0.0025
+porn2, 1, 0.0051
+batteries, 3, 0.002
+batteries_dead, 4, 0.0015
+batteries_ccell, 2, 0.001
+tarpaulin, 3, 0.0025
+rope, 2, 0.0025
+synthrope, 1, 0.0025
+cutlery, 2, 0.00255
+radio, 1, 0.0025
+radio2, 1, 0.0025
+wood_stove, 1, 0.0015
+charcoal,1,0.0005
+charcoal2,1,0.0005
+charcoal3,1,0.0005
+
+;-->
+[lurker]
+mutant_part_tushkano_meat, 7, 0.5
+artefact_lobster_eyes, 1, 0.01
+
+[psysucker]
+mutant_part_krovosos_meat, 2, 0.22
+mutant_part_heart_bloodsucker, 1, 0.4
+artefact_lobster_eyes, 1, 0.005
+
+[karlik]
+mutant_part_controller_glass, 1, 0.22
+shovel_old, 1, 0.005 
+ied_rpg, 1, 0.003 
+grooming, 1, 0.005 
+journal, 1, 0.006 
+welding_goggles, 1, 0.004 
+jewelry_box, 1, 0.001 
+book1, 1, 0.006 
+book2, 1, 0.006 
+book3, 1, 0.006 
+picture_woman, 1, 0.006 
+drugs_kit, 1, 0.002 
+hammer_inv, 1, 0.005 
+crowbar, 1, 0.005 
+spareparts, 1, 0.004 
+beadspread, 1, 0.006 
+walkie, 1, 0.002 
+cards, 2, 0.006 
+ammo_bad, 10, 0.002 
+boots, 1, 0.004 
+swiss, 1, 0.007 
+headlamp, 1, 0.003 
+mirror, 1, 0.008 
+device_flashlight, 1, 0.004 
+flashlight_broken, 1, 0.004 
+underwear, 1, 0.006 
+porn2, 1, 0.008 
+tarpaulin, 2, 0.004 
+rope, 2, 0.006 
+cutlery, 1, 0.009 
+batteries, 3, 0.008
+batteries_dead, 4, 0.006
+batteries_ccell, 2, 0.004
+cutlery, 2, 0.015
+bandage, 3, 0.05
+medkit, 4, 0.03
+medkit_army, 2, 0.03
+medkit_scientic, 1, 0.01
+medkit_ai1, 1, 0.01
+medkit_ai1, 1, 0.01
+medkit_ai1, 1, 0.01
+antirad_kalium, 1, 0.01
+antirad_cystamine, 1, 0.01
+antibio_sulfad, 1, 0.01
+antiemetic, 1, 0.01
+antibio_chlor, 1, 0.01
+jgut, 1, 0.01
+yadylin, 1, 0.01
+analgetic, 1, 0.01
+survival_kit, 1, 0.008
+roubles, 8, 0.08
+vodka, 1, 0.006
+vodka2, 1, 0.006
+bottle_metal, 1, 0.007
+tetanus, 1, 0.007
+adrenalin, 1, 0.004
+salicidic_acid, 2, 0.012
+morphine, 1, 0.009
+
+
+;--------------------------- Actor Backpack Keep Items
+[actor_backpack_keep_items]
+
+device_pda
+device_torch
+device_torch_dummy
+device_flashlight
+bolt
+wpn_upd
+con_checker
+cash
+container_tool
+geiger_dead
+
+bad_psy_helmet
+decoder
+device_flash_snag
+device_pda_port_bandit_leader
+device_pda_zat_b5_dealer
+good_psy_helmet
+jup_a9_conservation_info
+jup_a9_delivery_info
+jup_a9_evacuation_info
+jup_a9_losses_info
+jup_a9_meeting_info
+jup_a9_power_info
+jup_a9_way_info
+jup_b10_notes_01
+jup_b10_notes_02
+jup_b10_notes_03
+jup_b10_ufo_memory
+jup_b10_ufo_memory_2
+jup_b200_tech_materials_acetone
+jup_b200_tech_materials_capacitor
+jup_b200_tech_materials_textolite
+jup_b200_tech_materials_transistor
+jup_b200_tech_materials_wire
+jup_b202_bandit_pda
+jup_b205_sokolov_note
+jup_b206_plant
+jup_b207_merc_pda_with_contract
+jup_b209_monster_scanner
+jup_b32_scanner_device
+jup_b46_duty_founder_pda
+jup_b47_jupiter_products_info
+jup_b47_merc_pda
+jup_b9_blackbox
+lx8_service_instruction
+main_story_1_quest_case
+main_story_2_lab_x18_documents
+main_story_3_lab_x16_documents
+main_story_4_lab_x10_documents
+main_story_5_lab_x8_documents
+main_story_6_jup_ug_documents
+main_story_7_mon_con_documents
+pri_a19_american_experiment_info
+pri_a19_lab_x10_info
+pri_a19_lab_x16_info
+pri_a19_lab_x18_info
+pri_a19_lab_x7_info
+pri_a25_explosive_charge_item
+pri_b306_envoy_pda
+pri_b35_lab_x8_key
+pri_b36_monolith_hiding_place_pda
+pri_decoder_documents
+radio_connections_pda
+toolkit_1
+toolkit_2
+toolkit_3
+zat_a23_access_card
+zat_a23_gauss_rifle_docs
+zat_a23_labx8_key
+zat_b12_documents_1
+zat_b12_documents_2
+zat_b12_key_1
+zat_b12_key_2
+zat_b20_noah_pda
+zat_b22_medic_pda
+zat_b33_safe_container
+zat_b39_joker_pda
+zat_b40_notebook
+zat_b40_pda_1
+zat_b40_pda_2
+zat_b44_barge_pda
+zat_b57_gas

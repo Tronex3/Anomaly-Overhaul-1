@@ -1,0 +1,835 @@
+;;--=========================================================
+;;--========================| FOOD |=========================
+;;--=========================================================
+
+[bread]:booster
+$spawn 						= "food and drugs\bread"
+visual						= dynamics\devices\dev_bred\dev_bred.ogf
+class_dbg			        = S_FOOD
+description					= st_bread_descr
+cost						= 600
+
+inv_name					= st_bread
+inv_name_short				= st_bread
+inv_weight					= 0.19
+
+inv_grid_width				= 1
+inv_grid_height				= 1
+inv_grid_x					= 14
+inv_grid_y					= 27
+
+attach_angle_offset			= -0.287979, 1.560923, 1.544060
+attach_position_offset		= 0.096910, -0.013594, 0.107925
+attach_bone_name			= bip01_r_hand
+auto_attach					= false
+
+bone_name					= bip01_r_hand
+position_offset				= 0.0,0.0,0.0
+angle_offset				= 1.570790,1.570790,3.92699
+
+eat_satiety					= 0.217
+eat_sleepiness				= 0.0019
+
+use_sound					= interface\inv_eat_paperwrap
+
+;--=====================================================================
+
+[breadold]:booster
+$spawn 						= "food and drugs\bread"
+visual						= dynamics\devices\dev_bred\dev_bred.ogf
+class_dbg			        = S_FOOD
+description					= st_breadold_descr
+cost						= 500
+	
+inv_name					= st_breadold
+inv_name_short				= st_breadold
+inv_weight					= 0.19
+	
+inv_grid_width				= 1
+inv_grid_height				= 1
+inv_grid_x					= 14
+inv_grid_y					= 28
+
+attach_angle_offset			= -0.287979, 1.560923, 1.544060
+attach_position_offset		= 0.096910, -0.013594, 0.107925
+attach_bone_name			= bip01_r_hand
+auto_attach					= false
+
+bone_name					= bip01_r_hand
+position_offset				= 0.0,0.0,0.0
+angle_offset				= 1.570790,1.570790,3.92699
+
+eat_satiety					= 0.176
+eat_sleepiness				= 0.00187
+
+use_sound					= interface\inv_eat_paperwrap
+
+;--=====================================================================
+
+[kolbasa]:booster
+$spawn 						= "food and drugs\kolbasa"
+visual						= dynamics\devices\dev_kolbasa\dev_kolbasa.ogf
+class_dbg			        = S_FOOD
+description					= st_kolbasa_descr
+cost						= 874
+
+inv_name					= st_kolbasa
+inv_name_short				= st_kolbasa
+inv_weight					= 0.328
+
+inv_grid_width				= 1
+inv_grid_height				= 1
+inv_grid_x					= 15
+inv_grid_y					= 27
+
+attach_angle_offset			= 0.440521, 1.378287, -0.644026
+attach_position_offset		= 0.104196, -0.010821, 0.076969
+attach_bone_name			= bip01_r_hand
+auto_attach					= false
+
+bone_name					= bip01_r_hand
+position_offset				= 0.0,0.0,0.0 0.117
+angle_offset				= 1.570790,1.570790,3.92699
+
+eat_health					= -0.012
+eat_satiety					= 0.646
+eat_sleepiness				= 0.0192
+
+use_sound					= interface\inv_eat_paperwrap
+
+;--=====================================================================
+
+[conserva]:booster
+$spawn 						= "food and drugs\conserva"
+visual						= dynamics\devices\dev_conserv\dev_conserv.ogf
+class_dbg			        = S_FOOD
+description					= st_conserva_descr
+cost						= 620
+
+inv_name					= st_conserva
+inv_name_short				= st_conserva
+inv_weight					= 0.170
+
+inv_grid_width				= 1
+inv_grid_height				= 1
+inv_grid_x					= 15
+inv_grid_y					= 28
+
+attach_angle_offset			= 0.440521, 1.378287, -0.644026
+attach_position_offset		= 0.104196, -0.010821, 0.076969
+attach_bone_name			= bip01_r_hand
+auto_attach					= false
+
+bone_name					= bip01_r_hand
+position_offset				= 0.0,0.0,0.0
+angle_offset				= 1.570790,1.570790,3.92699
+
+[conserva_opened]:conserva
+inv_name					= st_conserva_opened
+inv_name_short				= st_conserva_opened
+
+;inv_grid_width				= 1
+;inv_grid_height				= 1
+;inv_grid_x					= 15
+;inv_grid_y					= 28
+
+eat_satiety					= 0.228
+eat_sleepiness				= 0.0055
+
+use_sound					= interface\inv_eat_can_open
+
+;--=====================================================================
+
+[tushonka]:booster
+$spawn 						= "food and drugs\conserva"
+visual						= dynamics\devices\dev_tushonka\dev_tushonka.ogf
+class_dbg			        = S_FOOD
+description					= st_tushonka_descr
+cost						= 990
+
+inv_name					= st_tushonka
+inv_name_short				= st_tushonka
+inv_weight					= 0.338
+
+inv_grid_width				= 1
+inv_grid_height				= 1
+inv_grid_x					= 16
+inv_grid_y					= 27
+
+attach_angle_offset			= 0.440521, 1.378287, -0.644026
+attach_position_offset		= 0.104196, -0.010821, 0.076969
+attach_bone_name			= bip01_r_hand
+auto_attach					= false
+
+bone_name					= bip01_r_hand
+position_offset				= 0.0,0.0,0.0
+angle_offset				= 1.570790,1.570790,3.92699
+
+[tushonka_opened]:tushonka
+inv_name					= st_tushonka_opened
+inv_name_short				= st_tushonka_opened
+
+inv_grid_width				= 1
+inv_grid_height				= 1
+inv_grid_x					= 14
+inv_grid_y					= 29
+
+eat_satiety					= 0.584
+eat_sleepiness				= 0.0055
+
+use_sound					= interface\inv_eat_can_open
+
+;--=====================================================================
+
+[protein]:booster
+$spawn 						= "food and drugs\kolbasa"
+visual						= dynamics\zpf\protein.ogf
+class_dbg			        = S_FOOD
+description					= st_protein_descr
+cost						= 1000
+	
+inv_name					= st_protein
+inv_name_short				= st_protein
+inv_weight					= 0.085
+	
+inv_grid_width				= 1
+inv_grid_height				= 1
+inv_grid_x					= 16
+inv_grid_y					= 28
+
+attach_angle_offset			= 0.440521, 1.378287, -0.644026
+attach_position_offset		= 0.104196, -0.010821, 0.076969
+attach_bone_name			= bip01_r_hand
+auto_attach					= false
+
+bone_name					= bip01_r_hand
+position_offset				= 0.0,0.0,0.0
+angle_offset				= 1.570790,1.570790,3.92699
+
+eat_satiety					= 0.382
+eat_sleepiness				= 0.0021
+
+use_sound					= interface\inv_eat_paperwrap_2
+
+;--=====================================================================
+
+[tomato]:booster
+$spawn 						= "food and drugs\conserva"
+visual						= dynamics\devices\dev_tomato\dev_tomato.ogf
+class_dbg			        = S_FOOD
+description					= st_tomato_descr
+cost						= 576
+	
+inv_name					= st_tomato
+inv_name_short				= st_tomato
+inv_weight					= 0.310
+	
+inv_grid_width				= 1
+inv_grid_height				= 1
+inv_grid_x					= 17
+inv_grid_y					= 27
+
+attach_angle_offset			= 0.440521, 1.378287, -0.644026
+attach_position_offset		= 0.104196, -0.010821, 0.076969
+attach_bone_name			= bip01_r_hand
+auto_attach					= false
+
+bone_name					= bip01_r_hand
+position_offset				= 0.0,0.0,0.0
+angle_offset				= 1.570790,1.570790,3.92699
+
+[tomato_opened]:tomato
+inv_name					= st_tomato_opened
+inv_name_short				= st_tomato_opened
+	
+inv_grid_width				= 1
+inv_grid_height				= 1
+inv_grid_x					= 16
+inv_grid_y					= 29
+
+eat_satiety					= 0.281
+eat_sleepiness				= 0.0012
+
+use_sound					= interface\inv_eat_can_open
+
+;--=====================================================================
+
+[sausage]:booster
+$spawn 						= "food and drugs\kolbasa"
+visual						= dynamics\devices\dev_sausage\dev_sausage.ogf
+class_dbg			        = S_FOOD
+description					= st_sausage_descr
+cost						= 657
+	
+inv_name					= st_sausage
+inv_name_short				= st_sausage
+inv_weight					= 0.109
+	
+inv_grid_width				= 1
+inv_grid_height				= 1
+inv_grid_x					= 17
+inv_grid_y					= 28
+
+attach_angle_offset			= 0.440521, 1.378287, -0.644026
+attach_position_offset		= 0.104196, -0.010821, 0.076969
+attach_bone_name			= bip01_r_hand
+auto_attach					= false
+
+bone_name					= bip01_r_hand
+position_offset				= 0.0,0.0,0.0
+angle_offset				= 1.570790,1.570790,3.92699
+
+eat_satiety					= 0.323
+eat_sleepiness				= 0.0036
+
+use_sound					= interface\inv_eat_paperwrap
+
+;--=====================================================================
+
+[corn]:booster
+$spawn 						= "food and drugs\conserva"
+visual						= dynamics\devices\dev_corn\dev_corn.ogf
+class_dbg			        = S_FOOD
+description					= st_corn_descr
+cost						= 650
+	
+inv_name					= st_corn
+inv_name_short				= st_corn
+inv_weight					= 0.340
+	
+inv_grid_width				= 1
+inv_grid_height				= 1
+inv_grid_x					= 18
+inv_grid_y					= 27
+
+attach_angle_offset			= 0.440521, 1.378287, -0.644026
+attach_position_offset		= 0.104196, -0.010821, 0.076969
+attach_bone_name			= bip01_r_hand
+auto_attach					= false
+
+bone_name					= bip01_r_hand
+position_offset				= 0.0,0.0,0.0
+angle_offset				= 1.570790,1.570790,3.92699
+
+[corn_opened]:corn
+inv_name					= st_corn_opened
+inv_name_short				= st_corn_opened
+	
+inv_grid_width				= 1
+inv_grid_height				= 1
+inv_grid_x					= 18
+inv_grid_y					= 26
+
+eat_satiety					= 0.249
+eat_sleepiness				= 0.0032
+
+use_sound					= interface\inv_eat_can_open
+
+;--=====================================================================
+
+[beans]:booster
+$spawn 						= "food and drugs\conserva"
+visual						= dynamics\devices\dev_beans\dev_beans.ogf
+class_dbg			        = S_FOOD
+description					= st_beans_descr
+cost						= 895
+	
+inv_name					= st_beans
+inv_name_short				= st_beans
+inv_weight					= 0.340
+	
+inv_grid_width				= 1
+inv_grid_height				= 1
+inv_grid_x					= 18
+inv_grid_y					= 28
+
+attach_angle_offset			= 0.440521, 1.378287, -0.644026
+attach_position_offset		= 0.104196, -0.010821, 0.076969
+attach_bone_name			= bip01_r_hand
+auto_attach					= false
+
+bone_name					= bip01_r_hand
+position_offset				= 0.0,0.0,0.0
+angle_offset				= 1.570790,1.570790,3.92699
+
+[beans_opened]:beans
+inv_name					= st_beans_opened
+inv_name_short				= st_beans_opened
+	
+inv_grid_width				= 1
+inv_grid_height				= 1
+inv_grid_x					= 13
+inv_grid_y					= 29
+
+eat_satiety					= 0.437
+eat_sleepiness				= 0.0056
+
+use_sound					= interface\inv_eat_can_open
+
+;--=====================================================================
+
+[chili]:booster
+$spawn 						= "food and drugs\conserva"
+visual						= dynamics\devices\dev_chili\dev_chili.ogf
+class_dbg			        = S_FOOD
+description					= st_chili_descr
+cost						= 757
+	
+inv_name					= st_chili
+inv_name_short				= st_chili
+inv_weight					= 0.340
+	
+inv_grid_width				= 1
+inv_grid_height				= 1
+inv_grid_x					= 19
+inv_grid_y					= 27
+
+attach_angle_offset			= 0.440521, 1.378287, -0.644026
+attach_position_offset		= 0.104196, -0.010821, 0.076969
+attach_bone_name			= bip01_r_hand
+auto_attach					= false
+
+bone_name					= bip01_r_hand
+position_offset				= 0.0,0.0,0.0
+angle_offset				= 1.570790,1.570790,3.92699
+
+[chili_opened]:chili
+inv_name					= st_chili_opened
+inv_name_short				= st_chili_opened
+	
+inv_grid_width				= 1
+inv_grid_height				= 1
+inv_grid_x					= 15
+inv_grid_y					= 29
+
+eat_satiety					= 0.322
+eat_sleepiness				= 0.0011
+
+use_sound					= interface\inv_eat_can_open
+
+;--=====================================================================
+
+[salmon]:booster
+$spawn 						= "food and drugs\conserva"
+visual						= dynamics\devices\dev_salmon\dev_salmon.ogf
+class_dbg			        = S_FOOD
+description					= st_salmon_descr
+cost						= 500
+	
+inv_name					= st_salmon
+inv_name_short				= st_salmon
+inv_weight					= 0.104
+	
+inv_grid_width				= 1
+inv_grid_height				= 1
+inv_grid_x					= 19
+inv_grid_y					= 28
+
+attach_angle_offset			= 0.440521, 1.378287, -0.644026
+attach_position_offset		= 0.104196, -0.010821, 0.076969
+attach_bone_name			= bip01_r_hand
+auto_attach					= false
+
+bone_name					= bip01_r_hand
+position_offset				= 0.0,0.0,0.0
+angle_offset				= 1.570790,1.570790,3.92699
+
+eat_satiety					= 0.169
+eat_sleepiness				= 0.0006
+
+use_sound					= interface\inv_eat_paperwrap
+
+;--=====================================================================
+
+[raisins]:booster
+$spawn 						= "food and drugs\kolbasa"
+visual						= dynamics\devices\dev_raisins\dev_raisins.ogf
+class_dbg			        = S_FOOD
+description					= st_raisins_descr
+cost						= 520
+	
+inv_name					= st_raisins
+inv_name_short				= st_raisins
+inv_weight					= 0.05
+	
+inv_grid_width				= 1
+inv_grid_height				= 1
+inv_grid_x					= 19
+inv_grid_y					= 29
+
+attach_angle_offset			= 0.440521, 1.378287, -0.644026
+attach_position_offset		= 0.104196, -0.010821, 0.076969
+attach_bone_name			= bip01_r_hand
+auto_attach					= false
+
+bone_name					= bip01_r_hand
+position_offset				= 0.0,0.0,0.0
+angle_offset				= 1.570790,1.570790,3.92699
+
+eat_satiety					= 0.172
+eat_sleepiness				= 0.0005
+
+use_sound					= interface\inv_eat_paperwrap_2
+
+;--=====================================================================
+
+[chocolate]:booster
+$spawn 						= "food and drugs\kolbasa"
+visual						= dynamics\devices\dev_chocolate\dev_chocolate.ogf
+class_dbg			        = S_FOOD
+description					= st_chocolate_descr
+cost						= 1980
+	
+inv_name					= st_chocolate
+inv_name_short				= st_chocolate
+inv_weight					= 0.220
+
+inv_grid_width				= 1
+inv_grid_height				= 1
+inv_grid_x					= 8
+inv_grid_y					= 79
+
+attach_angle_offset			= 0.440521, 1.378287, -0.644026
+attach_position_offset		= 0.104196, -0.010821, 0.076969
+attach_bone_name			= bip01_r_hand
+auto_attach					= false
+
+bone_name					= bip01_r_hand
+position_offset				= 0.0,0.0,0.0
+angle_offset				= 1.570790,1.570790,3.92699
+
+eat_satiety					= 0.511
+eat_sleepiness				= 0.0014
+
+use_sound					= interface\inv_eat_paperwrap_2
+
+;--=====================================================================
+
+[chocolate_p]:booster
+$spawn 						= "food and drugs\kolbasa"
+visual						= dynamics\devices\dev_chocolate\dev_chocolate.ogf
+class_dbg			        = S_FOOD
+description					= st_chocolate_p_descr
+cost						= 1000
+	
+inv_name					= st_chocolate_p
+inv_name_short				= st_chocolate_p
+inv_weight					= 0.115
+	
+inv_grid_width				= 1
+inv_grid_height				= 1
+inv_grid_x					= 7
+inv_grid_y					= 79
+
+attach_angle_offset			= 0.440521, 1.378287, -0.644026
+attach_position_offset		= 0.104196, -0.010821, 0.076969
+attach_bone_name			= bip01_r_hand
+auto_attach					= false
+
+bone_name					= bip01_r_hand
+position_offset				= 0.0,0.0,0.0
+angle_offset				= 1.570790,1.570790,3.92699
+
+eat_satiety					= 0.400
+eat_sleepiness				= 0.0007
+
+use_sound					= interface\inv_eat_paperwrap_2
+
+;--=====================================================================
+
+[nuts]:booster
+$spawn 						= "food and drugs\kolbasa"
+visual						= dynamics\devices\dev_nuts\dev_nuts.ogf
+class_dbg			        = S_FOOD
+description					= st_nuts_descr
+cost						= 1283
+	
+inv_name					= st_nuts
+inv_name_short				= st_nuts
+inv_weight					= 0.110
+	
+inv_grid_width				= 1
+inv_grid_height				= 1
+inv_grid_x					= 17
+inv_grid_y					= 29
+
+attach_angle_offset			= 0.440521, 1.378287, -0.644026
+attach_position_offset		= 0.104196, -0.010821, 0.076969
+attach_bone_name			= bip01_r_hand
+auto_attach					= false
+
+bone_name					= bip01_r_hand
+position_offset				= 0.0,0.0,0.0
+angle_offset				= 1.570790,1.570790,3.92699
+
+eat_satiety					= 0.531
+eat_sleepiness				= 0.0013
+
+use_sound					= interface\inv_eat_paperwrap_2
+
+;--=====================================================================
+
+[mint]:booster
+$spawn 						= "food and drugs\drug_psy_blockade"
+visual						= dynamics\devices\dev_mint\dev_mint.ogf
+class_dbg			        = S_FOOD
+description					= st_mint_descr
+cost						= 50
+
+inv_name					= st_mint
+inv_name_short				= st_mint
+inv_weight					= 0.022
+
+inv_grid_width     			= 1
+inv_grid_height    			= 1
+inv_grid_x         			= 4
+inv_grid_y         			= 60
+
+uses_base					= mint
+uses_index					= 1
+
+[mint_use]:mint
+inv_grid_width				= 1
+inv_grid_height				= 1
+inv_grid_x					= 300
+inv_grid_y					= 300
+
+boost_time					= 14
+boost_radiation_restore		= 0.00024
+eat_alcohol					= -0.05
+eat_satiety 				= 0.020
+eat_sleepiness				= -0.014
+use_sound					= interface\inv_eat_gum
+
+[mint_2]:mint
+cost						= 150
+inv_weight					= 0.029
+inv_grid_y					= 59
+
+uses_index					= 2
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
+
+[mint_2_use]:mint_use
+
+[mint_3]:mint
+cost						= 250
+inv_weight					= 0.036
+inv_grid_y					= 58
+
+uses_index					= 3
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
+
+[mint_3_use]:mint_use
+
+;--=====================================================================
+
+[mre]:booster
+$spawn 						= "food and drugs\kolbasa"
+visual						= dynamics\devices\rations\ration_mre.ogf
+class_dbg			        = S_FOOD
+description					= st_mre_descr
+cost						= 1400
+
+inv_name					= st_mre
+inv_name_short				= st_mre
+inv_weight					= 0.233
+
+inv_grid_width				= 1
+inv_grid_height				= 2
+inv_grid_x					= 15
+inv_grid_y					= 61
+
+attach_angle_offset			= 0.440521, 1.378287, -0.644026
+attach_position_offset		= 0.104196, -0.010821, 0.076969
+attach_bone_name			= bip01_r_hand
+auto_attach					= false
+
+bone_name					= bip01_r_hand
+position_offset				= 0.0,0.0,0.0 0.117
+angle_offset				= 1.570790,1.570790,3.92699
+
+eat_satiety					= 0.466
+eat_sleepiness				= 0.0023
+
+use_sound					= interface\inv_eat_ration3
+
+uses_base					= mre
+uses_index					= 1
+
+[mre_2]:mre
+cost						= 2200
+inv_weight					= 0.466
+inv_grid_x					= 14
+
+uses_index					= 2
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
+
+[mre_3]:mre
+cost						= 3200
+inv_weight					= 0.699
+inv_grid_x					= 13
+
+uses_index					= 3
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
+
+;--=====================================================================
+
+[ration_ru]:booster
+$spawn 						= "food and drugs\kolbasa"
+visual						= dynamics\devices\rations\ration_ru.ogf
+class_dbg			        = S_FOOD
+description					= st_ration_ru_descr
+cost						= 1650
+
+inv_name					= st_ration_ru
+inv_name_short				= st_ration_ru
+inv_weight					= 0.199
+
+inv_grid_width				= 2
+inv_grid_height				= 1
+inv_grid_x					= 18
+inv_grid_y					= 67
+
+attach_angle_offset			= 0.440521, 1.378287, -0.644026
+attach_position_offset		= 0.104196, -0.010821, 0.076969
+attach_bone_name			= bip01_r_hand
+auto_attach					= false
+
+bone_name					= bip01_r_hand
+position_offset				= 0.0,0.0,0.0 0.117
+angle_offset				= 1.570790,1.570790,3.92699
+
+eat_satiety					= 0.523
+eat_sleepiness				= 0.0056
+
+use_sound					= interface\inv_eat_ration1
+
+uses_base					= ration_ru
+uses_index					= 1
+
+[ration_ru_2]:ration_ru
+cost						= 2300
+inv_weight					= 0.398
+inv_grid_y					= 66
+uses_index					= 2
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
+
+[ration_ru_3]:ration_ru
+cost						= 3540
+inv_weight					= 0.597
+inv_grid_y					= 65
+uses_index					= 3
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
+
+[ration_ru_4]:ration_ru
+cost						= 4740
+inv_weight					= 0.796
+inv_grid_y					= 64
+uses_index					= 4
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
+
+[ration_ru_5]:ration_ru
+cost						= 5950
+inv_weight					= 0.995
+inv_grid_y					= 63
+uses_index					= 5
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
+
+[ration_ru_6]:ration_ru
+cost						= 7300
+inv_weight					= 1.194
+inv_grid_y					= 62
+uses_index					= 6
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
+
+[ration_ru_7]:ration_ru
+cost						= 8000
+inv_weight					= 1.393
+inv_grid_y					= 61
+uses_index					= 7
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
+
+;--=====================================================================
+
+[ration_ukr]:booster
+$spawn 						= "food and drugs\kolbasa"
+visual						= dynamics\devices\rations\ration_ukr.ogf
+class_dbg			        = S_FOOD
+description					= st_ration_ukr_descr
+cost						= 1480
+	
+inv_name					= st_ration_ukr
+inv_name_short				= st_ration_ukr
+inv_weight					= 0.287
+	
+inv_grid_width				= 2
+inv_grid_height				= 1
+inv_grid_x					= 16
+inv_grid_y					= 66
+
+attach_angle_offset			= 0.440521, 1.378287, -0.644026
+attach_position_offset		= 0.104196, -0.010821, 0.076969
+attach_bone_name			= bip01_r_hand
+auto_attach					= false
+
+bone_name					= bip01_r_hand
+position_offset				= 0.0,0.0,0.0 0.117
+angle_offset				= 1.570790,1.570790,3.92699
+
+eat_satiety					= 0.531
+eat_sleepiness				= 0.0033
+
+use_sound					= interface\inv_eat_ration2
+
+uses_base					= ration_ukr
+uses_index					= 1
+
+[ration_ukr_2]:ration_ukr
+cost						= 2828
+inv_weight					= 0.574
+inv_grid_y					= 65
+uses_index					= 2
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
+
+[ration_ukr_3]:ration_ukr
+cost						= 4000
+inv_weight					= 0.861
+inv_grid_y					= 64
+uses_index					= 3
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
+
+[ration_ukr_4]:ration_ukr
+cost						= 5200
+inv_weight					= 1.148
+inv_grid_y					= 63
+uses_index					= 4
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
+
+[ration_ukr_5]:ration_ukr
+cost						= 6300
+inv_weight					= 1.435
+inv_grid_y					= 62
+uses_index					= 5
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
+
+[ration_ukr_6]:ration_ukr
+cost						= 7300
+inv_weight					= 1.722
+inv_grid_y					= 61
+uses_index					= 6
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate

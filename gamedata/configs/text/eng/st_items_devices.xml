@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+
+<!--
+	Devices
+-->
+
+<string_table>
+
+	<string id="st_pda_name">
+		<text>PDA</text>
+	</string>
+	<string id="st_pda_descr">
+		<text>PDA with information about the Zone, digital logs, detailed maps of the Zone and locations of anomalies. Trading value could be high if you find the right buyer.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] low UPD consumption</text>
+	</string>
+	
+	<string id="st_detector1">
+		<text>Echo detector</text>
+	</string>
+	<string id="st_detector1_descr">
+		<text>This dated anomalous activity detector produces an alarm signal when anomalous particles enter a special chamber as you approach an anomaly. It can also register the presence of artifacts and measure the distance to the nearest one. The distance is indicated by the frequency of the sound the detector emits. To switch to artifact search mode, open the device's front cover. Due to its simple design, Echo can only be used to locate the most common artifacts.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140]  moderate UPD consumption</text>
+	</string>
+	
+	<string id="st_detector2">
+		<text>Detector "Bear"</text>
+	</string>
+	<string id="st_detector2_descr">
+		<text>This last generation anomalous activity detector can be used to locate anomalous formations and has a color diode panel, which not only indicates the direction of artifacts, but also measures the distance to them. To switch to artifact search mode, open the device's front cover. Unfortunately, the device is programmed with a somewhat outdated list of detectable artifacts.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] moderate UPD consumption</text>
+	</string>
+	
+	<string id="st_detector3">
+		<text>Veles detector</text>
+	</string>
+	<string id="st_detector3_descr">
+		<text>A next generation scientific detection scanner. Thanks to three modernized detection chambers, the position of artifacts is shown on a special display screen. When closed, the device registers only radiation and anomalies. To switch to artifact search mode, open the front LED display. When in search mode, the detector is capable of locating all artifacts known to science.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] high UPD consumption</text>
+	</string>
+	
+	<string id="st_detector4">
+		<text>Svarog detector prototype</text>
+	</string>
+	<string id="st_detector4_descr">
+		<text>A prototype of an expanded functionality anomalous frequency scanner. This device comes with a program used to identify static areas of anomalous activity stored in its database, while retaining the ability to locate artifacts. The position of anomalous areas and artifacts is displayed on a special screen. The artifact search mode, which can be activated by opening the front LED display, has been modified to detect anomalous formations currently unknown to science.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] high UPD consumption</text>
+	</string>
+	
+	<string id="st_device_torch_name">
+		<text>Head lamp</text>
+	</string>
+	<string id="st_device_torch_descr">
+		<text>A standard head-mounted flashlight in fully working order. Useful for stalkers who find themselves out and about after dark, but may attract trouble if used unwisely.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] moderate UPD consumption</text>
+	</string>
+	
+	<string id="st_device_flashlight">
+		<text>Wind-up flashlight</text>
+	</string>
+	<string id="st_device_flashlight_descr">
+		<text>An old-school and very durable flashlight showing signs of intense use. By twisting the back for a few seconds, the power flow is reversed and stored in internal cells of the flashlight. It is an essential tool for exploration for extended periods of time. Unfortunately, it cannot be used along most of the weaponry since it requires a free hand. Thus is can be simultaneously used only with pistols and other single-handed equipment.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] does not require UPD</text>
+	</string>
+	
+	<string id="st_batteries_dead">
+		<text>Old batteries</text>
+	</string>
+	<string id="st_batteries_dead_descr">
+		<text>Only one out of ten batteries found in the Zone still carry some juice. Stalkers seem to throw them out when they're depleted since it's almost impossible to find a battery recharger. Their outer layer is corroded and covered in dirt, which is a strong indication that these are almost dead. Still, like everything in the Zone they also have their purpose and may prove useful for frequent UPD recharges.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] UPD charge: %c[0,170,170,170] +14%</text>
+	</string>
+	
+	<string id="st_batteries">
+		<text>Battery pack</text>
+	</string>
+	<string id="st_batteries_descr">
+		<text>A pack of batteries. Someone must have used them since they are already half drained. Intended for use in your flashlight, PDA, nightvision goggles and other electronic devices. Remember to change regularly.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] UPD charge +52%</text>
+	</string>
+	
+	<string id="st_batteries_ccell">
+		<text>Military battery unit</text>
+	</string>
+	<string id="st_batteries_ccell_descr">
+		<text>A pack of fully charged military batteries. Very valuable and in high demand due to the relative scarcity of batteries in the Zone. Used by all factions and Zoners of all levels, from rookies to master stalkers. Supplied to traders by corrupt military officers trying to earn some extra dough in the Zone.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] UPD charge: %c[0,170,170,170] +93%</text>
+	</string>
+	
+	<string id="st_geiger_dead">
+		<text>Geiger counter</text>
+	</string>
+	<string id="st_geiger_dead_descr">
+		<text>A Geiger counter measures ionizing (radioactive) radiation. It detects the emission of alpha particles, beta particles and gamma particles. Invented in 1908, Geiger counters remain popular technological object used for measurements in health, physics, industry, geology and other fields of activity. Made of simple electronic circuits.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological device \n
+		%c[255,238,153,26] • %c[0,140,140,140] measures the level of radioactive contamination</text>
+	</string>
+	
+	<string id="st_upd">
+		<text>Universal Power Device (UPD)</text>
+	</string>
+	<string id="st_upd_descr">
+		<text>Cold War era power unit about the size of a small walkie talkie. Accepts almost any type of batteries. Utilizes every bit of energy from inserted batteries and supplies electronic devices with power in an enhanced stream through a set of micro wires. These can be connected to any piece of equipment, regardless of its complexity or age. Allows stalkers to use and handle numerous electronic devices even if they have only one battery.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] portable energy source\n
+		%c[0,100,100,255] • %c[0,140,140,140] supports most modern devices\n
+		%c[0,100,100,255] • %c[0,140,140,140] accepts all battery types\n
+		%c[0,100,100,255] • %c[0,140,140,140] storage capacity 
+		%c[0,170,170,170]3 Ah (ampere-hours)</text>
+	</string>
+	
+	<string id="extension_pda">
+		<text>Multimedia PDA</text>
+	</string>
+	<string id="exten_sion_pda">
+		<text>An expensive moisture- and shock-resistant PDA, featuring a chat client and an integrated music player.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] allows for playback of music and interaction in the stalker network</text>
+	</string>
+
+</string_table>

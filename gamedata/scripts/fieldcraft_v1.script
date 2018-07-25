@@ -1,0 +1,964 @@
+function on_game_start()
+    RegisterScriptCallback("CUIActorMenu_OnItemDropped",OnItemDropped)
+end
+ 
+function OnItemDropped(itm_from,itm_to,slot_from,slot_to)
+    if not (slot_from == EDDListType.iActorBag and slot_to == EDDListType.iActorBag) then
+        return
+    end
+   
+    local itm_main = itm_to
+    local itm_addon = itm_from
+   
+    local itm_main_sec = itm_to:section()
+    local itm_addon_sec = itm_from:section()
+	local amount = 1
+    local newitem = ""
+	local reusable = false
+	local msgdelay = 80
+	local snd_obj = sound_object("interface\\inv_slot")
+    
+	---------------------------------
+	--[CRAFTING PACKAGES RECIPES]--
+	---------------------------------
+	
+	-- MEDKIT crafting package
+	if (itm_main_sec == "fieldcraft_pkg_medkit_0") then
+        if (itm_addon_sec == "sewing_kit_a") or (itm_addon_sec == "sewing_kit_a_2") or (itm_addon_sec == "sewing_kit_a_3") or (itm_addon_sec == "sewing_kit_a_4") or (itm_addon_sec == "sewing_kit_b_4") or (itm_addon_sec == "sewing_kit_b_3") or (itm_addon_sec == "sewing_kit_b_2") or (itm_addon_sec == "sewing_kit_b") or (itm_addon_sec == "sewing_kit_h_4") or (itm_addon_sec == "sewing_kit_h_3") or (itm_addon_sec == "sewing_kit_h_2") or (itm_addon_sec == "sewing_kit_h") then
+            newitem = "fieldcraft_pkg_medkit_1"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_medkit_1") then
+        if (itm_addon_sec == "bandage") then
+            newitem = "fieldcraft_pkg_medkit_2"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_medkit_2") then
+        if (itm_addon_sec == "vodka") or (itm_addon_sec == "vodka2") or (itm_addon_sec == "vodka_quality") or (itm_addon_sec == "bottle_metal") or (itm_addon_sec == "vodka_2") or (itm_addon_sec == "vodka2_2") or (itm_addon_sec == "vodka_quality_2") or (itm_addon_sec == "bottle_metal_2") or (itm_addon_sec == "vodka_3") or (itm_addon_sec == "vodka2_3") or (itm_addon_sec == "vodka_quality_3") or (itm_addon_sec == "bottle_metal_3") then
+            newitem = "fieldcraft_pkg_medkit_3"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_medkit_3") then
+        if (itm_addon_sec == "textile_patch_b") or (itm_addon_sec == "textile_patch_m") or (itm_addon_sec == "textile_patch_e") then
+            newitem = "fieldcraft_pkg_medkit_4"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	
+	--stimpack package
+	if (itm_main_sec == "fieldcraft_pkg_stimpack_0") then
+        if (itm_addon_sec == "syringe_empty") then
+            newitem = "fieldcraft_pkg_stimpack_1"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_stimpack_1") then
+        if (itm_addon_sec == "vodka") or (itm_addon_sec == "vodka2") or (itm_addon_sec == "vodka_quality") or (itm_addon_sec == "bottle_metal") or (itm_addon_sec == "vodka_2") or (itm_addon_sec == "vodka2_2") or (itm_addon_sec == "vodka_quality_2") or (itm_addon_sec == "bottle_metal_2") or (itm_addon_sec == "vodka_3") or (itm_addon_sec == "vodka2_3") or (itm_addon_sec == "vodka_quality_3") or (itm_addon_sec == "bottle_metal_3") then
+            newitem = "fieldcraft_pkg_stimpack_2"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_stimpack_2") then
+        if (itm_addon_sec == "drugs_kit") then
+            newitem = "fieldcraft_pkg_stimpack_3"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_stimpack_3") then
+        if (itm_addon_sec == "drug_coagulant") or (itm_addon_sec == "drug_coagulant_2") or (itm_addon_sec == "drug_coagulant_3") or (itm_addon_sec == "drug_coagulant_4") or (itm_addon_sec == "drug_coagulant_5") then
+            newitem = "fieldcraft_pkg_stimpack_4"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_stimpack_4") then
+        if (itm_addon_sec == "antibio_chlor") then
+            newitem = "fieldcraft_pkg_stimpack_5"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_stimpack_5") then
+        if (itm_addon_sec == "cutlery") then
+            newitem = "fieldcraft_pkg_stimpack_6"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	
+	--sleepbag package
+	if (itm_main_sec == "fieldcraft_pkg_sleepbag_0") then
+        if (itm_addon_sec == "tarpaulin") then
+            newitem = "fieldcraft_pkg_sleepbag_1"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_sleepbag_1") then
+        if (itm_addon_sec == "beadspread") then
+            newitem = "fieldcraft_pkg_sleepbag_2"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_sleepbag_2") then
+        if (itm_addon_sec == "sewing_kit_a") or (itm_addon_sec == "sewing_kit_a_2") or (itm_addon_sec == "sewing_kit_a_3") or (itm_addon_sec == "sewing_kit_a_4") or (itm_addon_sec == "sewing_kit_b_4") or (itm_addon_sec == "sewing_kit_b_3") or (itm_addon_sec == "sewing_kit_b_2") or (itm_addon_sec == "sewing_kit_b") or (itm_addon_sec == "sewing_kit_h_4") or (itm_addon_sec == "sewing_kit_h_3") or (itm_addon_sec == "sewing_kit_h_2") or (itm_addon_sec == "sewing_kit_h") then
+            newitem = "fieldcraft_pkg_sleepbag_3"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	
+	
+	--backpack package
+	if (itm_main_sec == "fieldcraft_pkg_backpack_0") then
+        if (itm_addon_sec == "compression_bag") then
+            newitem = "fieldcraft_pkg_backpack_1"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_backpack_1") then
+        if (itm_addon_sec == "synth_harness") then
+            newitem = "fieldcraft_pkg_backpack_2"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_backpack_2") then
+        if (itm_addon_sec == "sewing_kit_a") or (itm_addon_sec == "sewing_kit_a_2") or (itm_addon_sec == "sewing_kit_a_3") or (itm_addon_sec == "sewing_kit_a_4") or (itm_addon_sec == "sewing_kit_b_4") or (itm_addon_sec == "sewing_kit_b_3") or (itm_addon_sec == "sewing_kit_b_2") or (itm_addon_sec == "sewing_kit_b") or (itm_addon_sec == "sewing_kit_h_4") or (itm_addon_sec == "sewing_kit_h_3") or (itm_addon_sec == "sewing_kit_h_2") or (itm_addon_sec == "sewing_kit_h") then
+            newitem = "fieldcraft_pkg_backpack_3"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	
+	
+	--ied package
+	if (itm_main_sec == "fieldcraft_pkg_ied_0") then
+        if (itm_addon_sec == "explo_jerrycan_fuel") or (itm_addon_sec == "explo_jerrycan_fuel2") or (itm_addon_sec == "explo_jerrycan_fuel3") or (itm_addon_sec == "explo_jerrycan_fuel4") or (itm_addon_sec == "explo_jerrycan_fuel5") or (itm_addon_sec == "explo_jerrycan_fuel6") or (itm_addon_sec == "explo_jerrycan_fuel7") or (itm_addon_sec == "explo_jerrycan_fuel8") then
+            newitem = "fieldcraft_pkg_ied_1"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_ied_1") then
+        if (itm_addon_sec == "grenade_gd-05") then
+            newitem = "fieldcraft_pkg_ied_2"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_ied_2") then
+        if (itm_addon_sec == "copper_wire") then
+            newitem = "fieldcraft_pkg_ied_3"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_ied_3") then
+        if (itm_addon_sec == "proxim_device") then
+            newitem = "fieldcraft_pkg_ied_4"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	
+	
+	--ied_rpg package
+	if (itm_main_sec == "fieldcraft_pkg_iedrpg_0") then
+        if (itm_addon_sec == "ammo_og-7b") or (itm_addon_sec == "ammo_og-7b_bad") or (itm_addon_sec == "ammo_og-7b_verybad") then
+            newitem = "fieldcraft_pkg_iedrpg_1"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_iedrpg_1") then
+        if (itm_addon_sec == "copper_wire") then
+            newitem = "fieldcraft_pkg_iedrpg_2"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_iedrpg_2") then
+        if (itm_addon_sec == "proxim_device") then
+            newitem = "fieldcraft_pkg_iedrpg_3"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	
+	
+	--mine package
+	if (itm_main_sec == "fieldcraft_pkg_mine_0") then
+        if (itm_addon_sec == "ammo_vog-25") or (itm_addon_sec == "ammo_m209") or (itm_addon_sec == "grenade_f1") or (itm_addon_sec == "grenade_rgd5") or (itm_addon_sec == "ammo_m209_bad") or (itm_addon_sec == "ammo_m209_verybad") or (itm_addon_sec == "ammo_vog-25_bad") or (itm_addon_sec == "ammo_vog-25_verybad") then
+            newitem = "fieldcraft_pkg_mine_1"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_mine_1") then
+        if (itm_addon_sec == "copper_wire") then
+            newitem = "fieldcraft_pkg_mine_2"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_mine_2") then
+        if (itm_addon_sec == "plastic_pieces") then
+            newitem = "fieldcraft_pkg_mine_3"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	
+	--improv plate package
+	if (itm_main_sec == "fieldcraft_pkg_plate_attch_0") then
+        if (itm_addon_sec == "dis_metalplate") then
+            newitem = "fieldcraft_pkg_plate_attch_1"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_plate_attch_1") then
+        if (itm_addon_sec == "dis_metalplate") then
+            newitem = "fieldcraft_pkg_plate_attch_2"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_plate_attch_2") then
+        if (itm_addon_sec == "dis_scrap") then
+            newitem = "fieldcraft_pkg_plate_attch_3"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_plate_attch_3") then
+        if (itm_addon_sec == "synth_harness") then
+            newitem = "fieldcraft_pkg_plate_attch_4"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_plate_attch_4") then
+        if (itm_addon_sec == "hammer_inv") then
+            newitem = "fieldcraft_pkg_plate_attch_5"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	
+	--mess kit package: [cooking, fieldcooker, wood_stove], dis_metalplate, copper_wire, dis_scrap, hammer_inv(reuse)
+	if (itm_main_sec == "fieldcraft_pkg_army_bowler_0") then
+        if (itm_addon_sec == "cooking") or (itm_addon_sec == "fieldcooker") or (itm_addon_sec == "wood_stove") then
+            newitem = "fieldcraft_pkg_army_bowler_1"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_army_bowler_1") then
+        if (itm_addon_sec == "dis_metalplate") then
+            newitem = "fieldcraft_pkg_army_bowler_2"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_army_bowler_2") then
+        if (itm_addon_sec == "dis_scrap") then
+            newitem = "fieldcraft_pkg_army_bowler_3"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_army_bowler_3") then
+        if (itm_addon_sec == "copper_wire") then
+            newitem = "fieldcraft_pkg_army_bowler_4"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_army_bowler_4") then
+        if (itm_addon_sec == "hammer_inv") then
+            newitem = "fieldcraft_pkg_army_bowler_5"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	
+	--pistol toolkit
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_p_0") then
+        if (itm_addon_sec == "gun_oil") or (itm_addon_sec == "gun_oil_2") or (itm_addon_sec == "gun_oil_ru") or (itm_addon_sec == "gun_oil_ru_2") or (itm_addon_sec == "gun_oil_ru_d") or (itm_addon_sec == "gun_oil_ru_d_2") or (itm_addon_sec == "solvent") or (itm_addon_sec == "solvent_2") then
+            newitem = "fieldcraft_pkg_toolkit_p_1"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_p_1") then
+        if (itm_addon_sec == "sp_spring") then
+            newitem = "fieldcraft_pkg_toolkit_p_2"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_p_2") then
+        if (itm_addon_sec == "sp_triggermechanism") or (itm_addon_sec == "awr_trigger_components_1_good") or (itm_addon_sec == "awr_trigger_components_2_good") or (itm_addon_sec == "awr_trigger_components_3_good") or (itm_addon_sec == "awr_trigger_components_4_good") or (itm_addon_sec == "awr_trigger_components_5_good") or (itm_addon_sec == "awr_trigger_components_6_good") then
+            newitem = "fieldcraft_pkg_toolkit_p_3"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_p_3") then
+        if (itm_addon_sec == "cleaning_kit_u") or (itm_addon_sec == "cleaning_kit_u_2") or (itm_addon_sec == "cleaning_kit_u_3") or (itm_addon_sec == "cleaning_kit_p") or (itm_addon_sec == "cleaning_kit_p_2") or (itm_addon_sec == "cleaning_kit_p_3") then
+            newitem = "fieldcraft_pkg_toolkit_p_4"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_p_4") then
+        if (itm_addon_sec == "sp_pistolgrip") then
+            newitem = "fieldcraft_pkg_toolkit_p_5"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_p_5") then
+        if (itm_addon_sec == "swiss") then
+            newitem = "fieldcraft_pkg_toolkit_p_6"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	
+	--shotgun toolkit
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_s_0") then
+        if (itm_addon_sec == "gun_oil") or (itm_addon_sec == "gun_oil_2") or (itm_addon_sec == "gun_oil_ru") or (itm_addon_sec == "gun_oil_ru_2") or (itm_addon_sec == "gun_oil_ru_d") or (itm_addon_sec == "gun_oil_ru_d_2") or (itm_addon_sec == "solvent") or (itm_addon_sec == "solvent_2") then
+            newitem = "fieldcraft_pkg_toolkit_s_1"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_s_1") then
+        if (itm_addon_sec == "sp_spring") then
+            newitem = "fieldcraft_pkg_toolkit_s_2"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_s_2") then
+        if (itm_addon_sec == "sp_triggermechanism") or (itm_addon_sec == "awr_trigger_components_1_good") or (itm_addon_sec == "awr_trigger_components_2_good") or (itm_addon_sec == "awr_trigger_components_3_good") or (itm_addon_sec == "awr_trigger_components_4_good") or (itm_addon_sec == "awr_trigger_components_5_good") or (itm_addon_sec == "awr_trigger_components_6_good") then
+            newitem = "fieldcraft_pkg_toolkit_s_3"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_s_3") then
+        if (itm_addon_sec == "cleaning_kit_u") or (itm_addon_sec == "cleaning_kit_u_2") or (itm_addon_sec == "cleaning_kit_u_3") or (itm_addon_sec == "cleaning_kit_s") or (itm_addon_sec == "cleaning_kit_s_2") or (itm_addon_sec == "cleaning_kit_s_3") then
+            newitem = "fieldcraft_pkg_toolkit_s_4"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_s_4") then
+        if (itm_addon_sec == "sp_stock") then
+            newitem = "fieldcraft_pkg_toolkit_s_5"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_s_5") then
+        if (itm_addon_sec == "crowbar") then
+            newitem = "fieldcraft_pkg_toolkit_s_6"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_s_6") then
+        if (itm_addon_sec == "sp_smooth_barrel") or (itm_addon_sec == "awr_barrel_1_good") or (itm_addon_sec == "awr_barrel_2_good") or (itm_addon_sec == "awr_barrel_3_good") then
+            newitem = "fieldcraft_pkg_toolkit_s_7"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_s_7") then
+        if (itm_addon_sec == "sp_smooth_barrel") or (itm_addon_sec == "awr_barrel_1_good") or (itm_addon_sec == "awr_barrel_2_good") or (itm_addon_sec == "awr_barrel_3_good") then
+            newitem = "fieldcraft_pkg_toolkit_s_8"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	
+	--545 caliber toolkit
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_r5_0") then
+        if (itm_addon_sec == "gun_oil") or (itm_addon_sec == "gun_oil_2") or (itm_addon_sec == "gun_oil_ru") or (itm_addon_sec == "gun_oil_ru_2") or (itm_addon_sec == "gun_oil_ru_d") or (itm_addon_sec == "gun_oil_ru_d_2") or (itm_addon_sec == "solvent") or (itm_addon_sec == "solvent_2") then
+            newitem = "fieldcraft_pkg_toolkit_r5_1"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_r5_1") then
+        if (itm_addon_sec == "sp_spring") then
+            newitem = "fieldcraft_pkg_toolkit_r5_2"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_r5_2") then
+        if (itm_addon_sec == "sp_triggermechanism") or (itm_addon_sec == "awr_trigger_components_1_good") or (itm_addon_sec == "awr_trigger_components_2_good") or (itm_addon_sec == "awr_trigger_components_3_good") or (itm_addon_sec == "awr_trigger_components_4_good") or (itm_addon_sec == "awr_trigger_components_5_good") or (itm_addon_sec == "awr_trigger_components_6_good") then
+            newitem = "fieldcraft_pkg_toolkit_r5_3"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_r5_3") then
+        if (itm_addon_sec == "cleaning_kit_u") or (itm_addon_sec == "cleaning_kit_u_2") or (itm_addon_sec == "cleaning_kit_u_3") or (itm_addon_sec == "cleaning_kit_r5") or (itm_addon_sec == "cleaning_kit_r5_2") or (itm_addon_sec == "cleaning_kit_r5_3") then
+            newitem = "fieldcraft_pkg_toolkit_r5_4"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_r5_4") then
+        if (itm_addon_sec == "sp_rifle_boltcarrier") or (itm_addon_sec == "awr_bolt_carrier_1_good") or (itm_addon_sec == "awr_bolt_carrier_2_good") or (itm_addon_sec == "awr_bolt_carrier_3_good") or (itm_addon_sec == "awr_bolt_carrier_4_good") or (itm_addon_sec == "awr_bolt_carrier_5_good") or (itm_addon_sec == "awr_bolt_carrier_6_good") or (itm_addon_sec == "awr_bolt_carrier_7_good") or (itm_addon_sec == "awr_bolt_carrier_8_good") or (itm_addon_sec == "awr_bolt_carrier_9_good") or (itm_addon_sec == "awr_bolt_carrier_10_good") or (itm_addon_sec == "awr_bolt_carrier_11_good") then
+            newitem = "fieldcraft_pkg_toolkit_r5_5"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_r5_5") then
+        if (itm_addon_sec == "sp_stock") then
+            newitem = "fieldcraft_pkg_toolkit_r5_6"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_r5_6") then
+        if (itm_addon_sec == "crowbar") then
+            newitem = "fieldcraft_pkg_toolkit_r5_7"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_r5_7") then
+        if (itm_addon_sec == "sp_545_barrel") or (itm_addon_sec == "awr_barrel_8_good") then
+            newitem = "fieldcraft_pkg_toolkit_r5_8"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_r5_8") then
+        if (itm_addon_sec == "sp_556_barrel") or (itm_addon_sec == "awr_barrel_9_good") then
+            newitem = "fieldcraft_pkg_toolkit_r5_9"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	
+	--762 caliber toolkit
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_r7_0") then
+        if (itm_addon_sec == "gun_oil") or (itm_addon_sec == "gun_oil_2") or (itm_addon_sec == "gun_oil_ru") or (itm_addon_sec == "gun_oil_ru_2") or (itm_addon_sec == "gun_oil_ru_d") or (itm_addon_sec == "gun_oil_ru_d_2") or (itm_addon_sec == "solvent") or (itm_addon_sec == "solvent_2") then
+            newitem = "fieldcraft_pkg_toolkit_r7_1"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_r7_1") then
+        if (itm_addon_sec == "sp_spring") then
+            newitem = "fieldcraft_pkg_toolkit_r7_2"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_r7_2") then
+        if (itm_addon_sec == "sp_triggermechanism") or (itm_addon_sec == "awr_trigger_components_1_good") or (itm_addon_sec == "awr_trigger_components_2_good") or (itm_addon_sec == "awr_trigger_components_3_good") or (itm_addon_sec == "awr_trigger_components_4_good") or (itm_addon_sec == "awr_trigger_components_5_good") or (itm_addon_sec == "awr_trigger_components_6_good") then
+            newitem = "fieldcraft_pkg_toolkit_r7_3"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_r7_3") then
+        if (itm_addon_sec == "cleaning_kit_u") or (itm_addon_sec == "cleaning_kit_u_2") or (itm_addon_sec == "cleaning_kit_u_3") or (itm_addon_sec == "cleaning_kit_r7") or (itm_addon_sec == "cleaning_kit_r7_2") or (itm_addon_sec == "cleaning_kit_r7_3") then
+            newitem = "fieldcraft_pkg_toolkit_r7_4"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_r7_4") then
+        if (itm_addon_sec == "sp_rifle_boltcarrier") or (itm_addon_sec == "awr_bolt_carrier_1_good") or (itm_addon_sec == "awr_bolt_carrier_2_good") or (itm_addon_sec == "awr_bolt_carrier_3_good") or (itm_addon_sec == "awr_bolt_carrier_4_good") or (itm_addon_sec == "awr_bolt_carrier_5_good") or (itm_addon_sec == "awr_bolt_carrier_6_good") or (itm_addon_sec == "awr_bolt_carrier_7_good") or (itm_addon_sec == "awr_bolt_carrier_8_good") or (itm_addon_sec == "awr_bolt_carrier_9_good") or (itm_addon_sec == "awr_bolt_carrier_10_good") or (itm_addon_sec == "awr_bolt_carrier_11_good") then
+            newitem = "fieldcraft_pkg_toolkit_r7_5"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_r7_5") then
+        if (itm_addon_sec == "sp_stock") then
+            newitem = "fieldcraft_pkg_toolkit_r7_6"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_r7_6") then
+        if (itm_addon_sec == "crowbar") then
+            newitem = "fieldcraft_pkg_toolkit_r7_7"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_r7_7") then
+        if (itm_addon_sec == "sp_762_barrel") or (itm_addon_sec == "awr_barrel_4_good") or (itm_addon_sec == "awr_barrel_7_good") or (itm_addon_sec == "awr_barrel_10_good") or (itm_addon_sec == "awr_barrel_12_good") then
+            newitem = "fieldcraft_pkg_toolkit_r7_8"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_r7_8") then
+        if (itm_addon_sec == "sp_792_barrel") or (itm_addon_sec == "awr_barrel_5_good") then
+            newitem = "fieldcraft_pkg_toolkit_r7_9"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	if (itm_main_sec == "fieldcraft_pkg_toolkit_r7_9") then
+        if (itm_addon_sec == "sp_9x_barrel") or (itm_addon_sec == "awr_barrel_6_good") or (itm_addon_sec == "awr_barrel_11_good") then
+            newitem = "fieldcraft_pkg_toolkit_r7_10"
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			reusable = false
+			amount = 1
+			msgdelay = 1
+        end
+    end
+	-----------------------------------
+	--[CRAFTING PACKAGES RECIPES END]--
+	-----------------------------------
+	
+	
+	------------------------------------------------
+	----------------dismantling detector
+	------------------------------------------------
+	if (itm_main_sec == "detector_simple") or (itm_main_sec == "detector_advanced") or (itm_main_sec == "detector_elite") or (itm_main_sec == "detector_scientific")  then
+        if (itm_addon_sec == "swiss") then
+            newitem = "proxim_device"
+			alife():create("copper_wire", db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+			alife():create("plastic_pieces", db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+            actor_effects.use_item("toolkit_p_dummy")
+			reusable = true
+			amount = 1
+			msgdelay = 80
+        end
+    end
+	
+	
+	--plastic_pieces to synthrope for synth_harness 
+	if (itm_main_sec == "synthrope") or (itm_main_sec == "rope") then
+        if (itm_addon_sec == "plastic_pieces") then
+            newitem = "synth_harness"
+            actor_effects.use_item("outfit")
+			reusable = false
+			amount = 1
+			msgdelay = 60
+        end
+    end
+	--synth_harness to flashlight for headlight
+	if itm_main_sec == "device_flashlight" then
+        if itm_addon_sec == "synth_harness" then
+            newitem = "device_torch_dummy"
+            actor_effects.use_item("outfit")
+			reusable = false
+			amount = 1
+			msgdelay = 60
+        end
+    end
+	
+	
+	--slice cloth items with knife
+	if (itm_main_sec == "tarpaulin") or (itm_main_sec == "compression_bag") or (itm_main_sec == "kit_hunt") or (itm_main_sec == "itm_sleepbag") or (itm_main_sec == "itm_backpack") or (itm_main_sec == "underwear") then
+        if (itm_addon_sec == "wpn_knife") or (itm_addon_sec == "wpn_knife2") or (itm_addon_sec == "wpn_knife3") or (itm_addon_sec == "wpn_knife4") or (itm_addon_sec == "wpn_knife5") then
+            newitem = "textile_patch_b"
+            actor_effects.use_item("outfit")
+			reusable = true
+			amount = 3
+			msgdelay = 60
+        end
+    end
+	
+	
+	-- bandage recipe
+	if (itm_main_sec == "textile_patch_b") or (itm_main_sec == "textile_patch_m") or (itm_main_sec == "textile_patch_e") then
+        if (itm_addon_sec == "vodka") or (itm_addon_sec == "vodka2") or (itm_addon_sec == "vodka_quality") or (itm_addon_sec == "bottle_metal") or (itm_addon_sec == "vodka_2") or (itm_addon_sec == "vodka2_2") or (itm_addon_sec == "vodka_quality_2") or (itm_addon_sec == "bottle_metal_2") or (itm_addon_sec == "vodka_3") or (itm_addon_sec == "vodka2_3") or (itm_addon_sec == "vodka_quality_3") or (itm_addon_sec == "bottle_metal_3") then
+            newitem = "bandage"
+            actor_effects.use_item("glue_b_2_dummy")
+        end
+    end
+	
+	---------------------------------
+	--[BARREL CLEANING RECIPES]--
+	----------------------------------
+	if (itm_main_sec == "sp_smooth_barrel_worn") then
+        if (itm_addon_sec == "explo_jerrycan_fuel") or (itm_addon_sec == "explo_jerrycan_fuel2") or (itm_addon_sec == "explo_jerrycan_fuel3") or (itm_addon_sec == "explo_jerrycan_fuel4") or (itm_addon_sec == "explo_jerrycan_fuel5") or (itm_addon_sec == "explo_jerrycan_fuel6") or (itm_addon_sec == "explo_jerrycan_fuel7") or (itm_addon_sec == "explo_jerrycan_fuel8") or (itm_addon_sec == "kerosene") or (itm_addon_sec == "kerosene2") or (itm_addon_sec == "kerosene3") or (itm_addon_sec == "kerosene4") or (itm_addon_sec == "kerosene5") or (itm_addon_sec == "mineral_water3") or (itm_addon_sec == "mineral_water2") or (itm_addon_sec == "mineral_water") or (itm_addon_sec == "vodka") or (itm_addon_sec == "vodka2") or (itm_addon_sec == "vodka_quality") or (itm_addon_sec == "bottle_metal") or (itm_addon_sec == "vodka_2") or (itm_addon_sec == "vodka2_2") or (itm_addon_sec == "vodka_quality_2") or (itm_addon_sec == "bottle_metal_2") or (itm_addon_sec == "vodka_3") or (itm_addon_sec == "vodka2_3") or (itm_addon_sec == "vodka_quality_3") or (itm_addon_sec == "bottle_metal_3") or (itm_addon_sec == "solvent") or (itm_addon_sec == "solvent_2") or (itm_addon_sec == "steel_wool") or (itm_addon_sec == "steel_wool2") or (itm_addon_sec == "gun_oil") or (itm_addon_sec == "gun_oil_2") or (itm_addon_sec == "gun_oil_ru") or (itm_addon_sec == "gun_oil_ru_2") or (itm_addon_sec == "gun_oil_ru_d") or (itm_addon_sec == "gun_oil_ru_d_2") or (itm_addon_sec == "cleaning_kit_s") or (itm_addon_sec == "cleaning_kit_s_2") or (itm_addon_sec == "cleaning_kit_s_3") or (itm_addon_sec == "cleaning_kit_r5") or (itm_addon_sec == "cleaning_kit_r5_2") or (itm_addon_sec == "cleaning_kit_r5_3") or (itm_addon_sec == "cleaning_kit_r7") or (itm_addon_sec == "cleaning_kit_r7_2") or (itm_addon_sec == "cleaning_kit_r7_3") or (itm_addon_sec == "cleaning_kit_u") or (itm_addon_sec == "cleaning_kit_u_2") or (itm_addon_sec == "cleaning_kit_u_3") or (itm_addon_sec == "toolkit_s") or (itm_addon_sec == "toolkit_s_2") or (itm_addon_sec == "toolkit_s_3") or (itm_addon_sec == "toolkit_s_4") or (itm_addon_sec == "toolkit_r5") or (itm_addon_sec == "toolkit_r5_2") or (itm_addon_sec == "toolkit_r5_3") or (itm_addon_sec == "toolkit_r5_4") or (itm_addon_sec == "toolkit_r7") or (itm_addon_sec == "toolkit_r7_2") or (itm_addon_sec == "toolkit_r7_3") or (itm_addon_sec == "toolkit_r7_4")  then 
+            newitem = "sp_smooth_barrel"
+            actor_effects.use_item("toolkit_p_dummy")
+			level.change_game_time(0,0,30)
+        end
+    end
+	if (itm_main_sec == "sp_smooth_barrel_rusty") then
+        if (itm_addon_sec == "solvent") or (itm_addon_sec == "solvent_2") or (itm_addon_sec == "steel_wool") or (itm_addon_sec == "steel_wool2") or (itm_addon_sec == "gun_oil") or (itm_addon_sec == "gun_oil_2") or (itm_addon_sec == "gun_oil_ru") or (itm_addon_sec == "gun_oil_ru_2") or (itm_addon_sec == "gun_oil_ru_d") or (itm_addon_sec == "gun_oil_ru_d_2") or (itm_addon_sec == "cleaning_kit_s") or (itm_addon_sec == "cleaning_kit_s_2") or (itm_addon_sec == "cleaning_kit_s_3") or (itm_addon_sec == "cleaning_kit_r5") or (itm_addon_sec == "cleaning_kit_r5_2") or (itm_addon_sec == "cleaning_kit_r5_3") or (itm_addon_sec == "cleaning_kit_r7") or (itm_addon_sec == "cleaning_kit_r7_2") or (itm_addon_sec == "cleaning_kit_r7_3") or (itm_addon_sec == "cleaning_kit_u") or (itm_addon_sec == "cleaning_kit_u_2") or (itm_addon_sec == "cleaning_kit_u_3") or (itm_addon_sec == "toolkit_s") or (itm_addon_sec == "toolkit_s_2") or (itm_addon_sec == "toolkit_s_3") or (itm_addon_sec == "toolkit_s_4") or (itm_addon_sec == "toolkit_r5") or (itm_addon_sec == "toolkit_r5_2") or (itm_addon_sec == "toolkit_r5_3") or (itm_addon_sec == "toolkit_r5_4") or (itm_addon_sec == "toolkit_r7") or (itm_addon_sec == "toolkit_r7_2") or (itm_addon_sec == "toolkit_r7_3") or (itm_addon_sec == "toolkit_r7_4") then 
+            newitem = "sp_smooth_barrel_worn"
+            actor_effects.use_item("toolkit_p_dummy")
+			level.change_game_time(0,0,30)
+        end
+    end
+	if (itm_main_sec == "sp_762_barrel_worn") then
+        if (itm_addon_sec == "explo_jerrycan_fuel") or (itm_addon_sec == "explo_jerrycan_fuel2") or (itm_addon_sec == "explo_jerrycan_fuel3") or (itm_addon_sec == "explo_jerrycan_fuel4") or (itm_addon_sec == "explo_jerrycan_fuel5") or (itm_addon_sec == "explo_jerrycan_fuel6") or (itm_addon_sec == "explo_jerrycan_fuel7") or (itm_addon_sec == "explo_jerrycan_fuel8") or (itm_addon_sec == "kerosene") or (itm_addon_sec == "kerosene2") or (itm_addon_sec == "kerosene3") or (itm_addon_sec == "kerosene4") or (itm_addon_sec == "kerosene5") or (itm_addon_sec == "mineral_water3") or (itm_addon_sec == "mineral_water2") or (itm_addon_sec == "mineral_water") or (itm_addon_sec == "vodka") or (itm_addon_sec == "vodka2") or (itm_addon_sec == "vodka_quality") or (itm_addon_sec == "bottle_metal") or (itm_addon_sec == "vodka_2") or (itm_addon_sec == "vodka2_2") or (itm_addon_sec == "vodka_quality_2") or (itm_addon_sec == "bottle_metal_2") or (itm_addon_sec == "vodka_3") or (itm_addon_sec == "vodka2_3") or (itm_addon_sec == "vodka_quality_3") or (itm_addon_sec == "bottle_metal_3") or (itm_addon_sec == "solvent") or (itm_addon_sec == "solvent_2") or (itm_addon_sec == "steel_wool") or (itm_addon_sec == "steel_wool2") or (itm_addon_sec == "gun_oil") or (itm_addon_sec == "gun_oil_2") or (itm_addon_sec == "gun_oil_ru") or (itm_addon_sec == "gun_oil_ru_2") or (itm_addon_sec == "gun_oil_ru_d") or (itm_addon_sec == "gun_oil_ru_d_2") or (itm_addon_sec == "cleaning_kit_s") or (itm_addon_sec == "cleaning_kit_s_2") or (itm_addon_sec == "cleaning_kit_s_3") or (itm_addon_sec == "cleaning_kit_r5") or (itm_addon_sec == "cleaning_kit_r5_2") or (itm_addon_sec == "cleaning_kit_r5_3") or (itm_addon_sec == "cleaning_kit_r7") or (itm_addon_sec == "cleaning_kit_r7_2") or (itm_addon_sec == "cleaning_kit_r7_3") or (itm_addon_sec == "cleaning_kit_u") or (itm_addon_sec == "cleaning_kit_u_2") or (itm_addon_sec == "cleaning_kit_u_3") or (itm_addon_sec == "toolkit_s") or (itm_addon_sec == "toolkit_s_2") or (itm_addon_sec == "toolkit_s_3") or (itm_addon_sec == "toolkit_s_4") or (itm_addon_sec == "toolkit_r5") or (itm_addon_sec == "toolkit_r5_2") or (itm_addon_sec == "toolkit_r5_3") or (itm_addon_sec == "toolkit_r5_4") or (itm_addon_sec == "toolkit_r7") or (itm_addon_sec == "toolkit_r7_2") or (itm_addon_sec == "toolkit_r7_3") or (itm_addon_sec == "toolkit_r7_4")  then 
+            newitem = "sp_762_barrel"
+            actor_effects.use_item("toolkit_p_dummy")
+			level.change_game_time(0,0,30)
+        end
+    end
+	if (itm_main_sec == "sp_762_barrel_rusty") then
+        if (itm_addon_sec == "solvent") or (itm_addon_sec == "solvent_2") or (itm_addon_sec == "steel_wool") or (itm_addon_sec == "steel_wool2") or (itm_addon_sec == "gun_oil") or (itm_addon_sec == "gun_oil_2") or (itm_addon_sec == "gun_oil_ru") or (itm_addon_sec == "gun_oil_ru_2") or (itm_addon_sec == "gun_oil_ru_d") or (itm_addon_sec == "gun_oil_ru_d_2") or (itm_addon_sec == "cleaning_kit_s") or (itm_addon_sec == "cleaning_kit_s_2") or (itm_addon_sec == "cleaning_kit_s_3") or (itm_addon_sec == "cleaning_kit_r5") or (itm_addon_sec == "cleaning_kit_r5_2") or (itm_addon_sec == "cleaning_kit_r5_3") or (itm_addon_sec == "cleaning_kit_r7") or (itm_addon_sec == "cleaning_kit_r7_2") or (itm_addon_sec == "cleaning_kit_r7_3") or (itm_addon_sec == "cleaning_kit_u") or (itm_addon_sec == "cleaning_kit_u_2") or (itm_addon_sec == "cleaning_kit_u_3") or (itm_addon_sec == "toolkit_s") or (itm_addon_sec == "toolkit_s_2") or (itm_addon_sec == "toolkit_s_3") or (itm_addon_sec == "toolkit_s_4") or (itm_addon_sec == "toolkit_r5") or (itm_addon_sec == "toolkit_r5_2") or (itm_addon_sec == "toolkit_r5_3") or (itm_addon_sec == "toolkit_r5_4") or (itm_addon_sec == "toolkit_r7") or (itm_addon_sec == "toolkit_r7_2") or (itm_addon_sec == "toolkit_r7_3") or (itm_addon_sec == "toolkit_r7_4") then 
+            newitem = "sp_762_barrel_worn"
+            actor_effects.use_item("toolkit_p_dummy")
+			level.change_game_time(0,0,30)
+        end
+    end
+	if (itm_main_sec == "sp_545_barrel_worn") then
+        if (itm_addon_sec == "explo_jerrycan_fuel") or (itm_addon_sec == "explo_jerrycan_fuel2") or (itm_addon_sec == "explo_jerrycan_fuel3") or (itm_addon_sec == "explo_jerrycan_fuel4") or (itm_addon_sec == "explo_jerrycan_fuel5") or (itm_addon_sec == "explo_jerrycan_fuel6") or (itm_addon_sec == "explo_jerrycan_fuel7") or (itm_addon_sec == "explo_jerrycan_fuel8") or (itm_addon_sec == "kerosene") or (itm_addon_sec == "kerosene2") or (itm_addon_sec == "kerosene3") or (itm_addon_sec == "kerosene4") or (itm_addon_sec == "kerosene5") or (itm_addon_sec == "mineral_water3") or (itm_addon_sec == "mineral_water2") or (itm_addon_sec == "mineral_water") or (itm_addon_sec == "vodka") or (itm_addon_sec == "vodka2") or (itm_addon_sec == "vodka_quality") or (itm_addon_sec == "bottle_metal") or (itm_addon_sec == "vodka_2") or (itm_addon_sec == "vodka2_2") or (itm_addon_sec == "vodka_quality_2") or (itm_addon_sec == "bottle_metal_2") or (itm_addon_sec == "vodka_3") or (itm_addon_sec == "vodka2_3") or (itm_addon_sec == "vodka_quality_3") or (itm_addon_sec == "bottle_metal_3") or (itm_addon_sec == "solvent") or (itm_addon_sec == "solvent_2") or (itm_addon_sec == "steel_wool") or (itm_addon_sec == "steel_wool2") or (itm_addon_sec == "gun_oil") or (itm_addon_sec == "gun_oil_2") or (itm_addon_sec == "gun_oil_ru") or (itm_addon_sec == "gun_oil_ru_2") or (itm_addon_sec == "gun_oil_ru_d") or (itm_addon_sec == "gun_oil_ru_d_2") or (itm_addon_sec == "cleaning_kit_s") or (itm_addon_sec == "cleaning_kit_s_2") or (itm_addon_sec == "cleaning_kit_s_3") or (itm_addon_sec == "cleaning_kit_r5") or (itm_addon_sec == "cleaning_kit_r5_2") or (itm_addon_sec == "cleaning_kit_r5_3") or (itm_addon_sec == "cleaning_kit_r7") or (itm_addon_sec == "cleaning_kit_r7_2") or (itm_addon_sec == "cleaning_kit_r7_3") or (itm_addon_sec == "cleaning_kit_u") or (itm_addon_sec == "cleaning_kit_u_2") or (itm_addon_sec == "cleaning_kit_u_3") or (itm_addon_sec == "toolkit_s") or (itm_addon_sec == "toolkit_s_2") or (itm_addon_sec == "toolkit_s_3") or (itm_addon_sec == "toolkit_s_4") or (itm_addon_sec == "toolkit_r5") or (itm_addon_sec == "toolkit_r5_2") or (itm_addon_sec == "toolkit_r5_3") or (itm_addon_sec == "toolkit_r5_4") or (itm_addon_sec == "toolkit_r7") or (itm_addon_sec == "toolkit_r7_2") or (itm_addon_sec == "toolkit_r7_3") or (itm_addon_sec == "toolkit_r7_4")  then 
+            newitem = "sp_545_barrel"
+            actor_effects.use_item("toolkit_p_dummy")
+			level.change_game_time(0,0,30)
+        end
+    end
+	if (itm_main_sec == "sp_545_barrel_rusty") then
+        if (itm_addon_sec == "solvent") or (itm_addon_sec == "solvent_2") or (itm_addon_sec == "steel_wool") or (itm_addon_sec == "steel_wool2") or (itm_addon_sec == "gun_oil") or (itm_addon_sec == "gun_oil_2") or (itm_addon_sec == "gun_oil_ru") or (itm_addon_sec == "gun_oil_ru_2") or (itm_addon_sec == "gun_oil_ru_d") or (itm_addon_sec == "gun_oil_ru_d_2") or (itm_addon_sec == "cleaning_kit_s") or (itm_addon_sec == "cleaning_kit_s_2") or (itm_addon_sec == "cleaning_kit_s_3") or (itm_addon_sec == "cleaning_kit_r5") or (itm_addon_sec == "cleaning_kit_r5_2") or (itm_addon_sec == "cleaning_kit_r5_3") or (itm_addon_sec == "cleaning_kit_r7") or (itm_addon_sec == "cleaning_kit_r7_2") or (itm_addon_sec == "cleaning_kit_r7_3") or (itm_addon_sec == "cleaning_kit_u") or (itm_addon_sec == "cleaning_kit_u_2") or (itm_addon_sec == "cleaning_kit_u_3") or (itm_addon_sec == "toolkit_s") or (itm_addon_sec == "toolkit_s_2") or (itm_addon_sec == "toolkit_s_3") or (itm_addon_sec == "toolkit_s_4") or (itm_addon_sec == "toolkit_r5") or (itm_addon_sec == "toolkit_r5_2") or (itm_addon_sec == "toolkit_r5_3") or (itm_addon_sec == "toolkit_r5_4") or (itm_addon_sec == "toolkit_r7") or (itm_addon_sec == "toolkit_r7_2") or (itm_addon_sec == "toolkit_r7_3") or (itm_addon_sec == "toolkit_r7_4") then 
+            newitem = "sp_545_barrel_worn"
+            actor_effects.use_item("toolkit_p_dummy")
+			level.change_game_time(0,0,30)
+        end
+    end
+	if (itm_main_sec == "sp_556_barrel_worn") then
+        if (itm_addon_sec == "explo_jerrycan_fuel") or (itm_addon_sec == "explo_jerrycan_fuel2") or (itm_addon_sec == "explo_jerrycan_fuel3") or (itm_addon_sec == "explo_jerrycan_fuel4") or (itm_addon_sec == "explo_jerrycan_fuel5") or (itm_addon_sec == "explo_jerrycan_fuel6") or (itm_addon_sec == "explo_jerrycan_fuel7") or (itm_addon_sec == "explo_jerrycan_fuel8") or (itm_addon_sec == "kerosene") or (itm_addon_sec == "kerosene2") or (itm_addon_sec == "kerosene3") or (itm_addon_sec == "kerosene4") or (itm_addon_sec == "kerosene5") or (itm_addon_sec == "mineral_water3") or (itm_addon_sec == "mineral_water2") or (itm_addon_sec == "mineral_water") or (itm_addon_sec == "vodka") or (itm_addon_sec == "vodka2") or (itm_addon_sec == "vodka_quality") or (itm_addon_sec == "bottle_metal") or (itm_addon_sec == "vodka_2") or (itm_addon_sec == "vodka2_2") or (itm_addon_sec == "vodka_quality_2") or (itm_addon_sec == "bottle_metal_2") or (itm_addon_sec == "vodka_3") or (itm_addon_sec == "vodka2_3") or (itm_addon_sec == "vodka_quality_3") or (itm_addon_sec == "bottle_metal_3") or (itm_addon_sec == "solvent") or (itm_addon_sec == "solvent_2") or (itm_addon_sec == "steel_wool") or (itm_addon_sec == "steel_wool2") or (itm_addon_sec == "gun_oil") or (itm_addon_sec == "gun_oil_2") or (itm_addon_sec == "gun_oil_ru") or (itm_addon_sec == "gun_oil_ru_2") or (itm_addon_sec == "gun_oil_ru_d") or (itm_addon_sec == "gun_oil_ru_d_2") or (itm_addon_sec == "cleaning_kit_s") or (itm_addon_sec == "cleaning_kit_s_2") or (itm_addon_sec == "cleaning_kit_s_3") or (itm_addon_sec == "cleaning_kit_r5") or (itm_addon_sec == "cleaning_kit_r5_2") or (itm_addon_sec == "cleaning_kit_r5_3") or (itm_addon_sec == "cleaning_kit_r7") or (itm_addon_sec == "cleaning_kit_r7_2") or (itm_addon_sec == "cleaning_kit_r7_3") or (itm_addon_sec == "cleaning_kit_u") or (itm_addon_sec == "cleaning_kit_u_2") or (itm_addon_sec == "cleaning_kit_u_3") or (itm_addon_sec == "toolkit_s") or (itm_addon_sec == "toolkit_s_2") or (itm_addon_sec == "toolkit_s_3") or (itm_addon_sec == "toolkit_s_4") or (itm_addon_sec == "toolkit_r5") or (itm_addon_sec == "toolkit_r5_2") or (itm_addon_sec == "toolkit_r5_3") or (itm_addon_sec == "toolkit_r5_4") or (itm_addon_sec == "toolkit_r7") or (itm_addon_sec == "toolkit_r7_2") or (itm_addon_sec == "toolkit_r7_3") or (itm_addon_sec == "toolkit_r7_4")  then 
+            newitem = "sp_556_barrel"
+            actor_effects.use_item("toolkit_p_dummy")
+			level.change_game_time(0,0,30)
+        end
+    end
+	if (itm_main_sec == "sp_556_barrel_rusty") then
+        if (itm_addon_sec == "solvent") or (itm_addon_sec == "solvent_2") or (itm_addon_sec == "steel_wool") or (itm_addon_sec == "steel_wool2") or (itm_addon_sec == "gun_oil") or (itm_addon_sec == "gun_oil_2") or (itm_addon_sec == "gun_oil_ru") or (itm_addon_sec == "gun_oil_ru_2") or (itm_addon_sec == "gun_oil_ru_d") or (itm_addon_sec == "gun_oil_ru_d_2") or (itm_addon_sec == "cleaning_kit_s") or (itm_addon_sec == "cleaning_kit_s_2") or (itm_addon_sec == "cleaning_kit_s_3") or (itm_addon_sec == "cleaning_kit_r5") or (itm_addon_sec == "cleaning_kit_r5_2") or (itm_addon_sec == "cleaning_kit_r5_3") or (itm_addon_sec == "cleaning_kit_r7") or (itm_addon_sec == "cleaning_kit_r7_2") or (itm_addon_sec == "cleaning_kit_r7_3") or (itm_addon_sec == "cleaning_kit_u") or (itm_addon_sec == "cleaning_kit_u_2") or (itm_addon_sec == "cleaning_kit_u_3") or (itm_addon_sec == "toolkit_s") or (itm_addon_sec == "toolkit_s_2") or (itm_addon_sec == "toolkit_s_3") or (itm_addon_sec == "toolkit_s_4") or (itm_addon_sec == "toolkit_r5") or (itm_addon_sec == "toolkit_r5_2") or (itm_addon_sec == "toolkit_r5_3") or (itm_addon_sec == "toolkit_r5_4") or (itm_addon_sec == "toolkit_r7") or (itm_addon_sec == "toolkit_r7_2") or (itm_addon_sec == "toolkit_r7_3") or (itm_addon_sec == "toolkit_r7_4") then 
+            newitem = "sp_556_barrel_worn"
+            actor_effects.use_item("toolkit_p_dummy")
+			level.change_game_time(0,0,30)
+        end
+    end
+	if (itm_main_sec == "sp_9x_barrel_worn") then
+        if (itm_addon_sec == "explo_jerrycan_fuel") or (itm_addon_sec == "explo_jerrycan_fuel2") or (itm_addon_sec == "explo_jerrycan_fuel3") or (itm_addon_sec == "explo_jerrycan_fuel4") or (itm_addon_sec == "explo_jerrycan_fuel5") or (itm_addon_sec == "explo_jerrycan_fuel6") or (itm_addon_sec == "explo_jerrycan_fuel7") or (itm_addon_sec == "explo_jerrycan_fuel8") or (itm_addon_sec == "kerosene") or (itm_addon_sec == "kerosene2") or (itm_addon_sec == "kerosene3") or (itm_addon_sec == "kerosene4") or (itm_addon_sec == "kerosene5") or (itm_addon_sec == "mineral_water3") or (itm_addon_sec == "mineral_water2") or (itm_addon_sec == "mineral_water") or (itm_addon_sec == "vodka") or (itm_addon_sec == "vodka2") or (itm_addon_sec == "vodka_quality") or (itm_addon_sec == "bottle_metal") or (itm_addon_sec == "vodka_2") or (itm_addon_sec == "vodka2_2") or (itm_addon_sec == "vodka_quality_2") or (itm_addon_sec == "bottle_metal_2") or (itm_addon_sec == "vodka_3") or (itm_addon_sec == "vodka2_3") or (itm_addon_sec == "vodka_quality_3") or (itm_addon_sec == "bottle_metal_3") or (itm_addon_sec == "solvent") or (itm_addon_sec == "solvent_2") or (itm_addon_sec == "steel_wool") or (itm_addon_sec == "steel_wool2") or (itm_addon_sec == "gun_oil") or (itm_addon_sec == "gun_oil_2") or (itm_addon_sec == "gun_oil_ru") or (itm_addon_sec == "gun_oil_ru_2") or (itm_addon_sec == "gun_oil_ru_d") or (itm_addon_sec == "gun_oil_ru_d_2") or (itm_addon_sec == "cleaning_kit_s") or (itm_addon_sec == "cleaning_kit_s_2") or (itm_addon_sec == "cleaning_kit_s_3") or (itm_addon_sec == "cleaning_kit_r5") or (itm_addon_sec == "cleaning_kit_r5_2") or (itm_addon_sec == "cleaning_kit_r5_3") or (itm_addon_sec == "cleaning_kit_r7") or (itm_addon_sec == "cleaning_kit_r7_2") or (itm_addon_sec == "cleaning_kit_r7_3") or (itm_addon_sec == "cleaning_kit_u") or (itm_addon_sec == "cleaning_kit_u_2") or (itm_addon_sec == "cleaning_kit_u_3") or (itm_addon_sec == "toolkit_s") or (itm_addon_sec == "toolkit_s_2") or (itm_addon_sec == "toolkit_s_3") or (itm_addon_sec == "toolkit_s_4") or (itm_addon_sec == "toolkit_r5") or (itm_addon_sec == "toolkit_r5_2") or (itm_addon_sec == "toolkit_r5_3") or (itm_addon_sec == "toolkit_r5_4") or (itm_addon_sec == "toolkit_r7") or (itm_addon_sec == "toolkit_r7_2") or (itm_addon_sec == "toolkit_r7_3") or (itm_addon_sec == "toolkit_r7_4")  then 
+            newitem = "sp_9x_barrel"
+            actor_effects.use_item("toolkit_p_dummy")
+			level.change_game_time(0,0,30)
+        end
+    end
+	if (itm_main_sec == "sp_792_barrel_worn") then
+        if (itm_addon_sec == "explo_jerrycan_fuel") or (itm_addon_sec == "explo_jerrycan_fuel2") or (itm_addon_sec == "explo_jerrycan_fuel3") or (itm_addon_sec == "explo_jerrycan_fuel4") or (itm_addon_sec == "explo_jerrycan_fuel5") or (itm_addon_sec == "explo_jerrycan_fuel6") or (itm_addon_sec == "explo_jerrycan_fuel7") or (itm_addon_sec == "explo_jerrycan_fuel8") or (itm_addon_sec == "kerosene") or (itm_addon_sec == "kerosene2") or (itm_addon_sec == "kerosene3") or (itm_addon_sec == "kerosene4") or (itm_addon_sec == "kerosene5") or (itm_addon_sec == "mineral_water3") or (itm_addon_sec == "mineral_water2") or (itm_addon_sec == "mineral_water") or (itm_addon_sec == "vodka") or (itm_addon_sec == "vodka2") or (itm_addon_sec == "vodka_quality") or (itm_addon_sec == "bottle_metal") or (itm_addon_sec == "vodka_2") or (itm_addon_sec == "vodka2_2") or (itm_addon_sec == "vodka_quality_2") or (itm_addon_sec == "bottle_metal_2") or (itm_addon_sec == "vodka_3") or (itm_addon_sec == "vodka2_3") or (itm_addon_sec == "vodka_quality_3") or (itm_addon_sec == "bottle_metal_3") or (itm_addon_sec == "solvent") or (itm_addon_sec == "solvent_2") or (itm_addon_sec == "steel_wool") or (itm_addon_sec == "steel_wool2") or (itm_addon_sec == "gun_oil") or (itm_addon_sec == "gun_oil_2") or (itm_addon_sec == "gun_oil_ru") or (itm_addon_sec == "gun_oil_ru_2") or (itm_addon_sec == "gun_oil_ru_d") or (itm_addon_sec == "gun_oil_ru_d_2") or (itm_addon_sec == "cleaning_kit_s") or (itm_addon_sec == "cleaning_kit_s_2") or (itm_addon_sec == "cleaning_kit_s_3") or (itm_addon_sec == "cleaning_kit_r5") or (itm_addon_sec == "cleaning_kit_r5_2") or (itm_addon_sec == "cleaning_kit_r5_3") or (itm_addon_sec == "cleaning_kit_r7") or (itm_addon_sec == "cleaning_kit_r7_2") or (itm_addon_sec == "cleaning_kit_r7_3") or (itm_addon_sec == "cleaning_kit_u") or (itm_addon_sec == "cleaning_kit_u_2") or (itm_addon_sec == "cleaning_kit_u_3") or (itm_addon_sec == "toolkit_s") or (itm_addon_sec == "toolkit_s_2") or (itm_addon_sec == "toolkit_s_3") or (itm_addon_sec == "toolkit_s_4") or (itm_addon_sec == "toolkit_r5") or (itm_addon_sec == "toolkit_r5_2") or (itm_addon_sec == "toolkit_r5_3") or (itm_addon_sec == "toolkit_r5_4") or (itm_addon_sec == "toolkit_r7") or (itm_addon_sec == "toolkit_r7_2") or (itm_addon_sec == "toolkit_r7_3") or (itm_addon_sec == "toolkit_r7_4")  then 
+            newitem = "sp_792_barrel"
+            actor_effects.use_item("toolkit_p_dummy")
+			level.change_game_time(0,0,30)
+        end
+    end
+	if (itm_main_sec == "sp_triggermechanism_rusty") then
+        if (itm_addon_sec == "solvent") or (itm_addon_sec == "solvent_2") or (itm_addon_sec == "steel_wool") or (itm_addon_sec == "steel_wool2") or (itm_addon_sec == "gun_oil") or (itm_addon_sec == "gun_oil_2") or (itm_addon_sec == "gun_oil_ru") or (itm_addon_sec == "gun_oil_ru_2") or (itm_addon_sec == "gun_oil_ru_d") or (itm_addon_sec == "gun_oil_ru_d_2") or (itm_addon_sec == "cleaning_kit_s") or (itm_addon_sec == "cleaning_kit_s_2") or (itm_addon_sec == "cleaning_kit_s_3") or (itm_addon_sec == "cleaning_kit_r5") or (itm_addon_sec == "cleaning_kit_r5_2") or (itm_addon_sec == "cleaning_kit_r5_3") or (itm_addon_sec == "cleaning_kit_r7") or (itm_addon_sec == "cleaning_kit_r7_2") or (itm_addon_sec == "cleaning_kit_r7_3") or (itm_addon_sec == "cleaning_kit_u") or (itm_addon_sec == "cleaning_kit_u_2") or (itm_addon_sec == "cleaning_kit_u_3") or (itm_addon_sec == "toolkit_s") or (itm_addon_sec == "toolkit_s_2") or (itm_addon_sec == "toolkit_s_3") or (itm_addon_sec == "toolkit_s_4") or (itm_addon_sec == "toolkit_r5") or (itm_addon_sec == "toolkit_r5_2") or (itm_addon_sec == "toolkit_r5_3") or (itm_addon_sec == "toolkit_r5_4") or (itm_addon_sec == "toolkit_r7") or (itm_addon_sec == "toolkit_r7_2") or (itm_addon_sec == "toolkit_r7_3") or (itm_addon_sec == "toolkit_r7_4") then 
+            newitem = "sp_triggermechanism"
+            actor_effects.use_item("toolkit_p_dummy")
+			level.change_game_time(0,0,10)
+        end
+    end
+	if (itm_main_sec == "sp_rifle_boltcarrier_rusty") then
+        if (itm_addon_sec == "solvent") or (itm_addon_sec == "solvent_2") or (itm_addon_sec == "steel_wool") or (itm_addon_sec == "steel_wool2") or (itm_addon_sec == "gun_oil") or (itm_addon_sec == "gun_oil_2") or (itm_addon_sec == "gun_oil_ru") or (itm_addon_sec == "gun_oil_ru_2") or (itm_addon_sec == "gun_oil_ru_d") or (itm_addon_sec == "gun_oil_ru_d_2") or (itm_addon_sec == "cleaning_kit_s") or (itm_addon_sec == "cleaning_kit_s_2") or (itm_addon_sec == "cleaning_kit_s_3") or (itm_addon_sec == "cleaning_kit_r5") or (itm_addon_sec == "cleaning_kit_r5_2") or (itm_addon_sec == "cleaning_kit_r5_3") or (itm_addon_sec == "cleaning_kit_r7") or (itm_addon_sec == "cleaning_kit_r7_2") or (itm_addon_sec == "cleaning_kit_r7_3") or (itm_addon_sec == "cleaning_kit_u") or (itm_addon_sec == "cleaning_kit_u_2") or (itm_addon_sec == "cleaning_kit_u_3") or (itm_addon_sec == "toolkit_s") or (itm_addon_sec == "toolkit_s_2") or (itm_addon_sec == "toolkit_s_3") or (itm_addon_sec == "toolkit_s_4") or (itm_addon_sec == "toolkit_r5") or (itm_addon_sec == "toolkit_r5_2") or (itm_addon_sec == "toolkit_r5_3") or (itm_addon_sec == "toolkit_r5_4") or (itm_addon_sec == "toolkit_r7") or (itm_addon_sec == "toolkit_r7_2") or (itm_addon_sec == "toolkit_r7_3") or (itm_addon_sec == "toolkit_r7_4") then 
+            newitem = "sp_rifle_boltcarrier"
+            actor_effects.use_item("toolkit_p_dummy")
+			level.change_game_time(0,0,10)
+        end
+    end
+	
+	
+	
+	--[END RECIPES]--
+	--[[GENERIC MESSAGES]]--
+	
+	if (newitem ~= "") then
+		local message_types = {
+			"You have cleaned the barrel",
+			"You have crafted a bandage",
+			"You have crafted an item",
+			"You cut the item into cloth pieces",
+			"You have crafted a headlamp",
+			"You have crafted an explosive",
+			"",
+			"You have dismantled a detector",
+			"You have crafted a synthetic harness"
+		}
+		local section_to_message = {
+			["sp_smooth_barrel"] 		= message_types[1],
+			["sp_smooth_barrel_worn"] 	= message_types[1],
+			["sp_762_barrel"] 			= message_types[1],
+			["sp_762_barrel_worn"]		= message_types[1],
+			["sp_545_barrel"] 			= message_types[1],
+			["sp_545_barrel_worn"]		= message_types[1],
+			["sp_556_barrel"]			= message_types[1],
+			["sp_556_barrel_worn"]		= message_types[1],
+			["sp_9x_barrel"]			= message_types[1],
+			["sp_9x_barrel_worn"]		= message_types[1],
+			["sp_792_barrel"]			= message_types[1],
+			["sp_792_barrel_worn"]		= message_types[1],
+			["device_torch_dummy"]		= message_types[5],
+			["bandage"]					= message_types[2],
+			["textile_patch_b"]			= message_types[4],
+			["synth_harness"]			= message_types[9],
+			["proxim_device"]			= message_types[8]
+		}
+		local function set_hud_msg(newitem)
+			local message = section_to_message[newitem] or message_types[7]
+			SetHudMsg( message , 5 )
+			return true
+		end
+		CreateTimeEvent("create_parts","create_parts_timer",msgdelay,set_hud_msg,newitem)
+	end
+	
+	--[GIVE BACK PARTIAL ITEMS]--
+	local giveback = ""
+	if (newitem ~= "") then
+		if (itm_addon_sec == "grease2") then giveback = "grease" end
+		if (itm_addon_sec == "mineral_water2") then giveback = "mineral_water"	end
+		if (itm_addon_sec == "mineral_water3") then giveback = "mineral_water2"	end
+		if (itm_addon_sec == "kerosene2") then giveback = "kerosene"	end
+		if (itm_addon_sec == "kerosene3") then giveback = "kerosene2"	end
+		if (itm_addon_sec == "kerosene4") then giveback = "kerosene3"	end
+		if (itm_addon_sec == "kerosene5") then giveback = "kerosene4"	end
+		if (itm_addon_sec == "explo_jerrycan_fuel") then giveback = "explo_jerrycan_fuel2"	end
+		if (itm_addon_sec == "explo_jerrycan_fuel2") then giveback = "explo_jerrycan_fuel3"	end
+		if (itm_addon_sec == "explo_jerrycan_fuel3") then giveback = "explo_jerrycan_fuel4"	end
+		if (itm_addon_sec == "explo_jerrycan_fuel4") then giveback = "explo_jerrycan_fuel5"	end
+		if (itm_addon_sec == "explo_jerrycan_fuel5") then giveback = "explo_jerrycan_fuel6"	end
+		if (itm_addon_sec == "explo_jerrycan_fuel6") then giveback = "explo_jerrycan_fuel7"	end
+		if (itm_addon_sec == "explo_jerrycan_fuel7") then giveback = "explo_jerrycan_fuel8"	end
+		if (itm_addon_sec == "explo_jerrycan_fuel8") then giveback = "explo_jerrycan_fuel_empty"	end
+		if (itm_addon_sec == "gun_oil_ru_2") then giveback = "gun_oil_ru"	end
+		if (itm_addon_sec == "gun_oil_2") then giveback = "gun_oil"	end
+		if (itm_addon_sec == "steel_wool2") then giveback = "steel_wool" end
+		if (itm_addon_sec == "solvent_2") then giveback = "solvent"	end
+		if (itm_addon_sec == "gun_oil_ru_d_2") then giveback = "gun_oil_ru_d"	end
+		if (itm_addon_sec == "cleaning_kit_p_2") then giveback = "cleaning_kit_p"	end
+		if (itm_addon_sec == "cleaning_kit_p_3") then giveback = "cleaning_kit_p_2"	end
+		if (itm_addon_sec == "cleaning_kit_s_2") then giveback = "cleaning_kit_s"	end
+		if (itm_addon_sec == "cleaning_kit_s_3") then giveback = "cleaning_kit_s_2"	end
+		if (itm_addon_sec == "cleaning_kit_r5_2") then giveback = "cleaning_kit_r5"	end
+		if (itm_addon_sec == "cleaning_kit_r5_3") then giveback = "cleaning_kit_r5_2"	end
+		if (itm_addon_sec == "cleaning_kit_r7_2") then giveback = "cleaning_kit_r7"	end
+		if (itm_addon_sec == "cleaning_kit_r7_3") then giveback = "cleaning_kit_r7_2"	end
+		if (itm_addon_sec == "cleaning_kit_u_2") then giveback = "cleaning_kit_u"	end
+		if (itm_addon_sec == "cleaning_kit_u_3") then giveback = "cleaning_kit_u_2"	end
+		if (itm_addon_sec == "toolkit_s_2") then giveback = "toolkit_s"	end
+		if (itm_addon_sec == "toolkit_s_3") then giveback = "toolkit_s_2"	end
+		if (itm_addon_sec == "toolkit_s_4") then giveback = "toolkit_s_3"	end
+		if (itm_addon_sec == "toolkit_r5_2") then giveback = "toolkit_r5"	end
+		if (itm_addon_sec == "toolkit_r5_3") then giveback = "toolkit_r5_2"	end
+		if (itm_addon_sec == "toolkit_r5_4") then giveback = "toolkit_r5_3"	end
+		if (itm_addon_sec == "toolkit_r7_2") then giveback = "toolkit_r7"	end
+		if (itm_addon_sec == "toolkit_r7_3") then giveback = "toolkit_r7_2"	end
+		if (itm_addon_sec == "toolkit_r7_4") then giveback = "toolkit_r7_3"	end
+		if (itm_addon_sec == "vodka_2") then giveback = "vodka"	end
+		if (itm_addon_sec == "vodka_3") then giveback = "vodka_2"	end
+		if (itm_addon_sec == "vodka2_2") then giveback = "vodka2"	end
+		if (itm_addon_sec == "vodka2_3") then giveback = "vodka2_2"	end
+		if (itm_addon_sec == "vodka_quality_2") then giveback = "vodka_quality"	end
+		if (itm_addon_sec == "vodka_quality_3") then giveback = "vodka_quality_2"	end
+		if (itm_addon_sec == "bottle_metal_2") then giveback = "bottle_metal"	end
+		if (itm_addon_sec == "bottle_metal_3") then giveback = "bottle_metal_2"	end
+		if (itm_addon_sec == "sewing_kit_a_4") then giveback = "sewing_kit_a_3"	end
+		if (itm_addon_sec == "sewing_kit_a_3") then giveback = "sewing_kit_a_2"	end
+		if (itm_addon_sec == "sewing_kit_a_2") then giveback = "sewing_kit_a"	end
+		if (itm_addon_sec == "sewing_kit_b_4") then giveback = "sewing_kit_b_3"	end
+		if (itm_addon_sec == "sewing_kit_b_3") then giveback = "sewing_kit_b_2"	end
+		if (itm_addon_sec == "sewing_kit_b_2") then giveback = "sewing_kit_b"	end
+		if (itm_addon_sec == "sewing_kit_h_4") then giveback = "sewing_kit_h_3"	end
+		if (itm_addon_sec == "sewing_kit_h_3") then giveback = "sewing_kit_h_2"	end
+		if (itm_addon_sec == "sewing_kit_h_2") then giveback = "sewing_kit_h"	end
+		if (itm_addon_sec == "drug_coagulant_2") then giveback = "drug_coagulant"	end
+		if (itm_addon_sec == "drug_coagulant_3") then giveback = "drug_coagulant_2"	end
+		if (itm_addon_sec == "drug_coagulant_4") then giveback = "drug_coagulant_3"	end
+		if (itm_addon_sec == "drug_coagulant_5") then giveback = "drug_coagulant_4"	end
+		
+
+		if giveback ~= "" then
+		alife():create(giveback, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+		end
+	end
+	--[END GIVE BACK PARTIAL ITEMS]--
+	
+	
+    if (newitem == "") then
+        --printf("no recipe found for %s dragged onto %s",itm_addon_sec,itm_main_sec)
+        return
+    end
+	
+	
+	for i = 1, amount do
+    alife():create(newitem, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+	end
+	
+	if (reusable == false) then
+		local se_obj = alife():object(itm_from:id())
+		if (se_obj) then
+			alife():release(se_obj)
+		end
+	end
+	
+    se_obj = alife():object(itm_to:id())
+    if (se_obj) then
+        alife():release(se_obj)
+    end
+    return
+end

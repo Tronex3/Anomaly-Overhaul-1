@@ -1,0 +1,443 @@
+#include "trade_discounts.ltx"
+#include "trade_presets.ltx"
+
+[trader]
+buy_condition =  trade_generic_buy
+sell_condition = trade_generic_sell
+buy_supplies = {=actor_goodwill_ge(army:2000)} supplies_5, {=actor_goodwill_ge(army:1500)} supplies_4, {=actor_goodwill_ge(army:1000)} supplies_3, {=actor_goodwill_ge(army:500)} supplies_2,  supplies_1
+buy_item_condition_factor = 0.40
+buy_item_exponent = 2.25
+sell_item_exponent = 0.75
+
+discounts = discount_supplier_1
+
+[trade_generic_buy]:merchant
+
+[trade_generic_sell]:merchant
+
+
+[supplies_1]
+container_tool          = 1, 1
+geiger_dead             = 1, 1
+cooking                 = 1, 1
+fieldcooker             = 1, 1
+wood_stove              = 1, 1
+kerosene                = 1, 1
+charcoal                = 1, 1
+explo_balon_gas         = 1, 1
+explo_jerrycan_fuel     = 1, 1
+extension_pda           = 1, 1
+itm_tent                = 1, 1
+leatherman_tool			= 1, 1
+item_lantern            = 1, 1
+barrelkit_db_vertical	= 1, 1
+barrelkit_db_horizontal	= 1, 1
+barrelkit_sb_smooth		= 1, 1
+barrelkit_762_rifle		= 1, 1
+barrelkit_792_rifle		= 1, 1
+barrelkit_9x_auto		= 1, 1
+barrelkit_9_auto_sil	= 1, 1
+barrelkit_762_auto		= 1, 1
+barrelkit_762_pp		= 1, 1
+barrelkit_545_auto		= 1, 1
+barrelkit_556_auto		= 1, 1
+barrelkit_762_heavy		= 1, 1
+awr_r_kit_u_3           = 1, 1
+rasp_tool               = 1, 1
+ramrod_tool             = 1, 1
+gun_oil_2				= 3, 1
+cleaning_kit_p_3		= 2, 1
+cleaning_kit_s_3		= 2, 1
+cleaning_kit_u_3		= 2, 1
+cleaning_kit_r5_3		= 2, 1
+cleaning_kit_r7_3		= 2, 1
+sharpening_stones_4		= 2, 1
+gun_oil_ru_d_2			= 3, 1
+gun_oil_ru_2			= 3, 1
+solvent_2				= 3, 1
+grease					= 3, 1
+steel_wool				= 3, 1
+glue_b_2				= 3, 1
+glue_a_2				= 3, 1
+glue_e_2				= 3, 1
+sewing_kit_b_4			= 1, 1
+sewing_kit_a_4			= 1, 1
+sewing_kit_h_4			= 1, 1
+armor_repair_fa_2		= 2, 1
+helmet_repair_kit_3		= 1, 1
+armor_repair_pro_4		= 1, 1
+textile_patch_b			= 2, 1
+textile_patch_m			= 2, 1
+textile_patch_e			= 2, 1
+toolkit_p_4				= 1, 1
+toolkit_s_4				= 1, 1
+toolkit_u_4				= 1, 1
+toolkit_r5_4			= 1, 1
+toolkit_r7_4			= 1, 1
+
+;food
+meat_tushkano			= 6, 1
+meat_dog				= 6, 1
+meat_pseudodog			= 4, 1
+meat_flesh				= 4, 1
+meat_boar				= 4, 1
+meat_bloodsucker		= 2, 1
+meat_snork				= 4, 1
+meat_chimera			= 1, 1
+bread					= 4, 1
+breadold				= 6, 1
+kolbasa					= 4, 1
+tushonka                = 4, 1
+conserva				= 4, 1
+tomato					= 2, 1
+sausage					= 2, 1
+corn					= 2, 1
+beans			        = 2, 1
+chili                   = 2, 1
+salmon                  = 2, 1
+raisins                 = 2, 1
+chocolate               = 2, 1
+nuts                    = 2, 1
+mre_3                   = 1, 1
+ration_ru_7             = 1, 1
+ration_ukr_6			= 1, 1
+mint_3					= 4, 1
+mineral_water_3			= 2, 1
+caffeine_5				= 2, 1
+hand_rolling_tobacco_3  = 2, 1
+cigar                   = 1, 1
+cigarettes_lucky_3      = 3, 1
+cigarettes_russian_3    = 3, 1
+beer                    = 3, 1
+vodka_3                 = 3, 1
+vodka2_3                = 3, 1
+vodka2	                = 3, 1
+energy_drink            = 3, 1
+water_drink_3           = 2, 1
+cigarettes_3            = 4, 1
+tea_3                   = 2, 1
+akvatab_3               = 3, 1
+flask_3                 = 2, 1
+bottle_metal_3          = 2, 1
+vodka_quality_3         = 2, 1
+tobacco_3               = 2, 1
+marijuana               = 1, 1
+cigar1_3                = 2, 1
+cigar2_3                = 2, 1
+cigar3_3                = 2, 1
+
+glucose_s				= 3, 1
+glucose					= 2, 1
+drug_sleepingpills_5	= 3, 1
+bandage					= 4, 1
+medkit					= 3, 1
+medkit_ai1				= 3, 1
+medkit_ai2				= 3, 1
+medkit_ai3				= 3, 1
+antirad_cystamine		= 3, 1
+antibio_chlor			= 3, 1
+jgut					= 3, 1
+yadylin					= 3, 1
+analgetic				= 3, 1
+antirad_kalium			= 3, 1
+antibio_sulfad			= 3, 1
+antiemetic   			= 3, 1
+medkit_army				= 2, 1
+medkit_scientic			= 2, 1
+antirad					= 2, 1
+stimpack				= 3, 1
+stimpack_army			= 2, 1
+stimpack_scientic		= 1, 1
+caffeine_5				= 3, 1
+protein					= 2, 1
+survival_kit			= 1, 1
+akvatab_3				= 3, 1
+cocaine					= 3, 1
+tetanus					= 2, 1
+adrenalin				= 2, 1
+salicidic_acid			= 4, 1
+morphine				= 3, 1
+drug_anabiotic			= 2, 1
+drug_booster			= 2, 1
+drug_coagulant_5		= 3, 1
+drug_antidot_3			= 3, 1
+drug_radioprotector_2	= 2, 1
+drug_psy_blockade_5		= 2, 1
+
+;items
+batteries				= 4, 1
+batteries_dead			= 6, 1
+batteries_ccell			= 2, 1
+itm_sleepbag			= 1, 1
+compression_bag			= 1, 1
+itm_actor_backpack		= 1, 1
+itm_backpack			= 1, 1
+device_flashlight		= 1, 1
+device_torch_dummy		= 1, 1
+
+;pistol
+wpn_aps                 = 1, 0.88
+wpn_fort                = 1, 0.88
+wpn_gsh18               = 1, 0.88
+wpn_oc33                = 1, 0.88
+wpn_pm                  = 1, 0.88
+wpn_pb                  = 1, 0.88
+wpn_tt33	            = 1, 0.88
+
+;rifle
+wpn_ak74u               = 1, 0.88
+wpn_akms_alt              = 1, 0.88
+wpn_aek              = 1, 0.88
+wpn_akm               = 1, 0.88
+wpn_ak74                = 1, 0.88
+wpn_aks74                = 1, 0.88
+wpn_aks74_new                = 1, 0.88
+wpn_ak74m_alt                = 1, 0.88
+wpn_ak105               = 1, 0.88
+wpn_groza               = 1, 0.88
+wpn_vsk94               = 1, 0.88
+
+;misc
+wpn_knife               = 1, 1
+wpn_knife2              = 1, 1
+mine                    = 3, 1
+ied_rpg                 = 3, 1
+ied                     = 3, 1
+wpn_binoc_inv           = 1, 1
+
+;Ѕроники
+helm_bandana            = 1, 1
+helm_rp_bala            = 1, 1
+helm_cloth_mask			= 1, 1
+helm_respirator 		= 1, 1
+helm_respirator_old     = 1, 1
+helm_respirator_gp5     = 1, 1
+army_outfit				= 1, 1
+
+;јммуници¤
+ammo_9x18_fmj                   = 16, 0.66
+ammo_9x18_ap                    = 14, 0.66
+ammo_9x18_pmm                   = 10, 0.66
+ammo_9x19_fmj                   = 14, 0.66
+ammo_9x19_ap                    = 12, 0.66
+ammo_9x19_pbp                   = 8, 0.66
+ammo_11.43x23_fmj               = 12, 0.66
+ammo_11.43x23_hydro             = 8, 0.66
+ammo_11.43x23_ap                = 8, 0.66
+ammo_12x70_buck                 = 12, 0.66
+ammo_12x76_zhekan               = 9, 0.66
+ammo_5.45x39_fmj                = 21, 0.66
+ammo_5.45x39_ap                 = 19, 0.66
+ammo_5.56x45_ss190              = 3, 0.66
+ammo_5.56x45_ap                 = 3, 0.66
+ammo_7.62x39_fmj                = 12, 0.66
+ammo_7.62x39_ap                 = 10, 0.66
+ammo_7.62x51_fmj                = 4, 0.66
+ammo_7.62x51_ap                 = 4, 0.66
+ammo_7.62x25_p                  = 12, 0.66
+ammo_7.62x25_ps                 = 10, 0.66
+ammo_7.62x25_p41                = 6, 0.66
+ammo_9x39_pab9                  = 18, 0.66
+ammo_9x39_ap                    = 15, 0.66
+ammo_7.62x54_ap                 = 6, 0.66
+ammo_7.62x54_7h1                = 4, 0.66
+ammo_7.62x54_7h14               = 3, 0.66
+ammo_357_hp_mag_ap              = 6, 0.66
+ammo_357_hp_mag                 = 4, 0.66
+ammo_magnum_300                 = 6, 0.66
+ammo_magnum_300_ap              = 4, 0.66
+ammo_12.7x55_fmj                        = 3, 0.66
+ammo_12.7x55_ap         = 2, 0.66
+grenade_rgd5                    = 5, 0.66
+grenade_gd-05                   = 5, 0.66
+grenade_smoke                   = 3, 0.66
+grenade_f1                              = 5, 0.66
+ammo_og-7b                              = 1, 0.88
+ammo_vog-25                             = 7, 0.66
+ammo_m209                               = 3, 0.66
+
+;јддоны
+wpn_addon_scope_po4x34				= 1, 0.88
+1p29				= 1, 0.88
+kobra				= 1, 0.88
+ps01				= 1, 0.88
+pso1m21				= 1, 0.88
+wpn_sil_9mm				= 1, 0.88
+wpn_sil_pbs1				= 1, 0.88
+wpn_sil_pbs4				= 1, 0.88
+wpn_sil_tgp-a				= 1, 0.88
+wpn_sil_kzrzp				= 1, 0.88
+wpn_sil_atg				= 1, 0.88
+wpn_sil_aps				= 1, 0.88
+wpn_sil_9a91				= 1, 0.88
+wpn_sil_6p9				= 1, 0.88
+wpn_sil_vihr				= 1, 0.88
+wpn_addon_grenade_launcher				= 1, 0.88
+
+;ѕредметы
+kit_hunt				= 1, 1
+box_matches_5           = 3, 1
+
+;апгрейды
+upgr_1_01	= 1, 1				; "Стальные пластины"										- 3500 руб
+upgr_1_02	= 1, 1				; "Прорезиненная прокладка" 								- 3200 руб
+upgr_1_03	= 1, 1				; "Распределительный желет"									- 4100 руб
+upgr_1_04	= 1, 1				; "Поликарбонатовые пластины"								- 5200 руб
+upgr_1_05	= 1, 1				; "Лёгкие полимерные материалы"								- 4300 руб
+upgr_1_06	= 1, 1				; "Газовый баллон"											- 3440 руб
+upgr_1_07	= 1, 1				; "Усиление сервоприводов"									- 9100 руб
+upgr_1_08	= 1, 1				; "Кевларовые пластины"										- 3200 руб
+upgr_1_09	= 1, 1				; "Аммортизирующая вставка"									- 3100 руб
+upgr_1_10	= 1, 1				; "Компенсационный слой брони"								- 4100 руб
+upgr_1_11	= 1, 1				; "Полимерные вставки"										- 3700 руб
+;upgr_1_12	= 1, 1				; "Система заживления ран Доктор"							- 9700 руб
+;upgr_1_13	= 1, 1				; "Комплекс Марафонец"										- 6400 руб
+;upgr_1_14	= 1, 1				; "Гемостимулятор"											- 6400 руб
+upgr_1_15	= 1, 1				; "Аллюминиво-титановый сплав"								- 5400 руб
+upgr_1_16	= 1, 1				; "Определитель положения артефактов"						- 6400 руб
+upgr_1_17	= 1, 1				; "Карбоновое волокно"										- 8100 руб
+;upgr_1_18	= 1, 1				; "Инъектор Ярость"											- 12100 руб
+upgr_1_19	= 1, 1				; "Синтетический слой"										- 6300 руб
+upgr_1_20	= 1, 1				; "Система пылезащиты"										- 6900 руб
+upgr_1_21	= 1, 1				; "Активные фильтры"										- 6900 руб
+upgr_1_22	= 1, 1				; "Система очистки дыхательной маски"						- 4900 руб
+;upgr_1_23	= 1, 1				; "Респиратор на два фильтра"								- 6400 руб
+upgr_1_24	= 1, 1				; "Фильтр вредных частиц"									- 4800 руб
+;upgr_1_25	= 1, 1				; "Усиленный фильтр ядов"									- 7800 руб
+;upgr_1_26	= 1, 1				; "Усиленные титановые детали"								- 9800 руб
+;upgr_1_27	= 1, 1				; "Силиконовые аммортизаторы"								- 9900 руб
+;upgr_1_28	= 1, 1				; "Встроенная система регуляции температуры"				- 14000 руб
+
+[supplies_2]:supplies_1
+wpn_aek               = 1, 0.88
+wpn_abakan          = 1, 0.88
+wpn_ak74_alt            = 1, 0.88
+wpn_ak74m_camo        = 1, 0.88
+wpn_ak103        = 1, 0.88
+wpn_val                 = 1, 0.88
+wpn_vintorez            = 1, 0.88
+wpn_svd                 = 1, 0.88
+wpn_sv98             = 1, 0.88
+wpn_svu                 = 1, 0.88
+wpn_rpk74               = 1, 0.88
+wpn_pkm                 = 1, 0.88
+
+wpn_knife3              = 1, 1
+wpn_axe                 = 1, 1
+wpn_axe2                = 1, 1
+
+af_kevlar				= 1, 1
+af_plates				= 1, 1
+af_frames				= 1, 1
+af_camelbak				= 1, 1
+
+detector_advanced		= 1, 1
+army_bowler             = 1, 1
+
+;Броня
+helm_m40				= 1, 1
+helm_hardhat			= 1, 1
+specops_outfit			= 1, 1
+
+;апгрейды
+upgr_1_12	= 1, 1				; "Система заживления ран Доктор"							- 9700 руб
+upgr_1_13	= 1, 1				; "Комплекс Марафонец"										- 6400 руб
+upgr_1_18	= 1, 1				; "Инъектор Ярость"											- 12100 руб
+upgr_1_25	= 1, 1				; "Усиленный фильтр ядов"									- 7800 руб
+
+upgr_2_16	= 1, 1				; "Система антиэлектрической защиты Скат"					- 7775 руб
+upgr_2_17	= 1, 1				; "Солнечный биостимулятор"									- 11775 руб
+upgr_2_23	= 1, 1				; "Инъектор гемоглобина"									- 11570 руб
+upgr_2_28	= 1, 1				; "Пси-стимулятор Оракул"									- 18570 руб 
+upgr_2_29	= 1, 1				; "Экранирующее покрытие"									- 14570 руб
+upgr_2_32	= 1, 1				; "Цифровой ПНВ ПН2КЛ   ПНВ 2"								- 13570 руб
+upgr_2_35	= 1, 1				; "Маска из константана"									- 9660 руб
+upgr_2_37	= 1, 1				; "Подвижные пластины"										- 8665 руб
+upgr_2_38	= 1, 1				; "Сегментированная защита"									- 9265 руб
+upgr_2_39	= 1, 1				; "Защита двигательной системы"								- 10265 руб
+
+upgr_3_01	= 1, 1				; "Кольчужная рубаха"										- 5700 руб
+upgr_3_02	= 1, 1				; "Керамические пластины"									- 5400 руб
+upgr_3_03	= 1, 1				; "Пропитка для ткани"										- 9200 руб
+upgr_3_04	= 1, 1				; "Прорезиненная ткань"										- 8100 руб
+upgr_3_05	= 1, 1				; "Крепление для модулей (усиленное)"						- 10000 руб
+;upgr_3_06	= 1, 1				; "Состав Суверен"											- 9000 руб
+upgr_3_07	= 1, 1				; "Защитный каркас"											- 7400 руб
+;upgr_3_08	= 1, 1				; "Система жизнеобеспечения Варяг"							- 12000 руб
+upgr_3_09	= 1, 1				; "Полимерные висмутовые вставки"							- 7710 руб
+upgr_3_10	= 1, 1				; "Свинцовая сетка"											- 6000 руб
+upgr_3_11	= 1, 1				; "Титановая и берилиевая матрицы"							- 7500 руб
+upgr_3_12	= 1, 1				; "Защитный костюм СБК"										- 7800 руб
+upgr_3_13	= 1, 1				; "Углеродное волокно"										- 9800 руб
+upgr_3_14	= 1, 1				; "Огнеупорные никелиевые вставки"							- 9700 руб
+;upgr_3_15	= 1, 1				; "Излучатель нейроволн"									- 12700 руб
+upgr_3_16	= 1, 1				; "Изоляционные магниевые вставки"							- 8700 руб
+upgr_3_17	= 1, 1				; "Кристаллы сапфира"										- 10700 руб
+;upgr_3_18	= 1, 1				; "Система восстановления Феникс"							- 15700 руб
+upgr_3_19	= 1, 1				; "Усиленные керамические пластины"							- 9700 руб
+upgr_3_20	= 1, 1				; "Пластиковые и синтетические детали"						- 8900 руб
+;upgr_3_21	= 1, 1				; "Лёгкая система жизнеобеспечения"							- 18900 руб
+upgr_3_22	= 1, 1				; "Защитный купол"											- 15900 руб
+;upgr_3_23	= 1, 1				; "Система охлаждения Ионный ветер"							- 19700 руб
+upgr_3_24	= 1, 1				; "Защитная антенна"										- 9966 руб
+;upgr_3_25	= 1, 1				; "Титановая броня"											- 14966 руб
+;upgr_3_26	= 1, 1				; "Комбинированная защита"									- 13900 руб
+;upgr_3_27	= 1, 1				; "Полимерный костюм с висмутовыми вставками"				- 16900 руб
+;upgr_3_28	= 1, 1				; "Аллюминиевые вставки"									- 15500 руб
+;upgr_3_29	= 1, 1				; "Двигательная система Шагоход"							- 19500 руб
+;upgr_3_30	= 1, 1				; "Усиление сервоприводов м2"								- 23500 руб
+
+[supplies_3]:supplies_2
+wpn_rg-6				= 1, 1
+wpn_rpg7				= 1, 1
+
+wpn_knife4              = 1, 1
+
+;Броня
+military_outfit			= 1, 1
+light_voen_outfit       = 1, 1
+helm_metro              = 1, 1
+helm_tactic				= 1, 1
+helm_battle				= 1, 1
+
+;апгрейды
+upgr_3_06	= 1, 1				; "Состав Суверен"											- 9000 руб
+upgr_3_08	= 1, 1				; "Система жизнеобеспечения Варяг"							- 12000 руб
+upgr_3_15	= 1, 1				; "Излучатель нейроволн"									- 12700 руб
+upgr_3_18	= 1, 1				; "Система восстановления Феникс"							- 15700 руб
+upgr_3_21	= 1, 1				; "Лёгкая система жизнеобеспечения"							- 18900 руб
+upgr_3_23	= 1, 1				; "Система охлаждения Ионный ветер"							- 19700 руб
+upgr_3_25	= 1, 1				; "Титановая броня"											- 14966 руб
+upgr_3_26	= 1, 1				; "Комбинированная защита"									- 13900 руб
+upgr_3_27	= 1, 1				; "Полимерный костюм с висмутовыми вставками"				- 16900 руб
+upgr_3_28	= 1, 1				; "Аллюминиевые вставки"									- 15500 руб
+;upgr_3_29	= 1, 1				; "Двигательная система Шагоход"							- 19500 руб
+;upgr_3_30	= 1, 1				; "Усиление сервоприводов м2"								- 23500 руб
+
+[supplies_4]:supplies_3
+wpn_knife5              = 1, 1
+
+;Броня
+military_proto_exo_outfit = 1, 1
+military_exolight_outfit = 1, 1
+helm_exo                = 1, 1
+helm_protective			= 1, 1
+
+test_container          = 1, 1
+
+[supplies_5]:supplies_4
+wpn_rg-6				= 1, 1
+wpn_rpg7				= 1, 1
+
+;Броня
+military_exo_outfit		= 1, 1
+ghillie_outfit          = 1, 1
+
+exo_repair_kit_4		= 1, 1
+
+;апгрейды
+upgr_2_31	= 1, 1				; "ПНВ ПН21КЛ   ПНВ 3"										- 19570 руб
+
+upgr_3_06	= 1, 1				; "Состав Суверен"											- 9000 руб
+upgr_3_29	= 1, 1				; "Двигательная система Шагоход"							- 19500 руб
+upgr_3_30	= 1, 1				; "Усиление сервоприводов м2"								- 23500 руб

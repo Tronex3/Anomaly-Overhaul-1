@@ -1,0 +1,4475 @@
+
+;;--=========================================================
+;;--=============| Filled Artefact Containers |==============
+;;--=========================================================
+
+;;--Written By Yastiandrie 15/10/2013 For Misery 2.1
+
+
+;;--------------------------------------------------------------------------------------------
+;;------------------------EMPTY AC---------------------------------------------------
+;;--------------------------------------------------------------------------------------------
+
+[af_iam]:af_base
+$spawn				            = "artefacts\af_iam"
+class 				            = II_ANTIR    ;;--  class				= SCRPTART  --Yasti Artefact Containers
+class_dbg			            = S_ART_C
+visual				            = dynamics\equipments\aa\iam
+description			            = st_af_iam_descr
+inv_name			            = st_af_iam_name
+inv_name_short			        = st_af_iam_name
+inv_weight			            = 2.4;;--3.64 W;;--
+
+inv_grid_x			            = 3
+inv_grid_y			            = 27
+inv_grid_width			        = 1
+inv_grid_height			        = 1
+
+belt				            = false ;;-- Yasti Artefact Containers
+
+cost				            = 11385;;--7590 W;;--
+
+eat_health                      = 0
+eat_satiety                     = 0
+eat_power                       = 0
+eat_radiation                   = 0
+wounds_heal_perc                = 0
+eat_portions_num                = 1
+
+jump_height			            = 0.0
+;particles		            = artefact\af_thermal_idle
+det_show_particles		        = artefact\af_thermal_show
+det_hide_particles		        = artefact\af_thermal_hide
+particles_bone			        = joint2
+af_rank				            = 0
+lights_enabled                  = false
+trail_light_color 		        = 0.9,0.4,0.2
+trail_light_range 		        = 2.0
+
+attach_angle_offset		        = 1.922,1.551,-0.740   
+attach_position_offset          = 0.15,0.002,0.25
+attach_bone_name		        = bip01_r_hand
+auto_attach			            = false
+
+;;--скорости увеличения (уменьшения)
+health_restore_speed		    = 0
+radiation_restore_speed		    = -0.00013
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+hit_absorbation_sect		    = af_iam_absorbation
+
+additional_inventory_weight	    = 1.23;;--1.86 W;;--
+additional_inventory_weight2	= 1.23;;--1.86 W;;--
+
+artefact_activation_seq		    = af_activation_bold
+
+repair_part_bonus	 	        = 0.06
+
+[af_iam_absorbation]
+burn_immunity 			        = 0				;;--коэффициенты иммунитета
+strike_immunity 		        = 0
+shock_immunity 			        = 0     ;;--0.007 --Yasti Artefact Containers
+wound_immunity 			        = 0
+radiation_immunity 		        = 0
+telepatic_immunity 		        = 0
+chemical_burn_immunity 		    = 0
+explosion_immunity 			    = 0
+fire_wound_immunity  		    = 0
+
+;;--------------------------------------------------------------------------------------------
+
+[af_aac]:af_base
+$spawn				            = "artefacts\af_aac"
+class 				            = II_ANTIR    ;;--  class				= SCRPTART  --Yasti Artefact Containers
+class_dbg			            = S_ART_C
+visual				            = dynamics\equipments\aa\aac
+description			            = st_af_aac_descr
+inv_name			            = st_af_aac_name
+inv_name_short			        = st_af_aac_name
+inv_weight			            = 2.73;;--4.14 W;;--
+
+inv_grid_x			            = 2
+inv_grid_y			            = 28
+inv_grid_width			        = 1
+inv_grid_height			        = 1
+
+belt				            = false ;;-- Yasti Artefact Containers
+
+cost				            = 19410;;--12940 W;;--
+
+eat_health                      = 0
+eat_satiety                     = 0
+eat_power                       = 0
+eat_radiation                   = 0
+wounds_heal_perc                = 0
+eat_portions_num                = 1
+
+jump_height			            = 0.0
+;particles		            = artefact\af_thermal_idle
+det_show_particles		        = artefact\af_thermal_show
+det_hide_particles		        = artefact\af_thermal_hide
+particles_bone			        = joint2
+af_rank				            = 0
+lights_enabled                  = false
+trail_light_color 		        = 0.9,0.4,0.2
+trail_light_range 		        = 2.0
+
+attach_angle_offset		        = 1.922,1.551,-0.740   
+attach_position_offset          = 0.15,0.002,0.25
+attach_bone_name		        = bip01_r_hand
+auto_attach			            = false
+
+;;--скорости увеличения (уменьшения)
+health_restore_speed		    = 0
+radiation_restore_speed		    = -0.00025
+satiety_restore_speed		    = 0
+power_restore_speed		        = 0
+bleeding_restore_speed		    = 0
+hit_absorbation_sect		    = af_aac_absorbation
+
+additional_inventory_weight	    = 1.54;;--2.34 W;;--
+additional_inventory_weight2	= 1.54;;--2.34 W;;--
+
+artefact_activation_seq		    = af_activation_bold
+
+repair_part_bonus	 	        = 0.10
+
+[af_aac_absorbation]
+burn_immunity 			        = 0				;;--коэффициенты иммунитета
+strike_immunity 		        = 0
+shock_immunity 			        = 0		;;--0.009 --Yasti Artefact Containers
+wound_immunity 			        = 0
+radiation_immunity 		        = 0
+telepatic_immunity 		        = 0
+chemical_burn_immunity 		    = 0
+explosion_immunity 		        = 0
+fire_wound_immunity  		    = 0
+
+;;--------------------------------------------------------------------------------------------
+
+[af_aam]:af_base
+$spawn				            = "artefacts\af_aam"
+class 				            = II_ANTIR    ;;--  class				= SCRPTART  --Yasti Artefact Containers
+class_dbg			            = S_ART_C
+visual				            = dynamics\equipments\aa\aam
+description			            = st_af_aam_descr
+inv_name			            = st_af_aam_name
+inv_name_short			        = st_af_aam_name
+inv_weight			            = 3.06;;--4.63 W;;--
+
+inv_grid_x			            = 3
+inv_grid_y			            = 28
+inv_grid_width			        = 1
+inv_grid_height			        = 1
+
+belt				            = false ;;-- Yasti Artefact Containers
+
+cost				            = 31485;;--20990 W;;--
+
+eat_health                      = 0
+eat_satiety                     = 0
+eat_power                       = 0
+eat_radiation                   = 0
+wounds_heal_perc                = 0
+eat_portions_num                = 1
+
+jump_height			            = 0.0
+;particles		            = artefact\af_thermal_idle
+det_show_particles		        = artefact\af_thermal_show
+det_hide_particles		        = artefact\af_thermal_hide
+particles_bone			        = joint2
+af_rank				            = 0
+lights_enabled                  = false
+trail_light_color 		        = 0.9,0.4,0.2
+trail_light_range 		        = 2.0
+
+attach_angle_offset		        = 1.922,1.551,-0.740   
+attach_position_offset          = 0.15,0.002,0.25
+attach_bone_name		        = bip01_r_hand
+auto_attach			            = false
+
+;;--скорости увеличения (уменьшения)
+health_restore_speed		    = 0
+radiation_restore_speed		    = -0.00047
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+hit_absorbation_sect		    = af_aam_absorbation
+
+additional_inventory_weight	    = 1.83;;--2.77 W;;--
+additional_inventory_weight2	= 1.83;;--2.77 W;;--
+
+artefact_activation_seq		    = af_activation_bold
+
+repair_part_bonus	 	        = 0.14
+
+[af_aam_absorbation]
+burn_immunity 			        = 0				;;--коэффициенты иммунитета
+strike_immunity 		        = 0
+shock_immunity 			        = 0		;;--0.012  --Yasti Artefact Containers
+wound_immunity 			        = 0
+radiation_immunity 		        = 0
+telepatic_immunity 		        = 0
+chemical_burn_immunity 		    = 0
+explosion_immunity 			    = 0
+fire_wound_immunity  		    = 0
+
+;;--------------------------------------------------------------------------------------------
+
+[lead_box]:af_iam
+class 				            = II_ANTIR
+inv_weight 			            = 3.62;;--5.48 W;;--
+cost				            = 3630;;--2420 W;;--
+description			            = st_lead_box_descr
+inv_name			            = st_lead_box_name
+inv_name_short		            = st_lead_box_name
+
+visual				            = dynamics\equipments\lead_box_open.ogf
+inv_grid_width			        = 1
+inv_grid_height			        = 2
+inv_grid_x			            = 0
+inv_grid_y			            = 27
+
+radiation_restore_speed         = 0 ;;-- -0.00500
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+repair_part_bonus	 	        = 0.10
+
+[lead_box_dummy]:lead_box
+inv_grid_x			            = 21
+inv_grid_y			            = 42
+
+;;--------------------------------------------------------------------------------------------
+
+[lead_box_closed]:lead_box
+inv_weight 			            = 3.62;;--5.48 W;;--
+cost 				            = 0;;--0 W;;--
+description			            = st_lead_box_closed_descr
+inv_name			            = st_lead_box_closed_name
+inv_name_short		            = st_lead_box_closed_name
+
+visual				            = dynamics\equipments\lead_box_closed.ogf
+inv_grid_width			        = 1
+inv_grid_height			        = 2
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+radiation_restore_speed         = 0 ;;-- -0.00500
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+[lead_box_closed_dummy]:lead_box_closed
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+;;--------------------------------------------------------------------------------------------
+
+[lead_box_half]:lead_box_closed
+description			            = st_lead_box_half_descr
+inv_name			            = st_lead_box_half_name
+inv_name_short		            = st_lead_box_half_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+[lead_box_half_dummy]:lead_box_half
+inv_grid_x			            = 22
+inv_grid_y			            = 42
+
+;;--------------------------------------------------------------------------------------------
+;;--------------------------------------------------------------------------------------------
+
+[container_tool]:booster
+class                           = II_ANTIR
+inv_weight                      = 0.17;;--0.264 W;;--
+
+description                     = st_container_tool_descr
+inv_name                        = st_container_tool_name
+inv_name_short                  = st_container_tool_name
+
+inv_grid_width		            = 1
+inv_grid_height		            = 1
+inv_grid_x			            = 2
+inv_grid_y			            = 27
+
+cost                            = 3000;;--463 W;;--
+
+quest_item                      = false
+can_trade                       = true
+
+;;--------------------------------------------------------------------------------------------
+;;------------------------IAM WITH ARTEFACT---------------------------------------------------
+;;--------------------------------------------------------------------------------------------
+
+[af_misery_bread_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 3.3;;--9.28 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_misery_bread_af_aam_descr
+inv_name			            = st_misery_bread_af_aam_name
+inv_name_short			        = st_misery_bread_af_aam_name
+
+inv_grid_x			            = 36
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00006
+satiety_restore_speed		    = 0.00001
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+hit_absorbation_sect		    = af_misery_bread_absorbation
+
+additional_inventory_weight	    = 0;;--4.081 W;;--
+additional_inventory_weight2	= 0;;--4.081 W;;--
+
+;;--------------------------------------------------------------------------------------------
+
+[af_misery_bread_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 3.3;;--7.37 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_misery_bread_af_iam_descr
+inv_name			            = st_af_misery_bread_af_iam_name
+inv_name_short			        = st_af_misery_bread_af_iam_name
+
+inv_grid_x			            = 36
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00037
+satiety_restore_speed		    = 0.00001
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+hit_absorbation_sect		    = af_misery_bread_absorbation
+
+additional_inventory_weight	    = 0;;--2.24 W;;--
+additional_inventory_weight2	= 0;;--2.24 W;;--
+
+;;--------------------------------------------------------------------------------------------
+
+[af_misery_bread_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 3.03;;--10.92 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_misery_bread_af_aac_descr
+inv_name			            = st_af_misery_bread_af_aac_name
+inv_name_short			        = st_af_misery_bread_af_aac_name
+
+inv_grid_x			            = 36
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00025
+satiety_restore_speed		    = 0.00001
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0;;--3.287 W;;--
+additional_inventory_weight2	= 0;;--3.287 W;;--
+
+hit_absorbation_sect 		    = af_misery_bread_absorbation
+
+[af_medusa_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 5.47;;--8.29 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_medusa_af_iam_descr
+inv_name			            = st_af_medusa_af_iam_name
+inv_name_short			        = st_af_medusa_af_iam_name
+
+inv_grid_x			            = 0
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.000
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+hit_absorbation_sect		    = af_medusa_absorbation
+
+additional_inventory_weight	    = 1.78;;--2.691 W;;--
+additional_inventory_weight2	= 1.78;;--2.691 W;;--
+
+;;--------------------------------------------------------------------------------------------
+
+[af_cristall_flower_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 6.88;;--10.42 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_cristall_flower_af_iam_descr
+inv_name			            = st_af_cristall_flower_af_iam_name
+inv_name_short			        = st_af_cristall_flower_af_iam_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 2.17;;--3.287 W;;--
+additional_inventory_weight2	= 2.17;;--3.287 W;;--
+
+hit_absorbation_sect 		    = af_cristall_flower_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_night_star_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 6.78;;--10.28 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_night_star_af_iam_descr
+inv_name			            = st_af_night_star_af_iam_name
+inv_name_short			        = st_af_night_star_af_iam_name
+
+inv_grid_x			            = 2
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00009
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 3.2;;--4.844 W;;--
+additional_inventory_weight2	= 3.2;;--4.844 W;;--
+
+hit_absorbation_sect 		    = af_night_star_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_vyvert_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 6.87;;--10.41 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_vyvert_af_iam_descr
+inv_name			            = st_af_vyvert_af_iam_name
+inv_name_short			        = st_af_vyvert_af_iam_name
+
+inv_grid_x			            = 3
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00015
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 3.43;;--5.194 W;;--
+additional_inventory_weight2	= 3.43;;--5.194 W;;--
+
+hit_absorbation_sect 		    = af_vyvert_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_gravi_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 6.94;;--10.52 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_gravi_af_iam_descr
+inv_name			            = st_af_gravi_af_iam_name
+inv_name_short			        = st_af_gravi_af_iam_name
+
+inv_grid_x			            = 4
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00023
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 3.58;;--5.417 W;;--
+additional_inventory_weight2	= 3.58;;--5.417 W;;--
+
+hit_absorbation_sect            = af_gravi_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_gold_fish_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 7.35;;--11.13 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_gold_fish_af_iam_descr
+inv_name			            = st_af_gold_fish_af_iam_name
+inv_name_short			        = st_af_gold_fish_af_iam_name
+
+inv_grid_x			            = 5
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00031
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 4.16;;--6.302 W;;--
+additional_inventory_weight2	= 4.16;;--6.302 W;;--
+
+hit_absorbation_sect            = af_gold_fish_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_cristall_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 4.86;;--7.37 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_cristall_af_iam_descr
+inv_name			            = st_af_cristall_af_iam_name
+inv_name_short			        = st_af_cristall_af_iam_name
+
+inv_grid_x			            = 6
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0.00069
+
+hit_absorbation_sect		    = af_cristall_absorbation
+
+additional_inventory_weight	    = 1.48;;--2.24 W;;--
+additional_inventory_weight2	= 1.48;;--2.24 W;;--
+
+;;--------------------------------------------------------------------------------------------
+
+[af_fireball_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 5.02;;--7.61 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_fireball_af_iam_descr
+inv_name			            = st_af_fireball_af_iam_name
+inv_name_short			        = st_af_fireball_af_iam_name
+
+inv_grid_x			            = 7
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00003
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0 ;;-- -0.00045
+bleeding_restore_speed		    = 0.000124
+
+additional_inventory_weight	    = 1.71;;--2.59 W;;--
+additional_inventory_weight2	= 1.71;;--2.59 W;;--
+
+hit_absorbation_sect            = af_fireball_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_dummy_glassbeads_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 5.06;;--7.67 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_dummy_glassbeads_af_iam_descr
+inv_name			            = st_af_dummy_glassbeads_af_iam_name
+inv_name_short			        = st_af_dummy_glassbeads_af_iam_name
+
+inv_grid_x			            = 8
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00009
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0 ;;-- -0.00081
+bleeding_restore_speed		    = 0.00173
+
+additional_inventory_weight	    = 2.15;;--3.26 W;;--
+additional_inventory_weight2	= 2.15;;--3.26 W;;--
+
+hit_absorbation_sect            = af_dummy_glassbeads_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_eye_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 5.12;;--7.76 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_eye_af_iam_descr
+inv_name			            = st_af_eye_af_iam_name
+inv_name_short			        = st_af_eye_af_iam_name
+
+inv_grid_x			            = 9
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00023
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0 ;;-- -0.00134
+bleeding_restore_speed		    = 0.00327
+
+additional_inventory_weight	    = 2.5;;--3.79 W;;--
+additional_inventory_weight2	= 2.5;;--3.79 W;;--
+
+hit_absorbation_sect            = af_eye_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_fire_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 5.16;;--7.82 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_fire_af_iam_descr
+inv_name			            = st_af_fire_af_iam_name
+inv_name_short			        = st_af_fire_af_iam_name
+
+inv_grid_x			            = 10
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00031
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0 ;;-- -0.00194
+bleeding_restore_speed		    = 0.00394
+
+additional_inventory_weight	    = 2.91;;--4.41 W;;--
+additional_inventory_weight2	= 2.91;;--4.41 W;;--
+
+hit_absorbation_sect            = af_fire_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_blood_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 3.54;;--5.36 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_blood_af_iam_descr
+inv_name			            = st_af_blood_af_iam_name
+inv_name_short			        = st_af_blood_af_iam_name
+
+inv_grid_x			            = 11
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.00025
+bleeding_restore_speed		    = 0.00094
+
+additional_inventory_weight	    = 1.41;;--2.14 W;;--
+additional_inventory_weight2	= 1.41;;--2.14 W;;--
+
+hit_absorbation_sect            = af_blood_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_mincer_meat_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 3.55;;--5.38 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_mincer_meat_af_iam_descr
+inv_name			            = st_af_mincer_meat_af_iam_name
+inv_name_short			        = st_af_mincer_meat_af_iam_name
+
+inv_grid_x			            = 12
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00003
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.00027
+bleeding_restore_speed		    = 0.00148
+
+additional_inventory_weight	    = 1.47;;--2.22 W;;--
+additional_inventory_weight2	= 1.47;;--2.22 W;;--
+
+hit_absorbation_sect            = af_mincer_meat_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_soul_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 3.62;;--5.48 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_soul_af_iam_descr
+inv_name			            = st_af_soul_af_iam_name
+inv_name_short			        = st_af_soul_af_iam_name
+
+inv_grid_x			            = 13
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00009
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.00038
+bleeding_restore_speed		    = 0.00238
+
+additional_inventory_weight	    = 1.58;;--2.4 W;;--
+additional_inventory_weight2	= 1.58;;--2.4 W;;--
+
+hit_absorbation_sect            = af_soul_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_fuzz_kolobok_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 3.64;;--5.52 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_fuzz_kolobok_af_iam_descr
+inv_name			            = st_af_fuzz_kolobok_af_iam_name
+inv_name_short			        = st_af_fuzz_kolobok_af_iam_name
+
+inv_grid_x			            = 14
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00023
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.00042
+bleeding_restore_speed		    = 0.00312
+
+additional_inventory_weight	    = 1.81;;--2.74 W;;--
+additional_inventory_weight2	= 1.81;;--2.74 W;;--
+
+hit_absorbation_sect            = af_fuzz_kolobok_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_baloon_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 3.68;;--5.58 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_baloon_af_iam_descr
+inv_name			            = st_af_baloon_af_iam_name
+inv_name_short			        = st_af_baloon_af_iam_name
+
+inv_grid_x			            = 15
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00031
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.0136
+bleeding_restore_speed		    = 0.00366
+
+additional_inventory_weight	    = 1.27;;--1.919 W;;--
+additional_inventory_weight2	= 1.27;;--1.919 W;;--
+
+hit_absorbation_sect            = af_baloon_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_glass_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 3.66;;--5.55 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_glass_af_iam_descr
+inv_name			            = st_af_glass_af_iam_name
+inv_name_short			        = st_af_glass_af_iam_name
+
+inv_grid_x			            = 16
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00034
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.00077
+bleeding_restore_speed		    = 0.00435
+
+additional_inventory_weight	    = 2.46;;--3.73 W;;--
+additional_inventory_weight2	= 2.46;;--3.73 W;;--
+
+hit_absorbation_sect            = af_glass_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_electra_sparkler_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 2.52;;--3.82 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_electra_sparkler_af_iam_descr
+inv_name			            = st_af_electra_sparkler_af_iam_name
+inv_name_short			        = st_af_electra_sparkler_af_iam_name
+
+inv_grid_x			            = 17
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.000124
+bleeding_restore_speed		    = -0.00089
+
+additional_inventory_weight	    = 1.33;;--2.022 W;;--
+additional_inventory_weight	    = 1.33;;--2.022 W;;--
+
+hit_absorbation_sect            = af_electra_sparkler_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_electra_flash_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 2.53;;--3.84 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_electra_flash_af_iam_descr
+inv_name			            = st_af_electra_flash_af_iam_name
+inv_name_short			        = st_af_electra_flash_af_iam_name
+
+inv_grid_x			            = 18
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00003
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.00015
+bleeding_restore_speed		    = -0.00094
+
+additional_inventory_weight	    = 1.35;;--2.053 W;;--
+additional_inventory_weight2	= 1.35;;--2.053 W;;--
+
+hit_absorbation_sect            = af_electra_flash_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_electra_moonlight_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 2.55;;--3.86 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_electra_moonlight_af_iam_descr
+inv_name			            = st_af_electra_moonlight_af_iam_name
+inv_name_short			        = st_af_electra_moonlight_af_iam_name
+
+inv_grid_x			            = 19
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00009
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.00025
+bleeding_restore_speed		    = -0.00128
+
+additional_inventory_weight	    = 1.37;;--2.076 W;;--
+additional_inventory_weight2	= 1.37;;--2.076 W;;--
+
+hit_absorbation_sect            = af_electra_moonlight_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_dummy_battery_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 2.68;;--4.06 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_dummy_battery_af_iam_descr
+inv_name			            = st_af_dummy_battery_af_iam_name
+inv_name_short			        = st_af_dummy_battery_af_iam_name
+
+inv_grid_x			            = 20
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00023
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.00062
+bleeding_restore_speed		    = -0.00192
+
+additional_inventory_weight	    = 1.48;;--2.247 W;;--
+additional_inventory_weight2	= 1.48;;--2.247 W;;--
+
+hit_absorbation_sect            = af_dummy_battery_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_dummy_dummy_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 2.69;;--4.073 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_dummy_dummy_af_iam_descr
+inv_name			            = st_af_dummy_dummy_af_iam_name
+inv_name_short			        = st_af_dummy_dummy_af_iam_name
+
+inv_grid_x			            = 21
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00031
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.00092
+bleeding_restore_speed		    = -0.00281
+
+additional_inventory_weight	    = 1.51;;--2.282 W;;--
+additional_inventory_weight2	= 1.51;;--2.282 W;;--
+
+hit_absorbation_sect            = af_dummy_dummy_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_ice_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 2.84;;--4.307 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_ice_af_iam_descr
+inv_name			            = st_af_ice_af_iam_name
+inv_name_short			        = st_af_ice_af_iam_name
+
+inv_grid_x			            = 22
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00034
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.00122
+bleeding_restore_speed		    = -0.00346
+
+additional_inventory_weight	    = 1.64;;--2.481 W;;--
+additional_inventory_weight2	= 1.64;;--2.481 W;;--
+
+hit_absorbation_sect            = af_ice_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_compass_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 5.86;;--8.881 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+quest_item 			            = true
+description			            = st_af_compass_af_iam_descr
+inv_name			            = st_af_compass_af_iam_name
+inv_name_short			        = st_af_compass_af_iam_name
+
+inv_grid_x			            = 23
+inv_grid_y			            = 74
+
+health_restore_speed 		    = 0
+radiation_restore_speed 	    = 0.00037
+satiety_restore_speed 		    = 0
+power_restore_speed 		    = 0.00324
+bleeding_restore_speed 		    = 0
+hit_absorbation_sect 		    = af_compass_absorbation
+
+additional_inventory_weight	    = 2.1;;--3.18 W;;--
+additional_inventory_weight2	= 2.1;;--3.18 W;;--
+
+;;--------------------------------------------------------------------------------------------
+
+[af_oasis_heart_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 4.84;;--7.334 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+quest_item 			            = true
+description			            = st_af_oasis_heart_af_iam_descr
+inv_name			            = st_af_oasis_heart_af_iam_name
+inv_name_short			        = st_af_oasis_heart_af_iam_name
+
+inv_grid_x			            = 24
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed 	    = 0.00037
+satiety_restore_speed 		    = 0
+power_restore_speed			    = 0.00241
+bleeding_restore_speed		    = 0.00876
+hit_absorbation_sect 		    = af_oasis_heart_absorbation
+
+additional_inventory_weight	    = 4.74;;--7.18 W;;--
+additional_inventory_weight2	= 4.74;;--7.18 W;;--
+
+;;--------------------------------------------------------------------------------------------
+
+[jup_b1_half_artifact_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 5.98;;--9.068 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+quest_item 			            = true
+description			            = st_jup_b1_half_artifact_af_iam_descr
+inv_name			            = st_jup_b1_half_artifact_af_iam_name
+inv_name_short		            = st_jup_b1_half_artifact_af_iam_name
+
+inv_grid_x			            = 25
+inv_grid_y			            = 74
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00081
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 1.23;;--1.86 W;;--
+additional_invenotry_weight2    = 1.23;;--1.86 W;;--
+
+hit_absorbation_sect            = jup_b1_half_artifact_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_quest_b14_twisted_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 5.45;;--8.264 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+quest_item 			            = true
+description			            = st_af_quest_b14_twisted_af_iam_descr
+inv_name			            = st_af_quest_b14_twisted_af_iam_name
+inv_name_short			        = st_af_quest_b14_twisted_af_iam_name
+
+inv_grid_x			            = 25
+inv_grid_y			            = 74
+
+health_restore_speed 		    = 0
+radiation_restore_speed 	    = 0.0009
+satiety_restore_speed 		    = 0
+power_restore_speed 		    = 0.00189
+bleeding_restore_speed 		    = 0
+hit_absorbation_sect 		    = af_control_absorbation
+
+additional_inventory_weight     = 1.23;;--1.86 W;;--
+addition_inventory_weight2      = 1.23;;--1.86 W;;--
+
+;;--------------------------------------------------------------------------------------------
+;;-----------------------------AAC WITH ARTEFACT----------------------------------------------
+;;--------------------------------------------------------------------------------------------
+
+[af_medusa_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 5.8;;--8.79 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_medusa_af_aac_descr
+inv_name			            = st_af_medusa_af_aac_name
+inv_name_short			        = st_af_medusa_af_aac_name
+
+inv_grid_x			            = 0
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+hit_absorbation_sect		    = af_medusa_absorbation
+
+additional_inventory_weight	    = 1.78;;--2.691 W;;--
+additional_inventory_weight2	= 1.78;;--2.691 W;;--
+
+;;--------------------------------------------------------------------------------------------
+
+[af_cristall_flower_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 7.21;;--10.92 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_cristall_flower_af_aac_descr
+inv_name			            = st_af_cristall_flower_af_aac_name
+inv_name_short			        = st_af_cristall_flower_af_aac_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 2.17;;--3.287 W;;--
+additional_inventory_weight2	= 2.17;;--3.287 W;;--
+
+hit_absorbation_sect 		    = af_cristall_flower_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_night_star_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 7.11;;--10.78 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_night_star_af_aac_descr
+inv_name			            = st_af_night_star_af_aac_name
+inv_name_short			        = st_af_night_star_af_aac_name
+
+inv_grid_x			            = 2
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 3.2;;--4.844 W;;--
+additional_inventory_weight2	= 3.2;;--4.844 W;;--
+
+hit_absorbation_sect 		    = af_night_star_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_vyvert_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 7.2;;--10.91 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_vyvert_af_aac_descr
+inv_name			            = st_af_vyvert_af_aac_name
+inv_name_short			        = st_af_vyvert_af_aac_name
+
+inv_grid_x			            = 3
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00003
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 3.43;;--5.194 W;;--
+additional_inventory_weight2	= 3.43;;--5.194 W;;--
+
+hit_absorbation_sect 		    = af_vyvert_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_gravi_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 7.27;;--11.02 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_gravi_af_aac_descr
+inv_name			            = st_af_gravi_af_aac_name
+inv_name_short			        = st_af_gravi_af_aac_name
+
+inv_grid_x			            = 4
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00011
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 3.58;;--5.417 W;;--
+additional_inventory_weight2	= 3.58;;--5.417 W;;--
+
+hit_absorbation_sect            = af_gravi_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_gold_fish_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 7.68;;--11.63 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_gold_fish_af_aac_descr
+inv_name			            = st_af_gold_fish_af_aac_name
+inv_name_short			        = st_af_gold_fish_af_aac_name
+
+inv_grid_x			            = 5
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00019
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 4.16;;--6.302 W;;--
+additional_inventory_weight2	= 4.16;;--6.302 W;;--
+
+hit_absorbation_sect            = af_gold_fish_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_cristall_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 5.19;;--7.87 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_cristall_af_aac_descr
+inv_name			            = st_af_cristall_af_aac_name
+inv_name_short			        = st_af_cristall_af_aac_name
+
+inv_grid_x			            = 6
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0.00069
+
+hit_absorbation_sect		    = af_cristall_absorbation
+
+additional_inventory_weight	    = 1.48;;--2.24 W;;--
+additional_inventory_weight2	= 1.48;;--2.24 W;;--
+
+;;--------------------------------------------------------------------------------------------
+
+[af_fireball_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 5.35;;--8.11 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_fireball_af_aac_descr
+inv_name			            = st_af_fireball_af_aac_name
+inv_name_short			        = st_af_fireball_af_aac_name
+
+inv_grid_x			            = 7
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0 ;;-- -0.00045
+bleeding_restore_speed		    = 0.000124
+
+additional_inventory_weight	    = 1.71;;--2.59 W;;--
+additional_inventory_weight2	= 1.71;;--2.59 W;;--
+
+hit_absorbation_sect            = af_fireball_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_dummy_glassbeads_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 5.39;;--8.17 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_dummy_glassbeads_af_aac_descr
+inv_name			            = st_af_dummy_glassbeads_af_aac_name
+inv_name_short			        = st_af_dummy_glassbeads_af_aac_name
+
+inv_grid_x			            = 8
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0 ;;-- -0.00081
+bleeding_restore_speed		    = 0.00173
+
+additional_inventory_weight	    = 2.15;;--3.26 W;;--
+additional_inventory_weight2	= 2.15;;--3.26 W;;--
+
+hit_absorbation_sect            = af_dummy_glassbeads_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_eye_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 5.45;;--8.26 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_eye_af_aac_descr
+inv_name			            = st_af_eye_af_aac_name
+inv_name_short			        = st_af_eye_af_aac_name
+
+inv_grid_x			            = 9
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00011
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0 ;;-- -0.00134
+bleeding_restore_speed		    = 0.00327
+
+additional_inventory_weight	    = 2.5;;--3.79 W;;--
+additional_inventory_weight2	= 2.5;;--3.79 W;;--
+
+hit_absorbation_sect            = af_eye_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_fire_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 5.49;;--8.32 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_fire_af_aac_descr
+inv_name			            = st_af_fire_af_aac_name
+inv_name_short			        = st_af_fire_af_aac_name
+
+inv_grid_x			            = 10
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00019
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0 ;;-- -0.00194
+bleeding_restore_speed		    = 0.00394
+
+additional_inventory_weight	    = 2.91;;--4.41 W;;--
+additional_inventory_weight2	= 2.91;;--4.41 W;;--
+
+hit_absorbation_sect            = af_fire_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_blood_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 3.87;;--5.86 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_blood_af_aac_descr
+inv_name			            = st_af_blood_af_aac_name
+inv_name_short			        = st_af_blood_af_aac_name
+
+inv_grid_x			            = 11
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.00025
+bleeding_restore_speed		    = 0.00094
+
+additional_inventory_weight	    = 1.41;;--2.14 W;;--
+additional_inventory_weight2	= 1.41;;--2.14 W;;--
+
+hit_absorbation_sect            = af_blood_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_mincer_meat_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 3.88;;--5.88 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_mincer_meat_af_aac_descr
+inv_name			            = st_af_mincer_meat_af_aac_name
+inv_name_short			        = st_af_mincer_meat_af_aac_name
+
+inv_grid_x			            = 12
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.00027
+bleeding_restore_speed		    = 0.00148
+
+additional_inventory_weight	    = 1.47;;--2.22 W;;--
+additional_inventory_weight2	= 1.47;;--2.22 W;;--
+
+hit_absorbation_sect            = af_mincer_meat_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_soul_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 3.95;;--5.98 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_soul_af_aac_descr
+inv_name			            = st_af_soul_af_aac_name
+inv_name_short			        = st_af_soul_af_aac_name
+
+inv_grid_x			            = 13
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.00038
+bleeding_restore_speed		    = 0.00238
+
+additional_inventory_weight	    = 1.58;;--2.4 W;;--
+additional_inventory_weight2	= 1.58;;--2.4 W;;--
+
+hit_absorbation_sect            = af_soul_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_fuzz_kolobok_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 3.97;;--6.02 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_fuzz_kolobok_af_aac_descr
+inv_name			            = st_af_fuzz_kolobok_af_aac_name
+inv_name_short			        = st_af_fuzz_kolobok_af_aac_name
+
+inv_grid_x			            = 14
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00011
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.00042
+bleeding_restore_speed		    = 0.00312
+
+additional_inventory_weight	    = 1.81;;--2.74 W;;--
+additional_inventory_weight2	= 1.81;;--2.74 W;;--
+
+hit_absorbation_sect            = af_fuzz_kolobok_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_baloon_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 4.01;;--6.08 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_baloon_af_aac_descr
+inv_name			            = st_af_baloon_af_aac_name
+inv_name_short			        = st_af_baloon_af_aac_name
+
+inv_grid_x			            = 15
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00019
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.0136
+bleeding_restore_speed		    = 0.00366
+
+additional_inventory_weight	    = 1.27;;--1.919 W;;--
+additional_inventory_weight2	= 1.27;;--1.919 W;;--
+
+hit_absorbation_sect            = af_baloon_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_glass_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 3.99;;--6.05 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_glass_af_aac_descr
+inv_name			            = st_af_glass_af_aac_name
+inv_name_short			        = st_af_glass_af_aac_name
+
+inv_grid_x			            = 16
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.00077
+bleeding_restore_speed		    = 0.00435
+
+additional_inventory_weight	    = 2.46;;--3.73 W;;--
+additional_inventory_weight2	= 2.46;;--3.73 W;;--
+
+hit_absorbation_sect            = af_glass_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_electra_sparkler_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 2.85;;--4.32 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_electra_sparkler_af_aac_descr
+inv_name			            = st_af_electra_sparkler_af_aac_name
+inv_name_short			        = st_af_electra_sparkler_af_aac_name
+
+inv_grid_x			            = 17
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.000124
+bleeding_restore_speed		    = -0.00089
+
+additional_inventory_weight	    = 1.33;;--2.022 W;;--
+additional_inventory_weight	    = 1.33;;--2.022 W;;--
+
+hit_absorbation_sect            = af_electra_sparkler_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_electra_flash_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 2.87;;--4.342 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_electra_flash_af_aac_descr
+inv_name			            = st_af_electra_flash_af_aac_name
+inv_name_short			        = st_af_electra_flash_af_aac_name
+
+inv_grid_x			            = 18
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.00015
+bleeding_restore_speed		    = -0.00094
+
+additional_inventory_weight	    = 1.35;;--2.053 W;;--
+additional_inventory_weight2	= 1.35;;--2.053 W;;--
+
+hit_absorbation_sect            = af_electra_flash_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_electra_moonlight_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 2.88;;--4.362 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_electra_moonlight_af_aac_descr
+inv_name			            = st_af_electra_moonlight_af_aac_name
+inv_name_short			        = st_af_electra_moonlight_af_aac_name
+
+inv_grid_x			            = 19
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.00025
+bleeding_restore_speed		    = -0.00128
+
+additional_inventory_weight	    = 1.37;;--2.076 W;;--
+additional_inventory_weight2	= 1.37;;--2.076 W;;--
+
+hit_absorbation_sect            = af_electra_moonlight_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_dummy_battery_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 3.01;;--4.566 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_dummy_battery_af_aac_descr
+inv_name			            = st_af_dummy_battery_af_aac_name
+inv_name_short			        = st_af_dummy_battery_af_aac_name
+
+inv_grid_x			            = 20
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00011
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.00062
+bleeding_restore_speed		    = -0.00192
+
+additional_inventory_weight	    = 1.48;;--2.247 W;;--
+additional_inventory_weight2	= 1.48;;--2.247 W;;--
+
+hit_absorbation_sect            = af_dummy_battery_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_dummy_dummy_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 3.02;;--4.573 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_dummy_dummy_af_aac_descr
+inv_name			            = st_af_dummy_dummy_af_aac_name
+inv_name_short			        = st_af_dummy_dummy_af_aac_name
+
+inv_grid_x			            = 21
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00019
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.00092
+bleeding_restore_speed		    = -0.00281
+
+additional_inventory_weight	    = 1.51;;--2.282 W;;--
+additional_inventory_weight2	= 1.51;;--2.282 W;;--
+
+hit_absorbation_sect            = af_dummy_dummy_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_ice_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 3.17;;--4.807 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_ice_af_aac_descr
+inv_name			            = st_af_ice_af_aac_name
+inv_name_short			        = st_af_ice_af_aac_name
+
+inv_grid_x			            = 22
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00022
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.00122
+bleeding_restore_speed		    = -0.00346
+
+additional_inventory_weight	    = 1.64;;--2.481 W;;--
+additional_inventory_weight2	= 1.64;;--2.481 W;;--
+
+hit_absorbation_sect            = af_ice_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_compass_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 6.19;;--9.381 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+quest_item 			            = true
+description			            = st_af_compass_af_aac_descr
+inv_name			            = st_af_compass_af_aac_name
+inv_name_short			        = st_af_compass_af_aac_name
+
+inv_grid_x			            = 23
+inv_grid_y			            = 75
+
+health_restore_speed 		    = 0
+radiation_restore_speed 	    = 0.00025
+satiety_restore_speed 		    = 0
+power_restore_speed 		    = 0.00324
+bleeding_restore_speed 		    = 0
+hit_absorbation_sect 		    = af_compass_absorbation
+
+additional_inventory_weight	    = 2.1;;--3.18 W;;--
+additional_inventory_weight2	= 2.1;;--3.18 W;;--
+
+;;--------------------------------------------------------------------------------------------
+
+[af_oasis_heart_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 5.17;;--7.834 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+quest_item 			            = true
+description			            = st_af_oasis_heart_af_aac_descr
+inv_name			            = st_af_oasis_heart_af_aac_name
+inv_name_short			        = st_af_oasis_heart_af_aac_name
+
+inv_grid_x			            = 24
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed 	    = 0.00025
+satiety_restore_speed 		    = 0
+power_restore_speed			    = 0.00241
+bleeding_restore_speed		    = 0.00876
+hit_absorbation_sect 		    = af_oasis_heart_absorbation
+
+additional_inventory_weight	    = 5.15;;--7.8 W;;--
+additional_inventory_weight2	= 5.15;;--7.8 W;;--
+
+;;--------------------------------------------------------------------------------------------
+
+[jup_b1_half_artifact_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 6.31;;--9.568 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+quest_item 			            = true
+description			            = st_jup_b1_half_artifact_af_aac_descr
+inv_name			            = st_jup_b1_half_artifact_af_aac_name
+inv_name_short			        = st_jup_b1_half_artifact_af_aac_name
+
+inv_grid_x			            = 25
+inv_grid_y			            = 75
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00069
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 1.54;;--2.34 W;;--
+additional_inventory_weight2    = 1.54;;--2.34 W;;--
+
+hit_absorbation_sect            = jup_b1_half_artifact_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_quest_b14_twisted_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 5.78;;--8.764 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+quest_item 			            = true
+description			            = st_af_quest_b14_twisted_af_aac_descr
+inv_name			            = st_af_quest_b14_twisted_af_aac_name
+inv_name_short			        = st_af_quest_b14_twisted_af_aac_name
+
+inv_grid_x			            = 26
+inv_grid_y			            = 75
+
+health_restore_speed 		    = 0
+radiation_restore_speed 	    = 0.00078
+satiety_restore_speed 		    = 0
+power_restore_speed 		    = 0.00189
+bleeding_restore_speed 		    = 0
+hit_absorbation_sect 		    = af_control_absorbation
+
+additional_inventory_weight	    = 1.54;;--2.34 W;;--
+additional_inventory_weight2	= 1.54;;--2.34 W;;--
+
+;;--------------------------------------------------------------------------------------------
+;;-----------------------------AAM WITH ARTEFACT----------------------------------------------
+;;--------------------------------------------------------------------------------------------
+
+[af_medusa_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 6.12;;--9.28 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_medusa_af_aam_descr
+inv_name			            = st_af_medusa_af_aam_name
+inv_name_short			        = st_af_medusa_af_aam_name
+
+inv_grid_x			            = 0
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+hit_absorbation_sect		    = af_medusa_absorbation
+
+additional_inventory_weight	    = 2.69;;--4.081 W;;--
+additional_inventory_weight2	= 2.69;;--4.081 W;;--
+
+;;--------------------------------------------------------------------------------------------
+
+[af_cristall_flower_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 7.53;;--11.41 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_cristall_flower_af_aam_descr
+inv_name			            = st_af_cristall_flower_af_aam_name
+inv_name_short			        = st_af_cristall_flower_af_aam_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 3.09;;--4.677 W;;--
+additional_inventory_weight2	= 3.09;;--4.677 W;;--
+
+hit_absorbation_sect 		    = af_cristall_flower_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_night_star_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 7.44;;--11.27 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_night_star_af_aam_descr
+inv_name			            = st_af_night_star_af_aam_name
+inv_name_short			        = st_af_night_star_af_aam_name
+
+inv_grid_x			            = 2
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 4.11;;--6.234 W;;--
+additional_inventory_weight2	= 4.11;;--6.234 W;;--
+
+hit_absorbation_sect 		    = af_night_star_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_vyvert_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 7.52;;--11.40 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_vyvert_af_aam_descr
+inv_name			            = st_af_vyvert_af_aam_name
+inv_name_short			        = st_af_vyvert_af_aam_name
+
+inv_grid_x			            = 3
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 4.35;;--6.584 W;;--
+additional_inventory_weight2	= 4.35;;--6.584 W;;--
+
+hit_absorbation_sect 		    = af_vyvert_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_gravi_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 7.6;;--11.51 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_gravi_af_aam_descr
+inv_name			            = st_af_gravi_af_aam_name
+inv_name_short			        = st_af_gravi_af_aam_name
+
+inv_grid_x			            = 4
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 4.49;;--6.807 W;;--
+additional_inventory_weight2	= 4.49;;--6.807 W;;--
+
+hit_absorbation_sect            = af_gravi_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_gold_fish_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 8.0;;--12.12 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_gold_fish_af_aam_descr
+inv_name			            = st_af_gold_fish_af_aam_name
+inv_name_short			        = st_af_gold_fish_af_aam_name
+
+inv_grid_x			            = 5
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 5.08;;--7.692 W;;--
+additional_inventory_weight2	= 5.08;;--7.692 W;;--
+
+hit_absorbation_sect            = af_gold_fish_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_cristall_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 5.52;;--8.36 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_cristall_af_aam_descr
+inv_name			            = st_af_cristall_af_aam_name
+inv_name_short			        = st_af_cristall_af_aam_name
+
+inv_grid_x			            = 6
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0.00069
+
+hit_absorbation_sect		    = af_cristall_absorbation
+
+additional_inventory_weight	    = 2.4;;--3.63 W;;--
+additional_inventory_weight2	= 2.4;;--3.63 W;;--
+
+;;--------------------------------------------------------------------------------------------
+
+[af_fireball_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 5.68;;--8.60 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_fireball_af_aam_descr
+inv_name			            = st_af_fireball_af_aam_name
+inv_name_short			        = st_af_fireball_af_aam_name
+
+inv_grid_x			            = 7
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0 ;;-- -0.00045
+bleeding_restore_speed		    = 0.000124
+
+additional_inventory_weight	    = 2.63;;--3.98 W;;--
+additional_inventory_weight2	= 2.63;;--3.98 W;;--
+
+hit_absorbation_sect            = af_fireball_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_dummy_glassbeads_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 5.72;;--8.66 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_dummy_glassbeads_af_aam_descr
+inv_name			            = st_af_dummy_glassbeads_af_aam_name
+inv_name_short			        = st_af_dummy_glassbeads_af_aam_name
+
+inv_grid_x			            = 8
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0 ;;-- -0.00081
+bleeding_restore_speed		    = 0.00173
+
+additional_inventory_weight	    = 3.07;;--4.65 W;;--
+additional_inventory_weight2	= 3.07;;--4.65 W;;--
+
+hit_absorbation_sect            = af_dummy_glassbeads_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_eye_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 5.78;;--8.75 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_eye_af_aam_descr
+inv_name			            = st_af_eye_af_aam_name
+inv_name_short			        = st_af_eye_af_aam_name
+
+inv_grid_x			            = 9
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0 ;;-- -0.00134
+bleeding_restore_speed		    = 0.00327
+
+additional_inventory_weight	    = 3.42;;--5.18 W;;--
+additional_inventory_weight2	= 3.42;;--5.18 W;;--
+
+hit_absorbation_sect            = af_eye_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_fire_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 5.81;;--8.81 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_fire_af_aam_descr
+inv_name			            = st_af_fire_af_aam_name
+inv_name_short			        = st_af_fire_af_aam_name
+
+inv_grid_x			            = 10
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0 ;;-- -0.00194
+bleeding_restore_speed		    = 0.00394
+
+additional_inventory_weight	    = 3.83;;--5.8 W;;--
+additional_inventory_weight2	= 3.83;;--5.8 W;;--
+
+hit_absorbation_sect            = af_fire_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_blood_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 4.19;;--6.35 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_blood_af_aam_descr
+inv_name			            = st_af_blood_af_aam_name
+inv_name_short			        = st_af_blood_af_aam_name
+
+inv_grid_x			            = 11
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.00025
+bleeding_restore_speed		    = 0.00094
+
+additional_inventory_weight	    = 2.33;;--3.53 W;;--
+additional_inventory_weight2	= 2.33;;--3.53 W;;--
+
+hit_absorbation_sect            = af_blood_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_mincer_meat_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 4.2;;--6.37 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_mincer_meat_af_aam_descr
+inv_name			            = st_af_mincer_meat_af_aam_name
+inv_name_short			        = st_af_mincer_meat_af_aam_name
+
+inv_grid_x			            = 12
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.00027
+bleeding_restore_speed		    = 0.00148
+
+additional_inventory_weight	    = 2.38;;--3.61 W;;--
+additional_inventory_weight2	= 2.38;;--3.61 W;;--
+
+hit_absorbation_sect            = af_mincer_meat_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_soul_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 4.27;;--6.47 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_soul_af_aam_descr
+inv_name			            = st_af_soul_af_aam_name
+inv_name_short			        = st_af_soul_af_aam_name
+
+inv_grid_x			            = 13
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.00038
+bleeding_restore_speed		    = 0.00238
+
+additional_inventory_weight	    = 2.5;;--3.79 W;;--
+additional_inventory_weight2	= 2.5;;--3.79 W;;--
+
+hit_absorbation_sect            = af_soul_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_fuzz_kolobok_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 4.3;;--6.51 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_fuzz_kolobok_af_aam_descr
+inv_name			            = st_af_fuzz_kolobok_af_aam_name
+inv_name_short			        = st_af_fuzz_kolobok_af_aam_name
+
+inv_grid_x			            = 14
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.00042
+bleeding_restore_speed		    = 0.00312
+
+additional_inventory_weight	    = 2.73;;--4.13 W;;--
+additional_inventory_weight2	= 2.73;;--4.13 W;;--
+
+hit_absorbation_sect            = af_fuzz_kolobok_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_baloon_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 4.34;;--6.57 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_baloon_af_aam_descr
+inv_name			            = st_af_baloon_af_aam_name
+inv_name_short			        = st_af_baloon_af_aam_name
+
+inv_grid_x			            = 15
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.0136
+bleeding_restore_speed		    = 0.00366
+
+additional_inventory_weight	    = 2.18;;--3.309 W;;--
+additional_inventory_weight2	= 2.18;;--3.309 W;;--
+
+hit_absorbation_sect            = af_baloon_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_glass_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 4.32;;--6.54 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_glass_af_aam_descr
+inv_name			            = st_af_glass_af_aam_name
+inv_name_short			        = st_af_glass_af_aam_name
+
+inv_grid_x			            = 16
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.00077
+bleeding_restore_speed		    = 0.00435
+
+additional_inventory_weight	    = 3.38;;--5.12 W;;--
+additional_inventory_weight2	= 3.38;;--5.12 W;;--
+
+hit_absorbation_sect            = af_glass_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_electra_sparkler_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 3.17;;--4.81 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_electra_sparkler_af_aam_descr
+inv_name			            = st_af_electra_sparkler_af_aam_name
+inv_name_short			        = st_af_electra_sparkler_af_aam_name
+
+inv_grid_x			            = 17
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.000124
+bleeding_restore_speed		    = -0.00089
+
+additional_inventory_weight	    = 2.25;;--3.412 W;;--
+additional_inventory_weight	    = 2.25;;--3.412 W;;--
+
+hit_absorbation_sect            = af_electra_sparkler_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_electra_flash_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 3.19;;--4.832 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_electra_flash_af_aam_descr
+inv_name			            = st_af_electra_flash_af_aam_name
+inv_name_short			        = st_af_electra_flash_af_aam_name
+
+inv_grid_x			            = 18
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.00015
+bleeding_restore_speed		    = -0.00094
+
+additional_inventory_weight	    = 2.27;;--3.443 W;;--
+additional_inventory_weight2	= 2.27;;--3.443 W;;--
+
+hit_absorbation_sect            = af_electra_flash_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_electra_moonlight_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 3.2;;--4.852 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_electra_moonlight_af_aam_descr
+inv_name			            = st_af_electra_moonlight_af_aam_name
+inv_name_short			        = st_af_electra_moonlight_af_aam_name
+
+inv_grid_x			            = 19
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.00025
+bleeding_restore_speed		    = -0.00128
+
+additional_inventory_weight	    = 2.29;;--3.466 W;;--
+additional_inventory_weight2	= 2.29;;--3.466 W;;--
+
+hit_absorbation_sect            = af_electra_moonlight_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_dummy_battery_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 3.34;;--5.056 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_dummy_battery_af_aam_descr
+inv_name			            = st_af_dummy_battery_af_aam_name
+inv_name_short			        = st_af_dummy_battery_af_aam_name
+
+inv_grid_x			            = 20
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.00062
+bleeding_restore_speed		    = -0.00192
+
+additional_inventory_weight	    = 2.4;;--3.637 W;;--
+additional_inventory_weight2	= 2.4;;--3.637 W;;--
+
+hit_absorbation_sect            = af_dummy_battery_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_dummy_dummy_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 3.34;;--5.063 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_dummy_dummy_af_aam_descr
+inv_name			            = st_af_dummy_dummy_af_aam_name
+inv_name_short			        = st_af_dummy_dummy_af_aam_name
+
+inv_grid_x			            = 21
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.00092
+bleeding_restore_speed		    = -0.00281
+
+additional_inventory_weight	    = 2.42;;--3.672 W;;--
+additional_inventory_weight2	= 2.42;;--3.672 W;;--
+
+hit_absorbation_sect            = af_dummy_dummy_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_ice_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 3.5;;--5.297 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+description			            = st_af_ice_af_aam_descr
+inv_name			            = st_af_ice_af_aam_name
+inv_name_short			        = st_af_ice_af_aam_name
+
+inv_grid_x			            = 22
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.00122
+bleeding_restore_speed		    = -0.00346
+
+additional_inventory_weight	    = 2.55;;--3.871 W;;--
+additional_inventory_weight2	= 2.55;;--3.871 W;;--
+
+hit_absorbation_sect            = af_ice_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_compass_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 6.51;;--9.871 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+quest_item 			            = true
+description			            = st_af_compass_af_aam_descr
+inv_name			            = st_af_compass_af_aam_name
+inv_name_short			        = st_af_compass_af_aam_name
+
+inv_grid_x			            = 23
+inv_grid_y			            = 76
+
+health_restore_speed 		    = 0
+radiation_restore_speed 	    = 0.00006
+satiety_restore_speed 		    = 0
+power_restore_speed 		    = 0.00324
+bleeding_restore_speed 		    = 0
+hit_absorbation_sect 		    = af_compass_absorbation
+
+additional_inventory_weight	    = 3.02;;--4.57 W;;--
+additional_inventory_weight2	= 3.02;;--4.57 W;;--
+
+;;--------------------------------------------------------------------------------------------
+
+[af_oasis_heart_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 5.49;;--8.324 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+quest_item 			            = true
+description			            = st_af_oasis_heart_af_aam_descr
+inv_name			            = st_af_oasis_heart_af_aam_name
+inv_name_short			        = st_af_oasis_heart_af_aam_name
+
+inv_grid_x			            = 24
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed 	    = 0.00006
+satiety_restore_speed 		    = 0
+power_restore_speed			    = 0.00241
+bleeding_restore_speed		    = 0.00876
+hit_absorbation_sect 		    = af_oasis_heart_absorbation
+
+additional_inventory_weight	    = 5.06;;--7.66 W;;--
+additional_inventory_weight2	= 5.06;;--7.66 W;;--
+
+;;--------------------------------------------------------------------------------------------
+
+[jup_b1_half_artifact_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 6.64;;--10.058 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+quest_item 			            = true
+description			            = st_jup_b1_half_artifact_af_aam_descr
+inv_name			            = st_jup_b1_half_artifact_af_aam_name
+inv_name_short			        = st_jup_b1_half_artifact_af_aam_name
+
+inv_grid_x			            = 25
+inv_grid_y			            = 76
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00047
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 1.83;;--2.77 W;;--
+addition_inventory_weight2      = 1.83;;--2.77 W;;--
+
+hit_absorbation_sect            = jup_b1_half_artifact_absorbation
+
+;;--------------------------------------------------------------------------------------------
+
+[af_quest_b14_twisted_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 6.11;;--9.254 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = true
+quest_item 			            = true
+description			            = st_af_quest_b14_twisted_af_aam_descr
+inv_name			            = st_af_quest_b14_twisted_af_aam_name
+inv_name_short			        = st_af_quest_b14_twisted_af_aam_name
+
+inv_grid_x			            = 26
+inv_grid_y			            = 76
+
+health_restore_speed 		    = 0
+radiation_restore_speed 	    = 0.00054
+satiety_restore_speed 		    = 0
+power_restore_speed 		    = 0.00189
+bleeding_restore_speed 		    = 0
+hit_absorbation_sect 		    = af_control_absorbation
+
+additional_inventory_weight	    = 1.83;;--2.77 W;;--
+additional_inventory_weight2	= 1.83;;--2.77 W;;--
+
+;;--------------------------------------------------------------------------------------------
+;;-----------------------------LEAD BOX WITH ARTEFACT----------------------------------------------
+;;--------------------------------------------------------------------------------------------
+
+[af_misery_bread_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 3.92;;--10.721 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+quest_item 			            = true
+description			            = st_af_misery_bread_lead_box_descr
+inv_name			            = st_af_misery_bread_lead_box_name
+inv_name_short			        = st_af_misery_bread_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed 		    = 0
+satiety_restore_speed 		    = 0
+power_restore_speed 		    = 0
+satiety_restore_speed           = 0.00001
+hit_absorbation_sect 		    = af_misery_bread_absorbation
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+[af_medusa_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 6.69;;--10.13 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+description			            = st_af_medusa_lead_box_descr
+inv_name			            = st_af_medusa_lead_box_name
+inv_name_short			        = st_af_medusa_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.000
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+hit_absorbation_sect		    = af_medusa_absorbation
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+[af_cristall_flower_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 8.09;;--12.26 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+description			            = st_af_cristall_flower_lead_box_descr
+inv_name			            = st_af_cristall_flower_lead_box_name
+inv_name_short			        = st_af_cristall_flower_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+hit_absorbation_sect 		    = af_cristall_flower_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+[af_night_star_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 8.0;;--12.12 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+description			            = st_af_night_star_lead_box_descr
+inv_name			            = st_af_night_star_lead_box_name
+inv_name_short			        = st_af_night_star_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+hit_absorbation_sect 		    = af_night_star_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+[af_vyvert_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 8.1;;--12.27 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+description			            = st_af_vyvert_lead_box_descr
+inv_name			            = st_af_vyvert_lead_box_name
+inv_name_short			        = st_af_vyvert_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+hit_absorbation_sect 		    = af_vyvert_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+[af_gravi_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 8.16;;--12.36 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+description			            = st_af_gravi_lead_box_descr
+inv_name			            = st_af_gravi_lead_box_name
+inv_name_short			        = st_af_gravi_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+hit_absorbation_sect            = af_gravi_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+[af_gold_fish_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 8.56;;--12.97 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+description			            = st_af_gold_fish_lead_box_descr
+inv_name			            = st_af_gold_fish_lead_box_name
+inv_name_short			        = st_af_gold_fish_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+hit_absorbation_sect            = af_gold_fish_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+[af_cristall_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 6.08;;--9.21 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+description			            = st_af_cristall_lead_box_descr
+inv_name			            = st_af_cristall_lead_box_name
+inv_name_short			        = st_af_cristall_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0.00069
+
+hit_absorbation_sect		    = af_cristall_absorbation
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+[af_fireball_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 6.24;;--9.45 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+description			            = st_af_fireball_lead_box_descr
+inv_name			            = st_af_fireball_lead_box_name
+inv_name_short			        = st_af_fireball_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0 ;;-- -0.00045
+bleeding_restore_speed		    = 0.000124
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+hit_absorbation_sect            = af_fireball_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+[af_dummy_glassbeads_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 6.28;;--9.51 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+description			            = st_af_dummy_glassbeads_lead_box_descr
+inv_name			            = st_af_dummy_glassbeads_lead_box_name
+inv_name_short			        = st_af_dummy_glassbeads_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0 ;;-- -0.00081
+bleeding_restore_speed		    = 0.00173
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+hit_absorbation_sect            = af_dummy_glassbeads_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+[af_eye_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 6.34;;--9.6 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+description			            = st_af_eye_lead_box_descr
+inv_name			            = st_af_eye_lead_box_name
+inv_name_short			        = st_af_eye_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0 ;;-- -0.00134
+bleeding_restore_speed		    = 0.00327
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+hit_absorbation_sect            = af_eye_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+[af_fire_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 6.38;;--9.66 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+description			            = st_af_fire_lead_box_descr
+inv_name			            = st_af_fire_lead_box_name
+inv_name_short			        = st_af_fire_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0 ;;-- -0.00194
+bleeding_restore_speed		    = 0.00394
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+hit_absorbation_sect            = af_fire_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+[af_blood_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 4.75;;--7.20 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+description			            = st_af_blood_lead_box_descr
+inv_name			            = st_af_blood_lead_box_name
+inv_name_short			        = st_af_blood_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.00025
+bleeding_restore_speed		    = 0.00094
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+hit_absorbation_sect            = af_blood_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+[af_mincer_meat_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 4.77;;--7.22 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+description			            = st_af_mincer_meat_lead_box_descr
+inv_name			            = st_af_mincer_meat_lead_box_name
+inv_name_short			        = st_af_mincer_meat_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.00027
+bleeding_restore_speed		    = 0.00148
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+hit_absorbation_sect            = af_mincer_meat_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+[af_soul_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 4.83;;--7.32 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+description			            = st_af_soul_lead_box_descr
+inv_name			            = st_af_soul_lead_box_name
+inv_name_short			        = st_af_soul_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.00038
+bleeding_restore_speed		    = 0.00238
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+hit_absorbation_sect            = af_soul_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+[af_fuzz_kolobok_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 4.86;;--7.36 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+description			            = st_af_fuzz_kolobok_lead_box_descr
+inv_name			            = st_af_fuzz_kolobok_lead_box_name
+inv_name_short			        = st_af_fuzz_kolobok_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.00042
+bleeding_restore_speed		    = 0.00312
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+hit_absorbation_sect            = af_fuzz_kolobok_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+[af_baloon_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 4.9;;--7.42 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+description			            = st_af_baloon_lead_box_descr
+inv_name			            = st_af_baloon_lead_box_name
+inv_name_short			        = st_af_baloon_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.0136
+bleeding_restore_speed		    = 0.00366
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+hit_absorbation_sect            = af_baloon_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+[af_glass_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 4.88;;--7.39 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+description			            = st_af_glass_lead_box_descr
+inv_name			            = st_af_glass_lead_box_name
+inv_name_short			        = st_af_glass_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.00077
+bleeding_restore_speed		    = 0.00435
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+hit_absorbation_sect            = af_glass_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+[af_electra_sparkler_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 3.74;;--5.66 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+description			            = st_af_electra_sparkler_lead_box_descr
+inv_name			            = st_af_electra_sparkler_lead_box_name
+inv_name_short			        = st_af_electra_sparkler_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.000124
+bleeding_restore_speed		    = -0.00089
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight	    = 0.0;;--0 W;;--
+
+hit_absorbation_sect            = af_electra_sparkler_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+[af_electra_flash_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 3.75;;--5.68 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+description			            = st_af_electra_flash_lead_box_descr
+inv_name			            = st_af_electra_flash_lead_box_name
+inv_name_short			        = st_af_electra_flash_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.00015
+bleeding_restore_speed		    = -0.00094
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+hit_absorbation_sect            = af_electra_flash_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+[af_electra_moonlight_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 3.76;;--5.70 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+description			            = st_af_electra_moonlight_lead_box_descr
+inv_name			            = st_af_electra_moonlight_lead_box_name
+inv_name_short			        = st_af_electra_moonlight_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.00025
+bleeding_restore_speed		    = -0.00128
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+hit_absorbation_sect            = af_electra_moonlight_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+[af_dummy_battery_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 3.89;;--5.90 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+description			            = st_af_dummy_battery_lead_box_descr
+inv_name			            = st_af_dummy_battery_lead_box_name
+inv_name_short			        = st_af_dummy_battery_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.00062
+bleeding_restore_speed		    = -0.00192
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+hit_absorbation_sect            = af_dummy_battery_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+[af_dummy_dummy_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 3.9;;--5.913 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+description			            = st_af_dummy_dummy_lead_box_descr
+inv_name			            = st_af_dummy_dummy_lead_box_name
+inv_name_short			        = st_af_dummy_dummy_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.00092
+bleeding_restore_speed		    = -0.00281
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+hit_absorbation_sect            = af_dummy_dummy_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+[af_ice_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 4.06;;--6.147 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+description			            = st_af_ice_lead_box_descr
+inv_name			            = st_af_ice_lead_box_name
+inv_name_short			        = st_af_ice_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.00122
+bleeding_restore_speed		    = -0.00346
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+hit_absorbation_sect            = af_ice_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+[af_compass_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 7.08;;--10.721 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+quest_item 			            = true
+description			            = st_af_compass_lead_box_descr
+inv_name			            = st_af_compass_lead_box_name
+inv_name_short			        = st_af_compass_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed 		    = 0
+satiety_restore_speed 		    = 0
+power_restore_speed 		    = 0.00324
+bleeding_restore_speed 		    = 0
+hit_absorbation_sect 		    = af_compass_absorbation
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+[af_oasis_heart_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 6.05;;--9.174 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+quest_item 			            = true
+description			            = st_af_oasis_heart_lead_box_descr
+inv_name			            = st_af_oasis_heart_lead_box_name
+inv_name_short			        = st_af_oasis_heart_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+satiety_restore_speed 		    = 0
+power_restore_speed			    = 0.00241
+bleeding_restore_speed		    = 0.00876
+hit_absorbation_sect 		    = af_oasis_heart_absorbation
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_inventory_weight2	= 0.0;;--0 W;;--
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+[jup_b1_half_artifact_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 7.2;;--10.908 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+quest_item 			            = true
+description			            = st_jup_b1_half_artifact_lead_box_descr
+inv_name			            = st_jup_b1_half_artifact_lead_box_name
+inv_name_short			        = st_jup_b1_half_artifact_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0.0;;--0 W;;--
+additional_invenotry_weight2    = 0.0;;--0 W;;--
+
+hit_absorbation_sect            = jup_b1_half_artifact_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+
+
+[af_quest_b14_twisted_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 6.67;;--10.104 W;;--
+cost				            = 0;;--0 W;;--
+can_trade 			            = false
+belt				            = false
+quest_item 			            = true
+description			            = st_af_quest_b14_twisted_lead_box_descr
+inv_name			            = st_af_quest_b14_twisted_lead_box_name
+inv_name_short			        = st_af_quest_b14_twisted_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed 		    = 0
+satiety_restore_speed 		    = 0
+power_restore_speed 		    = 0.00189
+bleeding_restore_speed 		    = 0
+hit_absorbation_sect 		    = af_control_absorbation
+
+additional_inventory_weight     = 0.0;;--0 W;;--
+addition_inventory_weight2      = 0.0;;--0 W;;--
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;--------------------------------------------------------------------------------------------
+;;--;;--;;--;;--;;--;;--;;--;;--;;--;;--;;--;;--;;--;;--;;--;;--;;--;;--;;--;;--;;--;;--;;--;;--;;--;;--;;--;;--;;--;;--;;--;;--
+
+
+;;--------------------------------------------------------------------------------------------
+;;--------- ZoneExpanded Artefacts Filled Containers -------------------------------------------
+;;--------------------------------------------------------------------------------------------
+
+;;--------------------------------------------------------------------------------------------
+;;------------------------IAM WITH ARTEFACT---------------------------------------------------
+
+[artefact_black_spray_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 2.72
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_black_spray_iam_descr
+inv_name			            = st_artefact_black_spray_iam_name
+inv_name_short			        = st_artefact_black_spray_iam_name
+
+inv_grid_x			            = 42
+inv_grid_y			            = 67
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+hit_absorbation_sect		    = artefact_black_spray_absorbation
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+;;------------------------------
+
+[artefact_bracelet_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 2.82
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_bracelet_iam_descr
+inv_name			            = st_artefact_bracelet_iam_name
+inv_name_short			        = st_artefact_bracelet_iam_name
+
+inv_grid_x			            = 43
+inv_grid_y			            = 67
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+hit_absorbation_sect		    = artefact_bracelet_absorbation
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+;;------------------------------
+
+[artefact_death_lamp_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 10.82
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_death_lamp_iam_descr
+inv_name			            = st_artefact_death_lamp_iam_name
+inv_name_short			        = st_artefact_death_lamp_iam_name
+
+inv_grid_x			            = 44
+inv_grid_y			            = 67
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.0035
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+hit_absorbation_sect		    = artefact_death_lamp_absorbation
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+;;------------------------------
+
+[artefact_empty_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 2.57
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_empty_iam_descr
+inv_name			            = st_artefact_empty_iam_name
+inv_name_short			        = st_artefact_empty_iam_name
+
+inv_grid_x			            = 45
+inv_grid_y			            = 67
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+hit_absorbation_sect		    = artefact_empty_absorbation
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+;;------------------------------
+
+[artefact_full_empty_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 21.82
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_full_empty_iam_descr
+inv_name			            = st_artefact_full_empty_iam_name
+inv_name_short			        = st_artefact_full_empty_iam_name
+
+inv_grid_x			            = 46
+inv_grid_y			            = 67
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+hit_absorbation_sect		    = artefact_full_empty_absorbation
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+;;------------------------------
+
+[artefact_itcher_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 2.62
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_itcher_iam_descr
+inv_name			            = st_artefact_itcher_iam_name
+inv_name_short			        = st_artefact_itcher_iam_name
+
+inv_grid_x			            = 47
+inv_grid_y			            = 67
+
+health_restore_speed            = -0.000062
+radiation_restore_speed         = 0
+satiety_restore_speed		    = 0
+power_restore_speed             = 0.00060
+bleeding_restore_speed		    = -0.001
+hit_absorbation_sect		    = artefact_itcher_absorbation
+
+additional_inventory_weight	    = 2
+additional_inventory_weight2	= 2
+
+;;------------------------------
+
+[artefact_lobster_eyes_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 5.57
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_lobster_eyes_iam_descr
+inv_name			            = st_artefact_lobster_eyes_iam_name
+inv_name_short			        = st_artefact_lobster_eyes_iam_name
+
+inv_grid_x			            = 48
+inv_grid_y			            = 67
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = -0.00012
+satiety_restore_speed		    = -0.00025
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+hit_absorbation_sect		    = artefact_lobster_eyes_absorbation
+
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+;;------------------------------
+
+[artefact_pin_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 2.82
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_pin_iam_descr
+inv_name			            = st_artefact_pin_iam_name
+inv_name_short			        = st_artefact_pin_iam_name
+
+inv_grid_x			            = 49
+inv_grid_y			            = 67
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00015
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.0002
+bleeding_restore_speed		    = -0.002
+hit_absorbation_sect		    = artefact_pin_absorbation
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+;;------------------------------
+
+[artefact_ring_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 2.92
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_ring_iam_descr
+inv_name			            = st_artefact_ring_iam_name
+inv_name_short			        = st_artefact_ring_iam_name
+
+inv_grid_x			            = 50
+inv_grid_y			            = 67
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = -0.00006
+satiety_restore_speed		    = -0.00015
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+hit_absorbation_sect		    = artefact_ring_absorbation
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+;;------------------------------
+
+[artefact_sponge_af_iam]:af_iam
+class				            = SCRPTART
+inv_weight			            = 4.07
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_sponge_iam_descr
+inv_name			            = st_artefact_sponge_iam_name
+inv_name_short			        = st_artefact_sponge_iam_name
+
+inv_grid_x			            = 51
+inv_grid_y			            = 67
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00005
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.0004
+bleeding_restore_speed		    = 0
+hit_absorbation_sect		    = artefact_sponge_absorbation
+
+additional_inventory_weight	    = 1.5
+additional_inventory_weight2	= 1.5
+
+;;------------------------------
+
+;;--------------------------------------------------------------------------------------------
+;;------------------------AAC WITH ARTEFACT---------------------------------------------------
+
+[artefact_black_spray_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 2.47
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_black_spray_aac_descr
+inv_name			            = st_artefact_black_spray_aac_name
+inv_name_short			        = st_artefact_black_spray_aac_name
+
+inv_grid_x			            = 42
+inv_grid_y			            = 68
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+hit_absorbation_sect 		    = artefact_black_spray_absorbation
+
+;;------------------------------
+
+[artefact_bracelet_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 2.57
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_bracelet_aac_descr
+inv_name			            = st_artefact_bracelet_aac_name
+inv_name_short			        = st_artefact_bracelet_aac_name
+
+inv_grid_x			            = 43
+inv_grid_y			            = 68
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+hit_absorbation_sect 		    = artefact_bracelet_absorbation
+
+;;------------------------------
+
+[artefact_death_lamp_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 10.57
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_death_lamp_aac_descr
+inv_name			            = st_artefact_death_lamp_aac_name
+inv_name_short			        = st_artefact_death_lamp_aac_name
+
+inv_grid_x			            = 44
+inv_grid_y			            = 68
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.0035
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+hit_absorbation_sect 		    = artefact_death_lamp_absorbation
+
+;;------------------------------
+
+[artefact_empty_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 2.32
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_empty_aac_descr
+inv_name			            = st_artefact_empty_aac_name
+inv_name_short			        = st_artefact_empty_aac_name
+
+inv_grid_x			            = 45
+inv_grid_y			            = 68
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+hit_absorbation_sect 		    = artefact_empty_absorbation
+
+;;------------------------------
+
+[artefact_full_empty_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 21.57
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_full_empty_aac_descr
+inv_name			            = st_artefact_full_empty_aac_name
+inv_name_short			        = st_artefact_full_empty_aac_name
+
+inv_grid_x			            = 46
+inv_grid_y			            = 68
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+hit_absorbation_sect 		    = artefact_full_empty_absorbation
+
+;;------------------------------
+
+[artefact_itcher_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 2.37
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_itcher_aac_descr
+inv_name			            = st_artefact_itcher_aac_name
+inv_name_short			        = st_artefact_itcher_aac_name
+
+inv_grid_x			            = 47
+inv_grid_y			            = 68
+
+health_restore_speed            = -0.000062
+radiation_restore_speed         = 0
+satiety_restore_speed		    = 0
+power_restore_speed             = 0.00060
+bleeding_restore_speed		    = -0.001
+
+additional_inventory_weight	    = 2
+additional_inventory_weight2	= 2
+
+hit_absorbation_sect 		    = artefact_itcher_absorbation
+
+;;------------------------------
+
+[artefact_lobster_eyes_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 5.32
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_lobster_eyes_aac_descr
+inv_name			            = st_artefact_lobster_eyes_aac_name
+inv_name_short			        = st_artefact_lobster_eyes_aac_name
+
+inv_grid_x			            = 48
+inv_grid_y			            = 68
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = -0.00012
+satiety_restore_speed		    = -0.00025
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+hit_absorbation_sect 		    = artefact_lobster_eyes_absorbation
+
+
+;;------------------------------
+
+[artefact_pin_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 2.57
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_pin_aac_descr
+inv_name			            = st_artefact_pin_aac_name
+inv_name_short			        = st_artefact_pin_aac_name
+
+inv_grid_x			            = 49
+inv_grid_y			            = 68
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00003
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.0002
+bleeding_restore_speed		    = -0.002
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+hit_absorbation_sect 		    = artefact_pin_absorbation
+
+;;------------------------------
+
+[artefact_ring_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 2.67
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_ring_aac_descr
+inv_name			            = st_artefact_ring_aac_name
+inv_name_short			        = st_artefact_ring_aac_name
+
+inv_grid_x			            = 50
+inv_grid_y			            = 68
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = -0.00006
+satiety_restore_speed		    = -0.00015
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+hit_absorbation_sect 		    = artefact_ring_absorbation
+
+;;------------------------------
+
+[artefact_sponge_af_aac]:af_aac
+class				            = SCRPTART
+inv_weight			            = 3.82
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_sponge_aac_descr
+inv_name			            = st_artefact_sponge_aac_name
+inv_name_short			        = st_artefact_sponge_aac_name
+
+inv_grid_x			            = 51
+inv_grid_y			            = 68
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00005
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.0004
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 1.5
+additional_inventory_weight2	= 1.5
+
+hit_absorbation_sect 		    = artefact_sponge_absorbation
+
+;;------------------------------
+
+;;--------------------------------------------------------------------------------------------
+;;------------------------AAM WITH ARTEFACT---------------------------------------------------
+
+[artefact_black_spray_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 2.215
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_black_spray_aam_descr
+inv_name			            = st_artefact_black_spray_aam_name
+inv_name_short			        = st_artefact_black_spray_aam_name
+
+inv_grid_x			            = 42
+inv_grid_y			            = 69
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+hit_absorbation_sect            = artefact_black_spray_absorbation
+
+;;------------------------------
+
+[artefact_bracelet_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 2.315
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_bracelet_aam_descr
+inv_name			            = st_artefact_bracelet_aam_name
+inv_name_short			        = st_artefact_bracelet_aam_name
+
+inv_grid_x			            = 43
+inv_grid_y			            = 69
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+hit_absorbation_sect            = artefact_bracelet_absorbation
+
+;;------------------------------
+
+[artefact_death_lamp_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 10.315
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_death_lamp_aam_descr
+inv_name			            = st_artefact_death_lamp_aam_name
+inv_name_short			        = st_artefact_death_lamp_aam_name
+
+inv_grid_x			            = 44
+inv_grid_y			            = 69
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.0035
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+hit_absorbation_sect            = artefact_death_lamp_absorbation
+
+;;------------------------------
+
+[artefact_empty_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 2.065
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_empty_aam_descr
+inv_name			            = st_artefact_empty_aam_name
+inv_name_short			        = st_artefact_empty_aam_name
+
+inv_grid_x			            = 45
+inv_grid_y			            = 69
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+hit_absorbation_sect            = artefact_empty_absorbation
+
+;;------------------------------
+
+[artefact_full_empty_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 21.315
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_full_empty_aam_descr
+inv_name			            = st_artefact_full_empty_aam_name
+inv_name_short			        = st_artefact_full_empty_aam_name
+
+inv_grid_x			            = 46
+inv_grid_y			            = 69
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+hit_absorbation_sect            = artefact_full_empty_absorbation
+
+;;------------------------------
+
+[artefact_itcher_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 2.115
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_itcher_aam_descr
+inv_name			            = st_artefact_itcher_aam_name
+inv_name_short			        = st_artefact_itcher_aam_name
+
+inv_grid_x			            = 47
+inv_grid_y			            = 69
+
+health_restore_speed            = -0.000062
+radiation_restore_speed         = 0
+satiety_restore_speed		    = 0
+power_restore_speed             = 0.00060
+bleeding_restore_speed		    = -0.001
+
+additional_inventory_weight	    = 2
+additional_inventory_weight2	= 2
+
+hit_absorbation_sect            = artefact_itcher_absorbation
+
+;;------------------------------
+
+[artefact_lobster_eyes_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 5.065
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_lobster_eyes_aam_descr
+inv_name			            = st_artefact_lobster_eyes_aam_name
+inv_name_short			        = st_artefact_lobster_eyes_aam_name
+
+inv_grid_x			            = 48
+inv_grid_y			            = 69
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = -0.00012
+satiety_restore_speed		    = -0.00025
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+hit_absorbation_sect            = artefact_lobster_eyes_absorbation
+
+
+;;------------------------------
+
+[artefact_pin_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 2.315
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_pin_aam_descr
+inv_name			            = st_artefact_pin_aam_name
+inv_name_short			        = st_artefact_pin_aam_name
+
+inv_grid_x			            = 49
+inv_grid_y			            = 69
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.0002
+bleeding_restore_speed		    = -0.002
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+hit_absorbation_sect            = artefact_pin_absorbation
+
+;;------------------------------
+
+[artefact_ring_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 2.415
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_ring_aam_descr
+inv_name			            = st_artefact_ring_aam_name
+inv_name_short			        = st_artefact_ring_aam_name
+
+inv_grid_x			            = 50
+inv_grid_y			            = 69
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = -0.00006
+satiety_restore_speed		    = -0.00015
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+hit_absorbation_sect            = artefact_ring_absorbation
+
+;;------------------------------
+
+[artefact_sponge_af_aam]:af_aam
+class				            = SCRPTART
+inv_weight			            = 3.565
+cost				            = 0
+can_trade 			            = false
+belt				            = true
+description			            = st_artefact_sponge_aam_descr
+inv_name			            = st_artefact_sponge_aam_name
+inv_name_short			        = st_artefact_sponge_aam_name
+
+inv_grid_x			            = 51
+inv_grid_y			            = 69
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00005
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.0004
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 1.5
+additional_inventory_weight2	= 1.5
+
+hit_absorbation_sect            = artefact_sponge_absorbation
+
+
+;;--------------------------------------------------------------------------------------------
+;;------------------------LEAD BOX WITH ARTEFACT----------------------------------------------
+
+[artefact_black_spray_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 3.64
+cost				            = 0
+can_trade 			            = false
+belt				            = false
+description			            = st_artefact_black_spray_lead_box_descr
+inv_name			            = st_artefact_black_spray_lead_box_name
+inv_name_short			        = st_artefact_black_spray_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+hit_absorbation_sect 		    = artefact_black_spray_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;------------------------------
+
+[artefact_bracelet_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 3.74
+cost				            = 0
+can_trade 			            = false
+belt				            = false
+description			            = st_artefact_bracelet_lead_box_descr
+inv_name			            = st_artefact_bracelet_lead_box_name
+inv_name_short			        = st_artefact_bracelet_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+hit_absorbation_sect 		    = artefact_bracelet_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;------------------------------
+
+[artefact_death_lamp_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 11.74
+cost				            = 0
+can_trade 			            = false
+belt				            = false
+description			            = st_artefact_death_lamp_lead_box_descr
+inv_name			            = st_artefact_death_lamp_lead_box_name
+inv_name_short			        = st_artefact_death_lamp_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.0035
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+hit_absorbation_sect 		    = artefact_death_lamp_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;------------------------------
+
+[artefact_empty_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 3.49
+cost				            = 0
+can_trade 			            = false
+belt				            = false
+description			            = st_artefact_empty_lead_box_descr
+inv_name			            = st_artefact_empty_lead_box_name
+inv_name_short			        = st_artefact_empty_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+hit_absorbation_sect 		    = artefact_empty_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;------------------------------
+
+[artefact_full_empty_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 22.74
+cost				            = 0
+can_trade 			            = false
+belt				            = false
+description			            = st_artefact_full_empty_lead_box_descr
+inv_name			            = st_artefact_full_empty_lead_box_name
+inv_name_short			        = st_artefact_full_empty_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+hit_absorbation_sect 		    = artefact_full_empty_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;------------------------------
+
+[artefact_itcher_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 3.54
+cost				            = 0
+can_trade 			            = false
+belt				            = false
+description			            = st_artefact_itcher_lead_box_descr
+inv_name			            = st_artefact_itcher_lead_box_name
+inv_name_short			        = st_artefact_itcher_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed            = -0.000062
+radiation_restore_speed         = 0
+satiety_restore_speed		    = 0
+power_restore_speed             = 0.00060
+bleeding_restore_speed		    = -0.001
+
+additional_inventory_weight	    = 2
+additional_inventory_weight2	= 2
+
+hit_absorbation_sect 		    = artefact_itcher_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;------------------------------
+
+[artefact_lobster_eyes_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 6.49
+cost				            = 0
+can_trade 			            = false
+belt				            = false
+description			            = st_artefact_lobster_eyes_lead_box_descr
+inv_name			            = st_artefact_lobster_eyes_lead_box_name
+inv_name_short			        = st_artefact_lobster_eyes_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = -0.00012
+satiety_restore_speed		    = -0.00025
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+hit_absorbation_sect 		    = artefact_lobster_eyes_absorbation
+
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;------------------------------
+
+[artefact_pin_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 3.74
+cost				            = 0
+can_trade 			            = false
+belt				            = false
+description			            = st_artefact_pin_lead_box_descr
+inv_name			            = st_artefact_pin_lead_box_name
+inv_name_short			        = st_artefact_pin_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0
+satiety_restore_speed		    = 0
+power_restore_speed			    = 0.0002
+bleeding_restore_speed		    = -0.002
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+hit_absorbation_sect 		    = artefact_pin_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;------------------------------
+
+[artefact_ring_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 3.84
+cost				            = 0
+can_trade 			            = false
+belt				            = false
+description			            = st_artefact_ring_lead_box_descr
+inv_name			            = st_artefact_ring_lead_box_name
+inv_name_short			        = st_artefact_ring_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = -0.00006
+satiety_restore_speed		    = -0.00015
+power_restore_speed			    = 0
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 0
+additional_inventory_weight2	= 0
+
+hit_absorbation_sect 		    = artefact_ring_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+
+;;------------------------------
+
+[artefact_sponge_lead_box]:lead_box_closed
+class				            = S_PDA
+inv_weight			            = 4.99
+cost				            = 0
+can_trade 			            = false
+belt				            = false
+description			            = st_artefact_sponge_lead_box_descr
+inv_name			            = st_artefact_sponge_lead_box_name
+inv_name_short			        = st_artefact_sponge_lead_box_name
+
+inv_grid_x			            = 1
+inv_grid_y			            = 27
+
+health_restore_speed		    = 0
+radiation_restore_speed		    = 0.00005
+satiety_restore_speed		    = 0
+power_restore_speed			    = -0.0004
+bleeding_restore_speed		    = 0
+
+additional_inventory_weight	    = 1.5
+additional_inventory_weight2	= 1.5
+
+hit_absorbation_sect 		    = artefact_sponge_absorbation
+
+attach_angle_offset		        = -0.287979, 1.560923, 1.544060
+attach_position_offset		    = 0.096910, -0.013594, 0.107925
+attach_bone_name		        = bip01_r_hand
+auto_attach				        = false
+radius				            = 68;;-- 50
+

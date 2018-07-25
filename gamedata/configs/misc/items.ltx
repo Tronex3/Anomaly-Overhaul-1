@@ -1,0 +1,685 @@
+[booster_script]:booster
+class									 = S_FOOD
+script_binding 							 = bind_item.bind
+
+[guitar_a]:identity_immunities
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+$spawn                                   = "food and drugs\guitar_a"
+cform                                    = skeleton
+class                                    = II_ATTCH
+visual                                   = dynamics\devices\dev_guitar\dev_guitar.ogf
+cost                                     = 1220
+inv_name                                 = st_guitar_name
+inv_name_short                           = st_guitar_name
+description                              = st_guitar_descr
+inv_weight                               = 1.5
+inv_grid_width                           = 4
+inv_grid_height                          = 2
+inv_grid_x                               = 0
+inv_grid_y                               = 21
+attach_angle_offset                      = -1.651084, -1.341824, 1.200789
+
+attach_position_offset                   = 0.077492, -0.030020 , 0.090059
+
+attach_bone_name                         = bip01_l_hand
+auto_attach                              = false
+
+[harmonica_a]:identity_immunities
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+$spawn                                   = "food and drugs\harmonica_a"
+cform                                    = skeleton
+class                                    = II_ATTCH
+visual                                   = dynamics\devices\dev_harmonica\dev_harmonica.ogf
+cost                                     = 655
+inv_name                                 = st_harmonica_name
+inv_name_short                           = st_harmonica_name
+description                              = st_harmonica_descr
+inv_weight                               = 0.35
+inv_grid_width                           = 1
+inv_grid_height                          = 1
+inv_grid_x                               = 1
+inv_grid_y                               = 4
+attach_angle_offset                      = 0.000000, -1.204452, -1.262921
+attach_position_offset                   = 0.081856, -0.035081, 0.011694
+attach_bone_name                         = bip01_l_hand
+auto_attach                              = false
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;	Scaner B6
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[anomaly_scaner]:identity_immunities
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+$spawn                                   = "equipment\anomaly_scaner"
+cform                                    = skeleton
+class                                    = II_ATTCH
+visual                                   = dynamics\devices\dev_datchik_2\dev_datchik_2.ogf
+cost                                     = 0
+inv_name                                 = "hand_radio"
+inv_name_short                           = "hand_radio"
+inv_weight                               = 0.5
+inv_grid_width                           = 1
+inv_grid_height                          = 1
+inv_grid_x                               = 14
+inv_grid_y                               = 7
+attach_angle_offset                      = -1.571,-1.308,-1.458	                                       ;onoaiaaeeaaaons a ?aaeaiao Angle*PI/180
+attach_position_offset                   = 0.105, -0.004, 0.003
+attach_bone_name                         = bip01_l_hand
+auto_attach                              = false
+can_trade								 = false
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;	MEDICAL
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;	DEVICES
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[device_pda]:identity_immunities
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+$spawn                                   = "devices\pda"
+$prefetch                                = 16
+class                                    = D_PDA	                                       ;Change to S_PDA if you want to use se_item.se_explosive script binding!
+cform                                    = skeleton
+visual                                   = dynamics\devices\dev_pda\dev_pda.ogf
+description                              = st_pda_descr
+radius                                   = 68	                                       ; 50
+slot                                     = 7
+default_to_ruck                          = false
+sprint_allowed                           = true
+control_inertion_factor                  = 1
+script_binding                           = bind_physic_object.init
+
+inv_name                                 = st_pda_name
+inv_name_short                           = st_pda_name
+inv_weight                               = 0.1	                                       ;0.2
+
+inv_grid_width                           = 1
+inv_grid_height                          = 1
+inv_grid_x                               = 7
+inv_grid_y                               = 3
+cost                                     = 0
+attach_angle_offset                      = -1.303,0.107,-1.702	                                       ;onoaiaaeeaaaony a ?aaeaiao Angle*PI/180
+attach_position_offset                   = 0.14,0.001,0.02
+attach_bone_name                         = bip01_l_hand
+auto_attach                              = false
+
+[dev_flash_1]:identity_immunities
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+$spawn                                   = "devices\dev_flash_1"
+$prefetch                                = 16
+class                                    = D_PDA
+cform                                    = skeleton
+visual                                   = dynamics\devices\dev_flash_1\dev_flash_1.ogf
+
+inv_grid_width                           = 1
+inv_grid_height                          = 1
+inv_grid_x                               = 8
+inv_grid_y                               = 3
+
+slot                                     = 7
+radius                                   = 50
+default_to_ruck                          = false
+inv_weight                               = 0.05
+
+inv_name                                 = flash_1
+inv_name_short                           = 
+description                              = 
+cost                                     = 0
+can_trade                                = false
+
+[dev_flash_2]:identity_immunities
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+$spawn                                   = "devices\dev_flash_2"
+$prefetch                                = 16
+class                                    = D_PDA
+cform                                    = skeleton
+visual                                   = dynamics\devices\dev_flash_2\dev_flash_2.ogf
+
+inv_grid_width                           = 1
+inv_grid_height                          = 1
+inv_grid_x                               = 9
+inv_grid_y                               = 3
+
+slot                                     = 7
+radius                                   = 50
+default_to_ruck                          = false
+inv_weight                               = 0.05
+
+inv_name                                 = flash_2
+inv_name_short                           = 
+description                              = 
+cost                                     = 0
+can_trade                                = false
+
+[device_torch]:identity_immunities
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+$spawn                                   = "devices\torch"
+$prefetch                                = 32
+class                                    = TORCH_S
+cform                                    = skeleton
+visual                                   = dynamics\devices\dev_torch_light\dev_torch_light.ogf
+description                              = st_pda_descr
+cost                                     = 0
+inv_name                                 = st_pda_name
+inv_name_short                           = 
+inv_weight                               = 0.0
+inv_grid_width                           = 1
+inv_grid_height                          = 1
+inv_grid_x                               = 8
+inv_grid_y                               = 9
+
+
+
+;aauu? iaeucy oi?aiaaou
+can_trade                                = true
+
+position                                 = 0.35,0.25,0.0
+light_trace_bone                         = lights_bone
+attach_angle_offset                      = 3.062, 0.008, -1.532
+attach_position_offset                   = 0.134, -0.007, 0.09
+attach_bone_name                         = bip01_head
+auto_attach                              = false
+
+night_vision                             = on
+night_vision_texture                     = wpn\wpn_night
+night_vision_effector                    = postprocess_night
+
+snd_night_vision_on                      = weapons\nv_start
+snd_night_vision_off                     = weapons\nv_off
+snd_night_vision_idle                    = weapons\nv_loop
+snd_night_vision_broken                  = weapons\nv_off
+
+night_vision_recharge_time               = 6	                                       ;(c) a?aiy ca?yaee aeeaioeyoi?a
+night_vision_recharge_time_min           = 2	                                       ;(c) iei. a?aiy ca?yaee aeeaioeyoi?a, iinea eioi?iai ono-ai o?a ii?ao ?aaioaou
+night_vision_discharge_time              = 20	                                       ;(c) a?aiy ?ac?yaee (?aaiou) ono?ienoaa iinea iieiie ca?yaee
+slot                                     = 9
+default_to_ruck                          = false
+sprint_allowed                           = true
+control_inertion_factor                  = 1
+disabled_maps                            = ai_test,ai_test2, andy_test_
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;	OTHERS
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[wpn_vodka_hud]:identity_immunities,hud_base
+fire_point                               = 0.0, 0.0, 0.06
+fire_bone                                = bip01_head
+orientation                              = 0, 0, 0
+position                                 = 0, 0, 0
+visual                                   = dynamics\devices\dev_vodka\dev_vodka.ogf
+
+anim_idle                                = vodka_2
+anim_show                                = vodka_1
+anim_hide                                = vodka_4
+anim_play                                = vodka_5
+anim_prepare                             = vodka_5
+anim_eat                                 = vodka_3
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;; MINES ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;Swartz - Added landmines below.
+
+[wpn_mine]:identity_immunities
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+$spawn                                   = "devices\play"
+cform                                    = skeleton
+class                                    = II_ANTIR
+class_dbg								 = S_WPN_MISC
+visual                                   = dynamics\weapons\wpn_pfm1\wpn_pfm1.ogf
+inv_vol                                  = 1
+
+inv_name                                 = st_wpn_mine_name
+inv_name_short                           = st_wpn_mine_name
+description                              = st_wpn_mine_descr
+
+inv_weight                               = 0.751
+inv_grid_width                           = 1
+inv_grid_height                          = 1
+inv_grid_x                               = 0
+inv_grid_y                               = 3
+cost                                     = 1000
+
+attach_angle_offset                      = -1.5708,0.1919,3.1416	                                       ;onoaiaaeeaaaons a ?aaeaiao Angle*PI/180
+attach_position_offset                   = 0.075, 0.066, 0.023
+attach_bone_name                         = bip01_l_hand
+auto_attach                              = false
+
+; eatable item
+eat_health                               = 0
+eat_satiety                              = 0
+eat_power                                = 0
+eat_radiation                            = 0
+eat_alcohol                              = 0
+
+wounds_heal_perc                         = 0
+
+; For actor only!
+[mine_actor]:explosive_barrel
+
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+$spawn                                   = "sm\scripts\mina_blow"
+$prefetch                                = 16
+class                                    = II_EXPLO
+cform                                    = skeleton
+
+script_binding                           = m_mines.add_actor_mine
+
+visual                                   = dynamics\weapons\wpn_pfm1\wpn_pfm1.ogf
+
+inv_name                                 =
+inv_name_short                           =
+inv_weight                               = 0.751
+
+inv_grid_width                           = 1
+inv_grid_height                          = 1
+inv_grid_x                               = 0
+inv_grid_y                               = 3
+;aauu iaaicii?ii iiaia?aou
+can_take                                 = false
+
+cost                                     = 1500
+;-------------------------------------------------------------------------------
+blast                                    = 3.18
+blast_r                                  = 2.26
+blast_impulse                            = 66
+;delete
+blast_impulse_factor                     = 0.85
+
+
+frags                                    = 0
+frags_r                                  = 0
+frag_hit                                 = 0.04
+frag_hit_impulse                         = 8
+
+hit_type_blast                           = explosion
+hit_type_frag                            = fire_wound
+
+up_throw_factor                          = 0.3
+;-------------------------------------------------------------------------------
+wm_size                                  = 0.01
+
+explode_particles                        = explosions\explosion_01
+
+light_color                              = 1.9,1.4,0.5
+light_range                              = 25.0
+light_time                               = 0.85
+
+;o?annu io ineieeia
+fragment_speed                           = 170	                                       ;nei?inou ineieeia (i/n)
+
+explode_duration                         = 0	                                       ;iiaie?eoaeuiinou ac?uaa (n)
+time_to_explode                          = 0.f
+
+;caoee
+snd_explode                              = weapons\rgd5_explode
+immunities_sect                          = personnel_mine_immunities_sect
+;wallmarks
+wallmark_section                         = explosion_marks
+
+;
+;[mine_proximity]
+;script_binding		= m_mines.add_neutral_mine
+
+[mine_proximity]:explosive_barrel
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+$spawn                                   = "devices\proximity mine"
+cform                                    = skeleton
+class                                    = II_EXPLO
+visual                                   = dynamics\weapons\wpn_mine\wpn_mine_2.ogf
+script_binding                           = m_mines.add_neutral_mine
+
+inv_name                                 =
+inv_name_short                           =
+inv_weight                               = 0.751
+
+inv_grid_width                           = 1
+inv_grid_height                          = 1
+inv_grid_x                               = 0
+inv_grid_y                               = 3
+;aauu iaaicii?ii iiaia?aou
+can_take                                 = false
+
+cost                                     = 1500
+;-------------------------------------------------------------------------------
+blast                                    = 3.18
+blast_r                                  = 2.26
+blast_impulse                            = 66
+;delete
+blast_impulse_factor                     = 0.85
+
+
+frags                                    = 0
+frags_r                                  = 0
+frag_hit                                 = 0.04
+frag_hit_impulse                         = 8
+
+hit_type_blast                           = explosion
+hit_type_frag                            = fire_wound
+
+up_throw_factor                          = 0.3
+;-------------------------------------------------------------------------------
+wm_size                                  = 0.01
+
+explode_particles                        = explosions\explosion_01
+
+light_color                              = 1.9,1.4,0.5
+light_range                              = 25.0
+light_time                               = 0.85
+
+;o?annu io ineieeia
+fragment_speed                           = 170	                                       ;nei?inou ineieeia (i/n)
+
+explode_duration                         = 0	                                       ;iiaie?eoaeuiinou ac?uaa (n)
+time_to_explode                          = 0.f
+
+;caoee
+snd_explode                              = weapons\rgd5_explode
+immunities_sect                          = personnel_mine_immunities_sect
+;wallmarks
+wallmark_section                         = explosion_marks
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[stick_bred]:identity_immunities
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+$spawn                                   = "food and drugs\stick_bred"
+cform                                    = skeleton
+class                                    = II_ATTCH
+visual                                   = stick_bred.ogf
+cost                                     = 0
+inv_name                                 = "stick_bred"
+inv_name_short                           = "stick_bred"
+inv_weight                               = .5
+inv_grid_width                           = 2
+inv_grid_height                          = 1
+inv_grid_x                               = 11
+inv_grid_y                               = 9
+attach_angle_offset                      = 4.3,0.3,0
+attach_position_offset                   = -0.2,-0.32,0.235
+attach_bone_name                         = bip01_r_hand
+auto_attach                              = false
+bone_name                                = bip01_r_hand
+position_offset                          = 0.0,0.0,0.0
+angle_offset                             = 0,0,0
+can_trade								 = false 
+
+[stick_kolbasa]:identity_immunities
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+$spawn                                   = "food and drugs\stick_kolbasa"
+cform                                    = skeleton
+class                                    = II_ATTCH
+visual                                   = stick_kolbasa.ogf
+cost                                     = 0
+inv_name                                 = "stick_kolbasa"
+inv_name_short                           = "stick_kolbasa"
+inv_weight                               = .5
+inv_grid_width                           = 2
+inv_grid_height                          = 1
+inv_grid_x                               = 16
+inv_grid_y                               = 12
+attach_angle_offset                      = 4.3,0.3,0
+attach_position_offset                   = -0.2,-0.32,0.235
+attach_bone_name                         = bip01_r_hand
+auto_attach                              = false
+bone_name                                = bip01_r_hand
+position_offset                          = 0.0,0.0,0.0
+angle_offset                             = 0,0,0
+can_trade								 = false 
+
+[stick_kolbasa_bred]:identity_immunities
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+$spawn                                   = "food and drugs\stick_kolbasa_bred"
+cform                                    = skeleton
+class                                    = II_ATTCH
+visual                                   = stick_kolbasa_bred.ogf
+cost                                     = 0
+inv_name                                 = "stick_kolbasa_bred"
+inv_name_short                           = "stick_kolbasa_bred"
+inv_weight                               = .5
+inv_grid_width                           = 2
+inv_grid_height                          = 1
+inv_grid_x                               = 11
+inv_grid_y                               = 9
+attach_angle_offset                      = 4.3,0.3,0
+attach_position_offset                   = -0.2,-0.32,0.235
+attach_bone_name                         = bip01_r_hand
+auto_attach                              = false
+bone_name                                = bip01_r_hand
+position_offset                          = 0.0,0.0,0.0
+angle_offset                             = 0,0,0
+can_trade								 = false 
+
+[csky_patch]:identity_immunities
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+$spawn                                   = "devices\monster_items\mutant_psevdodog_tail"
+;$prefetch 				= 32
+class                                    = II_ATTCH
+cform                                    = skeleton
+visual                                   = dynamics\tfw_badges\tfw_badge_csky.ogf
+radius                                   = 1
+inv_name                                 = st_clearsky_fp
+inv_name_short                           = st_clearsky_fp
+description                              = st_clearsky_fp_descr
+inv_weight                               = 0.01
+can_trade                                = true
+inv_grid_width                           = 1
+inv_grid_height                          = 1
+inv_grid_x                               = 17
+inv_grid_y                               = 3
+cost                                     = 650
+auto_attach                              = false
+repair_part_bonus	 					 = 0.01
+
+[freedom_patch]:csky_patch
+visual                                   = dynamics\tfw_badges\tfw_badge_freedom.ogf
+inv_name                                 = st_freedom_fp
+inv_name_short                           = st_freedom_fp
+description                              = st_freedom_fp_descr
+inv_grid_x                               = 0
+inv_grid_y                               = 4
+
+[stalker_patch]:csky_patch
+visual                                   = dynamics\tfw_badges\tfw_badge_defiance.ogf
+inv_name                                 = st_stalker_fp
+inv_name_short                           = st_stalker_fp
+description                              = st_stalker_fp_descr
+inv_grid_x                               = 1
+inv_grid_y                               = 5
+
+[ecolog_patch]:csky_patch
+visual                                   = dynamics\tfw_badges\tfw_badge_ecolog.ogf
+inv_name                                 = st_ecolog_fp
+inv_name_short                           = st_ecolog_fp
+description                              = st_ecolog_fp_descr
+inv_grid_x                               = 19
+inv_grid_y                               = 3
+
+[bandit_patch]:csky_patch
+visual                                   = dynamics\tfw_badges\tfw_badge_bandit.ogf
+inv_name                                 = st_bandit_fp
+inv_name_short                           = st_bandit_fp
+description                              = st_bandit_fp_descr
+inv_grid_x                               = 16
+inv_grid_y                               = 3
+
+[duty_patch]:csky_patch
+visual                                   = dynamics\tfw_badges\tfw_badge_dolg.ogf
+inv_name                                 = st_dolg_fp
+inv_name_short                           = st_dolg_fp
+description                              = st_dolg_fp_descr
+inv_grid_x                               = 18
+inv_grid_y                               = 3
+
+[monolith_patch]:csky_patch
+visual                                   = dynamics\tfw_badges\tfw_badge_monolith.ogf
+inv_name                                 = st_monolith_fp
+inv_name_short                           = st_monolith_fp
+description                              = st_monolith_fp_descr
+inv_grid_x                               = 3
+inv_grid_y                               = 4
+
+[army_patch]:csky_patch
+visual                                   = dynamics\tfw_badges\tfw_badge_military.ogf
+inv_name                                 = st_army_fp
+inv_name_short                           = st_army_fp
+description                              = st_army_fp_descr
+inv_grid_x                               = 14
+inv_grid_y                               = 3
+
+[merc_patch]:csky_patch
+visual                                   = dynamics\tfw_badges\tfw_badge_merc.ogf
+inv_name                                 = st_merc_fp
+inv_name_short                           = st_merc_fp
+description                              = st_merc_fp_descr
+inv_grid_x                               = 2
+inv_grid_y                               = 4
+
+[itm_backpack]:booster
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+$spawn                                   = "food and drugs\antirad"
+$prefetch                                = 32
+class                                    = II_ANTIR
+class_dbg								 = S_TOOL
+cform                                    = skeleton
+visual                                   = dynamics\devices\dev_rukzak\dev_rukzak.ogf
+description                              = st_itm_backpack_desc
+inv_weight                               = 0.74
+inv_name                                 = st_itm_backpack_name
+inv_name_short                           = st_itm_backpack_name
+inv_grid_width                           = 2
+inv_grid_height                          = 2
+inv_grid_x                               = 16
+inv_grid_y                               = 10
+cost                                     = 700
+eat_health                               = 0
+eat_satiety                              = 0
+eat_power                                = 0
+eat_radiation                            = 0
+eat_alcohol                              = 0
+wounds_heal_perc                         = 0
+animation_slot                           = 4
+hud                                      = wpn_vodka_hud
+slot                                     = -1
+;use_sound								 = interface\inv_open
+
+[test_container]:itm_backpack
+use1_functor                             = bind_container.access_inventory
+use1_text                                = st_open
+script_binding                           = bind_container.bind
+remove_after_use                         = false
+dont_stack                               = true
+
+[artefact_container]:test_container
+visual 									 = dynamics\box\konteyner_03b.ogf
+empty_weight							 = 5.0
+inv_weight								 = 5.0
+inv_name                                 = st_itm_artefact_container_name
+inv_name_short                           = st_itm_artefact_container_name
+inv_grid_width                           = 2
+inv_grid_height                          = 2
+inv_grid_x                               = 4
+inv_grid_y                               = 39
+cost                                     = 5000
+
+[itm_actor_backpack]:itm_backpack
+inv_name                                 = st_itm_actor_backpack_name
+inv_name_short                           = st_itm_actor_backpack_name
+description 							 = st_itm_actor_backpack_descr
+inv_grid_width                           = 1
+inv_grid_height                          = 1
+inv_grid_x                               = 19
+inv_grid_y                               = 2
+inv_weight								 = 0.27
+cost                                     = 650
+
+[itm_deployable_mgun]:booster
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+$spawn                                   = "food and drugs\antirad"
+$prefetch                                = 32
+class                                    = II_ANTIR
+class_dbg								 = S_TOOL
+cform                                    = skeleton
+visual                                   = dynamics\weapons\wpn_mounted\wpn_mounted_pkm_trenoga.ogf
+description                              = st_itm_deployable_mgun_desc
+inv_weight                               = 11.5
+inv_name                                 = st_itm_deployable_mgun_name
+inv_name_short                           = st_itm_deployable_mgun_name
+inv_grid_height                          = 2
+inv_grid_width                           = 6
+inv_grid_x                               = 6
+inv_grid_y                               = 31
+cost                                     = 23700
+eat_health                               = 0
+eat_satiety                              = 0
+eat_power                                = 0
+eat_radiation                            = 0
+eat_alcohol                              = 0
+wounds_heal_perc                         = 0
+animation_slot                           = 4
+hud                                      = wpn_vodka_hud
+slot                                     = -1d
+
+[itm_tent]:booster
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+$spawn                                   = "food and drugs\antirad"
+$prefetch                                = 32
+class                                    = II_ANTIR
+class_dbg								 = S_TOOL
+cform                                    = skeleton
+visual                                   = dynamics\equipments\item_tent.ogf
+inv_weight                               = 2.28
+description                              = st_itm_tent_descr
+inv_name                                 = st_itm_tent_name
+inv_name_short                           = st_itm_tent_name
+inv_grid_width                           = 3
+inv_grid_height                          = 2
+inv_grid_x                               = 9
+inv_grid_y                               = 39
+cost                                     = 1580
+eat_health                               = 0
+eat_satiety                              = 0
+eat_power                                = 0
+eat_radiation                            = 0
+eat_alcohol                              = 0
+wounds_heal_perc                         = 0
+animation_slot                           = 4
+hud                                      = wpn_vodka_hud
+placeable_section                        = ph_tent	    
+
+      
+;;--------< gather item sections >--------
+#include "items\items_medical.ltx"
+#include "items\items_drugs.ltx"
+#include "items\items_food.ltx"
+#include "items\items_drink.ltx"
+#include "items\items_cooking.ltx"
+#include "items\items_tools.ltx"
+#include "items\items_misc.ltx"
+#include "items\items_repair.ltx"
+#include "items\items_explosives.ltx"
+#include "items\items_notes.ltx"
+#include "items\items_fieldcraft.ltx"
+#include "items\items_awr.ltx"
+#include "items\items_mlr.ltx"
+#include "items\items_upgrades.ltx"
+#include "money.ltx"

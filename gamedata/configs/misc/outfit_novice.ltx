@@ -1,0 +1,1033 @@
+;---------------------------------------------------------------------------------------------
+;---------------------------------------------------------------------------------------------
+;	   Outfit Addon: Extended Edition ver.0.2 for Call of Misery 1.0d fix2 by Dimitrian 
+;---------------------------------------------------------------------------------------------
+;						 				      ---
+;---------------------------------------------------------------------------------------------
+;					          (c) VK - https://vk.com/oa_ee (c)
+;---------------------------------------------------------------------------------------------
+;						 				      ---
+;---------------------------------------------------------------------------------------------
+;						    Костюмы новичка для всех группировок
+;---------------------------------------------------------------------------------------------
+;---------------------------------------------------------------------------------------------
+
+
+;---------------------------------------------------------------------------------------------
+;						   			  Базовая основа 
+;---------------------------------------------------------------------------------------------
+[outfit_novice_base]
+GroupControlSection                      	= spawn_group
+discovery_dependency                     	=
+class_dbg			       				 	= S_OUT_LIGHT
+class                                    	= EQU_STLK	;Change to E_STLK if you want to use se_item.se_outfit script binding
+cform                                    	= skeleton
+
+player_hud_section                       	= actor_hud_05
+
+default_to_ruck                          	= true
+sprint_allowed                           	= true
+
+ef_equipment_type                       	= 3
+
+full_icon_name                           	= npc_icon_novice_outfit
+
+slot                                     	= 6
+repair_type = outfit
+
+full_scale_icon                          	= 0,11
+
+inv_grid_width                           	= 2
+inv_grid_height                          	= 2
+
+upgr_icon_x									= 3746
+upgr_icon_y									= 162
+upgr_icon_width								= 306
+upgr_icon_height   							= 157
+
+artefact_count                           	= 0
+
+hit_fraction_actor							= 0.5000
+
+; NO RESISTANCE
+burn_protection 							= 0.1100 
+shock_protection 							= 0.3000
+radiation_protection 						= 0.0000
+chemical_burn_protection 					= 0.0300 
+telepatic_protection 						= 0.0000
+strike_protection 							= 0.0040
+explosion_protection 						= 0.2000
+wound_protection							= 0.2000
+fire_wound_protection  						= 0.2000
+
+inv_weight									= 6.86
+
+additional_inventory_weight2 				= 6
+additional_inventory_weight 				= 6
+
+immunities_sect                          	= sect_novice_outfit_immunities
+
+power_loss									= 0.60
+
+control_inertion_factor 					= 1.16
+
+bones_koeff_protection                   	= actor_armor_novice
+
+character_portrait							= ui_inGame2_neutral_1
+
+repair_part_bonus	 						= 0.22
+
+use1_action_functor                                = awr_disassembly.disassembly_outfit
+use1_functor                                       = awr_disassembly.disassembly_outfit_text
+
+[sect_novice_outfit_immunities]
+burn_immunity								= 0.75			;коэффициенты иммунитета самого костюма
+strike_immunity								= 0.0
+shock_immunity								= 0.1
+wound_immunity								= 0.122
+radiation_immunity 							= 0.0 ;			= 0.05
+telepatic_immunity							= 0.0
+chemical_burn_immunity						= 0.07
+explosion_immunity							= 0.21
+fire_wound_immunity							= 0.075
+
+;---------------------------------------------------------------------------------------------
+;                              Костюм новичка "Сталкеры"
+;---------------------------------------------------------------------------------------------
+[novice_outfit]:outfit_novice_base
+$spawn                                   	= "outfit\novice_outfit"
+visual                                   	= dynamics\outfit\rookie_outfit
+actor_visual                             	= actors\stalker_neutral\stalker_neutral_1.ogf
+npc_visual                               	= actors\stalker_neutral\stalker_neutral_1.ogf
+
+player_hud_section                       	= actor_hud_loner_novice
+
+inv_name                                 	= novice_outfit_name
+inv_name_short                           	= novice_outfit_name
+description                              	= novice_outfit_description
+
+upgrades                					= up_gr_firstab_novice_outfit, up_gr_seconab_novice_outfit, up_gr_thirdab_novice_outfit
+installed_upgrades                       	=
+upgrade_scheme                           	= upgrade_scheme_novice_outfit
+
+inv_grid_x         							= 14
+inv_grid_y         							= 12
+
+upgr_icon_x									= 3746
+upgr_icon_y									= 162
+upgr_icon_width								= 306
+upgr_icon_height   							= 157
+
+artefact_count                           	= 0
+
+cost										= 16930
+
+character_portrait						 	= ui_inGame2_neutral_0
+
+repair_part_bonus	 						= 0.10
+
+;---------------------------------------------------------------------------------------------
+;                              Костюм новичка "Сталкеры" (камуфляжный)
+;---------------------------------------------------------------------------------------------
+[novice_outfit_camo]:novice_outfit
+$spawn                                   	= "outfit\novice_outfit"
+visual                                   	= dynamics\outfit\rookie_outfit
+actor_visual                             	= actors\stalker_neutral\stalker_neutral_1.ogf
+npc_visual                               	= actors\stalker_neutral\stalker_neutral_1.ogf
+
+player_hud_section                       	= actor_hud_loner_novice
+
+upgrades                					= up_gr_firstab_novice_outfit_camo, up_gr_seconab_novice_outfit_camo, up_gr_thirdab_novice_outfit_camo
+installed_upgrades                       	= up_thirda_novice_outfit_camo
+upgrade_scheme                           	= upgrade_scheme_novice_outfit_camo
+
+inv_name                                 	= novice_outfit_camo_name
+inv_name_short                           	= novice_outfit_camo_name
+description                              	= novice_outfit_camo_description
+
+inv_weight									= 6.98
+
+inv_grid_x         							= 80
+inv_grid_y         							= 5
+
+upgr_icon_x									= 3746
+upgr_icon_y									= 162
+upgr_icon_width								= 306
+upgr_icon_height   							= 157
+
+cost										= 22951
+
+burn_protection 							= 0.1210
+shock_protection 							= 0.3300
+radiation_protection 						= 0.0000
+chemical_burn_protection 					= 0.0330 
+telepatic_protection 						= 0.0000
+strike_protection 							= 0.0044
+explosion_protection 						= 0.2200
+wound_protection							= 0.2200
+fire_wound_protection  						= 0.2200
+
+artefact_count                           	= 1
+
+repair_part_bonus	 						= 0.13
+
+;---------------------------------------------------------------------------------------------
+;                              Костюм новичка "Сталкеры" (поношенный)
+;---------------------------------------------------------------------------------------------
+[novice_outfit_worn]:novice_outfit
+$spawn                                   	= "outfit\novice_outfit"
+visual                                   	= dynamics\outfit\rookie_outfit
+actor_visual                             	= actors\stalker_neutral\stalker_neutral_1.ogf
+npc_visual                               	= actors\stalker_neutral\stalker_neutral_1.ogf
+
+player_hud_section                       	= actor_hud_loner_novice
+
+upgrades                					= up_gr_firstab_novice_outfit_worn, up_gr_seconab_novice_outfit_worn, up_gr_thirdab_novice_outfit_worn
+installed_upgrades                       	= 
+upgrade_scheme                           	= upgrade_scheme_novice_outfit_worn
+
+inv_name                                 	= novice_outfit_worn_name
+inv_name_short                           	= novice_outfit_worn_name
+description                              	= novice_outfit_worn_description
+
+inv_weight									= 6.36
+
+additional_inventory_weight2 				= 4
+additional_inventory_weight 				= 4
+
+inv_grid_x         							= 78
+inv_grid_y         							= 3
+
+upgr_icon_x									= 3746
+upgr_icon_y									= 162
+upgr_icon_width								= 306
+upgr_icon_height   							= 157
+
+cost										= 9930
+
+; NO RESISTANCE
+burn_protection 							= 0.0770 
+shock_protection 							= 0.2100
+radiation_protection 						= 0.0000
+chemical_burn_protection 					= 0.0210 
+telepatic_protection 						= 0.0000
+strike_protection 							= 0.0028
+explosion_protection 						= 0.1400
+wound_protection							= 0.1400
+fire_wound_protection  						= 0.1400
+
+repair_part_bonus	 						= 0.08
+
+;---------------------------------------------------------------------------------------------
+;                              Костюм новичка "Сталкеры" (непригодный)
+;---------------------------------------------------------------------------------------------
+[novice_outfit_bad]:novice_outfit
+$spawn                                   	= "outfit\novice_outfit"
+visual                                   	= dynamics\outfit\rookie_outfit
+actor_visual                             	= actors\stalker_neutral\stalker_neutral_1.ogf
+npc_visual                               	= actors\stalker_neutral\stalker_neutral_1.ogf
+
+player_hud_section                       	= actor_hud_loner_novice
+
+upgrades                					= up_gr_firstab_novice_outfit_bad, up_gr_seconab_novice_outfit_bad, up_gr_thirdab_novice_outfit_bad
+installed_upgrades                       	= 
+upgrade_scheme                           	= upgrade_scheme_novice_outfit_bad
+
+inv_name                                 	= novice_outfit_bad_name
+inv_name_short                           	= novice_outfit_bad_name
+description                              	= novice_outfit_bad_description
+
+inv_weight									= 6.1
+
+additional_inventory_weight2 				= 2
+additional_inventory_weight 				= 2
+
+inv_grid_x         							= 80
+inv_grid_y         							= 3
+
+upgr_icon_x									= 3746
+upgr_icon_y									= 162
+upgr_icon_width								= 306
+upgr_icon_height   							= 157
+
+cost										= 3930
+
+; NO RESISTANCE
+burn_protection 							= 0.0385 
+shock_protection 							= 0.1050
+radiation_protection 						= 0.0000
+chemical_burn_protection 					= 0.0105 
+telepatic_protection 						= 0.0000
+strike_protection 							= 0.0014
+explosion_protection 						= 0.0700
+wound_protection							= 0.0700
+fire_wound_protection  						= 0.0700
+
+repair_part_bonus	 						= 0.04
+
+;---------------------------------------------------------------------------------------------
+;                      Костюм новичка "Сталкеры" (комбинезон туриста)
+;---------------------------------------------------------------------------------------------
+[novice_outfit_tourist]:novice_outfit
+$spawn                                   	= "outfit\novice_outfit"
+visual                                   	= dynamics\outfit\rookie_outfit
+actor_visual                             	= actors\stalker_neutral\stalker_neutral_1.ogf
+npc_visual                               	= actors\stalker_neutral\stalker_neutral_1.ogf
+
+player_hud_section                       	= actor_hud_loner_novice
+
+upgrades                					= up_gr_firstab_novice_outfit_tourist, up_gr_seconab_novice_outfit_tourist, up_gr_thirdab_novice_outfit_tourist
+installed_upgrades                       	= 
+upgrade_scheme                           	= upgrade_scheme_novice_outfit_tourist
+
+inv_name                                 	= novice_outfit_tourist_name
+inv_name_short                           	= novice_outfit_tourist_name
+description                              	= novice_outfit_tourist_description
+
+inv_weight									= 7.0
+
+additional_inventory_weight2 				= 29
+additional_inventory_weight 				= 29
+
+inv_grid_x         							= 78
+inv_grid_y         							= 5
+
+upgr_icon_x									= 3746
+upgr_icon_y									= 162
+upgr_icon_width								= 306
+upgr_icon_height   							= 157
+
+cost										= 26930
+
+; NO RESISTANCE
+burn_protection 							= 0.1320 
+shock_protection 							= 0.3600
+radiation_protection 						= 0.0000
+chemical_burn_protection 					= 0.0360 
+telepatic_protection 						= 0.0000
+strike_protection 							= 0.0048
+explosion_protection 						= 0.2400
+wound_protection							= 0.2400
+fire_wound_protection  						= 0.2400
+
+repair_part_bonus	 						= 0.16
+
+;---------------------------------------------------------------------------------------------
+;                            Костюм новичка "Чистое небо"
+;---------------------------------------------------------------------------------------------
+[cs_novice_outfit]:outfit_novice_base
+$spawn                                   	= "outfit\cs_novice_outfit"
+visual                                   	= dynamics\outfit\cs_rookie_outfit
+actor_visual                             	= actors\stalker_nebo\stalker_nebo_1.ogf
+npc_visual                               	= actors\stalker_nebo\stalker_nebo_1.ogf
+
+player_hud_section                       	= actor_hud_cs_novice
+
+upgrades                					= up_gr_firstab_cs_novice_outfit, up_gr_seconab_cs_novice_outfit, up_gr_thirdab_cs_novice_outfit
+installed_upgrades                       	=
+upgrade_scheme                           	= upgrade_scheme_cs_novice_outfit
+
+inv_name                                 	= csky_novice_outfit_name
+inv_name_short                           	= csky_novice_outfit_name
+description                              	= csky_novice_outfit_description
+
+inv_grid_x         							= 12
+inv_grid_y         							= 11
+
+upgr_icon_x									= 3748
+upgr_icon_y									= 0
+upgr_icon_width								= 301
+upgr_icon_height   							= 158
+
+character_portrait						 	= ui_inGame2_csky_1
+
+cost										= 11930
+
+artefact_count                           	= 1
+
+repair_part_bonus	 						= 0.10
+
+;---------------------------------------------------------------------------------------------
+;                            Костюм новичка "Чистое небо" (поношеный)
+;---------------------------------------------------------------------------------------------
+[cs_novice_outfit_worn]:cs_novice_outfit
+$spawn                                   	= "outfit\cs_novice_outfit"
+visual                                   	= dynamics\outfit\cs_rookie_outfit
+actor_visual                             	= actors\stalker_nebo\stalker_nebo_1.ogf
+npc_visual                               	= actors\stalker_nebo\stalker_nebo_1.ogf
+
+player_hud_section                       	= actor_hud_cs_novice
+
+upgrades                					= up_gr_firstab_cs_novice_outfit_worn, up_gr_seconab_cs_novice_outfit_worn, up_gr_thirdab_cs_novice_outfit_worn
+installed_upgrades                       	= 
+upgrade_scheme                           	= upgrade_scheme_cs_novice_outfit_worn
+
+inv_name                                 	= csky_novice_worn_outfit_name
+inv_name_short                           	= csky_novice_worn_outfit_name
+description                              	= csky_novice_worn_outfit_description
+
+inv_grid_x         							= 78
+inv_grid_y         							= 7
+
+upgr_icon_x									= 3748
+upgr_icon_y									= 0
+upgr_icon_width								= 301
+upgr_icon_height   							= 158
+
+inv_weight									= 7.12
+
+additional_inventory_weight2 				= 5
+additional_inventory_weight 				= 5
+
+
+cost										= 9930
+
+; NO RESISTANCE
+burn_protection 							= 0.0770 
+shock_protection 							= 0.2100
+radiation_protection 						= 0.0000
+chemical_burn_protection 					= 0.0210 
+telepatic_protection 						= 0.0000
+strike_protection 							= 0.0028
+explosion_protection 						= 0.1400
+wound_protection							= 0.1400
+fire_wound_protection  						= 0.1400
+
+artefact_count                           	= 0
+
+repair_part_bonus	 						= 0.08
+
+;---------------------------------------------------------------------------------------------
+;                            Костюм новичка "Чистое небо" (непригодный)
+;---------------------------------------------------------------------------------------------
+[cs_novice_outfit_bad]:cs_novice_outfit
+$spawn                                   	= "outfit\cs_novice_outfit"
+visual                                   	= dynamics\outfit\cs_rookie_outfit
+actor_visual                             	= actors\stalker_nebo\stalker_nebo_1.ogf
+npc_visual                               	= actors\stalker_nebo\stalker_nebo_1.ogf
+
+player_hud_section                       	= actor_hud_cs_novice
+
+upgrades                					= up_gr_firstab_cs_novice_outfit_bad, up_gr_seconab_cs_novice_outfit_bad, up_gr_thirdab_cs_novice_outfit_bad
+installed_upgrades                       	= 
+upgrade_scheme                           	= upgrade_scheme_cs_novice_outfit_bad
+
+inv_name                                 	= csky_novice_bad_outfit_name
+inv_name_short                           	= csky_novice_bad_outfit_name
+description                              	= csky_novice_bad_outfit_description
+
+inv_grid_x         							= 80
+inv_grid_y         							= 7
+
+upgr_icon_x									= 3748
+upgr_icon_y									= 0
+upgr_icon_width								= 301
+upgr_icon_height   							= 158
+
+inv_weight									= 6.12
+
+additional_inventory_weight2 				= 2
+additional_inventory_weight 				= 2
+
+cost										= 2330
+
+; NO RESISTANCE
+burn_protection 							= 0.0385 
+shock_protection 							= 0.1050
+radiation_protection 						= 0.0000
+chemical_burn_protection 					= 0.0105 
+telepatic_protection 						= 0.0000
+strike_protection 							= 0.0014
+explosion_protection 						= 0.0700
+wound_protection							= 0.0700
+fire_wound_protection  						= 0.0700
+
+artefact_count                           	= 0
+
+repair_part_bonus	 						= 0.04
+
+;---------------------------------------------------------------------------------------------
+;                              Костюм новичка "Бандиты"
+;---------------------------------------------------------------------------------------------
+[bandit_novice_outfit]:outfit_novice_base
+$spawn                                   	= "outfit\novice_outfit"
+visual                                   	= dynamics\outfit\bandit_outfit
+actor_visual                             	= actors\stalker_bandit\stalker_bandit_1.ogf
+npc_visual                               	= actors\stalker_bandit\stalker_bandit_1.ogf
+
+player_hud_section                       	= actor_hud_bandit_novice
+
+upgrades                					= up_gr_firstab_bandit_novice_outfit, up_gr_seconab_bandit_novice_outfit, up_gr_thirdab_bandit_novice_outfit
+installed_upgrades                       	=
+upgrade_scheme                           	= upgrade_scheme_bandit_novice_outfit
+
+inv_name                                 	= bandit_novice_outfit_name
+inv_name_short                           	= bandit_novice_outfit_name
+description                              	= bandit_novice_outfit_description
+
+inv_grid_x         							= 10
+inv_grid_y         							= 11
+
+upgr_icon_x									= 3751
+upgr_icon_y									= 332
+upgr_icon_width								= 305
+upgr_icon_height   							= 151
+
+artefact_count                           	= 0
+
+character_portrait						 	= ui_inGame2_bandit_1
+
+cost										= 9930
+
+repair_part_bonus	 						= 0.09
+
+;---------------------------------------------------------------------------------------------
+;                              Костюм новичка "Бандиты" (поношенный)
+;---------------------------------------------------------------------------------------------
+[bandit_novice_outfit_worn]:bandit_novice_outfit
+$spawn                                   	= "outfit\novice_outfit"
+visual                                   	= dynamics\outfit\bandit_outfit
+actor_visual                             	= actors\stalker_bandit\stalker_bandit_1.ogf
+npc_visual                               	= actors\stalker_bandit\stalker_bandit_1.ogf
+
+player_hud_section                       	= actor_hud_bandit_novice
+
+upgrades                					= up_gr_firstab_bandit_novice_outfit_worn, up_gr_seconab_bandit_novice_outfit_worn, up_gr_thirdab_bandit_novice_outfit_worn
+installed_upgrades                       	=
+upgrade_scheme                           	= upgrade_scheme_bandit_novice_outfit_worn
+
+inv_name                                 	= bandit_novice_worn_outfit_name
+inv_name_short                           	= bandit_novice_worn_outfit_name
+description                              	= bandit_novice_worn_outfit_description
+
+inv_grid_x         							= 78
+inv_grid_y         							= 9
+
+upgr_icon_x									= 3751
+upgr_icon_y									= 332
+upgr_icon_width								= 305
+upgr_icon_height   							= 151
+
+inv_weight									= 7.12
+
+additional_inventory_weight			 		= 5
+additional_inventory_weight2				= 5
+
+cost										= 7330
+
+; NO RESISTANCE
+burn_protection 							= 0.0770 
+shock_protection 							= 0.2100
+radiation_protection 						= 0.0000
+chemical_burn_protection 					= 0.0210 
+telepatic_protection 						= 0.0000
+strike_protection 							= 0.0028
+explosion_protection 						= 0.1400
+wound_protection							= 0.1400
+fire_wound_protection  						= 0.1400
+
+repair_part_bonus	 						= 0.07
+
+;---------------------------------------------------------------------------------------------
+;                              Костюм новичка "Бандиты" (непригодный)
+;---------------------------------------------------------------------------------------------
+[bandit_novice_outfit_bad]:bandit_novice_outfit
+$spawn                                   	= "outfit\novice_outfit"
+visual                                   	= dynamics\outfit\bandit_outfit
+actor_visual                             	= actors\stalker_bandit\stalker_bandit_1.ogf
+npc_visual                               	= actors\stalker_bandit\stalker_bandit_1.ogf
+
+player_hud_section                       	= actor_hud_bandit_novice
+
+upgrades                					= up_gr_firstab_bandit_novice_outfit_bad, up_gr_seconab_bandit_novice_outfit_bad, up_gr_thirdab_bandit_novice_outfit_bad
+installed_upgrades                       	=
+upgrade_scheme                           	= upgrade_scheme_bandit_novice_outfit_bad
+
+inv_name                                 	= bandit_novice_bad_outfit_name
+inv_name_short                           	= bandit_novice_bad_outfit_name
+description                              	= bandit_novice_bad_outfit_description
+
+inv_grid_x         							= 80
+inv_grid_y         							= 9
+
+upgr_icon_x									= 3751
+upgr_icon_y									= 332
+upgr_icon_width								= 305
+upgr_icon_height   							= 151
+
+inv_weight									= 6.02
+
+additional_inventory_weight2 				= 2
+additional_inventory_weight 				= 2
+
+cost										= 2230
+
+; NO RESISTANCE
+burn_protection 							= 0.0385 
+shock_protection 							= 0.1050
+radiation_protection 						= 0.0000
+chemical_burn_protection 					= 0.0105 
+telepatic_protection 						= 0.0000
+strike_protection 							= 0.0014
+explosion_protection 						= 0.0700
+wound_protection							= 0.0700
+fire_wound_protection  						= 0.0700
+
+repair_part_bonus	 						= 0.03
+
+;---------------------------------------------------------------------------------------------
+;                              Костюм новичка "Бандиты" (улучшенный)
+;---------------------------------------------------------------------------------------------
+[bandit_novice_outfit_alt]:bandit_novice_outfit
+$spawn                                   	= "outfit\novice_outfit"
+visual                                   	= dynamics\outfit\bandit_outfit
+actor_visual                             	= actors\stalker_bandit\stalker_bandit_1.ogf
+npc_visual                               	= actors\stalker_bandit\stalker_bandit_1.ogf
+
+player_hud_section                       	= actor_hud_bandit_novice
+
+upgrades                					= up_gr_firstab_bandit_novice_outfit_alt, up_gr_seconab_bandit_novice_outfit_alt, up_gr_thirdab_bandit_novice_outfit_alt
+installed_upgrades                       	= up_firsta_bandit_novice_outfit_alt, up_firstc_bandit_novice_outfit_alt, up_firste_bandit_novice_outfit_alt
+upgrade_scheme                           	= upgrade_scheme_bandit_novice_outfit_alt
+
+inv_name                                 	= bandit_novice_alt_outfit_name
+inv_name_short                           	= bandit_novice_alt_outfit_name
+description                              	= bandit_novice_alt_outfit_description
+
+inv_weight									= 8.22
+
+additional_inventory_weight			 		= 8
+additional_inventory_weight2				= 8
+
+cost										= 22230
+
+inv_grid_x         							= 78
+inv_grid_y         							= 13
+
+upgr_icon_x									= 3751
+upgr_icon_y									= 332
+upgr_icon_width								= 305
+upgr_icon_height   							= 151
+
+burn_protection 							= 0.1210
+shock_protection 							= 0.3300
+radiation_protection 						= 0.0000
+chemical_burn_protection 					= 0.0330 
+telepatic_protection 						= 0.0000
+strike_protection 							= 0.0044
+explosion_protection 						= 0.2200
+wound_protection							= 0.2200
+fire_wound_protection  						= 0.2200
+
+artefact_count                           	= 1
+
+repair_part_bonus	 						= 0.12
+
+;---------------------------------------------------------------------------------------------
+;                              Костюм новичка "Долг"
+;---------------------------------------------------------------------------------------------
+[dolg_novice_outfit]:outfit_novice_base
+$spawn                                   	= "outfit\novice_outfit_duty"
+visual                                   	= dynamics\outfit\duty_rookie_outfit
+actor_visual                             	= actors\stalker_dolg\stalker_dolg_0.ogf
+npc_visual                               	= actors\stalker_dolg\stalker_dolg_0.ogf
+
+player_hud_section                       	= actor_hud_duty_novice
+
+upgrades                					= up_gr_firstab_dolg_novice_outfit, up_gr_seconab_dolg_novice_outfit, up_gr_thirdab_dolg_novice_outfit
+installed_upgrades                       	=
+upgrade_scheme                           	= upgrade_scheme_dolg_novice_outfit
+
+inv_name                                	= dolg_novice_outfit_name
+inv_name_short                           	= dolg_novice_outfit_name
+description                              	= dolg_novice_outfit_description
+
+inv_grid_x         							= 16
+inv_grid_y         							= 36
+
+upgr_icon_x									= 3760
+upgr_icon_y									= 646
+upgr_icon_width								= 303
+upgr_icon_height   							= 152
+
+artefact_count                           	= 1
+
+cost										= 11130
+
+character_portrait						 	= ui_inGame2_Dolg_0
+
+repair_part_bonus	 						= 0.11
+
+;---------------------------------------------------------------------------------------------
+;                              Костюм новичка "Долг" (поношенный)
+;---------------------------------------------------------------------------------------------
+[dolg_novice_outfit_worn]:dolg_novice_outfit
+$spawn                                   	= "outfit\novice_outfit_duty"
+visual                                   	= dynamics\outfit\duty_rookie_outfit
+actor_visual                             	= actors\stalker_dolg\stalker_dolg_0.ogf
+npc_visual                               	= actors\stalker_dolg\stalker_dolg_0.ogf
+
+player_hud_section                       	= actor_hud_duty_novice
+
+upgrades                					= up_gr_firstab_dolg_novice_outfit_worn, up_gr_seconab_dolg_novice_outfit_worn, up_gr_thirdab_dolg_novice_outfit_worn
+installed_upgrades                       	=
+upgrade_scheme                           	= upgrade_scheme_dolg_novice_outfit_worn
+
+inv_name                                	= dolg_novice_worn_outfit_name
+inv_name_short                           	= dolg_novice_worn_outfit_name
+description                              	= dolg_novice_worn_outfit_description
+
+inv_grid_x         							= 78
+inv_grid_y         							= 11
+
+upgr_icon_x									= 3760
+upgr_icon_y									= 646
+upgr_icon_width								= 303
+upgr_icon_height   							= 152
+
+inv_weight									= 6.26
+
+additional_inventory_weight2 				= 4
+additional_inventory_weight 				= 4
+
+artefact_count                           	= 0
+
+cost										= 7930
+
+; NO RESISTANCE
+burn_protection 							= 0.0770 
+shock_protection 							= 0.2100
+radiation_protection 						= 0.0000
+chemical_burn_protection 					= 0.0210 
+telepatic_protection 						= 0.0000
+strike_protection 							= 0.0028
+explosion_protection 						= 0.1400
+wound_protection							= 0.1400
+fire_wound_protection  						= 0.1400
+
+repair_part_bonus	 						= 0.09
+
+;---------------------------------------------------------------------------------------------
+;                              Костюм новичка "Долг" (непригодный)
+;---------------------------------------------------------------------------------------------
+[dolg_novice_outfit_bad]:dolg_novice_outfit
+$spawn                                   	= "outfit\novice_outfit_duty"
+visual                                   	= dynamics\outfit\duty_rookie_outfit
+actor_visual                             	= actors\stalker_dolg\stalker_dolg_0.ogf
+npc_visual                               	= actors\stalker_dolg\stalker_dolg_0.ogf
+
+player_hud_section                       	= actor_hud_duty_novice
+
+upgrades                					= up_gr_firstab_dolg_novice_outfit_bad, up_gr_seconab_dolg_novice_outfit_bad, up_gr_thirdab_dolg_novice_outfit_bad
+installed_upgrades                       	=
+upgrade_scheme                           	= upgrade_scheme_dolg_novice_outfit_bad
+
+inv_name                                	= dolg_novice_bad_outfit_name
+inv_name_short                           	= dolg_novice_bad_outfit_name
+description                              	= dolg_novice_bad_outfit_description
+
+inv_grid_x         							= 80
+inv_grid_y         							= 11
+
+upgr_icon_x									= 3760
+upgr_icon_y									= 646
+upgr_icon_width								= 303
+upgr_icon_height   							= 152
+
+inv_weight									= 6.16
+
+additional_inventory_weight2 				= 2
+additional_inventory_weight 				= 2
+
+artefact_count                           	= 0
+
+cost										= 2830
+
+; NO RESISTANCE
+burn_protection 							= 0.0385 
+shock_protection 							= 0.1050
+radiation_protection 						= 0.0000
+chemical_burn_protection 					= 0.0105 
+telepatic_protection 						= 0.0000
+strike_protection 							= 0.0014
+explosion_protection 						= 0.0700
+wound_protection							= 0.0700
+fire_wound_protection  						= 0.0700
+
+repair_part_bonus	 						= 0.05
+
+;---------------------------------------------------------------------------------------------
+;							    Плащ
+;---------------------------------------------------------------------------------------------
+[trenchcoat_outfit]:outfit_novice_base
+$spawn                                   	= "outfit\trenchcoat_outfit"
+visual                                   	= dynamics\outfit\novice_outfit
+actor_visual                             	= actors\stalker_bandit\stalker_bandit_3_mask.ogf
+npc_visual                               	= actors\stalker_bandit\stalker_bandit_3_mask.ogf
+
+player_hud_section                       	= actor_hud_bandit_trench
+
+upgrades                					= up_gr_firstab_trenchcoat_outfit, up_gr_seconab_trenchcoat_outfit, up_gr_thirdab_trenchcoat_outfit
+installed_upgrades                       	=
+upgrade_scheme                           	= upgrade_scheme_trenchcoat_outfit
+
+inv_name                                 	= trenchcoat_outfit_name
+inv_name_short                           	= trenchcoat_outfit_name
+description                              	= trenchcoat_outfit_description
+
+inv_weight									= 8.22
+
+additional_inventory_weight			 		= 8
+additional_inventory_weight2				= 8
+
+inv_grid_height    							= 3
+inv_grid_x         							= 16
+inv_grid_y         							= 31
+
+upgr_icon_x									= 636
+upgr_icon_y									= 0
+upgr_icon_width								= 302
+upgr_icon_height   							= 168
+
+cost										= 23320
+
+immunities_sect                          	= sect_coat_outfit_immunities
+
+power_loss									= 0.63
+
+control_inertion_factor 					= 1.19
+
+; NO RESISTANCE
+burn_protection 							= 0.1200 
+shock_protection 							= 0.3100
+radiation_protection 						= 0.0022
+chemical_burn_protection 					= 0.0333 
+telepatic_protection 						= 0.0000
+strike_protection 							= 0.0040
+explosion_protection 						= 0.2000
+wound_protection							= 0.2000
+fire_wound_protection  						= 0.2000
+
+bones_koeff_protection                   	= actor_armor_trench
+
+hit_fraction_actor							= 0.90
+
+character_portrait							= ui_inGame2_bandit_3_mask
+
+artefact_count                           	= 0
+
+repair_part_bonus	 						= 0.15
+
+[sect_coat_outfit_immunities]
+burn_immunity								= 0.40			;коэффициенты иммунитета самого костюма
+strike_immunity								= 0
+shock_immunity								= 0.015
+wound_immunity								= 0.058
+radiation_immunity 							= 0.0 ;			= 0.05
+telepatic_immunity							= 0.0
+chemical_burn_immunity						= 0.025
+explosion_immunity							= 0.141
+fire_wound_immunity							= 0.108
+
+;---------------------------------------------------------------------------------------------
+;							    Плащ (поношенный)
+;---------------------------------------------------------------------------------------------
+[trenchcoat_outfit_worn]:trenchcoat_outfit
+$spawn                                   	= "outfit\trenchcoat_outfit"
+visual                                   	= dynamics\outfit\novice_outfit
+actor_visual                             	= actors\stalker_bandit\stalker_bandit_3_mask.ogf
+npc_visual                               	= actors\stalker_bandit\stalker_bandit_3_mask.ogf
+
+player_hud_section                       	= actor_hud_bandit_trench
+
+upgrades                					= up_gr_firstab_trenchcoat_outfit_worn, up_gr_seconab_trenchcoat_outfit_worn, up_gr_thirdab_trenchcoat_outfit_worn
+installed_upgrades                       	=
+upgrade_scheme                           	= upgrade_scheme_trenchcoat_outfit_worn
+
+inv_name                                 	= trenchcoat_worn_outfit_name
+inv_name_short                           	= trenchcoat_worn_outfit_name
+description                              	= trenchcoat_worn_outfit_description
+
+inv_weight									= 8.12
+
+additional_inventory_weight			 		= 6
+additional_inventory_weight2				= 6
+
+inv_grid_x         							= 58
+inv_grid_y         							= 0
+
+upgr_icon_x									= 636
+upgr_icon_y									= 0
+upgr_icon_width								= 302
+upgr_icon_height   							= 168
+
+cost										= 10311
+
+; NO RESISTANCE
+burn_protection 							= 0.0840 
+shock_protection 							= 0.2170
+radiation_protection 						= 0.0015
+chemical_burn_protection 					= 0.0234 
+telepatic_protection 						= 0.0000
+strike_protection 							= 0.0028
+explosion_protection 						= 0.1400
+wound_protection							= 0.1400
+fire_wound_protection  						= 0.1400
+
+repair_part_bonus	 						= 0.13
+
+;---------------------------------------------------------------------------------------------
+;							    Плащ (непригодный)
+;---------------------------------------------------------------------------------------------
+[trenchcoat_outfit_bad]:trenchcoat_outfit
+$spawn                                   	= "outfit\trenchcoat_outfit"
+visual                                   	= dynamics\outfit\novice_outfit
+actor_visual                             	= actors\stalker_bandit\stalker_bandit_3_mask.ogf
+npc_visual                               	= actors\stalker_bandit\stalker_bandit_3_mask.ogf
+
+player_hud_section                       	= actor_hud_bandit_trench
+
+upgrades                					= up_gr_firstab_trenchcoat_outfit_bad, up_gr_seconab_trenchcoat_outfit_bad, up_gr_thirdab_trenchcoat_outfit_bad
+installed_upgrades                       	=
+upgrade_scheme                           	= upgrade_scheme_trenchcoat_outfit_bad
+
+inv_name                                 	= trenchcoat_bad_outfit_name
+inv_name_short                           	= trenchcoat_bad_outfit_name
+description                              	= trenchcoat_bad_outfit_description
+
+inv_weight									= 8.0
+
+additional_inventory_weight			 		= 4
+additional_inventory_weight2				= 4
+
+inv_grid_x         							= 60
+inv_grid_y         							= 0
+
+upgr_icon_x									= 636
+upgr_icon_y									= 0
+upgr_icon_width								= 302
+upgr_icon_height   							= 168
+
+cost										= 4111
+
+; NO RESISTANCE
+burn_protection 							= 0.0420 
+shock_protection 							= 0.1055
+radiation_protection 						= 0.0007
+chemical_burn_protection 					= 0.0117 
+telepatic_protection 						= 0.0000
+strike_protection 							= 0.0014
+explosion_protection 						= 0.0700
+wound_protection							= 0.0700
+fire_wound_protection  						= 0.0700
+
+repair_part_bonus	 						= 0.09
+
+;---------------------------------------------------------------------------------------------
+;                      			  Не будет использоваться!!!
+;---------------------------------------------------------------------------------------------
+;											---
+;---------------------------------------------------------------------------------------------
+;                                 Костюм новичка "Монолит"
+;---------------------------------------------------------------------------------------------
+;[monolith_novice_outfit]:outfit_novice_base
+;$spawn                                   	= "outfit\novice_outfit_monolith"
+;visual                                   	= dynamics\outfit\rookie_outfit
+;actor_visual                             	= actors\stalker_neutral\stalker_neutral_1.ogf
+;npc_visual                               	= actors\stalker_neutral\stalker_neutral_1.ogf
+;player_hud_section                       	= actor_hud_monolith_novice
+
+;inv_name                                 	= monolith_novice_outfit_name
+;inv_name_short                           	= monolith_novice_outfit_name
+;description                              	= monolith_novice_outfit_description
+
+;inv_grid_x         							= 16
+;inv_grid_y         							= 12
+
+;inv_weight									= 3.22
+
+;upgr_icon_x									= 3763
+;upgr_icon_y									= 802
+;upgr_icon_width								= 293
+;upgr_icon_height   							= 154
+
+;artefact_count                           	= 3
+
+;character_portrait						 	= ui_inGame2_monolit_1
+
+;---------------------------------------------------------------------------------------------
+;                              Костюм новичка "Военные"
+;---------------------------------------------------------------------------------------------
+;[military_novice_outfit]:outfit_novice_base
+;$spawn                                   	= "outfit\novice_outfit_military"
+;visual                                   	= dynamics\outfit\rookie_outfit
+;actor_visual                             	= actors\stalker_neutral\stalker_neutral_1.ogf
+;npc_visual                               	= actors\stalker_neutral\stalker_neutral_1.ogf
+;player_hud_section                       	= actor_hud_military_novice
+
+;inv_name                                 	= military_novice_outfit_name
+;inv_name_short                           	= military_novice_outfit_name
+;description                              	= military_novice_outfit_description
+
+;inv_grid_x         							= 74
+;inv_grid_y         							= 21
+
+;upgr_icon_x									= 57
+;upgr_icon_y									= 806
+;upgr_icon_width								= 253
+;upgr_icon_height   							= 160
+
+;artefact_count                           	= 0
+
+;character_portrait						 	= ui_inGame2_Soldier_1
+
+;---------------------------------------------------------------------------------------------
+;                              Костюм новичка "Наёмники"
+;---------------------------------------------------------------------------------------------
+;[merc_novice_outfit]:outfit_novice_base
+;$spawn                                   	= "outfit\novice_outfit_merc"
+;visual                                   	= dynamics\outfit\rookie_outfit
+;actor_visual                             	= actors\stalker_neutral\stalker_neutral_1.ogf
+;npc_visual                               	= actors\stalker_neutral\stalker_neutral_1.ogf
+;player_hud_section                       	= actor_hud_merc_novice
+
+;inv_name                                 	= merc_novice_outfit_name
+;inv_name_short                           	= merc_novice_outfit_name
+;description                              	= merc_novice_outfit_description
+
+;inv_grid_x         							= 70
+;inv_grid_y         							= 21
+
+;upgr_icon_x									= 57
+;upgr_icon_y									= 806
+;upgr_icon_width								= 253
+;upgr_icon_height   							= 160
+
+;artefact_count                           	= 0
+
+;character_portrait							= ui_inGame2_merc_sun1
+
+;---------------------------------------------------------------------------------------------
+;                              Костюм новичка "Свобода"
+;---------------------------------------------------------------------------------------------
+;[svoboda_novice_outfit]:outfit_novice_base
+;$spawn                                   	= "outfit\novice_outfit_freedom"
+;visual                                   	= dynamics\outfit\freedom_rookie_outfit
+;actor_visual                             	= actors\stalker_neutral\stalker_neutral_1.ogf
+;npc_visual                               	= actors\stalker_neutral\stalker_neutral_1.ogf
+
+;player_hud_section                       	= actor_hud_freedom_novice
+
+;inv_name                                 	= svoboda_novice_outfit_name
+;inv_name_short                           	= svoboda_novice_outfit_name
+;description                              	= svoboda_novice_outfit_description
+
+;inv_grid_x         							= 18
+;inv_grid_y         							= 36
+
+;upgr_icon_x									= 3757
+;upgr_icon_y									= 488
+;upgr_icon_width								= 303
+;upgr_icon_height   							= 157
+
+;character_portrait						 	= ui_inGame2_freedom_0

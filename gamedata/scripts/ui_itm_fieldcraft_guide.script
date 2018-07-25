@@ -1,0 +1,550 @@
+-- ui_itm_camp_cooking
+-- ponney68
+--[[
+Copyright (C) 2012 Alundaio
+This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License-]]
+--]]
+-------------------------------------------------------------------
+class "load_item" (CUIListBoxItem)
+function load_item:__init(height) super(height)
+	self.file_name		= "filename"
+
+	self:SetTextColor(GetARGB(255, 170, 170, 170))
+
+	self.fn = self:GetTextItem()
+	self.fn:SetFont(GetFontLetterica18Russian())
+	self.fn:SetEllipsis(true)
+end
+
+function load_item:__finalize()
+end
+
+-------------------------------------------------------------------
+class "crafting_ui" (CUIScriptWnd)
+
+function crafting_ui:__init(owner,section) super()
+	self.owner = owner
+	self.section = section
+
+	self.use_actor_effects = rx_utils.read_from_ini2(nil,section,"cooking_use_actor_effects","bool",false)
+
+	self:InitControls()
+	self:InitCallBacks()
+end
+
+function crafting_ui:__finalize()
+end
+
+function crafting_ui:FillList()
+end
+
+function crafting_ui:FillPartsList()
+	self.list_box_parts:RemoveAll()
+	
+	local recipes = {"medkit", "stimpack", "itm_backpack", "itm_sleepbag", "ied", "ied_rpg", "mine", "fieldcraft_plate_attch","army_bowler", "toolkit_p", "toolkit_s", "toolkit_r5", "toolkit_r7"}
+	-- +toolkit_u
+	for i=1,#recipes,1 do
+		self:AddItemToList(recipes[i],self.list_box_parts)
+	end
+	
+end
+
+function crafting_ui:InitControls()
+	self:SetWndRect			(Frect():set(0,0,1024,768))
+	self:SetWndPos			(vector2():set(240,120))
+	self:SetAutoDelete(true)
+
+	self.xml				= CScriptXmlInit()
+	local ctrl
+	--self.xml:ParseFile			("ui_itm_main.xml")
+	self.xml:ParseFile			("ui_craft_main.xml")
+	ctrl					= CUIWindow()
+	self.xml:InitWindow			("itm_field_craft:file_item:main",0,ctrl)
+
+	self.file_item_main_sz	= vector2():set(ctrl:GetWidth(),ctrl:GetHeight())
+
+	self.xml:InitWindow			("itm_field_craft:file_item:fn",0,ctrl)
+	self.file_item_fn_sz	= vector2():set(ctrl:GetWidth(),ctrl:GetHeight())
+
+	self.xml:InitWindow			("itm_field_craft:file_item:fd",0,ctrl)
+	self.file_item_fd_sz	= vector2():set(ctrl:GetWidth(),ctrl:GetHeight())
+
+	self.form				= self.xml:InitStatic("itm_field_craft:form",self)
+	--self.form:SetWndPos(vector2():set(device().width/2-(self.form:GetWidth()+70), device().height/2 - self.form:GetHeight()))
+	self.form:SetWndPos(vector2():set(0, 0))
+
+	-- Background for forms
+	--self.xml:InitStatic("itm_camp_cooking:form:list_background",self.form)
+
+	if (self.use_parts) then
+		--self.xml:InitStatic("itm_camp_cooking:form:list_parts_background",self.form)
+	end
+
+	-- Item picture
+	self.picture			= self.xml:InitStatic("itm_field_craft:form:icon",self.form)
+	self.picture_parts		= self.xml:InitStatic("itm_field_craft:form:icon_parts",self.form)
+
+	-- cooking tool picture
+	self.pic = self.xml:InitStatic("itm_field_craft:form:icon_tool",self.form)
+
+	local inv_grid_width = rx_utils.read_from_ini2(ini,self.section,"inv_grid_width","float",0)
+	local inv_grid_height = rx_utils.read_from_ini2(ini,self.section,"inv_grid_height","float",0)
+	local inv_grid_x = rx_utils.read_from_ini2(ini,self.section,"inv_grid_x","float",0)
+	local inv_grid_y = rx_utils.read_from_ini2(ini,self.section,"inv_grid_y","float",0)
+
+	local x1 = inv_grid_x*50
+	local y1 = inv_grid_y*50
+
+	local w = inv_grid_width*50
+	local h = inv_grid_height*50
+
+	local x2 = x1 + w
+	local y2 = y1 + h
+
+	local w,h = w,h
+	if (utils.is_widescreen()) then
+	w,h = w/1.5,h/1.2
+	else
+	w,h = w/1.3,h/1.3
+	end
+	self.pic:InitTexture("ui\\ui_icon_equipment")
+	self.pic:SetTextureRect(Frect():set(x1,y1,x2,y2))
+	self.pic:SetWndSize(vector2():set(w,h))
+
+	if not (self.pic.x) then
+		local pos = self.pic:GetWndPos()
+		local posform = self.form:GetWndPos()
+		self.pic.x = pos.x + posform.x
+		self.pic.y = pos.y + posform.y
+	end
+
+	self.pic:SetWndPos(vector2():set(self.pic.x-w/2, self.pic.y-h/2))
+
+	-- Caption
+	self.caption_parts 		= self.xml:InitTextWnd("itm_field_craft:form:caption_parts",self.form)
+	self.caption_ingredients		= self.xml:InitListBox("itm_field_craft:form:caption_ingred",self.form)
+	self.caption_ingredients:ShowSelectedItem(false)
+
+	--if (self.use_parts) then
+
+	self.list_box_parts			= self.xml:InitListBox("itm_field_craft:form:list_parts",self.form)
+
+	local frame = self.xml:InitFrame("itm_field_craft:form:list_frame_parts",self.form)
+
+	self.list_box_parts:ShowSelectedItem(true)
+	self:Register(self.list_box_parts, "list_window_parts")
+	--end
+	-- Button cooking
+	ctrl					= self.xml:Init3tButton("itm_field_craft:form:btn_craft", self.form)
+	self:Register			(ctrl, "button_craft")
+
+	-- Button Cancel
+	ctrl = self.xml:Init3tButton	("itm_field_craft:form:btn_cancel",	self.form)
+	self:Register			(ctrl, "button_back")
+end
+
+function crafting_ui:InitCallBacks()
+	self:AddCallback("button_craft",		ui_events.BUTTON_CLICKED,         self.OnButton_craft,			self)
+	self:AddCallback("button_back",		ui_events.BUTTON_CLICKED,             self.OnButton_back_clicked,	self)
+
+	self:AddCallback("list_window", ui_events.LIST_ITEM_CLICKED, 			  self.OnListItemClicked,		self)
+	self:AddCallback("list_window", ui_events.WINDOW_LBUTTON_DB_CLICK,		  self.OnListItemDbClicked,		self)
+
+	self:AddCallback("list_window_parts", ui_events.LIST_ITEM_CLICKED, 		  self.OnPartsListItemClicked,		self)
+	self:AddCallback("list_window_parts", ui_events.WINDOW_LBUTTON_DB_CLICK,  self.OnPartsListItemDbClicked,	self)
+end
+
+function crafting_ui:OnPartsListItemClicked()
+	if self.list_box_parts:GetSize()==0 then return end
+
+	local item = self.list_box_parts:GetSelectedItem()
+	local w,h = item.width,item.height
+	if (utils.is_widescreen()) then
+	w,h = item.width/1.5,item.height/1.2
+	else
+	w,h = item.width/1.2,item.height/1.2
+	end
+	self.picture_parts:InitTexture("ui\\ui_icon_equipment")
+	self.picture_parts:SetTextureRect(Frect():set(item.x1,item.y1,item.x2,item.y2))
+	self.picture_parts:SetWndSize(vector2():set(w,h))
+
+	if not (self.picture_parts.x) then
+		local pos = self.picture_parts:GetWndPos()
+		self.picture_parts.x = pos.x
+		self.picture_parts.y = pos.y
+	end
+
+	self.picture_parts:SetWndPos(vector2():set(self.picture_parts.x-w/2, self.picture_parts.y-h/2))
+	self.caption_parts:SetText(game.translate_string("st_ui_selected"))
+	
+	
+	local function ingreds_setup(ingr_item)
+		local _itm	= load_item(self.file_item_main_sz.y)
+		_itm:SetWndSize		(self.file_item_main_sz)
+		_itm.fn:SetWndPos(vector2():set(0,0))
+		_itm.fn:SetWndSize	(self.file_item_fn_sz)
+		_itm.fn:SetText		(ingr_item)
+		_itm.item_id = i
+		self.caption_ingredients:AddExistingItem(_itm)	
+	end
+	
+	
+	--recipes = {"medkit", "itm_backpack", "itm_sleepbag", "ied", "ied_rpg", "mine"}
+	if(item.item_id == "medkit") then
+		self.caption_ingredients:RemoveAll()
+		local ingreds = {"- Sewing kit","- Bandage","- Strong Alcohol","- Textile sheet"}
+		for i=1,#ingreds,1 do
+			ingreds_setup(ingreds[i])
+		end
+		self.caption_ingredients:ShowSelectedItem(true)
+	end
+	if(item.item_id == "itm_sleepbag") then
+		self.caption_ingredients:RemoveAll()
+		local ingreds = {"- Camouflaged tarpaulin","- Bed spread","- Sewing kit"}
+		for i=1,#ingreds,1 do
+			ingreds_setup(ingreds[i])
+		end
+		self.caption_ingredients:ShowSelectedItem(true)
+	end
+	if(item.item_id == "itm_backpack") then
+		self.caption_ingredients:RemoveAll()
+		local ingreds = {"- Compression bag","- Synthetic harness","- Sewing kit"}
+		for i=1,#ingreds,1 do
+			ingreds_setup(ingreds[i])
+		end
+		self.caption_ingredients:ShowSelectedItem(true)
+	end
+	if(item.item_id == "ied") then
+		self.caption_ingredients:RemoveAll()
+		local ingreds = {"- Some jerrycan fuel","- Thermite grenade","- Copper wire","- Proximity device"}
+		for i=1,#ingreds,1 do
+			ingreds_setup(ingreds[i])
+		end
+		self.caption_ingredients:ShowSelectedItem(true)
+	end
+	if(item.item_id == "ied_rpg") then
+		self.caption_ingredients:RemoveAll()
+		local ingreds = {"- 1x Rpg ammo","- Copper wire","- Proximity device"}
+		for i=1,#ingreds,1 do
+			ingreds_setup(ingreds[i])
+		end
+		self.caption_ingredients:ShowSelectedItem(true)
+	end
+	if(item.item_id == "mine") then
+		self.caption_ingredients:RemoveAll()
+		local ingreds = {"- 1x Explosive grenade / ammo","- Copper wire","- Plastic pieces"}
+		for i=1,#ingreds,1 do
+			ingreds_setup(ingreds[i])
+		end
+		self.caption_ingredients:ShowSelectedItem(true)
+	end
+	if(item.item_id == "fieldcraft_plate_attch") then
+		self.caption_ingredients:RemoveAll()
+		local ingreds = {"- 2x Metal plate","- Some screws, bolts (metal scrap)","- Synthetic harness","- TOOL: Hammer (reusable)"}
+		for i=1,#ingreds,1 do
+			ingreds_setup(ingreds[i])
+		end
+		self.caption_ingredients:ShowSelectedItem(true)
+	end
+	if(item.item_id == "army_bowler") then
+		self.caption_ingredients:RemoveAll()
+		local ingreds = {"- A pot from another cooking equipment","- Metal plate","- Few bolts, handles (metal scrap)","- Copper wire","- TOOL: Hammer (reusable)"}
+		for i=1,#ingreds,1 do
+			ingreds_setup(ingreds[i])
+		end
+		self.caption_ingredients:ShowSelectedItem(true)
+	end
+	if(item.item_id == "toolkit_p") then
+		self.caption_ingredients:RemoveAll()
+		local ingreds = {"- Gun oil / solvent","- Spring","- Trigger mechanism","- Suitable cleaning kit","- Pistol grip", "- Swiss knife"}
+		for i=1,#ingreds,1 do
+			ingreds_setup(ingreds[i])
+		end
+		self.caption_ingredients:ShowSelectedItem(true)
+	end
+	if(item.item_id == "toolkit_s") then
+		self.caption_ingredients:RemoveAll()
+		local ingreds = {"- Gun oil / solvent","- Spring","- Trigger mechanism","- Suitable cleaning kit", "- Rifle stock", "- Crowbar", "- 2x Smoothbore barrel"}
+		for i=1,#ingreds,1 do
+			ingreds_setup(ingreds[i])
+		end
+		self.caption_ingredients:ShowSelectedItem(true)
+	end
+	if(item.item_id == "toolkit_r5") then
+		self.caption_ingredients:RemoveAll()
+		local ingreds = {"- Gun oil / solvent","- Spring","- Trigger mechanism","- Suitable cleaning kit","- Bolt carrier", "- Rifle stock", "- Crowbar", "- 5.45 barrel", "- 5.56 barrel"}
+		for i=1,#ingreds,1 do
+			ingreds_setup(ingreds[i])
+		end
+		self.caption_ingredients:ShowSelectedItem(true)
+	end
+	if(item.item_id == "toolkit_r7") then
+		self.caption_ingredients:RemoveAll()
+		local ingreds = {"- Gun oil / solvent","- Spring","- Trigger mechanism","- Suitable cleaning kit","- Bolt carrier", "- Rifle stock", "- Crowbar", "- 7.62 barrel", "- 7.92 barrel", "- 9mm barrel"}
+		for i=1,#ingreds,1 do
+			ingreds_setup(ingreds[i])
+		end
+		self.caption_ingredients:ShowSelectedItem(true)
+	end
+	if(item.item_id == "toolkit_u") then
+		self.caption_ingredients:RemoveAll()
+		local ingreds = {"- Heavy sewing kit","- Glue","- Kevlar body plate","- Suitable cleaning kit","- Bolt carrier", "- Rifle stock", "- Crowbar", "- 7.62 barrel", "- 7.92 barrel", "- 9mm barrel"}
+		for i=1,#ingreds,1 do
+			ingreds_setup(ingreds[i])
+		end
+		self.caption_ingredients:ShowSelectedItem(true)
+	end
+	if(item.item_id == "stimpack") then
+		self.caption_ingredients:RemoveAll()
+		local ingreds = {"- Empty syringe","- Alcohol (disinfect)","- Drug-making kit","- Vinca (coagulant)","- Chlortetracyclin (antibiotic)", "- TOOL: Field cutlery (reusable)"}
+		for i=1,#ingreds,1 do
+			ingreds_setup(ingreds[i])
+		end
+		self.caption_ingredients:ShowSelectedItem(true)
+	end
+	--empty syringe (!new!), alcohol (desinfect), drug-making kit, vinca, chlortetracyclin (antibiotic), field cutlery (TOOL)
+	
+	
+	
+end
+
+function crafting_ui:OnPartsListItemDbClicked()
+	self:OnButton_craft()
+end
+
+function crafting_ui:OnButton_back_clicked()
+	alife():create(self.section,db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id(),db.actor:id())
+	self:HideDialog()
+end
+
+function crafting_ui:OnKeyboard(dik, keyboard_action)
+	local bind = dik_to_bind(dik)
+	CUIScriptWnd.OnKeyboard(self,dik,keyboard_action)
+	if (keyboard_action == ui_events.WINDOW_KEY_PRESSED) then
+		if (dik == DIK_keys.DIK_RETURN) then
+		elseif (dik == DIK_keys.DIK_ESCAPE) then
+			self:OnButton_back_clicked()
+		elseif (bind == key_bindings.kUSE) then
+			self:OnButton_back_clicked()
+		end
+	end
+	return true
+end
+
+
+function crafting_ui:OnButton_craft()
+
+	local craft_in_progress = false
+	
+	local index = self.list_box_parts:GetSelectedIndex()
+	local item = self.list_box_parts:GetSelectedItem()
+	if item == nil then
+		return
+	end
+	
+	self.item_to_craft = item.item_id
+	local inv_name = game.translate_string(rx_utils.read_from_ini2(nil,self.item_to_craft,"inv_name","string","error"))
+	
+	local function check_for_pkg(actor,itm)
+		if (self.item_to_craft == "medkit") then
+			if (itm:section() == "fieldcraft_pkg_medkit_0") or (itm:section() == "fieldcraft_pkg_medkit_1") or (itm:section() == "fieldcraft_pkg_medkit_2") or (itm:section() == "fieldcraft_pkg_medkit_3") or (itm:section() == "fieldcraft_pkg_medkit_4") then
+				craft_in_progress = true
+				return
+			end
+		end
+		if (self.item_to_craft == "itm_backpack") then
+			if (itm:section() == "fieldcraft_pkg_backpack_0") or (itm:section() == "fieldcraft_pkg_backpack_1") or (itm:section() == "fieldcraft_pkg_backpack_2") or (itm:section() == "fieldcraft_pkg_backpack_3") then
+				craft_in_progress = true
+				return
+			end
+		end
+		if (self.item_to_craft == "itm_sleepbag") then
+			if (itm:section() == "fieldcraft_pkg_sleepbag_0") or (itm:section() == "fieldcraft_pkg_sleepbag_1") or (itm:section() == "fieldcraft_pkg_sleepbag_2") or (itm:section() == "fieldcraft_pkg_sleepbag_3") then
+				craft_in_progress = true
+				return
+			end
+		end
+		if (self.item_to_craft == "ied") then
+			if (itm:section() == "fieldcraft_pkg_ied_0") or (itm:section() == "fieldcraft_pkg_ied_1") or (itm:section() == "fieldcraft_pkg_ied_2") or (itm:section() == "fieldcraft_pkg_ied_3") or (itm:section() == "fieldcraft_pkg_ied_4") then
+				craft_in_progress = true
+				return
+			end
+		end
+		if (self.item_to_craft == "ied_rpg") then
+			if (itm:section() == "fieldcraft_pkg_iedrpg_0") or (itm:section() == "fieldcraft_pkg_iedrpg_1") or (itm:section() == "fieldcraft_pkg_iedrpg_2") or (itm:section() == "fieldcraft_pkg_iedrpg_3") then
+				craft_in_progress = true
+				return
+			end
+		end
+		if (self.item_to_craft == "mine") then
+			if (itm:section() == "fieldcraft_pkg_mine_0") or (itm:section() == "fieldcraft_pkg_mine_1") or (itm:section() == "fieldcraft_pkg_mine_2") or (itm:section() == "fieldcraft_pkg_mine_3") then
+				craft_in_progress = true
+				return
+			end
+		end
+		if (self.item_to_craft == "fieldcraft_plate_attch") then
+			if (itm:section() == "fieldcraft_pkg_plate_attch_0") or (itm:section() == "fieldcraft_pkg_plate_attch_1") or (itm:section() == "fieldcraft_pkg_plate_attch_2") or (itm:section() == "fieldcraft_pkg_plate_attch_3") or (itm:section() == "fieldcraft_pkg_plate_attch_4")or (itm:section() == "fieldcraft_pkg_plate_attch_5") then
+				craft_in_progress = true
+				return
+			end
+		end
+		if (self.item_to_craft == "army_bowler") then
+			if (itm:section() == "fieldcraft_pkg_army_bowler_0") or (itm:section() == "fieldcraft_pkg_army_bowler_1") or (itm:section() == "fieldcraft_pkg_army_bowler_2") or (itm:section() == "fieldcraft_pkg_army_bowler_3") or (itm:section() == "fieldcraft_pkg_army_bowler_4")or (itm:section() == "fieldcraft_pkg_army_bowler_5") then
+				craft_in_progress = true
+				return
+			end
+		end
+		if (self.item_to_craft == "toolkit_p") then
+			if (itm:section() == "fieldcraft_pkg_toolkit_p_0") or (itm:section() == "fieldcraft_pkg_toolkit_p_1") or (itm:section() == "fieldcraft_pkg_toolkit_p_2") or (itm:section() == "fieldcraft_pkg_toolkit_p_3") or (itm:section() == "fieldcraft_pkg_toolkit_p_4") or (itm:section() == "fieldcraft_pkg_toolkit_p_5") or (itm:section() == "fieldcraft_pkg_toolkit_p_6") then
+				craft_in_progress = true
+				return
+			end
+		end
+		if (self.item_to_craft == "toolkit_s") then
+			if (itm:section() == "fieldcraft_pkg_toolkit_s_0") or (itm:section() == "fieldcraft_pkg_toolkit_s_1") or (itm:section() == "fieldcraft_pkg_toolkit_s_2") or (itm:section() == "fieldcraft_pkg_toolkit_s_3") or (itm:section() == "fieldcraft_pkg_toolkit_s_4") or (itm:section() == "fieldcraft_pkg_toolkit_s_5") or (itm:section() == "fieldcraft_pkg_toolkit_s_6") or (itm:section() == "fieldcraft_pkg_toolkit_s_7") or (itm:section() == "fieldcraft_pkg_toolkit_s_8") then
+				craft_in_progress = true
+				return
+			end
+		end
+		if (self.item_to_craft == "toolkit_r5") then
+			if (itm:section() == "fieldcraft_pkg_toolkit_r5_0") or (itm:section() == "fieldcraft_pkg_toolkit_r5_1") or (itm:section() == "fieldcraft_pkg_toolkit_r5_2") or (itm:section() == "fieldcraft_pkg_toolkit_r5_3") or (itm:section() == "fieldcraft_pkg_toolkit_r5_4") or (itm:section() == "fieldcraft_pkg_toolkit_r5_5") or (itm:section() == "fieldcraft_pkg_toolkit_r5_6") or (itm:section() == "fieldcraft_pkg_toolkit_r5_7") or (itm:section() == "fieldcraft_pkg_toolkit_r5_8") or (itm:section() == "fieldcraft_pkg_toolkit_r5_9") then
+				craft_in_progress = true
+				return
+			end
+		end
+		if (self.item_to_craft == "toolkit_r7") then
+			if (itm:section() == "fieldcraft_pkg_toolkit_r7_0") or (itm:section() == "fieldcraft_pkg_toolkit_r7_1") or (itm:section() == "fieldcraft_pkg_toolkit_r7_2") or (itm:section() == "fieldcraft_pkg_toolkit_r7_3") or (itm:section() == "fieldcraft_pkg_toolkit_r7_4") or (itm:section() == "fieldcraft_pkg_toolkit_r7_5") or (itm:section() == "fieldcraft_pkg_toolkit_r7_6") or (itm:section() == "fieldcraft_pkg_toolkit_r7_7") or (itm:section() == "fieldcraft_pkg_toolkit_r7_8") or (itm:section() == "fieldcraft_pkg_toolkit_r7_9") or (itm:section() == "fieldcraft_pkg_toolkit_r7_10") then
+				craft_in_progress = true
+				return
+			end
+		end
+		if (self.item_to_craft == "stimpack") then
+			if (itm:section() == "fieldcraft_pkg_stimpack_0") or (itm:section() == "fieldcraft_pkg_stimpack_1") or (itm:section() == "fieldcraft_pkg_stimpack_2") or (itm:section() == "fieldcraft_pkg_stimpack_3") or (itm:section() == "fieldcraft_pkg_stimpack_4") or (itm:section() == "fieldcraft_pkg_stimpack_5") or (itm:section() == "fieldcraft_pkg_stimpack_6") then
+				craft_in_progress = true
+				return
+			end
+		end
+	end
+	
+	
+	db.actor:iterate_inventory(check_for_pkg,db.actor)
+	
+	if (craft_in_progress == true) then
+		self:HideDialog()
+		SetHudMsg("Crafting already in progress: "..inv_name, 5)
+		if self.section =="survivalguide" then
+			alife():create("survivalguide", db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+		end
+		return
+	end
+	
+	--recipes = {"medkit", "itm_backpack", "itm_sleepbag", "ied", "ied_rpg", "mine", "fieldcraft_plate_attch"}
+	if (self.item_to_craft == "medkit") then
+		alife():create("fieldcraft_pkg_medkit_0", db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+	end
+	if (self.item_to_craft == "itm_backpack") then
+		alife():create("fieldcraft_pkg_backpack_0", db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+	end
+	if (self.item_to_craft == "itm_sleepbag") then
+		alife():create("fieldcraft_pkg_sleepbag_0", db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+	end
+	if (self.item_to_craft == "ied") then
+		alife():create("fieldcraft_pkg_ied_0", db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+	end
+	if (self.item_to_craft == "ied_rpg") then
+		alife():create("fieldcraft_pkg_iedrpg_0", db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+	end
+	if (self.item_to_craft == "mine") then
+		alife():create("fieldcraft_pkg_mine_0", db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+	end
+	if (self.item_to_craft == "fieldcraft_plate_attch") then
+		alife():create("fieldcraft_pkg_plate_attch_0", db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+	end
+	if (self.item_to_craft == "army_bowler") then
+		alife():create("fieldcraft_pkg_army_bowler_0", db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+	end
+	if (self.item_to_craft == "toolkit_p") then
+		alife():create("fieldcraft_pkg_toolkit_p_0", db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+	end
+	if (self.item_to_craft == "toolkit_s") then
+		alife():create("fieldcraft_pkg_toolkit_s_0", db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+	end
+	if (self.item_to_craft == "toolkit_r5") then
+		alife():create("fieldcraft_pkg_toolkit_r5_0", db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+	end
+	if (self.item_to_craft == "toolkit_r7") then
+		alife():create("fieldcraft_pkg_toolkit_r7_0", db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+	end
+	if (self.item_to_craft == "stimpack") then
+		alife():create("fieldcraft_pkg_stimpack_0", db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+	end
+	
+	
+	
+	if self.section =="survivalguide" then
+		alife():create("survivalguide", db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+	end
+	
+	if (self.use_actor_effects and actor_effects) then
+		actor_effects.use_item("itm_backpack")
+	end
+	
+	local snd_obj = sound_object("interface\\inv_close")
+	snd_obj:play(db.actor,0,sound_object.s2d)
+	--level_weathers.get_weather_manager():forced_weather_change()
+	
+	local function set_hud_msg(message)
+		SetHudMsg(message, 5)
+		return true
+	end
+	
+	
+	CreateTimeEvent("create_parts","create_parts_timer",10,set_hud_msg,"Crafting package created for: "..inv_name)
+	
+	self:HideDialog()
+
+	return
+	
+end
+
+function crafting_ui:AddItemToList(item,listbox)
+
+	local _itm	= load_item(self.file_item_main_sz.y)
+	local sec = item
+	local inv_name 		= item and game.translate_string(rx_utils.read_from_ini2(nil,sec,"inv_name","string","error")) or "none"
+	
+	if (item == "ied") then
+		inv_name = "Chemical IED"
+	end
+	if (item == "ied_rpg") then
+		inv_name = "RPG warhead IED"
+	end
+	if (item == "mine") then
+		inv_name = "Mine"
+	end
+
+	_itm:SetWndSize		(self.file_item_main_sz)
+	_itm.fn:SetWndPos(vector2():set(0,0))
+	_itm.fn:SetWndSize	(self.file_item_fn_sz)
+	_itm.fn:SetText		(inv_name)
+
+	if (item) then
+		_itm.item_id = item
+
+		local inv_grid_width = rx_utils.read_from_ini2(ini,sec,"inv_grid_width","float",0)
+		local inv_grid_height = rx_utils.read_from_ini2(ini,sec,"inv_grid_height","float",0)
+		local inv_grid_x = rx_utils.read_from_ini2(ini,sec,"inv_grid_x","float",0)
+		local inv_grid_y = rx_utils.read_from_ini2(ini,sec,"inv_grid_y","float",0)
+
+		_itm.x1 = inv_grid_x*50
+		_itm.y1 = inv_grid_y*50
+
+		_itm.width = inv_grid_width*50
+		_itm.height = inv_grid_height*50
+
+		_itm.x2 = _itm.x1 + _itm.width
+		_itm.y2 = _itm.y1 + _itm.height
+	end
+
+	listbox:AddExistingItem(_itm)
+end

@@ -1,0 +1,638 @@
+--[[
+		Advanced Weapon Repair Mod 0.3 [Detail UI] by Faustle (2017)
+]]--
+
+class "awr_mini_ui" (CUIScriptWnd)
+
+function awr_mini_ui:__init(owner,dest_obj) super()
+
+	self.detail_obj = dest_obj
+	self.owner = owner
+
+	self.chance_1 = 0
+	self.chance_2 = 0
+	self.chance_ready = 0
+	self.counter = 0
+	
+	local ini = system_ini()
+	self.awr_sf = awr_shared_functions
+	
+	self.inventory = {}
+	self.to_remove = {}
+	self.consumables = 	{ 
+							low =  { 'bandage', 'textile_patch_b' },
+							mid =  { 'textile_patch_m', 'helm_cloth_mask_bad', 'helm_cloth_mask_worn', 'helm_bandana_worn', 'helm_rp_bala_worn' },
+							high = { 'tarpaulin', 'helm_cloth_mask', 'helm_bandana',  'helm_rp_bala', 'textile_patch_e', 'armor_repair_fa', 'armor_repair_fa_2', 'survival_kit' }
+						}
+						
+	self.liquids = 		{
+							low =  { 'explo_jerrycan_fuel', 'explo_jerrycan_fuel2', 'explo_jerrycan_fuel3', 'explo_jerrycan_fuel4', 'explo_jerrycan_fuel5', 'explo_jerrycan_fuel6', 'explo_jerrycan_fuel7', 'explo_jerrycan_fuel8', 'solvent', 'solvent_2', 'kerosene', 'kerosene2', 'kerosene3', 'kerosene4', 'kerosene5', 'gun_oil_ru', 'gun_oil_ru_2' },
+							mid =  { 'grease', 'grease2', 'gun_oil', 'gun_oil_2', 'gun_oil_ru_d', 'gun_oil_ru_d_2' },
+							high = {}
+						}
+					
+	--// + к шансу восстановления для групп деталей
+	self.types = { low = 5, mid = 10, high = 15 }
+	
+	if self.awr_sf.IsWorn(self.detail_obj:section()) then
+		--// Базовый шанс восстановления для изношенной детали
+		self.chance = 25
+		self.awr_sf.dout(nil, "%s is worn, base chance %s", self.detail_obj:section(), self.chance)
+	else
+		--// Базовый шанс восстановления для ржавой детали
+		self.chance = 15
+		self.awr_sf.dout(nil, "%s is rusty, base chance %s", self.detail_obj:section(), self.chance)
+	end
+	
+	self:InitControls()
+	self:InitCallBacks()
+end
+
+function awr_mini_ui:__finalize()
+end
+
+function awr_mini_ui:InitControls()
+	self:SetWndRect			(Frect():set(0,0,1024,768))
+	
+	if (utils.is_widescreen()) then
+		self:SetWndPos			(vector2():set(356,40))
+	else
+		self:SetWndPos			(vector2():set(296,40))
+	end
+	
+	self.xml				= CScriptXmlInit()
+	self.xml				:ParseFile("ui_awr_mini.xml")
+	
+	self.main_ui			= self.xml:InitStatic("itm_awr_mini:main_ui",self)
+	self.main_ui			:SetWndPos(vector2():set(0, 0))
+	
+	self.detail_bg			= self.xml:InitStatic("itm_awr_mini:main_ui:detail_bg",self.main_ui)
+	self.tool_a_img			= self.xml:InitStatic("itm_awr_mini:main_ui:tool_a_img",self.main_ui)
+	self.tool_b_img			= self.xml:InitStatic("itm_awr_mini:main_ui:tool_b_img",self.main_ui)
+	self.tool_c_img			= self.xml:InitStatic("itm_awr_mini:main_ui:tool_c_img",self.main_ui)
+	
+	self.detail_img			= self.xml:InitStatic("itm_awr_mini:main_ui:detail_img",self.main_ui)
+	self.detail_dot_img		= self.xml:InitStatic("itm_awr_mini:main_ui:detail_dot_img",self.main_ui)
+	self.detail_chance 		= self.xml:InitTextWnd("itm_awr_mini:main_ui:detail_chance",self.main_ui)
+	self.tool_b_btn			= self.xml:Init3tButton("itm_awr_mini:main_ui:tool_b_btn",self.main_ui)
+	self.tool_c_btn			= self.xml:Init3tButton("itm_awr_mini:main_ui:tool_c_btn",self.main_ui)
+	self.detail_btn			= self.xml:Init3tButton("itm_awr_mini:main_ui:detail_btn",self.main_ui)
+	
+	self					:SetAutoDelete(true)
+	self.detail_btn			:Enable(false)
+	self.tool_b_btn			:Enable(false)
+	self.tool_c_btn			:Enable(false)
+
+	self:Register		(self.detail_btn, "detail_btn_call")
+	self:Register		(self.tool_b_btn, "tool_b_btn_call")
+	self:Register		(self.tool_c_btn, "tool_c_btn_call")
+	
+	ActorMenu.get_actor_menu():HideDialog()
+	db.actor:hide_weapon()
+
+	self.awr_sf.SetBGImg(4, self.detail_bg)
+	self.awr_sf.SetImgDot(1, self.detail_dot_img)
+	self.awr_sf.SetImg(0, self.detail_img, self.detail_obj)
+	self:SetTool()
+end
+
+function awr_mini_ui:InitCallBacks()
+	self:AddCallback("detail_btn_call", ui_events.BUTTON_CLICKED, self.OnButtonDetailClicked, self)
+	self:AddCallback("tool_b_btn_call", ui_events.BUTTON_CLICKED, self.OnButtonToolBClicked,  self)
+	self:AddCallback("tool_c_btn_call", ui_events.BUTTON_CLICKED, self.OnButtonToolCClicked,  self)
+end
+
+--// Функция инициализации\реинициализации sbox_wnd
+function awr_mini_ui:InitWnd()
+	if self.sbox_wnd then
+		self.awr_sf.dout(nil, "sbox_wnd exist. Reinit")
+		self.main_ui:DetachChild(self.sbox_wnd)
+	else
+		self.awr_sf.dout(nil, "Init sbox_wnd")
+	end
+	
+	self.sbox_wnd = CUIWindow()
+	if (utils.is_widescreen()) then
+		self.sbox_wnd:SetWndPos(vector2():set(228, 29))
+		self.sbox_wnd:SetWndSize(vector2():set(70, 624))
+	else
+		self.sbox_wnd:SetWndPos(vector2():set(304, 29))
+		self.sbox_wnd:SetWndSize(vector2():set(100, 624))
+	end
+	self.main_ui:AttachChild(self.sbox_wnd)
+	self.scroll	= self.xml:InitScrollView("itm_awr_mini:sbox_wnd:scroll_v", self.sbox_wnd)
+	self.sbox_wnd:Show(true)
+end
+
+--// Callback при нажатии на фрейм с жидкостью
+function awr_mini_ui:OnButtonToolBClicked()
+	if self.tool_b_img then
+		self.tool_b_img:SetWndSize(vector2():set(0, 0))
+	end
+	self.awr_sf.dout(nil, "ToolB button callback")
+	self.detail_btn:Enable(false)
+	self.tool_b_btn:Enable(false)
+	self.to_remove['liquids'] = ""
+	self.chance_1 = 0
+	self:CalcChance()
+	self.awr_sf.SetBGImg(4, self.detail_bg)
+	self.awr_sf.SetImgDot(1, self.detail_dot_img)
+	self.awr_sf.SetImg(0, self.detail_img, self.detail_obj)
+	self:SVUpdate(1)
+end
+
+--// Callback при нажатии на фрейм с ветошью
+function awr_mini_ui:OnButtonToolCClicked()
+	if self.tool_c_img then
+		self.tool_c_img:SetWndSize(vector2():set(0, 0))
+	end
+	self.awr_sf.dout(nil, "ToolC button callback")
+	self.detail_btn:Enable(false)
+	self.tool_c_btn:Enable(false)
+	self.to_remove['consumables'] = ""
+	self.chance_2 = 0
+	self:CalcChance()
+	self.awr_sf.SetBGImg(4, self.detail_bg)
+	self.awr_sf.SetImgDot(1, self.detail_dot_img)
+	self.awr_sf.SetImg(0, self.detail_img, self.detail_obj)
+	
+	if self.chance_1 == 0 then
+		self:SVUpdate(1)
+	else
+		self:SVUpdate(2)
+	end
+end
+
+--// Callback при нажатии на фрейм детали
+function awr_mini_ui:OnButtonDetailClicked()
+	local delay = axr_main.config:r_value("mm_options","enable_extra_animations",1) and 50 or 0
+	local base_ch = { explo_jerrycan_fuel = 8, kerosene = 5 }
+	self.awr_sf.dout(nil, "Detail button callback, delay %s", delay)
+	
+	--// Формирование таблиц в выбранными материалами
+	local all = { 'liquids', 'consumables' }
+	local t = { db.actor:object(self.detail_obj:section()), db.actor:object(self.to_remove['consumables']), db.actor:object(self.to_remove['liquids']) }
+	local detail_name = game.translate_string(rx_utils.read_from_ini2(nil,string.gsub(self.detail_obj:section(), '^(.*%_%d+)(.*)$', '%1_good'),"inv_name","string","error"))
+	local num = string.gsub(self.to_remove['liquids'], '^(.*)(%d+)$', '%2')
+	local num_1 = string.gsub(self.to_remove['consumables'], '^(.*)(%d+)$', '%2')
+	
+	--// Удаление использованных материалов
+	for _, k in ipairs(t) do
+		if t[1] then
+			db.actor:mark_item_dropped(k)
+			local temp = alife():object(k:id())
+			self.awr_sf.del_obj(temp)
+		elseif t[2] then
+			db.actor:mark_item_dropped(k)
+			local temp = alife():object(k:id())
+			self.awr_sf.del_obj(temp)
+		elseif t[3] then
+			db.actor:mark_item_dropped(k)
+			local temp = alife():object(k:id())
+			self.awr_sf.del_obj(temp)
+		end
+	end
+	
+	--// Локальная функция отложенного запуска
+	local function finalize(detail_sect)
+		for _, k in ipairs(all) do
+			local num = tonumber(tostring(self.to_remove[k]:gsub('[^%d]', '')))
+			local cl_sec = tostring(self.to_remove[k]:gsub('[^%p%a]', ''))
+			if self.to_remove[k]:match('explo_jerrycan_fuel') or self.to_remove[k]:match('kerosene') then
+				if num then
+					num = base_ch[cl_sec] - num + 1
+					self.awr_sf.dout(nil, 'Num exist, get %s for %s', num, cl_sec)
+				else
+					num = base_ch[cl_sec]
+					self.awr_sf.dout(nil, 'Num is not exist, get base %s for %s', num, cl_sec)
+				end
+			end	
+			
+			--// Определение количества зарядов у используемых материалов
+			if type(tonumber(num)) == 'number' then
+				self.awr_sf.dout(nil, "Item has %s charges", num)
+				if self.to_remove[k]:match('explo_jerrycan_fuel') or self.to_remove[k]:match('kerosene') then
+					if cl_sec:match('explo_jerrycan_fuel') and num == 8 then
+						self.awr_sf.dout(nil, 'Num == 8, created %s%s', cl_sec, 2)
+						alife():create(string.format("%s%i", cl_sec, 2), db.actor:position(), 0, 0, 0)
+					elseif cl_sec:match('kerosene') and num == 5 then
+						self.awr_sf.dout(nil, 'Num == 5, created %s%s', cl_sec, 2)
+						alife():create(string.format("%s%i", cl_sec, 2), db.actor:position(), 0, 0, 0)
+
+					elseif num > 2 then
+						self.awr_sf.dout(nil, 'Num > 2, created %s%s', cl_sec, base_ch[cl_sec] - num + 2)
+						alife():create(string.format("%s%i", cl_sec, base_ch[cl_sec] - num + 2), db.actor:position(), 0, 0, 0)
+
+					elseif num == 2 then
+						self.awr_sf.dout(nil, 'Num > 2, created %s%s', cl_sec, base_ch[cl_sec])
+						alife():create(string.format("%s%i", cl_sec, base_ch[cl_sec]), db.actor:position(), 0, 0, 0)
+					end
+				else
+					if num > 2 then
+						alife():create(string.format("%s%i", string.gsub(self.to_remove[k], '^(.*)(%d+)$', '%1'),num-1), db.actor:position(), 0, 0, 0)
+					elseif num == 2 then
+						if string.gsub(self.to_remove[k], '^(.*)(%_)(%d+)$', '%2') == "_" then
+							alife():create(string.gsub(self.to_remove[k], '^(.*)(%_)(%d+)$', '%1'), db.actor:position(), 0, 0, 0)
+						else
+							alife():create(string.gsub(self.to_remove[k], '^(.*)(%d+)$', '%1'), db.actor:position(), 0, 0, 0)
+						end
+					end
+				end
+			end
+		end
+		
+		--// Создание или fail восстановленной детали с учетом суммы шансов всех деталей
+		if self.chance_ready >= math.random(1, 100) then
+			alife():create(string.gsub(detail_sect, '^(.*%_%d+)(.*)$', '%1_good'), db.actor:position(), 0, 0, 0)
+			self.awr_sf.SendAwrMsg('success', 'detail', "st_dis_text_5", detail_name)
+			self.awr_sf.dout(nil, "Detail repair success. Get %s", string.gsub(detail_sect, '^(.*%_%d+)(.*)$', '%1_good'))
+		else
+			self.awr_sf.SendAwrMsg('fail', 'detail', "st_dis_text_6")
+			self.awr_sf.dout(nil, "Detail repair failed")
+		end
+	
+		return true
+	end
+	
+	self:HideDialog()
+	db.actor:restore_weapon()
+	actor_effects.use_item("cleaning_kit_u_dummy")
+	CreateTimeEvent("repair_detail","delay",delay,finalize,self.detail_obj:section())
+end
+
+--//Функция выбора инструмента
+function awr_mini_ui:SetTool()
+	local sec = self.detail_obj:section()
+	self.awr_sf.dout(nil, "Selected tool %s", sec)
+	
+	local tool = rx_utils.read_from_ini2(nil,sec,"tool","string","error")
+	
+	self.liquid_part = alun_utils.parse_list(system_ini(),tool,"liquid_part")
+	
+	local inv_grid_width = alun_utils.read_from_ini(ini,tool,"inv_grid_width","float",0)
+	local inv_grid_height = alun_utils.read_from_ini(ini,tool,"inv_grid_height","float",0)
+	local inv_grid_x = alun_utils.read_from_ini(ini,tool,"inv_grid_x","float",0)
+	local inv_grid_y = alun_utils.read_from_ini(ini,tool,"inv_grid_y","float",0)
+	
+	local x1 = inv_grid_x*50
+	local y1 = inv_grid_y*50
+
+	if not (db.actor:object(tool)) then
+		x1 = x1 + 50
+		self.awr_sf.SetImgDot(1, self.detail_dot_img)
+	else
+		self.inventory = self.awr_sf.iterate_inv()
+		self:SVUpdate(1)
+	end
+
+	local w = inv_grid_width*50
+	local h = inv_grid_height*50
+
+	local x2 = x1 + w
+	local y2 = y1 + h
+	
+	local w,h = w,h
+	if (utils.is_widescreen()) then
+		w,h = w/1.25,h/1
+	else
+		w,h = w/1,h/1
+	end
+		
+	self.tool_a_img:InitTexture("ui\\ui_icon_equipment")
+	self.tool_a_img:SetTextureRect(Frect():set(x1,y1,x2,y2))
+	
+	--// Условия выбора leatherman или шомпола (общее условие, исходя из размера изображения)
+	if tool == "ramrod_tool" or tool == "leatherman_tool" then
+		self.tool_a_img:SetWndSize(vector2():set(w, h))
+		if (utils.is_widescreen()) then
+			self.tool_a_img:SetWndPos(vector2():set(102, 84))
+		else
+			self.tool_a_img:SetWndPos(vector2():set(136, 84))
+		end
+	--// Условия выбора напильника
+	elseif tool == "rasp_tool" then
+		if (utils.is_widescreen()) then
+			self.tool_a_img:SetWndPos(vector2():set(109, 84))
+			self.tool_a_img:SetWndSize(vector2():set(w*0.7, h*0.7))
+		else
+			self.tool_a_img:SetWndPos(vector2():set(146, 84))
+			self.tool_a_img:SetWndSize(vector2():set(w*0.65, h*0.65))
+		end
+	end
+	
+	self.detail_chance:SetText(self.chance.."%")
+end
+
+--// Функция соотношения инструмена с материалом (парсится с ltx-файла, в секции инструмента)
+function awr_mini_ui:InToolPart(obj)
+	for _, k in ipairs(self.liquid_part) do
+		if k == obj then
+			return true
+		end
+	end
+end
+
+--// Основная функция заполенения scrollview
+function awr_mini_ui:SVUpdate(step)
+
+	--// Функция отложенного вызова, исходя из этапа восстановления
+	local function cross_list(obj)
+		if step == 1 then
+			for key, val in pairs(self.types) do
+				for _, v in ipairs(self.liquids[key]) do
+					if v == obj and self:InToolPart(obj) then
+						return true
+					end
+				end
+			end
+		elseif step == 2 then
+			for key, val in pairs(self.types) do
+				for _, v in ipairs(self.consumables[key]) do
+					if v == obj then
+						return true
+					end
+				end
+			end
+		end
+	end
+	
+	--// Реинициализация CUIWindow с CUIScrollView
+	self:InitWnd()
+	
+	if #self.inventory > 0 then
+		for _, k in ipairs(self.inventory) do
+			if cross_list(k) then
+				local inv_grid_width = alun_utils.read_from_ini(ini,k,"inv_grid_width","float",0)
+				local inv_grid_height = alun_utils.read_from_ini(ini,k,"inv_grid_height","float",0)
+				local inv_grid_x = alun_utils.read_from_ini(ini,k,"inv_grid_x","float",0)
+				local inv_grid_y = alun_utils.read_from_ini(ini,k,"inv_grid_y","float",0)
+
+				local x1 = inv_grid_x*50
+				local y1 = inv_grid_y*50
+
+				local w = inv_grid_width*50
+				local h = inv_grid_height*50
+
+				local x2 = x1 + w
+				local y2 = y1 + h
+
+				local w,h = w,h
+				if (utils.is_widescreen()) then
+				
+					--// Изменение масштаба картинки для размеров w\h - 100\100
+					if inv_grid_width == 2 then
+                        w,h = w/2.5,h/2
+					else
+						w,h = w/1.9,h/1.42
+					end
+				else
+					--// Изменение масштаба картинки для размеров w\h - 100\100
+					if inv_grid_width == 2 then
+                        w,h = w/1.8,h/1.8
+					else
+						w,h = w/1.2,h/1.2
+					end
+				end
+
+				self.sbox_itm = self.xml:InitStatic("itm_awr_mini:sbox_wnd:sbox_itm",nil)
+				self.pic = self.xml:InitStatic("itm_awr_mini:sbox_wnd:sbox_itm:icon",self.sbox_itm)	
+				self.btn = self.xml:Init3tButton("itm_awr_mini:sbox_wnd:sbox_itm:btn",self.sbox_itm)
+				self.text_wnd = self.xml:InitStatic("itm_awr_mini:sbox_wnd:sbox_itm:text_wnd",self.sbox_itm)
+				self.mini = self.xml:InitTextWnd("itm_awr_mini:sbox_wnd:sbox_itm:text_wnd:text_chance",self.text_wnd)
+				
+				self.sbox_itm:InitTexture("ui\\ui_awr_interface_main")
+				self.pic:InitTexture("ui\\ui_icon_equipment")
+				self.pic:SetTextureRect(Frect():set(x1,y1,x2,y2))
+				
+				if (utils.is_widescreen()) then	
+					self.sbox_itm:SetTextureRect(Frect():set(23,738,77,748+h+20))
+					self.sbox_itm:SetWndSize(vector2():set(54, h+20))
+					self.pic:SetWndSize(vector2():set(w, h))
+					self.btn:SetWndSize(vector2():set(54, h+20))
+					self.text_wnd:SetWndSize(vector2():set(10, 20))
+					self.text_wnd:SetWndPos(vector2():set(16, h+10))
+					
+					--// Изменение отступа инонки относительно статика при размере w\h - 100\100
+					if inv_grid_width == 2 then
+						self.pic:SetWndPos(vector2():set(10, 7))
+					end
+				else
+					self.sbox_itm:SetTextureRect(Frect():set(23,868,108,878+h+20))
+					self.sbox_itm:SetWndSize(vector2():set(85, h+20))
+					self.pic:SetWndSize(vector2():set(w, h))
+					self.btn:SetWndSize(vector2():set(85, h+20))
+					self.text_wnd:SetWndSize(vector2():set(10, 20))
+					self.text_wnd:SetWndPos(vector2():set(25, h+10))
+					
+					--// Изменение отступа инонки относительно статика при размере w\h - 100\100
+					if inv_grid_width == 2 then
+						self.pic:SetWndPos(vector2():set(15, 7))
+					end
+				end
+				
+				
+				self.mini:SetText("+"..self:GetChance(k,step).."%")	
+				self.mini:SetTextColor(GetARGB(180,0,255,0))
+						
+				self:Register(self.btn, "btn"..tostring(self.counter))
+
+				self.scroll:AddWindow(self.sbox_itm, true)
+				if step == 1 then
+					self:AddCallback("btn"..tostring(self.counter), ui_events.BUTTON_CLICKED, function() self:AddLiquid(k) end)
+				elseif step == 2 then
+					self:AddCallback("btn"..tostring(self.counter), ui_events.BUTTON_CLICKED, function() self:AddConsumables(k) end)
+				end
+				
+				--// Сепаратор
+				self.sep = self.xml:InitStatic("itm_awr_mini:sbox_wnd:templ_item",nil)
+				self.sep:SetWndSize(vector2():set(85, 20))
+				self.scroll:AddWindow(self.sep, true)
+				self.counter = self.counter + 1
+			end
+		end
+	end
+end
+
+--// Callback при нажатии Escape
+function awr_mini_ui:OnKeyboard(dik, keyboard_action)
+	CUIScriptWnd.OnKeyboard(self,dik,keyboard_action)
+	if (keyboard_action == ui_events.WINDOW_KEY_PRESSED) then
+		if (dik == DIK_keys.DIK_ESCAPE) then
+			self:HideDialog()
+			db.actor:restore_weapon()
+		end
+	end
+	return true
+end
+
+--// Функция расчета\вывода общего шанса
+function awr_mini_ui:CalcChance()
+	self.detail_chance:SetText(self.chance+self.chance_1+self.chance_2.."%")
+	self.chance_ready = self.chance+self.chance_1+self.chance_2
+	self.awr_sf.dout(nil, "Chance is %s", self.chance_ready)
+end
+
+--// Функция получения шанса для материала
+function awr_mini_ui:GetChance(obj,step)
+	if step == 1 then
+		for key, val in pairs(self.types) do
+			for _, v in ipairs(self.liquids[key]) do
+				if v == obj then
+					return val
+				end
+			end
+		end
+	elseif step == 2 then
+		for key, val in pairs(self.types) do
+			for _, v in ipairs(self.consumables[key]) do
+				if v == obj then
+					return val
+				end
+			end
+		end
+	end
+end
+
+--// Функция выбора материала во фрейме 1 (жидкость)
+function awr_mini_ui:AddLiquid(sec)
+	self.awr_sf.dout(nil, "Add liquid %s", sec)
+	
+	if self.chance_2 ~= 0 then
+		if self.awr_sf.IsWorn(self.detail_obj:section()) then
+			self.awr_sf.SetBGImg(2, self.detail_bg)
+			self.awr_sf.SetImg(2, self.detail_img, self.detail_obj)
+		else
+			self.awr_sf.SetBGImg(1, self.detail_bg)
+			self.awr_sf.SetImg(1, self.detail_img, self.detail_obj)
+		end
+		self.awr_sf.SetImgDot(2, self.detail_dot_img)
+		self.detail_btn:Enable(true)
+	end
+	
+	self.to_remove['liquids'] = sec
+	self.tool_b_btn:Enable(true)
+	
+	local inv_grid_width = alun_utils.read_from_ini(ini,sec,"inv_grid_width","float",0)
+	local inv_grid_height = alun_utils.read_from_ini(ini,sec,"inv_grid_height","float",0)
+	local inv_grid_x = alun_utils.read_from_ini(ini,sec,"inv_grid_x","float",0)
+	local inv_grid_y = alun_utils.read_from_ini(ini,sec,"inv_grid_y","float",0)
+	
+	local x1 = inv_grid_x*50
+	local y1 = inv_grid_y*50
+
+	local w = inv_grid_width*50
+	local h = inv_grid_height*50
+
+	local x2 = x1 + w
+	local y2 = y1 + h
+	
+	local w,h = w,h
+	if (utils.is_widescreen()) then
+		w,h = w/1.87,h/1.5
+	else
+		w,h = w/1,h/1
+	end
+		
+	self.tool_b_img:InitTexture("ui\\ui_icon_equipment")
+	self.tool_b_img:SetTextureRect(Frect():set(x1,y1,x2,y2))
+	
+	if (utils.is_widescreen()) then
+		if inv_grid_width == 1 and inv_grid_height == 1 then
+			self.tool_b_img:SetWndSize(vector2():set(w*1.5, h*1.5))
+			self.tool_b_img:SetWndPos(vector2():set(104, 278))
+		elseif inv_grid_width == 1 and inv_grid_height == 2 then
+			self.tool_b_img:SetWndSize(vector2():set(w, h))
+			self.tool_b_img:SetWndPos(vector2():set(108, 269))
+		elseif inv_grid_width == 2 and inv_grid_height == 2 then
+			self.tool_b_img:SetWndSize(vector2():set(w*0.8, h*0.8))
+			self.tool_b_img:SetWndPos(vector2():set(102, 278))	
+		end
+	else
+		if inv_grid_width == 1 and inv_grid_height == 1 then
+			self.tool_b_img:SetWndSize(vector2():set(w, h))
+			self.tool_b_img:SetWndPos(vector2():set(141, 278))
+		elseif inv_grid_width == 1 and inv_grid_height == 2 then
+			self.tool_b_img:SetWndSize(vector2():set(w*0.7, h*0.7))
+			self.tool_b_img:SetWndPos(vector2():set(145, 269))
+		elseif inv_grid_width == 2 and inv_grid_height == 2 then
+			self.tool_b_img:SetWndSize(vector2():set(w*0.65, h*0.65))
+			self.tool_b_img:SetWndPos(vector2():set(133, 273))
+		end
+	end
+	
+	self:SVUpdate(2)
+	
+	self.chance_1 = self:GetChance(sec,1)
+	self:CalcChance()
+end
+
+--// Функция выбора материала во фрейме 2 (ветошь)
+function awr_mini_ui:AddConsumables(sec)
+	self.awr_sf.dout(nil, "Add material %s", sec)
+	
+	self.awr_sf.SetImgDot(2, self.detail_dot_img)
+	
+	if self.awr_sf.IsWorn(self.detail_obj:section()) then
+		self.awr_sf.SetBGImg(2, self.detail_bg)
+		self.awr_sf.SetImg(2, self.detail_img, self.detail_obj)
+	else
+		self.awr_sf.SetBGImg(1, self.detail_bg)
+		self.awr_sf.SetImg(1, self.detail_img, self.detail_obj)
+	end
+	
+	self.to_remove['consumables'] = sec
+
+	self.detail_btn:Enable(true)
+	self.tool_c_btn:Enable(true)
+	
+	local inv_grid_width = alun_utils.read_from_ini(ini,sec,"inv_grid_width","float",0)
+	local inv_grid_height = alun_utils.read_from_ini(ini,sec,"inv_grid_height","float",0)
+	local inv_grid_x = alun_utils.read_from_ini(ini,sec,"inv_grid_x","float",0)
+	local inv_grid_y = alun_utils.read_from_ini(ini,sec,"inv_grid_y","float",0)
+	
+	local x1 = inv_grid_x*50
+	local y1 = inv_grid_y*50
+
+	local w = inv_grid_width*50
+	local h = inv_grid_height*50
+
+	local x2 = x1 + w
+	local y2 = y1 + h
+	
+	local w,h = w,h
+	if (utils.is_widescreen()) then
+		w,h = w/1.87,h/1.5
+	else
+		w,h = w/1,h/1
+	end
+		
+	self.tool_c_img:InitTexture("ui\\ui_icon_equipment")
+	self.tool_c_img:SetTextureRect(Frect():set(x1,y1,x2,y2))
+	
+	if (utils.is_widescreen()) then
+		if inv_grid_width == 1 and inv_grid_height == 1 then
+			self.tool_c_img:SetWndSize(vector2():set(w*1.5, h*1.5))
+			self.tool_c_img:SetWndPos(vector2():set(104, 428))
+		elseif inv_grid_width == 1 and inv_grid_height == 2 then
+			self.tool_c_img:SetWndSize(vector2():set(w, h))
+			self.tool_c_img:SetWndPos(vector2():set(108, 418))
+		elseif inv_grid_width == 2 and inv_grid_height == 2 then
+			self.tool_c_img:SetWndSize(vector2():set(w*0.8, h*0.8))
+			self.tool_c_img:SetWndPos(vector2():set(102, 428))
+		end
+	else
+		if inv_grid_width == 1 and inv_grid_height == 1 then
+			self.tool_c_img:SetWndSize(vector2():set(w, h))
+			self.tool_c_img:SetWndPos(vector2():set(139, 428))
+		elseif inv_grid_width == 1 and inv_grid_height == 2 then
+			self.tool_c_img:SetWndSize(vector2():set(w*0.8, h*0.8))
+			self.tool_c_img:SetWndPos(vector2():set(141, 412))
+		elseif inv_grid_width == 2 and inv_grid_height == 2 then
+			self.tool_c_img:SetWndSize(vector2():set(w*0.7, h*0.7))
+			self.tool_c_img:SetWndPos(vector2():set(130, 417))
+		end
+	end
+	
+	self.chance_2 = self:GetChance(sec,2)
+	self:CalcChance()
+end

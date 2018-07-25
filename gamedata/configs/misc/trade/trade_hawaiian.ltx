@@ -1,0 +1,75 @@
+#include "trade_discounts.ltx"
+#include "trade_presets.ltx"
+
+[trader]
+buy_condition = trade_generic_buy
+sell_condition = trade_generic_sell
+buy_supplies = supplies_1
+buy_item_condition_factor = 0.40
+buy_item_exponent = 2.25
+sell_item_exponent = 0.75
+
+discounts = discount_barman_1
+
+[trade_generic_buy]:barman
+
+[trade_generic_sell]:barman
+
+[supplies_1]
+;food
+meat_tushkano			= 6, 1
+meat_dog				= 6, 1
+meat_pseudodog			= 4, 1
+meat_flesh				= 4, 1
+meat_boar				= 4, 1
+meat_bloodsucker		= 2, 1
+meat_snork				= 4, 1
+meat_chimera			= 1, 1
+bread					= 4, 1
+breadold				= 6, 1
+kolbasa					= 4, 1
+tushonka                = 4, 1
+conserva				= 4, 1
+tomato					= 2, 1
+sausage					= 2, 1
+corn					= 2, 1
+beans			        = 2, 1
+chili                   = 2, 1
+salmon                  = 2, 1
+raisins                 = 2, 1
+chocolate               = 2, 1
+nuts                    = 2, 1
+mre_3                   = 1, 1
+ration_ru               = 1, 1
+ration_ru_7             = 1, 1
+ration_ukr_6			= 1, 1
+mint_3					= 4, 1
+mineral_water_3			= 2, 1
+caffeine_5				= 2, 1
+hand_rolling_tobacco_3  = 2, 1
+cigar                   = 1, 1
+cigarettes_lucky_3      = 3, 1
+cigarettes_russian_3    = 3, 1
+beer                    = 3, 1
+vodka_3                 = 3, 1
+vodka2_3                = 3, 1
+energy_drink            = 3, 1
+water_drink_3           = 2, 1
+cigarettes_3            = 4, 1
+tea_3                   = 2, 1
+akvatab_3               = 3, 1
+flask_3                 = 2, 1
+bottle_metal_3          = 2, 1
+vodka_quality_3         = 2, 1
+tobacco_3               = 2, 1
+marijuana               = 1, 1
+cigar1_3                = 2, 1
+cigar2_3                = 2, 1
+cigar3_3                = 2, 1
+cooking                 = 4, 1
+fieldcooker             = 1, 1
+wood_stove              = 1, 1
+kerosene                = 1, 1
+charcoal                = 2, 1
+explo_balon_gas         = 3, 1
+explo_jerrycan_fuel     = 3, 1

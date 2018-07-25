@@ -1,0 +1,918 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<string_table>
+	<string id="st_meat_tark">
+		<text>Horse meat</text>
+	</string>
+	<string id="st_meat_descr_tark">
+		<text>A piece of meat high in both nutrition and radiation. The scientists have enough samples already, which limits its use as a commodity. Source of animal fat for gun lubrication.\n \n%c[0,204,0,51]WARNING:\n \n%c[default]Stalkers are advised to refrain from eating raw meat as animals and mutants in the Zone are likely to be carrying trichinellosis or brucellosis. These diseases are transmitted by ingesting infected meat. The symptoms include fever, fatigue and appetite loss, all of which are extremely dangerous given the conditions in the Zone. Abscesses, fungal growth and tumors on the surface of the body indicate that the meat is infected and should be disposed of.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,0,255,30] • %c[0,140,140,140] low-tier mutant meat\n%c[0,0,255,30] • %c[0,140,140,140] not cookable\n%c[0,204,0,51] • %c[0,140,140,140] toxic food\n%c[0,204,0,51] • %c[0,140,140,140] radiation poisoning: %c[0,170,170,170] +646 mSv\n%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] weapon lubrication (+2%)</text>
+	</string>
+	<string id="mutant_tark_tail">
+		<text>Horse tail</text>
+	</string>
+	<string id="mutant_tark_tail_description">
+		<text>A long, frayed tail, presumably from a local horse. The scientists have enough samples already, which limits its use as a commodity.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] mutated body part\n%c[0,153,255,255] • %c[0,140,140,140] common scientific specimen</text>
+	</string>
+	<string id="trenchcoat_novice_name">
+		<text>Old trenchcoat</text>
+	</string>
+	<string id="trenchcoat_novice_description">
+		<text>\n  \n%c[0,170,170,170]A long brown cloak. It looks old and worn, a lot of patches and seams indicate numerous repairs. It is best to use with a gas mask or a closed breathing system. Initially, one mount for additional modules was installed.\n \n%c[0,170,170,170]FEATURES:\n%c[0,153,255,255] • %c[0,140,140,140] Lightweight Equipment\n%c[255,238,153,26] • %c[0,140,140,140] Usable for %c[0,170,170,170] equipment repair(+24%)\n \n%c[0,170,170,170]Head:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Shoulders: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Filter: %c[0,170,170,170]None\n%c[0,93,0,116] • %c[0,140,140,140] Gloves: %c[0,170,170,170]None\n%c[0,93,0,116] • %c[0,140,140,140] Boots: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Knees and shin: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Feet: %c[0,170,170,170]I\n \n</text>
+	</string>
+	<string id="st_heavy_stalker_outfit_name">
+		<text>Improvised STALKER suit</text>
+	</string>
+	<string id="st_heavy_stalker_outfit_description">
+		<text>A trenchcoat modified with common materials in the Zone, featuring a twin-layered rubberised cloth with Plexiglas lining and built-in body armor. Despite the fact that the body armor is often strained by anything beyond even pistol bullets, the suit enjoys great popularity due to its low cost and modification potential.\n \n%c[0,170,170,170]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] light armor\n%c[255,238,153,26] • %c[0,140,140,140] Usable for %c[0,170,170,170] equipment repair (+34%)\n \n%c[0,170,170,170]Head:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Shoulders: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Filter: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Gloves: %c[0,170,170,170]None\n%c[0,93,0,116] • %c[0,140,140,140] Hips: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Knees and shin: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Feet: %c[0,170,170,170]IIIA\n \n</text>
+	</string>
+	<string id="st_wpn_flamewerfer">
+		<text>Flamethrower</text>
+	</string>
+	<string id="st_wpn_flamewerfer_descr">
+		<text>A homemade flamethrower, prone to jamming and having poor range. Its haphazard design suggests it was made in the zone by a disturbed stalker.</text>
+	</string>
+	<string id="ammo_flw">
+		<text>Flamethrower fuel</text>
+	</string>
+	<string id="ammo_flw_descr">
+		<text>Boiled animal fat, diesel and bits of melted rubber. Makes for a sticky, napalm-like substance when lit. </text>
+	</string>
+	<string id="st_grenade_light">
+		<text>M68 grenade</text>
+	</string>
+	<string id="st_grenade_light_descr">
+		<text>The M68 lightweight grenade packs a considerable amount of shrapnel and is popular among paratroopers, marines and special NATO forces. Fitted with the M213 fuse, it can be worn and rapidly deployed by hooking the trigger lever to the equipment belt.</text>
+	</string>
+	<string id="soldier_izol_1_outfit_name">
+		<text>Gagarin combat suit</text>
+	</string>
+	<string id="soldier_izol_1_outfit_description">
+		<text>The Gagarin standard issue combat suit is the certified combat outfit for all standard army units operating within the Zone. Fitted with an external insulating coating and a closed-cycle breathing system using a modified GP-17 gas mask, it offers moderate protection against the Zone's climate. The Gagarin is built off of the Fort Redoubt T7 combat vest, and provides excellent shrapnel protection without reducing the wearers mobility. It's disadvantage is how much it weighs. It has three slots for additional modules.\n \n%c[0,170,170,170]FEATURES:\n%c[0,153,255,255] • %c[0,140,140,140] Reinforced Armor\n%c[255,238,153,26] • %c[0,140,140,140] Usable for: %c[0,170,170,170] equipment repair (+48%)\n \n%c[0,170,170,170]Head:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Shoulders: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Filter: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Gloves: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Hips: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Knees and shin: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Feet: %c[0,170,170,170]IV\n \n</text>
+	</string>
+	<string id="st_rs_1b_outfit_name">
+		<text>РС-1B Lightweight Suit</text>
+	</string>
+	<string id="st_rs_1b_outfit_description">
+		<text>The light armored "RS-1B" suit was developed by the Clear Sky group based on the existing ChN-1 combat suit. Besides some aesthetic modifications, the two are nearly identical in terms of protection. It offers little in terms of protection from the Zone's anomalies, but it's armor may stop shrapnel and other small projectiles.\n \n%c[0,170,170,170]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] Light Armor\n%c[255,238,153,26] • %c[0,140,140,140] Usable for:  %c[0,170,170,170] equipment repair (+32%)\n \n%c[0,170,170,170]Head:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Shoulders: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Filter: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Gloves: %c[0,170,170,170]None\n%c[0,93,0,116] • %c[0,140,140,140] Hips: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Knees and shin: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Feet: %c[0,170,170,170]IIIA\n \n</text>
+	</string>
+	<string id="st_vodka_1_radiated">
+		<text>Putinka vodka (irradiated)</text>
+	</string>
+	<string id="st_beer_large_1_radiated">
+		<text>Zhigulevskoye beer (irradiated)</text>
+	</string>
+	<string id="st_beer_large_2_radiated">
+		<text>Ochakovo beer (irradiated)</text>
+	</string>
+	<string id="st_beer_1_radiated">
+		<text>Baltika №3 beer (irradiated)</text>
+	</string>
+	<string id="st_beer_2_radiated">
+		<text>Slavutich Premium beer (irradiated)</text>
+	</string>
+	<string id="st_beer_can_1_radiated">
+		<text>Pripyat beer (irradiated)</text>
+	</string>
+	<string id="st_beer_can_2_radiated">
+		<text>Heineken beer (irradiated)</text>
+	</string>
+	<string id="st_water_large_1_radiated">
+		<text>Naroch mineral water (irradiated)</text>
+	</string>
+	<string id="st_water_large_2_radiated">
+		<text>Leninad mineral water (irradiated)</text>
+	</string>
+	<string id="st_water_can_1_radiated">
+		<text>Purified water (irradiated)</text>
+	</string>
+	<string id="st_water_can_2_radiated">
+		<text>Mineral water (irradiated)</text>
+	</string>
+	<string id="st_cocacola_radiated">
+		<text>Coca-Cola (irradiated)</text>
+	</string>
+	<string id="st_redbull_radiated">
+		<text>Redbull energy drink</text>
+	</string>
+	<string id="st_guru_radiated">
+		<text>GURU energy drink (irradiated)</text>
+	</string>
+	<string id="st_marlboro_radiated">
+		<text>Marlboro cigarettes (irradiated)</text>
+	</string>
+	<string id="st_lucky_radiated">
+		<text>Lucky Strike cigarettes (irradiated)</text>
+	</string>
+	<string id="st_cuban_radiated">
+		<text>Cuban cigars (irradiated)</text>
+	</string>
+	<string id="st_cigarettes_1_radiated">
+		<text>Cuban cigars (irradiated)</text>
+	</string>
+	<string id="st_wild_drink_radiated">
+		<text>Zone-produced liquor (irradiated)</text>
+	</string>
+	<string id="st_kolbasa_smoked_radiated">
+		<text>Smoked sausage (irradiated)</text>
+	</string>
+	<string id="st_beanz_radiated">
+		<text>Baked beans (irradiated)</text>
+	</string>
+	<string id="st_tomatoes_radiated">
+		<text>Tomatoes (irradiated)</text>
+	</string>
+	<string id="st_chocolatebar_radiated">
+		<text>Chocolate protein bar (irradiated)</text>
+	</string>
+	<string id="st_snickers_radiated">
+		<text>Snickers (irradiated)</text>
+	</string>
+	<string id="st_mars_radiated">
+		<text>Mars (irradiated)</text>
+	</string>
+	<string id="st_nuts_2_radiated">
+		<text>Trail mix (irradiated)</text>
+	</string>
+	<string id="st_beef_radiated">
+		<text>Tushenka (irradiated)</text>
+	</string>
+	<string id="st_bullheads_radiated">
+		<text>Pasta and meatballs (irradiated)</text>
+	</string>
+	<string id="st_sardina_radiated">
+		<text>"Pirate" Sardines (irradiated)</text>
+	</string>
+	<string id="st_olivki_radiated">
+		<text>Olives (irradiated)</text>
+	</string>
+	<string id="st_cheese_radiated">
+		<text>"Yantar" processed cheese (irradiated)</text>
+	</string>
+	<string id="st_galet_radiated">
+		<text>Biscuits (irradiated)</text>
+	</string>
+	<string id="st_shokolad_radiated">
+		<text>"Aljinushka" chocolate (irradiated)</text>
+	</string>
+	<string id="st_batonchik_radiated">
+		<text>Chocolate bar (irradiated)</text>
+	</string>
+	<string id="st_jerky_radiated">
+		<text>Beef jerky (irradiated)</text>
+	</string>
+	<string id="st_chips_radiated">
+		<text>Potato chips (irradiated)</text>
+	</string>
+	<string id="st_hash_radiated">
+		<text>Biscuits and hash (irradiated)</text>
+	</string>
+	<string id="st_cpcb_radiated">
+		<text>Salted crackers (irradiated)</text>
+	</string>
+	<string id="st_juice_radiated">
+		<text>Orange juice (irradiated)</text>
+	</string>
+	<string id="st_mre_1_3_radiated">
+		<text>Army MRE (irradiated)</text>
+	</string>
+	<string id="st_mre_1_2_radiated">
+		<text>Army MRE (irradiated)</text>
+	</string>
+	<string id="st_mre_1_1_radiated">
+		<text>Army MRE (irradiated)</text>
+	</string>
+	<string id="st_bandage_israeli_radiated">
+		<text>Bandage (irradiated)</text>
+	</string>
+	<string id="st_amphetamines_4_radiated">
+		<text>Amphetamine (irradiated)</text>
+	</string>
+	<string id="st_amphetamines_3_radiated">
+		<text>Amphetamine (irradiated)</text>
+	</string>
+	<string id="st_amphetamines_2_radiated">
+		<text>Amphetamine (irradiated)</text>
+	</string>
+	<string id="st_amphetamines_1_radiated">
+		<text>Amphetamine (irradiated)</text>
+	</string>
+	<string id="st_diazepam_radiated">
+		<text>Diazepam (irradiated)</text>
+	</string>
+	<string id="st_psy_complex_radiated">
+		<text>Psychodelin (irradiated)</text>
+	</string>
+	<string id="st_bio_bandage_radiated">
+		<text>Special bandage (irradiated)</text>
+	</string>
+	<string id="st_drug_engine_radiated">
+		<text>Anti-hallucinogen (irradiated)</text>
+	</string>
+	<string id="st_drug_cat_eye_radiated">
+		<text>Cat's eye (irradiated)</text>
+	</string>
+	<string id="st_medo_radiated">
+		<text>Moonshine (irradiated)</text>
+	</string>
+	<string id="st_mbk_radiated">
+		<text>Caffeine pills (irradiated)</text>
+	</string>
+	<string id="st_medkit_elite_radiated">
+		<text>Elite medkit (irradiated)</text>
+	</string>
+	<string id="st_bag_medkit_1_radiated">
+		<text>Basic medkit (irradiated)</text>
+	</string>
+	<string id="st_bag_medkit_2_radiated">
+		<text>Army medkit (irradiated)</text>
+	</string>
+	<string id="st_bag_medkit_3_radiated">
+		<text>Scientific medkit (irradiated)</text>
+	</string>
+	<string id="st_bag_medkit_4_radiated">
+		<text>Special medkit (irradiated)</text>
+	</string>
+
+	<!-- Crafting -->
+	<string id="selfroll_making">
+		<text>I'm rolling the leaves, won't take long.</text>
+	</string>
+	<string id="sleepbag_making">
+		<text>Sewing this sleeping bag will take a while.</text>
+	</string>
+	<string id="backpack_making">
+		<text>Making this backpack will take a while.</text>
+	</string>
+	<string id="ammo12x70_making">
+		<text>I'm making the cartridges, might take a bit of time. </text>
+	</string>
+	<string id="selfroll_making_end">
+		<text>The roll is done.</text>
+	</string>
+	<string id="sleepbag_making_end">
+		<text>The sleeping bag is done.</text>
+	</string>
+	<string id="backpack_making_end">
+		<text>The backpack is done.</text>
+	</string>
+	<string id="ammo12x70_making_end">
+		<text>The cartridges are done.</text>
+	</string>
+	<string id="st_selfroll_base_1_name">
+		<text>Paper, tobacco and filters.</text>
+	</string>
+	<string id="st_selfroll_base_1_descr">
+		<text>Tobacco, filters and paper, everything needed to make cigarettes. This should make about six to seven. \n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140]Crafted Items</text>
+	</string>
+	<string id="ammo-12x70-buck_self">
+		<text>Homemade 12x70 shot rounds</text>
+	</string>
+	<string id="ammo-12x70-buck_self_descr">
+		<text>Homemade 12 gauge shell filled with 6 mm shot. Highly lethal at close range. Only suitable for use with smoothbore weapons.\n \n%c[0,93,0,116] • %c[0,140,140,140] Highest pierced armor class: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[0,140,140,140] Tissue damage rating: %c[0,170,170,170]medium\n \n%c[0,170,170,170]SPECIAL:\n \n%c[0,93,0,116] • %c[0,140,140,140] expanding cloud of pellets, short eff. range</text>
+	</string>
+	<string id="ammo12x70_base_name">
+		<text>Ammo components for 12x70 shot rounds</text>
+	</string>
+	<string id="ammo12x70_base_descr">
+		<text>Powder, shells and shot - everything needed to make 12x70 buckshot rounds. Has enough to make 40 rounds.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140]used for crafting ammunition\n%c[0,253,155,155] • %c[0,240,140,140]requires tools</text>
+	</string>
+	<string id="ammo12x70_tools_name">
+		<text>Tools for manufacturing 12x70 shot rounds</text>
+	</string>
+	<string id="ammo12x70_tools_descr">
+		<text>Tools necessary for making 12x70 buckshot rounds. 12x70.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140]used for crafting ammunition\n%c[0,153,255,255] • %c[0,140,140,140]everyday item</text>
+	</string>
+	<string id="sew_tools_name">
+		<text>Sewing kit</text>
+	</string>
+	<string id="sew_tools_descr">
+		<text>Needles and cloth scraps. Everything you need to make cloth items.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140]Crafting Tools\n%c[0,153,255,255] • %c[0,140,140,140]Common</text>
+	</string>
+	<string id="sleepbag_base_name">
+		<text>Sleeping bag components</text>
+	</string>
+	<string id="sleepbag_base_descr">
+		<text>Everything needed to make a sleeping bag.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140]Crafted Items\n%c[0,253,155,155] • %c[0,240,140,140]Sewing kit needed</text>
+	</string>
+	<string id="backpack_base_name">
+		<text>Backpack components</text>
+	</string>
+	<string id="backpack_base_descr">
+		<text>Rubberized fabric, zippers and rivets. Everything needed to craft a backpack.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140]Crafted Items\n%c[0,253,155,155] • %c[0,240,140,140]Sewing kit needed</text>
+	</string>
+	<string id="selfroll_1_name">
+		<text>Tobacco rolls</text>
+	</string>
+	<string id="selfroll_1_descr">
+		<text>Loose tobacco, filters and paper.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,253,155,155] • %c[0,240,140,140]May cause cancer\n%c[0,153,255,255] • %c[0,140,140,140]Homemade</text>
+	</string>
+	<!-- -->
+	<!-- Weapon and armory  trash mod-->
+	<string id="st_itm_cutting_tools">
+		<text>Master disassembly tools</text>
+	</string>
+	<string id="st_itm_cutting_tools_descr">
+		<text>Factory made tools designed to disassemble anything. \n \n%c[0,140,140,140]PROPERTIES:\n%c[0,155,155,155] • %c[0,140,140,140]Crafting Tools\n%c[0,255,1,1] • %c[0,100,250,100]Works on high tech gear</text>
+	</string>
+	<string id="st_itm_cutting_tools_2">
+		<text>Journeyman disassembly tools</text>
+	</string>
+	<string id="st_itm_cutting_tools_2_descr">
+		<text>A rusted set of tools for medium armor disassembly.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,155,155,155] • %c[0,140,140,140]Crafting Tools\n%c[0,255,1,1] • %c[0,100,250,100]Works on medium armor</text>
+	</string>
+	<string id="st_itm_cutting_tools_3">
+		<text>Basic disassembly tools</text>
+	</string>
+	<string id="st_itm_cutting_tools_3_descr">
+		<text>Improvised tools designed for fabric or light gas masks.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,155,155,155] • %c[0,140,140,140]Crafting Tools\n%c[0,255,1,1] • %c[0,100,250,100]Works on light armor and gas masks</text>
+	</string>
+	<string id="plate_seva_name">
+		<text>SEVA plate</text>
+	</string>
+	<string id="plate_seva_descr">
+		<text>An armoured plate carved from a SEVA suit. Able to stop small bullets and gives some elemental resistance. Can be used for repairs.\n \n%c[0,140,140,140]PROPERTIES:\n \n%c[0,153,255,255] • %c[0,140,140,140] technological item\n%c[255,238,153,26] • %c[0,140,140,140] Usable for: c[0,170,170,170]  Usable For: (+8%)</text>
+	</string>
+	<string id="plate_heavy_name">
+		<text>Heavy "ESAPI" plate</text>
+	</string>
+	<string id="plate_heavy_descr">
+		<text>A ceramic-composite plate that provides class 4 protection. Can be used as a repair material.\n \n%c[0,140,140,140]PROPERTIES:\n \n%c[0,153,255,255] • %c[0,140,140,140] technological item\n%c[255,238,153,26] • %c[0,140,140,140]  Usable For: %c[0,170,170,170] armor repair(+13%)</text>
+	</string>
+	<string id="plate_medium_name">
+		<text>Medium "SAPI" plate</text>
+	</string>
+	<string id="plate_medium_descr">
+		<text>An armoured plate that provides class 3 protection. Can be used as a repair material.\n \n%c[0,140,140,140]PROPERTIES:\n \n%c[0,153,255,255] • %c[0,140,140,140] technological item\n%c[255,238,153,26] • %c[0,140,140,140]  Usable For: %c[0,170,170,170] armor repair(+10%)</text>
+	</string>
+	<string id="plate_light_name">
+		<text>Homemade plate</text>
+	</string>
+	<string id="plate_light_descr">
+		<text>Hand-made armoured plate using kevlar and aramid. Provides class 2 protection. Can be used as a repair material.\n \n%c[0,140,140,140]PROPERTIES:\n \n%c[0,153,255,255] • %c[0,140,140,140] technological item\n%c[255,238,153,26] • %c[0,140,140,140]  Usable For: %c[0,170,170,170] armor repair(+7%)</text>
+	</string>
+	<string id="plate_cloth_name">
+		<text>Light cloth plate</text>
+	</string>
+	<string id="plate_cloth_descr">
+		<text>Hand made kevlar and fabric plate. Provides class 1 protection. Can be used as a repair material.\n \n%c[0,140,140,140]PROPERTIES:\n \n%c[0,153,255,255] • %c[0,140,140,140] technological item\n%c[255,238,153,26] • %c[0,140,140,140]  Usable For: %c[0,170,170,170] armor repair(+5%)</text>
+	</string>
+	<string id="plate_military_name">
+		<text>Granite-4M plate</text>
+	</string>
+	<string id="plate_military_descr">
+		<text>Military heavy armoured plate composed of ceramics. Provides class 5 protection. Can be used as a repair material.\n \n%c[0,140,140,140]PROPERTIES:\n \n%c[0,153,255,255] • %c[0,140,140,140] technological item\n%c[255,238,153,26] • %c[0,140,140,140]  Usable For: %c[0,170,170,170] armor repair(+15%)</text>
+	</string>
+	<string id="plate_monolith_name">
+		<text>Unknown plate</text>
+	</string>
+	<string id="plate_monolith_descr">
+		<text>An armoured plate composed of unknown materials. Seems to be made of solid alloy and some fabric. Extremely heavy. Provides class 5 protection (in field tests). Can be used as a repair material.\n \n%c[0,140,140,140]PROPERTIES:\n \n%c[0,153,255,255] • %c[0,140,140,140] technological item\n%c[255,238,153,26] • %c[0,140,140,140]  Usable For: %c[0,170,170,170] armor repair(+15%)</text>
+	</string>
+	<string id="plate_unload_name">
+		<text>Ammo pouch</text>
+	</string>
+	<string id="plate_unload_descr">
+		<text>A cut out ammo pouch, used to store magazines. Made of dense and high-quality fabric.\n \n%c[0,140,140,140]PROPERTIES:\n \n%c[0,153,255,255] • %c[0,140,140,140] technological item\n%c[255,238,153,26] • %c[0,140,140,140]  Usable For: %c[0,170,170,170] armor repair(+3%)</text>
+	</string>
+	<string id="plate_small_name">
+		<text>Small armoured plate</text>
+	</string>
+	<string id="plate_small_descr">
+		<text>A small homemade armoured plate, likely made of melted down scrap. Can be used as a repair material.\n \n%c[0,140,140,140]PROPERTIES:\n \n%c[0,153,255,255] • %c[0,140,140,140] technological item\n%c[255,238,153,26] • %c[0,140,140,140]  Usable For: %c[0,170,170,170] armor repair(+4%)</text>
+	</string>
+	<string id="cloth_green_name">
+		<text>Green cloth</text>
+	</string>
+	<string id="cloth_green_descr">
+		<text>Green fabric, cut from a green suit. Very high quality and dense fabric. Can be used as a repair material.\n \n%c[0,140,140,140]PROPERTIES:\n \n%c[0,153,255,255] • %c[0,140,140,140] technological item\n%c[255,238,153,26] • %c[0,140,140,140]  Usable For: %c[0,170,170,170] armor repair(+3%)</text>
+	</string>
+	<string id="cloth_black_name">
+		<text>Black cloth</text>
+	</string>
+	<string id="cloth_black_descr">
+		<text>Black fabric, cut from a black suit. Very high quality and dense fabric. Can be used as a repair material.\n \n%c[0,140,140,140]PROPERTIES:\n \n%c[0,153,255,255] • %c[0,140,140,140] technological item\n%c[255,238,153,26] • %c[0,140,140,140]  Usable For: %c[0,170,170,170] armor repair(+3%)</text>
+	</string>
+	<string id="cloth_brown_name">
+		<text>Brown cloth</text>
+	</string>
+	<string id="cloth_brown_descr">
+		<text>Brown fabric, cut from a brown suit. Very high quality and dense fabric. Can be used as a repair material. \n \n%c[0,140,140,140]PROPERTIES:\n \n%c[0,153,255,255] • %c[0,140,140,140] technological item\n%c[255,238,153,26] • %c[0,140,140,140]  Usable For: %c[0,170,170,170] armor repair(+3%)</text>
+	</string>
+	<string id="cloth_white_name">
+		<text>White cloth</text>
+	</string>
+	<string id="cloth_white_descr">
+		<text>White fabric, cut from a white suit. Very high quality and dense fabric. Can be used as a repair material. \n \n%c[0,140,140,140]PROPERTIES:\n \n%c[0,153,255,255] • %c[0,140,140,140] technological item\n%c[255,238,153,26] • %c[0,140,140,140]  Usable For: %c[0,170,170,170] armor repair(+3%)</text>
+	</string>
+	<string id="servomotor_name">
+		<text>Servo drive</text>
+	</string>
+	<string id="servomotor_descr">
+		<text>A servo taken from an exoskeleton. Looks like it could be replaced with a repair kit.\n \n%c[0,140,140,140]PROPERTIES:\n \n%c[0,153,255,255] • %c[0,140,140,140] высокоtechnological item\n%c[255,238,153,26] • %c[0,140,140,140]  Usable For: %c[0,170,170,170] exoskeleton repair only(+20%)</text>
+	</string>
+	<string id="plastic_pieces_name">
+		<text>Plastic scraps</text>
+	</string>
+	<string id="plastic_pieces_descr">
+		<text>Bits and pieces of dense plastic, carved from a suit. Can be used for patchs or repairs.\n \n%c[0,140,140,140]PROPERTIES:\n \n%c[0,153,255,255] • %c[0,140,140,140] technological item\n%c[255,238,153,26] • %c[0,140,140,140]  Usable For: %c[0,170,170,170] suit and helmet repair(+4%)</text>
+	</string>
+	<string id="glass_pieces_name">
+		<text>Glass</text>
+	</string>
+	<string id="glass_pieces_descr">
+		<text>Pieces of glass cur from gas masks or helmets. Can replace broken glass in almost any helmet with the right tools.\n \n%c[0,140,140,140]PROPERTIES:\n \n%c[0,153,255,255] • %c[0,140,140,140] technological item\n%c[255,238,153,26] • %c[0,140,140,140]  Usable For: %c[0,170,170,170] helmet repair(+3%)</text>
+	</string>
+	
+	
+	
+	
+	<string id="st_spareparts">
+		<text>Old shotgun parts</text>
+	</string>
+	<string id="st_spareparts_descr">
+		<text>Old wood and metal parts from various smooth bore rifles, all in varying condition. Some of this could be useful for repairs.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] technological item\n%c[255,238,153,26] • %c[0,140,140,140] Usable for: %c[0,170,170,170] shotgun repair(+5%)</text>
+	</string>
+	<string id="st_sov_r_spareparts">
+		<text>Soviet automatic rifle parts</text>
+	</string>
+	<string id="st_sov_r_spareparts_descr">
+		<text>Old springs, barrels and stocks from various soviet rifles, all in varying condition. Some of this could be useful for repairs.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] technological item\n%c[255,238,153,26] • %c[0,140,140,140] Usable for: %c[0,170,170,170] soviet automatic rifle repair(+7%)</text>
+	</string>
+	<string id="st_nato_r_spareparts">
+		<text>NATO automatic rifle parts</text>
+	</string>
+	<string id="st_nato_r_spareparts_descr">
+		<text>Old barrels, frames and stocks for various NATO automatic rifles, all in varying condition. Some of this could be useful for repairs.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] technological item\n%c[255,238,153,26] • %c[0,140,140,140] Usable for: %c[0,170,170,170] NATO automatic rifle repair(+7%)</text>
+	</string>
+	<string id="st_sov_p_spareparts">
+		<text>Soviet pistol parts</text>
+	</string>
+	<string id="st_sov_p_spareparts_descr">
+		<text>Old springs, hammers and frames from various soviet pistols. Some of this could be useful for repairs.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] technological item\n%c[255,238,153,26] • %c[0,140,140,140] Usable for: %c[0,170,170,170] soviet pistols(+6%)</text>
+	</string>
+	<string id="st_nato_p_spareparts">
+		<text>NATO pistol parts</text>
+	</string>
+	<string id="st_nato_p_spareparts_descr">
+		<text>Old springs, hammers and frames from various NATO pistols. Some of this could be useful for repairs.\n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] technological item\n%c[255,238,153,26] • %c[0,140,140,140] Usable for: %c[0,170,170,170] NATO pistols(+6%)</text>
+	</string>
+	<string id="st_sov_s_spareparts">
+		<text>Soviet sniper rifle parts</text>
+	</string>
+	<string id="st_sov_s_spareparts_descr">
+		<text>Old soviet long rifle parts. Some of this could be used for repairs.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] technological item\n%c[255,238,153,26] • %c[0,140,140,140] Usable for: %c[0,170,170,170] soviet sniper rifles(+8%)</text>
+	</string>
+	<string id="st_nato_s_spareparts">
+		<text>NATO sniper rifle parts</text>
+	</string>
+	<string id="st_nato_s_spareparts_descr">
+		<text>Old NATO sniper rifle parts. Some of this could be used for repairs.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] technological item\n%c[255,238,153,26] • %c[0,140,140,140] Usable for: %c[0,170,170,170] NATO sniper rifles(+8%)</text>
+	</string>
+	<string id="st_shot_spareparts">
+		<text>Shotgun parts</text>
+	</string>
+	<string id="st_shot_spareparts_descr">
+		<text>Relatively new parts designed for smooth barrel rifles. This could be used for repairs.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] technological item\n%c[255,238,153,26] • %c[0,140,140,140] Usable for: %c[0,170,170,170] shotgun repairs(+7%)</text>
+	</string>
+	<string id="st_pp_spareparts">
+		<text>Submachine Gun Parts</text>
+	</string>
+	<string id="st_pp_spareparts_descr">
+		<text>Springs, frames and stocks designed for submachineguns. This could be used for repairs.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] technological item\n%c[255,238,153,26] • %c[0,140,140,140] Usable for: %c[0,170,170,170] submachine gun repairs(+6%)</text>
+	</string>
+	<!-- Weapon and armory trash mod-->
+	<!-- Music Player by FonSwong-->
+	<string id="st_musicplayer">
+		<text>Radio</text>
+	</string>
+	<string id="st_musicplayer_desc">
+		<text>A modified radio, designed to be able to communicate with other radios yet filter out as much interference as possible. \n \n%c[0,140,140,140]PROPERTIES:\n \n%c[0,153,255,255] • %c[0,140,140,140] Technological Item</text>
+	</string>
+	<!-- Music Player by FonSwong-->
+	<!-- Bad Ammo Addon-->
+	<string id="ammo-11.43x23-fmj_bad">
+		<text>.45 ACP rounds (old) </text>
+	</string>
+	<string id="ammo-11.43x23-fmj_verybad">
+		<text>.45 ACP rounds (damaged) </text>
+	</string>
+	<string id="ammo_12.7x108_fmj_bad">
+		<text>12.7x108 FMJ rounds (old)</text>
+	</string>
+	<string id="ammo_12.7x108_fmj_verybad">
+		<text>12.7x108 FMJ rounds (damaged)</text>
+	</string>
+	<string id="ammo_12.7x108_ap_bad">
+		<text>12.7x108 AP rounds (old)</text>
+	</string>
+	<string id="ammo_12.7x108_ap_verybad">
+		<text>12.7x108 BP (damaged)</text>
+	</string>
+	<string id="ammo-7.62x51_fmj_bad">
+		<text>7.62x51 mm NATO rounds (old)</text>
+	</string>
+	<string id="ammo-7.62x51_fmj_verybad">
+		<text>7.62x51 mm NATO rounds (damaged)</text>
+	</string>
+	<string id="ammo-7.62x51_ap_bad">
+		<text>7.62x51 mm DU (old)</text>
+	</string>
+	<string id="ammo-7.62x51_ap_verybad">
+		<text>7.62x51 mm DU (damaged)</text>
+	</string>
+	<string id="ammo-11.43x23-hydro_bad">
+		<text>.45 ACP Hydra-shock round (old)</text>
+	</string>
+	<string id="ammo-11.43x23-hydro_verybad">
+		<text>.45 ACP Hydra-shock round (damaged)</text>
+	</string>
+	<string id="ammo-11.43x23-ap_bad">
+		<text>.45 DU rounds (old)</text>
+	</string>
+	<string id="ammo-11.43x23-ap_verybad">
+		<text>.45 DU rounds (damaged)</text>
+	</string>
+	<string id="ammo-357-hp_bad">
+		<text>.357 HP rounds (old)</text>
+	</string>
+	<string id="ammo-357-hp_verybad">
+		<text>.357 HP rounds (damaged)</text>
+	</string>
+	<string id="ammo-357-incendiary_bad">
+		<text>.357 Incendiary rounds (old)</text>
+	</string>
+	<string id="ammo-357-incendiary_verybad">
+		<text>.357 Incendiary rounds (damaged)</text>
+	</string>
+	<string id="ammo-338-lapua_bad">
+		<text>.338 Lapua Magnum rounds (old)</text>
+	</string>
+	<string id="ammo-338-lapua_verybad">
+		<text>.338 Lapua Magnum rounds (damaged)</text>
+	</string>
+	<string id="ammo-338-du_bad">
+		<text>.338 DU rounds (old)</text>
+	</string>
+	<string id="ammo-338-du_verybad">
+		<text>.338 DU rounds (damaged)</text>
+	</string>
+	<string id="ammo-12x70-buck_bad">
+		<text>12x70 shot rounds (old)</text>
+	</string>
+	<string id="ammo-12x70-buck_verybad">
+		<text>12x70 shot rounds (damaged)</text>
+	</string>
+	<string id="ammo-12x76-zhekan_bad">
+		<text>12x76 slug rounds (old)</text>
+	</string>
+	<string id="ammo-12x76-zhekan_verybad">
+		<text>12x76 slug rounds (damaged)</text>
+	</string>
+	<string id="ammo-12x76-dart_bad">
+		<text>12x76 dart rounds (old)</text>
+	</string>
+	<string id="ammo-12x76-dart_verybad">
+		<text>12x76 dart rounds (damaged)</text>
+	</string>
+	<string id="ammo-5.45x39-ap_bad">
+		<text>5.45x39 mm AP rounds (old)</text>
+	</string>
+	<string id="ammo-5.45x39-ap_verybad">
+		<text>5.45x39 mm AP rounds (damaged)</text>
+	</string>
+	<string id="ammo-5.45x39-fmj_bad">
+		<text>5.45x39 mm rounds (old)</text>
+	</string>
+	<string id="ammo-5.45x39-fmj_verybad">
+		<text>5.45x39 mm rounds (damaged)</text>
+	</string>
+	<string id="ammo-5.56x45-ap_bad">
+		<text>5.56x45 mm AP rounds (old)</text>
+	</string>
+	<string id="ammo-5.56x45-ap_verybad">
+		<text>5.56x45 mm AP rounds (damaged)</text>
+	</string>
+	<string id="ammo-5.56x45-ss190_bad">
+		<text>5.56x45 mm rounds (old)</text>
+	</string>
+	<string id="ammo-5.56x45-ss190_verybad">
+		<text>5.56x45 mm rounds (damaged)</text>
+	</string>
+	<string id="ammo-7.62x54-7n1_bad">
+		<text>7.62x54 mm 7N1 rounds (old)</text>
+	</string>
+	<string id="ammo-7.62x54-7n1_verybad">
+		<text>7.62x54 mm 7N1 rounds (damaged)</text>
+	</string>
+	<string id="ammo-7.62x54_7n14_bad">
+		<text>7.62x54 mm 7N14 rounds (old)</text>
+	</string>
+	<string id="ammo-7.62x54_7n14_verybad">
+		<text>7.62x54 mm 7N14 rounds (damaged)</text>
+	</string>
+	<string id="ammo-7.62x54-ap_bad">
+		<text>7.62x54 mm PP rounds (old)</text>
+	</string>
+	<string id="ammo-7.62x54-ap_verybad">
+		<text>7.62x54 mm PP rounds (damaged)</text>
+	</string>
+	<string id="ammo-7.62x54-r_bad">
+		<text>7.62x54 mm PP rounds (old)</text>
+	</string>
+	<string id="ammo-7.62x54-r_verybad">
+		<text>7.62x54 mm PP rounds (damaged)</text>
+	</string>
+	<string id="ammo-9x18-fmj_bad">
+		<text>9x18 mm rounds (old)</text>
+	</string>
+	<string id="ammo-9x18-fmj_verybad">
+		<text>9x18 mm rounds (damaged)</text>
+	</string>
+	<string id="ammo-9x18-pmm_bad">
+		<text>9x18 mm +P+ rounds (old)</text>
+	</string>
+	<string id="ammo-9x18-pmm_verybad">
+		<text>9x18 mm +P+ rounds (damaged)</text>
+	</string>
+	<string id="ammo-9x18-ap_bad">
+		<text>9x18 RG028 rounds (old)</text>
+	</string>
+	<string id="ammo-9x18-ap_verybad">
+		<text>9x18 RG028 rounds (damaged)</text>
+	</string>
+	<string id="ammo-9x19-fmj_bad">
+		<text>9x19 mm FMJ rounds (old)</text>
+	</string>
+	<string id="ammo-9x19-fmj_verybad">
+		<text>9x19 mm FMJ rounds (damaged)</text>
+	</string>
+	<string id="ammo-9x19-pbp_bad">
+		<text>9x19 mm JHP rounds (old)</text>
+	</string>
+	<string id="ammo-9x19-pbp_verybad">
+		<text>9x19 mm JHP rounds (damaged)</text>
+	</string>
+	<string id="ammo-9x19-ap_bad">
+		<text>9x19 mm AP rounds (old)</text>
+	</string>
+	<string id="ammo-9x19-ap_verybad">
+		<text>9x19 mm AP rounds (damaged)</text>
+	</string>
+	<string id="am	_bad">
+		<text>9x39 mm SP-6 rounds (old)</text>
+	</string>
+	<string id="ammo-9x39-ap_verybad">
+		<text>9x39 mm SP-6 rounds (damaged)</text>
+	</string>
+	<string id="ammo-9x39-pab9_bad">
+		<text>9x39 mm SP-5 rounds (old)</text>
+	</string>
+	<string id="ammo-9x39-pab9_verybad">
+		<text>9x39 mm SP-5 rounds (damaged)</text>
+	</string>
+	<string id="ammo-gauss_bad">
+		<text>Batteries (old)</text>
+	</string>
+	<string id="ammo-gauss_verybad">
+		<text>Batteries (damaged)</text>
+	</string>
+	<string id="ammo-m209_bad">
+		<text>M203 grenade (old)</text>
+	</string>
+	<string id="ammo-m209_verybad">
+		<text>M203 grenade (damaged)</text>
+	</string>
+	<string id="ammo-og-7b_bad">
+		<text>OG-7V warhead (old)</text>
+	</string>
+	<string id="ammo-og-7b_verybad">
+		<text>OG-7V warhead (damaged)</text>
+	</string>
+	<string id="ammo-vog-25_bad">
+		<text>VOG-25 grenade (old)</text>
+	</string>
+	<string id="ammo-vog-25_verybad">
+		<text>VOG-25 grenade (damaged)</text>
+	</string>
+	<string id="ammo-7.62x39_ap_bad">
+		<text>7.62x39 mm M43 rounds (old)</text>
+	</string>
+	<string id="ammo-7.62x39_ap_verybad">
+		<text>7.62x39 mm M43 rounds (damaged)</text>
+	</string>
+	<string id="ammo-7.62x39_fmj_bad">
+		<text>7.62x39 mm FMJ rounds (old)</text>
+	</string>
+	<string id="ammo-7.62x39_fmj_verybad">
+		<text>7.62x39 mm FMJ rounds (damaged)</text>
+	</string>
+	<string id="ammo-7.92x33_fmj_bad">
+		<text>7.92x57 mm Mauser rounds (old)</text>
+	</string>
+	<string id="ammo-7.92x33_fmj_verybad">
+		<text>7.92x57 mm Mauser rounds (damaged)</text>
+	</string>
+	<string id="ammo-7.92x33_ap_bad">
+		<text>7.92x57 mm SA rounds (old)</text>
+	</string>
+	<string id="ammo-7.92x33_ap_verybad">
+		<text>7.92x57 mm SA rounds (damaged)</text>
+	</string>
+	<string id="ammo-5.7x28-ss190_bad">
+		<text>5.7x28 SS190 (old)</text>
+	</string>
+	<string id="ammo-5.7x28-ss190_verybad">
+		<text>5.7x28 SS190 (damaged)</text>
+	</string>
+	<string id="ammo-5.7x28-ss195_bad">
+		<text>5.7x28 mm SS195 (old)</text>
+	</string>
+	<string id="ammo-5.7x28-ss195_verybad">
+		<text>5.7x28 mm SS195 (damaged)</text>
+	</string>
+	<string id="ammo-7.62x25-p_bad">
+		<text>7.62x25 mm P (old)</text>
+	</string>
+	<string id="ammo-7.62x25-p_verybad">
+		<text>7.62x25 mm P (damaged)</text>
+	</string>
+	<string id="ammo_7.62x25-ps_bad">
+		<text>7.62x25 mm Pst rounds (old)</text>
+	</string>
+	<string id="ammo-7.62x25-p41_verybad">
+		<text>7.62x25 mm Pst rounds (damaged)</text>
+	</string>
+	<string id="ammo_7.62x25-p41_bad">
+		<text>7.62x25 mm P-41 (old)</text>
+	</string>
+	<string id="ammo-7.62x25-p41_verybad">
+		<text>7.62x25 mm P-41 (damaged)</text>
+	</string>
+	<string id="ammo-12.7x55-fmj_bad">
+		<text>12.7x55mm STs-130 (old)</text>
+	</string>
+	<string id="ammo-12.7x55-fmj_verybad">
+		<text>12.7x55mm STs-130 (damaged)</text>
+	</string>
+	<string id="ammo_12.7x55_ap_bad">
+		<text>12.7x55 mm STs-130 VPS rounds (old)</text>
+	</string>
+	<string id="ammo_12.7x55_ap_verybad">
+		<text>12.7x55 mm STs-130 VPS rounds (damaged)</text>
+	</string>
+	<!-- Bad Ammo Addon-->
+	<!-- Analogs addon-->
+	<string id="novice_outfit_1_name">
+		<text>Hunting jacket</text>
+	</string>
+	<string id="novice_outfit_2_name">
+		<text>Camouflage jacket</text>
+	</string>
+	<string id="novice_outfit_3_name">
+		<text>Checkered jacket</text>
+	</string>
+	<string id="novice_outfit_4_name">
+		<text>Army jacket</text>
+	</string>
+	<string id="novice_outfit_5_name">
+		<text>Green leather jacket</text>
+	</string>
+	<string id="novice_outfit_6_name">
+		<text>Red leather jacket</text>
+	</string>
+	<string id="novice_outfit_1m_name">
+		<text>Hunters hooded jacket</text>
+	</string>
+	<string id="novice_outfit_2m_name">
+		<text>Hooded camouflage jacket</text>
+	</string>
+	<string id="novice_outfit_3m_name">
+		<text>Hooded checkered jacket</text>
+	</string>
+	<string id="novice_outfit_4m_name">
+		<text>Hooded army jacket</text>
+	</string>
+	<string id="novice_outfit_5m_name">
+		<text>Hooded green leather jacket</text>
+	</string>
+	<string id="novice_outfit_6m_name">
+		<text>Hooded red leather jacket</text>
+	</string>
+	<string id="stalker_outfit_name_1">
+		<text>Brown Sunrise suit</text>
+	</string>
+	<string id="stalker_outfit_name_2">
+		<text>Sunrise suit</text>
+	</string>
+	<string id="stalker_outfit_name_3">
+		<text>Camouflaged Sunrise suit</text>
+	</string>
+	<string id="stalker_outfit_name_4">
+		<text>Sunrise hunting suit</text>
+	</string>
+	<string id="stalker_outfit_name_5">
+		<text>Sunrise swamp suit</text>
+	</string>
+	<string id="stalker_outfit_name_6">
+		<text>Army Sunrise suit</text>
+	</string>
+	<string id="stalker_outfit_name_7">
+		<text>Raider Sunrise suit</text>
+	</string>
+	<string id="radiation_outfit_1_name">
+		<text>Digitally camouflaged Sunrise suit</text>
+	</string>
+	<string id="radiation_outfit_2_name">
+		<text>Camouflaged Sunrise suit</text>
+	</string>
+	<string id="bandit_novice_outfit_1_name">
+		<text>Checkered Bandit Jacket</text>
+	</string>
+	<string id="bandit_novice_outfit_2_name">
+		<text>Leather Bandit Jacket</text>
+	</string>
+	<string id="bandit_novice_outfit_3_name">
+		<text>Red Bandit Jacket</text>
+	</string>
+	<string id="bandit_novice_outfit_1m_name">
+		<text>Checkered Bandit Jacket With Hood</text>
+	</string>
+	<string id="bandit_novice_outfit_2m_name">
+		<text>Leather Bandit Jacket With Hood</text>
+	</string>
+	<string id="bandit_novice_outfit_3m_name">
+		<text>Red Bandit Jacket With Hood</text>
+	</string>
+	<string id="trenchcoat_outfit_1_name">
+		<text>Dark Cloak</text>
+	</string>
+	<string id="trenchcoat_outfit_2_name">
+		<text>Hunting Cloak</text>
+	</string>
+	<string id="trenchcoat_outfit_3_name">
+		<text>Brown Cloak With Cape</text>
+	</string>
+	<string id="trenchcoat_outfit_1m_name">
+		<text>Dark Red Cloak</text>
+	</string>
+	<string id="trenchcoat_outfit_2m_name">
+		<text>Swamp Cloak</text>
+	</string>
+	<string id="trenchcoat_outfit_3m_name">
+		<text>Pahan's Cloak</text>
+	</string>
+	<string id="trenchcoat_brown_outfit_1_name">
+		<text>Marauder Thick Cloak</text>
+	</string>
+	<string id="trenchcoat_brown_outfit_2_name">
+		<text>Dark Thick Cloak</text>
+	</string>
+	<string id="trenchcoat_brown_outfit_3_name">
+		<text>Hunting Tight Cloak</text>
+	</string>
+	<string id="trenchcoat_brown_outfit_4_name">
+		<text>Pakhan Thick Cloak</text>
+	</string>
+	<string id="csky_novice_outfit_1_name">
+		<text>Jacket With Hood</text>
+	</string>
+	<string id="csky_light_novice_outfit_1_name">
+		<text>CHN-1 With Digital Camouflage</text>
+	</string>
+	<string id="dolg_scientific_outfit_1_name">
+		<text>PSZ-9Md Camouflage Suit</text>
+	</string>
+	<string id="dolg_outfit_1_name">
+		<text>Orange PS5-M</text>
+	</string>
+	<string id="dolg_exo_outfit_1_name">
+		<text>Camouflage Exoskeleton</text>
+	</string>
+	<string id="dolg_exo_outfit_2_name">
+		<text>Exoskeleton With Digital Camouflage</text>
+	</string>
+	<!-- Analogs addon-->
+	<string id="mutant_part_psy_dog_brain">
+		<text>Psi-Dog Brain</text>
+	</string>
+	<string id="mutant_part_psy_dog_brain_description">
+		<text>Psi-Dogs have powerful physic abilities, for example, the ability to induce "hallucinations" upon prey. These illusions are extremely convincing, often capable of inflicting very real trama through currently unknown means. Interestedly, scientists say that while they've identified the region of the brain responsible for the psionic abilities, it's evident that the region is "juvenile" in both development and evolutionary potential. Scientists will pay generously for samples of such tissues. \n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] Mutated body part\n%c[0,153,255,255] • %c[0,140,140,140] Rare scientific specimen\n%c[0,153,255,255] • %c[0,140,140,140] High value</text>
+	</string>
+	<string id="st_deactivate_mix">
+		<text>Homemade Antiseptic</text>
+	</string>
+	<string id="st_deactivate_mix_descr">
+		<text>A mixture of tablets and solvents proven effective in neutralising radiation and bio-hazardous materials. Good for decontaminating items.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140]Decontaminates items\n%c[0,153,255,255] • %c[0,140,140,140]Homemade</text>
+	</string>
+	<string id="st_barrelkit_shotgun">
+		<text>Shotgun Barrel Replacement</text>
+	</string>
+	<string id="st_barrelkit_shotgun_descr">
+		<text>Specialised kit for replacing shotgun barrels in the field. Includes all tools and barrels.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] technological item\n%c[255,238,153,26] • %c[0,140,140,140] Usable for:%c[0,170,170,170] weapon repair</text>
+	</string>
+	<string id="st_vodka_4">
+		<text>Jagermeister Liqueur</text>
+	</string>
+	<string id="st_vodka_4_descr">
+		<text>A German strong herbal liqueur. Made with 56 components and aged for 12 months in oak barrels. The label of the bottle depicts a deer with a cross on it's horns. According to legend, the deer was seen by Saint Hubert, the patron saint of hunters.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] Strong alcoholic beverage\n%c[0,153,255,255] • %c[0,140,140,140] Causes dizziness</text>
+	</string>
+</string_table>

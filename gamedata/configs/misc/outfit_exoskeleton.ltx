@@ -1,0 +1,2977 @@
+;---------------------------------------------------------------------------------------------
+;---------------------------------------------------------------------------------------------
+;						  Outfit Addon: Extended Edition by Dimitrian 
+;---------------------------------------------------------------------------------------------
+;---------------------------------------------------------------------------------------------
+;						   Основан на Outfit Addon 4.03 for CoM 
+;---------------------------------------------------------------------------------------------
+;					(c) VK - https://vk.com/stalker_legendary_game (c)
+;---------------------------------------------------------------------------------------------
+;						 				   ---
+;---------------------------------------------------------------------------------------------
+;						    Экзоскелеты и защитные бронекостюмы
+;---------------------------------------------------------------------------------------------
+;---------------------------------------------------------------------------------------------
+
+;---------------------------------------------------------------------------------------------
+;						   			  Экзоскелет сталкера 
+;---------------------------------------------------------------------------------------------
+[exo_outfit]
+GroupControlSection							= spawn_group
+discovery_dependency 						=
+$spawn 										= "outfit\exo_outfit"
+$prefetch 									= 32
+class										= E_STLK
+class_dbg									= S_OUT_EXO
+cform           							= skeleton
+
+visual                                   	= dynamics\outfit\exo_outfit
+actor_visual                             	= actors\stalker_neutral\stalker_neutral_4.ogf
+npc_visual                               	= actors\stalker_neutral\stalker_neutral_4.ogf
+
+character_portrait						 	= ui_inGame2_neutral_4
+
+player_hud_section                       	= actor_hud_exo
+
+upgrades                					= up_gr_firstab_exo_outfit, up_gr_seconab_exo_outfit, up_gr_thirdab_exo_outfit, up_gr_fourtab_exo_outfit, up_gr_fifthab_exo_outfit
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_exo_outfit
+
+ef_equipment_type							= 5
+
+additional_inventory_weight			 		= 90
+additional_inventory_weight2				= 90
+
+inv_name									= exo_outfit_name
+inv_name_short								= exo_outfit_name
+description									= exo_outfit_description
+
+inv_weight									= 48.0
+
+slot										= 6
+
+inv_grid_width     							= 2
+inv_grid_height    							= 3
+inv_grid_x         							= 54
+inv_grid_y         							= 0
+
+upgr_icon_x									= 332
+upgr_icon_y									= 447
+upgr_icon_width								= 306
+upgr_icon_height   							= 165
+
+full_icon_name								= npc_icon_exo_outfit
+
+cost										= 111680
+
+full_scale_icon								= 2,11			;иконка сталкера в костюме в полный рост
+
+immunities_sect								= sect_exo_outfit_immunities
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0800 
+shock_protection 							= 0.9000 
+radiation_protection 						= 0.0295
+chemical_burn_protection 					= 0.0420 
+telepatic_protection 						= 0.0600 
+strike_protection 							= 0.5500
+explosion_protection 						= 0.9500
+wound_protection							= 0.6400
+fire_wound_protection  						= 0.5800
+
+hit_fraction_actor							= 0.105
+
+bones_koeff_protection						= actor_armor_exo
+
+sprint_allowed                           	= false
+
+helmet_avaliable                         	= false
+
+default_to_ruck                          	= true
+
+power_loss									= 0.80
+
+artefact_count                  			= 1
+
+control_inertion_factor						= 1.76
+
+repair_part_bonus	 						= 0.45
+
+use1_action_functor                                = awr_disassembly.disassembly_outfit
+use1_functor                                       = awr_disassembly.disassembly_outfit_text
+
+[sect_exo_outfit_immunities]
+burn_immunity								= 0.14		;коэффициенты иммунитета самого костюма
+strike_immunity								= 0
+shock_immunity								= 0.018
+wound_immunity								= 0.005
+radiation_immunity 							= 0.0 ;			= 0.07
+telepatic_immunity							= 0.0
+chemical_burn_immunity						= 0.016
+explosion_immunity							= 0.008
+fire_wound_immunity							= 0.007
+
+[sect_exo_outfit_immunities_burn_add]
+burn_immunity								= -0.019			;коэффициенты иммунитета самого костюма
+strike_immunity								= -0.0
+shock_immunity								= -0.0
+wound_immunity								= -0.0
+radiation_immunity 							= 0.0 ;			= -0.0
+telepatic_immunity							= -0.0
+chemical_burn_immunity						= -0.0
+explosion_immunity							= -0.0
+fire_wound_immunity							= -0.0
+
+[sect_exo_outfit_immunities_chemical_burn_add]
+burn_immunity								= -0.0			;коэффициенты иммунитета самого костюма
+strike_immunity								= -0.0
+shock_immunity								= -0.0
+wound_immunity								= -0.0
+radiation_immunity 							= 0.0 ;			= -0.0
+telepatic_immunity							= -0.0
+chemical_burn_immunity						= -0.002
+explosion_immunity							= -0.0
+fire_wound_immunity							= -0.0
+
+[sect_exo_outfit_immunities_shock_add]
+burn_immunity								= -0.0			;коэффициенты иммунитета самого костюма
+strike_immunity								= -0.0
+shock_immunity								= -0.0022
+wound_immunity								= -0.0
+radiation_immunity 							= 0.0 ;			= -0.0
+telepatic_immunity							= -0.0
+chemical_burn_immunity						= -0.0
+explosion_immunity							= -0.0
+fire_wound_immunity							= -0.0
+
+[sect_exo_outfit_immunities_physical_add_small]
+burn_immunity								= -0.0			;коэффициенты иммунитета самого костюма
+strike_immunity								= -0.0
+shock_immunity								= -0.0
+wound_immunity								= -0.0003
+radiation_immunity 							= 0.0 ;			= -0.0
+telepatic_immunity							= -0.0
+chemical_burn_immunity						= -0.0
+explosion_immunity							= -0.0004
+fire_wound_immunity							= -0.0004
+
+[sect_exo_outfit_immunities_physical_add_large]
+burn_immunity								= -0.0			;коэффициенты иммунитета самого костюма
+strike_immunity								= -0.0
+shock_immunity								= -0.0
+wound_immunity								= -0.0005
+radiation_immunity 							= 0.0 ;			= -0.0
+telepatic_immunity							= -0.0
+chemical_burn_immunity						= -0.0
+explosion_immunity							= -0.0008
+fire_wound_immunity							= -0.0007
+
+;---------------------------------------------------------------------------------------------
+;						   			  Экзоскелет сталкера (поношеный) 
+;---------------------------------------------------------------------------------------------
+[exo_outfit_worn]:exo_outfit
+$spawn 										= "outfit\exo_outfit"
+visual                                   	= dynamics\outfit\exo_outfit
+actor_visual                             	= actors\stalker_neutral\stalker_neutral_4.ogf
+npc_visual                               	= actors\stalker_neutral\stalker_neutral_4.ogf
+
+player_hud_section                       	= actor_hud_exo
+
+upgrades                					= up_gr_firstab_exo_outfit_worn, up_gr_seconab_exo_outfit_worn, up_gr_thirdab_exo_outfit_worn, up_gr_fourtab_exo_outfit_worn, up_gr_fifthab_exo_outfit_worn
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_exo_outfit_worn
+
+additional_inventory_weight			 		= 85
+additional_inventory_weight2				= 85
+
+inv_name									= exo_outfit_worn_name
+inv_name_short								= exo_outfit_worn_name
+description									= exo_outfit_worn_description
+
+inv_weight									= 47.0
+
+inv_grid_x         = 86
+inv_grid_y         = 9
+
+upgr_icon_x									= 332
+upgr_icon_y									= 447
+upgr_icon_width								= 306
+upgr_icon_height   							= 165
+
+cost										= 91680
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0560 
+shock_protection 							= 0.6300 
+radiation_protection 						= 0.0195
+chemical_burn_protection 					= 0.0294 
+telepatic_protection 						= 0.0400 
+strike_protection 							= 0.3850
+explosion_protection 						= 0.6650
+wound_protection							= 0.4480
+fire_wound_protection  						= 0.4060
+
+artefact_count                  			= 0
+
+repair_part_bonus	 						= 0.43
+
+;---------------------------------------------------------------------------------------------
+;						   			  Экзоскелет сталкера (непригодный) 
+;---------------------------------------------------------------------------------------------
+[exo_outfit_bad]:exo_outfit
+$spawn 										= "outfit\exo_outfit"
+visual                                   	= dynamics\outfit\exo_outfit
+actor_visual                             	= actors\stalker_neutral\stalker_neutral_4.ogf
+npc_visual                               	= actors\stalker_neutral\stalker_neutral_4.ogf
+
+player_hud_section                       	= actor_hud_exo
+
+upgrades                					= up_gr_firstab_exo_outfit_bad, up_gr_seconab_exo_outfit_bad, up_gr_thirdab_exo_outfit_bad, up_gr_fourtab_exo_outfit_bad, up_gr_fifthab_exo_outfit_bad
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_exo_outfit_bad
+
+additional_inventory_weight			 		= 70
+additional_inventory_weight2				= 70
+
+inv_name									= exo_outfit_bad_name
+inv_name_short								= exo_outfit_bad_name
+description									= exo_outfit_bad_description
+
+inv_weight									= 46.0
+
+inv_grid_x         = 88
+inv_grid_y         = 9
+
+upgr_icon_x									= 332
+upgr_icon_y									= 447
+upgr_icon_width								= 306
+upgr_icon_height   							= 165
+
+cost										= 61680
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0280 
+shock_protection 							= 0.3150 
+radiation_protection 						= 0.0103
+chemical_burn_protection 					= 0.0147 
+telepatic_protection 						= 0.0241
+strike_protection 							= 0.1925
+explosion_protection 						= 0.3325
+wound_protection							= 0.2240
+fire_wound_protection  						= 0.2030
+
+artefact_count                  			= 0
+
+repair_part_bonus	 						= 0.39
+
+;---------------------------------------------------------------------------------------------
+;						   Экзоскелет группировки "Свобода"
+;---------------------------------------------------------------------------------------------
+[svoboda_exo_outfit]:exo_outfit
+$spawn                                   	= "outfit\freedom_exo_outfit"
+visual                                   	= dynamics\outfit\freedom_exo_outfit
+actor_visual                             	= actors\stalker_freedom\stalker_freedom_4.ogf
+npc_visual                               	= actors\stalker_freedom\stalker_freedom_4.ogf
+
+player_hud_section                       	= actor_hud_freedom_exo
+
+upgrades                					= up_gr_firstab_svoboda_exo_outfit, up_gr_seconab_svoboda_exo_outfit, up_gr_thirdab_svoboda_exo_outfit, up_gr_fourtab_svoboda_exo_outfit, up_gr_fifthab_svoboda_exo_outfit
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_svoboda_exo_outfit
+
+inv_name                                 	= svoboda_exo_outfit_name
+inv_name_short                           	= svoboda_exo_outfit_name
+description                              	= svoboda_exo_outfit_description
+
+inv_grid_x         							= 54
+inv_grid_y         							= 6
+
+upgr_icon_x                              	= 1572
+upgr_icon_y                              	= 0
+upgr_icon_width                          	= 312
+upgr_icon_height                         	= 162
+
+character_portrait						 	= ui_inGame2_Freedom_4
+
+cost										= 131222
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0890 
+shock_protection 							= 0.9200 
+radiation_protection 						= 0.0295
+chemical_burn_protection 					= 0.0440 
+telepatic_protection 						= 0.0600
+strike_protection 							= 0.5555
+explosion_protection 						= 0.9555
+wound_protection							= 0.6500
+fire_wound_protection  						= 0.5700
+
+;---------------------------------------------------------------------------------------------
+;						   Экзоскелет группировки "Свобода" (поношеный)
+;---------------------------------------------------------------------------------------------
+[svoboda_exo_outfit_worn]:svoboda_exo_outfit
+$spawn                                   	= "outfit\freedom_exo_outfit"
+visual                                   	= dynamics\outfit\freedom_exo_outfit
+actor_visual                             	= actors\stalker_freedom\stalker_freedom_4.ogf
+npc_visual                               	= actors\stalker_freedom\stalker_freedom_4.ogf
+
+player_hud_section                       	= actor_hud_freedom_exo
+
+upgrades                					= up_gr_firstab_svoboda_exo_outfit_worn, up_gr_seconab_svoboda_exo_outfit_worn, up_gr_thirdab_svoboda_exo_outfit_worn, up_gr_fourtab_svoboda_exo_outfit_worn, up_gr_fifthab_svoboda_exo_outfit_worn
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_svoboda_exo_outfit_worn
+
+inv_name                                 	= svoboda_exo_outfit_worn_name
+inv_name_short                           	= svoboda_exo_outfit_worn_name
+description                              	= svoboda_exo_outfit_worn_description
+
+inv_weight									= 47.0
+
+additional_inventory_weight			 		= 85
+additional_inventory_weight2				= 85
+
+inv_grid_x         							= 64
+inv_grid_y         							= 33
+
+upgr_icon_x                              	= 1572
+upgr_icon_y                              	= 0
+upgr_icon_width                          	= 312
+upgr_icon_height                         	= 162
+
+cost										= 91222
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0623 
+shock_protection 							= 0.6440 
+radiation_protection 						= 0.0195
+chemical_burn_protection 					= 0.0308 
+telepatic_protection 						= 0.0400 
+strike_protection 							= 0.3888
+explosion_protection 						= 0.6688
+wound_protection							= 0.4550
+fire_wound_protection  						= 0.3990
+
+artefact_count                  			= 0
+
+repair_part_bonus	 						= 0.43
+
+;---------------------------------------------------------------------------------------------
+;						   Экзоскелет группировки "Свобода" (непригодный)
+;---------------------------------------------------------------------------------------------
+[svoboda_exo_outfit_bad]:svoboda_exo_outfit
+$spawn                                   	= "outfit\freedom_exo_outfit"
+visual                                   	= dynamics\outfit\freedom_exo_outfit
+actor_visual                             	= actors\stalker_freedom\stalker_freedom_4.ogf
+npc_visual                               	= actors\stalker_freedom\stalker_freedom_4.ogf
+
+player_hud_section                       	= actor_hud_freedom_exo
+
+upgrades                					= up_gr_firstab_svoboda_exo_outfit_bad, up_gr_seconab_svoboda_exo_outfit_bad, up_gr_thirdab_svoboda_exo_outfit_bad, up_gr_fourtab_svoboda_exo_outfit_bad, up_gr_fifthab_svoboda_exo_outfit_bad
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_svoboda_exo_outfit_bad
+
+inv_weight									= 46.0
+
+additional_inventory_weight			 		= 70
+additional_inventory_weight2				= 70
+
+inv_name                                 	= svoboda_exo_outfit_bad_name
+inv_name_short                           	= svoboda_exo_outfit_bad_name
+description                              	= svoboda_exo_outfit_bad_description
+
+inv_grid_x         							= 66
+inv_grid_y         							= 33
+
+upgr_icon_x                              	= 1572
+upgr_icon_y                              	= 0
+upgr_icon_width                          	= 312
+upgr_icon_height                         	= 162
+
+cost										= 61222
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0311 
+shock_protection 							= 0.3220 
+radiation_protection 						= 0.0103
+chemical_burn_protection 					= 0.0154 
+telepatic_protection 						= 0.0241  
+strike_protection 							= 0.1944
+explosion_protection 						= 0.3344
+wound_protection							= 0.2275
+fire_wound_protection  						= 0.1995
+
+artefact_count                  			= 0
+
+repair_part_bonus	 						= 0.39
+
+;---------------------------------------------------------------------------------------------
+;								   Бандитский экзоскелет
+;---------------------------------------------------------------------------------------------
+[bandit_exo_outfit]:exo_outfit
+$spawn                                   	= "outfit\bandit_exo_outfit"
+visual                                   	= dynamics\outfit\bandit_exo_outfit
+actor_visual                             	= actors\stalker_bandit\stalker_bandit_exo.ogf
+npc_visual                               	= actors\stalker_bandit\stalker_bandit_exo.ogf
+
+player_hud_section                       	= actor_hud_bandit_exo
+
+upgrades                					= up_gr_firstab_bandit_exo_outfit, up_gr_seconab_bandit_exo_outfit, up_gr_thirdab_bandit_exo_outfit, up_gr_fourtab_bandit_exo_outfit, up_gr_fifthab_bandit_exo_outfit
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_bandit_exo_outfit
+
+inv_name                                 	= bandit_exo_outfit_name
+inv_name_short                           	= bandit_exo_outfit_name
+description                              	= bandit_exo_outfit_description
+
+additional_inventory_weight			 		= 80
+additional_inventory_weight2				= 80
+
+inv_grid_x         							= 54
+inv_grid_y         							= 15
+
+upgr_icon_x                              	= 1262
+upgr_icon_y                              	= 0
+upgr_icon_width                          	= 307
+upgr_icon_height                         	= 165
+
+inv_weight                               	= 41.0
+
+cost										= 111220
+
+character_portrait						 	= ui_inGame2_bandit_exo
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0800 
+shock_protection 							= 0.9000 
+radiation_protection 						= 0.0295
+chemical_burn_protection 					= 0.0420 
+telepatic_protection 						= 0.0600
+strike_protection 							= 0.5500
+explosion_protection 						= 0.9500
+wound_protection							= 0.6400
+fire_wound_protection  						= 0.5800
+
+;---------------------------------------------------------------------------------------------
+;								   Бандитский экзоскелет (поношеный)
+;---------------------------------------------------------------------------------------------
+[bandit_exo_outfit_worn]:bandit_exo_outfit
+$spawn                                   	= "outfit\bandit_exo_outfit"
+visual                                   	= dynamics\outfit\bandit_exo_outfit
+actor_visual                             	= actors\stalker_bandit\stalker_bandit_exo.ogf
+npc_visual                               	= actors\stalker_bandit\stalker_bandit_exo.ogf
+
+player_hud_section                       	= actor_hud_bandit_exo
+
+upgrades                					= up_gr_firstab_bandit_exo_outfit_worn, up_gr_seconab_bandit_exo_outfit_worn, up_gr_thirdab_bandit_exo_outfit_worn, up_gr_fourtab_bandit_exo_outfit_worn, up_gr_fifthab_bandit_exo_outfit_worn
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_bandit_exo_outfit_worn
+
+inv_name                                 	= bandit_exo_outfit_worn_name
+inv_name_short                           	= bandit_exo_outfit_worn_name
+description                              	= bandit_exo_outfit_worn_description
+
+inv_grid_x         							= 68
+inv_grid_y         							= 33
+
+upgr_icon_x                              	= 1262
+upgr_icon_y                              	= 0
+upgr_icon_width                          	= 307
+upgr_icon_height                         	= 165
+
+inv_weight                               	= 40.0
+
+additional_inventory_weight			 		= 72
+additional_inventory_weight2				= 72
+
+cost										= 91220
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0560 
+shock_protection 							= 0.6300 
+radiation_protection 						= 0.0195
+chemical_burn_protection 					= 0.0294 
+telepatic_protection 						= 0.0400 
+strike_protection 							= 0.3850
+explosion_protection 						= 0.6650
+wound_protection							= 0.4480
+fire_wound_protection  						= 0.4060
+
+artefact_count                  			= 0
+
+repair_part_bonus	 						= 0.43
+
+;---------------------------------------------------------------------------------------------
+;								   Бандитский экзоскелет (непригодный)
+;---------------------------------------------------------------------------------------------
+[bandit_exo_outfit_bad]:bandit_exo_outfit
+$spawn                                   	= "outfit\bandit_exo_outfit"
+visual                                   	= dynamics\outfit\bandit_exo_outfit
+actor_visual                             	= actors\stalker_bandit\stalker_bandit_exo.ogf
+npc_visual                               	= actors\stalker_bandit\stalker_bandit_exo.ogf
+
+player_hud_section                       	= actor_hud_bandit_exo
+
+upgrades                					= up_gr_firstab_bandit_exo_outfit_bad, up_gr_seconab_bandit_exo_outfit_bad, up_gr_thirdab_bandit_exo_outfit_bad, up_gr_fourtab_bandit_exo_outfit_bad, up_gr_fifthab_bandit_exo_outfit_bad
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_bandit_exo_outfit_bad
+
+inv_name                                 	= bandit_exo_outfit_bad_name
+inv_name_short                           	= bandit_exo_outfit_bad_name
+description                              	= bandit_exo_outfit_bad_description
+
+inv_grid_x         							= 70
+inv_grid_y         							= 33
+
+upgr_icon_x                              	= 1262
+upgr_icon_y                              	= 0
+upgr_icon_width                          	= 307
+upgr_icon_height                         	= 165
+
+inv_weight                               	= 39.0
+
+additional_inventory_weight			 		= 65
+additional_inventory_weight2				= 65
+
+cost										= 61220
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0280 
+shock_protection 							= 0.3150 
+radiation_protection 						= 0.0103
+chemical_burn_protection 					= 0.0147 
+telepatic_protection 						= 0.0241  
+strike_protection 							= 0.1925
+explosion_protection 						= 0.3325
+wound_protection							= 0.2240
+fire_wound_protection  						= 0.2030
+
+artefact_count                  			= 0
+
+repair_part_bonus	 						= 0.39
+
+;---------------------------------------------------------------------------------------------
+;								   Экзоскелет наёмников
+;---------------------------------------------------------------------------------------------
+[merc_exo_outfit]:exo_outfit
+$spawn                                   	= "outfit\merc_exo_outfit"
+visual                                   	= dynamics\outfit\merc_exo_outfit
+actor_visual                             	= actors\stalker_merc\stalker_merc_4.ogf
+npc_visual                               	= actors\stalker_merc\stalker_merc_4.ogf
+
+player_hud_section                       	= actor_hud_merc_exo
+
+upgrades                					= up_gr_firstab_merc_exo_outfit, up_gr_seconab_merc_exo_outfit, up_gr_thirdab_merc_exo_outfit, up_gr_fourtab_merc_exo_outfit, up_gr_fifthab_merc_exo_outfit
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_merc_exo_outfit
+
+inv_name                                 	= merc_exo_outfit_name
+inv_name_short                           	= merc_exo_outfit_name
+description                              	= merc_exo_outfit_description
+
+cost										= 132610
+
+artefact_count                  			= 2
+
+inv_grid_x         							= 54
+inv_grid_y         							= 12
+
+upgr_icon_x                              	= 2189
+upgr_icon_y                              	= 0
+upgr_icon_width                          	= 307
+upgr_icon_height                         	= 160
+
+inv_weight                               	= 40.0
+
+additional_inventory_weight              	= 95
+additional_inventory_weight2             	= 95
+
+character_portrait						 	= ui_inGame2_merc_4
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0800 
+shock_protection 							= 0.9000 
+radiation_protection 						= 0.0295
+chemical_burn_protection 					= 0.0500 
+telepatic_protection 						= 0.0600
+strike_protection 							= 0.5300
+explosion_protection 						= 0.9200
+wound_protection							= 0.6600
+fire_wound_protection  						= 0.5900
+
+nightvision_sect 							= effector_nightvision_1
+
+;---------------------------------------------------------------------------------------------
+;								   Экзоскелет наёмников (поношеный)
+;---------------------------------------------------------------------------------------------
+[merc_exo_outfit_worn]:merc_exo_outfit
+$spawn                                   	= "outfit\merc_exo_outfit"
+visual                                   	= dynamics\outfit\merc_exo_outfit
+actor_visual                             	= actors\stalker_merc\stalker_merc_4.ogf
+npc_visual                               	= actors\stalker_merc\stalker_merc_4.ogf
+
+player_hud_section                       	= actor_hud_merc_exo
+
+upgrades                					= up_gr_firstab_merc_exo_outfit_worn, up_gr_seconab_merc_exo_outfit_worn, up_gr_thirdab_merc_exo_outfit_worn, up_gr_fourtab_merc_exo_outfit_worn, up_gr_fifthab_merc_exo_outfit_worn
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_merc_exo_outfit_worn
+
+inv_name                                 	= merc_exo_outfit_worn_name
+inv_name_short                           	= merc_exo_outfit_worn_name
+description                              	= merc_exo_outfit_worn_description
+
+cost										= 102610
+
+artefact_count                  			= 1
+
+inv_grid_x         = 90
+inv_grid_y         = 12
+
+upgr_icon_x                              	= 2189
+upgr_icon_y                              	= 0
+upgr_icon_width                          	= 307
+upgr_icon_height                         	= 160
+
+inv_weight                               	= 39.0
+
+additional_inventory_weight              	= 72
+additional_inventory_weight2             	= 72
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0560 
+shock_protection 							= 0.6300 
+radiation_protection 						= 0.0195
+chemical_burn_protection 					= 0.0350 
+telepatic_protection 						= 0.0400 
+strike_protection 							= 0.3710
+explosion_protection 						= 0.6440
+wound_protection							= 0.4620
+fire_wound_protection  						= 0.4130
+
+repair_part_bonus	 						= 0.43
+
+;---------------------------------------------------------------------------------------------
+;								   Экзоскелет наёмников (непригодный)
+;---------------------------------------------------------------------------------------------
+[merc_exo_outfit_bad]:merc_exo_outfit
+$spawn                                   	= "outfit\merc_exo_outfit"
+visual                                   	= dynamics\outfit\merc_exo_outfit
+actor_visual                             	= actors\stalker_merc\stalker_merc_4.ogf
+npc_visual                               	= actors\stalker_merc\stalker_merc_4.ogf
+
+player_hud_section                       	= actor_hud_merc_exo
+
+upgrades                					= up_gr_firstab_merc_exo_outfit_bad, up_gr_seconab_merc_exo_outfit_bad, up_gr_thirdab_merc_exo_outfit_bad, up_gr_fourtab_merc_exo_outfit_bad, up_gr_fifthab_merc_exo_outfit_bad
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_merc_exo_outfit_bad
+
+inv_name                                 	= merc_exo_outfit_bad_name
+inv_name_short                           	= merc_exo_outfit_bad_name
+description                              	= merc_exo_outfit_bad_description
+
+cost										= 73610
+
+artefact_count                  			= 0
+
+inv_grid_x         = 92
+inv_grid_y         = 12
+
+upgr_icon_x                              	= 2189
+upgr_icon_y                              	= 0
+upgr_icon_width                          	= 307
+upgr_icon_height                         	= 160
+
+inv_weight                               	= 38.0
+
+additional_inventory_weight              	= 66
+additional_inventory_weight2             	= 66
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0280 
+shock_protection 							= 0.3150 
+radiation_protection 						= 0.0103
+chemical_burn_protection 					= 0.0175 
+telepatic_protection 						= 0.0241  
+strike_protection 							= 0.1855
+explosion_protection 						= 0.3220
+wound_protection							= 0.2310
+fire_wound_protection  						= 0.2065
+
+repair_part_bonus	 						= 0.39
+
+nightvision_sect 							= 
+
+;---------------------------------------------------------------------------------------------
+;								Экзоскелет «Монолита»
+;---------------------------------------------------------------------------------------------
+[monolith_exo_outfit]:exo_outfit
+$spawn                                   	= "outfit\monolith_exo_outfit"
+visual                                   	= dynamics\outfit\monolith_exo_outfit
+actor_visual                             	= actors\stalker_monolith\stalker_monolith_4.ogf
+npc_visual                               	= actors\stalker_monolith\stalker_monolith_4.ogf
+
+player_hud_section                       	= actor_hud_monolith_exo
+
+upgrades                					= up_gr_firstab_monolith_exo_outfit, up_gr_seconab_monolith_exo_outfit, up_gr_thirdab_monolith_exo_outfit, up_gr_fourtab_monolith_exo_outfit, up_gr_fifthab_monolith_exo_outfit
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_monolith_exo_outfit
+
+inv_name                                 	= monolith_exo_outfit_name
+inv_name_short                           	= monolith_exo_outfit_name
+description                              	= monolith_exo_outfit_description
+
+inv_grid_x         							= 54
+inv_grid_y         							= 18
+
+upgr_icon_x                              	= 2499
+upgr_icon_y                              	= 0
+upgr_icon_width                          	= 309
+upgr_icon_height                         	= 165
+
+inv_weight                               	= 26.0
+
+additional_inventory_weight              	= 90
+additional_inventory_weight2             	= 90
+
+character_portrait						 	= ui_inGame2_monolit_4
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0880 
+shock_protection 							= 0.9100 
+radiation_protection 						= 0.0295
+chemical_burn_protection 					= 0.0620 
+telepatic_protection 						= 0.0600
+strike_protection 							= 0.6100
+explosion_protection 						= 0.9600
+wound_protection							= 0.6500
+fire_wound_protection  						= 0.6000
+
+cost										= 144280
+
+artefact_count                  			= 2
+
+nightvision_sect 							= effector_nightvision_1
+
+;---------------------------------------------------------------------------------------------
+;								Экзоскелет «Монолита» (поношеный)
+;---------------------------------------------------------------------------------------------
+[monolith_exo_outfit_worn]:monolith_exo_outfit
+$spawn                                   	= "outfit\monolith_exo_outfit"
+visual                                   	= dynamics\outfit\monolith_exo_outfit
+actor_visual                             	= actors\stalker_monolith\stalker_monolith_4.ogf
+npc_visual                               	= actors\stalker_monolith\stalker_monolith_4.ogf
+
+player_hud_section                       	= actor_hud_monolith_exo
+
+upgrades                					= up_gr_firstab_monolith_exo_outfit_worn, up_gr_seconab_monolith_exo_outfit_worn, up_gr_thirdab_monolith_exo_outfit_worn, up_gr_fourtab_monolith_exo_outfit_worn, up_gr_fifthab_monolith_exo_outfit_worn
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_monolith_exo_outfit_worn
+
+inv_name                                 	= monolith_exo_outfit_worn_name
+inv_name_short                           	= monolith_exo_outfit_worn_name
+description                              	= monolith_exo_outfit_worn_description
+
+inv_grid_x         = 94
+inv_grid_y         = 9
+
+upgr_icon_x                              	= 2499
+upgr_icon_y                              	= 0
+upgr_icon_width                          	= 309
+upgr_icon_height                         	= 165
+
+inv_weight                               	= 25.0
+
+additional_inventory_weight              	= 75
+additional_inventory_weight2             	= 75
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0616 
+shock_protection 							= 0.6370 
+radiation_protection 						= 0.0195
+chemical_burn_protection 					= 0.0434 
+telepatic_protection 						= 0.0400 
+strike_protection 							= 0.4270
+explosion_protection 						= 0.6720
+wound_protection							= 0.4550
+fire_wound_protection  						= 0.4200
+
+cost										= 114280
+
+artefact_count                  			= 1
+
+repair_part_bonus	 						= 0.43
+
+nightvision_sect 							= effector_nightvision_1
+
+;---------------------------------------------------------------------------------------------
+;								Экзоскелет «Монолита» (непригодный)
+;---------------------------------------------------------------------------------------------
+[monolith_exo_outfit_bad]:monolith_exo_outfit
+$spawn                                   	= "outfit\monolith_exo_outfit"
+visual                                   	= dynamics\outfit\monolith_exo_outfit
+actor_visual                             	= actors\stalker_monolith\stalker_monolith_4.ogf
+npc_visual                               	= actors\stalker_monolith\stalker_monolith_4.ogf
+
+player_hud_section                       	= actor_hud_monolith_exo
+
+upgrades                					= up_gr_firstab_monolith_exo_outfit_bad, up_gr_seconab_monolith_exo_outfit_bad, up_gr_thirdab_monolith_exo_outfit_bad, up_gr_fourtab_monolith_exo_outfit_bad, up_gr_fifthab_monolith_exo_outfit_bad
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_monolith_exo_outfit_bad
+
+inv_name                                 	= monolith_exo_outfit_bad_name
+inv_name_short                           	= monolith_exo_outfit_bad_name
+description                              	= monolith_exo_outfit_bad_description
+
+inv_grid_x         							= 74
+inv_grid_y         							= 27
+
+upgr_icon_x                              	= 2499
+upgr_icon_y                              	= 0
+upgr_icon_width                          	= 309
+upgr_icon_height                         	= 165
+
+inv_weight                               	= 24.0
+
+additional_inventory_weight              	= 62
+additional_inventory_weight2             	= 62
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0308 
+shock_protection 							= 0.3185 
+radiation_protection 						= 0.0103
+chemical_burn_protection 					= 0.0217 
+telepatic_protection 						= 0.0241  
+strike_protection 							= 0.2135
+explosion_protection 						= 0.3360
+wound_protection							= 0.2275
+fire_wound_protection  						= 0.2100
+
+cost										= 88280
+
+artefact_count                  			= 0
+
+repair_part_bonus	 						= 0.39
+
+;---------------------------------------------------------------------------------------------
+;									Экзоскелет «Долга»
+;---------------------------------------------------------------------------------------------
+[dolg_exo_outfit]:exo_outfit
+$spawn                                   	= "outfit\duty_exo_outfit"
+visual                                   	= dynamics\outfit\dolg_exo_outfit
+actor_visual                             	= actors\stalker_dolg\stalker_dolg_4.ogf
+npc_visual                               	= actors\stalker_dolg\stalker_dolg_4.ogf
+
+player_hud_section                       	= actor_hud_dolg_exo
+
+upgrades                					= up_gr_firstab_dolg_exo_outfit, up_gr_seconab_dolg_exo_outfit, up_gr_thirdab_dolg_exo_outfit, up_gr_fourtab_dolg_exo_outfit, up_gr_fifthab_dolg_exo_outfit
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_dolg_exo_outfit
+
+inv_name                                 	= dolg_exo_outfit_name
+inv_name_short                           	= dolg_exo_outfit_name
+description                              	= dolg_exo_outfit_description
+
+inv_grid_x         							= 54
+inv_grid_y         							= 3
+
+upgr_icon_x                              	= 1881
+upgr_icon_y                              	= 0
+upgr_icon_width                          	= 306
+upgr_icon_height                         	= 161
+
+inv_weight                               	= 46.0
+
+additional_inventory_weight              	= 100
+additional_inventory_weight2             	= 100
+
+character_portrait						 	= ui_inGame2_Dolg_4
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0999 
+shock_protection 							= 1.1000 
+radiation_protection 						= 0.0295
+chemical_burn_protection 					= 0.0420 
+telepatic_protection 						= 0.0600 
+strike_protection 							= 0.6500
+explosion_protection 						= 0.9000
+wound_protection							= 0.6000
+fire_wound_protection  						= 0.5100
+
+cost										= 121080
+
+artefact_count                 				= 0
+
+;---------------------------------------------------------------------------------------------
+;									Экзоскелет «Долга» (поношеный)
+;---------------------------------------------------------------------------------------------
+[dolg_exo_outfit_worn]:dolg_exo_outfit
+$spawn                                   	= "outfit\duty_exo_outfit"
+visual                                   	= dynamics\outfit\dolg_exo_outfit
+actor_visual                             	= actors\stalker_dolg\stalker_dolg_4.ogf
+npc_visual                               	= actors\stalker_dolg\stalker_dolg_4.ogf
+
+player_hud_section                       	= actor_hud_dolg_exo
+
+upgrades                					= up_gr_firstab_dolg_exo_outfit_worn, up_gr_seconab_dolg_exo_outfit_worn, up_gr_thirdab_dolg_exo_outfit_worn, up_gr_fourtab_dolg_exo_outfit_worn, up_gr_fifthab_dolg_exo_outfit_worn
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_dolg_exo_outfit_worn
+
+inv_name                                 	= dolg_exo_outfit_worn_name
+inv_name_short                           	= dolg_exo_outfit_worn_name
+description                              	= dolg_exo_outfit_worn_description
+
+inv_grid_x         = 86
+inv_grid_y         = 12
+
+upgr_icon_x                              	= 1881
+upgr_icon_y                              	= 0
+upgr_icon_width                          	= 306
+upgr_icon_height                         	= 161
+
+inv_weight                               	= 45.0
+
+additional_inventory_weight              	= 85
+additional_inventory_weight2             	= 85
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0699 
+shock_protection 							= 0.7700 
+radiation_protection 						= 0.0195
+chemical_burn_protection 					= 0.0294 
+telepatic_protection 						= 0.0400 
+strike_protection 							= 0.4550
+explosion_protection 						= 0.6300
+wound_protection							= 0.4200
+fire_wound_protection  						= 0.3570
+
+cost										= 97080
+
+repair_part_bonus	 						= 0.43
+
+;---------------------------------------------------------------------------------------------
+;									Экзоскелет «Долга» (непригодный)
+;---------------------------------------------------------------------------------------------
+[dolg_exo_outfit_bad]:dolg_exo_outfit
+$spawn                                   	= "outfit\duty_exo_outfit"
+visual                                   	= dynamics\outfit\dolg_exo_outfit
+actor_visual                             	= actors\stalker_dolg\stalker_dolg_4.ogf
+npc_visual                               	= actors\stalker_dolg\stalker_dolg_4.ogf
+
+player_hud_section                       	= actor_hud_dolg_exo
+
+upgrades                					= up_gr_firstab_dolg_exo_outfit_bad, up_gr_seconab_dolg_exo_outfit_bad, up_gr_thirdab_dolg_exo_outfit_bad, up_gr_fourtab_dolg_exo_outfit_bad, up_gr_fifthab_dolg_exo_outfit_bad
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_dolg_exo_outfit_bad
+
+inv_name                                 	= dolg_exo_outfit_bad_name
+inv_name_short                           	= dolg_exo_outfit_bad_name
+description                              	= dolg_exo_outfit_bad_description
+
+inv_grid_x         = 88
+inv_grid_y         = 12
+
+upgr_icon_x                              	= 1881
+upgr_icon_y                              	= 0
+upgr_icon_width                          	= 306
+upgr_icon_height                         	= 161
+
+inv_weight                               	= 44.0
+
+additional_inventory_weight              	= 65
+additional_inventory_weight2             	= 65
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0349 
+shock_protection 							= 0.3850 
+radiation_protection 						= 0.0103
+chemical_burn_protection 					= 0.0147 
+telepatic_protection 						= 0.0241
+strike_protection 							= 0.2275
+explosion_protection 						= 0.3150
+wound_protection							= 0.2100
+fire_wound_protection  						= 0.1785
+
+cost										= 69069
+
+repair_part_bonus	 						= 0.39
+
+;---------------------------------------------------------------------------------------------
+;								Военный экзоскелет
+;---------------------------------------------------------------------------------------------
+[military_exo_outfit]:exo_outfit
+$spawn                                   	= "outfit\military_exo_outfit"
+visual                                   	= dynamics\outfit\military_exo_outfit
+actor_visual                             	= actors\stalker_soldier\stalker_military_exo.ogf
+npc_visual                               	= actors\stalker_soldier\stalker_military_exo.ogf
+
+player_hud_section                       	= actor_hud_military_exo
+
+upgrades                					= up_gr_firstab_military_exo_outfit, up_gr_seconab_military_exo_outfit, up_gr_thirdab_military_exo_outfit, up_gr_fourtab_military_exo_outfit, up_gr_fifthab_military_exo_outfit
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_military_exo_outfit
+
+inv_name                                 	= military_exo_outfit_name
+inv_name_short                           	= military_exo_outfit_name
+description                              	= military_exo_outfit_description
+
+additional_inventory_weight              	= 110
+additional_inventory_weight2             	= 110
+
+inv_grid_x         							= 54
+inv_grid_y         							= 9
+
+upgr_icon_x                              	= 2810
+upgr_icon_y                              	= 0
+upgr_icon_width                          	= 307
+upgr_icon_height                         	= 162
+
+character_portrait						 	= ui_inGame2_monolit_4
+
+inv_weight                               	= 44.0
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0750 
+shock_protection 							= 0.8500 
+radiation_protection 						= 0.0295
+chemical_burn_protection 					= 0.0520 
+telepatic_protection 						= 0.0600
+strike_protection 							= 0.6000
+explosion_protection 						= 0.9400
+wound_protection							= 0.6600
+fire_wound_protection  						= 0.6000
+
+cost										= 129510
+
+artefact_count                  			= 0
+
+;---------------------------------------------------------------------------------------------
+;								Военный экзоскелет (поношеный)
+;---------------------------------------------------------------------------------------------
+[military_exo_outfit_worn]:military_exo_outfit
+$spawn                                   	= "outfit\military_exo_outfit"
+visual                                   	= dynamics\outfit\military_exo_outfit
+actor_visual                             	= actors\stalker_soldier\stalker_military_exo.ogf
+npc_visual                               	= actors\stalker_soldier\stalker_military_exo.ogf
+
+player_hud_section                       	= actor_hud_military_exo
+
+upgrades                					= up_gr_firstab_military_exo_outfit_worn, up_gr_seconab_military_exo_outfit_worn, up_gr_thirdab_military_exo_outfit_worn, up_gr_fourtab_military_exo_outfit_worn, up_gr_fifthab_military_exo_outfit_worn
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_military_exo_outfit_worn
+
+inv_name                                 	= military_exo_outfit_worn_name
+inv_name_short                           	= military_exo_outfit_worn_name
+description                              	= military_exo_outfit_worn_description
+
+additional_inventory_weight              	= 89
+additional_inventory_weight2             	= 89
+
+inv_grid_x         = 90
+inv_grid_y         = 9
+
+upgr_icon_x                              	= 2810
+upgr_icon_y                              	= 0
+upgr_icon_width                          	= 307
+upgr_icon_height                         	= 162
+
+inv_weight                               	= 43.0
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0525 
+shock_protection 							= 0.5950 
+radiation_protection 						= 0.0195
+chemical_burn_protection 					= 0.0364 
+telepatic_protection 						= 0.0400 
+strike_protection 							= 0.4200
+explosion_protection 						= 0.6580
+wound_protection							= 0.4620
+fire_wound_protection  						= 0.4200
+
+cost										= 89510
+
+repair_part_bonus	 						= 0.43
+
+;---------------------------------------------------------------------------------------------
+;								Военный экзоскелет (непригодный)
+;---------------------------------------------------------------------------------------------
+[military_exo_outfit_bad]:military_exo_outfit
+$spawn                                   	= "outfit\military_exo_outfit"
+visual                                   	= dynamics\outfit\military_exo_outfit
+actor_visual                             	= actors\stalker_soldier\stalker_military_exo.ogf
+npc_visual                               	= actors\stalker_soldier\stalker_military_exo.ogf
+
+player_hud_section                       	= actor_hud_military_exo
+
+upgrades                					= up_gr_firstab_military_exo_outfit_bad, up_gr_seconab_military_exo_outfit_bad, up_gr_thirdab_military_exo_outfit_bad, up_gr_fourtab_military_exo_outfit_bad, up_gr_fifthab_military_exo_outfit_bad
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_military_exo_outfit_bad
+
+inv_name                                 	= military_exo_outfit_bad_name
+inv_name_short                           	= military_exo_outfit_bad_name
+description                              	= military_exo_outfit_bad_description
+
+additional_inventory_weight              	= 68
+additional_inventory_weight2             	= 68
+
+inv_grid_x         = 92
+inv_grid_y         = 9
+
+upgr_icon_x                              	= 2810
+upgr_icon_y                              	= 0
+upgr_icon_width                          	= 307
+upgr_icon_height                         	= 162
+
+inv_weight                               	= 42.0
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0262 
+shock_protection 							= 0.2975 
+radiation_protection 						= 0.0103
+chemical_burn_protection 					= 0.0182 
+telepatic_protection 						= 0.0241  
+strike_protection 							= 0.2100
+explosion_protection 						= 0.3290
+wound_protection							= 0.2310
+fire_wound_protection  						= 0.2100
+
+cost										= 69510
+
+repair_part_bonus	 						= 0.39
+
+;---------------------------------------------------------------------------------------------
+;								Научный экзоскелет «Эколог»
+;---------------------------------------------------------------------------------------------
+[ecolog_exo_outfit]:exo_outfit
+$spawn                                   	= "outfit\ecolog_exo_outfit"
+visual                                   	= dynamics\outfit\ecolog_exo_outfit
+actor_visual                             	= actors\stalker_ucheniy\stalker_nauchniy_exo.ogf
+npc_visual                               	= actors\stalker_ucheniy\stalker_nauchniy_exo.ogf
+
+player_hud_section                       	= actor_hud_exo
+
+upgrades                					= up_gr_firstab_ecolog_exo_outfit, up_gr_seconab_ecolog_exo_outfit, up_gr_thirdab_ecolog_exo_outfit, up_gr_fourtab_ecolog_exo_outfit, up_gr_fifthab_ecolog_exo_outfit
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_ecolog_exo_outfit
+
+inv_name                                 	= ecolog_exo_outfit_name
+inv_name_short                           	= ecolog_exo_outfit_name
+description                              	= ecolog_exo_outfit_description
+
+inv_weight                               	= 37.0
+
+inv_grid_x         							= 54
+inv_grid_y         							= 24
+
+upgr_icon_x                              	= 3118
+upgr_icon_y                              	= 0
+upgr_icon_width                          	= 309
+upgr_icon_height                         	= 159
+
+cost                                     	= 145000
+
+power_loss                               	= 1.1
+
+additional_inventory_weight              	= 120
+additional_inventory_weight2             	= 120
+
+artefact_count                           	= 2
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0700 
+shock_protection 							= 1.1000 
+radiation_protection 						= 0.0295
+chemical_burn_protection 					= 0.0480 
+telepatic_protection 						= 0.0600
+strike_protection 							= 0.5000
+explosion_protection 						= 0.9500
+wound_protection							= 0.6400
+fire_wound_protection  						= 0.4800
+
+physic_strike_wound_immunity             	= 0.15
+
+npc_blindness_koeff                      	= 300
+
+character_portrait						 	= ui_inGame2_merc_4a
+
+;---------------------------------------------------------------------------------------------
+;								Научный экзоскелет «Эколог» (поношеный)
+;---------------------------------------------------------------------------------------------
+[ecolog_exo_outfit_worn]:ecolog_exo_outfit
+$spawn                                   	= "outfit\ecolog_exo_outfit"
+visual                                   	= dynamics\outfit\ecolog_exo_outfit
+actor_visual                             	= actors\stalker_ucheniy\stalker_nauchniy_exo.ogf
+npc_visual                               	= actors\stalker_ucheniy\stalker_nauchniy_exo.ogf
+
+player_hud_section                       	= actor_hud_exo
+
+upgrades                					= up_gr_firstab_ecolog_exo_outfit_worn, up_gr_seconab_ecolog_exo_outfit_worn, up_gr_thirdab_ecolog_exo_outfit_worn, up_gr_fourtab_ecolog_exo_outfit_worn, up_gr_fifthab_ecolog_exo_outfit_worn
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_ecolog_exo_outfit_worn
+
+inv_name                                 	= ecolog_exo_outfit_worn_name
+inv_name_short                           	= ecolog_exo_outfit_worn_name
+description                              	= ecolog_exo_outfit_worn_description
+
+inv_weight                               	= 36.0
+
+inv_grid_x         							= 72
+inv_grid_y         							= 33
+
+upgr_icon_x                              	= 3118
+upgr_icon_y                              	= 0
+upgr_icon_width                          	= 309
+upgr_icon_height                         	= 159
+
+cost                                     	= 119000
+
+additional_inventory_weight              	= 90
+additional_inventory_weight2             	= 90
+
+artefact_count                           	= 1
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0490 
+shock_protection 							= 0.7700 
+radiation_protection 						= 0.0195
+chemical_burn_protection 					= 0.0336 
+telepatic_protection 						= 0.0400 
+strike_protection 							= 0.3500
+explosion_protection 						= 0.6650
+wound_protection							= 0.4480
+fire_wound_protection  						= 0.3360
+
+physic_strike_wound_immunity             	= 0.05
+
+repair_part_bonus	 						= 0.43
+
+;---------------------------------------------------------------------------------------------
+;								Научный экзоскелет «Эколог» (непригодный)
+;---------------------------------------------------------------------------------------------
+[ecolog_exo_outfit_bad]:ecolog_exo_outfit
+$spawn                                   	= "outfit\ecolog_exo_outfit"
+visual                                   	= dynamics\outfit\ecolog_exo_outfit
+actor_visual                             	= actors\stalker_ucheniy\stalker_nauchniy_exo.ogf
+npc_visual                               	= actors\stalker_ucheniy\stalker_nauchniy_exo.ogf
+
+player_hud_section                       	= actor_hud_exo
+
+upgrades                					= up_gr_firstab_ecolog_exo_outfit_bad, up_gr_seconab_ecolog_exo_outfit_bad, up_gr_thirdab_ecolog_exo_outfit_bad, up_gr_fourtab_ecolog_exo_outfit_bad, up_gr_fifthab_ecolog_exo_outfit_bad
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_ecolog_exo_outfit_bad
+
+inv_name                                 	= ecolog_exo_outfit_bad_name
+inv_name_short                           	= ecolog_exo_outfit_bad_name
+description                              	= ecolog_exo_outfit_bad_description
+
+inv_weight                               	= 35.0
+
+inv_grid_x         							= 74
+inv_grid_y         							= 33
+
+upgr_icon_x                              	= 3118
+upgr_icon_y                              	= 0
+upgr_icon_width                          	= 309
+upgr_icon_height                         	= 159
+
+cost                                     	= 89000
+
+additional_inventory_weight              	= 60
+additional_inventory_weight2             	= 60
+
+artefact_count                           	= 0
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0245 
+shock_protection 							= 0.3850 
+radiation_protection 						= 0.0103
+chemical_burn_protection 					= 0.0168 
+telepatic_protection 						= 0.0241  
+strike_protection 							= 0.1750
+explosion_protection 						= 0.3325
+wound_protection							= 0.2240
+fire_wound_protection  						= 0.1680
+
+physic_strike_wound_immunity             	= 0.02
+
+repair_part_bonus	 						= 0.39
+
+;---------------------------------------------------------------------------------------------
+;								Экзоскелет «Чистого Неба»
+;---------------------------------------------------------------------------------------------
+[cs_exo_outfit]:exo_outfit
+$spawn                                   	= "outfit\cs_exo_outfit"
+visual                                   	= dynamics\outfit\cs_exo_outfit
+actor_visual                             	= actors\stalker_nebo\stalker_nebo_exo_1.ogf
+npc_visual                               	= actors\stalker_nebo\stalker_nebo_exo_1.ogf
+
+player_hud_section                       	= actor_hud_cs_exo
+
+upgrades                					= up_gr_firstab_cs_exo_outfit, up_gr_seconab_cs_exo_outfit, up_gr_thirdab_cs_exo_outfit, up_gr_fourtab_cs_exo_outfit, up_gr_fifthab_cs_exo_outfit
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_cs_exo_outfit
+
+inv_name                                 	= cs_exo_outfit_name
+inv_name_short                           	= cs_exo_outfit_name
+description                              	= cs_exo_outfit_description
+
+inv_weight                               	= 35.0
+
+inv_grid_x         							= 54
+inv_grid_y         							= 21
+
+upgr_icon_x                              	= 959
+upgr_icon_y                              	= 0
+upgr_icon_width                          	= 300
+upgr_icon_height                         	= 159
+
+cost                                     	= 140000
+
+power_loss                               	= 1.1
+
+additional_inventory_weight              	= 100
+additional_inventory_weight2             	= 100
+
+artefact_count                           	= 2
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0700 
+shock_protection 							= 1.1000 
+radiation_protection 						= 0.0295
+chemical_burn_protection 					= 0.0480 
+telepatic_protection 						= 0.0600
+strike_protection 							= 0.5000
+explosion_protection 						= 0.9500
+wound_protection							= 0.6400
+fire_wound_protection  						= 0.4800
+
+physic_strike_wound_immunity             	= 0.19
+
+character_portrait						 	= ui_inGame2_csky_exo
+
+nightvision_sect 							= effector_nightvision_1
+
+;---------------------------------------------------------------------------------------------
+;								Экзоскелет «Чистого Неба» (поношеный)
+;---------------------------------------------------------------------------------------------
+[cs_exo_outfit_worn]:cs_exo_outfit
+$spawn                                   	= "outfit\cs_exo_outfit"
+visual                                   	= dynamics\outfit\cs_exo_outfit
+actor_visual                             	= actors\stalker_nebo\stalker_nebo_exo_1.ogf
+npc_visual                               	= actors\stalker_nebo\stalker_nebo_exo_1.ogf
+
+player_hud_section                       	= actor_hud_cs_exo
+
+upgrades                					= up_gr_firstab_cs_exo_outfit_worn, up_gr_seconab_cs_exo_outfit_worn, up_gr_thirdab_cs_exo_outfit_worn, up_gr_fourtab_cs_exo_outfit_worn, up_gr_fifthab_cs_exo_outfit_worn
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_cs_exo_outfit_worn
+
+inv_name                                 	= cs_exo_outfit_worn_name
+inv_name_short                           	= cs_exo_outfit_worn_name
+description                              	= cs_exo_outfit_worn_description
+
+inv_weight                               	= 34.0
+
+inv_grid_x         = 94
+inv_grid_y         = 12
+
+upgr_icon_x                              	= 959
+upgr_icon_y                              	= 0
+upgr_icon_width                          	= 300
+upgr_icon_height                         	= 159
+
+cost                                     	= 100000
+
+additional_inventory_weight              	= 77
+additional_inventory_weight2             	= 77
+
+artefact_count                           	= 1
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0490 
+shock_protection 							= 0.7700 
+radiation_protection 						= 0.0195
+chemical_burn_protection 					= 0.0336 
+telepatic_protection 						= 0.0400 
+strike_protection 							= 0.3500
+explosion_protection 						= 0.6650
+wound_protection							= 0.4480
+fire_wound_protection  						= 0.3360
+
+repair_part_bonus	 						= 0.43
+
+nightvision_sect 							= effector_nightvision_1
+
+;---------------------------------------------------------------------------------------------
+;								Экзоскелет «Чистого Неба» (непригодный)
+;---------------------------------------------------------------------------------------------
+[cs_exo_outfit_bad]:cs_exo_outfit
+$spawn                                   	= "outfit\cs_exo_outfit"
+visual                                   	= dynamics\outfit\cs_exo_outfit
+actor_visual                             	= actors\stalker_nebo\stalker_nebo_exo_1.ogf
+npc_visual                               	= actors\stalker_nebo\stalker_nebo_exo_1.ogf
+
+player_hud_section                       	= actor_hud_cs_exo
+
+upgrades                					= up_gr_firstab_cs_exo_outfit_bad, up_gr_seconab_cs_exo_outfit_bad, up_gr_thirdab_cs_exo_outfit_bad, up_gr_fourtab_cs_exo_outfit_bad, up_gr_fifthab_cs_exo_outfit_bad
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_cs_exo_outfit_bad
+
+inv_name                                 	= cs_exo_outfit_bad_name
+inv_name_short                           	= cs_exo_outfit_bad_name
+description                              	= cs_exo_outfit_bad_description
+
+inv_weight                               	= 33.0
+
+inv_grid_x         = 94
+inv_grid_y         = 15
+
+upgr_icon_x                              	= 959
+upgr_icon_y                              	= 0
+upgr_icon_width                          	= 300
+upgr_icon_height                         	= 159
+
+cost                                     	= 80000
+
+additional_inventory_weight              	= 69
+additional_inventory_weight2             	= 69
+
+artefact_count                           	= 0
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0245 
+shock_protection 							= 0.3850 
+radiation_protection 						= 0.0103
+chemical_burn_protection 					= 0.0168 
+telepatic_protection 						= 0.0241  
+strike_protection 							= 0.1750
+explosion_protection 						= 0.3325
+wound_protection							= 0.2240
+fire_wound_protection  						= 0.1680
+
+physic_strike_wound_immunity             	= 0.04
+
+repair_part_bonus	 						= 0.43
+
+nightvision_sect 							= 
+
+;---------------------------------------------------------------------------------------------
+;								Экзоскелет «Ренегатов»
+;---------------------------------------------------------------------------------------------
+[renegade_exo_outfit]:exo_outfit
+$spawn                                   	= "outfit\renegade_exo_outfit"
+visual                                   	= dynamics\outfit\rn_exo_outfit
+actor_visual                             	= actors\stalker_renegade\stalker_rn_exo.ogf
+npc_visual                               	= actors\stalker_renegade\stalker_rn_exo.ogf
+
+player_hud_section                       	= actor_hud_bandit_exo
+
+upgrades                					= up_gr_firstab_renegade_exo_outfit, up_gr_seconab_renegade_exo_outfit, up_gr_thirdab_renegade_exo_outfit, up_gr_fourtab_renegade_exo_outfit, up_gr_fifthab_renegade_exo_outfit
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_renegade_exo_outfit
+
+inv_name                                 	= renegade_exo_outfit_name
+inv_name_short                           	= renegade_exo_outfit_name
+description                              	= renegade_exo_outfit_description
+
+inv_weight                               	= 45.0
+
+inv_grid_x         							= 54
+inv_grid_y         							= 27
+
+upgr_icon_x                              	= 1258
+upgr_icon_y                              	= 867
+upgr_icon_width                          	= 307
+upgr_icon_height                         	= 165
+
+cost                                     	= 130660
+
+power_loss                               	= 1.1
+
+additional_inventory_weight              	= 95
+additional_inventory_weight2             	= 95
+
+artefact_count                           	= 2
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0700 
+shock_protection 							= 1.1000 
+radiation_protection 						= 0.0295
+chemical_burn_protection 					= 0.0480 
+telepatic_protection 						= 0.0600
+strike_protection 							= 0.5000
+explosion_protection 						= 0.9500
+wound_protection							= 0.6400
+fire_wound_protection  						= 0.4800
+
+physic_strike_wound_immunity             	= 0.22
+
+character_portrait						 	= ui_inGame2_bandit_exo
+
+;---------------------------------------------------------------------------------------------
+;								Экзоскелет «Ренегатов» (поношеный)
+;---------------------------------------------------------------------------------------------
+[renegade_exo_outfit_worn]:renegade_exo_outfit
+$spawn                                   	= "outfit\renegade_exo_outfit"
+visual                                   	= dynamics\outfit\rn_exo_outfit
+actor_visual                             	= actors\stalker_renegade\stalker_rn_exo.ogf
+npc_visual                               	= actors\stalker_renegade\stalker_rn_exo.ogf
+
+player_hud_section                       	= actor_hud_bandit_exo
+
+upgrades                					= up_gr_firstab_renegade_exo_outfit_worn, up_gr_seconab_renegade_exo_outfit_worn, up_gr_thirdab_renegade_exo_outfit_worn, up_gr_fourtab_renegade_exo_outfit_worn, up_gr_fifthab_renegade_exo_outfit_worn
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_renegade_exo_outfit_worn
+
+inv_name                                 	= renegade_exo_outfit_worn_name
+inv_name_short                           	= renegade_exo_outfit_worn_name
+description                              	= renegade_exo_outfit_worn_description
+
+inv_weight                               	= 44.0
+
+inv_grid_x         							= 76
+inv_grid_y         							= 27
+
+upgr_icon_x                              	= 1258
+upgr_icon_y                              	= 867
+upgr_icon_width                          	= 307
+upgr_icon_height                         	= 165
+
+cost                                     	= 110660
+
+additional_inventory_weight              	= 72
+additional_inventory_weight2             	= 72
+
+artefact_count                           	= 1
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0490 
+shock_protection 							= 0.7700 
+radiation_protection 						= 0.0195
+chemical_burn_protection 					= 0.0336 
+telepatic_protection 						= 0.0400 
+strike_protection 							= 0.3500
+explosion_protection 						= 0.6650
+wound_protection							= 0.4480
+fire_wound_protection  						= 0.3360
+
+physic_strike_wound_immunity             	= 0.12
+
+repair_part_bonus	 						= 0.43
+
+;---------------------------------------------------------------------------------------------
+;								Экзоскелет «Ренегатов» (непригодный)
+;---------------------------------------------------------------------------------------------
+[renegade_exo_outfit_bad]:renegade_exo_outfit
+$spawn                                   	= "outfit\renegade_exo_outfit"
+visual                                   	= dynamics\outfit\rn_exo_outfit
+actor_visual                             	= actors\stalker_renegade\stalker_rn_exo.ogf
+npc_visual                               	= actors\stalker_renegade\stalker_rn_exo.ogf
+
+player_hud_section                       	= actor_hud_bandit_exo
+
+upgrades                					= up_gr_firstab_renegade_exo_outfit_bad, up_gr_seconab_renegade_exo_outfit_bad, up_gr_thirdab_renegade_exo_outfit_bad, up_gr_fourtab_renegade_exo_outfit_bad, up_gr_fifthab_renegade_exo_outfit_bad
+installed_upgrades      					=
+upgrade_scheme         	 					= upgrade_scheme_renegade_exo_outfit_bad
+
+inv_name                                 	= renegade_exo_outfit_bad_name
+inv_name_short                           	= renegade_exo_outfit_bad_name
+description                              	= renegade_exo_outfit_bad_description
+
+inv_weight                               	= 43.0
+
+inv_grid_x         							= 78
+inv_grid_y         							= 27
+
+upgr_icon_x                              	= 1258
+upgr_icon_y                              	= 867
+upgr_icon_width                          	= 307
+upgr_icon_height                         	= 165
+
+cost                                     	= 90660
+
+additional_inventory_weight              	= 60
+additional_inventory_weight2             	= 60
+
+artefact_count                           	= 0
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0245 
+shock_protection 							= 0.3850 
+radiation_protection 						= 0.0103
+chemical_burn_protection 					= 0.0168 
+telepatic_protection 						= 0.0241 
+strike_protection 							= 0.1750
+explosion_protection 						= 0.3325
+wound_protection							= 0.2240
+fire_wound_protection  						= 0.1680
+
+physic_strike_wound_immunity             	= 0.02
+
+repair_part_bonus	 						= 0.39
+
+;---------------------------------------------------------------------------------------------
+;						Тяжёлый бронекостюм нейтрального сталкера
+;---------------------------------------------------------------------------------------------
+[exolight_outfit]:exo_outfit
+GroupControlSection							= spawn_group
+discovery_dependency 						=
+$spawn 										= "outfit\neutarl_exolight_outfit"
+$prefetch 									= 32
+class										= E_STLK
+cform           							= skeleton
+visual										= dynamics\outfit\neutarl_exolight_outfit
+actor_visual								= actors\stalker_neutral\stalker_neutral3a.ogf
+npc_visual									= actors\stalker_neutral\stalker_neutral3a.ogf
+
+player_hud_section							= actor_hud_exolight
+
+upgrades                					= up_gr_firstab_exolight_outfit, up_gr_seconab_exolight_outfit, up_gr_thirdab_exolight_outfit, up_gr_fourtab_exolight_outfit, up_gr_fifthab_exolight_outfit
+installed_upgrades      					=
+upgrade_scheme          					= upgrade_scheme_exolight_outfit
+
+ef_equipment_type							= 5
+
+inv_name									= exolight_outfit_name
+inv_name_short								= exolight_outfit_name
+description									= exolight_outfit_description
+
+inv_weight									= 28.0
+
+additional_inventory_weight			 		= 28
+additional_inventory_weight2				= 28
+
+inv_grid_x         							= 56
+inv_grid_y         							= 18
+
+upgr_icon_x									= 3776
+upgr_icon_y									= 1594
+upgr_icon_width								= 301
+upgr_icon_height   							= 170
+
+full_icon_name								= npc_icon_exo_outfit
+
+cost										= 85680
+
+full_scale_icon								= 2,11			;иконка сталкера в костюме в полный рост
+
+immunities_sect								= sect_exolight_outfit_immunities
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0800 
+shock_protection 							= 0.9000 
+radiation_protection 						= 0.0295
+chemical_burn_protection 					= 0.0420 
+telepatic_protection 						= 0.0600
+strike_protection 							= 0.5500
+explosion_protection 						= 0.9500
+wound_protection							= 0.6400
+fire_wound_protection  						= 0.5800
+
+hit_fraction_actor							= 0.105
+
+bones_koeff_protection						= actor_armor_exo
+
+sprint_allowed								= true
+
+power_loss									= 0.79
+
+artefact_count                  			= 1
+
+control_inertion_factor						= 1.76
+
+helmet_avaliable							= false
+
+repair_part_bonus	 						= 0.38
+
+[sect_exolight_outfit_immunities]
+burn_immunity								= 0.16		;коэффициенты иммунитета самого костюма
+strike_immunity								= 0
+shock_immunity								= 0.025
+wound_immunity								= 0.01
+radiation_immunity 							= 0.0 ;			= 0.07
+telepatic_immunity							= 0.0
+chemical_burn_immunity						= 0.027
+explosion_immunity							= 0.02
+fire_wound_immunity							= 0.01
+
+[sect_exolight_outfit_immunities_burn_add]
+burn_immunity								= -0.020			;коэффициенты иммунитета самого костюма
+strike_immunity								= -0.0
+shock_immunity								= -0.0
+wound_immunity								= -0.0
+radiation_immunity 							= 0.0 ;			= -0.0
+telepatic_immunity							= -0.0
+chemical_burn_immunity						= -0.0
+explosion_immunity							= -0.0
+fire_wound_immunity							= -0.0
+
+[sect_exolight_outfit_immunities_chemical_burn_add]
+burn_immunity								= -0.0			;коэффициенты иммунитета самого костюма
+strike_immunity								= -0.0
+shock_immunity								= -0.0
+wound_immunity								= -0.0
+radiation_immunity 							= 0.0 	;			= -0.0
+telepatic_immunity							= -0.0
+chemical_burn_immunity						= -0.003
+explosion_immunity							= -0.0
+fire_wound_immunity							= -0.0
+
+[sect_exolight_outfit_immunities_shock_add]
+burn_immunity								= -0.0			;коэффициенты иммунитета самого костюма
+strike_immunity								= -0.0
+shock_immunity								= -0.0020
+wound_immunity								= -0.0
+radiation_immunity 							= 0.0 ;			= -0.0
+telepatic_immunity							= -0.0
+chemical_burn_immunity						= -0.0
+explosion_immunity							= -0.0
+fire_wound_immunity							= -0.0
+
+[sect_exolight_outfit_immunities_physical_add_small]
+burn_immunity								= -0.0			;коэффициенты иммунитета самого костюма
+strike_immunity								= -0.0
+shock_immunity								= -0.0
+wound_immunity								= -0.0004
+radiation_immunity 							= 0.0 ;			= -0.0
+telepatic_immunity							= -0.0
+chemical_burn_immunity						= -0.0
+explosion_immunity							= -0.0006
+fire_wound_immunity							= -0.0006
+
+[sect_exolight_outfit_immunities_physical_add_large]
+burn_immunity								= -0.0			;коэффициенты иммунитета самого костюма
+strike_immunity								= -0.0
+shock_immunity								= -0.0
+wound_immunity								= -0.0006
+radiation_immunity 							= 0.0 ;			= -0.0
+telepatic_immunity							= -0.0
+chemical_burn_immunity						= -0.0
+explosion_immunity							= -0.001
+fire_wound_immunity							= -0.0009
+
+;---------------------------------------------------------------------------------------------
+;						Тяжёлый бронекостюм нейтрального сталкера (поношеный)
+;---------------------------------------------------------------------------------------------
+[exolight_outfit_worn]:exolight_outfit
+$spawn 										= "outfit\neutarl_exolight_outfit"
+visual										= dynamics\outfit\neutarl_exolight_outfit
+actor_visual								= actors\stalker_neutral\stalker_neutral3a.ogf
+npc_visual									= actors\stalker_neutral\stalker_neutral3a.ogf
+
+player_hud_section							= actor_hud_exolight
+
+upgrades                					= up_gr_firstab_exolight_outfit_worn, up_gr_seconab_exolight_outfit_worn, up_gr_thirdab_exolight_outfit_worn, up_gr_fourtab_exolight_outfit_worn, up_gr_fifthab_exolight_outfit_worn
+installed_upgrades      					=
+upgrade_scheme          					= upgrade_scheme_exolight_outfit_worn
+
+inv_name									= exolight_outfit_worn_name
+inv_name_short								= exolight_outfit_worn_name
+description									= exolight_outfit_worn_description
+
+inv_weight									= 27.0
+
+additional_inventory_weight			 		= 25
+additional_inventory_weight2				= 25
+
+inv_grid_x         							= 56
+inv_grid_y         							= 24
+
+upgr_icon_x									= 3776
+upgr_icon_y									= 1594
+upgr_icon_width								= 301
+upgr_icon_height   							= 170
+
+cost										= 75680
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0560 
+shock_protection 							= 0.6300 
+radiation_protection 						= 0.0195
+chemical_burn_protection 					= 0.0294 
+telepatic_protection 						= 0.0400 
+strike_protection 							= 0.3850
+explosion_protection 						= 0.6650
+wound_protection							= 0.4480
+fire_wound_protection  						= 0.4060
+
+artefact_count                  			= 0
+
+repair_part_bonus	 						= 0.36
+
+;---------------------------------------------------------------------------------------------
+;						Тяжёлый бронекостюм нейтрального сталкера (непригодный)
+;---------------------------------------------------------------------------------------------
+[exolight_outfit_bad]:exolight_outfit
+$spawn 										= "outfit\neutarl_exolight_outfit"
+visual										= dynamics\outfit\neutarl_exolight_outfit
+actor_visual								= actors\stalker_neutral\stalker_neutral3a.ogf
+npc_visual									= actors\stalker_neutral\stalker_neutral3a.ogf
+
+player_hud_section							= actor_hud_exolight
+
+upgrades                					= up_gr_firstab_exolight_outfit_bad, up_gr_seconab_exolight_outfit_bad, up_gr_thirdab_exolight_outfit_bad, up_gr_fourtab_exolight_outfit_bad, up_gr_fifthab_exolight_outfit_bad
+installed_upgrades      					=
+upgrade_scheme          					= upgrade_scheme_exolight_outfit_bad
+
+inv_name									= exolight_outfit_bad_name
+inv_name_short								= exolight_outfit_bad_name
+description									= exolight_outfit_bad_description
+
+inv_weight									= 26.0
+
+additional_inventory_weight			 		= 22
+additional_inventory_weight2				= 22
+
+inv_grid_x         							= 56
+inv_grid_y         							= 27
+
+upgr_icon_x									= 3776
+upgr_icon_y									= 1594
+upgr_icon_width								= 301
+upgr_icon_height   							= 170
+
+cost										= 55680
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0280 
+shock_protection 							= 0.3150 
+radiation_protection 						= 0.0103
+chemical_burn_protection 					= 0.0147 
+telepatic_protection 						= 0.0241  
+strike_protection 							= 0.1925
+explosion_protection 						= 0.3325
+wound_protection							= 0.2240
+fire_wound_protection  						= 0.2030
+
+sprint_allowed								= false
+
+artefact_count                  			= 0
+
+repair_part_bonus	 						= 0.32
+
+;---------------------------------------------------------------------------------------------
+;								Тяжелый бронекостюм Свобода
+;---------------------------------------------------------------------------------------------
+[svoboda_exolight_outfit]:exolight_outfit
+$spawn 										= "outfit\svoboda_exolight_outfit"
+visual										= dynamics\outfit\svoboda_exolight_outfit
+actor_visual								= actors\stalker_freedom\stalker_freedom5a.ogf
+npc_visual									= actors\stalker_freedom\stalker_freedom5a.ogf
+
+player_hud_section							= actor_hud_freedom_exolight
+
+upgrades                					= up_gr_firstab_svoboda_exolight_outfit, up_gr_seconab_svoboda_exolight_outfit, up_gr_thirdab_svoboda_exolight_outfit, up_gr_fourtab_svoboda_exolight_outfit, up_gr_fifthab_svoboda_exolight_outfit
+installed_upgrades      					=
+upgrade_scheme          					= upgrade_scheme_svoboda_exolight_outfit
+
+inv_name									= svoboda_exolight_outfit_name
+inv_name_short								= svoboda_exolight_outfit_name
+description									= svoboda_exolight_outfit_description
+
+character_portrait						 	= ui_inGame2_Freedom_4
+
+inv_weight									= 27.0
+
+additional_inventory_weight			 		= 27
+additional_inventory_weight2				= 27
+
+inv_grid_x         							= 58
+inv_grid_y         							= 21
+
+upgr_icon_x									= 1589
+upgr_icon_y									= 375
+upgr_icon_width								= 286
+upgr_icon_height   							= 160
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0890 
+shock_protection 							= 0.9200 
+radiation_protection 						= 0.0295
+chemical_burn_protection 					= 0.0440 
+telepatic_protection 						= 0.0600
+strike_protection 							= 0.5555
+explosion_protection 						= 0.9555
+wound_protection							= 0.6500
+fire_wound_protection  						= 0.5700
+
+cost										= 88880
+
+immunities_sect								= sect_svoboda_exolight_outfit_immunities
+
+[sect_svoboda_exolight_outfit_immunities]
+burn_immunity								= 0.15		;коэффициенты иммунитета самого костюма
+strike_immunity								= 0
+shock_immunity								= 0.015
+wound_immunity								= 0.006
+radiation_immunity 							= 0.0 ;			= 0.07
+telepatic_immunity							= 0.0
+chemical_burn_immunity						= 0.017
+explosion_immunity							= 0.01
+fire_wound_immunity							= 0.009
+
+;---------------------------------------------------------------------------------------------
+;								Тяжелый бронекостюм Свобода (поношеный)
+;---------------------------------------------------------------------------------------------
+[svoboda_exolight_outfit_worn]:svoboda_exolight_outfit
+$spawn 										= "outfit\svoboda_exolight_outfit"
+visual										= dynamics\outfit\svoboda_exolight_outfit
+actor_visual								= actors\stalker_freedom\stalker_freedom5a.ogf
+npc_visual									= actors\stalker_freedom\stalker_freedom5a.ogf
+
+player_hud_section							= actor_hud_freedom_exolight
+
+upgrades                					= up_gr_firstab_svoboda_exolight_outfit_worn, up_gr_seconab_svoboda_exolight_outfit_worn, up_gr_thirdab_svoboda_exolight_outfit_worn, up_gr_fourtab_svoboda_exolight_outfit_worn, up_gr_fifthab_svoboda_exolight_outfit_worn
+installed_upgrades      					=
+upgrade_scheme          					= upgrade_scheme_svoboda_exolight_outfit_worn
+
+inv_name									= svoboda_exolight_outfit_worn_name
+inv_name_short								= svoboda_exolight_outfit_worn_name
+description									= svoboda_exolight_outfit_worn_description
+
+inv_weight									= 26.0
+
+additional_inventory_weight			 		= 24
+additional_inventory_weight2				= 24
+
+inv_grid_x         							= 58
+inv_grid_y         							= 30
+
+upgr_icon_x									= 1589
+upgr_icon_y									= 375
+upgr_icon_width								= 286
+upgr_icon_height   							= 160
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0623 
+shock_protection 							= 0.6440 
+radiation_protection 						= 0.0195
+chemical_burn_protection 					= 0.0308 
+telepatic_protection 						= 0.0400 
+strike_protection 							= 0.3888
+explosion_protection 						= 0.6688
+wound_protection							= 0.4550
+fire_wound_protection  						= 0.3990
+
+cost										= 78880
+
+artefact_count                  			= 0
+
+repair_part_bonus	 						= 0.36
+
+;---------------------------------------------------------------------------------------------
+;								Тяжелый бронекостюм Свобода (непригодный)
+;---------------------------------------------------------------------------------------------
+[svoboda_exolight_outfit_bad]:svoboda_exolight_outfit
+$spawn 										= "outfit\svoboda_exolight_outfit"
+visual										= dynamics\outfit\svoboda_exolight_outfit
+actor_visual								= actors\stalker_freedom\stalker_freedom5a.ogf
+npc_visual									= actors\stalker_freedom\stalker_freedom5a.ogf
+
+player_hud_section							= actor_hud_freedom_exolight
+
+upgrades                					= up_gr_firstab_svoboda_exolight_outfit_bad, up_gr_seconab_svoboda_exolight_outfit_bad, up_gr_thirdab_svoboda_exolight_outfit_bad, up_gr_fourtab_svoboda_exolight_outfit_bad, up_gr_fifthab_svoboda_exolight_outfit_bad
+installed_upgrades      					=
+upgrade_scheme          					= upgrade_scheme_svoboda_exolight_outfit_bad
+
+inv_name									= svoboda_exolight_outfit_bad_name
+inv_name_short								= svoboda_exolight_outfit_bad_name
+description									= svoboda_exolight_outfit_bad_description
+
+inv_weight									= 25.0
+
+additional_inventory_weight			 		= 21
+additional_inventory_weight2				= 21
+
+inv_grid_x         							= 58
+inv_grid_y         							= 33
+
+upgr_icon_x									= 1589
+upgr_icon_y									= 375
+upgr_icon_width								= 286
+upgr_icon_height   							= 160
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0311 
+shock_protection 							= 0.3220 
+radiation_protection 						= 0.0103
+chemical_burn_protection 					= 0.0154 
+telepatic_protection 						= 0.0241  
+strike_protection 							= 0.1944
+explosion_protection 						= 0.3344
+wound_protection							= 0.2275
+fire_wound_protection  						= 0.1995
+
+cost										= 12880
+
+sprint_allowed								= false
+
+artefact_count                  			= 0
+
+repair_part_bonus	 						= 0.32
+
+;---------------------------------------------------------------------------------------------
+;								Тяжелый бронекостюм Долг
+;---------------------------------------------------------------------------------------------
+[dolg_exolight_outfit]:exolight_outfit
+$spawn 										= "outfit\dolg_exolight_outfit"
+visual										= dynamics\outfit\dolg_exolight_outfit
+actor_visual								= actors\stalker_dolg\stalker_dolgexo4a.ogf
+npc_visual									= actors\stalker_dolg\stalker_dolgexo4a.ogf
+
+player_hud_section							= actor_hud_dolg_exolight
+
+upgrades                					= up_gr_firstab_dolg_exolight_outfit, up_gr_seconab_dolg_exolight_outfit, up_gr_thirdab_dolg_exolight_outfit, up_gr_fourtab_dolg_exolight_outfit, up_gr_fifthab_dolg_exolight_outfit
+installed_upgrades      					=
+upgrade_scheme          					= upgrade_scheme_dolg_exolight_outfit
+
+inv_name									= dolg_exolight_outfit_name
+inv_name_short								= dolg_exolight_outfit_name
+description									= dolg_exolight_outfit_description
+
+inv_weight									= 29.0
+
+additional_inventory_weight			 		= 29
+additional_inventory_weight2				= 29
+
+artefact_count                  			= 0
+
+inv_grid_x         = 82
+inv_grid_y         = 0
+
+upgr_icon_x									= 1893
+upgr_icon_y									= 373
+upgr_icon_width								= 284
+upgr_icon_height   							= 160
+
+character_portrait						 	= ui_inGame2_Dolg_4
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0999 
+shock_protection 							= 1.1000 
+radiation_protection 						= 0.0295
+chemical_burn_protection 					= 0.0420 
+telepatic_protection 						= 0.0600
+strike_protection 							= 0.6500
+explosion_protection 						= 0.9000
+wound_protection							= 0.6000
+fire_wound_protection  						= 0.5100
+
+cost										= 90580
+
+immunities_sect								= sect_dolg_exolight_outfit_immunities
+
+[sect_dolg_exolight_outfit_immunities]
+burn_immunity								= 0.15		;коэффициенты иммунитета самого костюма
+strike_immunity								= 0
+shock_immunity								= 0.015
+wound_immunity								= 0.006
+radiation_immunity 							= 0.0 ;			= 0.07
+telepatic_immunity							= 0.0
+chemical_burn_immunity						= 0.017
+explosion_immunity							= 0.01
+fire_wound_immunity							= 0.009
+
+;---------------------------------------------------------------------------------------------
+;								Тяжелый бронекостюм Долг (поношеный)
+;---------------------------------------------------------------------------------------------
+[dolg_exolight_outfit_worn]:dolg_exolight_outfit
+$spawn 										= "outfit\dolg_exolight_outfit"
+visual										= dynamics\outfit\dolg_exolight_outfit
+actor_visual								= actors\stalker_dolg\stalker_dolgexo4a.ogf
+npc_visual									= actors\stalker_dolg\stalker_dolgexo4a.ogf
+
+player_hud_section							= actor_hud_dolg_exolight
+
+upgrades                					= up_gr_firstab_dolg_exolight_outfit_worn, up_gr_seconab_dolg_exolight_outfit_worn, up_gr_thirdab_dolg_exolight_outfit_worn, up_gr_fourtab_dolg_exolight_outfit_worn, up_gr_fifthab_dolg_exolight_outfit_worn
+installed_upgrades      					=
+upgrade_scheme          					= upgrade_scheme_dolg_exolight_outfit_worn
+
+inv_name									= dolg_exolight_outfit_worn_name
+inv_name_short								= dolg_exolight_outfit_worn_name
+description									= dolg_exolight_outfit_worn_description
+
+inv_weight									= 28.0
+
+additional_inventory_weight			 		= 26
+additional_inventory_weight2				= 26
+
+inv_grid_x         = 82
+inv_grid_y         = 6
+
+upgr_icon_x									= 1893
+upgr_icon_y									= 373
+upgr_icon_width								= 284
+upgr_icon_height   							= 160
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0699 
+shock_protection 							= 0.7700 
+radiation_protection 						= 0.0195
+chemical_burn_protection 					= 0.0294 
+telepatic_protection 						= 0.0400 
+strike_protection 							= 0.4550
+explosion_protection 						= 0.6300
+wound_protection							= 0.4200
+fire_wound_protection  						= 0.3570
+
+cost										= 80580
+
+repair_part_bonus	 						= 0.36
+
+;---------------------------------------------------------------------------------------------
+;								Тяжелый бронекостюм Долг (непригодный)
+;---------------------------------------------------------------------------------------------
+[dolg_exolight_outfit_bad]:dolg_exolight_outfit
+$spawn 										= "outfit\dolg_exolight_outfit"
+visual										= dynamics\outfit\dolg_exolight_outfit
+actor_visual								= actors\stalker_dolg\stalker_dolgexo4a.ogf
+npc_visual									= actors\stalker_dolg\stalker_dolgexo4a.ogf
+
+player_hud_section							= actor_hud_dolg_exolight
+
+upgrades                					= up_gr_firstab_dolg_exolight_outfit_bad, up_gr_seconab_dolg_exolight_outfit_bad, up_gr_thirdab_dolg_exolight_outfit_bad, up_gr_fourtab_dolg_exolight_outfit_bad, up_gr_fifthab_dolg_exolight_outfit_bad
+installed_upgrades      					=
+upgrade_scheme          					= upgrade_scheme_dolg_exolight_outfit_bad
+
+inv_name									= dolg_exolight_outfit_bad_name
+inv_name_short								= dolg_exolight_outfit_bad_name
+description									= dolg_exolight_outfit_bad_description
+
+inv_weight									= 27.0
+
+additional_inventory_weight			 		= 23
+additional_inventory_weight2				= 23
+
+inv_grid_x         = 82
+inv_grid_y         = 9
+
+upgr_icon_x									= 1893
+upgr_icon_y									= 373
+upgr_icon_width								= 284
+upgr_icon_height   							= 160
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0349 
+shock_protection 							= 0.3850 
+radiation_protection 						= 0.0103
+chemical_burn_protection 					= 0.0147 
+telepatic_protection 						= 0.0241  
+strike_protection 							= 0.2275
+explosion_protection 						= 0.3150
+wound_protection							= 0.2100
+fire_wound_protection  						= 0.1785
+
+cost										= 60580
+
+sprint_allowed								= false
+
+repair_part_bonus	 						= 0.32
+
+;---------------------------------------------------------------------------------------------
+;								Тяжелый бронекостюм (Наемники)
+;---------------------------------------------------------------------------------------------
+[merc_exolight_outfit]:exolight_outfit
+$spawn 										= "outfit\merc_exolight_outfit"
+visual										= dynamics\outfit\merc_exolight_outfit
+actor_visual								= actors\stalker_merc\stalker_mercexo4a.ogf
+npc_visual									= actors\stalker_merc\stalker_mercexo4a.ogf
+
+player_hud_section      					= actor_hud_merc_exolight
+
+upgrades                					= up_gr_firstab_merc_exolight_outfit, up_gr_seconab_merc_exolight_outfit, up_gr_thirdab_merc_exolight_outfit, up_gr_fourtab_merc_exolight_outfit, up_gr_fifthab_merc_exolight_outfit
+installed_upgrades      					=
+upgrade_scheme          					= upgrade_scheme_merc_exolight_outfit
+
+inv_name									= merc_exolight_outfit_name
+inv_name_short								= merc_exolight_outfit_name
+description									= merc_exolight_outfit_description
+
+character_portrait						 	= ui_inGame2_merc_4
+
+inv_weight									= 26.0
+
+additional_inventory_weight			 		= 26
+additional_inventory_weight2				= 26
+
+artefact_count                  			= 2
+
+inv_grid_x         = 84
+inv_grid_y         = 0
+
+upgr_icon_x									= 2201
+upgr_icon_y									= 520
+upgr_icon_width								= 283
+upgr_icon_height   							= 157
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0800 
+shock_protection 							= 0.9000 
+radiation_protection 						= 0.0295
+chemical_burn_protection 					= 0.0500 
+telepatic_protection 						= 0.0600
+strike_protection 							= 0.5300
+explosion_protection 						= 0.9200
+wound_protection							= 0.6600
+fire_wound_protection  						= 0.5900
+
+cost										= 93890
+
+nightvision_sect 							= effector_nightvision_1
+
+immunities_sect								= sect_merc_exolight_outfit_immunities
+
+[sect_merc_exolight_outfit_immunities]
+burn_immunity								= 0.15		;коэффициенты иммунитета самого костюма
+strike_immunity								= 0
+shock_immunity								= 0.015
+wound_immunity								= 0.006
+radiation_immunity 							= 0.0 ;			= 0.07
+telepatic_immunity							= 0.0
+chemical_burn_immunity						= 0.017
+explosion_immunity							= 0.01
+fire_wound_immunity							= 0.009
+
+;---------------------------------------------------------------------------------------------
+;								Тяжелый бронекостюм Наемники (поношеный)
+;---------------------------------------------------------------------------------------------
+[merc_exolight_outfit_worn]:merc_exolight_outfit
+$spawn 										= "outfit\merc_exolight_outfit"
+visual										= dynamics\outfit\merc_exolight_outfit
+actor_visual								= actors\stalker_merc\stalker_mercexo4a.ogf
+npc_visual									= actors\stalker_merc\stalker_mercexo4a.ogf
+
+player_hud_section      					= actor_hud_merc_exolight
+
+upgrades                					= up_gr_firstab_merc_exolight_outfit_worn, up_gr_seconab_merc_exolight_outfit_worn, up_gr_thirdab_merc_exolight_outfit_worn, up_gr_fourtab_merc_exolight_outfit_worn, up_gr_fifthab_merc_exolight_outfit_worn
+installed_upgrades      					=
+upgrade_scheme          					= upgrade_scheme_merc_exolight_outfit_worn
+
+inv_name									= merc_exolight_outfit_worn_name
+inv_name_short								= merc_exolight_outfit_worn_name
+description									= merc_exolight_outfit_worn_description
+
+inv_weight									= 25.0
+
+additional_inventory_weight			 		= 23
+additional_inventory_weight2				= 23
+
+artefact_count                  			= 1
+
+inv_grid_x         = 84
+inv_grid_y         = 6
+
+upgr_icon_x									= 2201
+upgr_icon_y									= 520
+upgr_icon_width								= 283
+upgr_icon_height   							= 157
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0560 
+shock_protection 							= 0.6300 
+radiation_protection 						= 0.0195
+chemical_burn_protection 					= 0.0350 
+telepatic_protection 						= 0.0400 
+strike_protection 							= 0.3710
+explosion_protection 						= 0.6440
+wound_protection							= 0.4620
+fire_wound_protection  						= 0.4130
+
+cost										= 83890
+
+repair_part_bonus	 						= 0.36
+
+;---------------------------------------------------------------------------------------------
+;								Тяжелый бронекостюм Наемники (непригодный)
+;---------------------------------------------------------------------------------------------
+[merc_exolight_outfit_bad]:merc_exolight_outfit
+$spawn 										= "outfit\merc_exolight_outfit"
+visual										= dynamics\outfit\merc_exolight_outfit
+actor_visual								= actors\stalker_merc\stalker_mercexo4a.ogf
+npc_visual									= actors\stalker_merc\stalker_mercexo4a.ogf
+
+player_hud_section      					= actor_hud_merc_exolight
+
+upgrades                					= up_gr_firstab_merc_exolight_outfit_bad, up_gr_seconab_merc_exolight_outfit_bad, up_gr_thirdab_merc_exolight_outfit_bad, up_gr_fourtab_merc_exolight_outfit_bad, up_gr_fifthab_merc_exolight_outfit_bad
+installed_upgrades      					=
+upgrade_scheme          					= upgrade_scheme_merc_exolight_outfit_bad
+
+inv_name									= merc_exolight_outfit_bad_name
+inv_name_short								= merc_exolight_outfit_bad_name
+description									= merc_exolight_outfit_bad_description
+
+inv_weight									= 24.0
+
+additional_inventory_weight			 		= 20
+additional_inventory_weight2				= 20
+
+artefact_count                  			= 0
+
+inv_grid_x         = 84
+inv_grid_y         = 9
+
+upgr_icon_x									= 2201
+upgr_icon_y									= 520
+upgr_icon_width								= 283
+upgr_icon_height   							= 157
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0280 
+shock_protection 							= 0.3150 
+radiation_protection 						= 0.0103
+chemical_burn_protection 					= 0.0175 
+telepatic_protection 						= 0.0241  
+strike_protection 							= 0.1855
+explosion_protection 						= 0.3220
+wound_protection							= 0.2310
+fire_wound_protection  						= 0.2065
+
+cost										= 63890
+
+sprint_allowed								= false
+
+nightvision_sect							=
+
+repair_part_bonus	 						= 0.32
+
+;---------------------------------------------------------------------------------------------
+;								Тяжелый бронекостюм Бандиты
+;---------------------------------------------------------------------------------------------
+[bandit_exolight_outfit]:exolight_outfit
+$spawn 										= "outfit\bandit_exolight_outfit"
+visual										= dynamics\outfit\bandit_exolight_outfit
+actor_visual								= actors\stalker_merc\stalker_mercexo_4.ogf
+npc_visual									= actors\stalker_merc\stalker_mercexo_4.ogf
+
+player_hud_section							= actor_hud_bandit_exolight
+
+upgrades                					= up_gr_firstab_bandit_exolight_outfit, up_gr_seconab_bandit_exolight_outfit, up_gr_thirdab_bandit_exolight_outfit, up_gr_fourtab_bandit_exolight_outfit, up_gr_fifthab_bandit_exolight_outfit
+installed_upgrades      					=
+upgrade_scheme          					= upgrade_scheme_bandit_exolight_outfit
+
+inv_name									= bandit_exolight_outfit_name
+inv_name_short								= bandit_exolight_outfit_name
+description									= bandit_exolight_outfit_description
+
+character_portrait						 	= ui_inGame2_bandit_exo
+
+inv_weight									= 30.0
+
+additional_inventory_weight			 		= 30
+additional_inventory_weight2				= 30
+
+artefact_count                  			= 0
+
+inv_grid_x         = 82
+inv_grid_y         = 3
+
+upgr_icon_x									= 1258
+upgr_icon_y									= 683
+upgr_icon_width								= 299
+upgr_icon_height   							= 166
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0800 
+shock_protection 							= 0.9000 
+radiation_protection 						= 0.0295
+chemical_burn_protection 					= 0.0420 
+telepatic_protection 						= 0.0600
+strike_protection 							= 0.5500
+explosion_protection 						= 0.9500
+wound_protection							= 0.6400
+fire_wound_protection  						= 0.5800
+
+cost										= 83180
+
+immunities_sect								= sect_bandit_exolight_outfit_immunities
+
+[sect_bandit_exolight_outfit_immunities]
+burn_immunity								= 0.15		;коэффициенты иммунитета самого костюма
+strike_immunity								= 0
+shock_immunity								= 0.015
+wound_immunity								= 0.006
+radiation_immunity 							= 0.0 ;			= 0.07
+telepatic_immunity							= 0.0
+chemical_burn_immunity						= 0.017
+explosion_immunity							= 0.01
+fire_wound_immunity							= 0.009
+
+;---------------------------------------------------------------------------------------------
+;								Тяжелый бронекостюм Бандиты (поношеный)
+;---------------------------------------------------------------------------------------------
+[bandit_exolight_outfit_worn]:bandit_exolight_outfit
+$spawn 										= "outfit\bandit_exolight_outfit"
+visual										= dynamics\outfit\bandit_exolight_outfit
+actor_visual								= actors\stalker_merc\stalker_mercexo_4.ogf
+npc_visual									= actors\stalker_merc\stalker_mercexo_4.ogf
+
+player_hud_section							= actor_hud_bandit_exolight
+
+upgrades                					= up_gr_firstab_bandit_exolight_outfit_worn, up_gr_seconab_bandit_exolight_outfit_worn, up_gr_thirdab_bandit_exolight_outfit_worn, up_gr_fourtab_bandit_exolight_outfit_worn, up_gr_fifthab_bandit_exolight_outfit_worn
+installed_upgrades      					=
+upgrade_scheme          					= upgrade_scheme_bandit_exolight_outfit_worn
+
+inv_name									= bandit_exolight_outfit_worn_name
+inv_name_short								= bandit_exolight_outfit_worn_name
+description									= bandit_exolight_outfit_worn_description
+
+inv_weight									= 29.0
+
+additional_inventory_weight			 		= 27
+additional_inventory_weight2				= 27
+
+inv_grid_x         = 82
+inv_grid_y         = 12
+
+upgr_icon_x									= 1258
+upgr_icon_y									= 683
+upgr_icon_width								= 299
+upgr_icon_height   							= 166
+
+cost										= 73180
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0560 
+shock_protection 							= 0.6300 
+radiation_protection 						= 0.0195
+chemical_burn_protection 					= 0.0294 
+telepatic_protection 						= 0.0400 
+strike_protection 							= 0.3850
+explosion_protection 						= 0.6650
+wound_protection							= 0.4480
+fire_wound_protection  						= 0.4060
+
+repair_part_bonus	 						= 0.36
+
+;---------------------------------------------------------------------------------------------
+;								Тяжелый бронекостюм Бандиты (непригодный)
+;---------------------------------------------------------------------------------------------
+[bandit_exolight_outfit_bad]:bandit_exolight_outfit
+$spawn 										= "outfit\bandit_exolight_outfit"
+visual										= dynamics\outfit\bandit_exolight_outfit
+actor_visual								= actors\stalker_merc\stalker_mercexo_4.ogf
+npc_visual									= actors\stalker_merc\stalker_mercexo_4.ogf
+
+player_hud_section							= actor_hud_bandit_exolight
+
+upgrades                					= up_gr_firstab_bandit_exolight_outfit_bad, up_gr_seconab_bandit_exolight_outfit_bad, up_gr_thirdab_bandit_exolight_outfit_bad, up_gr_fourtab_bandit_exolight_outfit_bad, up_gr_fifthab_bandit_exolight_outfit_bad
+installed_upgrades      					=
+upgrade_scheme          					= upgrade_scheme_bandit_exolight_outfit_bad
+
+inv_name									= bandit_exolight_outfit_bad_name
+inv_name_short								= bandit_exolight_outfit_bad_name
+description									= bandit_exolight_outfit_bad_description
+
+inv_weight									= 28.0
+
+additional_inventory_weight			 		= 24
+additional_inventory_weight2				= 24
+
+inv_grid_x         = 82
+inv_grid_y         = 15
+
+upgr_icon_x									= 1258
+upgr_icon_y									= 683
+upgr_icon_width								= 299
+upgr_icon_height   							= 166
+
+cost										= 53180
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0280 
+shock_protection 							= 0.3150 
+radiation_protection 						= 0.0103
+chemical_burn_protection 					= 0.0147 
+telepatic_protection 						= 0.0241 
+strike_protection 							= 0.1925
+explosion_protection 						= 0.3325
+wound_protection							= 0.2240
+fire_wound_protection  						= 0.2030
+
+sprint_allowed								= false
+
+repair_part_bonus	 						= 0.32
+
+;---------------------------------------------------------------------------------------------
+;								Тяжелый бронекостюм Монолит
+;---------------------------------------------------------------------------------------------
+[monolith_exolight_outfit]:exolight_outfit
+$spawn 										= "outfit\monolith_exolight_outfit"
+visual										= dynamics\outfit\monolith_exolight_outfit
+actor_visual								= actors\stalker_monolith\stalker_monolith3a.ogf
+npc_visual									= actors\stalker_monolith\stalker_monolith3a.ogf
+
+player_hud_section							= actor_hud_monolith_exolight
+
+upgrades                					= up_gr_firstab_monolith_exolight_outfit, up_gr_seconab_monolith_exolight_outfit, up_gr_thirdab_monolith_exolight_outfit, up_gr_fourtab_monolith_exolight_outfit, up_gr_fifthab_monolith_exolight_outfit
+installed_upgrades      					=
+upgrade_scheme          					= upgrade_scheme_monolith_exolight_outfit
+
+inv_name									= monolith_exolight_outfit_name
+inv_name_short								= monolith_exolight_outfit_name
+description									= monolith_exolight_outfit_description
+
+inv_weight									= 23.0
+
+additional_inventory_weight			 		= 23
+additional_inventory_weight2				= 23
+
+nightvision_sect							= effector_nightvision_1
+
+artefact_count                  			= 3
+
+inv_grid_x         							= 56
+inv_grid_y        	 						= 21
+
+upgr_icon_x									= 2508
+upgr_icon_y									= 371
+upgr_icon_width								= 299
+upgr_icon_height   							= 166
+
+character_portrait						 	= ui_inGame2_monolit_4
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0880 
+shock_protection 							= 0.9100 
+radiation_protection 						= 0.0295
+chemical_burn_protection 					= 0.0620 
+telepatic_protection 						= 0.0600 
+strike_protection 							= 0.6100
+explosion_protection 						= 0.9600
+wound_protection							= 0.6500
+fire_wound_protection  						= 0.6000
+
+cost										= 92580
+
+immunities_sect								= sect_monolith_exolight_outfit_immunities
+
+[sect_monolith_exolight_outfit_immunities]
+burn_immunity								= 0.15		;коэффициенты иммунитета самого костюма
+strike_immunity								= 0
+shock_immunity								= 0.015
+wound_immunity								= 0.006
+radiation_immunity 							= 0.07
+telepatic_immunity							= 0.0
+chemical_burn_immunity						= 0.017
+explosion_immunity							= 0.01
+fire_wound_immunity							= 0.009
+
+;---------------------------------------------------------------------------------------------
+;								Тяжелый бронекостюм Монолит (поношеный)
+;---------------------------------------------------------------------------------------------
+[monolith_exolight_outfit_worn]:monolith_exolight_outfit
+$spawn 										= "outfit\monolith_exolight_outfit"
+visual										= dynamics\outfit\monolith_exolight_outfit
+actor_visual								= actors\stalker_monolith\stalker_monolith3a.ogf
+npc_visual									= actors\stalker_monolith\stalker_monolith3a.ogf
+
+player_hud_section							= actor_hud_monolith_exolight
+
+upgrades                					= up_gr_firstab_monolith_exolight_outfit_worn, up_gr_seconab_monolith_exolight_outfit_worn, up_gr_thirdab_monolith_exolight_outfit_worn, up_gr_fourtab_monolith_exolight_outfit_worn, up_gr_fifthab_monolith_exolight_outfit_worn
+installed_upgrades      					=
+upgrade_scheme          					= upgrade_scheme_monolith_exolight_outfit_worn
+
+inv_name									= monolith_exolight_outfit_worn_name
+inv_name_short								= monolith_exolight_outfit_worn_name
+description									= monolith_exolight_outfit_worn_description
+
+inv_weight									= 22.0
+
+additional_inventory_weight			 		= 20
+additional_inventory_weight2				= 20
+
+artefact_count                  			= 2
+
+inv_grid_x         							= 56
+inv_grid_y        	 						= 30
+
+upgr_icon_x									= 2508
+upgr_icon_y									= 371
+upgr_icon_width								= 299
+upgr_icon_height   							= 166
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0616 
+shock_protection 							= 0.6370 
+radiation_protection 						= 0.0195
+chemical_burn_protection 					= 0.0434 
+telepatic_protection 						= 0.0400 
+strike_protection 							= 0.4270
+explosion_protection 						= 0.6720
+wound_protection							= 0.4550
+fire_wound_protection  						= 0.4200
+
+cost										= 82580
+
+repair_part_bonus	 						= 0.36
+
+;---------------------------------------------------------------------------------------------
+;								Тяжелый бронекостюм Монолит (непригодный)
+;---------------------------------------------------------------------------------------------
+[monolith_exolight_outfit_bad]:monolith_exolight_outfit
+$spawn 										= "outfit\monolith_exolight_outfit"
+visual										= dynamics\outfit\monolith_exolight_outfit
+actor_visual								= actors\stalker_monolith\stalker_monolith3a.ogf
+npc_visual									= actors\stalker_monolith\stalker_monolith3a.ogf
+
+player_hud_section							= actor_hud_monolith_exolight
+
+upgrades                					= up_gr_firstab_monolith_exolight_outfit_bad, up_gr_seconab_monolith_exolight_outfit_bad, up_gr_thirdab_monolith_exolight_outfit_bad, up_gr_fourtab_monolith_exolight_outfit_bad, up_gr_fifthab_monolith_exolight_outfit_bad
+installed_upgrades      					=
+upgrade_scheme          					= upgrade_scheme_monolith_exolight_outfit_bad
+
+inv_name									= monolith_exolight_outfit_bad_name
+inv_name_short								= monolith_exolight_outfit_bad_name
+description									= monolith_exolight_outfit_bad_description
+
+inv_weight									= 21.0
+
+additional_inventory_weight			 		= 27
+additional_inventory_weight2				= 27
+
+artefact_count                  			= 1
+
+inv_grid_x         							= 56
+inv_grid_y        	 						= 33
+
+upgr_icon_x									= 2508
+upgr_icon_y									= 371
+upgr_icon_width								= 299
+upgr_icon_height   							= 166
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0308 
+shock_protection 							= 0.3185 
+radiation_protection 						= 0.0103
+chemical_burn_protection 					= 0.0217 
+telepatic_protection 						= 0.0241  
+strike_protection 							= 0.2135
+explosion_protection 						= 0.3360
+wound_protection							= 0.2275
+fire_wound_protection  						= 0.2100
+
+cost										= 62580
+
+sprint_allowed								= false
+
+repair_part_bonus	 						= 0.32
+
+;---------------------------------------------------------------------------------------------
+;							Тяжелый бронекостюм (Военные)
+;---------------------------------------------------------------------------------------------
+[military_exolight_outfit]:exolight_outfit
+$spawn 										= "outfit\military_exolight_outfit"
+visual										= dynamics\outfit\military_exolight_outfit
+actor_visual								= actors\stalker_neutral\stalker_neutral3a.ogf
+npc_visual									= actors\stalker_neutral\stalker_neutral3a.ogf
+
+player_hud_section							= actor_hud_military_exolight
+
+upgrades                					= up_gr_firstab_military_exolight_outfit, up_gr_seconab_military_exolight_outfit, up_gr_thirdab_military_exolight_outfit, up_gr_fourtab_military_exolight_outfit, up_gr_fifthab_military_exolight_outfit
+installed_upgrades      					=
+upgrade_scheme          					= upgrade_scheme_military_exolight_outfit
+
+inv_name									= military_exolight_outfit_name
+inv_name_short								= military_exolight_outfit_name
+description									= military_exolight_outfit_description
+
+character_portrait							= ui_inGame2_monolit_4
+
+inv_weight									= 32.0
+
+additional_inventory_weight			 		= 32
+additional_inventory_weight2				= 32
+
+artefact_count                  			= 0
+
+inv_grid_x         							= 58
+inv_grid_y         							= 18
+
+upgr_icon_x									= 2820
+upgr_icon_y									= 193
+upgr_icon_width								= 300
+upgr_icon_height   							= 162
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0750 
+shock_protection 							= 0.8500 
+radiation_protection 						= 0.0295
+chemical_burn_protection 					= 0.0520 
+telepatic_protection 						= 0.0600
+strike_protection 							= 0.6000
+explosion_protection 						= 0.9400
+wound_protection							= 0.6600
+fire_wound_protection  						= 0.6000
+
+cost										= 83480
+
+immunities_sect								= sect_military_exolight_outfit_immunities
+
+[sect_military_exolight_outfit_immunities]
+burn_immunity								= 0.15		;коэффициенты иммунитета самого костюма
+strike_immunity								= 0
+shock_immunity								= 0.015
+wound_immunity								= 0.006
+radiation_immunity 							= 0.0 ;			= 0.07
+telepatic_immunity							= 0.0
+chemical_burn_immunity						= 0.017
+explosion_immunity							= 0.01
+fire_wound_immunity							= 0.009
+
+;---------------------------------------------------------------------------------------------
+;							Тяжелый бронекостюм Военные (Поношеный)
+;---------------------------------------------------------------------------------------------
+[military_exolight_outfit_worn]:military_exolight_outfit
+$spawn 										= "outfit\military_exolight_outfit"
+visual										= dynamics\outfit\military_exolight_outfit
+actor_visual								= actors\stalker_neutral\stalker_neutral3a.ogf
+npc_visual									= actors\stalker_neutral\stalker_neutral3a.ogf
+
+player_hud_section							= actor_hud_military_exolight
+
+upgrades                					= up_gr_firstab_military_exolight_outfit_worn, up_gr_seconab_military_exolight_outfit_worn, up_gr_thirdab_military_exolight_outfit_worn, up_gr_fourtab_military_exolight_outfit_worn, up_gr_fifthab_military_exolight_outfit_worn
+installed_upgrades      					=
+upgrade_scheme          					= upgrade_scheme_military_exolight_outfit_worn
+
+inv_name									= military_exolight_outfit_worn_name
+inv_name_short								= military_exolight_outfit_worn_name
+description									= military_exolight_outfit_worn_description
+
+inv_weight									= 31.0
+
+additional_inventory_weight			 		= 29
+additional_inventory_weight2				= 29
+
+inv_grid_x         							= 58
+inv_grid_y         							= 24
+
+upgr_icon_x									= 2820
+upgr_icon_y									= 193
+upgr_icon_width								= 300
+upgr_icon_height   							= 162
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0525 
+shock_protection 							= 0.5950 
+radiation_protection 						= 0.0195
+chemical_burn_protection 					= 0.0364 
+telepatic_protection 						= 0.0400 
+strike_protection 							= 0.4200
+explosion_protection 						= 0.6580
+wound_protection							= 0.4620
+fire_wound_protection  						= 0.4200
+
+cost										= 73480
+
+repair_part_bonus	 						= 0.36
+
+;---------------------------------------------------------------------------------------------
+;							Тяжелый бронекостюм Военные (непрогодный)
+;---------------------------------------------------------------------------------------------
+[military_exolight_outfit_bad]:military_exolight_outfit
+$spawn 										= "outfit\military_exolight_outfit"
+visual										= dynamics\outfit\military_exolight_outfit
+actor_visual								= actors\stalker_neutral\stalker_neutral3a.ogf
+npc_visual									= actors\stalker_neutral\stalker_neutral3a.ogf
+
+player_hud_section							= actor_hud_military_exolight
+
+upgrades                					= up_gr_firstab_military_exolight_outfit_bad, up_gr_seconab_military_exolight_outfit_bad, up_gr_thirdab_military_exolight_outfit_bad, up_gr_fourtab_military_exolight_outfit_bad, up_gr_fifthab_military_exolight_outfit_bad
+installed_upgrades      					=
+upgrade_scheme          					= upgrade_scheme_military_exolight_outfit_bad
+
+inv_name									= military_exolight_outfit_bad_name
+inv_name_short								= military_exolight_outfit_bad_name
+description									= military_exolight_outfit_bad_description
+
+inv_weight									= 30.0
+
+additional_inventory_weight			 		= 26
+additional_inventory_weight2				= 26
+
+inv_grid_x         							= 58
+inv_grid_y         							= 27
+
+upgr_icon_x									= 2820
+upgr_icon_y									= 193
+upgr_icon_width								= 300
+upgr_icon_height   							= 162
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0262 
+shock_protection 							= 0.2975 
+radiation_protection 						= 0.0103
+chemical_burn_protection 					= 0.0182 
+telepatic_protection 						= 0.0241
+strike_protection 							= 0.2100
+explosion_protection 						= 0.3290
+wound_protection							= 0.2310
+fire_wound_protection  						= 0.2100
+
+cost										= 53480
+
+sprint_allowed								= false
+
+repair_part_bonus	 						= 0.32
+
+;---------------------------------------------------------------------------------------------
+;						   Тяжелый бронекостюм Чистое Небо
+;---------------------------------------------------------------------------------------------
+
+[cs_exolight_outfit]:exolight_outfit
+$spawn 										= "outfit\cs_exolight_outfit"
+visual										= dynamics\outfit\cs_exolight_outfit
+actor_visual								= actors\stalker_nebo\stalker_radexo4a.ogf
+npc_visual									= actors\stalker_nebo\stalker_radexo4a.ogf
+
+player_hud_section      					= actor_hud_cs_exolight
+
+upgrades                					= up_gr_firstab_cs_exolight_outfit, up_gr_seconab_cs_exolight_outfit, up_gr_thirdab_cs_exolight_outfit, up_gr_fourtab_cs_exolight_outfit, up_gr_fifthab_cs_exolight_outfit
+installed_upgrades      					=
+upgrade_scheme          					= upgrade_scheme_cs_exolight_outfit
+
+inv_name									= cs_exolight_outfit_name
+inv_name_short								= cs_exolight_outfit_name
+description									= cs_exolight_outfit_description
+
+inv_grid_x         = 84
+inv_grid_y         = 3
+
+upgr_icon_x									= 3777
+upgr_icon_y									= 1418
+upgr_icon_width								= 296
+upgr_icon_height   							= 159
+
+artefact_count                  			= 3
+
+nightvision_sect							= effector_nightvision_1
+
+character_portrait						 	= ui_inGame2_csky_exo
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0700 
+shock_protection 							= 1.1000 
+radiation_protection 						= 0.0295
+chemical_burn_protection 					= 0.0480 
+telepatic_protection 						= 0.0600
+strike_protection 							= 0.5000
+explosion_protection 						= 0.9500
+wound_protection							= 0.6400
+fire_wound_protection  						= 0.4800
+
+cost										= 90625
+
+immunities_sect								= sect_cs_exolight_outfit_immunities
+
+[sect_cs_exolight_outfit_immunities]
+burn_immunity								= 0.15		;коэффициенты иммунитета самого костюма
+strike_immunity								= 0
+shock_immunity								= 0.015
+wound_immunity								= 0.006
+radiation_immunity 							= 0.0 ;			= 0.07
+telepatic_immunity							= 0.0
+chemical_burn_immunity						= 0.017
+explosion_immunity							= 0.01
+fire_wound_immunity							= 0.009
+
+;---------------------------------------------------------------------------------------------
+;						   Тяжелый бронекостюм Чистое Небо (поношеный)
+;---------------------------------------------------------------------------------------------
+
+[cs_exolight_outfit_worn]:cs_exolight_outfit
+$spawn 										= "outfit\cs_exolight_outfit"
+visual										= dynamics\outfit\cs_exolight_outfit
+actor_visual								= actors\stalker_nebo\stalker_radexo4a.ogf
+npc_visual									= actors\stalker_nebo\stalker_radexo4a.ogf
+
+player_hud_section      					= actor_hud_cs_exolight
+
+upgrades                					= up_gr_firstab_cs_exolight_outfit_worn, up_gr_seconab_cs_exolight_outfit_worn, up_gr_thirdab_cs_exolight_outfit_worn, up_gr_fourtab_cs_exolight_outfit_worn, up_gr_fifthab_cs_exolight_outfit_worn
+installed_upgrades      					=
+upgrade_scheme          					= upgrade_scheme_cs_exolight_outfit_worn
+
+inv_name									= cs_exolight_outfit_worn_name
+inv_name_short								= cs_exolight_outfit_worn_name
+description									= cs_exolight_outfit_worn_description
+
+inv_grid_x         = 84
+inv_grid_y         = 12
+
+inv_weight									= 27.0
+
+additional_inventory_weight			 		= 25
+additional_inventory_weight2				= 25
+
+upgr_icon_x									= 3777
+upgr_icon_y									= 1418
+upgr_icon_width								= 296
+upgr_icon_height   							= 159
+
+artefact_count                  			= 2
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0490 
+shock_protection 							= 0.7700 
+radiation_protection 						= 0.0195
+chemical_burn_protection 					= 0.0336 
+telepatic_protection 						= 0.0400 
+strike_protection 							= 0.3500
+explosion_protection 						= 0.6650
+wound_protection							= 0.4480
+fire_wound_protection  						= 0.3360
+
+cost										= 80625
+
+repair_part_bonus	 						= 0.36
+
+;---------------------------------------------------------------------------------------------
+;						   Тяжелый бронекостюм Чистое Небо (непригодный)
+;---------------------------------------------------------------------------------------------
+
+[cs_exolight_outfit_bad]:cs_exolight_outfit
+$spawn 										= "outfit\cs_exolight_outfit"
+visual										= dynamics\outfit\cs_exolight_outfit
+actor_visual								= actors\stalker_nebo\stalker_radexo4a.ogf
+npc_visual									= actors\stalker_nebo\stalker_radexo4a.ogf
+
+player_hud_section      					= actor_hud_cs_exolight
+
+upgrades                					= up_gr_firstab_cs_exolight_outfit_bad, up_gr_seconab_cs_exolight_outfit_bad, up_gr_thirdab_cs_exolight_outfit_bad, up_gr_fourtab_cs_exolight_outfit_bad, up_gr_fifthab_cs_exolight_outfit_bad
+installed_upgrades      					=
+upgrade_scheme          					= upgrade_scheme_cs_exolight_outfit_bad
+
+inv_name									= cs_exolight_outfit_bad_name
+inv_name_short								= cs_exolight_outfit_bad_name
+description									= cs_exolight_outfit_bad_description
+
+inv_grid_x         							= 62
+inv_grid_y         							= 33
+
+inv_weight									= 26.0
+
+additional_inventory_weight			 		= 22
+additional_inventory_weight2				= 22
+
+upgr_icon_x									= 3777
+upgr_icon_y									= 1418
+upgr_icon_width								= 296
+upgr_icon_height   							= 159
+
+artefact_count                  			= 1
+
+; MEDIUM RESISTANCE
+burn_protection 							= 0.0245 
+shock_protection 							= 0.3850 
+radiation_protection 						= 0.0103
+chemical_burn_protection 					= 0.0168 
+telepatic_protection 						= 0.0241  
+strike_protection 							= 0.1750
+explosion_protection 						= 0.3325
+wound_protection							= 0.2240
+fire_wound_protection  						= 0.1680
+
+physic_strike_wound_immunity             	= 0.10
+
+cost										= 60625
+
+sprint_allowed								= false
+
+repair_part_bonus	 						= 0.32

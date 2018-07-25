@@ -1,0 +1,324 @@
+
+-- =======================================================================================
+-- Remade by Tronex
+-- Last modification: 2018/7/20
+-- Repair Kits UI
+-- =======================================================================================
+
+
+
+--=======================================< Controls >=======================================--
+local ico_size = 0.7
+local ico_width = (device().width / device().height > (1024/768+0.01)) and 0.8 or 1
+local _le = 50
+local ini = system_ini()
+
+
+--=======================================< List Item >=======================================--
+class "list_element" (CUIListBoxItem)
+
+function list_element:__init(w_m, w_s, sec, id, con) super(w_m, w_s, sec, id, con)
+	
+	self.sec					= sec
+	self.id						= id
+	self.con					= con
+	
+	self.text					= self:GetTextItem()
+	self.text:SetWndRect		(Frect():set(0,0,300,22))
+	self:SetTextColor			(GetARGB(255, 130, 128, 120))
+	self.text:SetFont			(GetFontLetterica16Russian())
+	self.text:SetWndSize		(vector2():set((w_m - w_s) , 22))
+	self.text:SetEllipsis		(true)
+	self.text:SetText			(game.translate_string(ini:r_string_ex (self.sec,"inv_name") or ""))
+	
+	self.flag					= self:AddTextField("+" .. con .. "%")
+	self.flag:SetTextColor		(GetARGB(255, 170, 170, 170))
+	self.flag:SetFont			(GetFontLetterica16Russian())
+	self.flag:SetWndSize		(vector2():set(w_s , 22))
+	self.flag:SetWndPos			(vector2():set((w_m - w_s) + 4 , 0))
+end
+
+function list_element:__finalize()
+end
+
+
+--=======================================< Crafting UI >=======================================--
+class "repair_ui" (CUIScriptWnd)
+
+function repair_ui:__init(owner,obj,section) super()
+	self.owner = owner
+	self.section = section
+	self.obj = obj
+	
+	self.use_condition = ini:r_bool_ex(section,"use_condition") or false
+	self.min_condition = ini:r_float_ex(section,"repair_min_condition") or 0
+	self.max_condition = ini:r_float_ex(section,"repair_max_condition") or 0
+	self.add_condition = ini:r_float_ex(section,"repair_add_condition") or 0
+	self.part_bonus = ini:r_float_ex(section,"repair_part_bonus") or 0
+	self.use_parts = ini:r_bool_ex(section,"repair_use_parts") or false
+	self.repair_type = ini:r_string_ex(section,"repair_type") or "all"
+	self.repair_only = alun_utils.parse_list(ini,section,"repair_only",true)
+	self.repair_refuse = alun_utils.parse_list(ini,section,"repair_refuse",true)
+	self.parts_include = alun_utils.parse_list(ini,section,"repair_parts_include",true)
+	self.parts_exclude = alun_utils.parse_list(ini,section,"repair_parts_exclude",true)
+	self.use_actor_effects = ini:r_bool_ex(section,"repair_use_actor_effects",false)
+	
+	self:InitControls()
+	self:InitCallBacks()
+end
+
+function repair_ui:__finalize()
+end
+
+function repair_ui:InitControls()
+	self:SetWndRect			(Frect():set(0,0,1024,768))
+	self:SetAutoDelete(true)
+	
+	self.xml				= CScriptXmlInit()
+	local xml = self.xml
+	xml:ParseFile			("ui_items.xml")
+
+	self.dialog					= xml:InitStatic("itm_repair:frame", self)
+	self.dialog:InitTexture("ui_itm_repair")
+	self.dialog:SetStretchTexture(true)
+
+	self.item = {} -- Selected item
+	self.list = {} -- List of items
+	self.box_item = {} -- Item's Icon
+	self.box_item_temp = {} -- temp item
+	self.text_item = {} -- Item's Name
+	self.con_item = {} -- Item's Condition
+	for i=1,2 do
+		xml:InitStatic("itm_repair:cap_" .. tostring(i),self.dialog)
+		xml:InitStatic("itm_repair:frame_list_" .. tostring(i),self.dialog)
+		xml:InitStatic("itm_repair:frame_item_" .. tostring(i),self.dialog)
+		
+		self.list[i] = xml:InitListBox("itm_repair:list_" .. tostring(i),self.dialog)
+		self.list[i]:ShowSelectedItem(true)
+		self.list[i]:Show(true)
+		self:Register(self.list[i], "list_" .. tostring(i))
+		
+		self.box_item[i] = xml:InitStatic("itm_repair:box_item_" .. tostring(i) , self.dialog)
+		self.box_item_temp[i] = xml:InitStatic("itm_repair:box_item_" .. tostring(i) , self.dialog)
+		
+		self.text_item[i] = xml:InitTextWnd("itm_repair:text_item_" .. tostring(i) , self.dialog)
+		self.con_item[i] = xml:InitTextWnd("itm_repair:con_item_" .. tostring(i) , self.dialog)
+	end
+	self.con_item_b = xml:InitTextWnd("itm_repair:con_item_b" , self.dialog)
+	
+	-- Main Buttons
+	local btn
+	btn = xml:Init3tButton("itm_repair:btn_repair", self.dialog)
+	self:Register(btn,"btn_repair")
+	
+	btn = xml:Init3tButton("itm_repair:btn_cancel", self.dialog)
+	self:Register(btn,"btn_cancel")
+	
+	self:LoadItemList_1()
+end
+
+function repair_ui:InitCallBacks()
+	self:AddCallback("btn_repair", ui_events.BUTTON_CLICKED, self.OnRepair, self)
+	self:AddCallback("btn_cancel", ui_events.BUTTON_CLICKED, self.OnCancel, self)
+	self:AddCallback("list_1", ui_events.LIST_ITEM_CLICKED, self.OnItemClicked_1, self)
+	self:AddCallback("list_2", ui_events.LIST_ITEM_CLICKED, self.OnItemClicked_2, self)
+end
+
+function repair_ui:LoadItemList_1()
+	self.list[1]:RemoveAll()
+	
+	local function fill_list(actor,obj)
+		
+		if not obj then return end
+	
+		local main_section = ini:r_string_ex(obj:section(),"repair_type") or obj:section()
+		if (self.repair_only and self.repair_only[main_section]) then
+			if (self.repair_type == "weapon" and IsWeapon(obj))
+			or (self.repair_type == "outfit" and (IsOutfit(obj) or IsHeadgear(obj)))
+			or (self.repair_type == "all" and (IsWeapon(obj) or IsOutfit(obj) or IsHeadgear(obj))) then
+				local con = obj:condition()
+				if (con and con >= self.min_condition and con <= self.max_condition) then
+					con = math.ceil(con*100)
+					local _itm = list_element(self.list[1]:GetWidth(), _le, obj:section(), obj:id(), con)
+					self.list[1]:AddExistingItem(_itm)
+				end
+			end
+		end
+	end
+
+	db.actor:iterate_inventory(fill_list,db.actor)
+end
+
+function repair_ui:LoadItemList_2()
+	self.list[2]:RemoveAll()
+
+	if self.list[1]:GetSize()==0 then return end
+
+	local item = self.list[1]:GetSelectedItem()
+	if not (item) then
+		return
+	end
+
+	local obj = level.object_by_id(item.id)
+	local function fill_list(actor,itm)
+		if (itm and itm:id() ~= item.id) then
+			if (self.parts_include and self.parts_include[itm:section()]) or (self.parts_exclude == nil and string.find(obj:section(),itm:section())) or (self.parts_exclude and self.parts_exclude[itm:section()] == nil and string.find(obj:section(),itm:section())) then
+				local part_bonus = ini:r_float_ex(itm:section(),"repair_part_bonus") or self.part_bonus
+				part_bonus = math.ceil(part_bonus*100)
+				local _itm = list_element(self.list[2]:GetWidth(), _le, itm:section(), itm:id(), part_bonus)
+				self.list[2]:AddExistingItem(_itm)
+			end
+		end
+	end
+
+	db.actor:iterate_inventory(fill_list,db.actor)
+end
+
+
+---------------< Callbacks >---------------
+function repair_ui:OnItemClicked_1()
+	self:OnItemSelect(1)
+end
+function repair_ui:OnItemClicked_2()
+	self:OnItemSelect(2)
+end
+function repair_ui:OnItemSelect(n)
+	local item = self.list[n]:GetSelectedItem()
+	self.item[n] = item.id
+	
+	if (n == 1) then self:LoadItemList_2() end
+	
+	-- Text (Name)
+	local name = game.translate_string(ini:r_string_ex(item.sec,"inv_name"))
+	self.text_item[n]:SetText(name)
+	
+	-- Text (Condition)
+	if (n == 2) then 
+		local con = math.floor((self.add_condition)*100)
+		self.con_item[2]:SetText(game.translate_string("st_ui_repair") .. ": +" .. item.con .. "%")
+		self.con_item_b:SetText(game.translate_string("st_ui_bonus") .. ": +" .. con .. "%")
+		self.con_item[1]:SetText(game.translate_string("st_ui_total") .. ": +" .. (con + item.con) .. "%")
+	end
+	
+	-- Icon
+	local ico = trx_utils.get_item_axis (item.sec)
+	self.box_item[n]:InitTexture("ui\\ui_icon_equipment")
+	self.box_item[n]:SetTextureRect(Frect():set(ico.x1, ico.y1, ico.x2, ico.y2))
+	self.box_item[n]:SetStretchTexture(true)
+	
+	local pos = self.box_item_temp[n]:GetWndPos()
+	local _w = self.box_item_temp[n]:GetWidth()
+	local _h = self.box_item_temp[n]:GetHeight()
+	
+	local ratio = ico.w/ico.h
+	local h, w
+	ico.w = ico.w * ico_size * ico_width
+	ico.h = ico.h * ico_size
+	
+	local w_t, h_t = 0, 0
+	local resize = false
+	if (ico.w > _w) then -- if icon width is bigger than frame width
+		w_t = ico.w - _w
+		resize = true	
+	end 
+	if (ico.h > _h) then -- if icon height is bigger than frame height
+		h_t = ico.h - _h 
+		resize = true	
+	end 
+	
+	if resize then -- resize is required
+		if (w_t >= h_t) then -- if icon width is the big number (or square), use it as a base for resizing
+			w = _w
+			h = w / ratio
+		elseif (w_t < h_t) then -- if icon width is the big number, use it as a base for resizing
+			h = _h
+			w = h * ratio
+		end
+	else -- no resize
+		w = ico.w
+		h = ico.h
+	end
+	
+	offset_x = (_w - w)/2
+	offset_y = (_h - h)/2
+	self.box_item[n]:SetWndSize(vector2():set(w , h))
+	self.box_item[n]:SetWndPos(vector2():set(pos.x + offset_x , pos.y + offset_y))
+	
+	-- Reset supportive item when you choose main item
+	if (n == 1) then
+		self.item[2] = nil
+		self.box_item[2]:InitTexture("ui\\ui_icon_equipment")
+		self.box_item[2]:SetTextureRect(Frect():set(0, 0, 0, 0))
+		self.text_item[2]:SetText("")
+		self.con_item[1]:SetText("")
+		self.con_item[2]:SetText("")
+		self.con_item_b:SetText("")
+	end
+end
+
+function repair_ui:OnRepair()
+
+	-- Load item 1
+	local obj_1 = self.item[1] and level.object_by_id(self.item[1])
+	if not (obj_1) then
+		return
+	end
+	
+	-- Load item 2
+	local se_obj_2 = self.item[2] and alife():object(self.item[2])
+	if not (se_obj_2) then
+		return
+	end
+	
+	local sec = se_obj_2:section_name()
+	local bonus = system_ini():r_float_ex(sec,"repair_part_bonus") or self.part_bonus or 0
+	
+	-- Setting up the new condition
+	local con = obj_1:condition()
+	con = con + self.add_condition + bonus
+	con = con <= 1 and con or 1
+	obj_1:set_condition(con)
+	
+	-- Remove repair kit and support item
+	alife():release(se_obj_2,true)
+	if (self.use_condition and self.obj and self.obj:get_remaining_uses() <= 0) then 
+		local se_obj = alife():object(self.obj:id())
+		if (se_obj) then 
+			alife():release(se_obj,true)
+		end
+	end
+	
+	-- Hide dialog
+	self:HideDialog()
+	
+	-- Effect
+	if (self.use_actor_effects and actor_effects) then
+		actor_effects.use_item(self.section.."_dummy")
+		level_weathers.get_weather_manager():forced_weather_change()
+	end
+end
+
+function repair_ui:OnCancel()
+	if (self.use_condition and self.obj) then 
+		local r = self.obj:get_remaining_uses()
+		if (r + 1 <= self.obj:get_max_uses()) then
+			self.obj:set_remaining_uses(self.obj:get_remaining_uses() + 1)
+		end
+	else
+		alife():create(self.section,db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id(),db.actor:id())
+	end
+	self:HideDialog()
+end
+
+function repair_ui:OnKeyboard(dik, keyboard_action)
+	local res = CUIScriptWnd.OnKeyboard(self,dik,keyboard_action)
+	if (res == false) then
+		local bind = dik_to_bind(dik)
+		if keyboard_action == ui_events.WINDOW_KEY_PRESSED then
+			if dik == DIK_keys.DIK_ESCAPE then
+				self:OnCancel()
+			end
+		end
+	end
+	return res
+end

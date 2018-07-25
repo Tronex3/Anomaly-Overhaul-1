@@ -1,0 +1,42 @@
+<w>
+	<itm_field_craft>
+		<file_item>
+			<main width="550" height="18"/>
+			<fn width="200" height="18"/>
+			<fd width="50" height="18"/>
+		</file_item>
+		<form x="100" y="150" width="563" height="509" stretch="1">
+			<texture>ui_crafting_window</texture>
+			
+			<icon x="128" y="250" width="128" height="128" stretch="1">
+			</icon>
+			<icon_parts x="128" y="112" width="128" height="128" stretch="1">
+			</icon_parts>
+			<icon_tool x="300" y="418" width="128" height="128" stretch="1">
+			</icon_tool>
+
+			<caption_ingred x="20" y="202" width="224" height="95" item_height="18" can_select="0">
+				<text font="letterica18"/>
+			</caption_ingred>
+
+			<caption_parts x="100" y="75" width="195" height="20">
+				<text font="letterica18"/>
+			</caption_parts>
+			<list_frame_parts x="265" y="58" width="284" height="181">
+				<texture>ui_inGame2_servers_list_frame</texture>
+			</list_frame_parts>
+			<list_parts x="272" y="60" width="275" height="179" item_height="18" can_select="1">
+				<font font="letterica16"/>
+			</list_parts>
+
+			<btn_craft x="50" y="440" width="80" height="40">
+				<texture>ui_button_main01</texture>
+				<text font="letterica18">Craft</text>
+			</btn_craft>
+			<btn_cancel x="155" y="440" width="80" height="40">
+				<texture>ui_button_main01</texture>
+				<text font="letterica18">ui_mm_cancel</text>
+			</btn_cancel>
+		</form>
+	</itm_field_craft>
+</w>

@@ -1,0 +1,120 @@
+-- actor_menu_mode -----
+
+-- int mode:
+-- 0 = 	Undefined = закрыто
+-- 1 = 	Inventory
+-- 2 = 	Trade
+-- 3 = 	Upgrade
+-- 4 = 	DeadBodySearch
+-- 10 =  Talk dialog  show
+-- 11 =  Talk dialog  hide
+local last_mode = 0
+xr_meet_dialog_closed = false
+xr_meet_trade_closed = false
+xr_meet_upgrade_closed = false
+dead_body_searching = false
+
+function actor_menu_mode(mode)
+	SendScriptCallback("actor_menu_mode_changed",mode,last_mode)
+	if(mode==0) then
+		if(last_mode==1) then
+			inventory_wnd_closed()
+		elseif(last_mode==2) then
+			trade_wnd_closed()
+		elseif(last_mode==3) then
+			upgrade_wnd_closed()
+		elseif(last_mode==4) then
+			dead_body_search_wnd_closed()
+		end
+		last_mode = 0
+	elseif(mode==1) then
+		last_mode = 1
+		inventory_wnd_opened()
+	elseif(mode==2) then
+		last_mode = 2
+		trade_wnd_opened()
+	elseif(mode==3) then
+		last_mode = 3
+		upgrade_wnd_opened()
+	elseif(mode==4) then
+		last_mode = 4
+		dead_body_search_wnd_opened()
+	elseif(mode==10) then
+        dialog_wnd_showed()
+	elseif(mode==11) then
+        dialog_wnd_closed()
+	end
+end
+
+function inventory_wnd_opened()
+	--printf("---:>Inventory opened")
+	give_info("inventory_wnd_open")
+end
+
+function inventory_wnd_closed()
+	--printf("---:>Inventory closed")
+	disable_info("inventory_wnd_open")
+end
+
+function trade_wnd_opened()
+	SendScriptCallback("TrdWndOpened")
+	xr_meet_dialog_closed = false
+	--printf("---:>Trade opened")
+	give_info("trade_wnd_open")
+end
+
+function trade_wnd_closed()
+	--printf("---:>Trade closed")
+	SendScriptCallback("TrdWndClosed")
+	xr_meet_trade_closed = true
+	disable_info("trade_wnd_open")
+end
+
+function upgrade_wnd_opened()
+	xr_meet_dialog_closed = false
+	--printf("---:>Upgrade opened")
+	give_info("upgrade_wnd_open")
+end
+
+function upgrade_wnd_closed()
+	--printf("---:>Upgrade closed")
+	xr_meet_upgrade_closed = true
+	disable_info("upgrade_wnd_open")
+end
+
+function dead_body_search_wnd_opened()
+	--printf("---:>DeadBodySearch opened")
+	dead_body_searching = true
+	give_info("body_search_wnd_open")
+end
+
+function dead_body_search_wnd_closed()
+	--printf("---:>DeadBodySearch closed")
+	dead_body_searching = false
+	disable_info("body_search_wnd_open")
+	bind_container.curBoxID = nil
+end
+
+function dialog_wnd_showed()
+	--printf("---:>Talk Dialog show")
+	give_info("dialog_wnd_open")
+end
+
+function dialog_wnd_closed()
+	--printf("---:>Talk Dialog hide")
+	xr_meet_dialog_closed = true
+	disable_info("dialog_wnd_open")
+	--inventory_upgrades.victim_id = nil
+end
+
+function inventory_opened()
+	if (db.actor:has_info("inventory_wnd_open") or
+	db.actor:has_info("trade_wnd_open") or
+	db.actor:has_info("upgrade_wnd_open") or
+	db.actor:has_info("body_search_wnd_open") or
+	db.actor:has_info("dialog_wnd_open")) then
+		return true
+	else
+		return false
+	end
+end

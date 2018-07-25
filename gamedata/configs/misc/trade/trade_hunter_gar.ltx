@@ -1,0 +1,1074 @@
+#include "trade_discounts.ltx"
+
+[trader]
+buy_condition                            = trade_generic_buy
+buy_item_condition_factor                = 0.40
+buy_item_exponent = 2.25
+sell_item_exponent = 0.75
+buy_supplies                             = supplies_generic
+price_profile                            = default
+sell_condition                           = trade_generic_sell
+discounts = discount_barman_ld_1
+
+[trade_generic_sell]
+ammo_12x76_zhekan = 1.2, 2
+ammo_12x70_buck = 1.1, 1.4
+
+
+mutant_part_krovosos_jaw = 4.2, 4.2
+mutant_part_boar_leg = 4.2, 4.2
+mutant_part_chimera_kogot = 4.2, 4.2
+mutant_part_chimera_claw = 4.2, 4.2
+mutant_part_dog_tail = 4.2, 4.2
+mutant_part_flesh_eye = 4.2, 4.2
+mutant_part_psevdodog_tail = 4.2, 4.2
+mutant_part_snork_leg = 4.2, 4.2
+mutant_part_snork_hand = 4.2, 4.2
+mutant_part_tushkano_head = 4.2, 4.2
+mutant_part_pseudogigant_hand = 4.2, 4.2
+mutant_part_pseudogigant_eye = 4.2, 4.2
+mutant_part_controller_glass = 4.2, 4.2
+mutant_part_controller_hand = 4.2, 4.2
+mutant_part_burer_hand = 4.2, 4.2
+mutant_part_cat_tail = 4.2, 4.2
+mutant_part_fracture_hand= 0.56, 1
+mutant_part_zombi_hand = 4.2, 4.2
+mutant_part_flesh_meat = 4.2, 4.2
+mutant_part_boar_chop = 4.2, 4.2
+mutant_part_dog_meat = 4.2, 4.2
+mutant_part_psevdodog_meat = 4.2, 4.2
+mutant_part_chimera_meat = 4.2, 4.2
+
+wpn_mp153_rusty = 1.7, 2.2
+wpn_spas12_worn = 1.7, 2.2
+wpn_bm16 = 1.4, 1.6
+wpn_toz34 = 1.4, 1.7
+wpn_wincheaster1300 = 1.7, 2.2
+wpn_knife               = 1, 1
+wpn_knife2              = 1, 1
+wpn_knife3              = 1, 1
+kit_hunt                = 1, 1
+
+meat_tushkano			= 6, 1
+meat_dog				= 6, 1
+meat_pseudodog			= 4, 1
+meat_flesh				= 4, 1
+meat_boar				= 4, 1
+meat_bloodsucker		= 2, 1
+meat_snork				= 4, 1
+meat_chimera			= 1, 1
+
+
+[supplies_generic]
+ammo_12x76_zhekan = 5, 0.7
+ammo_12x70_buck = 5, 1
+
+mutant_part_boar_leg = 5, 1
+mutant_part_dog_tail = 3, 1
+mutant_part_flesh_eye = 4, 1
+mutant_part_psevdodog_tail = 2, 1
+mutant_part_snork_leg = 4, 1
+mutant_part_snork_hand = 2, 1
+mutant_part_tushkano_head = 5, 1
+mutant_part_cat_tail = 3, 1
+mutant_part_fracture_hand = 2, 1
+mutant_part_zombi_hand = 4, 1
+mutant_part_flesh_meat = 5, 1
+mutant_part_boar_chop = 7, 1
+mutant_part_dog_meat = 3, 1
+mutant_part_psevdodog_meat = 2, 1
+
+wpn_mp153_rusty = 1, 1
+wpn_spas12_worn = 1, 1
+wpn_bm16 = 2, 1
+wpn_toz34 = 1, 1
+wpn_wincheaster1300 = 1, 0.7
+wpn_knife               = 1, 1
+wpn_knife2              = 1, 1
+wpn_knife3              = 1, 1
+kit_hunt                = 1, 1
+
+meat_tushkano			= 6, 1
+meat_dog				= 6, 1
+meat_pseudodog			= 4, 1
+meat_flesh				= 4, 1
+meat_boar				= 4, 1
+meat_bloodsucker		= 2, 1
+meat_snork				= 4, 1
+meat_chimera			= 1, 1
+wpn_bm16 = 2, 1
+wpn_toz34 = 1, 1
+wpn_wincheaster1300 = 1, 0.7
+wpn_knife               = 1, 1
+wpn_knife2              = 1, 1
+wpn_knife3              = 1, 1
+
+
+[trade_generic_buy]
+;E_STLK
+itm_actor_backpack ;NO_TRADE
+bandit_exo_outfit ;NO_TRADE
+bandit_novice_outfit ;NO_TRADE
+banditmerc_outfit ;NO_TRADE
+cs_heavy_outfit ;NO_TRADE
+cs_light_novice_outfit ;NO_TRADE
+cs_light_outfit ;NO_TRADE
+cs_medium_outfit ;NO_TRADE
+cs_novice_outfit ;NO_TRADE
+dolg_exo_outfit ;NO_TRADE
+dolg_heavy_outfit ;NO_TRADE
+dolg_novice_outfit ;NO_TRADE
+dolg_outfit ;NO_TRADE
+dolg_scientific_outfit ;NO_TRADE
+ecolog_guard_outfit ;NO_TRADE
+ecolog_outfit_green ;NO_TRADE
+ecolog_outfit_orange ;NO_TRADE
+exo_outfit ;NO_TRADE
+helm_exo ;NO_TRADE
+helm_exo_worn ;NO_TRADE
+helm_battle ;NO_TRADE
+helm_battle_dolg ;NO_TRADE
+helm_battle_dolg_worn ;NO_TRADE
+helm_battle_freedom ;NO_TRADE
+helm_battle_freedom_worn ;NO_TRADE
+helm_hardhat ;NO_TRADE
+helm_hardhat_snag ;NO_TRADE
+helm_m40 ;NO_TRADE
+helm_protective ;NO_TRADE
+helm_bandana ;NO_TRADE
+helm_bandana_worn ;NO_TRADE
+helm_rp_bala ;NO_TRADE  
+helm_rp_bala_worn ;NO_TRADE
+helm_resp ;NO_TRADE    
+helm_resp_worn ;NO_TRADE
+helm_respirator_gp5 ;NO_TRADE
+helm_respirator_gp5_worn ;NO_TRADE
+helm_respirator ;NO_TRADE
+helm_respirator_old ;NO_TRADE
+helm_respirator_old_worn ;NO_TRADE
+helm_respirator_freedom ;NO_TRADE
+helm_respirator_freedom_worn ;NO_TRADE
+helm_respirator_dolg ;NO_TRADE
+helm_respirator_dolg_worn ;NO_TRADE
+helm_respirator_joker ;NO_TRADE
+helm_tactic ;NO_TRADE
+helm_metro ;NO_TRADE
+helm_metro_worn ;NO_TRADE
+merc_exo_outfit ;NO_TRADE
+merc_outfit ;NO_TRADE
+merc_scientific_outfit ;NO_TRADE
+military_exo_outfit ;NO_TRADE
+military_outfit ;NO_TRADE
+monolith_exo_outfit ;NO_TRADE
+monolith_outfit ;NO_TRADE
+monolith_scientific_outfit ;NO_TRADE
+novice_outfit ;NO_TRADE
+scientific_outfit ;NO_TRADE
+specops_outfit ;NO_TRADE
+stalker_outfit ;NO_TRADE
+stalker_outfit_barge ;NO_TRADE
+svoboda_exo_outfit ;NO_TRADE
+svoboda_heavy_outfit ;NO_TRADE
+svoboda_heavy_outfit_2 ;NO_TRADE
+svoboda_light_outfit ;NO_TRADE
+svoboda_scientific_outfit ;NO_TRADE
+trenchcoat_outfit ;NO_TRADE
+military_exolight_outfit ;NO_TRADE
+military_exolight_outfit_worn ;NO_TRADE
+military_exolight_outfit_bad ;NO_TRADE
+cs_exolight_outfit ;NO_TRADE
+cs_exolight_outfit_worn ;NO_TRADE
+cs_exolight_outfit_bad ;NO_TRADE
+bandit_exolight_outfit ;NO_TRADE
+bandit_exolight_outfit_worn ;NO_TRADE
+bandit_exolight_outfit_bad ;NO_TRADE
+monolith_exolight_outfit ;NO_TRADE
+monolith_exolight_outfit_worn ;NO_TRADE
+monolith_exolight_outfit_bad ;NO_TRADE
+dolg_exolight_outfit ;NO_TRADE
+dolg_exolight_outfit_worn ;NO_TRADE
+dolg_exolight_outfit_bad ;NO_TRADE
+merc_exolight_outfit ;NO_TRADE
+merc_exolight_outfit_worn ;NO_TRADE
+merc_exolight_outfit_bad ;NO_TRADE
+exolight_outfit ;NO_TRADE
+exolight_outfit_worn ;NO_TRADE
+exolight_outfit_bad ;NO_TRADE
+svoboda_exolight_outfit ;NO_TRADE
+svoboda_exolight_outfit_worn ;NO_TRADE
+svoboda_exolight_outfit_bad ;NO_TRADE
+cs_exo_outfit ;NO_TRADE
+cs_exo_outfit_worn ;NO_TRADE
+cs_exo_outfit_bad ;NO_TRADE
+renegade_exo_outfit ;NO_TRADE
+renegade_exo_outfit_worn ;NO_TRADE
+renegade_exo_outfit_bad ;NO_TRADE
+military_exo_outfit_worn ;NO_TRADE
+military_exo_outfit_bad ;NO_TRADE
+ecolog_exo_outfit ;NO_TRADE
+ecolog_exo_outfit_worn ;NO_TRADE
+ecolog_exo_outfit_bad ;NO_TRADE
+monolith_exo_outfit_worn ;NO_TRADE
+monolith_exo_outfit_bad ;NO_TRADE
+dolg_exo_outfit_worn ;NO_TRADE
+dolg_exo_outfit_bad ;NO_TRADE
+bandit_exo_outfit_worn ;NO_TRADE
+bandit_exo_outfit_bad ;NO_TRADE
+merc_exo_outfit_worn ;NO_TRADE
+merc_exo_outfit_bad ;NO_TRADE
+svoboda_exo_outfit_worn ;NO_TRADE
+svoboda_exo_outfit_bad ;NO_TRADE
+exo_outfit_worn ;NO_TRADE
+exo_outfit_bad ;NO_TRADE
+ecolog_outfit_red ;NO_TRADE
+ecolog_outfit_red_worn ;NO_TRADE
+ecolog_outfit_red_bad ;NO_TRADE
+ecolog_outfit_yello ;NO_TRADE
+ecolog_outfit_yello_worn ;NO_TRADE
+ecolog_outfit_yello_bad ;NO_TRADE
+ecolog_outfit_white ;NO_TRADE
+ecolog_outfit_white_worn ;NO_TRADE
+ecolog_outfit_white_bad ;NO_TRADE
+ecolog_outfit_blue ;NO_TRADE
+ecolog_outfit_blue_worn ;NO_TRADE
+ecolog_outfit_blue_bad ;NO_TRADE
+ecolog_outfit_orange_worn ;NO_TRADE
+ecolog_outfit_orange_bad ;NO_TRADE
+ecolog_outfit_green_worn ;NO_TRADE
+ecolog_outfit_green_bad ;NO_TRADE
+bandit_scientific_outfit ;NO_TRADE
+bandit_scientific_outfit_worn ;NO_TRADE
+bandit_scientific_outfit_bad ;NO_TRADE
+cs_scientific_outfit ;NO_TRADE
+cs_scientific_outfit_good ;NO_TRADE
+cs_scientific_outfit_worn ;NO_TRADE
+cs_scientific_outfit_bad ;NO_TRADE
+merc_scientific_outfit_worn ;NO_TRADE
+merc_scientific_outfit_bad ;NO_TRADE
+svoboda_scientific_outfit_worn ;NO_TRADE
+svoboda_scientific_outfit_bad ;NO_TRADE
+monolith_scientific_outfit_worn ;NO_TRADE
+monolith_scientific_outfit_bad ;NO_TRADE
+scientific_outfit_worn ;NO_TRADE
+scientific_outfit_bad ;NO_TRADE
+trenchcoat_brown_outfit ;NO_TRADE
+trenchcoat_brown_outfit_worn ;NO_TRADE
+trenchcoat_brown_outfit_bad ;NO_TRADE
+merc_sun_outfit ;NO_TRADE
+merc_sun_outfit_worn ;NO_TRADE
+merc_sun_outfit_bad ;NO_TRADE
+army_outfit ;NO_TRADE
+army_outfit_worn ;NO_TRADE
+army_outfit_bad ;NO_TRADE
+bandit_sun_outfit ;NO_TRADE
+bandit_sun_outfit_worn ;NO_TRADE
+bandit_sun_outfit_bad ;NO_TRADE
+ecolog_guard_outfit_worn ;NO_TRADE
+ecolog_guard_outfit_bad ;NO_TRADE
+cs_stalker_outfit ;NO_TRADE
+cs_stalker_proto_exo_outfit ;NO_TRADE
+cs_stalker_outfit_worn ;NO_TRADE
+cs_stalker_outfit_bad ;NO_TRADE
+banditmerc_outfit ;NO_TRADE
+banditmerc_outfit_worn ;NO_TRADE
+banditmerc_outfit_bad ;NO_TRADE
+monolith_proto_exo_outfit ;NO_TRADE
+monolith_outfit_worn ;NO_TRADE
+monolith_outfit_bad ;NO_TRADE
+dolg_heavy_proto_exo_outfit ;NO_TRADE
+dolg_heavy_outfit_worn ;NO_TRADE
+dolg_heavy_outfit_bad ;NO_TRADE
+merc_outfit_worn ;NO_TRADE
+merc_outfit_bad ;NO_TRADE
+specops_outfit_worn ;NO_TRADE
+specops_outfit_bad ;NO_TRADE
+military_proto_exo_outfit ;NO_TRADE
+military_outfit_worn ;NO_TRADE 
+military_outfit_bad ;NO_TRADE
+svoboda_heavy_outfit_worn ;NO_TRADE
+svoboda_heavy_outfit_bad ;NO_TRADE
+svoboda_heavy_outfit_2_worn ;NO_TRADE
+svoboda_heavy_outfit_2_bad ;NO_TRADE
+cs_medium_outfit_worn ;NO_TRADE
+cs_medium_outfit_bad ;NO_TRADE
+cs_heavy_outfit_worn ;NO_TRADE
+cs_heavy_outfit_bad ;NO_TRADE
+cs_light_novice_outfit_worn ;NO_TRADE
+cs_light_novice_outfit_bad ;NO_TRADE
+cs_light_outfit_worn ;NO_TRADE
+cs_light_outfit_bad ;NO_TRADE
+svoboda_light_proto_exo_outfit ;NO_TRADE
+svoboda_light_outfit_worn ;NO_TRADE
+svoboda_light_outfit_bad ;NO_TRADE
+dolg_proto_exo_outfit ;NO_TRADE
+dolg_outfit_worn ;NO_TRADE
+dolg_outfit_bad ;NO_TRADE
+stalker_outfit_bad ;NO_TRADE
+stalker_outfit_worn ;NO_TRADE
+stalker_proto_exo_outfit ;NO_TRADE
+stalker_outfit_alt ;NO_TRADE
+stalker_outfit_camo ;NO_TRADE
+trenchcoat_outfit_worn ;NO_TRADE
+trenchcoat_outfit_bad ;NO_TRADE
+bandit_novice_outfit_worn ;NO_TRADE
+bandit_novice_outfit_bad ;NO_TRADE
+bandit_novice_outfit_alt ;NO_TRADE
+dolg_novice_outfit_worn ;NO_TRADE
+dolg_novice_outfit_bad ;NO_TRADE
+cs_novice_outfit_worn ;NO_TRADE
+cs_novice_outfit_bad ;NO_TRADE
+novice_outfit_tourist ;NO_TRADE
+novice_outfit_bad ;NO_TRADE 
+novice_outfit_worn ;NO_TRADE
+novice_outfit_camo ;NO_TRADE
+helm_m40_bad ;NO_TRADE
+helm_m40_worn ;NO_TRADE
+helm_battle_bad ;NO_TRADE
+helm_battle_worn ;NO_TRADE
+helm_tactic_bad ;NO_TRADE
+helm_tactic_worn ;NO_TRADE
+helm_protective_bad ;NO_TRADE
+helm_protective_worn ;NO_TRADE
+helm_hardhat_bad ;NO_TRADE
+helm_hardhat_worn ;NO_TRADE 
+helm_respirator_bad ;NO_TRADE
+helm_respirator_worn ;NO_TRADE
+helm_cloth_mask_bad ;NO_TRADE 
+helm_cloth_mask_worn ;NO_TRADE
+nbc_outfit ;NO_TRADE
+nbc_worn_outfit ;NO_TRADE
+nbc_freedom_outfit ;NO_TRADE
+nbc_freedom_worn_outfit ;NO_TRADE
+nbc_dolg_outfit ;NO_TRADE
+nbc_dolg_worn_outfit ;NO_TRADE
+nbc_merc_outfit ;NO_TRADE
+nbc_merc_worn_outfit ;NO_TRADE
+cs_nbc_outfit ;NO_TRADE
+cs_nbc_worn_outfit ;NO_TRADE
+monolith_nbc_outfit ;NO_TRADE
+monolith_nbc_worn_outfit ;NO_TRADE
+bandit_nbc_outfit ;NO_TRADE
+bandit_nbc_worn_outfit ;NO_TRADE
+light_merc_outfit ;NO_TRADE
+light_merc_worn_outfit ;NO_TRADE
+light_monolit_outfit ;NO_TRADE
+light_monolit_worn_outfit ;NO_TRADE
+light_voen_outfit ;NO_TRADE
+light_voen_worn_outfit ;NO_TRADE
+light_loner_outfit ;NO_TRADE
+light_loner_worn_outfit ;NO_TRADE
+light_dolg_outfit ;NO_TRADE
+light_dolg_worn_outfit ;NO_TRADE
+light_freedom_outfit ;NO_TRADE
+light_freedom_worn_outfit ;NO_TRADE
+military_merc_outfit ;NO_TRADE
+military_merc_worn_outfit ;NO_TRADE
+military_bandit_outfit ;NO_TRADE
+military_bandit_worn_outfit ;NO_TRADE
+military_monolit_outfit ;NO_TRADE
+military_monolit_worn_outfit ;NO_TRADE
+military_freedom_outfit ;NO_TRADE
+military_freedom_worn_outfit ;NO_TRADE
+military_sky_outfit ;NO_TRADE
+military_sky_worn_outfit ;NO_TRADE
+trenchcoat_dolg_brown_outfit ;NO_TRADE
+trenchcoat_dolg_brown_outfit_worn ;NO_TRADE
+trenchcoat_freedom_brown_outfit ;NO_TRADE
+trenchcoat_freedom_brown_outfit_worn ;NO_TRADE
+specops_merc_outfit ;NO_TRADE
+specops_merc_worn_outfit ;NO_TRADE
+specops_bandit_outfit ;NO_TRADE
+specops_bandit_worn_outfit ;NO_TRADE
+specops_dolg_outfit ;NO_TRADE
+specops_dolg_worn_outfit ;NO_TRADE			
+
+;ARTS
+af_drops ;NO_TRADE
+af_ameba_slime ;NO_TRADE
+af_ameba_slug ;NO_TRADE
+af_ameba_mica ;NO_TRADE
+af_dummy_pellicle ;NO_TRADE
+af_dummy_spring ;NO_TRADE
+af_rusty_thorn ;NO_TRADE
+af_rusty_kristall ;NO_TRADE
+af_rusty_sea ;NO_TRADE
+af_medusa ;NO_TRADE
+af_cristall_flower ;NO_TRADE
+af_night_star ;NO_TRADE
+af_vyvert ;NO_TRADE
+af_gravi ;NO_TRADE
+af_gold_fish ;NO_TRADE
+af_cristall ;NO_TRADE
+af_fireball ;NO_TRADE
+af_dummy_glassbeads ;NO_TRADE
+af_eye ;NO_TRADE
+af_fire ;NO_TRADE
+af_blood ;NO_TRADE
+af_mincer_meat ;NO_TRADE
+af_soul ;NO_TRADE
+af_fuzz_kolobok ;NO_TRADE
+af_baloon ;NO_TRADE
+af_glass ;NO_TRADE
+af_electra_sparkler ;NO_TRADE
+af_electra_flash ;NO_TRADE
+af_electra_moonlight ;NO_TRADE
+af_dummy_battery ;NO_TRADE
+af_dummy_dummy ;NO_TRADE
+af_ice ;NO_TRADE
+af_compass ;NO_TRADE
+af_oasis_heart ;NO_TRADE
+artefact_black_spray ;NO_TRADE
+artefact_bracelet ;NO_TRADE
+artefact_death_lamp ;NO_TRADE
+artefact_empty ;NO_TRADE
+artefact_full_empty ;NO_TRADE
+artefact_itcher ;NO_TRADE
+artefact_lobster_eyes ;NO_TRADE
+artefact_pin ;NO_TRADE
+artefact_ring ;NO_TRADE
+artefact_sponge ;NO_TRADE
+
+;ITEMS
+bread ;NO_TRADE
+kolbasa ;NO_TRADE
+conserva ;NO_TRADE
+vodka = 0.2, 0.3
+guitar_a ;NO_TRADE
+harmonica_a ;NO_TRADE
+energy_drink = 0.2, 0.3
+bandage ;NO_TRADE
+antirad ;NO_TRADE
+medkit ;NO_TRADE
+medkit_army = 1, 0.8
+medkit_scientic = 1, 0.8
+drug_coagulant = 2, 1
+drug_psy_blockade = 2, 1
+drug_antidot = 2, 1
+drug_radioprotector = 2, 1
+drug_anabiotic = 3, 2
+device_pda ;NO_TRADE
+csky_patch ;NO_TRADE
+freedom_patch ;NO_TRADE
+ecolog_patch ;NO_TRADE
+monolith_patch ;NO_TRADE
+army_patch ;NO_TRADE
+merc_patch ;NO_TRADE
+bandit_patch ;NO_TRADE
+stalker_patch ;NO_TRADE
+duty_patch ;NO_TRADE
+mutant_part_krovosos_jaw = 6.0, 6.0
+mutant_part_boar_leg = 3, 3
+mutant_part_chimera_kogot = 5.0, 5.0
+mutant_part_chimera_claw = 6.0, 6.0
+mutant_part_dog_tail = 3.0, 3.0
+mutant_part_flesh_eye = 0.4, 0.3
+mutant_part_psevdodog_tail = 5.0, 5.0
+mutant_part_snork_leg = 0.4, 0.3
+mutant_part_snork_hand = 0.4, 0.3
+mutant_part_tushkano_head = 3.0, 3.0
+mutant_part_pseudogigant_hand = 1, 0.7
+mutant_part_pseudogigant_eye = 1, 0.7
+mutant_part_controller_glass = 1, 0.7
+mutant_part_controller_hand = 1, 0.7
+mutant_part_burer_hand = 0.7, 1
+mutant_part_cat_tail = 4.0, 4.0
+mutant_part_fracture_hand = 0.4, 0.3
+mutant_part_zombi_hand = 0.4, 0.3
+mutant_part_krovosos_heart = 4.0, 4.0
+mutant_part_boar_tusk = 4.0, 4.0
+mutant_part_chimera_heart = 4.0, 4.0
+mutant_part_psevdodog_fang = 4.0, 4.0
+mutant_part_burer_brain = 1.0, 1.0
+mutant_part_general_add = 4.0, 4.0	
+mutant_part_dog_liver = 3.0, 3.0	
+mutant_part_dog_heart = 3.0, 3.0	
+mutant_part_cat_thyroid = 1.0, 1.0	
+mutant_part_cat_claw = 4.0, 4.0
+mutant_part_tusk_boar = 4.0, 4.0	
+mutant_part_heart_bloodsucker = 4.0, 4.0	
+mutant_part_fang_psevdodog = 4.0, 4.0
+mutant_part_brain_burer = 2.0, 2.0
+mutant_part_heart_chimera = 4.0, 4.0
+hide_chimera = 5.0, 5.0
+hide_pseudogiant = 4.0, 4.0
+hide_psy_dog = 6.0, 6.0
+hide_pseudodog = 6.0, 6.0
+hide_burer = 4.0, 4.0
+hide_controller = 4.0, 4.0
+hide_bloodsucker = 4.0, 4.0
+hide_boar = 5.0, 5.0
+hide_flesh = 5.0, 5.0
+mutant_part_boar_chop = 5.0, 5.0
+mutant_part_general_meat = 5.0, 5.0
+mutant_part_psevdodog_meat = 5.0, 5.0
+mutant_part_flesh_meat = 5.0, 5.0
+mutant_part_tushkano_meat = 5.0, 5.0
+mutant_part_chimera_meat = 5.0, 5.0
+mutant_part_krovosos_meat = 5.0, 5.0
+mutant_part_dog_meat = 5.0, 5.0
+
+itm_gunsmith_toolkit ;NO_TRADE
+itm_outfit_toolkit_tier_1 ;NO_TRADE
+itm_sleepbag ;NO_TRADE
+itm_backpack ;NO_TRADE
+
+detector_simple ;NO_TRADE
+detector_advanced ;NO_TRADE
+detector_elite ;NO_TRADE
+
+;WEAPONS
+;ammo
+ammo_9x18_fmj ;NO_TRADE
+ammo_9x18_pmm ;NO_TRADE
+ammo_9x18_ap ;NO_TRADE
+ammo_9x19_pbp ;NO_TRADE
+ammo_9x19_fmj ;NO_TRADE
+ammo_9x19_ap ;NO_TRADE
+ammo_11.43x23_hydro ;NO_TRADE
+ammo_11.43x23_fmj ;NO_TRADE
+ammo_11.43x23_ap ;NO_TRADE
+ammo_12x70_buck ;NO_TRADE
+ammo_12x76_zhekan ;NO_TRADE
+ammo_12x76_dart ;NO_TRADE
+ammo_357_hp_mag_ap ;NO_TRADE
+ammo_357_hp_mag ;NO_TRADE
+ammo_5.45x39_fmj ;NO_TRADE
+ammo_5.45x39_ap ;NO_TRADE
+ammo_5.56x45_ss190 ;NO_TRADE
+ammo_5.56x45_ap ;NO_TRADE
+ammo_5.7x28_ss190 ;NO_TRADE
+ammo_5.7x28_ss195 ;NO_TRADE
+ammo_9x39_ap ;NO_TRADE
+ammo_9x39_pab9 ;NO_TRADE
+ammo_7.62x39_fmj ;NO_TRADE
+ammo_7.62x39_ap ;NO_TRADE
+ammo_7.62x51_fmj ;NO_TRADE
+ammo_7.62x51_ap ;NO_TRADE
+ammo_7.62x25_p ;NO_TRADE
+ammo_7.62x25_ps ;NO_TRADE
+ammo_7.62x25_p41 ;NO_TRADE
+ammo_7.92x33_fmj ;NO_TRADE
+ammo_7.92x33_ap ;NO_TRADE
+ammo_7.62x54_7h1 ;NO_TRADE
+ammo_7.62x54_7h14 ;NO_TRADE
+ammo_magnum_300 ;NO_TRADE
+ammo_magnum_300_ap ;NO_TRADE
+ammo_12.7x55_fmj ;NO_TRADE
+ammo_12.7x55_ap ;NO_TRADE
+ammo_pkm_100 ;NO_TRADE
+ammo_7.62x54_ap ;NO_TRADE
+ammo_vog-25 ;NO_TRADE
+ammo_m209 ;NO_TRADE
+ammo_og-7b ;NO_TRADE
+ammo_gauss ;NO_TRADE
+ammo_gauss_cardan ;NO_TRADE
+ 
+;ammo bad
+
+ammo_gauss_bad ;NO_TRADE
+ammo_gauss_verybad ;NO_TRADE
+ammo_gauss_cardan ;NO_TRADE
+ammo_gauss_cardan_bad ;NO_TRADE
+ammo_gauss_cardan_verybad ;NO_TRADE
+ammo_9x18_fmj_bad ;NO_TRADE                           
+ammo_9x18_fmj_verybad ;NO_TRADE                      
+ammo_9x18_pmm_bad ;NO_TRADE                          
+ammo_9x18_pmm_verybad ;NO_TRADE                      
+ammo_9x18_ap_bad ;NO_TRADE                           
+ammo_9x18_ap_verybad ;NO_TRADE                       
+ammo_9x19_pbp_bad ;NO_TRADE                          
+ammo_9x19_pbp_verybad ;NO_TRADE                      
+ammo_9x19_fmj_bad ;NO_TRADE                         
+ammo_9x19_fmj_verybad ;NO_TRADE                      
+ammo_9x19_ap_bad ;NO_TRADE
+ammo_9x19_ap_verybad ;NO_TRADE
+ammo_11.43x23_hydro_bad ;NO_TRADE                     
+ammo_11.43x23_fmj_bad ;NO_TRADE                       
+ammo_11.43x23_ap_bad ;NO_TRADE
+ammo_12x70_buck_bad ;NO_TRADE                        
+ammo_12x76_zhekan_bad ;NO_TRADE                       
+ammo_12x76_dart_bad ;NO_TRADE                        
+ammo_5.45x39_ap_bad ;NO_TRADE                         
+ammo_5.45x39_fmj_bad ;NO_TRADE                        
+ammo_9x39_ap_bad ;NO_TRADE                           
+ammo_9x39_pab9_bad ;NO_TRADE                         
+ammo_5.56x45_ss190_bad ;NO_TRADE                     
+ammo_5.56x45_ap_bad ;NO_TRADE                        
+ammo_7.62x54_7h14_bad ;NO_TRADE                      
+ammo_7.62x54_7h1_bad ;NO_TRADE                        
+ammo_7.62x54_ap_bad ;NO_TRADE                         
+ammo_og-7b_bad ;NO_TRADE                             
+ammo_vog-25_bad ;NO_TRADE
+ammo_m209_bad ;NO_TRADE
+ammo_pkm_100_bad ;NO_TRADE
+ammo_357_hp_mag_ap_bad ;NO_TRADE
+ammo_357_hp_mag_bad ;NO_TRADE
+ammo_5.7x28_ss190_bad ;NO_TRADE
+ammo_5.7x28_ss195_bad ;NO_TRADE
+ammo_7.62x51_fmj_bad ;NO_TRADE
+ammo_7.62x51_ap_bad ;NO_TRADE
+ammo_7.62x25_p_bad ;NO_TRADE
+ammo_7.62x25_ps_bad ;NO_TRADE
+ammo_7.62x25_p41_bad ;NO_TRADE
+ammo_7.92x33_fmj_bad ;NO_TRADE
+ammo_7.92x33_ap_bad ;NO_TRADE
+ammo_7.62x54_7h1_bad ;NO_TRADE
+ammo_7.62x54_7h14_bad ;NO_TRADE
+ammo_magnum_300_bad ;NO_TRADE
+ammo_magnum_300_ap_bad ;NO_TRADE
+ammo_12.7x55_fmj_bad ;NO_TRADE
+ammo_12.7x55_ap_bad ;NO_TRADE
+ammo_11.43x23_hydro_verybad ;NO_TRADE
+ammo_11.43x23_fmj_verybad ;NO_TRADE
+ammo_11.43x23_ap_verybad ;NO_TRADE
+ammo_12x70_buck_verybad ;NO_TRADE
+ammo_12x76_zhekan_verybad ;NO_TRADE
+ammo_12x76_dart_verybad ;NO_TRADE
+ammo_5.45x39_ap_verybad ;NO_TRADE
+ammo_5.45x39_fmj_verybad ;NO_TRADE
+ammo_9x39_ap_verybad ;NO_TRADE
+ammo_9x39_pab9_verybad ;NO_TRADE
+ammo_5.56x45_ss190_verybad ;NO_TRADE
+ammo_5.56x45_ap_verybad ;NO_TRADE
+ammo_7.62x54_7h14_verybad ;NO_TRADE
+ammo_7.62x54_7h1_verybad ;NO_TRADE
+ammo_7.62x54_ap_verybad ;NO_TRADE
+ammo_og-7b_verybad ;NO_TRADE
+ammo_vog-25_verybad ;NO_TRADE
+ammo_m209_verybad ;NO_TRADE
+ammo_pkm_100_verybad ;NO_TRADE
+ammo_357_hp_mag_ap_veybad ;NO_TRADE
+ammo_357_hp_mag_verybad ;NO_TRADE
+ammo_5.7x28_ss190_verybad ;NO_TRADE
+ammo_5.7x28_ss195_verybad ;NO_TRADE
+ammo_7.62x51_fmj_verybad ;NO_TRADE
+ammo_7.62x51_ap_verybad ;NO_TRADE
+ammo_7.62x25_p_verybad ;NO_TRADE
+ammo_7.62x25_ps_verybad ;NO_TRADE
+ammo_7.62x25_p41_verybad ;NO_TRADE
+ammo_7.92x33_fmj_verybad ;NO_TRADE
+ammo_7.92x33_ap_verybad ;NO_TRADE
+ammo_7.62x54_7h1_verybad ;NO_TRADE
+ammo_7.62x54_7h14_verybad ;NO_TRADE
+ammo_magnum_300_verybad ;NO_TRADE
+ammo_magnum_300_ap_verybad ;NO_TRADE
+ammo_12.7x55_fmj_verybad ;NO_TRADE
+ammo_12.7x55_ap_verybad ;NO_TRADE
+ammo_7.62x39_ap_bad ;NO_TRADE
+ammo_7.62x39_ap_verybad ;NO_TRADE
+ammo_7.62x39_fmj_bad ;NO_TRADE
+ammo_7.62x39_fmj_verybad ;NO_TRADE
+
+wpn_aps ;NO_TRADE
+wpn_aps_worn ;NO_TRADE
+wpn_beretta ;NO_TRADE
+wpn_beretta_camo ;NO_TRADE
+wpn_beretta_modern ;NO_TRADE
+wpn_beretta_alt ;NO_TRADE
+wpn_beretta_worn ;NO_TRADE
+wpn_beretta_rusty ;NO_TRADE
+wpn_colt1911 ;NO_TRADE
+wpn_colt1911_duty ;NO_TRADE
+wpn_colt1911_merc ;NO_TRADE
+wpn_colt1911_camo ;NO_TRADE
+wpn_colt1911_custom ;NO_TRADE
+wpn_colt1911_modern ;NO_TRADE
+wpn_colt1911_alt ;NO_TRADE
+wpn_colt1911_new ;NO_TRADE
+wpn_colt1911_worn ;NO_TRADE
+wpn_colt1911_rusty ;NO_TRADE
+wpn_colt_kimber ;NO_TRADE
+wpn_cz75 ;NO_TRADE
+wpn_cz75_worn ;NO_TRADE
+wpn_cz75_auto ;NO_TRADE
+wpn_desert_eagle ;NO_TRADE
+wpn_desert_eagle_custom ;NO_TRADE
+wpn_desert_eagle_modern ;NO_TRADE
+wpn_desert_eagle_worn ;NO_TRADE
+wpn_fn57 ;NO_TRADE
+wpn_fnp45 ;NO_TRADE
+wpn_fnp45_custom ;NO_TRADE
+wpn_fnp45_worn ;NO_TRADE
+wpn_fnx45 ;NO_TRADE
+wpn_fnx45_custom ;NO_TRADE
+wpn_fnx45_alt ;NO_TRADE
+wpn_fort ;NO_TRADE
+wpn_fort_worn ;NO_TRADE
+wpn_fort_rusty ;NO_TRADE
+wpn_glock ;NO_TRADE
+wpn_glock_custom ;NO_TRADE
+wpn_glock_modern ;NO_TRADE
+wpn_glock_worn ;NO_TRADE
+wpn_mp443 ;NO_TRADE
+wpn_mp443_worn ;NO_TRADE
+wpn_gsh18 ;NO_TRADE
+wpn_gsh18_custom ;NO_TRADE
+wpn_gsh18_worn ;NO_TRADE
+wpn_hpsa ;NO_TRADE
+wpn_hpsa_alt ;NO_TRADE
+wpn_hpsa_worn ;NO_TRADE
+wpn_hpsa_rusty ;NO_TRADE
+wpn_mp412 ;NO_TRADE
+wpn_oc33 ;NO_TRADE
+wpn_oc33_worn ;NO_TRADE
+wpn_oc33_rusty ;NO_TRADE
+wpn_pb ;NO_TRADE
+wpn_pb_custom ;NO_TRADE
+wpn_pb_worn ;NO_TRADE
+wpn_pm ;NO_TRADE
+wpn_pm_custom ;NO_TRADE
+wpn_pm_worn ;NO_TRADE
+wpn_pm_rusty ;NO_TRADE
+wpn_pmm ;NO_TRADE
+wpn_sig220 ;NO_TRADE
+wpn_sig220_custom ;NO_TRADE
+wpn_sig220_worn ;NO_TRADE
+wpn_sig220_rusty ;NO_TRADE
+wpn_tt33 ;NO_TRADE
+wpn_tt33_modern ;NO_TRADE
+wpn_tt33_worn ;NO_TRADE
+wpn_tt33_rusty ;NO_TRADE
+wpn_usp ;NO_TRADE
+wpn_usp_custom ;NO_TRADE
+wpn_usp_worn ;NO_TRADE
+wpn_usp_match ;NO_TRADE
+wpn_walther ;NO_TRADE
+wpn_walther_custom ;NO_TRADE
+wpn_walther_worn ;NO_TRADE
+wpn_pm_actor ;NO_TRADE
+wpn_desert_eagle_nimble ;NO_TRADE
+wpn_sig220_nimble ;NO_TRADE
+wpn_usp_nimble ;NO_TRADE
+wpn_fort_snag ;NO_TRADE
+wpn_9a91 ;NO_TRADE
+wpn_abakan ;NO_TRADE
+wpn_abakan_camo ;NO_TRADE
+wpn_abakan_worn ;NO_TRADE
+wpn_aek ;NO_TRADE
+wpn_aek_camo ;NO_TRADE
+wpn_aek_worn ;NO_TRADE
+wpn_aek_duty ;NO_TRADE
+wpn_ak ;NO_TRADE
+wpn_aks ;NO_TRADE
+wpn_ak12 ;NO_TRADE
+wpn_ak74 ;NO_TRADE
+wpn_ak74_custom ;NO_TRADE
+wpn_ak74_modern ;NO_TRADE
+wpn_ak74_alt ;NO_TRADE
+wpn_ak74_worn ;NO_TRADE
+wpn_ak74_rusty ;NO_TRADE
+wpn_ak74_old ;NO_TRADE
+wpn_ak74_rpk ;NO_TRADE
+wpn_ak74m ;NO_TRADE
+wpn_ak74m_duty ;NO_TRADE
+wpn_ak74m_camo ;NO_TRADE
+wpn_ak74m_custom ;NO_TRADE
+wpn_ak74m_alt ;NO_TRADE
+wpn_ak74m_worn ;NO_TRADE
+wpn_ak74m_pka ;NO_TRADE
+wpn_ak101 ;NO_TRADE
+wpn_ak101_camo ;NO_TRADE
+wpn_ak102 ;NO_TRADE
+wpn_ak103 ;NO_TRADE
+wpn_ak103_camo ;NO_TRADE
+wpn_ak104 ;NO_TRADE
+wpn_ak105 ;NO_TRADE
+wpn_akm ;NO_TRADE
+wpn_akm_worn ;NO_TRADE
+wpn_akms ;NO_TRADE
+wpn_akms_alt ;NO_TRADE
+wpn_akms_worn ;NO_TRADE
+wpn_aks74 ;NO_TRADE
+wpn_aks74_new ;NO_TRADE
+wpn_aks74_worn ;NO_TRADE
+wpn_aks74_rusty ;NO_TRADE
+wpn_ak74u ;NO_TRADE
+wpn_ak74u_camo ;NO_TRADE
+wpn_ak74u_custom ;NO_TRADE
+wpn_ak74u_worn ;NO_TRADE
+wpn_ak74u_rusty ;NO_TRADE
+wpn_ak74u_old ;NO_TRADE
+wpn_aug ;NO_TRADE
+wpn_aug_freedom ;NO_TRADE
+wpn_aug_merc ;NO_TRADE
+wpn_aug_custom ;NO_TRADE
+wpn_aug_modern ;NO_TRADE
+wpn_aug_worn ;NO_TRADE
+wpn_bizon ;NO_TRADE
+wpn_bm16 ;NO_TRADE
+wpn_bm16_alt ;NO_TRADE
+wpn_bm16_worn ;NO_TRADE
+wpn_bm16_rusty ;NO_TRADE
+wpn_bm16_full ;NO_TRADE
+wpn_bm16_full_alt ;NO_TRADE
+wpn_bm16_full_worn ;NO_TRADE
+wpn_bm16_full_rusty ;NO_TRADE
+wpn_fn2000 ;NO_TRADE
+wpn_fn2000_camo ;NO_TRADE
+wpn_fn2000_custom ;NO_TRADE
+wpn_fn2000_worn ;NO_TRADE
+wpn_g3 ;NO_TRADE
+wpn_g3_worn ;NO_TRADE
+wpn_g3sg1 ;NO_TRADE
+wpn_g3sg1_worn ;NO_TRADE
+wpn_g36 ;NO_TRADE
+wpn_g36_camo ;NO_TRADE
+wpn_g36_worn ;NO_TRADE
+wpn_g36k ;NO_TRADE
+wpn_g36k_worn ;NO_TRADE
+wpn_galil ;NO_TRADE
+wpn_galil_custom ;NO_TRADE
+wpn_galil_modern ;NO_TRADE
+wpn_galil_worn ;NO_TRADE
+wpn_ace21 ;NO_TRADE
+wpn_hk416 ;NO_TRADE
+wpn_groza ;NO_TRADE
+wpn_kiparis ;NO_TRADE
+wpn_kiparis_worn ;NO_TRADE
+wpn_l85 ;NO_TRADE
+wpn_l85_custom ;NO_TRADE
+wpn_l85_modern ;NO_TRADE
+wpn_l85_alt ;NO_TRADE
+wpn_l85_worn ;NO_TRADE
+wpn_l85a2 ;NO_TRADE
+wpn_l85a2_custom ;NO_TRADE
+wpn_l85a2_modern ;NO_TRADE
+wpn_l85a2_alt ;NO_TRADE
+wpn_l85a2_worn ;NO_TRADE
+wpn_l96a1 ;NO_TRADE
+wpn_l96a1_worn ;NO_TRADE
+wpn_l96a1m ;NO_TRADE
+wpn_lr300 ;NO_TRADE
+wpn_lr300_camo ;NO_TRADE
+wpn_lr300_custom ;NO_TRADE
+wpn_lr300_worn ;NO_TRADE
+wpn_lr300_rusty ;NO_TRADE
+wpn_m4 ;NO_TRADE
+wpn_m4_worn ;NO_TRADE
+wpn_m4a1 ;NO_TRADE
+wpn_m4a1_freedom ;NO_TRADE
+wpn_m4a1_camo ;NO_TRADE
+wpn_m4a1_custom ;NO_TRADE
+wpn_m4a1_worn ;NO_TRADE
+wpn_m16 ;NO_TRADE
+wpn_m16_worn ;NO_TRADE
+wpn_m16a2 ;NO_TRADE
+wpn_m249 ;NO_TRADE
+wpn_m79 ;NO_TRADE
+wpn_m98b ;NO_TRADE
+wpn_mosin ;NO_TRADE
+wpn_mosin_worn ;NO_TRADE
+wpn_mossberg590 ;NO_TRADE
+wpn_mossberg590_worn ;NO_TRADE
+wpn_mp5 ;NO_TRADE
+wpn_mp5_custom ;NO_TRADE
+wpn_mp5_alt ;NO_TRADE
+wpn_mp5_worn ;NO_TRADE
+wpn_mp5sd ;NO_TRADE
+wpn_mp5sd_custom ;NO_TRADE
+wpn_mp5sd_new ;NO_TRADE
+wpn_mp5sd_worn ;NO_TRADE
+wpn_mp133 ;NO_TRADE
+wpn_mp133_worn ;NO_TRADE
+wpn_mp133_rusty ;NO_TRADE
+wpn_mp153 ;NO_TRADE
+wpn_mp153_worn ;NO_TRADE
+wpn_mp153_rusty ;NO_TRADE
+wpn_pkm ;NO_TRADE
+wpn_pkp ;NO_TRADE
+wpn_p90 ;NO_TRADE
+wpn_pp2000 ;NO_TRADE
+wpn_ppsh41 ;NO_TRADE
+wpn_ppsh41_rednew ;NO_TRADE
+wpn_ppsh41_woodnew ;NO_TRADE
+wpn_ppsh41_woodworn ;NO_TRADE
+wpn_ppsh41_redworn ;NO_TRADE
+wpn_protecta ;NO_TRADE
+wpn_protecta_camo ;NO_TRADE
+wpn_protecta_custom ;NO_TRADE
+wpn_protecta_worn ;NO_TRADE
+wpn_protecta_rusty ;NO_TRADE
+wpn_protecta_aim ;NO_TRADE
+wpn_rpd ;NO_TRADE
+wpn_rpk ;NO_TRADE
+wpn_rpk_worn ;NO_TRADE
+wpn_rpk74 ;NO_TRADE
+wpn_rpk74_worn ;NO_TRADE
+wpn_saiga12s ;NO_TRADE
+wpn_saiga12s_worn ;NO_TRADE
+wpn_scar ;NO_TRADE
+wpn_scar_custom ;NO_TRADE
+wpn_scar_new ;NO_TRADE
+wpn_scar_worn ;NO_TRADE
+wpn_sig550 ;NO_TRADE
+wpn_sig550_camo ;NO_TRADE
+wpn_sig550_custom ;NO_TRADE
+wpn_sig550_worn ;NO_TRADE
+wpn_sig550_rusty ;NO_TRADE
+wpn_sig550_sniper ;NO_TRADE
+wpn_sig552 ;NO_TRADE
+wpn_sig552_worn ;NO_TRADE
+wpn_sks ;NO_TRADE
+wpn_sks_modern ;NO_TRADE
+wpn_sks_worn ;NO_TRADE
+wpn_spas12 ;NO_TRADE
+wpn_spas12_custom ;NO_TRADE
+wpn_spas12_worn ;NO_TRADE
+wpn_spas12_rusty ;NO_TRADE
+wpn_sr25 ;NO_TRADE
+wpn_sv98 ;NO_TRADE
+wpn_sv98_custom ;NO_TRADE
+wpn_sv98_worn ;NO_TRADE
+wpn_svd ;NO_TRADE
+wpn_svd_custom ;NO_TRADE
+wpn_svd_worn ;NO_TRADE
+wpn_svd_rusty ;NO_TRADE
+wpn_svt40 ;NO_TRADE
+wpn_svt40_modern ;NO_TRADE
+wpn_svt40_worn ;NO_TRADE
+wpn_svt40_rusty ;NO_TRADE
+wpn_svu ;NO_TRADE
+wpn_svu_alt ;NO_TRADE
+wpn_svu_worn ;NO_TRADE
+wpn_toz34 ;NO_TRADE
+wpn_toz34_dec ;NO_TRADEor
+wpn_toz34_custom ;NO_TRADE
+wpn_toz34_worn ;NO_TRADE
+wpn_toz34_rusty ;NO_TRADE
+wpn_toz34_mark4 ;NO_TRADE
+wpn_toz34_obrez ;NO_TRADE
+wpn_toz34_obrez_decor ;NO_TRADE
+wpn_toz34_obrez_custom ;NO_TRADE
+wpn_toz34_obrez_worn ;NO_TRADE
+wpn_toz34_obrez_rusty ;NO_TRADE
+wpn_wincheaster1300 ;NO_TRADE
+wpn_wincheaster1300_worn ;NO_TRADE
+wpn_wincheaster1300_rusty ;NO_TRADE
+wpn_type63 ;NO_TRADE
+wpn_ump45 ;NO_TRADE
+wpn_ump45_custom ;NO_TRADE
+wpn_ump45_worn ;NO_TRADE
+wpn_usas12 ;NO_TRADE
+wpn_val ;NO_TRADE
+wpn_val_modern ;NO_TRADE
+wpn_val_worn ;NO_TRADE
+wpn_vepr ;NO_TRADE
+wpn_vihr ;NO_TRADE
+wpn_vintorez ;NO_TRADE
+wpn_vintorez_alt ;NO_TRADE
+wpn_vintorez_worn ;NO_TRADE
+wpn_vintorez_1pn93 ;NO_TRADE
+wpn_vsk94 ;NO_TRADE
+wpn_vsk94_worn ;NO_TRADE
+wpn_vssk ;NO_TRADE
+wpn_vityaz ;NO_TRADE
+wpn_vz61 ;NO_TRADE
+wpn_vz61_freedom ;NO_TRADE
+wpn_vz61_camo ;NO_TRADE
+wpn_vz61_alt ;NO_TRADE
+wpn_vz61_worn ;NO_TRADE
+wpn_vz61_rusty ;NO_TRADE
+wpn_k98 ;NO_TRADE
+wpn_g43 ;NO_TRADE
+wpn_m24 ;NO_TRADE
+wpn_trg ;NO_TRADE
+
+upgr_1_01 ;NO_TRADE				; "Стальные пластины"										- 3500 руб
+upgr_1_02 ;NO_TRADE				; "Прорезиненная прокладка" 								- 3200 руб
+upgr_1_03 ;NO_TRADE	 			; "Распределительный желет"									- 4100 руб
+upgr_1_04 ;NO_TRADE				; "Поликарбонатовые пластины"								- 5200 руб
+upgr_1_05 ;NO_TRADE				; "Лёгкие полимерные материалы"								- 4300 руб
+upgr_1_06 ;NO_TRADE				; "Газовый баллон"											- 3440 руб
+upgr_1_07 ;NO_TRADE				; "Усиление сервоприводов"									- 9100 руб
+upgr_1_08 ;NO_TRADE				; "Кевларовые пластины"										- 3200 руб
+upgr_1_09 ;NO_TRADE				; "Аммортизирующая вставка"									- 3100 руб
+upgr_1_10 ;NO_TRADE				; "Компенсационный слой брони"								- 4100 руб
+upgr_1_11 ;NO_TRADE				; "Полимерные вставки"										- 3700 руб
+upgr_1_12 ;NO_TRADE				; "Система заживления ран Доктор"							- 9700 руб
+upgr_1_13 ;NO_TRADE				; "Комплекс Марафонец"										- 6400 руб
+upgr_1_14 ;NO_TRADE				; "Гемостимулятор"											- 6400 руб
+upgr_1_15 ;NO_TRADE				; "Аллюминиво-титановый сплав"								- 5400 руб
+upgr_1_16 ;NO_TRADE				; "Определитель положения артефактов"						- 6400 руб
+upgr_1_17 ;NO_TRADE				; "Карбоновое волокно"										- 8100 руб
+upgr_1_18 ;NO_TRADE				; "Инъектор Ярость"											- 12100 руб
+upgr_1_19 ;NO_TRADE				; "Синтетический слой"										- 6300 руб
+upgr_1_20 ;NO_TRADE				; "Система пылезащиты"										- 6900 руб
+upgr_1_21 ;NO_TRADE				; "Активные фильтры"										- 6900 руб
+upgr_1_22 ;NO_TRADE				; "Система очистки дыхательной маски"						- 4900 руб
+upgr_1_23 ;NO_TRADE				; "Респиратор на два фильтра"								- 6400 руб
+upgr_1_24 ;NO_TRADE				; "Фильтр вредных частиц"									- 4800 руб
+upgr_1_25 ;NO_TRADE				; "Усиленный фильтр ядов"									- 7800 руб
+upgr_1_26 ;NO_TRADE				; "Усиленные титановые детали"								- 9800 руб
+upgr_1_27 ;NO_TRADE				; "Силиконовые аммортизаторы"								- 9900 руб
+upgr_1_28 ;NO_TRADE				; "Встроенная система регуляции температуры"				- 14000 руб
+
+upgr_2_01 ;NO_TRADE				; "Утолщённые вставки"										- 4670 руб
+upgr_2_02 ;NO_TRADE 			; "Брезент"													- 4300 руб
+upgr_2_03 ;NO_TRADE				; "Огнестойкая ткань"										- 4140 руб
+upgr_2_04 ;NO_TRADE	 			; "Второй слой бронезащиты"									- 5000 руб
+upgr_2_05 ;NO_TRADE				; "Магниевые вставки"										- 5400 руб
+upgr_2_06 ;NO_TRADE				; "Пластиковые вставки"										- 4000 руб
+upgr_2_07 ;NO_TRADE	 			; "Встроенная система ухода за человеком"					- 9400 руб
+upgr_2_08 ;NO_TRADE				; "Система креплений для распределения массы"				- 6100 руб
+upgr_2_09 ;NO_TRADE				; "Крепление для модулей"									- 6100 руб
+upgr_2_10 ;NO_TRADE				; "Двойной слой бронезащиты"								- 4330 руб
+upgr_2_11 ;NO_TRADE				; "Резиновый костюм"										- 4835 руб
+upgr_2_12 ;NO_TRADE				; "Аллюминевый каркас"										- 5975 руб
+upgr_2_13 ;NO_TRADE				; "Термоизоляция из константана"							- 6275 руб
+upgr_2_14 ;NO_TRADE				; "Оргстекло"												- 6275 руб
+upgr_2_15 ;NO_TRADE				; "Эластичные пластиковые вставки"							- 6175 руб
+upgr_2_16 ;NO_TRADE				; "Система антиэлектрической защиты Скат"					- 7775 руб
+upgr_2_17 ;NO_TRADE				; "Солнечный биостимулятор"									- 11775 руб
+upgr_2_18 ;NO_TRADE				; "Сегментированная защита"									- 8770 руб
+upgr_2_19 ;NO_TRADE				; "Титановая и аллюминиевая пластины"						- 6570 руб			
+upgr_2_20 ;NO_TRADE				; "Изоляция из константана"									- 6570 руб
+upgr_2_21 ;NO_TRADE				; "Термоизоляция из стекловолокна"							- 6570 руб
+upgr_2_22 ;NO_TRADE				; "Комплекс фильтрации ядов"								- 8570 руб
+upgr_2_23 ;NO_TRADE				; "Инъектор гемоглобина"									- 11570 руб
+upgr_2_24 ;NO_TRADE				; "Свинцовые вставки"										- 4570 руб
+upgr_2_25 ;NO_TRADE				; "Бронежелет Вторая кожа"									- 8500 руб
+upgr_2_26 ;NO_TRADE				; "Запасной слой брони"										- 8570 руб
+upgr_2_27 ;NO_TRADE				; "Каркасс распределения массы"								- 9570 руб
+upgr_2_28 ;NO_TRADE				; "Пси-стимулятор Оракул"									- 18570 руб 
+upgr_2_29 ;NO_TRADE				; "Экранирующее покрытие"									- 14570 руб
+upgr_2_30 ;NO_TRADE				; "Аналоговый ПНВ 1ПН93-1"									- 12570 руб
+upgr_2_31 ;NO_TRADE				; "ПНВ ПН21КЛ   ПНВ 3"										- 19570 руб
+upgr_2_32 ;NO_TRADE				; "Цифровой ПНВ ПН2КЛ   ПНВ 2"								- 13570 руб
+upgr_2_33 ;NO_TRADE				; "Угольный фильтр"											- 3570 руб
+upgr_2_34 ;NO_TRADE				; "Фильтр ядов"												- 5660 руб
+upgr_2_35 ;NO_TRADE				; "Маска из константана"									- 9660 руб
+upgr_2_36 ;NO_TRADE				; "SPB-VPZ.m.IV"											- 18660 руб
+upgr_2_37 ;NO_TRADE				; "Подвижные пластины"										- 8665 руб
+upgr_2_38 ;NO_TRADE				; "Сегментированная защита"									- 9265 руб
+upgr_2_39 ;NO_TRADE				; "Защита двигательной системы"								- 10265 руб
+
+upgr_3_01 ;NO_TRADE				; "Кольчужная рубаха"										- 5700 руб
+upgr_3_02 ;NO_TRADE				; "Керамические пластины"									- 5400 руб
+upgr_3_03 ;NO_TRADE				; "Пропитка для ткани"										- 9200 руб
+upgr_3_04 ;NO_TRADE				; "Прорезиненная ткань"										- 8100 руб
+upgr_3_05 ;NO_TRADE				; "Крепление для модулей (усиленное)"						- 10000 руб
+upgr_3_06 ;NO_TRADE				; "Состав Суверен"											- 9000 руб
+upgr_3_07 ;NO_TRADE				; "Защитный каркас"											- 7400 руб
+upgr_3_08 ;NO_TRADE				; "Система жизнеобеспечения Варяг"							- 12000 руб
+upgr_3_09 ;NO_TRADE				; "Полимерные висмутовые вставки"							- 7710 руб
+upgr_3_10 ;NO_TRADE				; "Свинцовая сетка"											- 6000 руб
+upgr_3_11 ;NO_TRADE				; "Титановая и берилиевая матрицы"							- 7500 руб
+upgr_3_12 ;NO_TRADE	 			; "Защитный костюм СБК"										- 7800 руб
+upgr_3_13 ;NO_TRADE				; "Углеродное волокно"										- 9800 руб
+upgr_3_14 ;NO_TRADE				; "Огнеупорные никелиевые вставки"							- 9700 руб
+upgr_3_15 ;NO_TRADE				; "Излучатель нейроволн"									- 12700 руб
+upgr_3_16 ;NO_TRADE				; "Изоляционные магниевые вставки"							- 8700 руб
+upgr_3_17 ;NO_TRADE				; "Кристаллы сапфира"										- 10700 руб
+upgr_3_18 ;NO_TRADE				; "Система восстановления Феникс"							- 15700 руб
+upgr_3_19 ;NO_TRADE				; "Усиленные керамические пластины"							- 9700 руб
+upgr_3_20 ;NO_TRADE				; "Пластиковые и синтетические детали"						- 8900 руб
+upgr_3_21 ;NO_TRADE				; "Лёгкая система жизнеобеспечения"							- 18900 руб
+upgr_3_22 ;NO_TRADE				; "Защитный купол"											- 15900 руб
+upgr_3_23 ;NO_TRADE				; "Система охлаждения Ионный ветер"							- 19700 руб
+upgr_3_24 ;NO_TRADE				; "Защитная антенна"										- 9966 руб
+upgr_3_25 ;NO_TRADE				; "Титановая броня"											- 14966 руб
+upgr_3_26 ;NO_TRADE				; "Комбинированная защита"									- 13900 руб
+upgr_3_27 ;NO_TRADE				; "Полимерный костюм с висмутовыми вставками"				- 16900 руб
+upgr_3_28 ;NO_TRADE				; "Аллюминиевые вставки"									- 15500 руб
+upgr_3_29 ;NO_TRADE				; "Двигательная система Шагоход"							- 19500 руб
+upgr_3_30 ;NO_TRADE				; "Усиление сервоприводов м2"								- 23500 руб

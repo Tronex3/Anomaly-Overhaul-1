@@ -1,0 +1,57 @@
+#include "trade_discounts.ltx"
+#include "trade_presets.ltx"
+
+[trader]
+buy_condition                            = trade_generic_buy
+buy_supplies                             = supplies_generic
+discounts                                = discount_0
+price_profile                            = default
+sell_condition                           = trade_generic_sell
+
+[trade_generic_sell]
+antirad                                  = 1.4, 2.0
+bandage                                  = 1.4, 2.0
+drug_anabiotic                           = 2,   2.2
+drug_antidot                             = 1.4, 2.0
+drug_booster                             = 1.4, 1.9
+drug_coagulant                           = 1.4, 2.0
+drug_psy_blockade                        = 1.6, 2.3
+drug_radioprotector                      = 1.6, 2.4
+medkit                                   = 1.3, 1.9
+medkit_army                              = 1.6, 2.5
+medkit_scientic                          = 1.6, 2.5
+energy_drink                             = 1.2, 1.8
+
+[supplies_generic]
+
+;II_FOOD
+antirad                                  = 10, 1
+drug_anabiotic                           = 5,  1
+bandage                                  = 15, 1
+drug_antidot                             = 10, 1
+drug_booster                             = 10, 1
+drug_coagulant                           = 10, 1
+drug_psy_blockade                        = 10, 1
+drug_radioprotector                      = 10, 1
+medkit                                   = 15, 1
+medkit_army                              = 10, 1
+medkit_scientic                          = 10, 1
+energy_drink                             = 15, 1
+
+[trade_generic_buy]:medic
+itm_pda_common                           ;NO TRADE
+itm_pda_rare                             ;NO TRADE
+itm_pda_uncommon                         ;NO TRADE
+pri_a25_explosive_charge_item            ;NO TRADE
+
+antirad                                  = 0.26, 0.17
+bandage                                  = 0.65, 0.63
+drug_anabiotic                           = 0.69, 0.61
+drug_antidot                             = 0.51, 0.51
+drug_booster                             = 0.43, 0.31
+drug_coagulant                           = 0.31, 0.3
+drug_psy_blockade                        = 0.54, 0.54
+drug_radioprotector                      = 0.38, 0.32
+medkit                                   = 0.65, 0.65
+medkit_army                              = 0.34, 0.3
+medkit_scientic                          = 0.4, 0.29

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+
+<!--
+	Basic items (Some are not used anymore)
+-->
+
+<string_table>
+
+	<string id="st_poxod_rukzak">
+		<text>Anomalous backpack</text>
+	</string>
+	<string id="st_poxod_rukzak_descr">
+		<text>At first glance, this backpack appears to have no outstanding properties. However, items placed located it lose their weight over time. Rumor has it that it is the result of a shipment of backpacks for the military, accidentally getting caught in an anomaly. Attempts by scientists of recreating its unique properties have failed. Batches of anomalous backpacks have been purchased by influential people in the Zone, which have continued to export them around the globe.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] unique item</text>
+	</string>
+
+	<string id="st_bolt">
+		<text>Bolt</text>
+	</string>
+	<string id="st_bolt_descr">
+		<text>An ordinary rusty bolt, often used by novices and experienced stalkers alike to build safe pathways among anomalies.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,140,140,140] • %c[0,140,140,140] everyday item</text>
+	</string>
+
+	<string id="st_itm_backpack_desc">
+		<text>Being caught by surprise in the Zone is one of the worst things that can happen to you. Although QR-system does not help you prevent such situations, it certainly helps with getting out of danger. Its function is simple: it removes the straps from your backpack almost immediately and lets you escape to a safe place without the heavy backpack hampering your movement. To use it, set it as a hotkey item. Push the hotkey to activate the emergency release that instantly drops your backpack (and everything inside it) to the ground. Your equipped weapon(s), ammunition, armor and armor attachments as well as UPD remain equipped, so you are ready to fight. You can retrieve your backpack afterwards.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] military item\n
+		%c[0,100,100,255] • %c[0,140,140,140] build in GPS\n
+		%c[0,100,100,255] • %c[0,140,140,140] very fast usage (release clamp)\n
+		%c[0,100,100,255] • %c[0,140,140,140] combat gear remains with user</text>
+	</string>
+	
+	<string id="st_identity_card">
+		<text>Personal USS identity card</text>
+	</string>
+	<string id="st_identity_card_descr">
+		<text>This is your personal ID card which reveals your true identity. Keep it hidden. As a USS Assaulter, you are specialized in assault rifles and heavy weapons. You are also specialized in the control of weapon recoil. Slow sprinting speed.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] personal belongings</text>
+	</string>
+	<string id="st_identity_card_assaulter_descr">
+		<text>As a USS Assaulter you have unique strengths and weaknesses.\n\n
+		%c[0,153,255,255]EQUIPMENT\n
+		%c[default]Heavy armor agility: %c[255,230,150,30]A+\n
+		%c[0,100,100,255] • %c[default]Closed breathing agility: %c[255,230,150,30]C\n
+		%c[0,100,100,255] • %c[default]Artifact handling: %c[255,230,150,30]C\n\n
+		%c[0,153,255,255]WEAPONS\n
+		%c[0,100,100,255] • %c[default]Knife fighting: %c[255,230,150,30]A+\n
+		%c[0,100,100,255] • %c[default]Handling speciality: %c[255,230,150,30]High recoils\n
+		%c[0,100,100,255] • %c[default]Maintenance speciality: %c[255,230,150,30]Heavy weapons\n\n
+		%c[0,153,255,255]MEDICINE\n
+		%c[0,100,100,255] • %c[default]Bandages/medkits dexterity: %c[255,230,150,30]B\n
+		%c[0,100,100,255] • %c[default]Medic skills: %c[255,230,150,30]C\n
+		%c[0,100,100,255] • %c[default]Drug handling skills: %c[255,230,150,30]C\n\n
+		%c[0,153,255,255]ATHLETICS\n
+		%c[0,100,100,255] • %c[default]Endurance: %c[0,170,170,170] %c[255,230,150,30]very high\n
+		%c[0,100,100,255] • %c[default]Sprinting speed: %c[255,230,150,30]slow\n
+		%c[0,100,100,255] • %c[default]Jump height: %c[255,230,150,30]low\n
+		%c[0,100,100,255] • %c[default]Fall/jump agility: %c[255,230,150,30]low\n
+		%c[0,100,100,255] • %c[default]Base stamina: %c[255,230,150,30]low\n
+		%c[0,100,100,255] • %c[default]Maximum Carry Weight: %c[0,170,170,170] %c[255,230,150,30]high\n\n
+		%c[0,153,255,255]HEALTH PROFILE\n
+		%c[0,100,100,255] • %c[default]Food consumption rate: %c[255,230,150,30]high\n
+		%c[0,100,100,255] • %c[default]Need for sleep: %c[255,230,150,30]high\n\n
+		%c[0,153,255,255]IMMMUNE SYSTEM RESISTANCE\n
+		%c[0,100,100,255] • %c[default]Drugs/alcohol: %c[255,230,150,30]A+\n
+		%c[0,100,100,255] • %c[default]Unhealthy food: %c[255,230,150,30]B\n
+		%c[0,100,100,255] • %c[default]Artifacts: %c[255,230,150,30]C\n
+		%c[0,100,100,255] • %c[default]Radiation: %c[0,170,170,170] %c[255,230,150,30]C</text>
+	</string>
+	<string id="st_identity_card_recon_descr">
+		<text>As a USS Recon you have unique strengths and weaknesses.\n\n
+		%c[0,153,255,255]EQUIPMENT\n
+		%c[default]Heavy armor agility: %c[255,230,150,30]C\n
+		%c[0,100,100,255] • %c[default]Closed breathing agility: %c[255,230,150,30]A+\n
+		%c[0,100,100,255] • %c[default]Artifact handling: %c[255,230,150,30]A+\n\n
+		%c[0,153,255,255]WEAPONS\n
+		%c[0,100,100,255] • %c[default]Knife fighting: %c[255,230,150,30]A\n
+		%c[0,100,100,255] • %c[default]Handling speciality: %c[255,230,150,30]SMG's\n
+		%c[0,100,100,255] • %c[default]Maintenance speciality: %c[255,230,150,30]SMG's\n\n
+		%c[0,153,255,255]MEDICINE\n
+		%c[0,100,100,255] • %c[default]Bandages/medkits dexterity: %c[255,230,150,30]A+\n
+		%c[0,100,100,255] • %c[default]Medic skills: %c[255,230,150,30]A\n
+		%c[0,100,100,255] • %c[default]Drug handling skills: %c[255,230,150,30]A\n\n
+		%c[0,153,255,255]ATHLETICS\n
+		%c[0,100,100,255] • %c[default]Endurance: %c[0,170,170,170] %c[255,230,150,30]low\n
+		%c[0,100,100,255] • %c[default]Sprinting speed: %c[255,230,150,30]high\n
+		%c[0,100,100,255] • %c[default]Jump height: %c[255,230,150,30]high\n
+		%c[0,100,100,255] • %c[default]Fall/jump agility: %c[255,230,150,30]high\n
+		%c[0,100,100,255] • %c[default]Base stamina: %c[255,230,150,30]high\n
+		%c[0,100,100,255] • %c[default]Maximum Carry Weight: %c[0,170,170,170] %c[255,230,150,30]low\n\n
+		%c[0,153,255,255]HEALTH PROFILE\n
+		%c[0,100,100,255] • %c[default]Food consumption rate: %c[255,230,150,30]slow\n
+		%c[0,100,100,255] • %c[default]Need for sleep: %c[255,230,150,30]medium\n\n
+		%c[0,153,255,255]IMMMUNE SYSTEM RESISTANCE\n
+		%c[0,100,100,255] • %c[default]Drugs/alcohol: %c[255,230,150,30]C\n
+		%c[0,100,100,255] • %c[default]Unhealthy food: %c[255,230,150,30]C\n
+		%c[0,100,100,255] • %c[default]Artifacts: %c[255,230,150,30]A\n
+		%c[0,100,100,255] • %c[default]Radiation: %c[0,170,170,170] %c[255,230,150,30]A</text>
+	</string>
+	<string id="st_identity_card_sniper_descr">
+		<text>As a USS Sniper your attributes are extremely well balanced.\n\n
+		%c[0,153,255,255]EQUIPMENT\n
+		%c[default]Heavy armor agility: %c[255,230,150,30]B\n
+		%c[0,100,100,255] • %c[default]Closed breathing agility: %c[255,230,150,30]B\n
+		%c[0,100,100,255] • %c[default]Artifact handling: %c[255,230,150,30]B\n\n
+		%c[0,153,255,255]WEAPONS\n
+		%c[0,100,100,255] • %c[default]Knife fighting: %c[255,230,150,30]B\n
+		%c[0,100,100,255] • %c[default]Handling speciality: %c[255,230,150,30]sniper rifles\n
+		%c[0,100,100,255] • %c[default]Maintenance speciality: %c[255,230,150,30]sniper rifles \n\n
+		%c[0,153,255,255]MEDICINE\n
+		%c[0,100,100,255] • %c[default]Bandages/medkits dexterity: %c[255,230,150,30]B\n
+		%c[0,100,100,255] • %c[default]Medic skills: %c[255,230,150,30]B\n
+		%c[0,100,100,255] • %c[default]Drug handling skills: %c[255,230,150,30]B+\n\n
+		%c[0,153,255,255]ATHLETICS\n
+		%c[0,100,100,255] • %c[default]Endurance: %c[0,170,170,170] %c[255,230,150,30]medium\n
+		%c[0,100,100,255] • %c[default]Sprinting speed: %c[255,230,150,30]medium\n
+		%c[0,100,100,255] • %c[default]Jump height: %c[255,230,150,30]medium\n
+		%c[0,100,100,255] • %c[default]Fall/jump agility: %c[255,230,150,30]medium\n
+		%c[0,100,100,255] • %c[default]Stamina running: 
+		%c[255,230,150,30]high\n
+		%c[0,100,100,255] • %c[default]Stamina sprinting: 
+		%c[255,230,150,30]medium\n
+		%c[0,100,100,255] • %c[default]Maximum Carry Weight: %c[0,170,170,170] %c[255,230,150,30]medium\n\n
+		%c[0,153,255,255]HEALTH PROFILE\n
+		%c[0,100,100,255] • %c[default]Food consumption rate: %c[255,230,150,30]medium\n
+		%c[0,100,100,255] • %c[default]Need for sleep: %c[255,230,150,30]low\n\n
+		%c[0,153,255,255]IMMMUNE SYSTEM RESISTANCE\n
+		%c[0,100,100,255] • %c[default]Drugs/alcohol: %c[255,230,150,30]B\n
+		%c[0,100,100,255] • %c[default]Unhealthy food: %c[255,230,150,30]A+\n
+		%c[0,100,100,255] • %c[default]Artifacts: %c[255,230,150,30]B\n
+		%c[0,100,100,255] • %c[default]Radiation: %c[0,170,170,170] %c[255,230,150,30]B</text>
+	</string>
+	
+	<string id="st_energy">
+		<text>none</text>
+	</string>
+	<string id="st_energy_descr">
+		<text>Stored energy is given in ampere-hours (Ah).</text>
+	</string>
+
+	<string id="green_bug_name">
+		<text>Green beetle</text>
+	</string>
+	<string id="green_bug_description">
+		<text>The green beetle is an inseparable companion of every stalker. Not a single person in the Zone has never met it on their way. If spotted only once or twice throughout your lifetime, it should be considered lucky. Your mood falls in direct proportion to each subsequent meeting with the green beetle... \n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] greatly increases chance of crashing game\n
+		%c[0,100,100,255] • %c[0,140,140,140] cannot be discarded\n
+		%c[0,100,100,255] • %c[0,140,140,140] cannot be sold\n
+		</text>
+	</string>
+	
+	<string id="sleep_itm_warning_blowout">
+		<text>It's not safe to sleep!</text>
+	</string>
+	
+</string_table>

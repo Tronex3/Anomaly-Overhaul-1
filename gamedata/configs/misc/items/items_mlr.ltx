@@ -1,0 +1,270 @@
+[itm_actor_backpack_mlr]:booster
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+$spawn                                   = "food and drugs\antirad"
+$prefetch                                = 32
+class                                    = II_ANTIR
+cform                                    = skeleton
+visual                                   = dynamics\devices\dev_rukzak\dev_rukzak.ogf
+inv_name                                 = st_itm_actor_backpack_name
+inv_name_short                           = st_itm_actor_backpack_name
+inv_grid_width                           = 1
+inv_grid_height                          = 1
+cost                                     = 900
+inv_grid_x                               = 16
+inv_grid_y                               = 10
+description                              = st_itm_actor_backpack_desc_mlr
+inv_weight                               = 1
+inv_grid_width                           = 2
+inv_grid_height                          = 2
+eat_health                               = 0
+eat_satiety                              = 0
+eat_power                                = 0
+eat_radiation                            = 0
+eat_alcohol                              = 0
+wounds_heal_perc                         = 0
+animation_slot                           = 4
+hud                                      = wpn_vodka_hud
+slot                                     = -1
+
+[pda_for_nps]:identity_immunities
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+cform                                    = skeleton
+class                                    = II_ATTCH
+
+$spawn				= "food and drugs\pda_for_nps"
+visual              = dynamics\devices\dev_pda\dev_pda.ogf
+description		    = КПК
+cost                                     = 0
+can_trade			= false
+inv_name				= КПК
+inv_name_short			= КПК
+inv_weight				= 0.1
+inv_grid_width			= 1
+inv_grid_height			= 1
+inv_grid_x				= 12
+inv_grid_y				= 28
+
+attach_angle_offset	= 3.14,1.9,0.0   
+attach_position_offset	= 0.09,0.0,0.035  ;0.075, 0.066, 0.023
+attach_bone_name		= bip01_r_hand
+auto_attach				= false
+
+bone_name                                = bip01_r_finger11
+position_offset                          = 0.0,0.0,0.0
+angle_offset                             = 0,0,0
+
+[sigaret_for_nps]:identity_immunities
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+cform                                    = skeleton
+class                                    = II_ATTCH
+
+$spawn				= "food and drugs\sigaret_for_nps"
+visual              = ogse\sigaret\sigaret.ogf
+description		    = Сигарета
+cost                                     = 0
+can_trade			= false
+inv_name				= Сигарета
+inv_name_short			= Сигарета
+inv_weight				= 0.1
+inv_grid_width			= 1
+inv_grid_height			= 1
+inv_grid_x				= 12
+inv_grid_y				= 28
+
+attach_angle_offset		= 9.0, 0.0, 0.0
+attach_position_offset	= 0.025, -0.02, 0.0
+attach_bone_name		= bip01_r_finger11
+auto_attach				= false
+
+bone_name                                = bip01_r_finger11
+position_offset                          = 0.0,0.0,0.0
+angle_offset                             = 0,0,0
+[blackbox_mlr]:device_pda
+$spawn 				= "mlr_items\blackbox_mlr"
+description			= blackbox_mlr_descr
+visual				= dynamics\equipments\quest\box_black.ogf
+inv_weight			= 6
+inv_name			= blackbox_mlr
+quest_item      	= false
+can_trade			= false
+inv_grid_width		= 2
+inv_grid_height		= 2
+inv_grid_x			= 2
+inv_grid_y			= 11
+
+[mlr_x8_documents]:device_pda
+$spawn                                   = "quest_items\mlr_x8_documents"
+visual                                   = dynamics\equipments\quest\notes_writing_book_1.ogf
+inv_weight                               = 0.05
+inv_grid_width                           = 2
+inv_grid_height                          = 1
+inv_grid_x                               = 2
+inv_grid_y                               = 7
+description                              = mlr_x8_documents_desc
+inv_name                                 = mlr_x8_documents
+inv_name_short                           = mlr_x8_documents
+can_trade                                = false
+cost                                     = 0
+
+[mlr_x8_copybook]:device_pda
+$spawn                                   = "quest_items\mlr_x8_copybook"
+visual                                   = dynamics\equipments\quest\notes_document_case_2.ogf
+inv_weight                               = 0.05
+inv_grid_width                           = 2
+inv_grid_height                          = 1
+inv_grid_x                               = 12
+inv_grid_y                               = 7
+description                              = mlr_x8_copybook_desc
+inv_name                                 = mlr_x8_copybook
+inv_name_short                           = mlr_x8_copybook
+can_trade                                = false
+cost                                     = 0
+
+[mlr_x8_copybook_2]:device_pda
+$spawn                                   = "quest_items\mlr_x8_copybook_2"
+visual                                   = dynamics\equipments\quest\notes_document_case_1.ogf
+inv_weight                               = 0.05
+inv_grid_width                           = 2
+inv_grid_height                          = 1
+inv_grid_x                               = 12
+inv_grid_y                               = 7
+description                              = mlr_x8_copybook_2_desc
+inv_name                                 = mlr_x8_copybook_2
+inv_name_short                           = mlr_x8_copybook_2
+can_trade                                = false
+cost                                     = 0
+
+;артефакты
+
+[af_base_mlr]:identity_immunities
+GroupControlSection                      = spawn_group
+cform                                    = skeleton
+hud                                      = artefact_hud
+animation_slot                           = 11
+allow_inertion                           = true
+attach_angle_offset                      = 0,0,0
+attach_position_offset                   = -0.1,-0.1,0
+attach_bone_name                         = bip01_root
+inv_grid_width                           = 1
+inv_grid_height                          = 1
+belt                                     = true
+slot                                     = -1	                                       ;10
+default_to_ruck                          = true
+af_actor_properties                      = on
+actor_properties                         = on
+det_show_particles                       = anomaly2\plasma_generator_death
+det_hide_particles                       = anomaly2\plasma_generator_death
+
+det_show_snd                             = anomaly\bfuzz_blowout
+det_hide_snd                             = anomaly\pux_blast
+
+af_rank                                  = 1
+can_be_controlled                        = true
+script_binding                           = bind_artefact.bind
+particles_bone                           = link
+additional_inventory_weight              = 0
+idle_light_shadow                        = false
+
+;use_condition 							 = true
+degrade_rate							 = 1.0	;Artefact Degradation
+
+[af_misery_bread]:af_base_mlr
+$spawn                                   = "artefacts\gravitational_1_medusa"
+class                                    = ARTEFACT
+visual                                   = dynamics\devices\dev_bred\dev_bred.ogf
+description                              = st_af_misery_bread_descr
+inv_name                                 = st_af_misery_bread_name
+inv_name_short                           = st_af_misery_bread_name
+inv_weight                               = 0.3
+
+inv_grid_x                               = 18
+inv_grid_y                               = 1
+
+cost                                     = 9000
+
+jump_height                              = .5	                                       ; высота прыжка
+
+particles                                = artefact\af_gravi_idle
+det_show_particles                       = artefact\af_gravi_show
+det_hide_particles                       = artefact\af_gravi_hide
+
+af_rank                                  = 0
+
+lights_enabled                           = true
+
+trail_light_color                        = 0.4,0.4,0
+trail_light_range                        = 2.0
+
+;скорости увеличения (уменьшения)
+health_restore_speed                     = 0
+radiation_restore_speed                  = 0.00050
+satiety_restore_speed                    = 0.00001
+power_restore_speed                      = 0
+bleeding_restore_speed                   = 0
+hit_absorbation_sect                     = af_misery_bread_absorbation
+
+additional_inventory_weight              = 0
+additional_inventory_weight2             = 0
+
+artefact_activation_seq                  = af_activation_bold
+
+[af_misery_bread_absorbation]
+burn_immunity                            = 0	                                       ;коэффициенты иммунитета
+strike_immunity                          = 0
+shock_immunity                           = 0
+wound_immunity                           = 0
+radiation_immunity                       = 0
+telepatic_immunity                       = 0
+chemical_burn_immunity                   = 0
+explosion_immunity                       = 0
+fire_wound_immunity                      = 0
+
+;monster_items
+
+[mutant_part_general_mlr]:identity_immunities
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+$spawn                                   = "devices\monster_items\mutant_part_general_mlr"
+class                                    = II_ATTCH
+cform                                    = skeleton
+visual                                   = dynamics\equipments\item_psevdodog_tail.ogf
+radius                                   = 1
+inv_weight                               = 0.2
+can_trade                                = true
+inv_grid_width                           = 1
+inv_grid_height                          = 1
+
+;юзабельные
+
+
+[item_pda_map_mlr]:booster_script
+$spawn                                   = "mlr_items\item_pda_map_mlr"
+description                              = item_pda_map_mlr_descr
+visual                                   = dynamics\devices\dev_pda\dev_pda.ogf
+inv_weight                               = 0.1  
+inv_name                                 = item_pda_map_mlr_name
+inv_name_short                           = item_pda_map_mlr_name
+quest_item      	                 = false
+can_trade                                = false
+inv_grid_width                           = 1
+inv_grid_height                          = 1
+inv_grid_x                               = 7
+inv_grid_y                               = 3
+cost                                     = 150
+
+[mlr_strelok_item_01]:booster_script
+$spawn                                   = "quest_items\mlr_strelok_item_01"
+visual                                   = dynamics\equipments\quest\notes_writing_book_1.ogf
+inv_weight                               = 0.02
+inv_grid_width                           = 2
+inv_grid_height                          = 1
+inv_grid_x			= 2
+inv_grid_y			= 7
+description                              = mlr_strelok_item_01_desc
+inv_name                                 = mlr_strelok_item_01
+inv_name_short                           = mlr_strelok_item_01
+can_trade                                = false
+cost                                     = 0

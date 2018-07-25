@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="windows-1251"?>
+
+<!--
+	Faction Patches
+-->
+
+<string_table>
+	<string id="csky_patch">
+		<text>Clear Sky patch</text>
+	</string>
+	<string id="csky_patch_description">
+		<text>An insignia torn from a uniform of the Clear Sky faction.</text>
+	</string>
+
+	<string id="freedom_patch">
+		<text>Freedom patch</text>
+	</string>
+	<string id="freedom_patch_description">
+		<text>An insignia torn from a uniform of the Freedom faction.</text>
+	</string>
+
+	<string id="stalker_patch">
+		<text>Loner patch</text>
+	</string>
+	<string id="stalker_patch_description">
+		<text>An insignia torn from the uniform of a loner.</text>
+	</string>
+
+	<string id="ecolog_patch">
+		<text>Ecologist patch</text>
+	</string>
+	<string id="ecolog_patch_description">
+		<text>An insignia torn from the uniform of an ecologist.</text>
+	</string>
+
+	<string id="bandit_patch">
+		<text>Bandit patch</text>
+	</string>
+	<string id="bandit_patch_description">
+		<text>An insignia torn from the uniform of a bandit.</text>
+	</string>
+
+	<string id="duty_patch">
+		<text>Duty patch</text>
+	</string>
+	<string id="duty_patch_description">
+		<text>An insignia torn from a uniform of the Duty faction.</text>
+	</string>
+
+	<string id="monolith_patch">
+		<text>Monolith patch</text>
+	</string>
+	<string id="monolith_patch_description">
+		<text>An insignia torn from a uniform of the Monolith faction.</text>
+	</string>
+
+	<string id="army_patch">
+		<text>Army patch</text>
+	</string>
+	<string id="army_patch_description">
+		<text>An insignia torn from a uniform of the Ukrainian army.</text>
+	</string>
+
+	<string id="merc_patch">
+		<text>Mercenary patch</text>
+	</string>
+	<string id="merc_patch_description">
+		<text>An insignia torn from the uniform of a mercenary.</text>
+	</string>
+	
+	<string id="st_clearsky_fp">
+		<text>Clear Sky faction patch</text>
+	</string>
+	<string id="st_clearsky_fp_descr">
+		<text>Faction patches are often used to determine the rank of faction members, and the reasoning behind it is simple: the higher the count, the better the skills. They are also a proof that you won't hesitate to kill someone with your own hands to achieve your goals. For this reason, it can be extremely dangerous to display the patch to the wrong people, but it can also open important doors for you.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] personal belongings\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+1%)</text>
+	</string>
+	
+	<string id="st_freedom_fp">
+		<text>Freedom faction patch</text>
+	</string>
+	<string id="st_freedom_fp_descr">
+		<text>Faction patches are often used to determine the rank of faction members, and the reasoning behind it is simple: the higher the count, the better the skills. They are also a proof that you won't hesitate to kill someone with your own hands to achieve your goals. For this reason, it can be extremely dangerous to display the patch to the wrong people, but it can also open important doors for you.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] personal belongings\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+1%)</text>
+	</string>
+	
+	<string id="st_stalker_fp">
+		<text>Stalker faction patch</text>
+	</string>
+	<string id="st_stalker_fp_descr">
+		<text>Faction patches are often used to determine the rank of faction members, and the reasoning behind it is simple: the higher the count, the better the skills. They are also a proof that you won't hesitate to kill someone with your own hands to achieve your goals. For this reason, it can be extremely dangerous to display the patch to the wrong people, but it can also open important doors for you.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] personal belongings\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+1%)</text>
+	</string>
+	
+	<string id="st_ecolog_fp">
+		<text>Ecologist faction patch</text>
+	</string>
+	<string id="st_ecolog_fp_descr">
+		<text>Faction patches are often used to determine the rank of faction members, and the reasoning behind it is simple: the higher the count, the better the skills. They are also a proof that you won't hesitate to kill someone with your own hands to achieve your goals. For this reason, it can be extremely dangerous to display the patch to the wrong people, but it can also open important doors for you.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] personal belongings\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+1%)</text>
+	</string>
+	
+	<string id="st_bandit_fp">
+		<text>Bandit faction patch</text>
+	</string>
+	<string id="st_bandit_fp_descr">
+		<text>Faction patches are often used to determine the rank of faction members, and the reasoning behind it is simple: the higher the count, the better the skills. They are also a proof that you won't hesitate to kill someone with your own hands to achieve your goals. For this reason, it can be extremely dangerous to display the patch to the wrong people, but it can also open important doors for you.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] personal belongings\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+1%)</text>
+	</string>
+	
+	<string id="st_dolg_fp">
+		<text>Duty faction patch</text>
+	</string>
+	<string id="st_dolg_fp_descr">
+		<text>Faction patches are often used to determine the rank of faction members, and the reasoning behind it is simple: the higher the count, the better the skills. They are also a proof that you won't hesitate to kill someone with your own hands to achieve your goals. For this reason, it can be extremely dangerous to display the patch to the wrong people, but it can also open important doors for you.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] personal belongings\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+1%)</text>
+	</string>
+	
+	<string id="st_monolith_fp">
+		<text>Monolith faction patch</text>
+	</string>
+	<string id="st_monolith_fp_descr">
+		<text>Faction patches are often used to determine the rank of faction members, and the reasoning behind it is simple: the higher the count, the better the skills. They are also a proof that you won't hesitate to kill someone with your own hands to achieve your goals. For this reason, it can be extremely dangerous to display the patch to the wrong people, but it can also open important doors for you.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] personal belongings\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+1%)</text>
+	</string>
+	
+	<string id="st_army_fp">
+		<text>Military faction patch</text>
+	</string>
+	<string id="st_army_fp_descr">
+		<text>Faction patches are often used to determine the rank of faction members, and the reasoning behind it is simple: the higher the count, the better the skills. They are also a proof that you won't hesitate to kill someone with your own hands to achieve your goals. For this reason, it can be extremely dangerous to display the patch to the wrong people, but it can also open important doors for you.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] personal belongings\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+1%)</text>
+	</string>
+	
+	<string id="st_merc_fp">
+		<text>Mercenary faction patch</text>
+	</string>
+	<string id="st_merc_fp_descr">
+		<text>Faction patches are often used to determine the rank of faction members, and the reasoning behind it is simple: the higher the count, the better the skills. They are also a proof that you won't hesitate to kill someone with your own hands to achieve your goals. For this reason, it can be extremely dangerous to display the patch to the wrong people, but it can also open important doors for you.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] personal belongings\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+1%)</text>
+	</string>
+</string_table>

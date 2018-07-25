@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="windows-1251"?>
+
+<!--
+	Special Items and text
+-->
+
+<string_table>
+	<string id="st_itm_artefact_container_name">
+		<text>Artefact container</text>
+	</string>
+	<string id="st_itm_backpack_name">
+		<text>Backpack</text>
+	</string>
+	<string id="st_itm_backpack_desc">
+		<text>A backpack made of durable material able to withstand the most harsh weather conditions.\n \n%c[255,255,255,0]Double-click to place on the ground.</text>
+	</string>
+	<string id="st_itm_sleepbag_name">
+		<text>Sleeping bag</text>
+	</string>
+	<string id="st_itm_sleepbag_desc">
+		<text>A portable sleeping bag designed to keep the user warm and hidden at night.\n \n%c[255,255,255,0]Double-click to place on the ground.</text>
+	</string>
+	<string id="st_sleep">
+		<text>Sleep</text>
+	</string>
+	<string id="st_itm_actor_backpack_desc">
+		<text>A durable backpack with various pouches and compartments equipped with quick release clips; giving the ability to drop the field kit at a moment's notice.</text>
+	</string>
+	<string id="st_itm_gunsmith_toolkit">
+		<text>Gunsmith kit</text>
+	</string>
+	<string id="st_itm_gunsmith_toolkit_descr">
+		<text>A kit containing oils and tools used for basic firearm maintenance. Useful when out exploring, but also quite heavy.\n \n%c[255,255,255,0]Drag onto the item you wish to repair.</text>
+	</string>
+	<string id="st_itm_outfit_toolkit">
+		<text>Sewing kit</text>
+	</string>
+	<string id="st_itm_outfit_toolkit_descr">
+		<text>A makeshift kit of sewing equipment and spare materials for outfit maintenance. Useful for repairing holes and tears in armour.\n \n%c[255,255,255,0]Drag onto the item you wish to repair.</text>
+	</string>
+	<string id="st_repair_mod_message_box_ask">
+		<text>Are you sure you would like to repair %s?\n \n%c[255,1,255,1]+%s%</text>
+	</string>
+	<string id="st_repair_mod_message_box_condition_to_low">
+		<text>The item is beyond repair with these tools.</text>
+	</string>
+	<string id="st_repair_mod_message_box_condition_to_high">
+		<text>These tools aren't enough to repair this item further.</text>
+	</string>
+	<string id="st_itm_tent_name">
+		<text>Military tent</text>
+	</string>
+	<string id="st_itm_tent_desc">
+		<text>Military shelter, made to withstand harsh weather. To place the tent, raise it in an open space.</text>
+	</string>
+	<string id="st_itm_lantern_name">
+		<text>LED lantern</text>
+	</string>
+	<string id="st_itm_lantern_desc">
+		<text>A bulky, durable and powerful lamp running on lithium-ion batteries. For stationary use, it should be placed on the ground.</text>
+	</string>
+	<string id="st_arty_save">
+		<text>Eye of the Noosphere</text>
+	</string>
+	<string id="st_arty_save_descr">
+		<text>One of the most mysterious artefacts in the Zone, the Eye of the Noosphere can transport its wielder back in time, even to escape death. A tight squeeze of the artefact activates its ability, creating a restoration point to go back to on activation or death. Frequent use can cause the artefact to change colour, but if discharged too frequently it may cease to function altogether. The Eye gradually restores its power over time, supposedly being fueled by the anomalous energy of the Zone.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,225,225,225] • %c[0,255,215,0] superartefact</text>
+	</string>
+	<string id="st_itm_stash_of_character">
+		<text>%s's stash</text>
+	</string>
+</string_table>

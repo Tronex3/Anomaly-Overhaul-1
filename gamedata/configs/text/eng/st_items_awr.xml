@@ -1,0 +1,1483 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!--
+	Advanced Weapon Repair Mod 0.3 by Faustle (2017)
+-->
+
+<string_table>
+	<!--
+		Barrels
+	-->
+	<string id="st_barrel_1_good">
+		<text>Functional 18.5mm barrel [R]</text>
+	</string>
+	<string id="st_barrel_1_good_descr">
+		<text>Functional barrel from an 18.5mm double-barrel shotgun. It has remained in relatively good condition and can be used to replace any barrel of the same type.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_1_worn">
+		<text>Worn 18.5mm barrel [R]</text>
+	</string>
+	<string id="st_barrel_1_worn_descr">
+		<text>Worn barrel from an 18.5mm double-barrel shotgun. Can be used for replacement of the barrel of the same type, but the chances of success are not very high. With the appropriate equipment, can be restored.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_1_rusty">
+		<text>Rusty 18.5mm barrel [R]</text>
+	</string>
+	<string id="st_barrel_1_rusty_descr">
+		<text>A barrel from a double-barrel shotgun. In it’s current state it’s unusable.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_2_good">
+		<text>Functional 18.5mm barrel [R]</text>
+	</string>
+	<string id="st_barrel_2_good_descr">
+		<text>Functional barrel from an 18.5mm cock double-barrel shotgun. It has remained in relatively good condition and can be used to replace any barrel of the same type.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_2_worn">
+		<text>Worn barrel 18.5mm [R]</text>
+	</string>
+	<string id="st_barrel_2_worn_descr">
+		<text>Worn barrel from an 18.5mm cock double-barrel shotgun. Can be used to replace the barrel of the same type, but the chances of success are not very high. With the appropriate equipment, can be restored.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_2_rusty">
+		<text>Rusty 18.5mm barrel [R]</text>
+	</string>
+	<string id="st_barrel_2_rusty_descr">
+		<text>A barrel from an 18.5mm cock double-barrel shotgun. In it’s current state it’s unusable.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_3_good">
+		<text>Functional 18.5mm barrel [K]</text>
+	</string>
+	<string id="st_barrel_3_good_descr">
+		<text>Functional barrel from an 18.5mm smooth-bore rifle. It has remained in relatively good condition and can be used to replace any barrel of the same type.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_3_worn">
+		<text>Worn 18.5mm barrel [K]</text>
+	</string>
+	<string id="st_barrel_3_worn_descr">
+		<text>Worn barrel from an 18.5mm smooth-bore rifle. Can be used to replace the barrel of the same type, but the chances of success are not very high. With the appropriate equipment, can be restored.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_3_rusty">
+		<text>Rusty 18.5mm barrel [K]</text>
+	</string>
+	<string id="st_barrel_3_rusty_descr">
+		<text>A barrel from a smooth-bore 18.5mm rifle. In it’s current state it’s unusable.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_4_good">
+		<text>Functional 7.62mm barrel [V]</text>
+	</string>
+	<string id="st_barrel_4_good_descr">
+		<text>Functional barrel from a 7.62mm rifle. It has remained in relatively good condition and can be used to replace any barrel of the same type.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_4_worn">
+		<text>Worn 7.62mm barrel [V]</text>
+	</string>
+	<string id="st_barrel_4_worn_descr">
+		<text>Worn barrel from a 7.62mm rifle. Can be used to replace the barrel of the same type, but the chances of success are not very high. With the appropriate equipment, can be restored.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_4_rusty">
+		<text>Rusty 7.62mm barrel [V]</text>
+	</string>
+	<string id="st_barrel_4_rusty_descr">
+		<text>A barrel from a винтовки 7.62mm. In it’s current state it’s unusable.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_5_good">
+		<text>Functional 7.92mm barrel [V]</text>
+	</string>
+	<string id="st_barrel_5_good_descr">
+		<text>Functional barrel from a German 7.92mm rifle. It has remained in relatively good condition and can be used to replace any barrel of the same type.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_5_worn">
+		<text>Worn 7.92mm barrel [V]</text>
+	</string>
+	<string id="st_barrel_5_worn_descr">
+		<text>Worn barrel from a German 7.92mm rifle. Can be used to replace the barrel of the same type, but the chances of success are not very high. With the appropriate equipment, can be restored.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_5_rusty">
+		<text>Rusty 7.92mm barrel [V]</text>
+	</string>
+	<string id="st_barrel_5_rusty_descr">
+		<text>A barrel from a German 7.92mm rifle. In it’s current state it’s unusable.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_6_good">
+		<text>Functioning 9mm barrel-silencer [AS/PP]</text>
+	</string>
+	<string id="st_barrel_6_good_descr">
+		<text>Functional barrel with an integrated silencer from an automatic special purpose 9mm rifle. It has remained in relatively good condition and can be used to replace any barrel of the same type.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_6_worn">
+		<text>Worn 9mm barrel-silencer [AS]</text>
+	</string>
+	<string id="st_barrel_6_worn_descr">
+		<text>Worn barrel with an integrated silencer from an automatic special purpose 9mm or PP rifle. Can be used to replace the barrel of the same type, but the chances of success are not very high. With the appropriate equipment, can be restored.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_6_rusty">
+		<text>Rusty 9mm barrel-silencer [AS/PP]</text>
+	</string>
+	<string id="st_barrel_6_rusty_descr">
+		<text>A barrel with an integrated silencer from an automatic special purpose 9mm or PP rifle. In its current state, it is unusable.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_7_good">
+		<text>Functioning 7.62mm barrel [A|V]</text>
+	</string>
+	<string id="st_barrel_7_good_descr">
+		<text>Functional barrel from a semi-automatic or automatic 7.62mm rifle. It has remained in relatively good condition and can be used to replace any barrel of the same type.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_7_worn">
+		<text>Worn 7.62mm barrel [A|V]</text>
+	</string>
+	<string id="st_barrel_7_worn_descr">
+		<text>Worn barrel from a semi-automatic or automatic 7.62mm rifle. Can be used to replace the barrel of the same type, but the chances of success are not very high. With the appropriate equipment, can be restored.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_7_rusty">
+		<text>Rusty 7.62mm barrel [A|V]</text>
+	</string>
+	<string id="st_barrel_7_rusty_descr">
+		<text>A barrel from a semi-automatic or automatic 7.62mm rifle. In it’s current state it’s unusable.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_8_good">
+		<text>Functioning 5.45mm barrel [А]</text>
+	</string>
+	<string id="st_barrel_8_good_descr">
+		<text>Functional barrel from an automatic 5.45mm rifle. It has remained in relatively good condition and can be used to replace any barrel of the same type.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_8_worn">
+		<text>Worn 5.45mm barrel [А]</text>
+	</string>
+	<string id="st_barrel_8_worn_descr">
+		<text>Worn barrel from an automatic 5.45mm rifle. Can be used to replace the barrel of the same type, but the chances of success are not very high. With the appropriate equipment, can be restored.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_8_rusty">
+		<text>Rusty 5.45mm barrel [А]</text>
+	</string>
+	<string id="st_barrel_8_rusty_descr">
+		<text>A barrel from an automatic 5.45mm rifle. In it’s current state it’s unusable.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_9_good">
+		<text>Functioning 5.56mm barrel [А]</text>
+	</string>
+	<string id="st_barrel_9_good_descr">
+		<text>Functional barrel from an automatic 5.56mm rifle. It has remained in relatively good condition and can be used to replace any barrel of the same type.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_9_worn">
+		<text>Worn 5.56mm barrel [А]</text>
+	</string>
+	<string id="st_barrel_9_worn_descr">
+		<text>Worn barrel from an automatic 5.56mm rifle. Can be used to replace the barrel of the same type, but the chances of success are not very high. With the appropriate equipment, can be restored.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_9_rusty">
+		<text>Rusty 5.56mm barrel [А]</text>
+	</string>
+	<string id="st_barrel_9_rusty_descr">
+		<text>A barrel from an automatic 5.56mm rifle. In it’s current state it’s unusable.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_10_good">
+		<text>Functioning 7.62mm barrel [P]</text>
+	</string>
+	<string id="st_barrel_10_good_descr">
+		<text>Functional barrel from a 7.62mm rifle with a gas regulator. It has remained in relatively good condition and can be used to replace any barrel of the same type.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_10_worn">
+		<text>Worn 7.62mm barrel [P]</text>
+	</string>
+	<string id="st_barrel_10_worn_descr">
+		<text>Worn barrel from a 7.62mm rifle with a gas regulator. Can be used to replace the barrel of the same type, but the chances of success are not very high. With the appropriate equipment, can be restored.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_10_rusty">
+		<text>Rusty 7.62mm barrel [P]</text>
+	</string>
+	<string id="st_barrel_10_rusty_descr">
+		<text>A barrel from a 7.62mm rifle with a gas regulator. In it’s current state it’s unusable.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_11_good">
+		<text>Functioning 9mm barrel [AS/PP]</text>
+	</string>
+	<string id="st_barrel_11_good_descr">
+		<text>Functional barrel from an automatic special purpose 9mm or PP rifle. It has remained in relatively good condition and can be used to replace any barrel of the same type.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_11_worn">
+		<text>Worn 9mm barrel [AS/PP]</text>
+	</string>
+	<string id="st_barrel_11_worn_descr">
+		<text>Worn barrel from an automatic special purpose 9mm or PP rifle. Can be used to replace the barrel of the same type, but the chances of success are not very high. With the appropriate equipment, can be restored.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_11_rusty">
+		<text>Rusty 9mm barrel [AS/PP]</text>
+	</string>
+	<string id="st_barrel_11_rusty_descr">
+		<text>A barrel from an automatic special purpose 9mm or PP rifle. In it’s current state it’s unusable.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_12_good">
+		<text>Functioning 7.62mm barrel [PP]</text>
+	</string>
+	<string id="st_barrel_12_good_descr">
+		<text>Functional barrel from the infamous or even legendary PPSh submachine gun system. It has remained in relatively good condition and can be used to replace any barrel of the same type.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military item\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_12_worn">
+		<text>Worn 7.62mm barrel [PP]</text>
+	</string>
+	<string id="st_barrel_12_worn_descr">
+		<text>Worn barrel from the infamous or even legendary PPSh submachine gun system. It can be used to replace the barrel of the same type, although chances of success are not very high. With the appropriate equipment, it can be restored.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military item\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_barrel_12_rusty">
+		<text>Rusty 7.62mm barrel [PP]</text>
+	</string>
+	<string id="st_barrel_12_rusty_descr">
+		<text>A rusty barrel from the infamous or even legendary PPSh submachine gun system. In its current state, it is unusable.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military item\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: -\n%c[255,238,153,26]</text>
+	</string>
+
+
+	<!--
+		Trigger mechanisms
+	-->
+	<string id="st_trigger_components_1_good">
+		<text>Functional single-mode hammer type trigger</text>
+	</string>
+	<string id="st_trigger_components_1_good_descr">
+		<text>Properly functioning single-mode hammer type trigger mechanism. Sear is almost intact, and the trigger and spring are in good condition. It can serve for a long time.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_trigger_components_1_worn">
+		<text>Worn single fire mode trigger mechanism with hammer</text>
+	</string>
+	<string id="st_trigger_components_1_worn_descr">
+		<text>Worn single-mode hammer type trigger. Has a working sear, the spring is a little bit weak.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_trigger_components_1_rusty">
+		<text>Rusty single-mode hammer type trigger</text>
+	</string>
+	<string id="st_trigger_components_1_rusty_descr">
+		<text>Rusty single-mode hammer type trigger. Judging by the completely rusted parts of that trigger, it is clear that it had spent a lot of time underwater. The spring broke from rust, the trigger is severely bent, and the trigger guard is missing. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_trigger_components_2_good">
+		<text>Functioning double fire mode trigger mechanism with hammer</text>
+	</string>
+	<string id="st_trigger_components_2_good_descr">
+		<text>Properly functioning dual-mode hammer type trigger. Designed for the conduct of automatic and single fire. Sear is almost intact, the trigger and spring are in a good condition. It can serve for a long time.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military product\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of successful repair/restoration: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_trigger_components_2_worn">
+		<text>Worn double fire mode trigger mechanism with hammer</text>
+	</string>
+	<string id="st_trigger_components_2_worn_descr">
+		<text>Worn dual-mode hammer type trigger. Designed for the conduct of automatic and single fire. Has a working sear, the spring is a little bit weak.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_trigger_components_2_rusty">
+		<text>Rusty double fire mode trigger mechanism with hammer</text>
+	</string>
+	<string id="st_trigger_components_2_rusty_descr">
+		<text>Rusty dual-mode hammer type trigger. Designed for the conduct of automatic and single fire. Judging by the completely rusted parts of that trigger, it is clear that it had spent a lot of time underwater. The spring broke from rust, the trigger is severely bent, and the trigger guard is missing. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_trigger_components_3_good">
+		<text>Functional triple fire mode trigger mechanism with hammer</text>
+	</string>
+	<string id="st_trigger_components_3_good_descr">
+		<text>Properly functioning triple fire mode hammer type trigger. Designed for the conduct of automatic, single and double fire. Strongly tied to the design of the weapon. Sear is almost intact, the trigger and spring are in a good condition. It can serve for a long time.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_trigger_components_3_worn">
+		<text>Worn triple-fire mode trigger mechanism with hammer</text>
+	</string>
+	<string id="st_trigger_components_3_worn_descr">
+		<text>Worn triple-fire mode hammer type trigger. Designed for the conduct of automatic, single and double fire. Strongly tied to the design of the weapon. Has a working sear, the spring is a little bit weak.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_trigger_components_3_rusty">
+		<text>Rusty triple-fire mode trigger mechanism with hammer</text>
+	</string>
+	<string id="st_trigger_components_3_rusty_descr">
+		<text>Rusty triple-fire mode hammer type trigger. Designed for the conduct of automatic, single and double fire. Strongly tied to the design of the weapon. Judging by the completely rusted parts of that trigger, it is clear that it had spent a lot of time underwater. The spring broke from rust, the trigger is severely bent, and the trigger guard is missing. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_trigger_components_4_good">
+		<text>Functioning single fire mode trigger mechanism with firing pin</text>
+	</string>
+	<string id="st_trigger_components_4_good_descr">
+		<text>Properly functioning single fire mode trigger mechanism with firing pin. Sear is almost intact, the trigger and spring are in a good condition. It can serve for a long time.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_trigger_components_4_worn">
+		<text>Worn single fire mode trigger mechanism with firing pin</text>
+	</string>
+	<string id="st_trigger_components_4_worn_descr">
+		<text>Worn single fire mode trigger mechanism with firing pin. Has a working sear, the spring is a little bit weak.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_trigger_components_4_rusty">
+		<text>Rusty single fire mode trigger mechanism with firing pin</text>
+	</string>
+	<string id="st_trigger_components_4_rusty_descr">
+		<text>Rusty single fire mode trigger mechanism with firing pin. Judging by the completely rusted parts of that trigger, it is clear that it had spent a lot of time underwater. The spring broke from rust, the trigger is severely bent, and the trigger guard is missing. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_trigger_components_5_good">
+		<text>Functioning double fire mode trigger mechanism with firing pin</text>
+	</string>
+	<string id="st_trigger_components_5_good_descr">
+		<text>Functioning double fire mode trigger mechanism with firing pin. Allows shooting in single and automatic fire. Sear is almost intact, the trigger and spring are in a good condition. It can serve for a long time.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_trigger_components_5_worn">
+		<text>Worn double fire mode trigger mechanism with firing pin</text>
+	</string>
+	<string id="st_trigger_components_5_worn_descr">
+		<text>Worn double fire mode trigger mechanism with firing pin. Allows shooting in single and automatic fire. Has a working sear, the spring is a little bit weak.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_trigger_components_5_rusty">
+		<text>Rusty double fire mode trigger mechanism with firing pin</text>
+	</string>
+	<string id="st_trigger_components_5_rusty_descr">
+		<text>Rusty double fire mode trigger mechanism with firing pin. Allows shooting in single and automatic fire. Judging by the completely rusted parts of that trigger, it is clear that it had spent a lot of time underwater. The spring broke from rust, the trigger is severely bent, and the trigger guard is missing. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_trigger_components_6_good">
+		<text>Functional trigger mechanism with hammer [R]</text>
+	</string>
+	<string id="st_trigger_components_6_good_descr">
+		<text>Functional trigger mechanism with hammer from a double-barrel shotgun. Sear is almost intact, the trigger and spring are in a good condition. It can serve for a long time.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_trigger_components_6_worn">
+		<text>Worn trigger mechanism with hammer [R]</text>
+	</string>
+	<string id="st_trigger_components_6_worn_descr">
+		<text>Worn trigger mechanism with hammer from a double-barrel shotgun. Has a working sear, the spring is a little bit weak.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_trigger_components_6_rusty">
+		<text>Rusty trigger mechanism with hammer [R]</text>
+	</string>
+	<string id="st_trigger_components_6_rusty_descr">
+		<text>Rusty trigger mechanism with hammer from a double-barrel shotgun. Heavily corroded, the sear and the spring are missing, the working surfaces are completely rusty. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+
+	<!--
+		Breech blocks
+	-->
+	<string id="st_bolt_carrier_1_good">
+		<text>Functional sliding bolt carrier with turning bolt lock [Russia]</text>
+	</string>
+	<string id="st_bolt_carrier_1_good_descr">
+		<text>Properly functioning sliding bolt carrier with a turning bolt lock, produced by Eastern manufacturers. The bolt and bolt carrier appear to be in good condition and the bevel of the bolt is almost fully intact.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_1_worn">
+		<text>Worn sliding bolt carrier with turning bolt lock [Russia]</text>
+	</string>
+	<string id="st_bolt_carrier_1_worn_descr">
+		<text>Worn sliding bolt carrier with a turning bolt lock, produced by Eastern manufacturers. The bolt and bolt carrier show minor traces of corrosion, and the bevel of the bolt is a little worn. With a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_1_rusty">
+		<text>Rusty sliding bolt carrier with turning bolt lock [Russia]</text>
+	</string>
+	<string id="st_bolt_carrier_1_rusty_descr">
+		<text>Strongly rusted sliding bolt carrier with turning bolt lock, produced by Eastern manufacturers. The gate frame has lot of corrosion, and the bevel is badly worn out, and the return spring is missing. It is barely possible to restore this item.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_2_good">
+		<text>Functional sliding bolt carrier with turning bolt lock [Russia]</text>
+	</string>
+	<string id="st_bolt_carrier_2_good_descr">
+		<text>Properly functioning sliding bolt carrier with turning bolt lock, produced by Eastern manufacturers, from special automatic weapons. In appearance, bolt and the bolt carrier in good condition. The bevel of the bolt is almost intact.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_2_worn">
+		<text>Worn longitudinally-sliding breech block with lock turn [Russia]</text>
+	</string>
+	<string id="st_bolt_carrier_2_worn_descr">
+		<text>Worn sliding bolt carrier with turning bolt lock from special automatic weapons, produced by Eastern manufacturers. The bolt and bolt carrier are minor traces of corrosion. The bevel of the bolt is a little worn.\nWith a little bit of fine-tuning, the item can still be of use, although it is best left unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_2_rusty">
+		<text>Rusty sliding bolt carrier with turning bolt lock [Russia]</text>
+	</string>
+	<string id="st_bolt_carrier_2_rusty_descr">
+		<text>Strongly rusted sliding bolt carrier with turning bolt lock from special automatic weapons, produced by Eastern manufacturers. The gate frame has lot of corrosion. The bevel is badly worn out, the return spring is missing. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_3_good">
+		<text>Functional sliding bolt carrier with turning bolt lock [NATO]</text>
+	</string>
+	<string id="st_bolt_carrier_3_good_descr">
+		<text>Properly functioning longitudinally-sliding breech block with lock turn, produced by NATO, from an standard caliber automatic rifle. In appearance, bolt and the bolt carrier in good condition. The bevel of the bolt is almost intact.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_3_worn">
+		<text>Worn sliding bolt carrier with turning bolt lock [NATO]</text>
+	</string>
+	<string id="st_bolt_carrier_3_worn_descr">
+		<text>Worn sliding bolt carrier with turning bolt lock from a standard caliber automatic rifle, produced by NATO. The bolt and bolt carrier are minor traces of corrosion. The bevel of the bolt is a little worn.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_3_rusty">
+		<text>Rusty sliding bolt carrier with turning bolt lock [NATO]</text>
+	</string>
+	<string id="st_bolt_carrier_3_rusty_descr">
+		<text>Strongly rusted sliding bolt carrier with turning bolt lock, produced by NATO, from an standard caliber automatic rifle. The gate frame has lot of corrosion. The bevel is badly worn out, the return spring is missing. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_4_good">
+		<text>Functional sliding bolt carrier with a locking bias</text>
+	</string>
+	<string id="st_bolt_carrier_4_good_descr">
+		<text>Properly functioning sliding bolt carrier with a locking bias. In appearance, bolt and the bolt carrier in good condition. The bevel of the bolt is almost intact.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_4_worn">
+		<text>Worn sliding bolt carrier with a locking bias</text>
+	</string>
+	<string id="st_bolt_carrier_4_worn_descr">
+		<text>Worn sliding bolt carrier with a locking bias. The bolt and bolt carrier are minor traces of corrosion. The bevel of the bolt is a little worn.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_4_rusty">
+		<text>Rusty sliding bolt carrier with a locking bias</text>
+	</string>
+	<string id="st_bolt_carrier_4_rusty_descr">
+		<text>Strongly rusted sliding bolt carrier with a locking bias. The gate frame has lot of corrosion. The bevel is badly worn out, the return spring is missing. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_5_good">
+		<text>Functional half-free sliding bolt carrier</text>
+	</string>
+	<string id="st_bolt_carrier_5_good_descr">
+		<text>Properly functioning half-free sliding bolt carrier with a roller brake. In appearance, bolt and the bolt carrier in good condition.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_5_worn">
+		<text>Worn half-free sliding bolt carrier</text>
+	</string>
+	<string id="st_bolt_carrier_5_worn_descr">
+		<text>Worn half-free sliding bolt carrier with a roller brake. The bolt and bolt carrier wear minor traces of corrosion. The guide rollers are a bit worn.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_5_rusty">
+		<text>Rusty half-free sliding bolt carrier</text>
+	</string>
+	<string id="st_bolt_carrier_5_rusty_descr">
+		<text>Strongly rusted half-free sliding bolt carrier with a roller brake. The gate and the gate frame has lot of corrosion. The guide rollers are worn out. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_6_good">
+		<text>Functional sliding bolt carrier with locking bolt</text>
+	</string>
+	<string id="st_bolt_carrier_6_good_descr">
+		<text>Properly functioning sliding bolt carrier with locking bolt. In appearance, the bolt carrier seems almost new. Дно и венчик чашечки не имеют износа. Досылатель, и остов затвора еще в масле.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_6_worn">
+		<text>Worn sliding bolt carrier with locking bolt</text>
+	</string>
+	<string id="st_bolt_carrier_6_worn_descr">
+		<text>Worn sliding bolt carrier with locking bolt. There is a small gap between the bottom of the calyx and the trunk cut. The dispenser and the shutter itself are slightly covered with corrosion.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_6_rusty">
+		<text>Rusty sliding bolt carrier with locking bolt</text>
+	</string>
+	<string id="st_bolt_carrier_6_rusty_descr">
+		<text>Rusty sliding bolt with bolt lock. The entire bolt carrier has turned into one piece of corroded iron. Longitudinal sliding bolt with bolt lock. The entire bolt carrier turned into one piece of corroded iron.  The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_7_good">
+		<text>Functional lever type bolt carrier with locking wedge</text>
+	</string>
+	<string id="st_bolt_carrier_7_good_descr">
+		<text>Properly functioning lever type bolt carrier with locking wedge. In appearance, the bolt in good condition. Bearing surfaces are not damaged and have no trace of wear.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_7_worn">
+		<text>Worn lever type bolt carrier with locking wedge</text>
+	</string>
+	<string id="st_bolt_carrier_7_worn_descr">
+		<text>Worn lever type bolt carrier with locking wedge. Bolt has traces of corrosion. Support surfaces have considerable wear. With a bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_7_rusty">
+		<text>Rusty lever type bolt carrier with locking wedge</text>
+	</string>
+	<string id="st_bolt_carrier_7_rusty_descr">
+		<text>Rusty lever type bolt carrier with locking wedge. The bolt carrier is badly damaged by corrosion. Support surfaces have strong traces of wear and tear. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_8_good">
+		<text>Functional chock from double-barrel shotgun [R]</text>
+	</string>
+	<string id="st_bolt_carrier_8_good_descr">
+		<text>Functional chock from double-barrel shotgun. Appears to be in good condition. There are no traces of corrosion.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_8_worn">
+		<text>Worn chock from double-barrel shotgun [R]</text>
+	</string>
+	<string id="st_bolt_carrier_8_worn_descr">
+		<text>Worn chock from double-barrel shotgun. The block has minor traces of corrosion.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_8_rusty">
+		<text>Rusty chock from double-barrel shotgun [R]</text>
+	</string>
+	<string id="st_bolt_carrier_8_rusty_descr">
+		<text>Rusty chock from double-barrel shotgun. The block has strong corrosion traces, as well as a deep trace from a cutter of some "Kulibin", which probably planned to carry out repairs on their own. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_9_good">
+		<text>Functional chock from a double-barrel shotgun [R]</text>
+	</string>
+	<string id="st_bolt_carrier_9_good_descr">
+		<text>Functional chock from a double-barrel shotgun. Appears to be in good condition. There are no traces of corrosion.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_9_worn">
+		<text>Worn chock from a double-barrel shotgun [R]</text>
+	</string>
+	<string id="st_bolt_carrier_9_worn_descr">
+		<text>Worn chock from a double-barrel shotgun. The block has minor traces of corrosion.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military item\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_9_rusty">
+		<text>Rusty chock from a double-barrel shotgun [R]</text>
+	</string>
+	<string id="st_bolt_carrier_9_rusty_descr">
+		<text>Rusty chock from a double-barrel shotgun. The block has strong corrosion traces, as well as a deep trace from a cutter of some "Kulibin", which probably planned to carry out repairs on their own. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military item\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_10_good">
+		<text>Properly functioning sliding bolt carrier with turning bolt lock [NATO]</text>
+	</string>
+	<string id="st_bolt_carrier_10_good_descr">
+		<text>Properly functioning sliding bolt carrier with turning bolt lock, product of NATO countries for a large-caliber automatic rifle. It appears the bolt and the bolt carrier are in good condition. The bevel of the bolt carrier frame is not worn out.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military item\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_10_worn">
+		<text>Worn longitudinally-sliding breech block with lock turn [NATO]</text>
+	</string>
+	<string id="st_bolt_carrier_10_worn_descr">
+		<text>Worn longitudinally-sliding breech block with lock turn, product of NATO countries for a large-caliber automatic rifle. The bolt and bolt carrier are minor traces of corrosion. The bevel of the bolt is a little worn.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military item\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_10_rusty">
+		<text>Rusty sliding bolt carrier with turning bolt lock [NATO]</text>
+	</string>
+	<string id="st_bolt_carrier_10_rusty_descr">
+		<text>Rusty sliding bolt carrier with turning bolt lock, product of NATO countries for a large-caliber automatic rifle. The gate frame has lot of corrosion. The bevel is badly worn out, the return spring is missing. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military item\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_11_good">
+		<text>Properly functioning longitudinal-a sliding free bolt carrier [PP]</text>
+	</string>
+	<string id="st_bolt_carrier_11_good_descr">
+		<text>Properly functioning sliding free bolt carrier from a submachine gun. It appears the bolt carrier is in good condition.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military item\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_11_worn">
+		<text>Worn sliding free bolt carrier [PP]</text>
+	</string>
+	<string id="st_bolt_carrier_11_worn_descr">
+		<text>Worn sliding free bolt carrier from a submachine gun. The bolt and the bolt carrier have minor traces of corrosion.\nWith a bit of fine-tuning, the item can be used, but is best left unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military item\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_carrier_11_rusty">
+		<text>Rusty longitudinal-a sliding free breech block [PP]</text>
+	</string>
+	<string id="st_bolt_carrier_11_rusty_descr">
+		<text>Rusty sliding free bolt carrier from a submachine gun. The bolt carrier frame was severely corroded. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military item\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+
+	<!--
+		Breech heads
+	-->
+	<string id="st_bolt_1_good">
+		<text>Functional dropping-block breech [R]</text>
+	</string>
+	<string id="st_bolt_1_good_descr">
+		<text>Properly functioning dropping-block breech from a smooth-bore shotgun or rifle with lever locking mechanism. In appearance, the ledges of the wedge are in good condition, without strong workings\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_1_worn">
+		<text>Worn dropping-block breech [R]</text>
+	</string>
+	<string id="st_bolt_1_worn_descr">
+		<text>Worn dropping-block breech from a smooth-bore shotgun or rifle with lever locking mechanism. The ledges of the wedge have a small signs of usage, as a result of which there may be a backlash.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_1_rusty">
+		<text>Rusty dropping-block breech [R]</text>
+	</string>
+	<string id="st_bolt_1_rusty_descr">
+		<text>Strongly rusted dropping-block breech from a smooth-bore shotgun or rifle with lever locking mechanism. The ledges of the wedge are almost completely "eaten" by corrosion. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_2_good">
+		<text>Functional rotating locking head [2 locks][P]</text>
+	</string>
+	<string id="st_bolt_2_good_descr">
+		<text>Functional rotating locking head with two stops from a machine gun with a longitudinally-sliding breech block with lock turn. In appearence, locking heads are in good condition, without big signs of usage.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_2_worn">
+		<text>Worn rotating locking head [2 locks][P]</text>
+	</string>
+	<string id="st_bolt_2_worn_descr">
+		<text>Worn rotating locking head with two locks from a machine gun with a longitudinally-sliding breech block with lock turn. Locking heads have a small signs of usage, as a result of which there may be a backlash.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_2_rusty">
+		<text>Rusty rotating locking head [2 locks]][P]</text>
+	</string>
+	<string id="st_bolt_2_rusty_descr">
+		<text>Heavily rusted rotary cylinders with two stops from a machine gun with a longitudinally-sliding breech block with lock turn. Locking heads are almost completely "eaten" by corrosion. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_3_good">
+		<text>Functional rotating locking head [2 locks][K]</text>
+	</string>
+	<string id="st_bolt_3_good_descr">
+		<text>Functional rotating locking head with two stops from either automatic or semi-automatic smoothbore rifle, with a longitudinally-sliding breech block with lock turn. In appearence, locking heads are in good condition, without signs of strong usage.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_3_worn">
+		<text>Worn rotating locking head [2 locks][K]</text>
+	</string>
+	<string id="st_bolt_3_worn_descr">
+		<text>Worn rotating locking head with two stops, from either automatic or semi-automatic smoothbore rifle, with a longitudinally-sliding breech block with lock turn. Locking heads have a small signs of usage, as a result of which there may be a backlash.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_3_rusty">
+		<text>Rusty rotating locking head [2 locks][K]</text>
+	</string>
+	<string id="st_bolt_3_rusty_descr">
+		<text>Heavily rusted rotating locking head with two stops, from either automatic or semi-automatic smoothbore rifle, with a longitudinally-sliding breech block with lock turn. Locking heads are almost completely "eaten" by corrosion. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_4_good">
+		<text>Functional rotating locking head [2 locks][V]</text>
+	</string>
+	<string id="st_bolt_4_good_descr">
+		<text>Functional rotating locking head with two stops from a rifle with a longitudinally-sliding breech block with a locking bias and a longitudinally-sliding shutter with a "bolt" lock. In appearence, locking heads are in good condition, without signs of strong usage.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_4_worn">
+		<text>Worn rotating locking head [2 locks][V]</text>
+	</string>
+	<string id="st_bolt_4_worn_descr">
+		<text>Worn rotating locking head with two stops from a rifle with a longitudinally-sliding breech block with a locking bias and a longitudinally-sliding shutter with a "bolt" lock. Locking heads have a small signs of usage, as a result of which there may be a backlash.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_4_rusty">
+		<text>Rusty rotating locking head [2 locks][V]</text>
+	</string>
+	<string id="st_bolt_4_rusty_descr">
+		<text>Heavily rusted rotating locking head with two stops from a rifle with a longitudinally-sliding breech block with a locking bias and a longitudinally-sliding shutter with a "bolt" lock. Locking heads are almost completely "eaten" by corrosion. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_5_good">
+		<text>Functional rotating locking head [3 locks][V]</text>
+	</string>
+	<string id="st_bolt_5_good_descr">
+		<text>Functional rotating locking head with two stops from a rifle with a longitudinally-sliding breech block with lock turn. In appearence, locking heads are in good condition, without signs of strong usage.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_5_worn">
+		<text>Worn rotating locking head [3 locks][V]</text>
+	</string>
+	<string id="st_bolt_5_worn_descr">
+		<text>Worn rotating locking head with two stops from a rifle with a longitudinally-sliding breech block with lock turn. Locking heads have a small signs of usage, as a result of which there may be a backlash.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_5_rusty">
+		<text>Rusty rotating locking head [3 locks][V]</text>
+	</string>
+	<string id="st_bolt_5_rusty_descr">
+		<text>Heavily rusted rotating locking head with two stops from a rifle with a longitudinally-sliding breech block with lock turn. Locking heads are almost completely "eaten" by corrosion. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_6_good">
+		<text>Functional rotating locking head [2 locks][А]</text>
+	</string>
+	<string id="st_bolt_6_good_descr">
+		<text>Functional rotating locking head with two stops from a machine gun with a longitudinally-sliding breech block with lock turn. In appearence, locking heads are in good condition, without signs of strong usage.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_6_worn">
+		<text>Worn rotating locking head [2 locks][А]</text>
+	</string>
+	<string id="st_bolt_6_worn_descr">
+		<text>Worn rotating locking head with two stops from a machine gun with a longitudinally-sliding breech block with lock turn. Locking heads have a small signs of usage, as a result of which there may be a backlash.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_6_rusty">
+		<text>Rusty rotating locking head [2 locks][А]</text>
+	</string>
+	<string id="st_bolt_6_rusty_descr">
+		<text>Heavily rusted rotating locking head with two stops from a machine gun with a longitudinally-sliding breech block with lock turn. Locking heads are almost completely "eaten" by corrosion. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_7_good">
+		<text>Functional rotating locking head [4 locks][AS]</text>
+	</string>
+	<string id="st_bolt_7_good_descr">
+		<text>Functional rotating locking head with four locks from a special automatic rifle with a longitudinally-sliding breech block with lock turn. In appearence, locking heads are in good condition, without signs of strong usage.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_7_worn">
+		<text>Worn rotating locking head [4 locks][AS]</text>
+	</string>
+	<string id="st_bolt_7_worn_descr">
+		<text>Worn rotating locking head with four locks from a special automatic rifle with a longitudinally-sliding breech block with lock turn. Locking heads have a small signs of usage, as a result of which there may be a backlash.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_7_rusty">
+		<text>Rusty rotating locking head [4 locks][AS]</text>
+	</string>
+	<string id="st_bolt_7_rusty_descr">
+		<text>Heavily rusted rotating locking head with four locks from a special automatic rifle with a longitudinally-sliding breech block with lock turn. Locking heads are almost completely "eaten" by corrosion. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_8_good">
+		<text>Functional rotating locking head [6 locks][А]</text>
+	</string>
+	<string id="st_bolt_8_good_descr">
+		<text>Functional rotating locking head with six locks from a machine gun with a longitudinally-sliding breech block with lock turn. In appearence, locking heads are in good condition, without signs of strong usage.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_8_worn">
+		<text>Worn rotating locking head [6 locks][А]</text>
+	</string>
+	<string id="st_bolt_8_worn_descr">
+		<text>Worn rotating locking head with six locks from a machine gun with a longitudinally-sliding breech block with lock turn. Locking heads have a small signs of usage, as a result of which there may be a backlash.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_8_rusty">
+		<text>Rusty rotating locking head [6 locks][А]</text>
+	</string>
+	<string id="st_bolt_8_rusty_descr">
+		<text>Heavily rusted rotating locking head with six locks from a machine gun with a longitudinally-sliding breech block with lock turn. Locking heads are almost completely "eaten" by corrosion. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_9_good">
+		<text>Functional rotating locking head [7 locks][А]</text>
+	</string>
+	<string id="st_bolt_9_good_descr">
+		<text>Functional rotating locking head with seven locks from a machine gun with a longitudinally-sliding breech block with lock turn. In appearence, locking heads are in good condition, without signs of strong usage.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_9_worn">
+		<text>Worn rotating locking head [7 locks][А]</text>
+	</string>
+	<string id="st_bolt_9_worn_descr">
+		<text>Worn rotating locking head with seven locks from a machine gun with a longitudinally-sliding breech block with lock turn. Locking heads have a small signs of usage, as a result of which there may be a backlash.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_9_rusty">
+		<text>Rusty rotating locking head [7 locks][А]</text>
+	</string>
+	<string id="st_bolt_9_rusty_descr">
+		<text>Heavily rusted rotating locking head with seven locks from a machine gun with a longitudinally-sliding breech block with lock turn. Locking heads are almost completely "eaten" by corrosion. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_10_good">
+		<text>Functional rotating locking head [8 locks][А]</text>
+	</string>
+	<string id="st_bolt_10_good_descr">
+		<text>Functional rotating locking head with eight locks from a machine gun with a longitudinally-sliding breech block with lock turn. In appearence, locking heads are in good condition, without signs of strong usage.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_10_worn">
+		<text>Worn rotating locking head [8 locks][А]</text>
+	</string>
+	<string id="st_bolt_10_worn_descr">
+		<text>Worn rotating locking head with eight locks from a machine gun with a longitudinally-sliding breech block with lock turn. Locking heads have a small signs of usage, as a result of which there may be a backlash.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_10_rusty">
+		<text>Rusty rotating locking head [8 locks][А]</text>
+	</string>
+	<string id="st_bolt_10_rusty_descr">
+		<text>Heavily rusted rotating locking head with eight locks from a machine gun with a longitudinally-sliding breech block with lock turn. Locking heads are almost completely "eaten" by corrosion. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_11_good">
+		<text>Functional supercharger with hammer from a double-barrel shotgun [R]</text>
+	</string>
+	<string id="st_bolt_11_good_descr">
+		<text>Right and left supercharger with hammer from a double-barrel shotgun. In appearence, in good condition. There are no signs of wear, the spring has not yet sunk.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_11_worn">
+		<text>Worn supercharger with hammer from a double-barrel shotgun [R]</text>
+	</string>
+	<string id="st_bolt_11_worn_descr">
+		<text>Right and left supercharger with hammer from a double-barrel shotgun. They have some traces of wear, the spring has weakened slightly.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_11_rusty">
+		<text>Rusty supercharger with hammer from a double-barrel shotgun [R]</text>
+	</string>
+	<string id="st_bolt_11_rusty_descr">
+		<text>Right and left supercharger with hammer from a double-barrel shotgun. They were severely corroded, one spring is missing, the other completely lost its flexibility.\nIt is impossible to restore or use such parts.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_12_good">
+		<text>Functional hammers from a hammer-type double-barrel shotgun [R]</text>
+	</string>
+	<string id="st_bolt_12_good_descr">
+		<text>Right and left hammers from the double-barreled horizontal shotgun. Appears to be in good condition. There are no signs of wear.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_12_worn">
+		<text>Worn hammers from a hammer-type double-barrel shotgun [R]</text>
+	</string>
+	<string id="st_bolt_12_worn_descr">
+		<text>Right and left hammers from the double-barreled horizontal shotgun. There are some marks of wear.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_12_rusty">
+		<text>Rusty hammers from a hammer-type double-barrel shotgun [R]</text>
+	</string>
+	<string id="st_bolt_12_rusty_descr">
+		<text>Right and left hammers from the double-barreled horizontal shotgun. Strong corrosion can be observed. The upper part of the left hammer is bent.\nIt is impossible to restore or use such parts.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_13_good">
+		<text>Functional rotating locking head [2 locks][А][NATO]</text>
+	</string>
+	<string id="st_bolt_13_good_descr">
+		<text>Functional rotating locking head with two stops from a large-caliber automatic rifle produced by NATO countries with a sliding bolt carrier with turning bolt lock. In appearence, locking heads are in good condition, without signs of strong usage.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_13_worn">
+		<text>Worn rotating locking head [2 locks][А][NATO]</text>
+	</string>
+	<string id="st_bolt_13_worn_descr">
+		<text>Worn rotating locking head with two stops from a large-caliber automatic rifle produced by NATO countries with a sliding bolt carrier with turning bolt lock. Locking heads have a small signs of usage, as a result of which there may be a backlash.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_13_rusty">
+		<text>Rusty rotating locking head [2 locks][А][NATO]</text>
+	</string>
+	<string id="st_bolt_13_rusty_descr">
+		<text>Heavily rusted rotating locking head with two stops from a large-caliber automatic rifle produced by NATO countries with a sliding bolt carrier with turning bolt lock. Locking heads are almost completely "eaten" by corrosion. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_14_good">
+		<text>Functional rotating locking head [А/PP]</text>
+	</string>
+	<string id="st_bolt_14_good_descr">
+		<text>Functional rotating locking head from either the PP or an automatic rifle with a longitudinal-a half-free sliding bolt carrier. In appearence, rollers are in good condition, without signs of strong usage.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_14_worn">
+		<text>Worn rotating locking head [А/PP]</text>
+	</string>
+	<string id="st_bolt_14_worn_descr">
+		<text>Worn rotating locking head from a machine gun with a longitudinal-a half-free sliding bolt carrier. The rollers are slightly corroded and have a slight backlash.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_14_rusty">
+		<text>Rusty rotating locking head [А]</text>
+	</string>
+	<string id="st_bolt_14_rusty_descr">
+		<text>Heavily rusted rotating locking head from a machine gun with a longitudinal-a half-free sliding bolt carrier. Has a strong signs of usage both from the outside and from the inside, one roller seems to be lost. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+
+	<string id="st_bolt_15_good">
+		<text>Functional drummer with the mainspring [PP]</text>
+	</string>
+	<string id="st_bolt_15_good_descr">
+		<text>Properly functioning drummer with the mainspring from some domestic PP with a longitudinal-a sliding free bolt carrier. Appears to be in good condition.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military item\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_15_worn">
+		<text>Worn drummer with the mainspring [PP]</text>
+	</string>
+	<string id="st_bolt_15_worn_descr">
+		<text>Worn drummer with the mainspring from some domestic PP, with a longitudinal-a sliding free bolt carrier. The spring is a little bit weak, but overall, it’s in decent condition.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military item\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_15_rusty">
+		<text>Rusty drummer with the mainspring [PP]</text>
+	</string>
+	<string id="st_bolt_15_rusty_descr">
+		<text>Heavily rusted drummer with the mainspring from some domestic PP, with a longitudinal-a sliding free bolt carrier. The drummer is a little bent, the spring is lost. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military item\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_16_good">
+		<text>Functional drummer with the mainspring [PP][NATO]</text>
+	</string>
+	<string id="st_bolt_16_good_descr">
+		<text>Properly functioning drummer with the mainspring from some imported PP with a longitudinal-a sliding free bolt carrier. Appears to be in good condition.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military item\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_16_worn">
+		<text>Worn drummer with the mainspring [PP][NATO]</text>
+	</string>
+	<string id="st_bolt_16_worn_descr">
+		<text>Worn drummer with the mainspring from some imported PP, with a longitudinal-a sliding free bolt carrier. The spring is a little bit weak, but overall, it’s in decent condition.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military item\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_16_rusty">
+		<text>Rusty drummer with the mainspring [PP][NATO]</text>
+	</string>
+	<string id="st_bolt_16_rusty_descr">
+		<text>Heavily rusted drummer with the mainspring from some imported PP, with a longitudinal-a sliding free bolt carrier. The drummer is a little bent, the spring is lost. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military item\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+
+	<string id="st_bolt_17_good">
+		<text>Properly functioning drummer with the mainspring [PP][PPSh]</text>
+	</string>
+	<string id="st_bolt_17_good_descr">
+		<text>Properly functioning drummer with the mainspring from some Soviet PP, like the PP of Shpagin’s system with a longitudinal-a sliding free bolt carrier. Appears to be in good condition.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military item\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_17_worn">
+		<text>Worn drummer with the mainspring [PP][PPSh]</text>
+	</string>
+	<string id="st_bolt_17_worn_descr">
+		<text>Worn drummer with the mainspring from some Soviet PP, like the PP of Shpagin’s system with a longitudinal-a sliding free bolt carrier. The spring is a little bit weak, but overall, it’s in decent condition.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military item\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_bolt_17_rusty">
+		<text>Rusty drummer with the mainspring [PP][PPSh]</text>
+	</string>
+	<string id="st_bolt_17_rusty_descr">
+		<text>Heavily rusted drummer with the mainspring from some Soviet PP, like the PP of Shpagin’s system with a longitudinal-a sliding free bolt carrier. The drummer is a little bent, the spring is lost. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military item\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+
+
+
+	<!--
+		Gas tubes, etc
+	-->
+	<string id="st_gas_tube_1_good">
+		<text>Functional gas tube [K]</text>
+	</string>
+	<string id="st_gas_tube_1_good_descr">
+		<text>Functional gas tube from a smoothbore carbine. Appears to be in good condition. The diametric clearance between the gas tube and the gas piston does not exceed 0.15mm. The inside of the tube is clean, the chrome finish is not damaged. Thread smooth, without torn edges or signs of constriction.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_1_worn">
+		<text>Worn gas tube [K]</text>
+	</string>
+	<string id="st_gas_tube_1_worn_descr">
+		<text>Worn gas tube from a smoothbore carbine. It seems that this tube has served a lot. The diametric clearance between the gas tube and the gas piston is approximately 0.25mm. The inner part of the tube is covered with carbon, the chrome coating has radial scratches from an unnecessarily heavy pressing of a screwdriver. The thread was probably pulled, in connection with which, several turns were cut off, the threading was slightly clogged.\nWith a little bit of fine-tuning, the item can still serve, but it’s best not to use it in it’s current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_1_rusty">
+		<text>Rusty gas tube [K]</text>
+	</string>
+	<string id="st_gas_tube_1_rusty_descr">
+		<text>Rusty gas tube from a smoothbore carbine. It seems this tube has spent a lot of time in water. For this reason, the internal chrome coating completely disappeared, the entire part is heavily coated with corrosion. The threaded part looks bad, but it can definitely be said that it was attempted to be cut unsuccessfully - the thread is not cut at right angles to the adjacent plane.\nIt is barely possible to restore this item.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_2_good">
+		<text>Functional handguard [R]</text>
+	</string>
+	<string id="st_gas_tube_2_good_descr">
+		<text>Functional with aвижное handguard от помпового ружья. In appearence, in good condition.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_2_worn">
+		<text>Worn handguard [R]</text>
+	</string>
+	<string id="st_gas_tube_2_worn_descr">
+		<text>Worn movable sliding fore-end from a pump shotgun. A litte shabby. Welding on traction looks suspicious.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_2_rusty">
+		<text>Rusty handguard [R]</text>
+	</string>
+	<string id="st_gas_tube_2_rusty_descr">
+		<text>Rusty sliding handguard from a pump shotgun. The fore is cracked and shows signs of corrosion.\nIt is barely possible to restore this item.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_3_good">
+		<text>Functional gas tube [V]</text>
+	</string>
+	<string id="st_gas_tube_3_good_descr">
+		<text>Functional gas tube from a self-loading rifle. Appears to be in good condition. The diametric clearance between the gas tube and the gas piston does not exceed 0.15mm. The inside of the tube is clean, the chrome finish is not damaged. Thread smooth, without torn edges or signs of constriction.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_3_worn">
+		<text>Worn gas tube [V]</text>
+	</string>
+	<string id="st_gas_tube_3_worn_descr">
+		<text>Worn gas tube from a self-loading rifle. It seems that this tube has served a lot. The diametric clearance between the gas tube and the gas piston is approximately 0.25mm. The inner part of the tube is covered with carbon, the chrome coating has radial scratches from too much pressing from a screwdriver. The thread was probably pulled, in connection with which, several turns were cut off, the threading was slightly clogged.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_3_rusty">
+		<text>Rusty gas tube [V]</text>
+	</string>
+	<string id="st_gas_tube_3_rusty_descr">
+		<text>Rusty gas tube from a self-loading rifle. It seems this tube has spent a lot of time in water. For this reason, the internal chrome coating completely disappeared, the entire part is heavily coated with corrosion. The threaded part looks bad, but it can definitely be said that it was attempted to be cut unsuccessfully - the thread is not cut at right angles to the adjacent plane.\nIt is barely possible to restore this item. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_4_good">
+		<text>Functional gas tube [AS/PP]</text>
+	</string>
+	<string id="st_gas_tube_4_good_descr">
+		<text>Functional gas tube from a special automatic rifle. 9mm. Appears to be in good condition. The diametric clearance between the gas tube and the gas piston does not exceed 0.15mm. The inside of the tube is clean, the chrome finish is not damaged. Thread smooth, without torn edges or signs of constriction.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_4_worn">
+		<text>Worn gas tube [AS/PP]</text>
+	</string>
+	<string id="st_gas_tube_4_worn_descr">
+		<text>Worn gas tube from a special automatic rifle. 9mm. It seems that this tube has served a lot. The diametric clearance between the gas tube and the gas piston is approximately 0.25mm. The inner part of the tube is covered with carbon, the chrome coating has radial scratches from too much pressing from a screwdriver. The thread was probably pulled, in connection with which, several turns were cut off, the threading was slightly clogged.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_4_rusty">
+		<text>Rusty gas tube [AS/PP]</text>
+	</string>
+	<string id="st_gas_tube_4_rusty_descr">
+		<text>Rusty gas tube from a special automatic rifle. 9mm. It seems this tube has spent a lot of time in water. The internal chrome coating completely disappeared, the whole part is heavily coated with corrosion. The threaded part looks bad, but it can definitely be said that it was attempted to be cut unsuccessfully - the thread is not cut at right angles to the adjacent plane. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_5_good">
+		<text>Functional gas tube [A|V][Russia]</text>
+	</string>
+	<string id="st_gas_tube_5_good_descr">
+		<text>Functional gas tube from a semi-automatic or automatic rifle (Russia). Appears to be in good condition. The diametric clearance between the gas tube and the gas piston does not exceed 0.15mm. The inside of the tube is clean, the chrome finish is not damaged. Thread smooth, without torn edges or signs of constriction.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_5_worn">
+		<text>Worn gas tube [A|V][Russia]</text>
+	</string>
+	<string id="st_gas_tube_5_worn_descr">
+		<text>Worn gas tube from a semi-automatic or automatic rifle (Russia). It seems that this tube has served a lot. The diametric clearance between the gas tube and the gas piston is approximately 0.25mm. The inner part of the tube is covered with carbon, the chrome coating has radial scratches from too much pressing from a screwdriver. The thread was probably pulled, in connection with which, several turns were cut off, the threading was slightly clogged.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_5_rusty">
+		<text>Rusty gas tube [A|V][Russia]</text>
+	</string>
+	<string id="st_gas_tube_5_rusty_descr">
+		<text>Rusty gas tube from a semi-automatic or automatic rifle (Russia). It seems this tube has spent a lot of time in water. The internal chrome coating completely disappeared, the whole part is heavily coated with corrosion. The threaded part looks bad, but it can definitely be said that it was attempted to be cut unsuccessfully - the thread is not cut at right angles to the adjacent plane.\nIt is barely possible to restore this item. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_6_good">
+		<text>Functional gas tube [A|V][NATO]</text>
+	</string>
+	<string id="st_gas_tube_6_good_descr">
+		<text>Functional gas tube from a semi-automatic or automatic rifle (NATO). Appears to be in good condition. The diametric clearance between the gas tube and the gas piston does not exceed 0.15mm. The inside of the tube is clean, the chrome finish is not damaged. Thread smooth, without torn edges or signs of constriction.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_6_worn">
+		<text>Worn gas tube [A|V][NATO]</text>
+	</string>
+	<string id="st_gas_tube_6_worn_descr">
+		<text>Worn gas tube from a semi-automatic or automatic rifle (NATO). It seems that this tube has served a lot. The diametric clearance between the gas tube and the gas piston is approximately 0.25mm. The inner part of the tube is covered with carbon, the chrome coating has radial scratches from too much pressing from a screwdriver. The thread was probably pulled, in connection with which, several turns were cut off, the threading was slightly clogged.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_6_rusty">
+		<text>Rusty gas tube [A|V][NATO]</text>
+	</string>
+	<string id="st_gas_tube_6_rusty_descr">
+		<text>Rusty gas tube from a semi-automatic or automatic rifle (NATO). It seems this tube has spent a lot of time in water. The internal chrome coating completely disappeared, the whole part is heavily coated with corrosion. The threaded part looks bad, but it can definitely be said that it was attempted to be cut unsuccessfully - the thread is not cut at right angles to the adjacent plane.\nIt is barely possible to restore this item. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_7_good">
+		<text>Functional gas tube [P]</text>
+	</string>
+	<string id="st_gas_tube_7_good_descr">
+		<text>Functional gas tube from a machine gun. Appears to be in good condition. The diametric clearance between the gas tube and the gas piston does not exceed 0.15mm. The inside of the tube is clean, the chrome finish is not damaged. Thread smooth, without torn edges or signs of constriction.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_7_worn">
+		<text>Worn gas tube [P]</text>
+	</string>
+	<string id="st_gas_tube_7_worn_descr">
+		<text>Worn gas tube from a machine gun. It seems that this tube has served a lot. The diametric clearance between the gas tube and the gas piston is approximately 0.25mm. The inner part of the tube is covered with carbon, the chrome coating has radial scratches from too much pressing from a screwdriver. The thread was probably pulled, in connection with which, several turns were cut off, the threading was slightly clogged.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_7_rusty">
+		<text>Rusty gas tube [P]</text>
+	</string>
+	<string id="st_gas_tube_7_rusty_descr">
+		<text>Rusty gas tube from a machine gun. It seems this tube has spent a lot of time in water. The internal chrome coating completely disappeared, the whole part is heavily coated with corrosion. The threaded part looks bad, but it can definitely be said that it was attempted to be cut unsuccessfully - the thread is not cut at right angles to the adjacent plane.\nIt is barely possible to restore this item. The condition of this item has deteriorated considerably and is not fit for use.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_8_good">
+		<text>Functional ejector [V]</text>
+	</string>
+	<string id="st_gas_tube_8_good_descr">
+		<text>Functional ejector from a rifle with a sliding bolt carrier with locking bolt. Appears to be in good condition.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_8_worn">
+		<text>Worn ejector [V]</text>
+	</string>
+	<string id="st_gas_tube_8_worn_descr">
+		<text>Worn ejector from a rifle with a sliding bolt carrier with locking bolt. The ejecting tooth has a slight wear. The spring part is slightly bent.\nWith a little bit of fine-tuning, the item can still serve, but it’s best not to use it in it’s current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_8_rusty">
+		<text>Rusty ejector [V]</text>
+	</string>
+	<string id="st_gas_tube_8_rusty_descr">
+		<text>Rusty ejector from a rifle with a sliding bolt carrier with locking bolt. Completely coated with corrosion. The ejecting tooth is broken off.\nIt is barely possible to restore this item.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_9_good">
+		<text>Properly functioning ejector from over-under double-barrel shotgun [R]</text>
+	</string>
+	<string id="st_gas_tube_9_good_descr">
+		<text>Properly functioning ejector (extractor) from an over-under double barrel shotgun. Appears to be in good condition. There are no signs of wear.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_9_worn">
+		<text>Worn ejector from an over-under double-barrel shotgun [R]</text>
+	</string>
+	<string id="st_gas_tube_9_worn_descr">
+		<text>Worn ejector (extractor) from an over-under double barrel shotgun. Has weak traces of wear and corrosion.\nWith a little tweaking, it can still serve, but it’s better not to use them as is.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_9_rusty">
+		<text>Rusty ejector from an over-under double-barrel shotgun [R]</text>
+	</string>
+	<string id="st_gas_tube_9_rusty_descr">
+		<text>Rusty ejector from an over-under double barrel shotgun. Strongly coated with corrosion.\nIt is impossible to restore or use such parts.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_10_good">
+		<text>Properly functioning ejector from an over-under double barrel shotgun [R]</text>
+	</string>
+	<string id="st_gas_tube_10_good_descr">
+		<text>Properly functioning ejector from an over-under double barrel shotgun. Appears to be in good condition. There are no signs of wear.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_10_worn">
+		<text>Worn ejector from an over-under double barrel shotgun [R]</text>
+	</string>
+	<string id="st_gas_tube_10_worn_descr">
+		<text>Worn ejector from an over-under double barrel shotgun. Has weak traces of wear and corrosion.\nWith a little tweaking, it can still serve, but it’s better not to use them as is.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_10_rusty">
+		<text>Rusty ejector from an over-under double barrel shotgun [R]</text>
+	</string>
+	<string id="st_gas_tube_10_rusty_descr">
+		<text>Rusty ejector (extractor) from an over-under double barrel shotgun. Strongly coated with corrosion.\nIt is barely possible to restore this item.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+
+	<string id="st_gas_tube_11_good">
+		<text>Functional gas tube [PP]</text>
+	</string>
+	<string id="st_gas_tube_11_good_descr">
+		<text>Properly functioning gas tube from the MP5 submachine gun with a handle. In appearence, in good condition.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 90%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_11_worn">
+		<text>Worn gas tube [PP]</text>
+	</string>
+	<string id="st_gas_tube_11_worn_descr">
+		<text>Worn gas tube from the MP5 submachine gun with a handle.\nWith a little bit of fine-tuning, the item can still serve, but is best unused in its current state.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: 70%\n%c[255,238,153,26]</text>
+	</string>
+	<string id="st_gas_tube_11_rusty">
+		<text>Rusty gas tube [PP]</text>
+	</string>
+	<string id="st_gas_tube_11_rusty_descr">
+		<text>Rusty gas tube from the MP5 submachine gun with a handle.\nIt is very difficult to restore or use such a detail.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26]\n%c[0,153,255,255] • %c[0,140,140,140] chance of success when used for repairs: -\n%c[255,238,153,26]</text>
+	</string>
+
+
+	<!--
+		Repair kits
+	-->
+	<string id="st_barrelkit_db_vertical">
+		<text>12mm double-barrel shotgun repair kit</text>
+	</string>
+	<string id="st_barrelkit_db_vertical_descr">
+		<text>A special kit with tools designed for replacing weapon barrels of smooth-bore double-barrel at a technician’s workshop. Includes a set of precision calibers grade 2 accuracy, a micrometer, as well as a set of special tools and a soldering kit. Can only be used to replace 12 gauge barrels at a technician’s workshop.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26] • %c[0,140,140,140] must be used with:%c[0,170,170,170] technician’s vice</text>
+	</string>
+	<string id="st_barrelkit_db_horizontal">
+		<text>12mm hammer type double-barrel shotgun repair kit</text>
+	</string>
+	<string id="st_barrelkit_db_horizontal_descr">
+		<text>A special kit with tools designed for replacing barrels of double-barreled shotguns at a technician’s workshop. It can only be used with parts of the 12mm caliber at a technician’s workshop.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26] • %c[0,140,140,140] must be used with:%c[0,170,170,170] technician’s vice</text>
+	</string>
+	<string id="st_barrelkit_sb_smooth">
+		<text>12mm weapon repair kit [K]</text>
+	</string>
+	<string id="st_barrelkit_sb_smooth_descr">
+		<text>A special kit with tools designed for replacing barrels of semi-automatic rifles and shotguns at a technician’s workshop. It can only be used with parts of the 12mm caliber at a technician’s workshop.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26] • %c[0,140,140,140] must be used with:%c[0,170,170,170] technician’s vice</text>
+	</string>
+	<string id="st_barrelkit_762_rifle">
+		<text>7.62mm weapon repair kit [V]</text>
+	</string>
+	<string id="st_barrelkit_762_rifle_descr">
+		<text>A special kit with tools designed for replacing barrels of semi-automatic rifles at a technician’s workshop. It can only be used with parts of the 7.62 caliber at a technician’s workshop.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26] • %c[0,140,140,140] must be used with:%c[0,170,170,170] technician’s vice</text>
+	</string>
+	<string id="st_barrelkit_792_rifle">
+		<text>7.92mm weapon repair kit [V]</text>
+	</string>
+	<string id="st_barrelkit_792_rifle_descr">
+		<text>A special kit with tools designed for replacing barrels of German semi-automatic rifles at a technician’s workshop. It can only be used with parts of the 7.92 caliber at a technician’s workshop.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26] • %c[0,140,140,140] must be used with:%c[0,170,170,170] technician’s vice</text>
+	</string>
+	<string id="st_barrelkit_9x_auto">
+		<text>9mm weapon repair kit [А/PP]</text>
+	</string>
+	<string id="st_barrelkit_9x_auto_descr">
+		<text>A special kit with tools designed for replacing barrels of automatic rifles at a technician’s workshop. It can only be used with parts of the 9mm caliber or, при расточке, the .45 caliber at a technician’s workshop.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26] • %c[0,140,140,140] must be used with:%c[0,170,170,170] technician’s vice</text>
+	</string>
+	<string id="st_barrelkit_9_auto_sil">
+		<text>9mm weapon repair kit for silenced weapons [А/PP]</text>
+	</string>
+	<string id="st_barrelkit_9_auto_sil_descr">
+		<text>A special kit with tools designed for replacing barrels of submachine guns and automatic rifles with integrated silencers at a technician’s workshop. It can only be used with parts of the 9mm caliber at a technician’s workshop.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26] • %c[0,140,140,140] must be used with:%c[0,170,170,170] technician’s vice</text>
+	</string>
+	<string id="st_barrelkit_762_auto">
+		<text>7.62mm weapon repair kit [А]</text>
+	</string>
+	<string id="st_barrelkit_762_auto_descr">
+		<text>A special kit with tools designed for replacing barrels of automatic weapons at a technician’s workshop. It can only be used with parts of the 7.62 caliber at a technician’s workshop.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26] • %c[0,140,140,140] must be used with:%c[0,170,170,170] technician’s vice</text>
+	</string>
+	<string id="st_barrelkit_762_pp">
+		<text>7.62mm weapon repair kit [PP][PPSH]</text>
+	</string>
+	<string id="st_barrelkit_762_pp_descr">
+		<text>A special kit with tools designed for replacing barrels of Soviet submachine guns at a technician’s workshop. It can only be used with parts of the 7.62 caliber caliber at a technician’s workshop.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military item\n%c[255,238,153,26] • %c[0,140,140,140] must be used with:%c[0,170,170,170] technician’s vice</text>
+	</string>
+	<string id="st_barrelkit_545_auto">
+		<text>5.45mm weapon repair kit [А]</text>
+	</string>
+	<string id="st_barrelkit_545_auto_descr">
+		<text>A special kit with tools designed for replacing barrels of automatic weapons at a technician’s workshop. It can only be used with parts of the 5.45 caliber at a technician’s workshop.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26] • %c[0,140,140,140] must be used with:%c[0,170,170,170] technician’s vice</text>
+	</string>
+	<string id="st_barrelkit_556_auto">
+		<text>5.56mm weapon repair kit [А]</text>
+	</string>
+	<string id="st_barrelkit_556_auto_descr">
+		<text>A special kit with tools designed for replacing barrels of automatic weapons at a technician’s workshop. It can only be used with parts of the 5.56 caliber at a technician’s workshop.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26] • %c[0,140,140,140] must be used with:%c[0,170,170,170] technician’s vice</text>
+	</string>
+	<string id="st_barrelkit_762_heavy">
+		<text>7.62mm weapon repair kit [P]</text>
+	</string>
+	<string id="st_barrelkit_762_heavy_descr">
+		<text>A special kit with tools designed for replacing barrels of machine guns at a technician’s workshop. It can only be used with parts of the 7.62 caliber at a technician’s workshop.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26] • %c[0,140,140,140] must be used with:%c[0,170,170,170] technician’s vice</text>
+	</string>
+	<string id="st_awr_r_kit_u">
+		<text>Weapon modification kit</text>
+	</string>
+	<string id="st_awr_r_kit_u_descr">
+		<text>A special kit with tools designed for replacing weapon parts. It can only be used at a technician’s workshop.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26] • %c[0,140,140,140] must be used with:%c[0,170,170,170] technician’s vice</text>
+	</string>
+	<string id="st_leatherman_tool">
+		<text>Multitool</text>
+	</string>
+	<string id="st_leatherman_tool_descr">
+		<text>A worn but functional multitool, used to disassemble weapons and armour on parts and to maintain worn and rusty trigger mechanisms.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n \n%c[0,140,140,140]AUXILIARY MATERIALS:\n%c[255,238,153,26] • %c[0,140,140,140] gun lubricants\n%c[255,238,153,26] • %c[0,140,140,140] gasoline\n%c[255,238,153,26] • %c[0,140,140,140] kerosene\n%c[255,238,153,26] • %c[0,140,140,140] cloth or rags</text>
+	</string>
+	<string id="st_rasp_tool">
+		<text>File</text>
+	</string>
+	<string id="st_rasp_tool_descr">
+		<text>A file, used to restore weapon parts such as a worn or rusty barrel or breech head.\n \n%c[0,140,140,140]AUXILIARY MATERIALS:\n%c[255,238,153,26] • %c[0,140,140,140] gun lubricants\n%c[255,238,153,26] • %c[0,140,140,140] industrial grease\n%c[255,238,153,26] • %c[0,140,140,140] kerosene\n%c[255,238,153,26] • %c[0,140,140,140] cloth or rags</text>
+	</string>
+	<string id="st_ramrod_tool">
+		<text>Ramrod</text>
+	</string>
+	<string id="st_ramrod_tool_descr">
+		<text>An old ramrod consisting of three composite wooden parts, used to restore parts such as worn or rusty barrels and gas tubes.\n \n%c[0,140,140,140]AUXILIARY MATERIALS:\n%c[255,238,153,26] • %c[0,140,140,140] cleaning solvents\n%c[255,238,153,26] • %c[0,140,140,140] gasoline\n%c[255,238,153,26] • %c[0,140,140,140] kerosene\n%c[255,238,153,26] • %c[0,140,140,140] cloth or rags</text>
+	</string>
+
+
+	<!--
+		Interface
+	-->
+	<string id="st_current_condition">
+		<text>Current condition: </text>
+	</string>
+	<string id="st_detail_success">
+		<text>+++ Part [%s] has successfully been installed</text>
+	</string>
+	<string id="st_detail_fail">
+		<text>--- Part [%s] has been damaged during replacement</text>
+	</string>
+	<string id="st_quality_worn">
+		<text>++++ One or more parts have been replaced with worn ones. Weapon quality has been changed to worn.</text>
+	</string>
+	<string id="st_quality_good">
+		<text>++++ All parts have been replaced with serviceable ones. Weapon is now in fresh condition.</text>
+	</string>
+	<string id="st_quality_wgood">
+		<text>++++ All parts have been replaced. Weapon quality has not changed.</text>
+	</string>
+	<string id="st_already_repair">
+		<text>--- Part replacement procedure has been completed. To increase the quality of the weapon, the condition must be at 100%</text>
+	</string>
+	<string id="st_no_barrel">
+		<text>--- It is not possible to replace any parts before replacing the barrel</text>
+	</string>
+	<string id="st_bar_no_need_new">
+		<text>--- The barrel of this weapon does not require any replacement</text>
+	</string>
+	<string id="st_part_no_need_new">
+		<text>--- The weapon parts do not require any replacement</text>
+	</string>
+	<string id="st_bar_no_need_old">
+		<text>--- The barrel of this weapon does not require any replacement. To increase the quality of the weapon, the condition must be at 100%</text>
+	</string>
+	<string id="st_part_no_need_old">
+		<text>--- The weapon parts do not require any replacement. To increase the quality of the weapon, the condition must be at 100%</text>
+	</string>
+	<string id="st_no_barrel_to_kit">
+		<text>--- There are no compatible barrels of [%s] caliber</text>
+	</string>
+	<string id="st_no_details">
+		<text>--- There are no available parts for [%s]</text>
+	</string>
+	<string id="st_selected_worn">
+		<text>--- Selected%s: [%s] Chance of successful repair: %i%% To repair, restore part</text>
+	</string>
+	<string id="st_selected_good">
+		<text>--- Selected%s: [%s] Chance of successful repair: %i%%</text>
+	</string>
+	<string id="st_selected_r_kit">
+		<text>--- Selected: [%s]</text>
+	</string>
+	<string id="st_sel_detail">
+		<text>--- Click on the image of the corresponding part to commence a replacement</text>
+	</string>
+	<string id="st_cond_grow">
+		<text>Condition: %i%%</text>
+	</string>
+	<string id="st_awr_back">
+		<text>Back</text>
+	</string>
+	<string id="st_awr_exit">
+		<text>Exit</text>
+	</string>
+	<string id="ui_mm_awr_disassembly">
+		<text>[AWR] Disassembly with the CTRL button</text>
+	</string>
+	<string id="st_awr_r_detail">
+		<text>restore part [!]</text>
+	</string>
+	<string id="st_awr_disassembly_weapon">
+		<text>disassemble weapon [!]</text>
+	</string>
+	<string id="st_awr_disassembly_outfit">
+		<text>disassemble outfit [!]</text>
+	</string>
+	<string id="st_awr_disassembly_helmet">
+		<text>disassemble headgear [!]</text>
+	</string>
+	<string id="st_awr_disassembly_cloth">
+		<text>disassemble [!]</text>
+	</string>
+	<string id="st_awr_ctrl">
+		<text>%sTo prevent unintentional disassembly of weapons and armour,\nthe procedure can be carried out only when the CTRL key is held down%s</text>
+	</string>
+	<string id="st_unload">
+		<text>Weapon needs to be unloaded and free of any attachments before maintenance</text>
+	</string>
+	<string id="st_no_weap">
+		<text>A weapon must be pulled out to use the vice</text>
+	</string>
+	<string id="st_handsfree">
+		<text>Your hands are full</text>
+	</string>
+	<string id="st_stolen_1">
+		<text>The trigger mechanism has been stolen from your weapon during your absence. Condition has been worsened</text>
+	</string>
+	<string id="st_stolen_2">
+		<text>The breech head has been stolen from your weapon during your absence. Condition has been worsened</text>
+	</string>
+	<string id="st_stolen_3">
+		<text>The breechblock has been stolen from your weapon during your absence. Condition has been worsened</text>
+	</string>
+	<string id="st_tiski_no_info">
+		<text>You do not have permission to use this vice</text>
+	</string>
+	<string id="st_not_in_list">
+		<text>You do not possess the knowledge to repair this weapon</text>
+	</string>
+	<string id="st_awr_timer_msg_on">
+		<text>%sYou have five minutes%s</text>
+	</string>
+	<string id="st_awr_timer_msg_off">
+		<text>%sTime is up%s</text>
+	</string>
+	<string id="st_awr_dead_mechanic">
+		<text>%sThe technician %s has been killed %s %s\nAccess to the vice is free</text>
+	</string>
+	<string id="st_by_unknown">
+		<text>unknown</text>
+	</string>
+	<string id="st_mech_tiski">
+		<text>Technician’s vice</text>
+	</string>
+	<string id="st_mech_tiski_w">
+		<text>Technician’s vice with %s</text>
+	</string>
+	<!-- ListBox status texts -->
+	<string id="st_ending_1">
+		<text>ы</text>
+	</string>
+	<string id="st_ending_2">
+		<text>а</text>
+	</string>
+	<string id="st_ending_3">
+		<text>о</text>
+	</string>
+	<string id="st_text_status">
+		<text>[CONDITION]:%s%s%%</text>
+	</string>
+	<string id="st_text_wpn">
+		<text>[WEAPON]:%s%s</text>
+	</string>
+	<string id="st_text_mode">
+		<text>[MODE]:%s%s</text>
+	</string>
+	<string id="st_text_mode_1">
+		<text>RESTORATION</text>
+	</string>
+	<string id="st_text_mode_2">
+		<text>REPAIR WITH POSSIBILITY OF RESTORATION</text>
+	</string>
+	<string id="st_text_mode_3">
+		<text>NOT AVAILABLE</text>
+	</string>
+	<string id="st_text_warning_mode_1_4">
+		<text>%sAfter upgrading, the state of the weapon will be %s%%, and quality - new</text>
+	</string>
+	<string id="st_text_warning_mode_1_3">
+		<text>%sWhen upgrading, it is possible to use only serviceable parts</text>
+	</string>
+	<string id="st_text_warning_mode_1_1">
+		<text>[Attention]: In this mode, it is only possible to upgrade rusty and worn-out weapons</text>
+	</string>
+	<string id="st_text_warning_mode_2_5">
+		<text>%sAfter finishing the repair with upgrading: %i%% for worn out and %i%% for a new</text>
+	</string>
+	<string id="st_text_warning_mode_2_4">
+		<text>%sAfter the repair is completed without upgrading, the condition of the weapon will be equal to %i%%</text>
+	</string>
+	<string id="st_text_warning_mode_2_3">
+		<text>%sThe quality of the weapon, at the same time, will correspond to the replaced part of the lowest quality</text>
+	</string>
+	<string id="st_text_warning_mode_2_1">
+		<text>[Attention]: In this mode it is possible to repair and upgrade weapons</text>
+	</string>
+	<string id="st_text_warning_mode_3_3">
+		<text>%sUpgrade is not possible until the state is raised to 100%%</text>
+	</string>
+	<string id="st_text_warning_mode_3_2">
+		<text>[WARNING]: Repair of this weapon is not possible, as the condition for the quality of the weapon is at maximum.</text>
+	</string>
+	<string id="st_text_warning_mode_3_1">
+		<text>[WARNING]: The quality of the weapon is already at maximum. Further restoration is not possible.</text>
+	</string>
+	<string id="st_text_warning_mode_help">
+		<text>For help, press F1</text>
+	</string>
+	<!-- Disassembly -->
+	<string id="st_dis_news">
+		<text>[AWR]</text>
+	</string>
+	<string id="st_dis_count">
+		<text>шт.</text>
+	</string>
+	<string id="st_dis_text_1">
+		<text>%s %s %s %s has been disassembled</text>
+	</string>
+	<string id="st_dis_text_2">
+		<text>%sYou attempted to disassemble %s %s, but no parts have been obtained.</text>
+	</string>
+	<string id="st_dis_text_3">
+		<text>%sRequired tools missing %s %s</text>
+	</string>
+	<string id="st_dis_text_4">
+		<text>\nThe cartridges were removed: %iPC type %s\nItems Received: </text>
+	</string>
+	<string id="st_dis_text_5">
+		<text>%sYou managed to restore the part %s\n%s</text>
+	</string>
+	<string id="st_dis_text_6">
+		<text>%sYou were unable to restore the part %s</text>
+	</string>
+	<string id="st_dis_text_7">
+		<text>%s %s %s %s %s has been disassembled</text>
+	</string>
+	<string id="st_dis_text_8">
+		<text>%s %s %s %s %s has been cut</text>
+	</string>
+	<string id="st_dis_text_9">
+		<text>\nObtained parts: </text>
+	</string>
+	<string id="st_dis_text_10">
+		<text>%sYou have tried to cut %s %s, but no parts have been obtained.</text>
+	</string>
+	<!-- Dialogues -->
+	<string id="st_awr_dialog_1">
+		<text>Can I use your vice? I need to fix something up.</text>
+	</string>
+	<string id="st_awr_dialog_2">
+		<text>Alright… if you can hand me a bottle of Putinka.</text>
+	</string>
+	<string id="st_awr_dialog_3">
+		<text>Here.</text>
+	</string>
+	<string id="st_awr_dialog_4">
+		<text>Great. Keep in mind that if you leave something in the vice without coming back to get it, I can’t guarantee it’ll stay there. I’ve got enough things to deal with on top of keeping an eye on people’s stuff. Have fun.</text>
+	</string>
+	<string id="st_awr_dialog_5">
+		<text>I don’t have that.</text>
+	</string>
+	<string id="st_awr_dialog_6">
+		<text>Got it.</text>
+	</string>
+	<string id="st_awr_dialog_8">
+		<text>I left a gun of mine in your vice. Can I continue working on it, or take it?</text>
+	</string>
+	<string id="st_awr_dialog_9">
+		<text>So it’s yours… I warned you, I wouldn’t leave it there. Had to postpone some important work because of you. I’ll hand it back for two bottles of Putinka and ten grand.</text>
+	</string>
+	<string id="st_awr_dialog_10">
+		<text>Message received. Here.</text>
+	</string>
+	<string id="st_awr_dialog_11">
+		<text>It’s nothing personal. I’m just tired of having people work their equipment and scram without even taking it back. And since you’ve been so generous yourself, I can give you some more time to work. Don’t forget to take your stuff with you when you’re done.</text>
+	</string>
+	<string id="st_awr_dialog_12">
+		<text>Two bottles and ten thousand?! Absolute scam.</text>
+	</string>
+	<string id="st_awr_dialog_13">
+		<text>I certainly won’t forget. Thank you.</text>
+	</string>
+	<string id="st_awr_dialog_14">
+		<text>I haven’t finished working. I’d like to request some more time.</text>
+	</string>
+	<string id="st_awr_dialog_15">
+		<text>You got it. You gimme some more and you feel free to knock yourself out.</text>
+	</string>
+	<string id="st_awr_dialog_16">
+		<text>Just another reminder not to forget your goods. Good luck.</text>
+	</string>
+
+	<!-- Sell dialog -->
+	<string id="st_awr_sell_dialog_1">
+		<text>I have spare parts. Do you know who would buy them?</text>
+	</string>
+	<string id="st_awr_sell_dialog_2">
+		<text>Technicians like me store all sort of junk you can think of. I might buy what you’ve got; for the right price, of course.</text>
+	</string>
+	<string id="st_awr_sell_dialog_3">
+		<text>And what can you offer?</text>
+	</string>
+	<string id="st_awr_sell_dialog_4">
+		<text>Well, for functional parts I can give you 300 RU per new part. The worn ones for 150. About the rest of the junk, you get 250 for new parts, and 125 for worn out parts. Eh, 60 should be good for rusty parts. These are not that useful you know…</text>
+	</string>
+	<string id="st_awr_sell_dialog_5">
+		<text>Hmm… Well, your offer is so-so. But I have no actual use for these. Here, give me the money.</text>
+	</string>
+	<string id="st_awr_sell_dialog_6">
+		<text>That’s a bit cheap for me. Guess I’ll think about it.</text>
+	</string>
+	<string id="st_awr_sell_dialog_7">
+		<text>Nice doing business with you. If you got more spare parts, you know where to find me.</text>
+	</string>
+	<string id="st_awr_sell_dialog_8">
+		<text>Uh, I’ll keep that in mind. Thanks.</text>
+	</string>
+
+	<!-- Help -->
+	<string id="st_awr_help_0">
+		<text>Instructions</text>
+	</string>
+	<string id="st_awr_help_1">
+		<text>The repair procedure is affected by the overall quality of the weapon (new, worn, rusty) and its current condition. Moreover, the terms 0–65, 0–75 and 0–85 determine the weapon status for each of the quality types: 0–65% for rusty weapons, 0–75% for worn weapons and 0–85% for new weapons.</text>
+	</string>
+	<string id="st_awr_help_2">
+		<text>Repair and upgrade procedure (weapons with condition from 0–65/0–75/0–85):</text>
+	</string>
+	<string id="st_awr_help_3">
+		<text>1. Select a repair kit to replace the weapon barrel with another barrel of the same caliber with the weapon status from 0–20/0–25/0–30 or using a weapon upgrade kit in a condition from 20–65/25–75/30–85 by double clicking on the name of the set with the list.\n2. Select a part in the list with a single mouse click. Replacing parts when repairing weapons with a low state occurs in a certain sequence:\n \nAt condition 0–20/0–25/0–30%: Replacement of barrel\nAt condition 20–35/25–45/30–55%: Replacement of trigger (shock–trigger mechanism)\nAt condition 35–45/45–60/55–70%: Replacement of breech head\nAt condition 45–55/60–70/70–80%: Replacement of gas tube\nAt condition 55–65/70–75/80–85%: Replacement of breech block\n \n3. Click on the image of the part that is being currently replaced (the part selected for the replacement that is available for replacement is indicated by a green light). Attempting to replace one part spends one charge of a belt. set\n4. In case the replacement is successful, this procedure is repeated for all parts in the specified order\n5. In case the part has been damaged, try again if there is a repair kit and any more weapon parts.\n6. All replaced parts are retained until the condition of the weapon is lowered. In this case, to improve the quality, the parts will need to be replaced anew.\n7. When all five parts have been replaced, the quality of the weapon will be changed to the corresponding one. On that note, if at least one of the replaced items has been worn out, the quality of the weapon will be changed to "worn", even if other weapon parts are replaced with new ones.</text>
+	</string>
+	<string id="st_awr_help_4">
+		<text>The predetermined order of replacing weapon parts is due to the need to match the parts to the state of the weapon, since all replaced parts for each weapon that have ever been partially repaired in the vice are stored in the game memory. This allows you to continue repairs from the same location without having to re-replace parts, provided that the weapon condition has not been lowered after repair.</text>
+	</string>
+	<string id="st_awr_help_5">
+		<text>Weapon upgrade procedure is only available at a condition of 95–100% for weapons of rusty or worn quality:</text>
+	</string>
+	<string id="st_awr_help_6">
+		<text>1. Select a repair kit for the replacement of barrel or a weapon upgrade kit in the list by double clicking on the name of the set in the list. The replacement order is not available for upgrades.\n2. Select a part corresponding to the repair kit in the list with a single mouse click. When upgrading, only working parts can be used.\n3. Click on the image of the part that is being currently replaced\n4. In case the replacement is successful, this procedure remains the same for all other weapon parts.\n5. In case the part has been damaged, try again if there is a repair kit and any more weapon parts.\n6. All replaced parts are retained until the state of the weapon is lowered. In this case, to improve the quality, the parts will require further replacements.\n7. When all five parts have been replaced with new ones, the quality of the weapon will be changed to "new".</text>
+	</string>
+</string_table>

@@ -1,0 +1,340 @@
+
+-- =======================================================================================
+-- Created by Tronex
+-- Last modification: 2018/7/20
+-- Crafting Kits UI
+-- =======================================================================================
+
+
+
+--=======================================< Controls >=======================================--
+local ico_size = 0.7
+local ico_width = (device().width / device().height > (1024/768+0.01)) and 0.8 or 1
+local ini = system_ini()
+local ini_craft = ini_file("misc\\items\\item_management\\craft_recipes.ltx")
+
+
+
+--=======================================< List Item >=======================================--
+class "list_element" (CUIListBoxItem)
+
+function list_element:__init(idx, name) super(idx, name)
+	
+	self.idx					= idx
+	self.name					= name
+
+	self.text					= self:GetTextItem()
+	self.text:SetWndRect		(Frect():set(0,0,300,22))
+	self:SetTextColor			(GetARGB(255, 130, 128, 120))
+	self.text:SetFont			(GetFontLetterica16Russian())
+	self.text:SetWndSize		(vector2():set(400,22))
+	self.text:SetEllipsis		(true)
+	self.text:SetText			(game.translate_string(ini:r_string_ex (self.name,"inv_name") or ""))
+end
+
+function list_element:__finalize()
+end
+
+
+--=======================================< Crafting UI >=======================================--
+class "craft_ui" (CUIScriptWnd)
+
+function craft_ui:__init(owner,obj,section) super()
+	self.owner = owner
+	self.obj = obj
+	self.section = section
+	self.recipes = {}
+	self.allow = {}
+	self.size = 3
+	
+	-- Fill default recipes
+	self:FillRecipes(self.section .. "_recipe")
+	
+	-- Fill all unlocked recipes
+	local n = 1
+	while ini_craft:section_exist(self.section .. "_recipe_" .. tostring(n)) do
+		if alife_storage_manager.get_state().unlock_recipe and alife_storage_manager.get_state().unlock_recipe[self.section .. "_recipe_" .. n] then
+			self:FillRecipes(self.section .. "_recipe_" .. n)
+		end
+		n = n + 1
+	end
+	
+	self:InitControls()
+	self:InitCallBacks()
+end
+
+function craft_ui:__finalize()
+end
+
+function craft_ui:InitControls()
+	self:SetWndRect			(Frect():set(0,0,1024,768))
+	self:SetAutoDelete(true)
+	
+	self.xml				= CScriptXmlInit()
+	local xml = self.xml
+	xml:ParseFile			("ui_items.xml")
+
+	self.dialog					= xml:InitStatic("itm_craft:frame", self)
+	self.dialog:InitTexture("ui_" .. self.section)
+	self.dialog:SetStretchTexture(true)
+	
+	self.box_lines = xml:InitStatic("itm_craft:box_lines",self.dialog)
+	self.box_lines:InitTexture("ui_craft_lines_3i")
+	self.box_lines:SetStretchTexture(true)
+	
+	self.item = {}
+	self.box_item = {}
+	self.box_item_temp = {}
+	self.text_item = {}
+	self.text_multi = {}
+	for i=1,4 do
+		self.item[i] = {}
+		self.box_item[i] = xml:InitStatic("itm_craft:box_item_" .. tostring(i) , self.dialog)
+		self.box_item_temp[i] = xml:InitStatic("itm_craft:box_item_" .. tostring(i) , self.dialog) -- temp item
+		self.text_item[i] = xml:InitTextWnd("itm_craft:text_item_" .. tostring(i) , self.dialog)
+		self.text_multi[i] = xml:InitTextWnd("itm_craft:text_multi_" .. tostring(i) , self.dialog)
+	end
+	
+	-- Item List
+	self.list_itms = xml:InitListBox("itm_craft:list_itms",self.dialog)
+	self.list_itms:ShowSelectedItem(true)
+	self.list_itms:Show(true)
+	self:Register(self.list_itms, "list_itms")
+	self:LoadItemList()
+	
+	-- Main Buttons
+	local btn
+	btn = xml:Init3tButton("itm_craft:btn_craft", self.dialog)
+	self:Register(btn,"btn_craft")
+	
+	btn = xml:Init3tButton("itm_craft:btn_cancel", self.dialog)
+	self:Register(btn,"btn_cancel")
+end
+
+function craft_ui:InitCallBacks()
+	self:AddCallback("btn_craft", ui_events.BUTTON_CLICKED, self.OnCraft, self)
+	self:AddCallback("btn_cancel", ui_events.BUTTON_CLICKED, self.OnCancel, self)
+	self:AddCallback("list_itms", ui_events.LIST_ITEM_CLICKED, self.OnItemClicked, self)
+end
+
+function craft_ui:LoadItemList()
+	for i=1,#self.recipes do
+		local name
+		for k,v in pairs (self.recipes[i]) do
+			name = k
+		end
+		local _itm = list_element(i, name)
+		self.list_itms:AddExistingItem(_itm)
+	end
+end
+
+
+---------------< Callbacks >---------------
+function craft_ui:OnCraft()
+	if (not self.allow[4]) then 
+		return 
+	end
+	
+	-- Remove supportive items
+	for i=1,self.size do
+		if #self.item[i] > 0 then
+			for j=1,#self.item[i] do
+				alife():release(alife_object(self.item[i][j]),true)
+			end
+		end
+	end
+	
+	-- Craft
+	if (string.find(self.item[4][1],"ammo_")) then
+		create_ammo(self.item[4][1],db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id(),0,self.item[4][2])
+	else
+		for i = 1, self.item[4][2] do
+			alife():create(self.item[4][1],db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id(),db.actor:id())
+		end
+	end
+	
+	-- Play repair effect
+	if (actor_effects) then
+		actor_effects.use_item("toolkit_u_dummy")
+	end
+	
+	self:HideDialog()
+end
+
+function craft_ui:OnCancel()
+	self:HideDialog()
+end
+
+function craft_ui:OnItemClicked()
+	local item = self.list_itms:GetSelectedItem()
+	if not (item) then 
+		return
+	end
+	
+	local parts = self.recipes[item.idx][item.name]
+	
+	-- Item 1
+	self:UpdateItem (1, parts[1][1], parts[1][2], false)
+	
+	-- Item 2
+	self:UpdateItem (2, parts[2][1], parts[2][2], false)
+	
+	-- Item 3
+	if parts[3] then
+		self.size = 3
+		self.box_lines:InitTexture("ui_craft_lines_3i")
+		self:UpdateItem (3, parts[3][1], parts[3][2], false)
+	else -- clear
+		self.size = 2
+		self.box_lines:InitTexture("ui_craft_lines_2i")
+		self.box_item[3]:InitTexture("ui\\ui_icon_equipment")
+		self.box_item[3]:SetTextureRect(Frect():set(0, 0, 0, 0))
+		self.text_item[3]:SetText("")
+		self.text_multi[3]:SetText("")
+		self.item[3] = {}
+	end
+	self.box_lines:SetStretchTexture(true)
+	
+	-- Result
+	self:UpdateItem (4, item.name, 1, true)
+	
+end
+
+function craft_ui:OnKeyboard(dik, keyboard_action)
+	local res = CUIScriptWnd.OnKeyboard(self,dik,keyboard_action)
+	if (res == false) then
+		local bind = dik_to_bind(dik)
+		if keyboard_action == ui_events.WINDOW_KEY_PRESSED then
+			if dik == DIK_keys.DIK_ESCAPE then
+				self:OnCancel()
+			end
+		end
+	end
+	return res
+end
+
+---------------< Utility >---------------
+function craft_ui:UpdateItem (n, sec, amt, result)
+	
+	-- Reset
+	self.item[n] = {}
+	self.allow[n] = false
+	
+	-- Text (Amount)
+	self.text_multi[n]:SetText("x" .. tostring(amt))
+	
+	-- Text (Name)
+	local parts_id = {}
+	local name = game.translate_string(ini:r_string_ex(sec,"inv_name"))
+	self.text_item[n]:SetText(name)
+	self.text_item[n]:SetTextColor(GetARGB(200, 255, 50, 20))
+	
+	if (not result) then
+		-- Collect valid items
+		local function search(temp, item)
+			if (item:section() == sec) and (not parts_id[item:id()]) then
+				parts_id[item:id()] = true
+			end
+		end
+		db.actor:iterate_inventory(search,nil)
+		
+		-- Check and Allow/Prevent
+		local count = 0
+		for _ in pairs(parts_id) do count = count + 1 end
+		if count >= amt then
+			self.text_item[n]:SetTextColor(GetARGB(200, 50, 255, 50))
+			self.allow[n] = true
+		end
+		
+		-- Store items id
+		count = 0
+		for k,v in pairs(parts_id) do
+			count = count + 1
+			if (count <= amt) then
+				self.item[n][#self.item[n] + 1] = k
+			end
+		end
+	else -- if its the result item
+		if ((self.size == 2) and self.allow[1] and self.allow[2]) or ((self.size == 3) and self.allow[1] and self.allow[2] and self.allow[3]) then
+			self.allow[4] = true
+			self.text_item[n]:SetTextColor(GetARGB(200, 50, 255, 50))
+		end
+		self.item[n] = {sec , amt}
+	end
+	
+	-- Icon
+	local ico = trx_utils.get_item_axis(sec)
+	self.box_item[n]:InitTexture("ui\\ui_icon_equipment")
+	self.box_item[n]:SetTextureRect(Frect():set(ico.x1, ico.y1, ico.x2, ico.y2))
+	self.box_item[n]:SetStretchTexture(true)
+	
+	local pos = self.box_item_temp[n]:GetWndPos()
+	local _w = self.box_item_temp[n]:GetWidth()
+	local _h = self.box_item_temp[n]:GetHeight()
+	
+	local ratio = ico.w/ico.h
+	local h, w
+	ico.w = ico.w * ico_size * ico_width
+	ico.h = ico.h * ico_size
+	
+	local w_t, h_t = 0, 0
+	local resize = false
+	if (ico.w > _w) then -- if icon width is bigger than frame width
+		w_t = ico.w - _w
+		resize = true	
+	end 
+	if (ico.h > _h) then -- if icon height is bigger than frame height
+		h_t = ico.h - _h 
+		resize = true	
+	end 
+	
+	if resize then -- resize is required
+		if (w_t >= h_t) then -- if icon width is the big number (or square), use it as a base for resizing
+			w = _w
+			h = w / ratio
+		elseif (w_t < h_t) then -- if icon width is the big number, use it as a base for resizing
+			h = _h
+			w = h * ratio
+		end
+	else -- no resize
+		w = ico.w
+		h = ico.h
+	end
+	
+	offset_x = (_w - w)/2
+	offset_y = (_h - h)/2
+	self.box_item[n]:SetWndSize(vector2():set(w , h))
+	self.box_item[n]:SetWndPos(vector2():set(pos.x + offset_x , pos.y + offset_y))
+end
+
+function craft_ui:FillRecipes (section)
+	if (not ini_craft:section_exist(section)) then
+		return
+	end
+	
+	local n = ini_craft:line_count(section) or 0
+	for i=0, n-1 do
+		local result, id, value = ini_craft:r_line(section , i , "", "")
+		if ini:section_exist(id) then
+			local t = alun_utils.str_explode(value,",")
+			local ind = #self.recipes + 1
+			self.recipes[ind] = {}
+			self.recipes[ind][id] = {}
+			if t[1] and t[2] then -- support item 1
+				if ini:section_exist(tostring(t[1])) then
+					self.recipes[ind][id][1] = {tostring(t[1]),tonumber(t[2])}
+				end
+			end
+			if t[3] and t[4] then -- support item 2
+				if ini:section_exist(tostring(t[3])) then
+					self.recipes[ind][id][2] = {tostring(t[3]),tonumber(t[4])}
+				end
+			end
+			if t[5] and t[6] then -- support item 3
+				if ini:section_exist(tostring(t[5])) then
+					self.recipes[ind][id][3] = {tostring(t[5]),tonumber(t[6])}
+				end
+			end
+		end
+	end
+end
