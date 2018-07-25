@@ -3,13 +3,13 @@ Improving the item system and the progression behind it.
 
 
 ## Crafting System
-- [x] Create new craft kits with new improved UI, each kit has 7 max uses:
+- [x] add new craft kits with new improved UI, each kit has 7 max uses:
    - [x] Basic tools *(craft basic items and kits, tier 1 upgrade parts etc..)*
    - [x] Advanced tools *(craft better items, devices and kits, awr simple kits, tier 2 upgrade parts)*
    - [x] Export tools *(craft important kits, tier 3 upgrade parts)*
    - [x] Drug kit *(craft all meds and drugs)*
    - [x] Ammo kit *(craft better ammo using bad and damaged types)*
-- [ ] add items (Recipes) that can be found on corpses, using them will unlock new recipes for the craft kits in note section of encyclopedia
+- [ ] add items (Recipes) that can be found on corpses, using them will unlock new recipes for the craft kits
 - [ ] fill the recipes list
 - [x] Rework the UI of old repair kits
 
