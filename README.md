@@ -1,6 +1,7 @@
 # Anomaly-Overhaul-1
 Improving the item system and the progression behind it.
 
+
 ## Crafting System
 - [x] Create new craft kits with new improved UI, each kit has 7 max uses:
    - [x] Basic tools *(craft basic items and kits, tier 1 upgrade parts etc..)*
@@ -24,7 +25,7 @@ Improving the item system and the progression behind it.
 - [x] add (Anomaly Maps), new items that can be found on corpses, show the location of known anomaly locations
 - [x] remove the old location discovery
 - [ ] add (GPS tracker), using it will show the location of nearby natural/friendly npcs for a brief amount of time, consumes UPD power
-- [x] add (ammo box), sorting it will give the player few random ammo
+- [x] add (Ammo Box), sorting it will give the player few random ammo
 - [x] (Personal Notes) will unlock random stash location
 - [ ] add more misc items that can be used for crafting
 - [ ] (Guitar) and (Harmonica) as usable items
@@ -46,11 +47,11 @@ Improving the item system and the progression behind it.
 - [ ] fill the note list
 
 ## General:
-- [ ] rework the death_items_by_communities after finishing all the new items
+- [ ] rework the *death_items_by_communities* after finish adding all the new items
 - [x] organize item files
 - [x] remove the inventory grid
 - [x] debug spawner will load sections automatically, it uses blacklist instead to prevent specific sections from appearing
-- [x] remove pre-spawned items from the game (items with static location) (if it can't be done outside of the SDK, forget about it for now)
+- [ ] remove pre-spawned items from the game (items with static location) (if it can't be done outside of the SDK, forget about it for now)
 - [ ] Mechanics will ask for money OR vodka for using their vice
 - [ ] improve mutant looting UI, add new button "loot all"
 - [ ] update old Zone FM scripts
