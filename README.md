@@ -10,7 +10,7 @@ Improving the item system and the progression behind it.
    - [x] Drug-making kit *(craft all kind of meds and drugs)*
    - [x] Ammunition kit *(craft better ammo by using bad and damaged types with lead)*
 - [ ] add items (Recipes) that can be found on corpses, using them will unlock new recipes for the craft kits
-- [ ] fill the recipes list
+- [ ] fill the recipes list file
 - [x] Rework the UI of old repair kits
 
 ## Item management
