@@ -53,10 +53,15 @@ Improving the item system and the progression behind it.
 - [x] debug spawner will load sections automatically, it uses blacklist instead to prevent specific sections from appearing
 - [ ] remove pre-spawned items from the game (items with static location) (if it can't be done outside of the SDK, forget about it for now)
 - [ ] Mechanics will ask for money OR vodka for using their vice
+- [ ] reduce the weight of lead box
 - [ ] improve mutant looting UI, add new button "loot all"
 - [ ] update old Zone FM scripts
 
-## Later:
+## Plans For the Future!
 - [ ] fix special npcs look doesn't match the icon
 - [ ] improve rain texture
-- [ ] add new inventory slots for backpacks,binocular,knife,pistol *(require engine edits!! might cancel it if it went behind my reach)*
+- [ ] add new inventory slots for backpacks, binocular, knife, pistol *(require engine edits!! might cancel it if it went behind my reach)*
+- [ ] nerf belt attachments, buff the artefacts
+- [ ] add new npcs: freedom barrier guard, bandits barman and more
+- [ ] add new quests (preferably dynamic), and fix existing ones like the guide work
+- [ ] improve dialog related to requisting extra equipment, loans from traders, buying map routes
