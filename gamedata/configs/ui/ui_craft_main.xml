@@ -31,7 +31,7 @@
 
 			<btn_craft x="50" y="440" width="80" height="40">
 				<texture>ui_button_main01</texture>
-				<text font="letterica18">Craft</text>
+				<text font="letterica18">ui_mm_craft</text>
 			</btn_craft>
 			<btn_cancel x="155" y="440" width="80" height="40">
 				<texture>ui_button_main01</texture>
