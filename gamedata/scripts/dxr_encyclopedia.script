@@ -6,6 +6,9 @@
 ----- Initialisation -----
 --------------------------
 
+local snd_guide = sound_object("device\\pda\\pda_guide")
+snd_guide.volume = 0.8
+
 local anomaly_match = {
 	"zone_field_psychic",
 	"zone_field_radioactive",
@@ -46,7 +49,7 @@ function actor_on_update()
 		
 		-- Talking-to or looting a character.
 		RegisterScriptCallback("actor_on_leave_dialog", detect_character_interaction)
-		RegisterScriptCallback("actor_menu_mode_changed", detect_character_interaction2)
+		--RegisterScriptCallback("actor_menu_mode_changed", detect_character_interaction2)
 		
 		-- Taking, using or equipping items.
 		--RegisterScriptCallback("actor_on_item_use", detect_item_interaction)
@@ -328,7 +331,8 @@ function unlock_article(section)
 		local text_a = game.translate_string(guide.categories[index_c].articles[index_a])
 		-- Other information.
 		local header = game.translate_string("st_tip")
-		local texture = news_manager.tips_icons["guide_unlock"] or "ui_inGame2_Poslednie_razrabotki"
+		local texture = "ui_iconsTotal_bar_darklab_documents" --news_manager.tips_icons["guide_unlock"] or "ui_inGame2_Poslednie_razrabotki"
 		db.actor:give_game_news(header, strformat(message, text_c, text_a), texture, 0, 5000, 0)
+		snd_guide:play(db.actor, 0, sound_object.s2d)
 	end
 end
