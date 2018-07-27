@@ -88,7 +88,7 @@ function scan_objects()
 		if v and v.object then
 			local st = v and v.object or level.object_by_id(v.object:id())
 			if (st:position():distance_to(db.actor:position()) < 10) then
-				printf("TRX - found game object | name: " .. tostring(st:name()) .. " | section: " .. tostring(st:section()))
+				--printf("TRX - scan_objects | name: " .. tostring(st:name()) .. " | section: " .. tostring(st:section()))
 				for i=1,#anomaly_match do
 					if string.find(st:section(),anomaly_match[i]) then
 						detect_anomaly_interaction(anomaly_match[i])
