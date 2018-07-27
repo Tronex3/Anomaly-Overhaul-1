@@ -1,6 +1,7 @@
-;
-;	Changed for IMM	by Faustle (2018)
-;-----------------------------------------------------------------------
+
+;;--=========================================
+;;--================| Drink |================
+;;--=========================================
 
 [vodka]:booster
 $spawn 						= "food and drugs\vodka"
@@ -9,32 +10,27 @@ visual						= dynamics\devices\dev_vodka\dev_vodka.ogf
 class_dbg			        = S_DRINK
 description					= st_vodka_descr
 cost						= 1646
-
 inv_name					= st_vodka
 inv_name_short				= st_vodka
 inv_weight					= 0.798
-
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 14
 inv_grid_y					= 60
-
 attach_angle_offset			= 0.000000, 0.000000, 0.000000
 attach_position_offset		= 0.087266, -0.078540, 0.052360
 attach_bone_name			= bip01_r_hand
 auto_attach					= false
-
 bone_name					= bip01_r_hand
 position_offset			 	= 0.0,0.0,0.0
 angle_offset			 	= 1.570790,1.570790,3.92699
-
 break_particles				= destroy_fx\destroy_bottle
 break_sound					= material\bottle\collide\bottle_break_1
-
 repair_part_bonus	 		= 0.03
-
 uses_base					= vodka
 uses_index					= 1
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
 
 
 [vodka_use]:vodka
@@ -42,7 +38,6 @@ inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 300
 inv_grid_y					= 300
-
 boost_time					= 35
 boost_radiation_restore		= 0.00068
 eat_alcohol					= 0.195
@@ -55,10 +50,7 @@ use_sound					= interface\inv_drink_flask_effect
 cost						= 1164
 inv_weight					= 1.126
 inv_grid_y					= 59
-
 uses_index					= 2
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 
 [vodka_2_use]:vodka_use
 		
@@ -66,10 +58,7 @@ use1_action_functor  		= itms_manager.inv_item_separate
 cost						= 1646
 inv_weight					= 1.454
 inv_grid_y					= 58
-
 uses_index					= 3
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 
 [vodka_3_use]:vodka_use
 
@@ -82,39 +71,33 @@ visual						= dynamics\devices\dev_vodka\dev_vodka2.ogf
 class_dbg			        = S_DRINK
 description					= st_vodka2_descr
 cost						= 1372
-
 inv_name					= st_vodka2
 inv_name_short				= st_vodka2
 inv_weight					= 0.798
-
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 15
 inv_grid_y					= 60
-
 attach_angle_offset			= 0.000000, 0.000000, 0.000000
 attach_position_offset		= 0.087266, -0.078540, 0.052360
 attach_bone_name			= bip01_r_hand
 auto_attach					= false
-
 bone_name					= bip01_r_hand
 position_offset				= 0.0,0.0,0.0
 angle_offset				= 1.570790,1.570790,3.92699
-
 break_particles				= destroy_fx\destroy_bottle
 break_sound					= material\bottle\collide\bottle_break_1
-
 repair_part_bonus	 		= 0.03
-
 uses_base					= vodka2
 uses_index					= 1
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
 
 [vodka2_use]:vodka2
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 300
 inv_grid_y					= 300
-
 boost_time					= 37
 boost_radiation_restore		= 0.00076
 eat_alcohol					= 0.168
@@ -122,10 +105,7 @@ eat_satiety					= 0.042
 eat_sleepiness				= 0.055
 eat_health					= -0.018
 use_sound					= interface\inv_drink_flask_effect
-
 uses_index					= 2
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 
 [vodka2_2]:vodka2
 cost						= 2444
@@ -138,10 +118,7 @@ inv_grid_y					= 59
 cost						= 3516
 inv_weight					= 1.454
 inv_grid_y					= 58
-
 uses_index					= 3
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 
 [vodka2_3_use]:vodka2_use
 
@@ -160,39 +137,33 @@ visual						= dynamics\drink\drink_vodka.ogf
 class_dbg			        = S_DRINK
 description					= st_vodka_quality_descr
 cost						= 1021
-
 inv_name					= st_vodka_quality
 inv_name_short				= st_vodka_quality
 inv_weight					= 0.798
-
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 16
 inv_grid_y					= 60
-
 attach_angle_offset			= 0.000000, 0.000000, 0.000000
 attach_position_offset		= 0.087266, -0.078540, 0.052360
 attach_bone_name			= bip01_r_hand
 auto_attach					= false
-
 bone_name					= bip01_r_hand
 position_offset			 	= 0.0,0.0,0.0
 angle_offset			 	= 1.570790,1.570790,3.92699
-
 break_particles				= destroy_fx\destroy_bottle
 break_sound					= material\bottle\collide\bottle_break_1
-
 repair_part_bonus	 		= 0.04
-
 uses_base					= vodka_quality
 uses_index					= 1
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
 
 [vodka_quality_use]:vodka_quality
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 300
 inv_grid_y					= 300
-
 boost_time					= 35
 boost_radiation_restore		= 0.00088
 eat_alcohol					= 0.179
@@ -205,10 +176,7 @@ use_sound					= interface\inv_drink_flask_effect
 cost						= 1842
 inv_weight					= 1.126
 inv_grid_y					= 59
-
 uses_index					= 2
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 
 [vodka_quality_2_use]:vodka_quality_use
 
@@ -216,10 +184,7 @@ use1_action_functor  		= itms_manager.inv_item_separate
 cost						= 2663
 inv_weight					= 1.454
 inv_grid_y					= 58
-
 uses_index					= 3
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 
 [vodka_quality_3_use]:vodka_quality_use
 
@@ -232,25 +197,20 @@ visual						= dynamics\devices\dev_beer\dev_beer.ogf
 class_dbg			        = S_DRINK
 description					= st_beer_descr
 cost						= 1349
-
 inv_name					= st_beer
 inv_name_short				= st_beer
 inv_weight					= 0.71
-
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 9
 inv_grid_y					= 25
-
 attach_angle_offset			= 0.000000, 0.000000, 0.000000
 attach_position_offset		= 0.087266, -0.078540, 0.052360
 attach_bone_name			= bip01_r_hand
 auto_attach					= false
-
 bone_name					= bip01_r_hand
 position_offset			 	= 0.0,0.0,0.0
 angle_offset			 	= 1.570790,1.570790,3.92699
-
 break_particles				= destroy_fx\destroy_bottle
 break_sound					= material\bottle\collide\bottle_break_1
 
@@ -352,32 +312,28 @@ visual						= dynamics\devices\dev_ mineral_water\dev_ mineral_water.ogf
 class_dbg			        = S_DRINK
 description					= st_mineral_water_descr
 cost						= 673
-
 inv_name					= st_mineral_water
 inv_name_short				= st_mineral_water
 inv_weight					= 0.368
-
 inv_grid_width				= 1
 inv_grid_height				= 2
 inv_grid_x					= 15
 inv_grid_y					= 65
-
 attach_angle_offset			= 0.000000, 0.000000, 0.000000
 attach_position_offset		= 0.087266, -0.078540, 0.052360
 attach_bone_name			= bip01_r_hand
 auto_attach					= false
-
 repair_part_bonus	 		= 0.01
-
 uses_base					= mineral_water
 uses_index					= 1
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
 
 [mineral_water_use]:mineral_water
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 300
 inv_grid_y					= 300
-
 boost_time					= 34
 boost_radiation_restore		= 0.00046
 eat_alcohol					= -0.16
@@ -389,10 +345,7 @@ use_sound					= interface\inv_drink_flask
 cost						= 1196
 inv_weight					= 0.701
 inv_grid_x					= 14
-
 uses_index					= 2
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 
 [mineral_water_2_use]:mineral_water_use
 
@@ -400,10 +353,7 @@ use1_action_functor  		= itms_manager.inv_item_separate
 cost						= 1719
 inv_weight					= 1.035
 inv_grid_x					= 13
-
 uses_index					= 3
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 
 [mineral_water_3_use]:mineral_water_use
 
@@ -415,32 +365,28 @@ visual						= dynamics\drink\drink_water
 class_dbg			        = S_DRINK
 description					= st_bottle_metal_descr
 cost						= 488
-
 inv_name_short				= st_bottle_metal
 inv_name					= st_bottle_metal
 inv_weight					= 0.786
-
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 17
 inv_grid_y					= 60
-
 attach_angle_offset			= 0.000000, 0.000000, 0.000000
 attach_position_offset		= 0.087266, -0.078540, 0.052360
 attach_bone_name			= bip01_r_hand
 auto_attach					= false
-
 repair_part_bonus	 		= 0.02
-
 uses_base					= bottle_metal
 uses_index					= 1
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
 
 [bottle_metal_use]:bottle_metal
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 300
 inv_grid_y					= 300
-
 boost_time					= 29
 boost_radiation_restore		= 0.00070
 eat_alcohol					= 0.196
@@ -453,10 +399,7 @@ use_sound					= interface\inv_drink_flask_effect
 cost						= 876
 inv_weight					= 1.103
 inv_grid_y					= 59
-
 uses_index					= 2
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 
 [bottle_metal_2_use]:bottle_metal_use
 
@@ -464,10 +407,7 @@ use1_action_functor  		= itms_manager.inv_item_separate
 cost						= 1264
 inv_weight					= 1.420
 inv_grid_y					= 58
-
 uses_index					= 3
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 
 [bottle_metal_3_use]:bottle_metal_use
 
@@ -479,30 +419,27 @@ visual						= dynamics\drink\drink_tea
 class_dbg			        = S_DRINK
 description					= st_tea_descr
 cost						= 1691
-
 inv_name					= st_tea
 inv_name_short				= st_tea
 inv_weight					= 0.368
-
 inv_grid_width				= 1
 inv_grid_height				= 2
 inv_grid_x					= 15
 inv_grid_y					= 63
-
 attach_angle_offset			= 0.000000, 0.000000, 0.000000
 attach_position_offset		= 0.087266, -0.078540, 0.052360
 attach_bone_name			= bip01_r_hand
 auto_attach					= false
-
 uses_base					= tea
 uses_index					= 1
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
 
 [tea_use]:tea
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 300
 inv_grid_y					= 300
-
 boost_time					= 38
 boost_radiation_restore		= 0.00088
 eat_alcohol					= -0.274
@@ -514,10 +451,7 @@ use_sound					= interface\inv_drink_tea
 cost						= 3082
 inv_weight					= 0.701
 inv_grid_x					= 14
-
 uses_index					= 2
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 
 [tea_2_use]:tea_use
 		
@@ -525,10 +459,7 @@ use1_action_functor  		= itms_manager.inv_item_separate
 cost						= 4473
 inv_weight					= 1.035
 inv_grid_x					= 13
-
 uses_index					= 3
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 
 [tea_3_use]:tea_use
 
@@ -540,32 +471,28 @@ visual						= dynamics\drink\drink_flask
 class_dbg			        = S_DRINK
 description					= st_flask_descr
 cost						= 286
-
 inv_name					= st_flask
 inv_name_short				= st_flask
 inv_weight					= 0.663
-
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 3
 inv_grid_y					= 57
-
 attach_angle_offset			= 0.000000, 0.000000, 0.000000
 attach_position_offset		= 0.087266, -0.078540, 0.052360
 attach_bone_name			= bip01_r_hand
 auto_attach					= false
-
 repair_part_bonus	 		= 0.01
-
 uses_base					= flask
 uses_index					= 1
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
 
 [flask_use]:flask
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 300
 inv_grid_y					= 300
-
 boost_time					= 31
 boost_radiation_restore		= 0.00028
 eat_alcohol					= -0.079
@@ -577,10 +504,7 @@ use_sound					= interface\inv_drink_flask_2
 cost						= 472
 inv_weight					= 0.996
 inv_grid_y					= 56
-
 uses_index					= 2
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 
 [flask_2_use]:flask_use
 
@@ -588,10 +512,7 @@ use1_action_functor  		= itms_manager.inv_item_separate
 cost						= 658
 inv_weight					= 1.33
 inv_grid_y					= 55
-
 uses_index					= 3
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 
 [flask_3_use]:flask_use
 
@@ -603,16 +524,13 @@ visual						= dynamics\drink\drink_crow.ogf
 class_dbg			        = S_DRINK
 description					= st_drink_crow_descr
 cost						= 5660
-
 inv_name					= st_drink_crow
 inv_name_short				= st_drink_crow
 inv_weight					= 0.223
-
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 15
 inv_grid_y					= 26
-
 attach_angle_offset			= 0.000000, 0.000000, 0.000000
 attach_position_offset		= 0.087266, -0.078540, 0.052360
 attach_bone_name			= bip01_r_hand
@@ -623,7 +541,6 @@ inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 300
 inv_grid_y					= 300
-
 boost_time					= 174
 boost_radiation_restore		= 0.00088
 eat_alcohol					= -0.274
@@ -632,7 +549,11 @@ eat_sleepiness				= -0.396
 eat_health					= -0.036
 use_sound					= interface\inv_drink_flask_2
 
-;-----------------------------------------------------------------------
+
+
+;;--=========================================
+;;--================| Smoke |================
+;;--=========================================
 
 [joint]:booster
 $spawn 						= "devices\pda"
@@ -640,21 +561,17 @@ visual						= dynamics\drink\drink_joint.ogf
 class_dbg			        = S_DRINK
 description					= st_joint_descr
 cost						= 380
-		
 inv_name					= st_joint
 inv_name_short				= st_joint
 inv_weight					= 0.001
-		
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 16
 inv_grid_y					= 25
-
 attach_angle_offset			= -0.287979, 1.560923, 1.544060
 attach_position_offset		= 0.096910, -0.013594, 0.107925
 attach_bone_name			= bip01_r_hand
 auto_attach					= false
-
 bone_name					= bip01_r_hand
 position_offset			 	= 0.0,0.0,0.0
 angle_offset			 	= 1.570790,1.570790,3.92699
@@ -664,7 +581,6 @@ inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 300
 inv_grid_y					= 300
-
 boost_time					= 421
 boost_telepat_protection 	= 0.0064
 eat_alcohol					= -0.033
@@ -681,21 +597,17 @@ visual						= dynamics\equipments\trade\sack.ogf
 class_dbg			        = S_DRINK
 description					= st_marijuana_descr
 cost						= 1040
-		
 inv_name					= st_marijuana
 inv_name_short				= st_marijuana
 inv_weight					= 0.032
-		
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 16
 inv_grid_y					= 26
-
 attach_angle_offset			= -0.287979, 1.560923, 1.544060
 attach_position_offset		= 0.096910, -0.013594, 0.107925
 attach_bone_name			= bip01_r_hand
 auto_attach					= false
-
 bone_name					= bip01_r_hand
 position_offset				= 0.0,0.0,0.0
 angle_offset				= 1.570790,1.570790,3.92699
@@ -705,7 +617,6 @@ inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 300
 inv_grid_y					= 300
-
 boost_time					= 652
 boost_telepat_protection 	= 0.0166
 eat_alcohol					= -0.092
@@ -722,30 +633,27 @@ visual						= dynamics\drink\drink_cigar0.ogf
 class_dbg			        = S_DRINK
 description					= st_cigarettes_descr
 cost						= 360
-		
 inv_name					= st_cigarettes
 inv_name_short				= st_cigarettes
 inv_weight					= 0.003
-		
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 8
 inv_grid_y					= 60
-
 attach_angle_offset			= -0.287979, 1.560923, 1.544060
 attach_position_offset		= 0.096910, -0.013594, 0.107925
 attach_bone_name			= bip01_r_hand
 auto_attach					= false
-
 uses_base					= cigarettes
 uses_index					= 1
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
 
 [cigarettes_smoke]:cigarettes
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 300
 inv_grid_y					= 300
-
 boost_time					= 52
 boost_radiation_restore		= 0.00092
 eat_alcohol					= -0.052
@@ -758,10 +666,7 @@ use_sound					= interface\inv_smoke
 cost						= 640
 inv_weight					= 0.004
 inv_grid_y					= 59
-
 uses_index					= 2
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 		
 [cigarettes_2_smoke]:cigarettes_smoke
 		
@@ -769,10 +674,7 @@ use1_action_functor  		= itms_manager.inv_item_separate
 cost						= 902
 inv_weight					= 0.005
 inv_grid_y					= 58
-
 uses_index					= 3
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 
 [cigarettes_3_smoke]:cigarettes_smoke
 
@@ -784,34 +686,30 @@ visual						= dynamics\devices\dev_cigarettes_lucky\dev_cigarettes_lucky.ogf
 class_dbg			        = S_DRINK
 description					= st_cigarettes_lucky_descr
 cost						= 441
-
 inv_name					= st_cigarettes_lucky
 inv_name_short				= st_cigarettes_lucky
 inv_weight					= 0.003
-		
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 12
 inv_grid_y					= 60
-
 attach_angle_offset			= -0.287979, 1.560923, 1.544060
 attach_position_offset		= 0.096910, -0.013594, 0.107925
 attach_bone_name			= bip01_r_hand
 auto_attach					= false
-
 bone_name					= bip01_r_hand
 position_offset			 	= 0.0,0.0,0.0
 angle_offset				= 1.570790,1.570790,3.92699
-
 uses_base					= cigarettes_lucky
 uses_index					= 1
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
 
 [cigarettes_lucky_smoke]:cigarettes_lucky
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 300
 inv_grid_y					= 300
-
 boost_time					= 54
 boost_radiation_restore		= 0.00084
 eat_satiety					= 0.014
@@ -824,10 +722,7 @@ use_sound					= interface\inv_smoke
 cost						= 842
 inv_weight					= 0.004
 inv_grid_y					= 59
-
 uses_index					= 2
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 		
 [cigarettes_lucky_2_smoke]:cigarettes_lucky_smoke
 		
@@ -835,10 +730,7 @@ use1_action_functor  		= itms_manager.inv_item_separate
 cost						= 1263
 inv_weight					= 0.005
 inv_grid_y					= 58
-
 uses_index					= 3
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 
 [cigarettes_lucky_3_smoke]:cigarettes_lucky_smoke
 
@@ -850,27 +742,24 @@ visual						= dynamics\devices\dev_cigarettes_russian\dev_cigarettes_russian.ogf
 class_dbg			        = S_DRINK
 description					= st_cigarettes_russian_descr
 cost						= 296
-		
 inv_name					= st_cigarettes_russian
 inv_name_short				= st_cigarettes_russian
 inv_weight					= 0.005
-
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 13
 inv_grid_y					= 60
-
 attach_angle_offset			= -0.287979, 1.560923, 1.544060
 attach_position_offset		= 0.096910, -0.013594, 0.107925
 attach_bone_name			= bip01_r_hand
 auto_attach					= false
-
 bone_name					= bip01_r_hand
 position_offset			 	= 0.0,0.0,0.0
 angle_offset			 	= 1.570790,1.570790,3.92699
-
 uses_base					= cigarettes_russian
 uses_index					= 1
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
 
 [cigarettes_russian_smoke]:cigarettes_russian
 inv_grid_width				= 1
@@ -878,7 +767,6 @@ inv_grid_height				= 1
 inv_grid_x					= 300
 inv_grid_y					= 300
 inv_weight					= 0
-
 boost_time					= 48
 boost_radiation_restore		= 0.00034
 eat_alcohol					= -0.036
@@ -891,10 +779,7 @@ use_sound					= interface\inv_smoke
 cost						= 602
 inv_weight					= 0.004
 inv_grid_y					= 59
-
 uses_index					= 2
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 		
 [cigarettes_russian_2_smoke]:cigarettes_russian_smoke
 		
@@ -902,10 +787,7 @@ use1_action_functor  		= itms_manager.inv_item_separate
 cost						= 908
 inv_weight					= 0.003
 inv_grid_y					= 58
-
 uses_index					= 3
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 
 [cigarettes_russian_3_smoke]:cigarettes_russian_smoke
 
@@ -917,21 +799,17 @@ visual						= dynamics\devices\dev_cigar\dev_cigar.ogf
 class_dbg			        = S_DRINK
 description					= st_cuban_cigar_descr
 cost						= 598
-
 inv_name					= st_cuban_cigar
 inv_name_short				= st_cuban_cigar
 inv_weight					= 0.011
-		
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 4
 inv_grid_y					= 27
-
 attach_angle_offset			= -0.287979, 1.560923, 1.544060
 attach_position_offset		= 0.096910, -0.013594, 0.107925
 attach_bone_name			= bip01_r_hand
 auto_attach					= false
-
 bone_name					= bip01_r_hand
 position_offset			 	= 0.0,0.0,0.0
 angle_offset			 	= 1.570790,1.570790,3.92699
@@ -941,7 +819,6 @@ inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 300
 inv_grid_y					= 300
-
 boost_time					= 54
 boost_radiation_restore		= 0.00132
 eat_alcohol					= -0.066
@@ -958,34 +835,30 @@ visual						= dynamics\drink\drink_cigar1.ogf
 class_dbg			        = S_DRINK
 description					= st_cigar1_descr
 cost						= 502
-
 inv_name					= st_cigar1
 inv_name_short				= st_cigar1
 inv_weight					= 0.002
-		
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 9
 inv_grid_y					= 60
-
 attach_angle_offset			= -0.287979, 1.560923, 1.544060
 attach_position_offset		= 0.096910, -0.013594, 0.107925
 attach_bone_name			= bip01_r_hand
 auto_attach					= false
-
 bone_name					= bip01_r_hand
 position_offset			 	= 0.0,0.0,0.0
 angle_offset			 	= 1.570790,1.570790,3.92699
-
 uses_base					= cigar1
 uses_index					= 1
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
 
 [cigar1_smoke]:cigar1
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 300
 inv_grid_y					= 300
-
 boost_time					= 59
 boost_radiation_restore		= 0.00088
 eat_alcohol					= -0.0585
@@ -998,10 +871,7 @@ use_sound					= interface\inv_smoke
 cost						= 1004
 inv_weight					= 0.003
 inv_grid_y					= 59
-
 uses_index					= 2
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 		
 [cigar1_2_smoke]:cigar1_smoke
 		
@@ -1009,10 +879,7 @@ use1_action_functor  		= itms_manager.inv_item_separate
 cost						= 1506
 inv_weight					= 0.004
 inv_grid_y					= 58
-
 uses_index					= 3
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 
 [cigar1_3_smoke]:cigar1_smoke
 
@@ -1024,34 +891,30 @@ visual						= dynamics\drink\drink_cigar2.ogf
 class_dbg			        = S_DRINK
 description					= st_cigar2_descr
 cost						= 664
-
 inv_name					= st_cigar2
 inv_name_short				= st_cigar2
 inv_weight					= 0.002
-
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 10
 inv_grid_y					= 60
-
 attach_angle_offset			= -0.287979, 1.560923, 1.544060
 attach_position_offset		= 0.096910, -0.013594, 0.107925
 attach_bone_name			= bip01_r_hand
 auto_attach					= false
-
 bone_name					= bip01_r_hand
 position_offset				= 0.0,0.0,0.0
 angle_offset				= 1.570790,1.570790,3.92699
-
 uses_base					= cigar2
 uses_index					= 1
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
 
 [cigar2_smoke]:cigar2
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 300
 inv_grid_y					= 300
-
 boost_time					= 52
 boost_radiation_restore		= 0.00102
 eat_alcohol					= -0.066
@@ -1064,10 +927,7 @@ use_sound					= interface\inv_smoke
 cost						= 1228
 inv_weight					= 0.003
 inv_grid_y					= 59
-
 uses_index					= 2
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 
 [cigar2_2_smoke]:cigar2_smoke
 
@@ -1075,10 +935,7 @@ use1_action_functor  		= itms_manager.inv_item_separate
 cost						= 1792
 inv_weight					= 0.004
 inv_grid_y					= 58
-
 uses_index					= 3
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 
 [cigar2_3_smoke]:cigar2_smoke
 
@@ -1090,34 +947,30 @@ visual						= dynamics\drink\drink_cigar3.ogf
 class_dbg			        = S_DRINK
 description					= st_cigar3_descr
 cost						= 827
-		
 inv_name					= st_cigar3
 inv_name_short				= st_cigar3
 inv_weight					= 0.002
-		
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 11
 inv_grid_y					= 60
-		
 attach_angle_offset			= -0.287979, 1.560923, 1.544060
 attach_position_offset		= 0.096910, -0.013594, 0.107925
 attach_bone_name			= bip01_r_hand
 auto_attach					= false
-
 bone_name					= bip01_r_hand
 position_offset			 	= 0.0,0.0,0.0
 angle_offset			 	= 1.570790,1.570790,3.92699
-
 uses_base					= cigar3
 uses_index					= 1
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
 
 [cigar3_smoke]:cigar3
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 300
 inv_grid_y					= 300
-
 boost_time					= 54
 boost_radiation_restore		= 0.00122
 eat_alcohol					= -0.0725
@@ -1130,10 +983,7 @@ use_sound					= interface\inv_smoke
 cost						= 1454
 inv_weight					= 0.003
 inv_grid_y					= 59
-
 uses_index					= 2
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 		
 [cigar3_2_smoke]:cigar3_smoke
 		
@@ -1141,10 +991,7 @@ use1_action_functor  		= itms_manager.inv_item_separate
 cost						= 2081
 inv_weight					= 0.004
 inv_grid_y					= 58
-
 uses_index					= 3
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 
 [cigar3_3_smoke]:cigar3_smoke
 
@@ -1156,34 +1003,30 @@ visual						= dynamics\equipments\trade\tobacco.ogf
 class_dbg			        = S_DRINK
 description					= st_tobacco_descr
 cost						= 456
-		
 inv_name					= st_tobacco
 inv_name_short				= st_tobacco
 inv_weight					= 0.104
-		
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 5
 inv_grid_y					= 60
-		
 attach_angle_offset			= -0.287979, 1.560923, 1.544060
 attach_position_offset		= 0.096910, -0.013594, 0.107925
 attach_bone_name			= bip01_r_hand
 auto_attach					= false
-
 bone_name					= bip01_r_hand
 position_offset			 	= 0.0,0.0,0.0
 angle_offset			 	= 1.570790,1.570790,3.92699
-
 uses_base					= tobacco
 uses_index					= 1
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
 
 [tobacco_smoke]:tobacco
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 300
 inv_grid_y					= 300
-
 boost_time					= 28
 boost_radiation_restore		= 0.00162
 eat_alcohol					= -0.0765
@@ -1196,10 +1039,7 @@ use_sound					= interface\inv_smoke_tobacco
 cost						= 812
 inv_weight					= 0.105
 inv_grid_y					= 59
-
 uses_index					= 2
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 
 [tobacco2_smoke]:tobacco_smoke
 
@@ -1207,10 +1047,7 @@ use1_action_functor  		= itms_manager.inv_item_separate
 cost						= 1268
 inv_weight					= 0.106
 inv_grid_y					= 58
-
 uses_index					= 3
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 
 [tobacco3_smoke]:tobacco_smoke
 
@@ -1222,34 +1059,30 @@ visual						= dynamics\devices\dev_hand_rolling_tobacco\dev_hand_rolling_tobacco
 class_dbg			        = S_DRINK
 description					= st_hand_rolling_tobacco_descr
 cost						= 287
-		
 inv_name					= st_hand_rolling_tobacco
 inv_name_short				= st_hand_rolling_tobacco
 inv_weight					= 0.002
-
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 6
 inv_grid_y					= 60
-
 attach_angle_offset			= -0.287979, 1.560923, 1.544060
 attach_position_offset		= 0.096910, -0.013594, 0.107925
 attach_bone_name			= bip01_r_hand
 auto_attach					= false
-
 bone_name					= bip01_r_hand
 position_offset				= 0.0,0.0,0.0
 angle_offset				= 1.570790,1.570790,3.92699
-
 uses_base					= hand_rolling_tobacco
 uses_index					= 1
+use1_functor         		= itms_manager.inv_item_separate_menu
+use1_action_functor  		= itms_manager.inv_item_separate
 
 [hand_rolling_tobacco_smoke]:hand_rolling_tobacco
 inv_grid_width				= 1
 inv_grid_height				= 1
 inv_grid_x					= 300
 inv_grid_y					= 300
-
 boost_time					= 22
 boost_radiation_restore		= 0.00194
 eat_alcohol					= -0.0876
@@ -1262,10 +1095,7 @@ use_sound					= interface\inv_smoke_tobacco
 cost						= 547
 inv_weight					= 0.003
 inv_grid_y					= 59
-
 uses_index					= 2
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 
 [hand_rolling_tobacco_2_smoke]:hand_rolling_tobacco_smoke
 
@@ -1273,10 +1103,7 @@ use1_action_functor  		= itms_manager.inv_item_separate
 cost						= 801
 inv_weight					= 0.004
 inv_grid_y					= 58
-
 uses_index					= 3
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
 
 [hand_rolling_tobacco_3_smoke]:hand_rolling_tobacco_smoke
 

@@ -49,20 +49,20 @@ empty_weight                             = 0.8
 
 [con_checker]:booster
 class_dbg								 = S_TOOL
-$spawn 									= "devices\repair_kit_10"
-can_trade								= false
-quest_item								= true
-visua									= dynamics\equipments\con_checker.ogf
-inv_weight      						= 0.01
-description								= st_con_checker_descr
-inv_name								= st_con_checker_name
-inv_name_short							= st_con_checker_name
-inv_grid_width							= 1
-inv_grid_height							= 1
-inv_grid_x								= 16
-inv_grid_y								= 1
-cost									= 3000
-repair_type								= all    
+$spawn 									 = "devices\repair_kit_10"
+can_trade								 = false
+quest_item								 = true
+visua									 = dynamics\equipments\con_checker.ogf
+inv_weight      						 = 0.01
+description								 = st_con_checker_descr
+inv_name								 = st_con_checker_name
+inv_name_short							 = st_con_checker_name
+inv_grid_width							 = 1
+inv_grid_height							 = 1
+inv_grid_x								 = 16
+inv_grid_y								 = 1
+cost									 = 3000
+repair_type								 = all    
 
 [itm_repairkit_tier_1]:identity_immunities ;;-- remove me
 $spawn 									 = "devices\roubles"
@@ -80,10 +80,6 @@ visual                                   = dynamics\equipments\quest\box_toolkit
 description                              = st_itm_basickit_descr
 inv_name                                 = st_itm_basickit_name
 inv_name_short                           = st_itm_basickit_name
-use1_functor         					 = itms_manager.inv_item_open_menu
-use1_action_functor  					 = itms_manager.inv_item_use
-uses_base								 = itm_basickit
-uses_index					             = 1
 
 [itm_repairkit_tier_2]:identity_immunities ;;-- remove me
 $spawn 									 = "devices\roubles"
@@ -101,10 +97,6 @@ visual                                   = dynamics\equipments\quest\box_toolkit
 description                              = st_itm_basickit_descr
 inv_name                                 = st_itm_basickit_name
 inv_name_short                           = st_itm_basickit_name
-use1_functor         					 = itms_manager.inv_item_open_menu
-use1_action_functor  					 = itms_manager.inv_item_use
-uses_base								 = itm_basickit
-uses_index					             = 1
 
 [itm_repairkit_tier_3]:identity_immunities ;;-- remove me
 $spawn 									 = "devices\roubles"
@@ -122,10 +114,6 @@ visual                                   = dynamics\equipments\quest\box_toolkit
 description                              = st_itm_basickit_descr
 inv_name                                 = st_itm_basickit_name
 inv_name_short                           = st_itm_basickit_name
-use1_functor         					 = itms_manager.inv_item_open_menu
-use1_action_functor  					 = itms_manager.inv_item_use
-uses_base								 = itm_basickit
-uses_index					             = 1
 
 
 ;;--==========================< Basic Tools >=============================
@@ -149,6 +137,8 @@ use1_functor         					 = itms_manager.inv_item_open_menu
 use1_action_functor  					 = itms_manager.inv_item_use
 uses_base								 = itm_basickit
 uses_index					             = 1
+use2_functor         		             = itms_manager.inv_item_separate_menu
+use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_basickit_2]:itm_basickit
 inv_grid_y                               = 79
@@ -157,8 +147,6 @@ cost                                     = 2000
 inv_name                                 = st_itm_basickit2_name
 inv_name_short                           = st_itm_basickit2_name
 uses_index					             = 2
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_basickit_3]:itm_basickit
 inv_grid_y                               = 78
@@ -167,8 +155,6 @@ cost                                     = 3000
 inv_name                                 = st_itm_basickit3_name
 inv_name_short                           = st_itm_basickit3_name
 uses_index					             = 3
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_basickit_4]:itm_basickit
 inv_grid_y                               = 77
@@ -177,8 +163,6 @@ cost                                     = 4000
 inv_name                                 = st_itm_basickit4_name
 inv_name_short                           = st_itm_basickit4_name
 uses_index					             = 4
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_basickit_5]:itm_basickit
 inv_grid_y                               = 76
@@ -187,8 +171,6 @@ cost                                     = 5000
 inv_name                                 = st_itm_basickit5_name
 inv_name_short                           = st_itm_basickit5_name
 uses_index					             = 5
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_basickit_6]:itm_basickit
 inv_grid_y                               = 75
@@ -197,8 +179,6 @@ cost                                     = 6000
 inv_name                                 = st_itm_basickit6_name
 inv_name_short                           = st_itm_basickit6_name
 uses_index					             = 6
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_basickit_7]:itm_basickit
 inv_grid_y                               = 74
@@ -207,8 +187,6 @@ cost                                     = 7000
 inv_name                                 = st_itm_basickit7_name
 inv_name_short                           = st_itm_basickit7_name
 uses_index					             = 7
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 
 ;;--==========================< Advanced Tools >=============================
@@ -235,8 +213,6 @@ cost                                     = 2000
 inv_name                                 = st_itm_advancedkit2_name
 inv_name_short                           = st_itm_advancedkit2_name
 uses_index					             = 2
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_advancedkit_3]:itm_advancedkit
 inv_grid_y                               = 78
@@ -245,8 +221,6 @@ cost                                     = 3000
 inv_name                                 = st_itm_advancedkit3_name
 inv_name_short                           = st_itm_advancedkit3_name
 uses_index					             = 3
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_advancedkit_4]:itm_advancedkit
 inv_grid_y                               = 77
@@ -255,8 +229,6 @@ cost                                     = 4000
 inv_name                                 = st_itm_advancedkit4_name
 inv_name_short                           = st_itm_advancedkit4_name
 uses_index					             = 4
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_advancedkit_5]:itm_advancedkit
 inv_grid_y                               = 76
@@ -265,8 +237,6 @@ cost                                     = 5000
 inv_name                                 = st_itm_advancedkit5_name
 inv_name_short                           = st_itm_advancedkit5_name
 uses_index					             = 5
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_advancedkit_6]:itm_advancedkit
 inv_grid_y                               = 75
@@ -275,8 +245,6 @@ cost                                     = 6000
 inv_name                                 = st_itm_advancedkit6_name
 inv_name_short                           = st_itm_advancedkit6_name
 uses_index					             = 6
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_advancedkit_7]:itm_advancedkit
 inv_grid_y                               = 74
@@ -285,8 +253,6 @@ cost                                     = 7000
 inv_name                                 = st_itm_advancedkit7_name
 inv_name_short                           = st_itm_advancedkit7_name
 uses_index					             = 7
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 
 ;;--==========================< Expert Tools >=============================
@@ -311,8 +277,6 @@ cost                                     = 2000
 inv_name                                 = st_itm_expertkit2_name
 inv_name_short                           = st_itm_expertkit2_name
 uses_index					             = 2
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_expertkit_3]:itm_expertkit
 inv_grid_y                               = 78
@@ -321,8 +285,6 @@ cost                                     = 3000
 inv_name                                 = st_itm_expertkit3_name
 inv_name_short                           = st_itm_expertkit3_name
 uses_index					             = 3
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_expertkit_4]:itm_expertkit
 inv_grid_y                               = 77
@@ -331,8 +293,6 @@ cost                                     = 4000
 inv_name                                 = st_itm_expertkit4_name
 inv_name_short                           = st_itm_expertkit4_name
 uses_index					             = 4
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_expertkit_5]:itm_expertkit
 inv_grid_y                               = 76
@@ -341,8 +301,6 @@ cost                                     = 5000
 inv_name                                 = st_itm_expertkit5_name
 inv_name_short                           = st_itm_expertkit5_name
 uses_index					             = 5
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_expertkit_6]:itm_expertkit
 inv_grid_y                               = 75
@@ -351,8 +309,6 @@ cost                                     = 6000
 inv_name                                 = st_itm_expertkit6_name
 inv_name_short                           = st_itm_expertkit6_name
 uses_index					             = 6
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_expertkit_7]:itm_expertkit
 inv_grid_y                               = 74
@@ -361,8 +317,6 @@ cost                                     = 7000
 inv_name                                 = st_itm_expertkit7_name
 inv_name_short                           = st_itm_expertkit7_name
 uses_index					             = 7
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 
 ;;--==========================< Drug kit >=============================
@@ -387,8 +341,6 @@ cost                                     = 2000
 inv_name                                 = st_itm_drugkit2_name
 inv_name_short                           = st_itm_drugkit2_name
 uses_index					             = 2
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_drugkit_3]:itm_drugkit
 inv_grid_y                               = 78
@@ -397,8 +349,6 @@ cost                                     = 3000
 inv_name                                 = st_itm_drugkit3_name
 inv_name_short                           = st_itm_drugkit3_name
 uses_index					             = 3
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_drugkit_4]:itm_drugkit
 inv_grid_y                               = 77
@@ -407,8 +357,6 @@ cost                                     = 4000
 inv_name                                 = st_itm_drugkit4_name
 inv_name_short                           = st_itm_drugkit4_name
 uses_index					             = 4
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_drugkit_5]:itm_drugkit
 inv_grid_y                               = 76
@@ -417,8 +365,6 @@ cost                                     = 5000
 inv_name                                 = st_itm_drugkit5_name
 inv_name_short                           = st_itm_drugkit5_name
 uses_index					             = 5
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_drugkit_6]:itm_drugkit
 inv_grid_y                               = 75
@@ -427,8 +373,6 @@ cost                                     = 6000
 inv_name                                 = st_itm_drugkit6_name
 inv_name_short                           = st_itm_drugkit6_name
 uses_index					             = 6
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_drugkit_7]:itm_drugkit
 inv_grid_y                               = 74
@@ -437,8 +381,6 @@ cost                                     = 7000
 inv_name                                 = st_itm_drugkit7_name
 inv_name_short                           = st_itm_drugkit7_name
 uses_index					             = 7
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 
 ;;--==========================< Ammunition Tools >=============================
@@ -463,8 +405,6 @@ cost                                     = 2000
 inv_name                                 = st_itm_ammokit2_name
 inv_name_short                           = st_itm_ammokit2_name
 uses_index					             = 2
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_ammokit_3]:itm_ammokit
 inv_grid_y                               = 78
@@ -473,8 +413,6 @@ cost                                     = 3000
 inv_name                                 = st_itm_ammokit3_name
 inv_name_short                           = st_itm_ammokit3_name
 uses_index					             = 3
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_ammokit_4]:itm_ammokit
 inv_grid_y                               = 77
@@ -483,8 +421,6 @@ cost                                     = 4000
 inv_name                                 = st_itm_ammokit4_name
 inv_name_short                           = st_itm_ammokit4_name
 uses_index					             = 4
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_ammokit_5]:itm_ammokit
 inv_grid_y                               = 76
@@ -493,8 +429,6 @@ cost                                     = 5000
 inv_name                                 = st_itm_ammokit5_name
 inv_name_short                           = st_itm_ammokit5_name
 uses_index					             = 5
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_ammokit_6]:itm_ammokit
 inv_grid_y                               = 75
@@ -503,8 +437,6 @@ cost                                     = 6000
 inv_name                                 = st_itm_ammokit6_name
 inv_name_short                           = st_itm_ammokit6_name
 uses_index					             = 6
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 [itm_ammokit_7]:itm_ammokit
 inv_grid_y                               = 74
@@ -513,8 +445,6 @@ cost                                     = 7000
 inv_name                                 = st_itm_ammokit7_name
 inv_name_short                           = st_itm_ammokit7_name
 uses_index					             = 7
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
 
 
 ;;--==========================< Anomaly Maps >=============================
@@ -603,7 +533,7 @@ inv_grid_width			                 = 1
 inv_grid_height			                 = 1
 inv_grid_x			                     = 92
 inv_grid_y			                     = 80
-cost				                     = 200
+cost				                     = 50
 ;box_size			                     = 1
 inv_weight			                     = 0.1
 attach_angle_offset		                 = -0.287979, 1.560923, 1.544060
@@ -611,55 +541,44 @@ attach_position_offset		             = 0.096910, -0.013594, 0.107925
 attach_bone_name		                 = bip01_r_hand
 auto_attach				                 = false
 repair_part_bonus	 	                 = 0.02
-can_disassemble                          = true
-disassemble_categories                   = dis_wornrusty_pistol, dis_pistol, dis_outfit_helm, dis_outfit_helm_cloth, dis_outfit_helm_resp, dis_outfit_scient, dis_outfit_scient_worn, dis_outfit_scient_bad, dis_itm_ied, dis_itm_trash
+disassemble_tool                         = true
 uses_base								 = swiss_knife
 uses_index					             = 1
+use1_functor         		             = itms_manager.inv_item_separate_menu
+use1_action_functor  		             = itms_manager.inv_item_separate
 
 [swiss_knife_2]:swiss_knife
 inv_grid_y                               = 79
-cost                                     = 220
+cost                                     = 100
 uses_index					             = 2
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
 
 [swiss_knife_3]:swiss_knife
 inv_grid_y                               = 78
-cost                                     = 240
+cost                                     = 150
 uses_index					             = 3
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
 
 [swiss_knife_4]:swiss_knife
 inv_grid_y                               = 77
-cost                                     = 260
+cost                                     = 200
 uses_index					             = 4
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
 
 [swiss_knife_5]:swiss_knife
 inv_grid_y                               = 76
-cost                                     = 280
+cost                                     = 250
 uses_index					             = 5
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
 
 [swiss_knife_6]:swiss_knife
 inv_grid_y                               = 75
 cost                                     = 300
 uses_index					             = 6
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
 
 [swiss_knife_7]:swiss_knife
 inv_grid_y                               = 74
-cost                                     = 320
+cost                                     = 350
 uses_index					             = 7
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
 
 ;;--==========================< Grooming kit >=============================
-[grooming_kit]:identity_immunities
+[grooming]:identity_immunities
 $spawn 				                     = "devices\roubles"
 $prefetch 			                     = 16
 class_dbg			                     = S_MISC
@@ -674,7 +593,7 @@ inv_grid_width			                 = 1
 inv_grid_height			                 = 1
 inv_grid_x			                     = 93
 inv_grid_y			                     = 80
-cost				                     = 420
+cost				                     = 60
 ;box_size			                     = 1
 inv_weight			                     = 0.13
 attach_angle_offset		                 = -0.287979, 1.560923, 1.544060
@@ -682,52 +601,42 @@ attach_position_offset		             = 0.096910, -0.013594, 0.107925
 attach_bone_name		                 = bip01_r_hand
 auto_attach				                 = false
 repair_part_bonus	 	                 = 0.02
-can_disassemble                          = true
-disassemble_categories                   = dis_wornrusty_pistol, dis_pistol, dis_outfit_helm, dis_outfit_helm_cloth, dis_outfit_helm_resp, dis_outfit_scient, dis_outfit_scient_worn, dis_outfit_scient_bad, dis_itm_ied, dis_itm_trash
-uses_base								 = grooming_kit
+disassemble_tool                         = true
+uses_base								 = grooming
 uses_index					             = 1
+use1_functor         		             = itms_manager.inv_item_separate_menu
+use1_action_functor  		             = itms_manager.inv_item_separate
 
-[grooming_kit_2]:grooming_kit
+[grooming_2]:grooming
 inv_grid_y                               = 79
-cost                                     = 220
+cost                                     = 120
 uses_index					             = 2
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
 
-[grooming_kit_3]:grooming_kit
+
+[grooming_3]:grooming
 inv_grid_y                               = 78
-cost                                     = 240
+cost                                     = 180
 uses_index					             = 3
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
 
-[grooming_kit_4]:grooming_kit
+[grooming_4]:grooming
 inv_grid_y                               = 77
-cost                                     = 260
+cost                                     = 240
 uses_index					             = 4
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
 
-[grooming_kit_5]:grooming_kit
+[grooming_5]:grooming
 inv_grid_y                               = 76
-cost                                     = 280
-uses_index					             = 5
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
-
-[grooming_kit_6]:grooming_kit
-inv_grid_y                               = 75
 cost                                     = 300
-uses_index					             = 6
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
+uses_index					             = 5
 
-[grooming_kit_7]:grooming_kit
+[grooming_6]:grooming
+inv_grid_y                               = 75
+cost                                     = 360
+uses_index					             = 6
+
+[grooming_7]:grooming
 inv_grid_y                               = 74
-cost                                     = 320
+cost                                     = 420
 uses_index					             = 7
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
 
 ;;--==========================< Ammo Box >=============================
 [ammo_box]:identity_immunities
@@ -817,10 +726,10 @@ inv_weight                               = 2.28
 description                              = st_itm_sleepbag_descr
 inv_name                                 = st_itm_sleepbag_name
 inv_name_short                           = st_itm_sleepbag_name
-inv_grid_width		= 3
-inv_grid_height		= 2
-inv_grid_x		= 0
-inv_grid_y		= 45
+inv_grid_width		                     = 3
+inv_grid_height		                     = 2
+inv_grid_x		                         = 0
+inv_grid_y		                         = 45
 cost                                     = 1580
 eat_health                               = 0
 eat_satiety                              = 0

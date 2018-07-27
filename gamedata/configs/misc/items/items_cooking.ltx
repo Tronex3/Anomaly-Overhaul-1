@@ -110,22 +110,20 @@ cooking_parts_exclude	                 = charcoal, charcoal2, charcoal3
 cooking_use_actor_effects                = true      ;Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
 uses_base								 = cooking
 uses_index					             = 1
+use1_functor         		             = itms_manager.inv_item_separate_menu
+use1_action_functor  		             = itms_manager.inv_item_separate
 
 [cooking_2]:cooking
 inv_grid_y                               = 79
 cost                                     = 840
 inv_weight				    			 = 1
 uses_index					             = 2
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
 
 [cooking_3]:cooking
 inv_grid_y                               = 78
 cost                                     = 1260
 inv_weight				    			 = 1.1
 uses_index					             = 3
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
 
 
 ;;--==========================< Army Kettle >=============================
@@ -153,54 +151,44 @@ cooking_parts_exclude	                 =
 cooking_use_actor_effects                = true      ;Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
 uses_base								 = army_bowler
 uses_index					             = 1
+use1_functor         		             = itms_manager.inv_item_separate_menu
+use1_action_functor  		             = itms_manager.inv_item_separate
 
 [army_bowler_2]:army_bowler
 inv_grid_y                               = 79
 cost                                     = 840
 inv_weight				    			 = 1
 uses_index					             = 2
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
 
 [army_bowler_3]:army_bowler
 inv_grid_y                               = 78
 cost                                     = 1260
 inv_weight				    			 = 1.1
 uses_index					             = 3
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
 
 [army_bowler_4]:army_bowler
 inv_grid_y                               = 77
 cost                                     = 1680
 inv_weight				    			 = 1.2
 uses_index					             = 4
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
 
 [army_bowler_5]:army_bowler
 inv_grid_y                               = 76
 cost                                     = 2100
 inv_weight				    			 = 1.3
 uses_index					             = 5
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
 
 [army_bowler_6]:army_bowler
 inv_grid_y                               = 75
 cost                                     = 2520
 inv_weight				    			 = 1.4
 uses_index					             = 6
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
 
 [army_bowler_7]:army_bowler
 inv_grid_y                               = 74
 cost                                     = 2940
 inv_weight				    			 = 1.5
 uses_index					             = 7
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;; A box of matches ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -225,6 +213,8 @@ use_condition                            = false
 ;use_sound			                     = interface\inv_matches
 remove_after_use                         = true
 uses_base			                     = box_matches_1
+use1_functor         		             = itms_manager.inv_item_separate_menu
+use1_action_functor  		             = itms_manager.inv_item_separate
 
 [box_matches_1]:box_matches
 inv_grid_x			                     = 8
@@ -235,29 +225,21 @@ uses_index			                     = 1
 inv_grid_x			                     = 7
 cost				                     = 340
 uses_index			                     = 2
-use1_functor                             = itms_manager.inv_item_separate_menu
-use1_action_functor                      = itms_manager.inv_item_separate
 
 [box_matches_3]:box_matches
 inv_grid_x			                     = 6
 cost				                     = 438
 uses_index			                     = 3
-use1_functor                             = itms_manager.inv_item_separate_menu
-use1_action_functor                      = itms_manager.inv_item_separate
 
 [box_matches_4]:box_matches
 inv_grid_x			                     = 5
 cost				                     = 554
 uses_index			                     = 4
-use1_functor                             = itms_manager.inv_item_separate_menu
-use1_action_functor                      = itms_manager.inv_item_separate
 
 [box_matches_5]:box_matches
 inv_grid_x			                     = 4
 cost				                     = 662
 uses_index			                     = 5
-use1_functor                             = itms_manager.inv_item_separate_menu
-use1_action_functor                      = itms_manager.inv_item_separate
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -312,40 +294,36 @@ immunities_sect			                 = explosive_jerrycan_immunities_sect
 repair_part_bonus	 	                 = 0.03
 uses_charges				             = 5
 uses_base					             = kerosene5
+use1_functor         		             = itms_manager.inv_item_separate_menu
+use1_action_functor  		             = itms_manager.inv_item_separate
 
 [kerosene]:kerosene_base	;;-- x5
 inv_grid_x                               = 4
-cost				                     = 1019
+cost				                     = 1000
 inv_weight			                     = 4.47
 uses_index					             = 5
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
 
 [kerosene2]:kerosene_base	;;-- x4
 inv_grid_x                               = 5
-cost				                     = 917
+cost				                     = 800
 inv_weight			                     = 3.63
 uses_index					             = 4
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
 
 [kerosene3]:kerosene_base	;;-- x3
 inv_grid_x                               = 6
-cost				                     = 800
+cost				                     = 600
 inv_weight			                     = 2.79
 uses_index					             = 3
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
 
 [kerosene4]:kerosene_base	;;-- x2
 inv_grid_x                               = 7
-cost				                     = 646
+cost				                     = 400
 inv_weight			                     = 1.95
 uses_index					             = 2
 
 [kerosene5]:kerosene_base	;;-- x1
 inv_grid_x                               = 8
-cost				                     = 542
+cost				                     = 200
 inv_weight			                     = 1.11
 uses_index					             = 1
 
@@ -396,6 +374,8 @@ snd_explode                              = weapons\explo\fuelcan_boom
 immunities_sect			                 = explosive_jerrycan_immunities_sect
 uses_charges				             = 3
 uses_base					             = charcoal3
+use1_functor         		             = itms_manager.inv_item_separate_menu
+use1_action_functor  		             = itms_manager.inv_item_separate
 
 
 [charcoal]:charcoal_base	;;-- x3
@@ -405,8 +385,6 @@ inv_grid_x                               = 9
 cost				                     = 880
 inv_weight			                     = 3.12
 uses_index					             = 3
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
 
 [charcoal2]:charcoal_base	;;-- x2
 inv_name			                     = st_charcoal2
@@ -415,8 +393,6 @@ inv_grid_x                               = 10
 cost				                     = 605
 inv_weight			                     = 2.12
 uses_index					             = 2
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
 
 [charcoal3]:charcoal_base	;;-- x1
 inv_name			                     = st_charcoal3

@@ -1,779 +1,673 @@
-;
-;	Changed for IMM	by Faustle (2018)
-;--=====================================================================
+;;--================================================
+;;--================| Drugs / Meds |================
+;;--================================================
 
 [caffeine]:booster
-$spawn 						= "food and drugs\drug_psy_blockade"
-visual						= dynamics\devices\dev_caffeine\dev_caffeine.ogf
-class_dbg			        = S_MED
-description					= st_caffeine_descr
-cost						= 510
-
-inv_name					= st_caffeine
-inv_name_short				= st_caffeine
-inv_weight					= 0.003
-
-inv_grid_width				= 1
-inv_grid_height				= 1
-inv_grid_x					= 0
-inv_grid_y					= 62
-
-uses_base					= caffeine
-uses_index					= 1
+$spawn 						             = "food and drugs\drug_psy_blockade"
+visual						             = dynamics\devices\dev_caffeine\dev_caffeine.ogf
+class_dbg			                     = S_MED
+description					             = st_caffeine_descr
+cost						             = 510
+inv_name					             = st_caffeine
+inv_name_short				             = st_caffeine
+inv_weight					             = 0.003
+inv_grid_width				             = 1
+inv_grid_height				             = 1
+inv_grid_x					             = 0
+inv_grid_y					             = 62
+uses_base					             = caffeine
+uses_index					             = 1
+use1_functor         		             = itms_manager.inv_item_separate_menu
+use1_action_functor  		             = itms_manager.inv_item_separate
 
 [caffeine_use]:caffeine
-inv_grid_width				= 1
-inv_grid_height				= 1
-inv_grid_x					= 300
-inv_grid_y					= 300
-
-boost_time					= 266
-boost_max_weight			= 0.724
-boost_power_restore			= 0.0008
-eat_alcohol 				= -0.170
-eat_satiety 				= 0.014
-eat_sleepiness				= -0.022
-use_sound					= interface\inv_eat_pills_effect
+inv_grid_width				             = 1
+inv_grid_height				             = 1
+inv_grid_x					             = 300
+inv_grid_y					             = 300
+boost_time					             = 266
+boost_max_weight			             = 0.724
+boost_power_restore			             = 0.0008
+eat_alcohol 				             = -0.170
+eat_satiety 				             = 0.014
+eat_sleepiness				             = -0.022
+use_sound					             = interface\inv_eat_pills_effect
 
 [caffeine_2]:caffeine
-cost						= 1020
-inv_weight					= 0.005
-inv_grid_y					= 61
-uses_index					= 2
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+cost						             = 1020
+inv_weight					             = 0.005
+inv_grid_y					             = 61
+uses_index					             = 2
 
 [caffeine_2_use]:caffeine_use
 
 [caffeine_3]:caffeine
-cost						= 1530
-inv_weight					= 0.007
-inv_grid_y					= 60
-uses_index					= 3
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+cost						             = 1530
+inv_weight					             = 0.007
+inv_grid_y					             = 60
+uses_index					             = 3
 
 [caffeine_3_use]:caffeine_use
 
 [caffeine_4]:caffeine
-cost						= 2040
-inv_weight					= 0.009
-inv_grid_y					= 59
-uses_index					= 4
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+cost						             = 2040
+inv_weight					             = 0.009
+inv_grid_y					             = 59
+uses_index					             = 4
 
 [caffeine_4_use]:caffeine_use
 
 [caffeine_5]:caffeine
-cost						= 2550
-inv_weight					= 0.011
-inv_grid_y					= 58
-uses_index					= 5
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+cost						             = 2550
+inv_weight					             = 0.011
+inv_grid_y					             = 58
+uses_index					             = 5
 
 [caffeine_5_use]:caffeine_use
 
 ;--=====================================================================
 
 [drug_sleepingpills]:booster
-$spawn 						= "food and drugs\drug_psy_blockade"
-visual						= dynamics\equipments\medical\drug_sleeping_pills.ogf
-class_dbg			        = S_MED
-description					= st_sleepingpills_descr
-cost						= 420
-		
-inv_name					= st_sleepingpills
-inv_name_short				= st_sleepingpills
-inv_weight					= 0.003
-		
-inv_grid_width				= 1
-inv_grid_height				= 1
-inv_grid_x					= 1
-inv_grid_y					= 62
-
-uses_base					= drug_sleepingpills
-uses_index					= 1
+$spawn 						             = "food and drugs\drug_psy_blockade"
+visual						             = dynamics\equipments\medical\drug_sleeping_pills.ogf
+class_dbg			                     = S_MED
+description					             = st_sleepingpills_descr
+cost						             = 420
+inv_name					             = st_sleepingpills
+inv_name_short				             = st_sleepingpills
+inv_weight					             = 0.003
+inv_grid_width				             = 1
+inv_grid_height				             = 1
+inv_grid_x					             = 1
+inv_grid_y					             = 62
+uses_base					             = drug_sleepingpills
+uses_index					             = 1
+use1_functor         		             = itms_manager.inv_item_separate_menu
+use1_action_functor  		             = itms_manager.inv_item_separate
 		
 [drug_sleepingpills_use]:drug_sleepingpills		
 		
-inv_grid_width				= 1
-inv_grid_height				= 1
-inv_grid_x					= 300
-inv_grid_y					= 300
-
-eat_sleepiness				= 0.668	
-use_sound					= interface\inv_eat_pills_2
+inv_grid_width				             = 1
+inv_grid_height				             = 1
+inv_grid_x					             = 300
+inv_grid_y					             = 300
+eat_sleepiness				             = 0.668	
+use_sound					             = interface\inv_eat_pills_2
 
 [drug_sleepingpills_2]:drug_sleepingpills
-cost						= 840
-inv_weight					= 0.005
-inv_grid_y					= 61
-uses_index					= 2
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+cost						             = 840
+inv_weight					             = 0.005
+inv_grid_y					             = 61
+uses_index					             = 2
 
 [drug_sleepingpills_3]:drug_sleepingpills
-cost						= 1260
-inv_weight					= 0.007
-inv_grid_y					= 60
-uses_index					= 3
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+cost						             = 1260
+inv_weight					             = 0.007
+inv_grid_y					             = 60
+uses_index					             = 3
 
 [drug_sleepingpills_4]:drug_sleepingpills
-cost						= 1680
-inv_weight					= 0.009
-inv_grid_y					= 59
-uses_index					= 4
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+cost						             = 1680
+inv_weight					             = 0.009
+inv_grid_y					             = 59
+uses_index					             = 4
 
 [drug_sleepingpills_5]:drug_sleepingpills
-cost						= 2100
-inv_weight					= 0.011
-inv_grid_y					= 58
-uses_index					= 5
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+cost						             = 2100
+inv_weight					             = 0.011
+inv_grid_y					             = 58
+uses_index					             = 5
 
 ;--=====================================================================
 
 [antirad]:booster
-$spawn 						= "food and drugs\antirad"
-visual						= dynamics\devices\dev_antirad\dev_antirad.ogf
-class_dbg			        = S_MED
-description					= st_antirad_descr
-cost						= 1360
-		
-inv_name					= st_antirad
-inv_name_short				= st_antirad
-inv_weight					= 0.05
-		
-inv_grid_width				= 1
-inv_grid_height				= 1
-inv_grid_x					= 5
-inv_grid_y					= 26
+$spawn 						             = "food and drugs\antirad"
+visual						             = dynamics\devices\dev_antirad\dev_antirad.ogf
+class_dbg			                     = S_MED
+description					             = st_antirad_descr
+cost						             = 1360
+inv_name					             = st_antirad
+inv_name_short				             = st_antirad
+inv_weight					             = 0.05
+inv_grid_width				             = 1
+inv_grid_height				             = 1
+inv_grid_x					             = 5
+inv_grid_y					             = 26
 
 [antirad_use]:antirad
-inv_grid_width				= 1
-inv_grid_height				= 1
-inv_grid_x					= 300
-inv_grid_y					= 300
-
-boost_time					= 10.8
-boost_radiation_restore		= 0.0046
-eat_satiety 				= -0.344
-eat_sleepiness				= 0.124
-eat_health					= -0.053
-use_sound					= interface\inv_syringe
+inv_grid_width				             = 1
+inv_grid_height				             = 1
+inv_grid_x					             = 300
+inv_grid_y					             = 300
+boost_time					             = 10.8
+boost_radiation_restore		             = 0.0046
+eat_satiety 				             = -0.344
+eat_sleepiness				             = 0.124
+eat_health					             = -0.053
+use_sound					             = interface\inv_syringe
 
 ;--=====================================================================
 
 [drug_booster]:booster
-$spawn 						= "food and drugs\drug_booster"
-visual						= dynamics\equipments\medical\drug_booster.ogf
-class_dbg			        = S_MED
-description					= st_drug_booster_descr
-cost						= 1582
-		
-inv_name					= st_drug_booster
-inv_name_short				= st_drug_booster
-inv_weight					= 0.18
-		
-inv_grid_width				= 1
-inv_grid_height				= 1
-inv_grid_x					= 6
-inv_grid_y					= 26
+$spawn 						             = "food and drugs\drug_booster"
+visual						             = dynamics\equipments\medical\drug_booster.ogf
+class_dbg			                     = S_MED
+description					             = st_drug_booster_descr
+cost						             = 1582
+inv_name					             = st_drug_booster
+inv_name_short				             = st_drug_booster
+inv_weight					             = 0.18
+inv_grid_width				             = 1
+inv_grid_height				             = 1
+inv_grid_x					             = 6
+inv_grid_y					             = 26
 		
 [drug_booster_use]:drug_booster
-inv_grid_width				= 1
-inv_grid_height				= 1
-inv_grid_x					= 300
-inv_grid_y					= 300
-
-boost_time					= 548
-boost_max_weight			= 3.067
-boost_power_restore			= 0.0028
-eat_alcohol 				= -0.440
-eat_satiety 				= 0.239
-eat_sleepiness				= -0.05
-use_sound					= interface\inv_drink_flask_effect
+inv_grid_width				             = 1
+inv_grid_height				             = 1
+inv_grid_x					             = 300
+inv_grid_y					             = 300
+boost_time					             = 548
+boost_max_weight			             = 3.067
+boost_power_restore			             = 0.0028
+eat_alcohol 				             = -0.440
+eat_satiety 				             = 0.239
+eat_sleepiness				             = -0.05
+use_sound					             = interface\inv_drink_flask_effect
 
 ;--=====================================================================
 
 [drug_coagulant]:booster
-$spawn 						= "food and drugs\drug_coagulant"
-visual						= dynamics\equipments\medical\drug_coagulant.ogf
-class_dbg			        = S_MED
-description					= st_drug_coagulant_descr
-cost						= 670
-
-inv_name					= st_drug_coagulant
-inv_name_short				= st_drug_coagulant
-inv_weight					= 0.003
-
-inv_grid_width				= 1
-inv_grid_height				= 1
-inv_grid_x					= 2
-inv_grid_y					= 62
-
-boost_time					= 438
-boost_bleeding_restore		= 0.00042
-boost_wound_immunity		= 0.165
-boost_fire_wound_immunity	= 0.075
-boost_explosion_immunity	= 0.171
-boost_strike_immunity		= 0.126
-eat_sleepiness				= 0.012
-eat_satiety 				= -0.166
-use_sound					= interface\inv_eat_pills
-
-uses_base					= drug_coagulant
-uses_index					= 1
+$spawn 						             = "food and drugs\drug_coagulant"
+visual						             = dynamics\equipments\medical\drug_coagulant.ogf
+class_dbg			                     = S_MED
+description					             = st_drug_coagulant_descr
+cost						             = 670
+inv_name					             = st_drug_coagulant
+inv_name_short				             = st_drug_coagulant
+inv_weight					             = 0.003
+inv_grid_width				             = 1
+inv_grid_height				             = 1
+inv_grid_x					             = 2
+inv_grid_y					             = 62
+boost_time					             = 438
+boost_bleeding_restore		             = 0.00042
+boost_wound_immunity		             = 0.165
+boost_fire_wound_immunity	             = 0.075
+boost_explosion_immunity	             = 0.171
+boost_strike_immunity		             = 0.126
+eat_sleepiness				             = 0.012
+eat_satiety 				             = -0.166
+use_sound					             = interface\inv_eat_pills
+uses_base					             = drug_coagulant
+uses_index					             = 1
+use1_functor         		             = itms_manager.inv_item_separate_menu
+use1_action_functor  		             = itms_manager.inv_item_separate
 
 [drug_coagulant_2]:drug_coagulant
-cost						= 1340
-inv_weight					= 0.005
-inv_grid_y					= 61
-uses_index					= 2
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+cost						             = 1340
+inv_weight					             = 0.005
+inv_grid_y					             = 61
+uses_index					             = 2
 
 [drug_coagulant_3]:drug_coagulant
-cost						= 2010
-inv_weight					= 0.007
-inv_grid_y					= 60
-uses_index					= 3
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+cost						             = 2010
+inv_weight					             = 0.007
+inv_grid_y					             = 60
+uses_index					             = 3
 
 [drug_coagulant_4]:drug_coagulant
-cost						= 2680
-inv_weight					= 0.009
-inv_grid_y					= 59
-uses_index					= 4
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+cost						             = 2680
+inv_weight					             = 0.009
+inv_grid_y					             = 59
+uses_index					             = 4
 
 [drug_coagulant_5]:drug_coagulant
-cost						= 3350
-inv_weight					= 0.011
-inv_grid_y					= 58
-uses_index					= 5
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+cost						             = 3350
+inv_weight					             = 0.011
+inv_grid_y					             = 58
+uses_index					             = 5
 		
 ;--=====================================================================
 
 [drug_psy_blockade]:booster
-$spawn 						= "food and drugs\drug_psy_blockade"
-visual						= dynamics\equipments\medical\drug_psy_blockade.ogf
-class_dbg			        = S_MED
-description					= st_drug_psy_blockade_descr
-cost						= 950
-		
-inv_name					= st_drug_psy_blockade
-inv_name_short				= st_drug_psy_blockade
-inv_weight					= 0.003
-		
-inv_grid_width				= 1
-inv_grid_height				= 1
-inv_grid_x					= 3
-inv_grid_y					= 62
-
-uses_base					= drug_psy_blockade
-uses_index					= 1
+$spawn 						             = "food and drugs\drug_psy_blockade"
+visual						             = dynamics\equipments\medical\drug_psy_blockade.ogf
+class_dbg			                     = S_MED
+description					             = st_drug_psy_blockade_descr
+cost						             = 950
+inv_name					             = st_drug_psy_blockade
+inv_name_short				             = st_drug_psy_blockade
+inv_weight					             = 0.003
+inv_grid_width				             = 1
+inv_grid_height				             = 1
+inv_grid_x					             = 3
+inv_grid_y					             = 62
+uses_base					             = drug_psy_blockade
+uses_index					             = 1
 		
 [drug_psy_blockade_use]:drug_psy_blockade
-inv_grid_width				= 1
-inv_grid_height				= 1
-inv_grid_x					= 300
-inv_grid_y					= 300
-
-boost_time					= 1248
-boost_telepat_protection 	= 0.0109
-eat_satiety 				= -0.124
-eat_alcohol					= 0.575
-eat_sleepiness				= 0.046
-use_sound					= interface\inv_eat_pills_effect
+inv_grid_width				             = 1
+inv_grid_height				             = 1
+inv_grid_x					             = 300
+inv_grid_y					             = 300
+boost_time					             = 1248
+boost_telepat_protection 	             = 0.0109
+eat_satiety 				             = -0.124
+eat_alcohol					             = 0.575
+eat_sleepiness				             = 0.046
+use_sound					             = interface\inv_eat_pills_effect
 
 [drug_psy_blockade_2]:drug_psy_blockade
-cost						= 1710
-inv_weight					= 0.005
-inv_grid_y					= 61
-uses_index					= 2
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+cost						             = 1710
+inv_weight					             = 0.005
+inv_grid_y					             = 61
+uses_index					             = 2
 
 [drug_psy_blockade_2_use]:drug_psy_blockade_use
 
 [drug_psy_blockade_3]:drug_psy_blockade
-cost						= 2650
-inv_weight					= 0.007
-inv_grid_y					= 60
-uses_index					= 3
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+cost						             = 2650
+inv_weight					             = 0.007
+inv_grid_y					             = 60
+uses_index					             = 3
 
 [drug_psy_blockade_3_use]:drug_psy_blockade_use
 
 [drug_psy_blockade_4]:drug_psy_blockade
-cost						= 3520
-inv_weight					= 0.009
-inv_grid_y					= 59
-uses_index					= 4
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+cost						             = 3520
+inv_weight					             = 0.009
+inv_grid_y					             = 59
+uses_index					             = 4
 
 [drug_psy_blockade_4_use]:drug_psy_blockade_use
 
 [drug_psy_blockade_5]:drug_psy_blockade
-cost						= 4450
-inv_weight					= 0.011
-inv_grid_y					= 58
-uses_index					= 5
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+cost						             = 4450
+inv_weight					             = 0.011
+inv_grid_y					             = 58
+uses_index					             = 5
 
 [drug_psy_blockade_5_use]:drug_psy_blockade_use
 
 ;--=====================================================================
 
 [drug_antidot]:booster
-$spawn 						= "food and drugs\drug_antidot"
-visual						= dynamics\equipments\medical\drug_antidot.ogf
-class_dbg			        = S_MED
-description					= st_drug_antidot_descr
-cost						= 1120
-
-inv_name					= st_drug_antidot
-inv_name_short				= st_drug_antidot
-inv_weight					= 0.004
-
-inv_grid_width				= 1
-inv_grid_height				= 1
-inv_grid_x					= 1
-inv_grid_y					= 57
-
-boost_time					= 296
-boost_chemburn_protection 	= 0.00236
-eat_satiety 				= -0.055
-eat_sleepiness				= 0.053
-use_sound					= interface\inv_eat_pills_2
-
-uses_base					= drug_antidot
-uses_index					= 1
+$spawn 						             = "food and drugs\drug_antidot"
+visual						             = dynamics\equipments\medical\drug_antidot.ogf
+class_dbg			                     = S_MED
+description					             = st_drug_antidot_descr
+cost						             = 1120
+inv_name					             = st_drug_antidot
+inv_name_short				             = st_drug_antidot
+inv_weight					             = 0.004
+inv_grid_width				             = 1
+inv_grid_height				             = 1
+inv_grid_x					             = 1
+inv_grid_y					             = 57
+boost_time					             = 296
+boost_chemburn_protection 	             = 0.00236
+eat_satiety 				             = -0.055
+eat_sleepiness				             = 0.053
+use_sound					             = interface\inv_eat_pills_2
+uses_base					             = drug_antidot
+uses_index					             = 1
 
 [drug_antidot_2]:drug_antidot
-cost						= 2240
-inv_weight					= 0.007
-inv_grid_y					= 56
-uses_index					= 2
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+cost						             = 2240
+inv_weight					             = 0.007
+inv_grid_y					             = 56
+uses_index					             = 2
 
 [drug_antidot_3]:drug_antidot
-cost						= 3360
-inv_weight					= 0.01
-inv_grid_y					= 55
-uses_index					= 3
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+cost						             = 3360
+inv_weight					             = 0.01
+inv_grid_y					             = 55
+uses_index					             = 3
 
 ;--=====================================================================
 
 [drug_radioprotector]:booster
-$spawn 						= "food and drugs\drug_radioprotector"
-visual						= dynamics\equipments\medical\drug_radioprotector.ogf
-class_dbg			        = S_MED
-description					= st_drug_radioprotector_descr
-cost						= 860
-		
-inv_name					= st_drug_radioprotector
-inv_name_short				= st_drug_radioprotector
-inv_weight					= 0.005
-		
-inv_grid_width				= 1
-inv_grid_height				= 1
-inv_grid_x					= 4
-inv_grid_y					= 62
-
-uses_base					= drug_radioprotector
-uses_index					= 1
-
-boost_time					= 331
-boost_radiation_protection	= 0.0154
-eat_satiety 				= -0.102
-eat_sleepiness				= 0.069
-use_sound					= interface\inv_eat_pills_2
+$spawn 						             = "food and drugs\drug_radioprotector"
+visual						             = dynamics\equipments\medical\drug_radioprotector.ogf
+class_dbg			                     = S_MED
+description					             = st_drug_radioprotector_descr
+cost						             = 860
+inv_name					             = st_drug_radioprotector
+inv_name_short				             = st_drug_radioprotector
+inv_weight					             = 0.005
+inv_grid_width				             = 1
+inv_grid_height				             = 1
+inv_grid_x					             = 4
+inv_grid_y					             = 62
+uses_base					             = drug_radioprotector
+uses_index					             = 1
+use1_functor         		             = itms_manager.inv_item_separate_menu
+use1_action_functor  		             = itms_manager.inv_item_separate
+boost_time					             = 331
+boost_radiation_protection	             = 0.0154
+eat_satiety 				             = -0.102
+eat_sleepiness				             = 0.069
+use_sound					             = interface\inv_eat_pills_2
 
 [drug_radioprotector_2]:drug_radioprotector
-cost						= 1720
-inv_weight					= 0.009
-inv_grid_y					= 61
-uses_index					= 2
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+cost						             = 1720
+inv_weight					             = 0.009
+inv_grid_y					             = 61
+uses_index					             = 2
 
 ;--=====================================================================
 
 [drug_anabiotic]:booster
-$spawn 						= "food and drugs\drug_anabiotic"
-visual						= dynamics\equipments\medical\drug_anabiotic.ogf
-class_dbg			        = S_MED
-description					= st_drug_anabiotic_descr
-cost						= 2650
-		
-inv_name					= st_drug_anabiotic
-inv_name_short				= st_drug_anabiotic
-inv_weight					= 0.012
-		
-inv_grid_width				= 1
-inv_grid_height				= 1
-inv_grid_x					= 11
-inv_grid_y					= 26
-
-use_sound					= interface\inv_eat_pills_2
+$spawn 						             = "food and drugs\drug_anabiotic"
+visual						             = dynamics\equipments\medical\drug_anabiotic.ogf
+class_dbg			                     = S_MED
+description					             = st_drug_anabiotic_descr
+cost						             = 2650
+inv_name					             = st_drug_anabiotic
+inv_name_short				             = st_drug_anabiotic
+inv_weight					             = 0.012
+inv_grid_width				             = 1
+inv_grid_height				             = 1
+inv_grid_x					             = 11
+inv_grid_y					             = 26
+use_sound					             = interface\inv_eat_pills_2
 
 ;--=====================================================================
 
 [akvatab]:booster
-$spawn 						= "food and drugs\antirad"
-visual						= dynamics\equipments\medical\drug_cat_eye.ogf
-class_dbg			        = S_MED
-description					= st_akvatab_descr
-cost						= 1508
-		
-inv_name					= st_akvatab
-inv_name_short				= st_akvatab
-inv_weight					= 0.002
-		
-inv_grid_width				= 1
-inv_grid_height				= 1
-inv_grid_x					= 7
-inv_grid_y					= 60
-
-uses_base					= akvatab
-uses_index					= 1
+$spawn 						             = "food and drugs\antirad"
+visual						             = dynamics\equipments\medical\drug_cat_eye.ogf
+class_dbg			                     = S_MED
+description					             = st_akvatab_descr
+cost						             = 1508
+inv_name					             = st_akvatab
+inv_name_short				             = st_akvatab
+inv_weight					             = 0.002
+inv_grid_width				             = 1
+inv_grid_height				             = 1
+inv_grid_x					             = 7
+inv_grid_y					             = 60
+uses_base					             = akvatab
+uses_index					             = 1
+use1_functor         		             = itms_manager.inv_item_separate_menu
+use1_action_functor  		             = itms_manager.inv_item_separate
 		
 [akvatab_use]:akvatab
-inv_grid_width				= 1
-inv_grid_height				= 1
-inv_grid_x					= 300
-inv_grid_y					= 300
-
-boost_time					= 36
-boost_radiation_restore		= 0.00174
-eat_alcohol					= -0.21
-eat_satiety 				= 0.202
-eat_sleepiness				= -0.062
-use_sound					= interface\inv_eat_pills
+inv_grid_width				             = 1
+inv_grid_height				             = 1
+inv_grid_x					             = 300
+inv_grid_y					             = 300
+boost_time					             = 36
+boost_radiation_restore		             = 0.00174
+eat_alcohol					             = -0.21
+eat_satiety 				             = 0.202
+eat_sleepiness				             = -0.062
+use_sound					             = interface\inv_eat_pills
 		
 [akvatab_2]:akvatab		
-cost						= 3016
-inv_weight					= 0.004
-inv_grid_y					= 59
-uses_index					= 2
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+cost						             = 3016
+inv_weight					             = 0.004
+inv_grid_y					             = 59
+uses_index					             = 2
 
 [akvatab_2_use]:akvatab_use
 		
 [akvatab_3]:akvatab		
-cost						= 4524
-inv_weight					= 0.006
-inv_grid_y					= 58
-uses_index					= 3
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+cost						             = 4524
+inv_weight					             = 0.006
+inv_grid_y					             = 58
+uses_index					             = 3
 
 [akvatab_3_use]:akvatab_use
 
 ;--=====================================================================
 
 [antirad_kalium]:booster
-$spawn 						= "food and drugs\antirad_kalium"
-visual						= dynamics\equipments\medical\antirad_kalium.ogf
-class_dbg			        = S_MED
-description					= st_antirad_kalium_descr
-cost						= 3080
-inv_name					= st_antirad_kalium
-inv_name_short				= st_antirad_kalium
-inv_weight					= 0.05
-inv_grid_width     			= 1
-inv_grid_height    			= 1
-inv_grid_x         			= 22
-inv_grid_y         			= 71
-uses_base					= antirad_kalium_1
+$spawn 						             = "food and drugs\antirad_kalium"
+visual						             = dynamics\equipments\medical\antirad_kalium.ogf
+class_dbg			                     = S_MED
+description					             = st_antirad_kalium_descr
+cost						             = 3080
+inv_name					             = st_antirad_kalium
+inv_name_short				             = st_antirad_kalium
+inv_weight					             = 0.05
+inv_grid_width     			             = 1
+inv_grid_height    			             = 1
+inv_grid_x         			             = 22
+inv_grid_y         			             = 71
+uses_base					             = antirad_kalium_1
+use1_functor         		             = itms_manager.inv_item_separate_menu
+use1_action_functor  		             = itms_manager.inv_item_separate
 
 [antirad_kalium_use]:antirad_kalium
-inv_grid_width				= 1
-inv_grid_height				= 1
-inv_grid_x					= 300
-inv_grid_y					= 300
-boost_time					= 10.0
-boost_radiation_restore		= 0.0046
-eat_satiety 				= -0.344
-eat_sleepiness				= 0.224
-eat_health					= -0.083
-use_sound					= interface\inv_eat_pills_effect
+inv_grid_width				             = 1
+inv_grid_height				             = 1
+inv_grid_x					             = 300
+inv_grid_y					             = 300
+boost_time					             = 10.0
+boost_radiation_restore		             = 0.0046
+eat_satiety 				             = -0.344
+eat_sleepiness				             = 0.224
+eat_health					             = -0.083
+use_sound					             = interface\inv_eat_pills_effect
 
 [antirad_kalium_1]:antirad_kalium
-cost						= 1260
-inv_weight					= 0.0125
-inv_grid_x         			= 22
-inv_grid_y         			= 71
-uses_index					= 1
+cost						             = 1260
+inv_weight					             = 0.0125
+inv_grid_x         			             = 22
+inv_grid_y         			             = 71
+uses_index					             = 1
 
 [antirad_kalium_1_use]:antirad_kalium_use
 
 [antirad_kalium_2]:antirad_kalium
-cost						= 1760
-inv_weight					= 0.025
-inv_grid_x         			= 22
-inv_grid_y         			= 70
-uses_index					= 2
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+cost						             = 1760
+inv_weight					             = 0.025
+inv_grid_x         			             = 22
+inv_grid_y         			             = 70
+uses_index					             = 2
 
 [antirad_kalium_2_use]:antirad_kalium_use
 
 [antirad_kalium_3]:antirad_kalium
-cost						= 2385
-inv_weight					= 0.0375
-inv_grid_x         			= 21
-inv_grid_y         			= 70
-uses_index					= 3
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+cost						             = 2385
+inv_weight					             = 0.0375
+inv_grid_x         			             = 21
+inv_grid_y         			             = 70
+uses_index					             = 3
 
 [antirad_kalium_3_use]:antirad_kalium_use
 
 ;--=====================================================================
 
 [antirad_cystamine]:booster
-$spawn 						= "food and drugs\antirad_cystamine"
-visual						= dynamics\devices\dev_antirad\dev_antirad.ogf
-class_dbg			        = S_MED
-description					= st_antirad_cystamine_descr
-cost						= 1080
-		
-inv_name					= st_antirad_cystamine
-inv_name_short				= st_antirad_cystamine
-inv_weight					= 0.05
-
-inv_grid_width     			= 1
-inv_grid_height    			= 1
-inv_grid_x         			= 23
-inv_grid_y         			= 67
-
-boost_radiation_protection	= 0.0104
-boost_time					= 231
-eat_satiety 				= -0.132
-eat_sleepiness				= 0.099
-
-use_sound					= interface\inv_syringe
+$spawn 						             = "food and drugs\antirad_cystamine"
+visual						             = dynamics\devices\dev_antirad\dev_antirad.ogf
+class_dbg			                     = S_MED
+description					             = st_antirad_cystamine_descr
+cost						             = 1080
+inv_name					             = st_antirad_cystamine
+inv_name_short				             = st_antirad_cystamine
+inv_weight					             = 0.05
+inv_grid_width     			             = 1
+inv_grid_height    			             = 1
+inv_grid_x         			             = 23
+inv_grid_y         			             = 67
+boost_radiation_protection	             = 0.0104
+boost_time					             = 231
+eat_satiety 				             = -0.132
+eat_sleepiness				             = 0.099
+use_sound					             = interface\inv_syringe
 
 ;--=====================================================================
 
 [antibio_sulfad]:booster
-$spawn 						= "food and drugs\antibio_sulfad"
-visual						= dynamics\equipments\medical\antibio_sulfad.ogf
-class_dbg			        = S_MED
-description					= st_antibio_sulfad_descr
-cost						= 935
-		
-inv_name					= st_antibio_sulfad
-inv_name_short				= st_antibio_sulfad
-inv_weight					= 0.03
-		
-inv_grid_width				= 1
-inv_grid_height				= 1
-inv_grid_x         			= 24
-inv_grid_y         			= 67
-
-boost_time					= 899
-;boost_chemburn_protection 	= 0.0001
-;boost_radiation_protection = 0.0005
-eat_health					= -0.0155
-eat_alcohol					= 0.032
-eat_satiety 				= -0.052
-
-use_sound					= interface\inv_eat_pills_2
-
-uses_base					= antibio_sulfad_1
-uses_index					= 3
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+$spawn 						             = "food and drugs\antibio_sulfad"
+visual						             = dynamics\equipments\medical\antibio_sulfad.ogf
+class_dbg			                     = S_MED
+description					             = st_antibio_sulfad_descr
+cost						             = 935
+inv_name					             = st_antibio_sulfad
+inv_name_short				             = st_antibio_sulfad
+inv_weight					             = 0.03
+inv_grid_width				             = 1
+inv_grid_height				             = 1
+inv_grid_x         			             = 24
+inv_grid_y         			             = 67
+boost_time					             = 899
+;boost_chemburn_protection 	             = 0.0001
+;boost_radiation_protection              = 0.0005
+eat_health					             = -0.0155
+eat_alcohol					             = 0.032
+eat_satiety 				             = -0.052
+use_sound					             = interface\inv_eat_pills_2
+uses_base					             = antibio_sulfad_1
+uses_index					             = 3
+use1_functor         		             = itms_manager.inv_item_separate_menu
+use1_action_functor  		             = itms_manager.inv_item_separate
 
 [antibio_sulfad_1]:antibio_sulfad
-cost						= 334
-inv_weight					= 0.01
-inv_grid_x          		= 23
-inv_grid_y					= 68
-
-uses_index					= 1
+cost						             = 334
+inv_weight					             = 0.01
+inv_grid_x          		             = 23
+inv_grid_y					             = 68
+uses_index					             = 1
 
 [antibio_sulfad_2]:antibio_sulfad
-cost						= 565
-inv_weight					= 0.02
-inv_grid_x          		= 24
-inv_grid_y					= 68
-
-uses_index					= 2
+cost						             = 565
+inv_weight					             = 0.02
+inv_grid_x          		             = 24
+inv_grid_y					             = 68
+uses_index					             = 2
 
 ;--=====================================================================
 
 [antiemetic]:booster
-$spawn 						= "food and drugs\antiemetic"
-visual						= dynamics\equipments\medical\antiemetic.ogf
-class_dbg			        = S_MED
-description					= st_antiemetic_descr
-cost						= 680
-		
-inv_name					= st_antiemetic
-inv_name_short				= st_antiemetic
-inv_weight					= 0.04
-		
-inv_grid_width				= 1
-inv_grid_height				= 1
-inv_grid_x          		= 24
-inv_grid_y          		= 70
-
-boost_time					= 143
-boost_chemburn_protection 	= 0.0013
-boost_power_restore			= 0.0001
-eat_alcohol					= -0.421
-eat_satiety					= 0.0
-
-use_sound					= interface\inv_eat_pills_2
-
-uses_base					= antiemetic_1
-uses_index					= 2
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+$spawn 						             = "food and drugs\antiemetic"
+visual						             = dynamics\equipments\medical\antiemetic.ogf
+class_dbg			                     = S_MED
+description					             = st_antiemetic_descr
+cost						             = 680
+inv_name					             = st_antiemetic
+inv_name_short				             = st_antiemetic
+inv_weight					             = 0.04
+inv_grid_width				             = 1
+inv_grid_height				             = 1
+inv_grid_x          		             = 24
+inv_grid_y          		             = 70
+boost_time					             = 143
+boost_chemburn_protection 	             = 0.0013
+boost_power_restore			             = 0.0001
+eat_alcohol					             = -0.421
+eat_satiety					             = 0.0
+use_sound					             = interface\inv_eat_pills_2
+uses_base					             = antiemetic_1
+uses_index					             = 2
+use1_functor         		             = itms_manager.inv_item_separate_menu
+use1_action_functor  		             = itms_manager.inv_item_separate
 	
 [antiemetic_1]:antiemetic
-cost						= 350
-inv_weight					= 0.02
-inv_grid_x          		= 24
-inv_grid_y					= 71
-
-uses_index					= 1
+cost						             = 350
+inv_weight					             = 0.02
+inv_grid_x          		             = 24
+inv_grid_y					             = 71
+uses_index					             = 1
 
 ;--=====================================================================
 
 [antibio_chlor]:booster
-$spawn 						= "food and drugs\antibio_chlor"
-visual						= dynamics\equipments\medical\antibio_chlor.ogf
-class_dbg			        = S_MED
-description					= st_antibio_chlor_descr
-cost						= 521
-		
-inv_name					= st_antibio_chlor
-inv_name_short				= st_antibio_chlor
-inv_weight					= 0.04
-
-inv_grid_width				= 1
-inv_grid_height				= 1
-inv_grid_x         			= 22
-inv_grid_y         			= 68
-
-boost_time					= 899
-;boost_chemburn_protection 	= 0.0001
-;boost_radiation_protection = 0.0005
-eat_health					= -0.0315
-eat_alcohol					= 0.032
-
-use_sound					= interface\inv_syringe
+$spawn 						             = "food and drugs\antibio_chlor"
+visual						             = dynamics\equipments\medical\antibio_chlor.ogf
+class_dbg			                     = S_MED
+description					             = st_antibio_chlor_descr
+cost						             = 521
+inv_name					             = st_antibio_chlor
+inv_name_short				             = st_antibio_chlor
+inv_weight					             = 0.04
+inv_grid_width				             = 1
+inv_grid_height				             = 1
+inv_grid_x         			             = 22
+inv_grid_y         			             = 68
+boost_time					             = 899
+;boost_chemburn_protection 	             = 0.0001
+;boost_radiation_protection              = 0.0005
+eat_health					             = -0.0315
+eat_alcohol					             = 0.032
+use_sound					             = interface\inv_syringe
 
 ;--=====================================================================
 
 [jgut]:booster
-$spawn 						= "food and drugs\jgut"
-visual						= dynamics\equipments\medical\iten_jgut.ogf
-class_dbg			        = S_MED
-description					= st_jgut_descr
-cost						= 830
-
-inv_name					= st_jgut_zhgut
-inv_name_short				= st_jgut
-inv_weight					= 0.02
-
-inv_grid_width				= 1
-inv_grid_height				= 1
-inv_grid_x         			= 21
-inv_grid_y         			= 68
+$spawn 						             = "food and drugs\jgut"
+visual						             = dynamics\equipments\medical\iten_jgut.ogf
+class_dbg			                     = S_MED
+description					             = st_jgut_descr
+cost						             = 830
+inv_name					             = st_jgut_zhgut
+inv_name_short				             = st_jgut
+inv_weight					             = 0.02
+inv_grid_width				             = 1
+inv_grid_height				             = 1
+inv_grid_x         			             = 21
+inv_grid_y         			             = 68
 
 [jgut_use]:jgut
-inv_grid_width				= 1
-inv_grid_height				= 1
-inv_grid_x					= 300
-inv_grid_y					= 300
-
-boost_time 					= 5
-boost_bleeding_restore 		= 0.014
-eat_satiety 				= -0.094
-eat_alcohol			    	= 0.008
-eat_sleepiness				= 0.0172
-
-use_sound					= interface\inv_bandage_3p7
+inv_grid_width				             = 1
+inv_grid_height				             = 1
+inv_grid_x					             = 300
+inv_grid_y					             = 300
+boost_time 					             = 5
+boost_bleeding_restore 		             = 0.014
+eat_satiety 				             = -0.094
+eat_alcohol			    	             = 0.008
+eat_sleepiness				             = 0.0172
+use_sound					             = interface\inv_bandage_3p7
 
 ;--=====================================================================
 
 [yadylin]:booster
-$spawn 						= "food and drugs\yadylin"
-visual 						= dynamics\equipments\medical\item_yad.ogf
-class_dbg			        = S_MED
-description			    	= st_yadylin_descr
-cost						= 1316
-
-inv_name		     		= st_yadylin
-inv_name_short				= st_yadylin
-inv_weight					= 0.1
-
-inv_grid_width				= 1
-inv_grid_height				= 1
-inv_grid_x          		= 20
-inv_grid_y          		= 68
-
-boost_time					= 62.6
-boost_health_restore		= 0.0002
-;boost_radiation_restore	= 0.0
-eat_alcohol					= 0.3
-eat_satiety 				= -0.1
-eat_sleepiness				= 0.132
-
-use_sound					= interface\inv_drink_flask
+$spawn 						             = "food and drugs\yadylin"
+visual 						             = dynamics\equipments\medical\item_yad.ogf
+class_dbg			                     = S_MED
+description			    	             = st_yadylin_descr
+cost						             = 1316
+inv_name		     		             = st_yadylin
+inv_name_short				             = st_yadylin
+inv_weight					             = 0.1
+inv_grid_width				             = 1
+inv_grid_height				             = 1
+inv_grid_x          		             = 20
+inv_grid_y          		             = 68
+boost_time					             = 62.6
+boost_health_restore		             = 0.0002
+;boost_radiation_restore	             = 0.0
+eat_alcohol					             = 0.3
+eat_satiety 				             = -0.1
+eat_sleepiness				             = 0.132
+use_sound					             = interface\inv_drink_flask
 
 ;--=====================================================================
 
 [analgetic]:booster
-$spawn 						= "food and drugs\analgetic"
-visual						= dynamics\devices\glucose_shots\glucose.ogf
-class_dbg			        = S_MED
-description             	= st_analgetic_descr
-cost						= 1360
-
-inv_name					= st_analgetic
-inv_name_short				= st_analgetic
-inv_weight					= 0.076
-
-inv_grid_width				= 1
-inv_grid_height				= 1
-inv_grid_x					= 12
-inv_grid_y					= 28
-
-boost_time					= 1042
-boost_bleeding_restore		= 0.00052
-boost_health_restore		= 0.00008
-;boost_radiation_restore	= 0.0
-eat_health					= 0.023
-eat_alcohol					= 0.034
-eat_satiety					= -0.237
-eat_sleepiness				= 0.284
-
-use_sound					= interface\inv_syringe
-
-
+$spawn 						             = "food and drugs\analgetic"
+visual						             = dynamics\devices\glucose_shots\glucose.ogf
+class_dbg			                     = S_MED
+description             	             = st_analgetic_descr
+cost						             = 1360
+inv_name					             = st_analgetic
+inv_name_short				             = st_analgetic
+inv_weight					             = 0.076
+inv_grid_width				             = 1
+inv_grid_height				             = 1
+inv_grid_x					             = 12
+inv_grid_y					             = 28
+boost_time					             = 1042
+boost_bleeding_restore		             = 0.00052
+boost_health_restore		             = 0.00008
+;boost_radiation_restore	             = 0.0
+eat_health					             = 0.023
+eat_alcohol					             = 0.034
+eat_satiety					             = -0.237
+eat_sleepiness				             = 0.284
+use_sound					             = interface\inv_syringe
