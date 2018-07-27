@@ -435,4 +435,7 @@
 	<string id="st_item_separate">
 		<text>separate</text>
 	</string>
+	<string id="st_item_disassemble">
+		<text>disassemble</text>
+	</string>
 </string_table>
