@@ -43,38 +43,7 @@
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] everyday item</text>
 	</string>
-	
-	<string id="st_textile_patch_b">
-		<text>Cloth sheet</text>
-	</string>
-	<string id="st_textile_patch_b_descr">
-		<text>Simple cloth sheet, commonly used both to patch clothing and spread oils and cleaning solvents onto firearm mechanisms. Can be applied by any needle or glue.\n \n
-		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
-		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+3%)</text>
-	</string>
-	
-	<string id="st_textile_patch_m">
-		<text>Textile sheet</text>
-	</string>
-	<string id="st_textile_patch_m_descr">
-		<text>Sheet of military-grade textile that can be used for field repairs of clothing and light armor. Valued for its relatively low price and high versatility, this material is commonly used by the Zoners. Medium-grade sewing equipment and advanced glue required for use. It can also be used to improve spread of liquids during weapon maintenance.\n \n
-		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,100,100,255] • %c[0,140,140,140] military item\n
-		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+4%)</text>
-	</string>
-	
-	<string id="st_textile_patch_e">
-		<text>Reinforced textile sheet</text>
-	</string>
-	<string id="st_textile_patch_e_descr">
-		<text>Thick textile patch reinforced with kevlar padding. Can be used to repair medium and heavy armors. Large enough to cover multiple damaged areas. High quality sewing kits and adhesives are required to make use of it. Its alternative usage is weapon lubrication and cleaning - due to increased hardness it's able reach even less accessible areas of firearm parts.\n \n
-		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,100,100,255] • %c[0,140,140,140] military item\n
-		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
-		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+6%)</text>
-	</string>
-	
+
 	<string id="st_steel_wool">
 		<text>Steel wool</text>
 	</string>
@@ -353,10 +322,10 @@
 	</string>
 	
 	<string id="st_ammo_bad">
-		<text>Bad ammo</text>
+		<text>Lead</text>
 	</string>
 	<string id="st_ammo_bad_descr">
-		<text>Every stalker is aware of the importance of reliable weaponry. That's the reason a daily and thorough examination of your shooter is vital to your survival. Stalkers often count their ammo and clean it to minimize the risk of a weapon jam in the heat of battle. This ammo is in a bad condition and should be discarded.\n \n
+		<text>Every stalker is aware of the importance of reliable weaponry. That's the reason a daily and thorough examination of your shooter is vital to your survival. Stalkers often count their ammo and clean it to minimize the risk of a weapon jam in the heat of battle. On the contrary, this lead can be reused by technicians later for the creation of better ammunition.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] military item\n
 		%c[0,204,0,51] • %c[0,140,140,140] broken beyond repair\n
@@ -466,14 +435,57 @@
 		%c[0,204,0,51] • %c[0,140,140,140] unusable</text>
 	</string>
 	
+		
 	<string id="st_textolite">
 		<text>Textolite base</text>
 	</string>
-	<string id="st_textolite_descr"> <!-- revision -->
+	<string id="st_textolite_descr">
 		<text>Layered plastic based on fabric of fibers and polymeric binder (bakelite, polyester resin, epoxy resin). With proper skill it can be great help in repairing.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
 		%c[0,153,255,255] • %c[0,140,140,140] high value</text>
+	</string>
+	
+<!-- Base -->	
+	<string id="st_paper">
+		<text>Paper sheet</text>
+	</string>
+	<string id="st_paper_descr">
+		<text>Electrotechnical copper wire is used practically in all devices, devices, apparatuses, installations, machines where the production, transmission or use of electric energy occurs. In its pure form it is rare, but if necessary it can be easily extracted from common old radios, walkie-talkies and other electronics.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] high value</text>
+	</string>
+	
+	<string id="st_textile_patch_b">
+		<text>Cloth sheet</text>
+	</string>
+	<string id="st_textile_patch_b_descr">
+		<text>Simple cloth sheet, commonly used both to patch clothing and spread oils and cleaning solvents onto firearm mechanisms. Can be applied by any needle or glue.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+3%)</text>
+	</string>
+	
+	<string id="st_textile_patch_m">
+		<text>Textile sheet</text>
+	</string>
+	<string id="st_textile_patch_m_descr">
+		<text>Sheet of military-grade textile that can be used for field repairs of clothing and light armor. Valued for its relatively low price and high versatility, this material is commonly used by the Zoners. Medium-grade sewing equipment and advanced glue required for use. It can also be used to improve spread of liquids during weapon maintenance.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] military item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+4%)</text>
+	</string>
+	
+	<string id="st_textile_patch_e">
+		<text>Reinforced textile sheet</text>
+	</string>
+	<string id="st_textile_patch_e_descr">
+		<text>Thick textile patch reinforced with kevlar padding. Can be used to repair medium and heavy armors. Large enough to cover multiple damaged areas. High quality sewing kits and adhesives are required to make use of it. Its alternative usage is weapon lubrication and cleaning - due to increased hardness it's able reach even less accessible areas of firearm parts.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] military item\n
+		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+6%)</text>
 	</string>
 	
 	<string id="st_capacitors">
