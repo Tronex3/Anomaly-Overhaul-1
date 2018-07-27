@@ -20,7 +20,7 @@ Improving the item system and the progression behind it.
 ### Item management
 - [x] add the ability to combine multi-use items
 - [x] add the ability to separate multi-use items
-- [ ] add the ability to disassemble misc items and create useful parts for crafting
+- [x] add the ability to disassemble misc items and create useful parts for crafting
 - [ ] add upgrades to binoculars (if its possible)
 - [x] (Swiss Knife) and (Grooming kit) will have 7 max uses, both are used to disassemble misc items, both are cheap
 - [ ] canned food will no longer require (Swiss Knife) to open
@@ -31,7 +31,7 @@ Improving the item system and the progression behind it.
 - [ ] add (GPS tracker), using it will show the location of nearby natural/friendly npcs for a brief amount of time, consumes UPD power
 - [x] add (Ammo Box), sorting it will give the player few random ammo
 - [x] (Personal Notes) will unlock random stash location
-- [ ] add more misc items that can be used for crafting
+- [x] add more misc items that can be used for crafting
 - [ ] (Guitar) and (Harmonica) as usable items
 
 ### Cooking:
