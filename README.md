@@ -57,7 +57,7 @@ Improving the item system and the progression behind it.
 - [ ] remove pre-spawned items from the game (items with static location) (if it can't be done outside of the SDK, forget about it for now)
 - [ ] Mechanics will ask for money OR vodka for using their vice
 - [ ] reduce the weight of lead box
-- [ ] improve mutant looting UI, add new button "loot all"
+- [x] improve mutant looting UI, add new button "loot all"
 - [ ] update old Zone FM scripts
 
 ### Plans For the Future!
