@@ -1,7 +1,7 @@
 
 -- =======================================================================================
 -- Created by Tronex
--- Last modification: 2018/7/20
+-- Last modification: 2018/7/27
 -- A group of utility functions to be called and used by other scripts
 -- =======================================================================================
 
@@ -19,7 +19,14 @@ local clr_table = {
 	["yellow"] = {0,250,250,0}
 }
 
-function get_clr (str , code) -- return color code as string or table
+
+function get_clr (str , code)
+
+-- Rule: obtain specific color code as a string or table
+-- Input: color name (string) , result as string or table (boolean)
+-- Output: if code is true, return table | if code is false, return string 
+-- Example: get_clr("blue") --> "%c[0,153,255,255]"
+
 	local color, color_s
 	if str then
 		color = clr_table[str]
@@ -34,7 +41,13 @@ function get_clr (str , code) -- return color code as string or table
 	return color_s
 end
 
-function get_item_axis (sec) -- return table of item's axis (x1, y1, x2, y2, width, height)
+
+function get_item_axis (sec)
+
+-- Rule: get item axis out of info from its section
+-- Input: section of the target item (string)
+-- Output: table of item's axis (x1, y1, x2, y2, width, height)
+
 	local a = {}
 		
 	local inv_grid_x = ini:r_float_ex (sec,"inv_grid_x") or 0
@@ -61,7 +74,43 @@ function get_item_axis (sec) -- return table of item's axis (x1, y1, x2, y2, wid
 	return a
 end
 
-function get_multi_item (base , uses_1 , uses_2) -- used to combine/separate 2 items of the same type, return new item's section
+
+function adjust_multi_item (obj , num) 
+
+-- Rule: adjust an existing multi-use item (increase or reduce the number of uses)
+-- Input: multi-use item (object) , uses adjusting (number)
+-- Output: remove the input item and create new one with adjusted uses, return true if the process went good
+-- Example: ( swiss_knife_6 , -1 ) --> swiss_knife_5
+
+	local uses = system_ini():r_float_ex(obj:section(),"uses_index")
+	local base = system_ini():r_string_ex(obj:section(),"uses_base")
+	
+	if (not uses) or (not base) or (not system_ini():section_exist(base)) then
+		return false
+	end
+	
+	if (uses + num < 1) then return end
+	
+	local sec = get_multi_item_section (base, uses, num)
+	if (not sec) or (not system_ini():section_exist(sec)) then
+		return false
+	end
+
+	local se_obj = alife_object(obj:id())
+	alife():release(se_obj,true)
+	alife():create(sec, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+	printf("TRX - adjust_multi_item | Delete old item use: " .. obj:section() .. " | Get new item use: " .. sec)
+	
+	return true
+end
+
+
+function get_multi_item_section (base , uses_1 , uses_2)
+
+-- Rule: get a multi-use item section based on a combination of uses of its base form
+-- Input: section of base multi-use item (string) , number of uses 1 , number of uses 2
+-- Output: section of the new multi-use item by combining uses 1 and 2
+-- Example: ( swiss_knife , 2 , 3 ) --> swiss_knife_5 [combine] | ( swiss_knife , 4 , -1 ) --> swiss_knife_3 [separate]
 
 	if (not base) or (not uses_1) or (not uses_2) then
 		return
@@ -111,4 +160,50 @@ function get_multi_item (base , uses_1 , uses_2) -- used to combine/separate 2 i
 	end
 	
 	return nil
+end
+
+
+function collect_inv_item (sec , num , ... )
+
+-- Rule: search and collect available objects of a specific item from player's inventory
+-- Input: section of the target item , number of objects to obtain , id of items that should be excluded from the search
+-- Output: a table of the obtained objects of our item
+
+	local item_tbl = {}
+	local item_finale = {}
+	local p = {...}
+	local allow = true
+	
+	if (not num) then 
+		return 
+	end
+	
+	local function search(temp, item)
+		if p and (#p > 0) then
+			for i=1,#p do
+				if (item:id() == p[i]) then
+					allow = false
+				end
+			end
+		end
+		if (item:section() == sec) and allow then
+			item_tbl[#item_tbl+1] = item
+			printf("TRX - collect_inv_item | found viable item: " .. item:section() .. " | id: " .. item:id())
+		end
+		allow = true
+	end
+	db.actor:iterate_inventory(search,nil)
+	
+	if (#item_tbl == 0) then
+		return false
+	end
+	
+	if (#item_tbl >= num) then
+		for i=1,num do
+			item_finale[#item_finale+1] = item_tbl[num]
+		end
+		return item_finale
+	end
+	
+	return false
 end
