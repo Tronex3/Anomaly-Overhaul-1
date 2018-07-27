@@ -18,6 +18,14 @@ This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAl
 local ini = ini_file("plugins\\itms_manager.ltx")
 local ini_med = ini_file("misc\\items\\item_management\\med_packs.ltx")
 
+-- Collect item sections of disassembling tools
+local disassemble_tools = {}
+system_ini():section_for_each(function(section)
+	if system_ini():r_bool_ex(section,"disassemble_tool") then
+		disassemble_tools[#disassemble_tools+1] = section
+	end
+end)
+
 --Backpack stash mod
 local BackPackStashEnable = ini:r_bool_ex("backpack_stash","enable",false)
 local BackPackStashAllowInBase = BackPackStashEnable and ini:r_bool_ex("backpack_stash","allow_in_base",false)
@@ -487,7 +495,7 @@ function actor_on_item_use(obj) -- bind_stalker on_item_use
 			local base = system_ini():r_string_ex(obj:section(),"uses_base")
 			
 			if uses and uses >=2 and base and system_ini():section_exist(base) then
-				local sec = trx_utils.get_multi_item (base, uses, -1)
+				local sec = trx_utils.get_multi_item_section (base, uses, -1)
 				if sec and system_ini():section_exist(sec) then
 					alife():create(sec, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
 				end
@@ -577,9 +585,9 @@ function on_key_press(key)
 	end
 end
 
-function on_item_drag_dropped(obj_1, obj_2, slot_from, slot_to) -- gather items
+function on_item_drag_dropped(obj_1, obj_2, slot_from, slot_to) -- combine multi-items
 
-	-- check capability
+	-- Check capability
 	if not (slot_from == EDDListType.iActorBag and slot_to == EDDListType.iActorBag) then
         return
     end
@@ -597,46 +605,24 @@ function on_item_drag_dropped(obj_1, obj_2, slot_from, slot_to) -- gather items
 		return
 	end
 	
-	-- get new item section
-	local sec = trx_utils.get_multi_item (base_1, uses_1, uses_2)
+	-- Get new item section
+	local sec = trx_utils.get_multi_item_section (base_1, uses_1, uses_2)
 	if (not sec) or (not system_ini():section_exist(sec)) then
 		return
 	end
 	
-	-- gather item 1
-	local item_1
-	local item_tbl_1 = {}
-	local function search_1(temp, item)
-		if (item:section() == obj_1:section()) then
-			item_tbl_1[#item_tbl_1+1] = item
-		end
-	end
-	db.actor:iterate_inventory(search_1,nil)
+	-- Collect old items (objects)
+	local item_1_tbl = trx_utils.collect_inv_item (obj_1:section(),1)
+	local item_1 = item_1_tbl and item_1_tbl[1] or nil
+	if (not item_1) then return end
 	
-	if (#item_tbl_1 == 0) then
-		return
-	end
-	item_1 = item_tbl_1[math.random(#item_tbl_1)]
-	
-	
-	-- gather item 2
-	local item_2
-	local item_tbl_2 = {}
-	local function search_2(temp, item)
-		if (item:section() == obj_2:section()) and (item:id() ~= item_1:id()) then
-			item_tbl_2[#item_tbl_2+1] = item
-		end
-	end
-	db.actor:iterate_inventory(search_2,nil)
-	
-	if (#item_tbl_2 == 0) then
-		return
-	end
-	item_2 = item_tbl_2[math.random(#item_tbl_2)]
+	local item_2_tbl = trx_utils.collect_inv_item (obj_2:section(),1,item_1:id())
+	local item_2 = item_2_tbl and item_2_tbl[1] or nil
+	if (not item_2) then return end
 	
 	printf("TRX - Combine Items | item_1: " .. item_1:section() .. " [" .. item_1:id() .. "] | item_2: " .. item_2:section() .. " [" .. item_2:id() .. "] | New: " .. sec)
 	
-	-- remove old items, create the new one
+	-- Remove old items, create the new one
 	local se_obj_1 = alife_object(item_1:id())
 	local se_obj_2 = alife_object(item_2:id())
 	alife():release(se_obj_1,true)
@@ -704,7 +690,21 @@ function inv_item_separate_menu(itm) -- return "Separate" name
 	local p = itm:parent()
 	if not (p and p:id() == db.actor:id()) then return end
 	
+	local uses = system_ini():r_float_ex(itm:section(),"uses_index")
+	if (not uses) then return end
+	if (uses < 2) then return end
+	
 	return game.translate_string("st_item_separate")
+end
+
+function inv_item_disassemble_menu(itm) -- return "Reveal" name
+
+	local p = itm:parent()
+	if not (p and p:id() == db.actor:id()) then return end
+	
+	if (not system_ini():r_string_ex(itm:section(),"disassemble_parts")) then return end
+	
+	return game.translate_string("st_item_disassemble")
 end
 
 
@@ -779,30 +779,73 @@ function inv_item_use(obj) -- use item
 end
 
 function inv_item_separate(obj) -- separate item
+	local base = system_ini():r_string_ex(obj:section(),"uses_base")
+	
+	if trx_utils.adjust_multi_item(obj,-1) then
+		alife():create(base, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+		printf("TRX - inv_item_separate | Get new base item : " .. base)
+	end
+end
+
+function inv_item_disassemble(obj) -- disassemble item
+
+	-- Collect disassemble parts of our item
+	local parts = system_ini():r_string_ex(obj:section(),"disassemble_parts")
+	if (not parts) then return end
+	local parts_tbl = alun_utils.str_explode(parts,",")
+	
+	-- Collect disassemble tools (objects)
+	local dis_itm
+	for i=1,#disassemble_tools do
+		local dis_tbl = trx_utils.collect_inv_item(disassemble_tools[i],1)
+		dis_itm = dis_tbl and dis_tbl[1] or nil
+		if dis_itm then
+			break
+		end
+	end
+	if (not dis_itm) then return end
+
+	-- Delete old disassemble item or one use
+	local is_dis_multi_use = trx_utils.adjust_multi_item(dis_itm,-1)
+	if (not is_dis_multi_use) then
+		local se_dis_obj = alife_object(dis_itm:id())
+		alife():release(se_dis_obj,true)
+		printf("TRX - inv_item_disassemble | Delete disassembling tool: " .. dis_itm:section())
+	end
+	
+	-- Delete old item or one use
+	local is_multi_use = trx_utils.adjust_multi_item(obj,-1)
+	if (not is_multi_use) then
+		local se_obj = alife_object(obj:id())
+		alife():release(se_obj,true)
+		printf("TRX - inv_item_disassemble | Delete disassembled item: " .. obj:section())
+	end
+	
+	-- Give disassemble parts
+	for i=1,#parts_tbl do
+		if system_ini():section_exist(parts_tbl[i]) then
+			alife():create(parts_tbl[i], db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+			printf("TRX - inv_item_disassemble | Get new part from disassembling: " .. parts_tbl[i])
+		end
+	end
+
+end
+
+function remove_multi_item (obj, num)
 	local uses = system_ini():r_float_ex(obj:section(),"uses_index")
 	local base = system_ini():r_string_ex(obj:section(),"uses_base")
+	
+	if (uses + num < 1) then return end
 	
 	if (not uses) or (not base) or (not system_ini():section_exist(base)) then
 		return
 	end
 	
-	if (uses < 2) then
-		return
-	end
-	
-	local sec = trx_utils.get_multi_item (base, uses, -1)
+	local sec = trx_utils.get_multi_item_section (base, uses, -1)
 	if (not sec) or (not system_ini():section_exist(sec)) then
 		return
 	end
-	
-	printf("TRX - Separate items | old item: " .. obj:section() .. " | new item 1: " .. base .. " | new item 2: " .. sec)
-	
-	local se_obj = alife_object(obj:id())
-	alife():release(se_obj,true)
-	alife():create(base, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
-	alife():create(sec, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
 end
-
 
 --=======================================< Others >=======================================--
 
