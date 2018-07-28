@@ -19,10 +19,16 @@ local ini = ini_file("plugins\\itms_manager.ltx")
 local ini_med = ini_file("misc\\items\\item_management\\med_packs.ltx")
 
 -- Collect item sections of disassembling tools
-local disassemble_tools = {}
+local itm_tbl_crafter = {}
+local itm_tbl_disassembler = {}
+local itm_tbl_cooker = {}
 system_ini():section_for_each(function(section)
-	if system_ini():r_bool_ex(section,"disassemble_tool") then
-		disassemble_tools[#disassemble_tools+1] = section
+	if system_ini():r_bool_ex(section,"craft_tool") then
+		itm_tbl_crafter[#itm_tbl_crafter + 1] = section
+	elseif system_ini():r_bool_ex(section,"disassemble_tool") then
+		itm_tbl_disassembler[#itm_tbl_disassembler + 1] = section
+	elseif system_ini():r_bool_ex(section,"cooking_tool") then
+		itm_tbl_cooker[#itm_tbl_cooker + 1] = section
 	end
 end)
 
@@ -661,6 +667,14 @@ end
 
 --=======================================< Special item use names >=======================================--
 
+function inv_item_use_menu(itm) -- return "Use" name
+
+	local p = itm:parent()
+	if not (p and p:id() == db.actor:id()) then return end
+	
+	return game.translate_string("st_item_use")
+end
+
 function inv_item_reveal_menu(itm) -- return "Reveal" name
 
 	local p = itm:parent()
@@ -717,17 +731,31 @@ function inv_item_use(obj) -- use item
 		return
 	end
 	
-	-- Craft mod
-	if 	(obj:section() == "itm_drugkit") or (obj:section() == "itm_ammokit") or (obj:section() == "itm_repairkit_tier_1") or (obj:section() == "itm_repairkit_tier_2") or (obj:section() == "itm_repairkit_tier_3") then
-		local hud = get_hud()
-		hud:HideActorMenu()
-		local ui = ui_itm_craft and ui_itm_craft.craft_ui(hud,obj,obj:section())
-		if (ui) then
-			ui:ShowDialog(true)
-		end	
+	-- Crafting tools
+	for i=1,#itm_tbl_crafter do
+		if (obj:section() == itm_tbl_crafter[i]) then
+			local hud = get_hud()
+			hud:HideActorMenu()
+			local ui = ui_itm_craft and ui_itm_craft.craft_ui(hud,obj,obj:section())
+			if (ui) then
+				ui:ShowDialog(true)
+			end	
+		end
 	end
 	
-	-- Map mod
+	-- Cooking tools
+	for i=1,#itm_tbl_cooker do
+		if (obj:section() == itm_tbl_cooker[i]) then
+			local hud = get_hud()
+			hud:HideActorMenu()
+			local ui = ui_itm_cooking and ui_itm_cooking.cook_ui(hud,obj,obj:section())
+			if (ui) then
+				ui:ShowDialog(true)
+			end	
+		end
+	end
+	
+	-- Map kits
 	if 	(system_ini():r_string_ex(obj:section(),"use_map")) then
 		local hud = get_hud()
 		hud:HideActorMenu()
@@ -796,8 +824,8 @@ function inv_item_disassemble(obj) -- disassemble item
 	
 	-- Collect disassemble tools (objects)
 	local dis_itm
-	for i=1,#disassemble_tools do
-		local dis_tbl = trx_utils.collect_inv_item(disassemble_tools[i],1)
+	for i=1,#itm_tbl_disassembler do
+		local dis_tbl = trx_utils.collect_inv_item(itm_tbl_disassembler[i],1)
 		dis_itm = dis_tbl and dis_tbl[1] or nil
 		if dis_itm then
 			break
@@ -831,21 +859,6 @@ function inv_item_disassemble(obj) -- disassemble item
 
 end
 
-function remove_multi_item (obj, num)
-	local uses = system_ini():r_float_ex(obj:section(),"uses_index")
-	local base = system_ini():r_string_ex(obj:section(),"uses_base")
-	
-	if (uses + num < 1) then return end
-	
-	if (not uses) or (not base) or (not system_ini():section_exist(base)) then
-		return
-	end
-	
-	local sec = trx_utils.get_multi_item_section (base, uses, -1)
-	if (not sec) or (not system_ini():section_exist(sec)) then
-		return
-	end
-end
 
 --=======================================< Others >=======================================--
 
