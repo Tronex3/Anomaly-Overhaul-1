@@ -21,7 +21,7 @@ Improving the item system and the progression behind it.
 - [x] add the ability to combine multi-use items
 - [x] add the ability to separate multi-use items
 - [x] add the ability to disassemble misc items and create useful parts for crafting
-- [ ] add upgrades to binoculars (if its possible)
+- [x] add upgrades to binoculars
 - [x] (Swiss Knife) and (Grooming kit) will have 7 max uses, both are used to disassemble misc items, both are cheap
 - [ ] canned food will no longer require (Swiss Knife) to open
  

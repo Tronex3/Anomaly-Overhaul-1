@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+
+<string_table>
+	<string id="st_prop_binoc_zoom">
+		<text>Magnification</text>
+	</string>
+	<string id="st_prop_binoc_nightvision">
+		<text>Nightvision</text>
+	</string>
+	<string id="st_prop_binoc_autolock">
+		<text>Detectability</text>
+	</string>
+	
+	<string id="st_prop_binoc_nightvision_1">
+		<text>High-Contrast</text>
+	</string>
+	<string id="st_prop_binoc_nightvision_2">
+		<text>Nightvision Tier 1</text>
+	</string>
+	<string id="st_prop_binoc_nightvision_3">
+		<text>Nightvision Tier 2</text>
+	</string>
+	
+	<string id="st_up_binoc_a1_name">
+		<text>Objective lens (x10 magnification)</text>
+	</string>
+	<string id="st_up_binoc_a1_descr">
+		<text>Installation of new lens set for farther distances, which offers x10 magnification power.</text>
+	</string>
+	<string id="st_up_binoc_a2_name">
+		<text>Objective lens (x15 magnification)</text>
+	</string>
+	<string id="st_up_binoc_a2_descr">
+		<text>Installation of new lens set for farther distances, which offers x15 magnification power.</text>
+	</string>
+	<string id="st_up_binoc_a3_name">
+		<text>High-quality objective lens (x20 magnification)</text>
+	</string>
+	<string id="st_up_binoc_a3_descr">
+		<text>Installation of new lens set for great distances, which offers x20 magnification power.</text>
+	</string>
+	<string id="st_up_binoc_b1_name">
+		<text>Improvement of sight contrast</text>
+	</string>
+	<string id="st_up_binoc_b1_descr">
+		<text>ED glass installation that replaces the ordinary lens to minimize the effects of chromatic aberration and secondary spectrum, resulting in better visuals</text>
+	</string>
+	<string id="st_up_binoc_b2_name">
+		<text>First generation night vision device</text>
+	</string>
+	<string id="st_up_binoc_b2_descr">
+		<text>Night vision technology installation for low light conditions, which relies on night-useful spectral and intensity range techniques to sense radiation that is invisible to a human observer.</text>
+	</string>
+	<string id="st_up_binoc_b3_name">
+		<text>Second generation night vision device</text>
+	</string>
+	<string id="st_up_binoc_b3_descr">
+		<text>An improvment to the night vision technology, which introduces better system light gain, system resolution and photosensitivity to increase the visual quality</text>
+	</string>
+	<string id="st_up_binoc_c1_name">
+		<text>Housing style</text>
+	</string>
+	<string id="st_up_binoc_c1_descr">
+		<text>Replacements to the housing style in order to reduce the overall weight by implementing an open-bridge and chassis made of an aluminum alloy.</text>
+	</string>
+	<string id="st_up_binoc_d1_name">
+		<text>Detect targets</text>
+	</string>
+	<string id="st_up_binoc_d1_descr">
+		<text>Replacements to the housing style in order to reduce the overall weight by implementing an open-bridge and chassis made of an aluminum alloy.</text>
+	</string>
+
+</string_table>
