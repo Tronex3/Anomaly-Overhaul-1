@@ -59,41 +59,43 @@ cooking_use_actor_effects                = true      ;Uses actor_effects script.
 
 ;use_sound			                     = interface\inv_cooking
 
-[fieldcooker]:booster
-$spawn 				                     = "devices\repair_kit_10"
-can_trade			                     = true
-quest_item      	                     = false
+[fieldcooker]:identity_immunities
+$spawn 									 = "devices\roubles"
+$prefetch 								 = 16
+class_dbg			                     = S_TOOL
+class 									 = II_ATTCH
+cform									 = skeleton
 visual					                 = dynamics\cooking\multi_fuel_stove.ogf
 cost					                 = 6055
 inv_name				                 = st_fieldcooker
 inv_name_short				             = st_fieldcooker
-class_dbg			                     = S_TOOL
 description				                 = st_fieldcooker_descr
 inv_weight				                 = 0.46
 inv_grid_width			                 = 2
 inv_grid_height			                 = 1
 inv_grid_x				                 = 13
 inv_grid_y				                 = 0
-
-cooking_use_parts	 	                 = true	;Allows the use of lesser conditioned weapons to be used for parts to add overall bonus to cooking
-cooking_type			 	             = fuel	;weapon or outfit
-cooking_refuse			                 = wpn_upd, charcoal, charcoal2, charcoal3, explo_metalcan_powder ;Add sections separated by commas that cannot be cookinged by this item
-cooking_only				             =          ;Add sections separated by commas that exclude all sections but these
-cooking_parts_include                    = mutant_part_tushkano_meat, mutant_part_flesh_meat, mutant_part_boar_chop, mutant_part_dog_meat, mutant_part_psevdodog_meat, mutant_part_krovosos_meat, mutant_part_snork_hand, mutant_part_chimera_meat, mutant_part_crow_beak			;Add sections of items to include to be considered cooking parts
-cooking_parts_exclude	                 = kerosene, kerosene2, kerosene3, kerosene4, kerosene5, explo_jerrycan_fuel, explo_jerrycan_fuel2, explo_jerrycan_fuel3, explo_jerrycan_fuel4, explo_jerrycan_fuel5, explo_jerrycan_fuel6, explo_jerrycan_fuel7, explo_jerrycan_fuel8, explo_balon_gas, explo_balon_gas2, explo_balon_gas3, explo_balon_gas4, explo_balon_gas5, explo_balon_gas6, explo_balon_gas7, explo_balon_gas8
-cooking_use_actor_effects                = true      ;Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
-
+cooking_tool							 = true
+cooking_limited							 = false
+cooking_tier							 = 2
+cooking_campfire						 = false
+cooking_campfire_tier					 = 2
+cooking_fuel							 = kerosene5,kerosene4,kerosene3,kerosene2,kerosene
+cooking_use_actor_effects				 = true
 ;use_sound			                     = interface\inv_cooking
+use1_functor         		             = itms_manager.inv_item_open_menu
+use1_action_functor  		             = itms_manager.inv_item_use
 
 ;;--==========================< Field cooking kit >=============================
-[cooking]:booster
-$spawn 				                     = "devices\repair_kit_10"
-can_trade			                     = true
-quest_item      	                     = false
+[cooking]:identity_immunities
+$spawn 									 = "devices\roubles"
+$prefetch 								 = 16
+class_dbg			                     = S_TOOL
+class 									 = II_ATTCH
+cform									 = skeleton
 visual				                     = dynamics\equipments\trade\ckit.ogf
 inv_name			                     = st_cooking
 inv_name_short		                     = st_cooking
-class_dbg			                     = S_TOOL
 description			                     = st_cooking_descr
 inv_weight			                     = 0.564
 inv_grid_width		                     = 2
@@ -101,17 +103,19 @@ inv_grid_height		                     = 1
 inv_grid_x			                     = 96
 inv_grid_y			                     = 80
 cost				                     = 270
-cooking_use_parts	 	                 = true	;Allows the use of lesser conditioned weapons to be used for parts to add overall bonus to cooking
-cooking_type			 	             = fuel	;weapon or outfit
-cooking_refuse			                 = wpn_upd, kerosene, kerosene2, kerosene3, kerosene4, kerosene5, explo_metalcan_powder, explo_jerrycan_fuel, explo_jerrycan_fuel2, explo_jerrycan_fuel3, explo_jerrycan_fuel4, explo_jerrycan_fuel5, explo_jerrycan_fuel6, explo_jerrycan_fuel7, explo_jerrycan_fuel8, explo_balon_gas, explo_balon_gas2, explo_balon_gas3, explo_balon_gas4, explo_balon_gas5, explo_balon_gas6, explo_balon_gas7, explo_balon_gas8 ;Add sections separated by commas that cannot be cookinged by this item
-cooking_only				             =          ;Add sections separated by commas that exclude all sections but these
-cooking_parts_include                    = mutant_part_tushkano_meat, mutant_part_flesh_meat, mutant_part_boar_chop, mutant_part_dog_meat, mutant_part_psevdodog_meat, mutant_part_snork_hand			;Add sections of items to include to be considered cooking parts
-cooking_parts_exclude	                 = charcoal, charcoal2, charcoal3
-cooking_use_actor_effects                = true      ;Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
+cooking_tool							 = true
+cooking_limited							 = true
+cooking_tier							 = 2
+cooking_campfire						 = true
+cooking_campfire_tier					 = 1
+cooking_fuel							 = charcoal,charcoal2,charcoal3
+cooking_use_actor_effects				 = true
 uses_base								 = cooking
 uses_index					             = 1
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
+use1_functor         		             = itms_manager.inv_item_open_menu
+use1_action_functor  		             = itms_manager.inv_item_use
+use2_functor         		             = itms_manager.inv_item_separate_menu
+use2_action_functor  		             = itms_manager.inv_item_separate
 
 [cooking_2]:cooking
 inv_grid_y                               = 79
@@ -127,32 +131,35 @@ uses_index					             = 3
 
 
 ;;--==========================< Army Kettle >=============================
-[army_bowler]:booster
-$spawn 				                     = "devices\repair_kit_10"
-can_trade			                     = true
-quest_item      	                     = false
+[army_bowler]:identity_immunities
+$spawn 									 = "devices\roubles"
+$prefetch 								 = 16
+class_dbg			                     = S_TOOL
+class 									 = II_ATTCH
+cform									 = skeleton
 visual					                 = dynamics\cooking\wood_stove.ogf
 cost					                 = 420
 inv_name				                 = st_army_bowler
 inv_name_short				             = st_army_bowler
-class_dbg			                     = S_TOOL
 description				                 = st_army_bowler_descr
 inv_weight				                 = 0.9
 inv_grid_width			                 = 2
 inv_grid_height			                 = 1
 inv_grid_x				                 = 94
 inv_grid_y				                 = 80
-cooking_use_parts	 	                 = true	;Allows the use of lesser conditioned weapons to be used for parts to add overall bonus to cooking
-cooking_type			 	             = fuel	;weapon or outfit
-cooking_refuse			                 = wpn_upd, kerosene, kerosene2, kerosene3, kerosene4, kerosene5, explo_metalcan_powder, explo_jerrycan_fuel, explo_jerrycan_fuel2, explo_jerrycan_fuel3, explo_jerrycan_fuel4, explo_jerrycan_fuel5, explo_jerrycan_fuel6, explo_jerrycan_fuel7, explo_jerrycan_fuel8, explo_balon_gas, explo_balon_gas2, explo_balon_gas3, explo_balon_gas4, explo_balon_gas5, explo_balon_gas6, explo_balon_gas7, explo_balon_gas8 ;Add sections separated by commas that cannot be cookinged by this item
-cooking_only				             =          ;Add sections separated by commas that exclude all sections but these
-cooking_parts_include                    = mutant_part_tushkano_meat, mutant_part_flesh_meat, mutant_part_boar_chop, mutant_part_dog_meat, mutant_part_psevdodog_meat, mutant_part_snork_hand			;Add sections of items to include to be considered cooking parts
-cooking_parts_exclude	                 = 
-cooking_use_actor_effects                = true      ;Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
+cooking_tool							 = true
+cooking_limited							 = true
+cooking_tier							 = 2
+cooking_campfire						 = true
+cooking_campfire_tier					 = 2
+cooking_fuel							 = charcoal,charcoal2,charcoal3
+cooking_use_actor_effects				 = true
 uses_base								 = army_bowler
 uses_index					             = 1
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
+use1_functor         		             = itms_manager.inv_item_open_menu
+use1_action_functor  		             = itms_manager.inv_item_use
+use2_functor         		             = itms_manager.inv_item_separate_menu
+use2_action_functor  		             = itms_manager.inv_item_separate
 
 [army_bowler_2]:army_bowler
 inv_grid_y                               = 79

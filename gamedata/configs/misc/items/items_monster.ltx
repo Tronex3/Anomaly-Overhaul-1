@@ -747,29 +747,21 @@ cost				            = 1400
 [mutant_part_general_meat]:booster
 $spawn 				            = "devices\monster_items\mutant_part_general"
 visual				            = dynamics\zpf\raw_flesh.ogf
-
 inv_grid_width		            = 1
 inv_grid_height		            = 1
 inv_weight			            = 0.1
-
 attach_angle_offset		        = 0.440521, 1.378287, -0.644026
 attach_position_offset	        = 0.104196, -0.010821, 0.076969
 attach_bone_name		        = bip01_r_hand
 auto_attach				        = false
-
 // should be deleted after update
 bone_name				        = bip01_r_hand
 position_offset			        = 0.0,0.0,0.0 0.117
 angle_offset			        = 1.570790,1.570790,3.92699
-
 eat_satiety				        = 0.114
-
 eat_radiation		            = 0.042
-
 eat_sleepiness				    = 0.011
-
 eat_health			            = -0.0195
-
 use_sound			            = interface\inv_eat_mutant_food
 
 [mutant_part_flesh_meat]:mutant_part_general_meat
@@ -782,17 +774,15 @@ description			            = mutant_flesh_meat_description
 inv_grid_x                      = 14
 inv_grid_y                      = 2
 cost			                = 504
-
 eat_satiety				        = 0.429
-
 eat_radiation		            = 0.0755
-
 eat_sleepiness				    = 0.0097
-
 eat_health			            = -0.0245
 use_sound			            = interface\inv_eat_mutant_food
-
 repair_part_bonus	 	        = 0.03
+cooking_part					= true
+cooking_part_tier				= 1
+cooking_result					= meat_flesh
 
 [mutant_part_boar_chop]:mutant_part_general_meat
 $spawn 				            = "devices\monster_items\mutant_boar_chop"
@@ -804,18 +794,16 @@ description			            = mutant_boar_chop_description
 inv_grid_x                      = 15
 inv_grid_y                      = 2
 cost				            = 669
-
 eat_satiety				        = 0.497
-
 eat_radiation		            = 0.0715
-
 eat_sleepiness				    = 0.0121
-
 eat_health			            = -0.0235
-
 use_sound			            = interface\inv_eat_mutant_food
-
 repair_part_bonus	 	        = 0.02
+cooking_part					= true
+cooking_part_tier				= 1
+cooking_result					= meat_boar
+
 
 [mutant_part_dog_meat]:mutant_part_general_meat
 $spawn 				            = "devices\monster_items\mutant_dog_meat"
@@ -827,18 +815,15 @@ description			            = mutant_dog_meat_description
 inv_grid_x                      = 12
 inv_grid_y                      = 2
 cost				            = 209
-
 eat_satiety				        = 0.146
-
 eat_radiation		            = 0.0255
-
 eat_sleepiness				    = 0.0038
-
 eat_health			            = -0.0085
-
 use_sound			            = interface\inv_eat_mutant_food
-
 repair_part_bonus	 	        = 0.01
+cooking_part					= true
+cooking_part_tier				= 1
+cooking_result					= meat_dog
 
 [mutant_part_psevdodog_meat]:mutant_part_general_meat
 $spawn 				            = "devices\monster_items\mutant_psevdodog_meat"
@@ -850,18 +835,15 @@ description			            = mutant_psevdodog_meat_description
 inv_grid_x                      = 13
 inv_grid_y                      = 2
 cost				            = 529
-
 eat_satiety				        = 0.197
-
 eat_radiation		            = 0.029
-
 eat_sleepiness				    = 0.0046
-
 eat_health			            = -0.009
-
 use_sound			            = interface\inv_eat_mutant_food
-
 repair_part_bonus	 	        = 0.01
+cooking_part					= true
+cooking_part_tier				= 2
+cooking_result					= meat_pseudodog
 
 [mutant_part_krovosos_meat]:mutant_part_general_meat
 $spawn 				            = "devices\monster_items\mutant_krovosos_meat"
@@ -873,18 +855,15 @@ description			            = mutant_krovosos_meat_description
 inv_grid_x                      = 16
 inv_grid_y                      = 2
 cost				            = 917
-
 eat_satiety				        = 0.638
-
 eat_radiation		            = 0.0695
-
 eat_sleepiness				    = 0.0141
-
 eat_health			            = -0.0135
-
 use_sound			            = interface\inv_eat_mutant_food
-
 repair_part_bonus	 	        = 0.01
+cooking_part					= true
+cooking_part_tier				= 2
+cooking_result					= meat_bloodsucker
 
 [mutant_part_psysucker_meat]:mutant_part_general_meat
 $spawn 				            = "devices\monster_items\mutant_krovosos_meat"
@@ -896,18 +875,15 @@ description			            = mutant_psysucker_meat_description
 inv_grid_x                      = 2
 inv_grid_y                      = 70
 cost				            = 1100
-
 eat_satiety				        = 0.497
-
 eat_radiation		            = 0.0695
-
 eat_sleepiness				    = 0.0141
-
 eat_health			            = -0.0135
-
 use_sound			            = interface\inv_eat_mutant_food
-
 repair_part_bonus	 	        = 0.01
+cooking_part					= true
+cooking_part_tier				= 2
+cooking_result					= meat_psysucker
 
 [mutant_part_snork_hand]:mutant_part_general_meat
 $spawn 				            = "devices\monster_items\mutant_snork_hand"
@@ -919,16 +895,14 @@ description			            = mutant_snork_hand_description
 inv_grid_x                      = 18
 inv_grid_y                      = 2
 cost				            = 452
-
 eat_satiety				        = 0.116
-
 eat_radiation		            = 0.037
-
 eat_sleepiness				    = 0.0033
-
 eat_health			            = -0.0095
-
 use_sound			            = interface\inv_eat_mutant_food
+cooking_part					= true
+cooking_part_tier				= 1
+cooking_result					= meat_snork
 
 [mutant_part_chimera_meat]:mutant_part_general_meat
 $spawn 				            = "devices\monster_items\mutant_chimera_meat"
@@ -940,18 +914,15 @@ description			            = mutant_chimera_meat_description
 inv_grid_x                      = 17
 inv_grid_y                      = 2
 cost				            = 1408
-
 eat_satiety				        = 0.714
-
 eat_radiation		            = 0.084
-
 eat_sleepiness				    = 0.013
-
 eat_health			            = -0.019
-
 use_sound			            = interface\inv_eat_mutant_food
-
 repair_part_bonus	 	        = 0.04
+cooking_part					= true
+cooking_part_tier				= 2
+cooking_result					= meat_chimera
 
 [mutant_part_lurker_meat]:mutant_part_general_meat
 $spawn 				            = "devices\monster_items\mutant_chimera_meat"
@@ -963,19 +934,15 @@ description			            = mutant_lurker_meat_description
 inv_grid_x                      = 0
 inv_grid_y                      = 70
 cost				            = 1408
-
 eat_satiety				        = 0.714
-
 eat_radiation		            = 0.084
-
 eat_sleepiness				    = 0.013
-
 eat_health			            = -0.019
-
 use_sound			            = interface\inv_eat_mutant_food
-
 repair_part_bonus	 	        = 0.04
-
+cooking_part					= true
+cooking_part_tier				= 2
+cooking_result					= meat_lurker
 
 [mutant_part_tushkano_meat]:mutant_part_general_meat
 $spawn 				            = "devices\monster_items\mutant_tushkano_meat"
@@ -987,17 +954,14 @@ description			            = mutant_tushkano_meat_description
 inv_grid_x                      = 11
 inv_grid_y                      = 2
 cost				            = 166
-
 eat_satiety				        = 0.094
-
 eat_radiation		            = 0.018
-
 eat_sleepiness				    = 0.022
-
 eat_health			            = -0.003
-
 use_sound			            = interface\inv_eat_mutant_food
-
+cooking_part					= true
+cooking_part_tier				= 1
+cooking_result					= meat_tushkano
 
 ;;--===================================================
 ;;--==================| MUTANT SKINS |=================
