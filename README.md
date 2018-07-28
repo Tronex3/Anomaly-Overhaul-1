@@ -36,10 +36,10 @@ Improving the item system and the progression behind it.
 
 ### Cooking:
 - [x] add special mutant parts (meat,parts,hide) for the new mutants (Lurker, Psysucker)
-- [ ] update the cooking UI
-- [ ] (Field cooking kit) has 3 max uses, it can be used on campfires for low-tier meat or (charcoal) for high-tier meat, can be found on corpses
-- [ ] (Army Kettle) has 7 max uses, it can be used on campfires or (charcoal), cook all kind of meat, can be found on corpses
-- [ ] (Multi-fuel stove) has unlimited uses, can cook all meat, requires (Kerosene) exclusively, can be bought only.
+- [x] update the cooking UI
+- [x] (Field cooking kit) has 3 max uses, it can be used on campfires for low-tier meat or (charcoal) for high-tier meat, can be found on corpses
+- [x] (Army Kettle) has 7 max uses, it can be used on campfires or (charcoal), cook all kind of meat, can be found on corpses
+- [x] (Multi-fuel stove) has unlimited uses, can cook all meat, requires (Kerosene) exclusively, can be bought only.
 
 ### Encyclopedia:
 - [x] dynamic encyclopedia, unlock articles on discovery of many things
