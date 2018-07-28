@@ -207,3 +207,29 @@ function collect_inv_item (sec , num , ... )
 	
 	return false
 end
+
+function get_nearby_campfire (dist, result)
+
+-- Rule: search for available campfires in a radius of (dist)
+-- Input: [1] searching radius in meters (float) | [2] return type (boolean)
+-- Output: if a nearby campfire is found, return true or the campfire object (controlled by "result")
+
+	for i=1,65535 do
+		local se = alife_object(i)
+		if se then
+			local obj = level.object_by_id(se.id)
+			if obj then
+				local cf = obj:get_campfire()
+				if cf and (obj:position():distance_to(db.actor:position()) <= dis) then
+					printf("TRX - get_nearby_campfire | found campfire in a radius of: " .. obj:position():distance_to(db.actor:position()) .. " | id: " .. obj:id())
+					if result then
+						return obj
+					else
+						return true
+					end
+				end
+			end
+		end
+	end
+	return false
+end
