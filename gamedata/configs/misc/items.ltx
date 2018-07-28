@@ -666,6 +666,28 @@ animation_slot                           = 4
 hud                                      = wpn_vodka_hud
 placeable_section                        = ph_tent	    
 
+[itm_campfire]:identity_immunities	;;--fake item
+$spawn 				                               = "devices\roubles"
+$prefetch 			                               = 16
+class_dbg			                               = S_MISC
+class				                               = S_PDA
+cform				                               = skeleton
+visual				                               = dynamics\equipments\trade\shovel.ogf
+radius				                               = 68; 50
+description			                               = st_itm_campfire_descr
+inv_name			                               = st_itm_campfire
+inv_name_short			                           = st_itm_campfire
+inv_grid_width			                           = 2
+inv_grid_height			                           = 2
+inv_grid_x			                               = 9
+inv_grid_y			                               = 78
+cost				                               = 1
+;box_size			                               = 1
+inv_weight			                               = 10
+attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
+attach_position_offset		                       = 0.096910, -0.013594, 0.107925
+attach_bone_name		                           = bip01_r_hand
+auto_attach				                           = false
       
 ;;--------< gather item sections >--------
 #include "items\items_medical.ltx"
@@ -678,7 +700,7 @@ placeable_section                        = ph_tent
 #include "items\items_repair.ltx"
 #include "items\items_explosives.ltx"
 #include "items\items_notes.ltx"
-#include "items\items_fieldcraft.ltx"
+;;--#include "items\items_fieldcraft.ltx"
 #include "items\items_awr.ltx"
 #include "items\items_mlr.ltx"
 #include "items\items_upgrades.ltx"
