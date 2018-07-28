@@ -1,7 +1,8 @@
 
 -- =======================================================================================
 -- Created by Tronex
--- Last modification: 2018/7/20
+-- Created: 2018/7/20
+-- Last modification: 2018/7/28
 -- Crafting Kits UI
 -- =======================================================================================
 
@@ -43,9 +44,11 @@ function craft_ui:__init(owner,obj,section) super()
 	self.owner = owner
 	self.obj = obj
 	self.section = section
+	
 	self.recipes = {}
 	self.allow = {}
 	self.size = 3
+	self.craft_use_actor_effects = alun_utils.read_from_ini (nil,section,"craft_use_actor_effects","bool",true)
 	
 	-- Fill default recipes
 	self:FillRecipes(self.section .. "_recipe")
@@ -153,8 +156,14 @@ function craft_ui:OnCraft()
 		end
 	end
 	
+	-- Remove 1 use
+	if (not trx_utils.adjust_multi_item(self.obj,-1)) then
+		local se_obj = alife_object(self.obj:id())
+		alife():release(se_obj,true)
+	end
+	
 	-- Play repair effect
-	if (actor_effects) then
+	if (self.craft_use_actor_effects and actor_effects) then
 		actor_effects.use_item("toolkit_u_dummy")
 	end
 	
