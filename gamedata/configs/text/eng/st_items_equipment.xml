@@ -6,6 +6,18 @@
 
 <string_table>
 
+	<string id="st_itm_campfire">
+		<text>Campfire</text>
+	</string>
+	<string id="st_itm_campfire_descr">
+		<text>Campfires are not items that you can carry with, you shouldn't have seen this goddamn it!\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,255,255] • %c[0,140,140,140] stalkers favorite place
+		%c[0,100,255,255] • %c[0,140,140,140] useful for cooking
+		%c[0,100,255,255] • %c[0,140,140,140] story time
+		%c[0,100,255,255] • %c[0,140,140,140] can be used with guitar and vodka</text>
+	</string>
+	
 	<string id="st_poxod_rukzak">
 		<text>Anomalous backpack</text>
 	</string>

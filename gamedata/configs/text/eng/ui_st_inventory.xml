@@ -408,6 +408,12 @@
 	<string id="st_ui_itm_repair_support">
 		<text>Supportive Materials</text>
 	</string>
+	<string id="st_ui_itm_cook_fuel">
+		<text>Fuel</text>
+	</string>
+	<string id="st_ui_itm_cook_food">
+		<text>Part</text>
+	</string>
 	<string id="st_ui_repair">
 		<text>Repair</text>
 	</string>

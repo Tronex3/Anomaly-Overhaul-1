@@ -1,0 +1,8 @@
+<w>
+	<!-- Repair -->
+	<file name="ui\items\ui_cook">
+		<texture id="ui_itm_cook" x="0" y="0" width="885" height="495"/>
+		<texture id="ui_itm_cook_box_b" x="0" y="495" width="236" height="149"/>
+		<texture id="ui_itm_cook_box_s" x="0" y="644" width="206" height="116"/>
+	</file>
+</w>

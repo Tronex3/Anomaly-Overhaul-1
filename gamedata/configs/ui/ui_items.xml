@@ -116,6 +116,63 @@
 		</btn_cancel>
 	</itm_repair>
 	
+	<itm_cook>
+		<frame x="69" y="136" width="885" height="495"/> <!-- base -->
+		
+		<!-- Item 1 -->
+		<cap_1 x="531" y="89" width="147" height="18">
+			<text r="190" g="190" b="190" font="letterica18"  align="c">st_ui_itm_cook_fuel</text>
+		</cap_1>
+		<frame_list_1 x="485" y="112" width="236" height="149">
+			<auto_static x="0" y="0" width="236" height="149" stretch="1">
+				<texture>ui_itm_cook_box_b</texture>
+			</auto_static>
+		</frame_list_1>
+		<list_1 x="501" y="124" width="203" height="125" item_height="18" can_select="1" always_show_scroll="0">
+			<font font="letterica16"/>
+		</list_1>
+		<frame_item_1 x="500" y="263" width="206" height="116">
+			<auto_static x="0" y="0" width="206" height="116" stretch="1">
+				<texture>ui_itm_cook_box_s</texture>
+			</auto_static>
+		</frame_item_1>
+		<box_item_1 x="500" y="263" width="206" height="116"/>
+		<text_item_1 x="476" y="384" width="253" height="12">
+			<text complex_mode="1" r="50" g="155" b="50" align="c" font="letterica16"/>
+		</text_item_1>	
+		
+		<!-- Item 2 -->
+		<cap_2 x="208" y="89" width="147" height="18">
+			<text r="190" g="190" b="190" font="letterica18"  align="c">st_ui_itm_cook_food</text>
+		</cap_2>
+		<frame_list_2 x="166" y="112" width="236" height="149">
+			<auto_static x="0" y="0" width="236" height="149" stretch="1">
+				<texture>ui_itm_cook_box_b</texture>
+			</auto_static>
+		</frame_list_2>
+		<list_2 x="182" y="125" width="203" height="124" item_height="18" can_select="1" always_show_scroll="0">
+			<font font="letterica16"/>
+		</list_2>
+		<frame_item_2 x="181" y="263" width="206" height="116">
+			<auto_static x="0" y="0" width="206" height="116" stretch="1">
+				<texture>ui_itm_cook_box_s</texture>
+			</auto_static>
+		</frame_item_2>
+		<box_item_2 x="181" y="263" width="206" height="116"/>
+		<text_item_2 x="157" y="384" width="253" height="12">
+			<text complex_mode="1" r="50" g="155" b="50" align="c" font="letterica16"/>
+		</text_item_2>
+		
+		<btn_cook x="554" y="412" width="101" height="28" stretch="1">
+			<text r="150" g="150" b="150" font="letterica16" align="c">ui_mm_cook</text>
+			<texture>ui_inGame2_button</texture>
+		</btn_cook>
+		<btn_cancel x="230" y="412" width="101" height="28" stretch="1">
+			<text r="150" g="150" b="150" font="letterica16" align="c">ui_mm_cancel</text>
+			<texture>ui_inGame2_button</texture>
+		</btn_cancel>
+	</itm_cook>
+	
 	<itm_map>
 		<frame x="29" y="66" width="965" height="635"> <!-- base -->
 			<auto_static x="0" y="0" width="965" height="635" stretch="1">
