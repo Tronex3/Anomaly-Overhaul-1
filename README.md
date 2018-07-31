@@ -13,7 +13,7 @@ Improving the item system and the progression behind it.
    - [x] Export toolkit *(craft important kits, tier 3 upgrade parts)*
    - [x] Drug-making kit *(craft all kind of meds and drugs)*
    - [x] Ammunition kit *(craft better ammo by using bad and damaged types with lead)*
-- [ ] add items (Recipes) that can be found on corpses, using them will unlock new recipes for the craft kits
+- [x] add items (Recipes) that can be found on corpses, using them will unlock new recipes for the craft kits
 - [ ] fill the recipes list file
 - [x] Rework the UI of old repair kits
 
@@ -23,16 +23,16 @@ Improving the item system and the progression behind it.
 - [x] add the ability to disassemble misc items and create useful parts for crafting
 - [x] add upgrades to binoculars
 - [x] (Swiss Knife) and (Grooming kit) will have 7 max uses, both are used to disassemble misc items, both are cheap
-- [ ] canned food will no longer require (Swiss Knife) to open
+- [x] canned food will no longer require (Swiss Knife) to open
  
 ### New items:
 - [x] add (Anomaly Maps), new items that can be found on corpses, show the location of known anomaly locations
 - [x] remove the old location discovery
-- [ ] add (GPS tracker), using it will show the location of nearby natural/friendly npcs for a brief amount of time, consumes UPD power
+- [x] add (GPS tracker), using it will show the location of nearby natural/friendly npcs for a brief amount of time, consumes UPD power
 - [x] add (Ammo Box), sorting it will give the player few random ammo
 - [x] (Personal Notes) will unlock random stash location
 - [x] add more misc items that can be used for crafting
-- [ ] (Guitar) and (Harmonica) as usable items
+- [x] (Guitar) and (Harmonica) as usable items
 
 ### Cooking:
 - [x] add special mutant parts (meat,parts,hide) for the new mutants (Lurker, Psysucker)
@@ -45,10 +45,12 @@ Improving the item system and the progression behind it.
 - [x] dynamic encyclopedia, unlock articles on discovery of many things
 - [x] update the articles with content (anomaly, artefacts, awr)
 - [x] new category (Notes), store personal notes like crafting recipes, notes from special characters
-- [ ] new category (Tools), contains articles about tools and how to use them in general
+- [x] new category (Tools), contains articles about tools and how to use them in general
 - [ ] fill the note list
 
 ### General:
+- [x] special marker for companions on the map
+- [x] "Unload all weapons" key has been moved to keybinds tab
 - [ ] rework the *death_items_by_communities* after finish adding all the new items
 - [x] organize item files
 - [x] remove the inventory grid
