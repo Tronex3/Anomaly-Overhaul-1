@@ -124,14 +124,14 @@ bone_name					= bip01_r_hand
 position_offset				= 0.0,0.0,0.0
 angle_offset				= 1.570790,1.570790,3.92699
 
+eat_satiety					= 0.228
+eat_sleepiness				= 0.0055
+
+use_sound					= interface\inv_eat_can_open
+
 [conserva_opened]:conserva
 inv_name					= st_conserva_opened
 inv_name_short				= st_conserva_opened
-
-;inv_grid_width				= 1
-;inv_grid_height				= 1
-;inv_grid_x					= 15
-;inv_grid_y					= 28
 
 eat_satiety					= 0.228
 eat_sleepiness				= 0.0055
@@ -164,6 +164,11 @@ auto_attach					= false
 bone_name					= bip01_r_hand
 position_offset				= 0.0,0.0,0.0
 angle_offset				= 1.570790,1.570790,3.92699
+
+eat_satiety					= 0.584
+eat_sleepiness				= 0.0055
+
+use_sound					= interface\inv_eat_can_open
 
 [tushonka_opened]:tushonka
 inv_name					= st_tushonka_opened
@@ -238,6 +243,11 @@ bone_name					= bip01_r_hand
 position_offset				= 0.0,0.0,0.0
 angle_offset				= 1.570790,1.570790,3.92699
 
+eat_satiety					= 0.281
+eat_sleepiness				= 0.0012
+
+use_sound					= interface\inv_eat_can_open
+
 [tomato_opened]:tomato
 inv_name					= st_tomato_opened
 inv_name_short				= st_tomato_opened
@@ -311,6 +321,11 @@ bone_name					= bip01_r_hand
 position_offset				= 0.0,0.0,0.0
 angle_offset				= 1.570790,1.570790,3.92699
 
+eat_satiety					= 0.249
+eat_sleepiness				= 0.0032
+
+use_sound					= interface\inv_eat_can_open
+
 [corn_opened]:corn
 inv_name					= st_corn_opened
 inv_name_short				= st_corn_opened
@@ -352,6 +367,11 @@ bone_name					= bip01_r_hand
 position_offset				= 0.0,0.0,0.0
 angle_offset				= 1.570790,1.570790,3.92699
 
+eat_satiety					= 0.437
+eat_sleepiness				= 0.0056
+
+use_sound					= interface\inv_eat_can_open
+
 [beans_opened]:beans
 inv_name					= st_beans_opened
 inv_name_short				= st_beans_opened
@@ -392,6 +412,11 @@ auto_attach					= false
 bone_name					= bip01_r_hand
 position_offset				= 0.0,0.0,0.0
 angle_offset				= 1.570790,1.570790,3.92699
+
+eat_satiety					= 0.322
+eat_sleepiness				= 0.0011
+
+use_sound					= interface\inv_eat_can_open
 
 [chili_opened]:chili
 inv_name					= st_chili_opened
@@ -584,8 +609,8 @@ inv_grid_x         			= 4
 inv_grid_y         			= 60
 uses_base					= mint
 uses_index					= 1
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+use1_functor         		= itms_manager.menu_separate
+use1_action_functor  		= itms_manager.use_separate
 
 [mint_use]:mint
 inv_grid_width				= 1
@@ -642,8 +667,8 @@ eat_sleepiness				= 0.0023
 use_sound					= interface\inv_eat_ration3
 uses_base					= mre
 uses_index					= 1
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+use1_functor         		= itms_manager.menu_separate
+use1_action_functor  		= itms_manager.use_separate
 
 [mre_2]:mre
 cost						= 2200
@@ -684,8 +709,8 @@ eat_sleepiness				= 0.0056
 use_sound					= interface\inv_eat_ration1
 uses_base					= ration_ru
 uses_index					= 1
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+use1_functor         		= itms_manager.menu_separate
+use1_action_functor  		= itms_manager.use_separate
 
 [ration_ru_2]:ration_ru
 cost						= 2300
@@ -750,8 +775,8 @@ eat_sleepiness				= 0.0033
 use_sound					= interface\inv_eat_ration2
 uses_base					= ration_ukr
 uses_index					= 1
-use1_functor         		= itms_manager.inv_item_separate_menu
-use1_action_functor  		= itms_manager.inv_item_separate
+use1_functor         		= itms_manager.menu_separate
+use1_action_functor  		= itms_manager.use_separate
 
 [ration_ukr_2]:ration_ukr
 cost						= 2828

@@ -1,0 +1,280 @@
+--[[
+		Items Manager Mod 0.4 by Faustle (2018)
+		
+-- =======================================================================================
+-- Modified by Tronex
+-- 2018/7/29 - removed (open cans using swiss knife), improved script
+-- =======================================================================================
+]]--
+
+
+local all_items = {}
+local current_effect = {}
+local awr_sf = awr_shared_functions
+local last_obj = {}
+
+-- Parsim all the necessary sections in the table
+local food_t 	= trx_utils.collect_ini_sections("misc\\items\\items_food.ltx")
+local drink_t 	= trx_utils.collect_ini_sections("misc\\items\\items_drink.ltx")
+local drugs_t 	= trx_utils.collect_ini_sections("misc\\items\\items_drugs.ltx")
+local drugsn_t 	= trx_utils.collect_ini_sections("misc\\items\\items_drugs_new.ltx")
+local medic_t 	= trx_utils.collect_ini_sections("misc\\items\\items_medical.ltx")
+
+-- Merge all tables into one
+for k,v in pairs(food_t) 	do table.insert(all_items, v) end
+for k,v in pairs(drink_t) 	do table.insert(all_items, v) end
+for k,v in pairs(drugs_t) 	do table.insert(all_items, v) end
+for k,v in pairs(drugsn_t) 	do table.insert(all_items, v) end
+for k,v in pairs(medic_t) 	do table.insert(all_items, v) end
+
+table.sort(all_items)
+
+--awr_shared_functions.print_table(all_items)
+
+local waters = { vodka=0, vodka2=0, vodka_quality=0, bottle_metal=0, beer=0, drink_crow=0, energy_drink=0, water_drink=0, flask=0, tea=0, mineral_water=0 }
+
+function result(sec,m_name,item_effect,smoke,ef_type) -- Finishing function
+	-- If the item is a cigarette
+	if smoke then
+		local matches = matches_exist()
+
+		-- If there are matches
+		if matches then
+			discharge(sec)
+			discharge(matches)
+			create_delay(item_effect[ef_type][2],ef_type,m_name)
+			create_and_use(m_name,smoke)
+
+			current_effect[ef_type] = item_effect[ef_type]
+			last_obj[ef_type] = m_name
+			--printf('Matches exist %s', matches)
+		else
+			-- If there are no matches	
+			trx_utils.set_msg("st_imm_smoke_fail")
+			alife():create(sec, db.actor:position(), 0,0,0)
+			return
+		end
+	else
+		discharge(sec)
+		create_delay(item_effect[ef_type][2],ef_type,m_name)
+		create_and_use(m_name,smoke)
+
+		current_effect[ef_type] = item_effect[ef_type]
+		last_obj[ef_type] = m_name
+	end
+end
+
+function create_and_use(m_name,smoke) -- Creating and using a "_use" or "_smoke" section of an object that causes effects
+	local sobj, u_name
+
+	local function eat_item(name)
+		db.actor:eat(db.actor:object(name))
+		return true
+	end
+
+	if smoke then
+		u_name = string.format('%s_smoke',m_name)
+		sobj = alife():create(u_name, db.actor:position(), 0, 0, 0)
+	else
+		u_name = string.format('%s_use',m_name)
+		sobj = alife():create(u_name, db.actor:position(), 0, 0, 0)
+	end
+
+	if sobj then
+		CreateTimeEvent("eat_item", "delay", 1, eat_item, u_name)
+		--printf('Create and eat %s', u_name)
+	end
+end
+
+function create_delay(boost_time,ef_type,m_name) -- The timer function for creating a callback
+	local delay = time_global() + boost_time*1000
+	local u_name = m_name
+
+	--printf('Create delay with %s ms for boost time %s ms', delay, boost_time*1000)
+
+	-- Local check function, which will be called by the engine until it returns true
+	local function delayed_call()
+		return time_global() > delay
+	end
+	-- Создание callback-а
+	level.add_call(delayed_call, function() release_table(ef_type,u_name) end)
+end
+
+function release_table(ef_type,u_name) -- The function-processor, to remove the objects
+	--printf('last obj %s, m_name %s', last_obj[ef_type], u_name)
+	if u_name ~= last_obj[ef_type] then
+		--printf('release_table function, -> return')
+		return
+	end
+	--printf('Table %s has been released', ef_type)
+	current_effect[ef_type] = nil
+end
+
+function itm_prot_type(m_name,smoke) -- Creating a table with corresponding effect sections for each subject
+	local ini = system_ini()
+	local section
+	local t = {}
+
+	if smoke then
+		section = string.format('%s_smoke', m_name)
+	else
+		section = string.format('%s_use', m_name)
+	end
+
+	local time			= tonumber(ini:r_float_ex(section, "boost_time")) or 0
+	local rad_boost 	= tonumber(ini:r_float_ex(section, "boost_radiation_restore")) or 0
+	local psy_boost 	= tonumber(ini:r_float_ex(section, "boost_telepat_protection")) or 0
+	local bld_boost 	= tonumber(ini:r_float_ex(section, "boost_bleeding_restore")) or 0
+	local pwr_boost 	= tonumber(ini:r_float_ex(section, "boost_power_restore")) or 0
+	
+	if pwr_boost > 0.00005 then
+		t['power'] = { m_name, time, pwr_boost }
+		return t
+	elseif psy_boost > 0.00005 then
+		t['telepat'] = { m_name, time, psy_boost }
+		return t
+	elseif bld_boost > 0.00005 then
+		t['bleeding'] = { m_name, time, bld_boost }
+		return t
+	elseif rad_boost > 0.00005 then	
+		t['radiation'] = { m_name, time, rad_boost }
+		return t
+	else
+		--printf('Sections for %s  was not found ->', section)
+		return
+	end
+end
+
+function get_effect_type(tb) -- Function of determining the type of effect
+	local e_types = { 'radiation', 'telepat', 'bleeding', 'power' }
+
+	for _, k in ipairs(e_types) do
+		if tb[k] then
+			return k
+		end
+	end
+end
+
+function matches_exist() -- Checking for matches in inventory
+	local items = trx_utils.collect_inv()
+	for k,v in pairs(items) do
+		if v:match('box_matches') or (v == "matches") then
+			return v
+		end
+	end
+end
+
+function discharge(sec) -- Reducing the charge
+	local ini = system_ini()
+	local uses = ini:r_float_ex(sec,"uses_index")
+	local base = ini:r_string_ex(sec,"uses_base")
+	if uses and uses >=2 and base and ini:section_exist(base) then
+		local sec_n = trx_utils.get_item_charge (base, uses, -1)
+		trx_utils.create_inv_obj(sec_n)
+	end
+	trx_utils.release_inv_obj(sec)
+end
+
+function get_clear_name(sec) -- Obtaining a "clean" section
+	return system_ini():r_string_ex(sec,"uses_base") or sec
+end
+
+
+--=======================================< Callbacks >=======================================--
+
+function actor_on_item_use(obj)
+	if not (obj) then
+		return
+	end
+
+	local sec = obj:section()
+
+	-- Data on thirst, to be able to use water, even with the available effect
+	local last_drink = drink.last_drink or 0
+
+	-- The smoke flag is used to determine cigarettes so that the condition of having matches is used
+	local smoke = false
+
+	-- Check if the section of the service object is
+	if sec:match("_use$") then
+		--printf('use ->')
+		return
+	end
+
+	-- Check if the section of the service object is
+	if sec:match("_smoke$") then
+		--printf('smoke ->')
+		return
+	end
+
+	-- We get the "clean" section name, without charges
+	local m_name = get_clear_name(sec)
+	--printf('Section %s, clear name %s', sec, m_name)
+
+	-- Checking whether the object is a closed jar or cigarettes
+	for _, k in ipairs(all_items) do
+		if k:match(string.format('%s_open', m_name)) then
+			--trx_utils.set_msg('st_imm_befor_swiss')
+			--alife():create(m_name, db.actor:position(), 0,0,0)
+			--return
+		elseif k:match(string.format('%s_smoke', m_name)) then
+			--printf('Item %s is cigarettes', k)
+			smoke = true
+		end
+	end
+
+	-- We read duration and effects and write to the table
+	local item_effect = itm_prot_type(m_name,smoke)
+
+	if not (item_effect) then
+		return
+	end
+
+	-- We get the type of effect
+	local ef_type = get_effect_type(item_effect)
+
+	-- If there is any current effect
+	if current_effect[ef_type] then
+		--printf('Current effect table exist')													
+		--awr_sf.print_table(current_effect)
+		
+		-- If the types of current and used effects are the same
+		if item_effect[ef_type] and current_effect[ef_type] then 							
+
+			--printf('New item has the same effect type as the current, [%s]', ef_type)
+
+			-- The calculation of the efficiency follows the formula min_boost_time*effect_time1 и min_boost_time*effect_time2
+			local min_time = math.min(item_effect[ef_type][2], current_effect[ef_type][2])
+			local item_coef = min_time * item_effect[ef_type][3]
+			local current_coef = min_time * current_effect[ef_type][3]
+
+			-- If the new effect is stronger than the current one
+			if item_coef <= current_coef then
+				if last_drink and last_drink >= 150 then
+					if waters[m_name] then
+						result(sec,m_name,item_effect,smoke,ef_type)
+					end
+				else
+					trx_utils.set_msg('st_imm_smoke_already_used')
+					alife():create(sec, db.actor:position(), 0,0,0)
+					--printf('New effect more weak as current')
+					return
+				end
+			else
+				-- If the current effect is stronger than the new one
+				result(sec,m_name,item_effect,smoke,ef_type)
+				--printf('Current effect more weak as new')
+			end
+		else
+			-- If the types of current and used effects are different
+			result(sec,m_name,item_effect,smoke,ef_type)
+		end
+	else
+		-- If there are no current effects
+		result(sec,m_name,item_effect,smoke,ef_type)
+	end
+end
+
+function on_game_start()
+	RegisterScriptCallback("actor_on_item_use",actor_on_item_use)
+end
