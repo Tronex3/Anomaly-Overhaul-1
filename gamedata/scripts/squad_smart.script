@@ -1,0 +1,212 @@
+--'******************************************************
+-- Edited by Alundaio and av661194
+-- edited 1/14/2016: Added ability to create squad npcs without specifying a smart
+--
+-- Edited by Tronex (2018/3/18), added the ability to see natural and friendly squads only
+--'******************************************************
+	
+local params = {}
+params["period"] = 20
+params["target"] = false
+params["all"]    = false
+params["allow"]  = false
+
+function active_tracker (period, state, target)
+	RemoveTimeEvent(0,"GPSTrackerTick")
+	CreateTimeEvent(0,"GPSTrackerTick", 2*level.get_time_factor(), timer)
+	params["period"] = period or 10
+	params["all"]    = state or false
+	params["target"] = target or false
+	params["allow"]  = false
+end
+
+function timer()
+	if (not params["allow"]) then
+		ResetTimeEvent(0,"GPSTrackerTick", params["period"]*level.get_time_factor())
+		params["allow"] = true
+	else
+		RemoveTimeEvent(0,"GPSTrackerTick")
+		params["allow"] = false
+	end
+end
+
+function get_params()
+	return params
+end
+
+function sim_squad_scripted.sim_squad_scripted.show(self)
+	if self.show_disabled then
+		self:hide()
+		return
+	end
+
+    if (level.map_has_object_spot(self:commander_id(), "ui_pda2_trader_location")~=0) or
+	(level.map_has_object_spot(self:commander_id(), "ui_pda2_mechanic_location")~=0) or
+	(level.map_has_object_spot(self:commander_id(), "ui_pda2_scout_location")~=0) or
+	(level.map_has_object_spot(self:commander_id(), "ui_pda2_quest_npc_location")~=0) or
+	(level.map_has_object_spot(self:commander_id(), "ui_pda2_medic_location")~=0) then
+		self.show_disabled = true
+		return
+	end
+
+	if (self.current_spot_id ~= self:commander_id()) then
+		self:hide()
+		self.current_spot_id = self:commander_id()
+		self:show()
+		return
+	end
+
+	
+	local squad_icons = {
+		["stalker"]  	= "warfare_stalker_spot",
+		["dolg"]     	= "warfare_duty_spot",
+		["freedom"]  	= "warfare_freedom_spot",
+		["killer"]   	= "warfare_killer_spot",
+		["csky"]     	= "warfare_csky_spot",
+		["monolith"] 	= "warfare_monolith_spot",
+		["army"]     	= "warfare_army_spot",
+		["ecolog"]   	= "warfare_ecolog_spot",
+		["bandit"]   	= "warfare_bandit_spot",
+		["zombied"]  	= "warfare_zombied_spot",
+		["monster"]  	= "alife_presentation_squad_monster_1",
+		["friends"]  	= "alife_presentation_squad_friend_1",
+		["neutral"]  	= "alife_presentation_squad_neutral_1",
+		["enemy"]    	= "alife_presentation_squad_enemy_1",
+		["companion"]	= "companion_spot"
+	}
+	
+	local param = squad_smart.get_params() or {}
+	local sim = alife()
+	local se_actor = sim:actor()
+	local spot = ""
+	
+	
+	-- 1. Debug mode + Debug HUD enabled
+	if (DEV_DEBUG and axr_main.config:r_value("mm_options","enable_debug_hud",1,false) == true) then
+		spot = squad_icons[self.player_id] or "warfare_mutant_spot"
+    
+	-- 2. Companions
+	elseif (axr_companions.companion_squads[self.id]) then
+		spot = squad_icons["companion"]
+	
+	-- 3. GPS Tracker active
+	elseif param["allow"] then
+		if (not is_squad_monster[self.player_id]) and self.online then --and (param["all"] or (self.position:distance_to(se_actor.position) < 40)) then
+			local relation = self:get_squad_relation()
+			if param["target"] and (param["target"] == self.player_id) and squad_icons[param["target"]] then
+				spot = squad_icons[relation] or squad_icons[self.player_id]
+			elseif (not param["target"]) and (relation ~= "enemy") then
+				spot = squad_icons[relation] or "warfare_mutant_spot"
+			end
+		end
+	end
+
+	
+	if (spot ~= "") then
+		if spot == self.spot_section then
+			level.map_change_spot_hint(self.current_spot_id, self.spot_section, self:get_squad_props())
+			return
+		end
+		
+		if (self.spot_section == nil) then
+			level.map_add_object_spot(self.current_spot_id, spot, self:get_squad_props())
+		else
+			level.map_remove_object_spot(self.current_spot_id, self.spot_section)
+			level.map_add_object_spot(self.current_spot_id, spot, self:get_squad_props())
+		end
+		
+		self.spot_section = spot
+		
+	elseif (self.spot_section ~= nil) then
+		level.map_remove_object_spot(self.current_spot_id, self.spot_section)
+		self.spot_section = nil
+	end
+end
+
+function sim_squad_scripted.sim_squad_scripted.get_squad_props(self)
+	local t = ""
+	
+	-- 1. Debug mode + Debug HUD enabled
+	if (DEV_DEBUG and axr_main.config:r_value("mm_options","enable_debug_hud",1,false) == true) then
+		local assigned_target = self.assigned_target_id and alife_object(self.assigned_target_id)
+		local current_target = self.current_target_id and alife_object(self.current_target_id)
+
+		t = "%s\\n\\n%s\\n\\nnpcs=%s\\n\\ncurrent_target=%s\\nassigned_target=%s\\n\\n"
+		t = strformat(t,self.disabled and "[disabled]" or "",self:name(),self:npc_count(),self.current_target_id == 0 and "actor" or current_target and current_target:name(),self.assigned_target_id == 0 and "actor" or assigned_target and assigned_target:name())
+
+		if (self.current_action) then
+			if (self.current_action == 0) then 
+				t = t .. "Trying to Reach Target"
+			elseif (self.current_action == 1) then 
+				t = t .. "Stay On Target"
+			end
+			
+			if (self.current_action == 1 and self.stay_time) then
+				t = strformat("%s = %s (%s)",t,tostring(self.idle_time - game.get_game_time():diffSec(self.stay_time)),self.idle_time)
+			end
+		end
+
+		return t
+	
+	-- 2. Companions
+	elseif (axr_companions.companion_squads[self.id]) then
+		return game.translate_string(self.player_id) .. "\\n" .. game.translate_string("st_sq_count_companions") .. " " .. self:npc_count()
+		
+	-- 3. Everything else
+	elseif (not is_squad_monster[self.player_id]) then
+		return game.translate_string(self.player_id)
+	end
+
+	
+	local assigned_target = self.assigned_target_id and alife_object(self.assigned_target_id)
+	local assigned_target_name = (self.assigned_target_id == 0 and "actor") or (assigned_target and assigned_target:name())
+	local current_target = self.current_target_id and alife_object(self.current_target_id)
+	local current_target_name = (self.current_target_id == 0 and "actor") or (current_target and current_target:name())
+
+	if assigned_target_name and (assigned_target_name ~= current_target_name) then
+		assigned_target_name = (assigned_target_name == "actor" and alife():actor():character_name()) or game.translate_string("st_"..assigned_target_name.."_name")
+		t = t .. "\\n" .. game.translate_string("st_sq_target") .. " - \\n" .. assigned_target_name
+	end
+	
+	return t
+end
+
+function sim_squad_scripted.sim_squad_scripted.get_squad_relation(self)
+    local squad = alife_object(self.id)
+	if (is_squad_monster[squad.player_id]) then 
+		return "monster"
+	end
+    local goodwill = 0
+    local npc_count = 0
+    for k in squad:squad_members() do
+    local object = db.storage[k.id] and db.storage[k.id].object
+        if object and db.actor then
+            goodwill = goodwill + object:general_goodwill(db.actor)
+            npc_count = npc_count + 1
+        end
+    end
+    if npc_count ~= 0 then
+        local delta = goodwill/npc_count
+        if delta <= -1000 then
+            return "enemy"
+        elseif delta >= 1000 then
+            return "friends"
+        elseif delta < 1000 and delta > -1000 then
+            return "neutral"
+        end
+    end   
+    local relation = 0
+    if db.actor then
+		relation = db.actor:community_goodwill(self.player_id)+game_relations.get_factions_community(self.player_id, alife():actor():community())
+    else
+		relation = game_relations.get_factions_community(self.player_id, alife():actor():community())
+    end
+    
+    if relation >= 1000 then
+		return "friends"
+    elseif relation <= -1000 then
+		return "enemy"
+    else
+		return "neutral"
+    end
+end
