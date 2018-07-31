@@ -288,11 +288,13 @@ function pda_encyclopedia_tab:InitControls()
 	xml:InitStatic("frame1:caption", self)
 	
 	-- "Images on top" checkbox.
+	self.cap_image_checkbox = xml:InitStatic("cap_image_checkbox",self)
 	self.image_checkbox = xml:InitCheck("image_checkbox", self)
 	self.image_checkbox:SetCheck(axr_main.config:r_value("pda_encyclopedia", "images_above_text", 1, true))
 	self:Register(self.image_checkbox, "images_above_text")
 	
 	-- "Show messages" checkbox.
+	self.cap_message_checkbox = xml:InitStatic("cap_message_checkbox",self)
 	self.message_checkbox = xml:InitCheck("message_checkbox", self)
 	self.message_checkbox:SetCheck(axr_main.config:r_value("pda_encyclopedia", "display_messages", 1, true))
 	self:Register(self.message_checkbox, "display_messages")

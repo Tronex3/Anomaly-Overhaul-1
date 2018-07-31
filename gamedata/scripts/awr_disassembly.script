@@ -1,0 +1,468 @@
+--[[
+		Advanced Weapon Repair Mod 0.3 [Disassembly] by Faustle (2017)
+]]--
+
+local flag = false
+local settings_list = {}
+local awr_sf = awr_shared_functions
+local ini = ini_file("plugins\\item_management\\awr_settings.ltx")
+local settings = alun_utils.collect_section(ini,"awr_settings")
+
+for _, k in ipairs(settings) do
+	settings_list[k] = ini:r_float_ex("awr_settings", k)
+end
+
+function on_game_start()
+	RegisterScriptCallback("on_key_press",on_key_press)
+	RegisterScriptCallback("on_key_release",on_key_release)
+end
+
+function on_key_press(key)
+	if(key == DIK_keys["DIK_LCONTROL"] ) then
+		flag = true
+	end
+end
+
+function on_key_release(key)
+	if(key == DIK_keys["DIK_LCONTROL"] ) then
+		flag = false
+	end
+end
+
+--// +OUTFIT DISASSEMBLY ------------------------------------------------------------------------
+--// Создаем таблицы с бронями
+local ini_o = ini_file("plugins\\item_management\\awr_outfit_disassembly.ltx")
+local outfits_t = alun_utils.collect_section(ini_o,"awr_outfits",true)
+local nov_outfits_t = alun_utils.collect_section(ini_o,"awr_novice_outfits",true)
+local sci_outfits_t = alun_utils.collect_section(ini_o,"awr_scientific_outfits",true)
+local exo_outfits_t = alun_utils.collect_section(ini_o,"awr_exo_outfits",true)
+
+--// Создаем таблицы с шлемами
+local helm_t = alun_utils.collect_section(ini_o,"awr_helmets",true)
+
+--// Создаем таблицы с тряпочными шлемами
+local c_helm_t = alun_utils.collect_section(ini_o,"awr_cloth_helmets",true)
+
+--// Создаем таблицы с различными тряпками
+local clothes_t = alun_utils.collect_section(ini_o,"awr_clothes",true)
+
+--// Создаем таблицы с метериалами, для каждого типа качества
+local mat_t_low = alun_utils.collect_section(ini_o,"awr_material_low")
+local mat_t_mid = alun_utils.collect_section(ini_o,"awr_material_mid")
+--// -OUTFIT DISASSEMBLY ------------------------------------------------------------------------
+
+--// WEAPON DISASSEMBLY
+--// Функция для работы с контекстным меню инвентаря (use2_functor) (вызывается из default_weapon_params, defines.ltx)
+--// Если функция вернет строку - она появится в контекстном меню при нажатии ПКМ на оружие в инвентаре
+--// Нажатие на строку, вызовет use2_action_functor - disassembly_weapon()
+function disassembly_weapon_text(weapon_obj)
+	
+	if not (weapon_obj) or not (IsWeapon(weapon_obj)) then
+		return
+	end
+	
+	local p = weapon_obj:parent()
+	if not (p and p:id() == db.actor:id()) then 
+		return
+	end
+	
+	local wpn_s = weapon_obj:section()
+	
+	if not (awr_sf.InWpnList(wpn_s)) then
+		return
+	end
+	
+	return game.translate_string("st_awr_disassembly_weapon")
+end
+
+--// Функтор контекстного вызова разборки оружия
+function disassembly_weapon(weapon_obj)
+	local chk = axr_main.config:r_value("mm_options","enable_awr_disassembly",1,true)
+	if chk and  not (flag) then
+		awr_shared_functions.SendAwrMsg('success', 'detail', "st_awr_ctrl")
+		return
+	end
+
+	local details_am, get_detail, num, a_name
+	local wpn_details = {}
+	local result_details = {}
+	local result_details_names = ""
+	local get_ammo = {}
+	local with_scope = nil
+	local fail_cond = 0
+	local details_q = { 'good', 'worn', 'rusty' }
+	local on_drop_details = { 'barrel', 'trigger_components', 'bolt_carrier', 'bolt', 'gas_tube' }
+	local wpn_s = weapon_obj:section()
+	local wpn_name = alun_utils.get_inv_name(wpn_s)
+
+	local delay = axr_main.config:r_value("mm_options","enable_extra_animations",1) and 42 or 0
+	awr_sf.dout('disassembly_weapon', "Trying to disassemble %s", wpn_s)
+	
+	--// Отстутствие инструмента в инвентаре актора
+	if not (db.actor:object("leatherman_tool")) then
+		awr_sf.SendAwrMsg('fail', 'weapon', "st_dis_text_3", " ")
+		awr_sf.dout('disassembly_weapon', "Actor don't have leathernam_tool -> return")
+		return
+	end
+	
+	with_scope = awr_sf.HasScope(wpn_s)
+		
+	--// Проверка и сохранение подключенных аддонов
+	if with_scope then
+		with_scope = string.format('_%s', awr_sf.HasScope(wpn_s))
+		awr_sf.dout('disassembly_weapon', "Weapon %s has scope %s", wpn_s, with_scope:sub(2))
+		table.insert(result_details, with_scope:sub(2))
+		wpn_s = wpn_s:gsub(with_scope, "")
+	end	
+	if (rx_utils.addon_attached(weapon_obj,"sc")) then
+		local scope_section = rx_utils.read_from_ini2(nil,wpn_s,"scopes_sect","string",nil)
+		local scope = rx_utils.read_from_ini2(nil,scope_section,"scope_name","string",nil)
+		table.insert(result_details, scope)
+		awr_sf.dout('disassembly_weapon', "Weapon %s has scope %s", wpn_s, scope)
+	end
+	if (rx_utils.addon_attached(weapon_obj,"sl") and not (wpn_s:match("wpn_val")) and not (wpn_s:match("wpn_vintorez")) and not (wpn_s:match("wpn_vsk94")) and not (wpn_s:match("wpn_mp5sd"))) then
+		local sil = rx_utils.read_from_ini2(nil,wpn_s,"silencer_name","string",nil)
+		table.insert(result_details, sil)
+		awr_sf.dout('disassembly_weapon', "Weapon %s has silencer %s", wpn_s, sil)
+	end	
+	if (rx_utils.addon_attached(weapon_obj,"gl")) and not (wpn_s:match("wpn_groza")) then
+		local gl = rx_utils.read_from_ini2(nil,wpn_s,"grenade_launcher_name","string",nil)
+		table.insert(result_details, gl)
+		awr_sf.dout('disassembly_weapon', "Weapon %s has grenade launcher %s", wpn_s, gl)
+	end
+	
+	--// Проверка наличия патронов в рожке
+	local data = stpk_utils.get_weapon_data(alife():object(weapon_obj:id()))
+	if data.ammo_elapsed > 0 then
+		local ammos = alun_utils.parse_list(system_ini(), wpn_s, "ammo_class")
+		get_ammo = { data.ammo_elapsed, ammos[data.ammo_type+1] }
+	end
+	
+	local wpn_cond = weapon_obj:condition()
+	local _wpn_details = alun_utils.parse_list(ini,"awr_weapon_list", wpn_s)
+	
+	for i, k in ipairs(_wpn_details) do
+		wpn_details[on_drop_details[i]] = k
+	end
+	
+	if awr_sf.IsRusty(wpn_s) then		
+		--// Количество деталей при разборке ржавого оружия
+		details_am = 3
+	elseif awr_sf.IsWorn(wpn_s) then			
+		--// Количество деталей при разборке изношенного оружия
+		details_am = 3
+	else
+		--// Количество деталей при разборке нового оружия
+		details_am = 4
+	end
+
+	while details_am > 0 do
+		if (wpn_cond*100)+settings_list.condition+fail_cond >= math.random(1, 100) then
+			num = math.random(1,#on_drop_details)
+			get_detail = on_drop_details[num]
+
+			if awr_sf.IsRusty(wpn_s) then		
+				--// Рандом для создания ржавых деталей
+				table.insert(result_details, string.format("awr_%s_%i_%s", get_detail, wpn_details[get_detail], details_q[math.random(2,3)]))
+			else
+				--// Рандом для создания изношенных и новых деталей
+				table.insert(result_details, string.format("awr_%s_%i_%s", get_detail, wpn_details[get_detail], details_q[math.random(1,2)]))
+			end
+			
+			table.remove(on_drop_details, num)
+		end
+		details_am = details_am - 1
+		--fail_cond = fail_cond + 2			--// Набивание "фейлов" :) Повышение шанса, при каждом фейле детали из общего кол-ва
+	end
+
+	--// Таблица с названиями всех деталей, которые можно извлечь
+	for _, k in ipairs(result_details) do
+		result_details_names = result_details_names.."\\n"..alun_utils.get_inv_name(k)
+	end
+	
+	local se_obj = alife():object(weapon_obj:id())
+	if (se_obj) then
+		awr_sf.del_obj(se_obj)
+	end
+	
+	local function disasm()
+		--// Создание патронов
+		if get_ammo and get_ammo[1] and get_ammo[2] then
+			a_name = string.format(game.translate_string("st_dis_text_4"), get_ammo[1], string.gsub(alun_utils.get_inv_name(get_ammo[2]), "^(.*%s)(%d+)", "%2"))
+			create_ammo(get_ammo[2], db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id(), get_ammo[1])
+		end
+
+		--// Отправка сообщений актору
+		if #result_details > 0 then
+			if get_ammo and get_ammo[1] and get_ammo[2] then
+				awr_sf.SendAwrMsg('success', 'weapon_ammo', "st_dis_text_7", wpn_name, a_name, result_details_names)
+			else
+				awr_sf.SendAwrMsg('success', 'weapon_ammo', "st_dis_text_7", wpn_name, game.translate_string('st_dis_text_9'), result_details_names)
+			end
+		else
+			awr_sf.SendAwrMsg('fail', 'weapon', "st_dis_text_2", wpn_name)
+		end
+		
+		--// Создание деталей в инвентаре
+		for _, k in ipairs(result_details) do
+			alife():create(k, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+		end
+		
+		return true
+	end
+
+	actor_effects.use_item("cleaning_kit_u_dummy")
+	CreateTimeEvent("disasm","delay",delay,disasm,weapon_obj)
+end
+
+--// DETAIL REPAIR
+--// Функтор контекстного вызова восстановления детали (текст)
+function r_detail_text(itm)
+	if not (itm) and not (awr_sf.IsDetail(itm,'worn')) and not (awr_sf.IsDetail(itm,'rusty')) then
+		return
+	end
+	
+	local p = itm:parent()
+	if not (p and p:id() == db.actor:id()) then 
+		return
+	end
+	
+	return game.translate_string("st_awr_r_detail")
+end
+
+--// Функтор контекстного вызова восстановления детали
+function r_detail(itm)
+
+	local hud = get_hud()
+	ui = ui_awr_detail and ui_awr_detail.awr_mini_ui(hud,itm)
+	if (ui) then
+		ui:ShowDialog(true)
+	end
+end
+
+--// OUTFIT DISASSEMBLY
+--// Функтор контекстного вызова разборки брони (текст)
+function disassembly_outfit_text(o_obj)
+
+	if not (o_obj) then
+		return
+	end
+	
+	local p = o_obj:parent()
+	if not (p and p:id() == db.actor:id()) then 
+		return
+	end
+
+	local out_sec = o_obj:section()
+
+	if not (exo_outfits_t[out_sec]) and not (sci_outfits_t[out_sec]) and not (nov_outfits_t[out_sec]) and not (outfits_t[out_sec]) and not (helm_t[out_sec]) and not (c_helm_t[out_sec]) and not (clothes_t[out_sec]) then
+		awr_sf.dout('disassembly_outfit', '%s not in AWR supported lists', out_sec)
+		return
+	end
+
+	if helm_t[out_sec] then
+		return game.translate_string("st_awr_disassembly_helmet")
+	elseif c_helm_t[out_sec] or clothes_t[out_sec] then
+		return game.translate_string("st_awr_disassembly_cloth")
+	else
+		return game.translate_string("st_awr_disassembly_outfit")
+	end
+end
+
+--// Функтор контекстного вызова разборки брони
+function disassembly_outfit(o_obj)
+	local chk = axr_main.config:r_value("mm_options","enable_awr_disassembly",1,true)
+	if chk and  not (flag) then
+		awr_shared_functions.SendAwrMsg('success', 'detail', "st_awr_ctrl")
+		return
+	end
+
+	local delay = axr_main.config:r_value("mm_options","enable_extra_animations",1) and 42 or 0
+	local sel_mat = {}
+	local result_details = {}
+	local result_details_names = ''
+	local o_type
+	local out_s = o_obj:section()
+	local detail_count = 0
+	local o_cond = 0
+	local t_cond = 0
+	local o_name = alun_utils.get_inv_name(out_s)
+
+	local mat_t_hi = {}
+
+	local upgrades = alun_utils.parse_list(system_ini(), out_s, "upgrades")
+	for _, k in ipairs(upgrades) do
+		local upg_gr = alun_utils.parse_list(system_ini(), k, "elements")
+		for _, v in ipairs(upg_gr) do
+			local upg_sect = rx_utils.read_from_ini2(nil,v,"section","string","error")
+			if not (upg_sect:match('up_sect_empty')) then
+				local material = rx_utils.read_from_ini2(nil,upg_sect,"required_materials","string","error")
+				table.insert(mat_t_hi, material)
+			end
+		end
+	end
+
+	if IsOutfit(o_obj) or IsHeadgear(o_obj) then
+		o_cond = o_obj:condition()
+	else
+		o_cond = 1
+	end
+
+	awr_sf.dout('disassembly_outfit', "Trying to disassemble %s", out_s)
+	
+	--// Отстутствие инструмента в инвентаре актора
+	if not (db.actor:object("leatherman_tool")) then
+		awr_sf.SendAwrMsg('fail', 'weapon', "st_dis_text_3", " ")
+		awr_sf.dout('disassembly_outfit', "Actor don't have leathernam_tool -> return")
+		return
+	end
+
+	--// Определение базового количества деталей при разборке (таблица содержит кол-во деталей {высокое, среднее, низкое})
+	if exo_outfits_t[out_s] then
+		detail_count = { 2, 3, 4 }
+		t_cond = 15
+	elseif sci_outfits_t[out_s] then
+		detail_count = { 2, 3, 4 }
+		t_cond = 15
+	elseif outfits_t[out_s] then
+		detail_count = { 1, 3, 3 }
+		t_cond = 10
+	elseif nov_outfits_t[out_s] then
+		detail_count = { 1, 2, 3 }
+		t_cond = 5
+	elseif helm_t[out_s] then
+		detail_count = { 1, 2, 3 }
+		t_cond = 10
+	elseif c_helm_t[out_s] then
+		detail_count = { 0, 0, 3 }
+		t_cond = 5
+	elseif clothes_t[out_s] then
+		detail_count = { 0, 0, 1 }
+		t_cond = 100
+	end
+
+	awr_sf.dout('disassembly_outfit', 'Base detail count for %s: hi[%s], mid[%s], low[%s]', out_s, detail_count[1],detail_count[2],detail_count[3])
+
+	--// Уменьшение кол-ва деталей при худшем качестве (изношенное -1 деталь, непригодная -2 детали, отсчет с лучшего качества, если оно равно 0, то среднего, и т.п)
+	if out_s:match('worn') then
+		for i, k in ipairs(detail_count) do
+			if k ~= 0 then
+				detail_count[i] = k - 1
+				break
+			end
+		end
+		awr_sf.dout('disassembly_outfit', 'Outfit is warn. Detail count decreased by 1')
+	elseif out_s:match('bad') then
+		for i, k in ipairs(detail_count) do
+			if k ~= 0 then
+				detail_count[i] = k - 1
+				if i == 2 then
+					break
+				end
+			end
+		end	
+		awr_sf.dout('disassembly_outfit', 'Outfit is warn. Detail count decreased by 2')
+	end
+
+	awr_sf.dout('disassembly_outfit', 'Total detail count: hi[%s], mid[%s], low[%s]', detail_count[1],detail_count[2],detail_count[3])
+
+	--// Функция для определения успеха при разборке, для каждой детали по очереди, с учетом состояния
+	local function get_dt(count, mat_table)
+		local t = mat_table
+
+		if count == 0 then
+			return
+		end
+		
+		for i = 1, count do
+			if (o_cond*100)+settings_list.outfit_condition+t_cond >= math.random(1, 100) then
+				local num = math.random(1,#t)
+				awr_sf.dout(nil, 'Random number %s from %s, get detail %s', num, #t, t[num])
+				table.insert(result_details, t[num])
+				if #t > 5 then
+					table.remove(t, num)
+				end
+			else
+				awr_sf.dout(nil, 'Detail was broken')
+				t_cond = t_cond + 5
+			end
+		end
+	end
+
+	--// Вызываем для каждого типа деталей
+	get_dt(detail_count[1],mat_t_hi)
+	get_dt(detail_count[2],mat_t_mid)
+	get_dt(detail_count[3],mat_t_low)
+
+	--// Функция для подсчета одинаковых элементов в таблице (для определения количества, при выводе в сообщении актору)
+	local function res(t)
+		t1 = {}
+		t2 = {}
+		for i = 1, #t do
+			l = t[i]  
+			if t1[l] then
+				if not (t2[l]) then
+					t2[l] = 1
+				end
+				if t2[l] < 1 then
+					t2[l] = 1
+				else
+					t2[l] = t2[l] + 1
+				end
+			else
+				t1[l] = 1
+			end
+		end
+		for k,v in pairs(t2) do t1[k] = v end
+		return t1
+	end 
+
+	local result_details_count = res(result_details)
+
+	--// Собираем все имена деталей в таблицу
+	for k, v in pairs(result_details_count) do
+		if v == 1 then
+			result_details_names = string.format('%s\\n%s', result_details_names, alun_utils.get_inv_name(k))
+		else
+			result_details_names = string.format('%s\\n%s %s%s', result_details_names, alun_utils.get_inv_name(k), v, game.translate_string('st_dis_count'))
+		end
+	end
+
+	--// Удаление разбираемого объекта
+	local se_obj = alife():object(o_obj:id())
+    if (se_obj) then
+        awr_sf.del_obj(se_obj)
+    end
+
+    --// Основная функция для вывода сообщений, и создания деталей в инвентаре актора
+	local function disasm()
+
+		--// Отправка сообщений актору
+		if #result_details > 0  then
+			if c_helm_t[out_s] or clothes_t[out_s] then
+				awr_sf.SendAwrMsg('success', 'weapon_ammo', "st_dis_text_8", o_name, game.translate_string('st_dis_text_9'), result_details_names)
+			else
+				awr_sf.SendAwrMsg('success', 'weapon_ammo', "st_dis_text_7", o_name, game.translate_string('st_dis_text_9'), result_details_names)
+			end
+		else
+			if c_helm_t[out_s] or clothes_t[out_s] then
+				awr_sf.SendAwrMsg('fail', 'weapon', "st_dis_text_10", o_name)
+			else
+				awr_sf.SendAwrMsg('fail', 'weapon', "st_dis_text_2", o_name)
+			end
+		end
+		
+		table.sort(result_details)
+
+		--// Создание деталей в инвентаре
+		for _, k in ipairs(result_details) do
+			alife():create(k, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+			awr_sf.dout(nil, 'Created %s', k)
+		end
+		
+		return true
+	end
+
+	actor_effects.use_item("sewing_kit_a_dummy")
+	CreateTimeEvent("disasm","delay",delay,disasm,o_obj)
+end

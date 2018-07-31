@@ -537,70 +537,69 @@ eat_health					             = -0.012
 
 use_sound					             = interface\inv_syringe
 
-;--=====================================================================
 
-[medkit_ai1]:booster   
+;;--================================================
+;;--==================| Med-packs |=================
+;;--================================================
+
+[medkit_ai1]:identity_immunities   
 $spawn 						             = "food and drugs\medkit_ai1"
+$prefetch 								 = 16
 cform						             = skeleton
-class			        	             = II_ANTIR
-visual						             = dynamics\equipments\medical\item_aptechka.ogf
+class			        	             = II_ATTCH
 class_dbg			                     = S_MED
-description					             = st_medkit_ai1_descr
+visual						             = dynamics\equipments\medical\item_aptechka.ogf
 cost						             = 12624
-	
+description					             = st_medkit_ai1_descr
 inv_name					             = st_medkit_ai1
 inv_name_short				             = st_medkit_ai1
 inv_weight					             = 1.6
-	
 inv_grid_width				             = 1
 inv_grid_height				             = 1
 inv_grid_x         			             = 20
 inv_grid_y         			             = 67
-	
-use_sound					             = interface\inv_medkit
+auto_attach								 = false
+use1_functor         					 = itms_manager.menu_sort
+use1_action_functor  					 = itms_manager.use_medpack
 
-;--=====================================================================
-
-[medkit_ai2]:booster  
+[medkit_ai2]:identity_immunities  
 $spawn 						             = "food and drugs\medkit_ai2"
+$prefetch 								 = 16
 cform						             = skeleton
-class			        	             = II_ANTIR
-visual						             = dynamics\equipments\medical\item_aptechka2.ogf
+class			        	             = II_ATTCH
 class_dbg			                     = S_MED
-description					             = st_medkit_ai2_descr
+visual						             = dynamics\equipments\medical\item_aptechka2.ogf
 cost						             = 20342
-	
+description					             = st_medkit_ai2_descr
 inv_name					             = st_medkit_ai2
 inv_name_short				             = st_medkit_ai2
 inv_weight					             = 1.7
-	
 inv_grid_width				             = 1
 inv_grid_height				             = 1
 inv_grid_x         			             = 21
 inv_grid_y         			             = 66
-	
-use_sound					             = interface\inv_medkit
+auto_attach								 = false
+use1_functor         					 = itms_manager.menu_sort
+use1_action_functor  					 = itms_manager.use_medpack
 
-;--=====================================================================
-
-[medkit_ai3]:booster   
+[medkit_ai3]:identity_immunities   
 $spawn 						             = "food and drugs\medkit_ai3"
+$prefetch 								 = 16
 visual						             = dynamics\equipments\medical\item_aptechka3.ogf
 cform						             = skeleton
-class			        	             = II_ANTIR
+class			        	             = II_ATTCH
 class_dbg			                     = S_MED
-description					             = st_medkit_ai3_descr
 cost						             = 27782
-	
+description					             = st_medkit_ai3_descr
 inv_name					             = st_medkit_ai3
 inv_name_short				             = st_medkit_ai3
 inv_weight					             = 1.8
-	
 inv_grid_width				             = 1
 inv_grid_height				             = 1
 inv_grid_x         			             = 20
 inv_grid_y         			             = 66
-	
-use_sound					             = interface\inv_medkit
+auto_attach								 = false
+use1_functor         					 = itms_manager.menu_sort
+use1_action_functor  					 = itms_manager.use_medpack
 
 ;--=====================================================================

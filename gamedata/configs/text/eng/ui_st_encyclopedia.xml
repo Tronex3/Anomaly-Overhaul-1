@@ -15,17 +15,20 @@
 		<text>Guide to the Zone</text>
 	</string>
 	
-	<string id="pda_encyclopedia_image_checkbox">
+	<string id="st_pda_encyclopedia_image_checkbox">
 		<text>Images on top</text>
 	</string>
 	
-	<string id="pda_encyclopedia_message_checkbox">
+	<string id="st_pda_encyclopedia_message_checkbox">
 		<text>Show messages</text>
 	</string>
 	
 	<!-- Messages -->
 	<string id="pda_encyclopedia_notify">
 		<text>Article unlocked: %s, %s</text>
+	</string>
+	<string id="pda_encyclopedia_notify_note">
+		<text>New note: %s</text>
 	</string>
 	
 	<!-- Locked articles -->

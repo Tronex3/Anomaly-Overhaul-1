@@ -1,0 +1,642 @@
+--[[
+		Advanced Weapon Repair Mod 0.3 [Binder] by Faustle (2018)
+]]--
+
+local settings_list = {}
+local angles_t = {}
+local compare_name = {}
+local wpn_data = {}
+local wpn_details = {}
+local mech_list_key = {}
+
+local ini = ini_file("plugins\\item_management\\awr_settings.ltx")
+local mesh_test_mode = ini:r_bool_ex("awr_mode","mesh_test_mode",false)
+local settings = alun_utils.collect_section(ini,"awr_settings")
+local mesh_list = alun_utils.collect_section(ini,"awr_angles")
+local weapons_list = alun_utils.collect_section(ini,"awr_weapon_list")
+local test_list = alun_utils.collect_section(ini,"awr_test")
+local scopes = alun_utils.collect_section(system_ini(), "addons_table")
+local awr_sf = awr_shared_functions
+
+for _, k in ipairs(settings) do
+	settings_list[k] = ini:r_float_ex("awr_settings", k)
+end
+
+for _, k in ipairs(mesh_list) do
+	local t = alun_utils.parse_list(ini,"awr_angles", k)
+	angles_t[k] = {}
+	for _, v in ipairs(t) do
+		table.insert(angles_t[k], v)
+	end
+end
+
+--// Заносим данные в видей ключей таблицы, для быстрой индексации по ключу, без использования цикла
+for key, val in pairs(angles_t) do
+	mech_list_key[val[1]] = 0
+end
+
+local barrel_kits  = 	{
+							'barrelkit_db_vertical',
+							'barrelkit_db_horizontal',
+							'barrelkit_sb_smooth',
+							'barrelkit_762_rifle',
+							'barrelkit_792_rifle',
+							'barrelkit_9x_auto',
+							'barrelkit_9_auto_sil',
+							'barrelkit_762_auto',
+							'barrelkit_762_pp',
+							'barrelkit_545_auto',
+							'barrelkit_556_auto',
+							'barrelkit_762_heavy',
+						}
+
+local counter = 1
+local new_cond = 0
+local old_id = 0
+local wpn_condition, wpn, wpn_name, wpn_sect, delay, ui
+local wpn_upgrades = {}
+local w_upgrades = {}
+local f_details	= { tc_t = 'trigger_components', b_t  = 'bolt', bc_t = 'bolt_carrier', gt_t = 'gas_tube', br_t = 'barrel' }
+local n_details	= { 'barrel', 'trigger_components', 'bolt_carrier', 'bolt', 'gas_tube' }	
+local wpn_w_sil = { wpn_val=0, wpn_vintorez=0, wpn_vsk94=0 }
+
+function on_game_start()
+	RegisterScriptCallback("physic_object_on_use_callback",		physic_object_on_use_callback)
+	RegisterScriptCallback("CUIActorMenu_OnItemFocusReceive",	on_item_focus)
+	RegisterScriptCallback("actor_on_first_update",				actor_on_first_update)
+	RegisterScriptCallback("npc_on_death_callback",				npc_on_death_callback)
+end
+
+--// Callback первого Update актора. Выполяется единоразово после загрузки, _после_ спавна всех объектов из all.spawn, в отличии от on_game_load
+function actor_on_first_update()
+	awr_sf.dout('actor_on_first_update', "Called on first update")
+	for i=1, 65534 do
+		local s_obj = alife():object(i)
+		if s_obj then
+			local name = s_obj:name()
+
+			--// Если тиски заспавнены all.spawn - сохраняем их значения в store
+			if string.match(name, '%w+%_awr%_tiski%_%d+') then
+				--awr_sf.dout(nil, "%s is parent. Loading table angles_t[%s] from Store", name, name)					--// Включать при необходимости, сильный спам в лог
+				angles_t[name] = awr_sf.l_v(name, angles_t[name]) 
+				
+			--// Если тиски были заспавнены актором, находим изначальное имя, и загружаем в таблицу соответствующее значение
+			elseif string.match(name, 'awr%_m%_wpn.*%d+') or string.match(name, '^awr%_tiski.*%d+') then
+				local p_name = awr_sf.get_p_name(name)
+				if p_name then
+					--awr_sf.dout(nil, "%s is child. Loading parent table angles_t[%s] from Store", name, p_name)		--// Включать при необходимости, сильный спам в лог
+					t = awr_sf.l_v(p_name, nil)
+					if (t) then
+						angles_t[p_name] = t
+					end
+				end
+			elseif string.match(name, '_awr_lamp') then
+				--awr_sf.dout(nil, 'Get Lamp %s', name)																	--// Включать при необходимости, сильный спам в лог
+				local lamp_obj = level.object_by_id(s_obj.id)
+				if lamp_obj then
+					lamp_obj:get_hanging_lamp():turn_off()
+					awr_sf.dout('actor_on_first_update', 'Lamp %s was turn off', name)
+				end
+			end
+		end
+	end
+	
+	--// Включение ламп для всех механиков с флагом dead
+	for key, val in pairs(angles_t) do
+		if angles_t[key][3] == 'dead' then
+			awr_sf.dout('actor_on_first_update', "%s is dead. Enable lamp(s) which assigned for %s", angles_t[key][1], key)
+			awr_sf.LampOn(angles_t[key][1])			
+		end
+		if db.actor:has_info(string.format('awr_%s_access', angles_t[key][1])) then
+			awr_sf.dout('actor_on_first_update', "%s gave access. Enable lamp(s) which assigned for %s", angles_t[key][1], key)
+			awr_sf.LampOn(angles_t[key][1])
+		end
+	end
+
+	compare_name = awr_sf.l_v('compare_name') or {}	
+	wpn_data = awr_sf.l_v('wpn_data') or {}
+
+	--// Удаляем лишние таблицы для оружия, детали которого не были заменены
+	awr_sf.r_unused()
+end
+
+--// Callback, вызываемый при сметри НПС
+function npc_on_death_callback(victim, who)
+	if not (victim) or not (who) then
+		return
+	end
+	local name = victim:section()
+	local killer_name
+
+	if mech_list_key[name] then
+
+		awr_sf.dout('npc_on_death_callback', "NPC %s was killed by %s", victim:name(), who:name())
+		OnDeath(victim)
+
+		if IsStalker(who) then
+			killer_name = who:character_name()
+		else
+			killer_name = nil
+		end
+	
+		if who:id() == db.actor:id() then
+			local alife = alife()
+			local se_actor = alife:actor()
+			killer_name = se_actor:character_name()
+		end	
+		awr_sf.SendAwrMsg('success', 'npc', "st_awr_dead_mechanic", victim:character_name(), killer_name or game.translate_string("st_by_unknown"))
+	else
+		-- if IsStalker(victim) then
+		-- 	awr_sf.dout('npc_on_death_callback', "NPC %s is not in list -> return", victim:name())			-- Отрабатывает для всех смертей, включать при необходимости
+		-- end
+		return
+	end
+end
+
+--// Доступ к тискам, с учетом возможной смерти механика
+function access(obj)
+
+	if not (obj) then
+		return
+	end
+	
+	local name = obj:name()
+	local p_name = awr_sf.get_p_name(name)
+	
+	awr_sf.dout(nil, "Request access for %s", name)
+
+	--// Механик мертв - доступ неограничен
+	if angles_t[p_name] then
+		if angles_t[p_name][3] == 'dead' then
+			awr_sf.dout(nil, "Mechanic is dead. Full access")
+			return true
+		end
+	end
+	
+	--// Доступ был предоставлен механиком
+	if db.actor:has_info(string.format("awr_%s_access",angles_t[p_name][1])) then
+		awr_sf.dout(nil, "Mechanic gave access")
+		return true
+	end
+	
+	--// Отладка
+	local npc = get_story_object(angles_t[p_name][1])
+	if npc then
+		if npc:alive() then
+			awr_sf.dout(nil, "Access not granted. NPC %s by id %s is alive", angles_t[p_name][1], npc:id())
+		else
+			awr_sf.dout(nil, "![ERROR] NPC %s by id %s bugged, because he is online and is not alive, but function OnDeath was not called", angles_t[p_name][1], npc:id())
+		end
+	end
+	
+end
+
+--// Локальная функция для вызова через CreateTimeEvent. Также участвует в изменении cse_abstract части нет-пакета через callback (se_item.script:381) для изменения direction меша.
+local function create_call(n_obj,new,pos,lv,gv,yaw,wpn_fn,wpn_condition,wpn_id,wpn_upgrades,wpn_sect)
+
+	local obj_name, p_name
+	
+	if (n_obj) then
+		obj_name = n_obj:name()
+		p_name = awr_sf.get_p_name(obj_name)
+		
+		--// Удаление маркера с меша
+		if level.map_has_object_spot(n_obj.id, "ui_pda2_mechanic_location") ~= 0 then
+			level.map_remove_object_spot(n_obj.id, "ui_pda2_mechanic_location")
+		end
+		awr_sf.del_obj(n_obj)
+	end
+
+	local s_obj = alife():create(new, pos, lv, gv)	
+	
+	if s_obj then
+	
+		--// Изменение параметра направления в cse_abstract
+		s_obj.repack = { ["direction"] = vector():set(0,tonumber(yaw),0) }
+		
+		--// Заполнение compare-таблицы, для определения имени родительского меша
+		local m_name = s_obj:name()
+		
+		if string.match(obj_name, '%w+%_awr%_tiski%_%d+') then
+			
+			--// Имя родительское (заспавнены через all.spawn и имеют имя вида "ecs_awr_tiski_01")
+			compare_name[obj_name] = m_name
+		else
+			--// Имя дочернее (заспавнены актором и имеют имя вида "awr_tiski12345" или "awr_m_wpn_svd12345")
+			compare_name[p_name] = m_name
+		end
+		--// Сохранение таблицы соотношения имен
+		awr_sf.s_v('compare_name', compare_name)
+
+		--// Запись данных об оружии
+		if string.match(m_name, 'awr_m_wpn') then
+			awr_sf.dout("create_call", "Save data of weapon %s with condition %s to store table wpn_data[%s]", wpn_fn, wpn_condition, m_name)
+			wpn_data[m_name] = {}
+			wpn_data[m_name]['wpn_name'] = wpn_fn
+			wpn_data[m_name]['wpn_sect'] = wpn_sect
+			wpn_data[m_name]['condition'] = wpn_condition
+			wpn_data[m_name]['upgrades'] = wpn_upgrades
+			wpn_data[m_name]['id'] = wpn_id
+			
+			
+			--// Хранение userdata в Store возможно, либо при использовании __persist функции, определенной в метатаблице, либо при преобразовании их в обычный массив, с обратным преобразованием при получении
+			wpn_data[m_name]['time'] = alun_utils.CTime2table(game.get_game_time())
+			awr_sf.s_v('wpn_data', wpn_data)
+			
+			--// Добавление соотв. инфопорции, при размещении оружия на тиски (нужно для отслеживания времени и состояния, в случае, если оружие было "забыло в тисках")
+			db.actor:give_info_portion(string.format("awr_%s_on_table", angles_t[p_name][1]))
+			if db.actor:has_info(string.format("awr_%s_on_table", angles_t[p_name][1])) then
+				awr_sf.dout("create_call", "Get infoportion awr_%s_on_table", angles_t[p_name][1])
+			end
+		end
+
+		--// Изменение логики мешей (нужно для изменения текста при наведении на тиски, в зависимости от условий и alive() механика)
+		local name = awr_sf.get_p_name(m_name)
+		local num = string.gsub(name, '(.*%_)(%d+)$', '%2')
+		local lvl = string.gsub(level.name(), '(%w%d+%_)(.*)', '%2')
+		awr_sf.set_logic(s_obj, lvl, num)
+		
+		--// Добавление маркера на карту, если механик мертв
+		if db.actor:has_info(string.format("awr_%s_dead", angles_t[p_name][1])) then
+			SetMarker(p_name)
+		end
+		
+		--// Сохранение compare-таблицы в Store
+		awr_sf.s_v(p_name, angles_t[p_name])
+	end
+	
+	--// Удаление данных об оружии, если actor забрал его из тисков
+	if string.match(obj_name, 'awr_m_wpn') then
+		awr_sf.d_v('wpn_data', obj_name)
+	end
+	
+	return true
+end	
+
+--// Функция-биндер при использовании меша тисков
+function physic_object_on_use_callback(_obj,who)
+	if not (_obj) or not (string.match(_obj:name(), "awr")) then
+		return
+	end
+	
+	local m_name = _obj:name()
+	local ch_obj = alife():object(_obj:id())
+	local pos, lvID, gvID = _obj:position(), _obj:level_vertex_id(), _obj:game_vertex_id()
+	delay = axr_main.config:r_value("mm_options","enable_extra_animations",1) and 50 or 0
+	
+	--// Режим тестирование мешей (последовательное переключение мешей)
+	if mesh_test_mode then	
+		if m_name:match("awr_tiski") or m_name:match("awr_m_") then
+			if (ch_obj) then
+				awr_sf.del_obj(ch_obj)
+			end
+
+			local s_obj = alife():create(test_list[counter], pos, lvID, gvID)	
+			
+			if s_obj then
+				s_obj.repack = { ["direction"] = vector():set(0,tonumber(-1.57),0) }	--// Угол выставить вручную
+			end
+
+			counter = counter + 1
+			return
+		end
+		return
+	end
+	
+	--// Условие для "родительских" тисков, заспавненных через all.spawn
+	if access(_obj) and string.match(_obj:name(), "awr_tiski") and _obj:position():distance_to(db.actor:position()) < 1.5 then
+	
+		--// Проверки на соответствия
+		--// Наличие оружия в руках
+		if (db.actor:active_slot() == 2 or db.actor:active_slot() == 3) then
+			wpn = db.actor:active_item()
+			if wpn then
+				wpn_name = wpn:name()
+				wpn_sect = wpn:section()
+				wpn_condition = tonumber(string.format("%.2f", wpn:condition()))
+				wpn_id = wpn:id()
+
+				--// Читаем апгрейды оружия
+				local _upgrades = stpk_utils.get_weapon_data(alife():object(wpn_id))
+				--awr_sf.print_table(_upgrades)
+				wpn_upgrades = _upgrades.upgrades
+
+				awr_sf.dout('access', 'Condition %s round to %s', wpn:condition(), wpn_condition)
+			else
+				awr_sf.dout('access', "![ERROR] Weapon object is nil -> return")
+				return
+			end
+		else
+			SetHudMsg(game.translate_string("st_no_weap"),3)
+			awr_sf.dout(nil, "Weapon is not in hands -> return")
+			return
+		end
+		
+		--// Наличие оружия в списке поддерживаемого оружия
+		if not (awr_sf.InWpnList(wpn_sect)) then
+			awr_sf.dout(nil, "Weapon recognized, but not supported by AWR")
+			SetHudMsg(game.translate_string("st_not_in_list"),3)
+			return
+		end
+		
+		--// Наличие прицела, глушителя или подствольного гранатомета
+		if awr_sf.HasScope(wpn_sect) or 
+			rx_utils.addon_attached(wpn,"gl") and not (wpn_sect:match('wpn_groza')) or
+			rx_utils.addon_attached(wpn,"sc") and (wpn_sect:match('wpn_mosin') or wpn_sect:match('wpn_sks') or wpn_sect:match('wpn_svt40') or wpn_sect:match('wpn_type63') or wpn_sect:match('wpn_k98') or wpn_sect:match('wpn_galil')) or
+			rx_utils.addon_attached(wpn,"sl") and not (wpn_sect:match('wpn_vintorez')) and not (wpn_sect:match('wpn_val')) and not (wpn_sect:match('wpn_vsk94')) and not (wpn_sect:match('wpn_mp5sd')) then
+				awr_sf.dout(nil, "Weapon recognized, but has an attached addon")
+				SetHudMsg(game.translate_string("st_unload"),3)
+				return
+		end
+		
+		--// Наличие патронов в рожке
+		if wpn:get_ammo_in_magazine() > 0 then
+			SetHudMsg(game.translate_string("st_unload"),3)
+			awr_sf.dout(nil, "Weapon recognized, but magazine is not empty")
+			return
+		end
+			
+		awr_sf.dout(nil, "Weapon quality is good. Delay %s, new mesh name [awr_m_%s], angle %s, weapon name [%s], weapon condition %s", delay, wpn_sect, awr_sf.GetAngle(_obj), wpn_name, wpn_condition)
+		
+		--// Включение анимации (если включено в настройках)
+		actor_effects.use_item("awr_repair_dummy")
+		
+		--// Создание callback на отложенный запуск, ждем delay мс, после чего вызываем функцию create_call
+		local mesh_name = string.format("awr_m_%s", wpn_sect)
+		CreateTimeEvent("create_mesh","delay",delay,create_call,ch_obj,mesh_name,pos,lvID,gvID,awr_sf.GetAngle(_obj),wpn_name,wpn_condition,wpn_id,wpn_upgrades,wpn_sect)
+		
+		-- // Выбрасываем текущее оружие
+		db.actor:drop_item(wpn)
+		
+		--// Удаляем его
+		local se_obj = alife():object(wpn:id())
+		if (se_obj) then
+			awr_sf.del_obj(se_obj)
+		end
+	
+	--// Условие для "дочерних" тисков, заспавненных актором
+	elseif access(_obj) and string.match(_obj:section(),"awr_m_wpn_") and _obj:position():distance_to(db.actor:position()) < 1.5 then
+		if (wpn) then
+			awr_sf.dout(nil, "Weapon variable exist, section: %s, id: %s, condition: %s", wpn_sect, wpn_id, wpn_condition)
+			
+			--// Наличие оружия в руках
+			if db.actor:active_item() then
+				SetHudMsg(game.translate_string("st_handsfree"),3)
+				awr_sf.dout(nil, "Weapon in hands -> return")
+				return
+			end
+			
+			--// Проверяем таблицы на предмет "пустых"
+			awr_sf.r_unused()
+
+			--// Вызываем UI
+			local hud = get_hud()
+			ui = ui_awr_weapon and ui_awr_weapon.awr_main_ui(hud,wpn,wpn_sect,wpn_condition,ch_obj)
+			if (ui) then
+				awr_sf.dout(nil, "Weapon is not in hands, call UI")
+				ui:ShowDialog(true)	
+				ui:FillList()
+			end
+
+		else
+			local p_name = awr_sf.get_p_name(_obj:name())
+			awr_sf.dout(nil, "Delay %s, new mesh name [%s], angle %s. Calling create_call()", delay, _obj:name(), awr_sf.GetAngle(_obj))
+			
+			--// Наличие оружия в руках
+			if db.actor:active_item() then
+				SetHudMsg(game.translate_string("st_handsfree"),3)
+				awr_sf.dout(nil, "Weapon in hands -> return")
+				return
+			end
+			
+			--// При наличии данных в таблице wpn_data, проверяем значения состояния и времени
+			if wpn_data then
+				new_cond = wpn_data[m_name]['condition']
+				old_id = wpn_data[m_name]['id']
+				w_upgrades = wpn_data[m_name]['upgrades']
+				local time = alun_utils.table2CTime(wpn_data[m_name]['time']) or 0
+				
+				--// Если с момента установки оружия в тиски прошло больше времени, чем указано в awr_settings.ltx (steal_delay), понижаем состояние
+				if game.get_game_time():diffSec(time) > settings_list.steal_delay then
+					new_cond = new_cond - math.random(0,25)/100
+					awr_sf.dout(nil, "Difference time %s > %s -> some parts was stolen for weapon %s, old condition %s, new condition %s", game.get_game_time():diffSec(time), settings_list.steal_delay, wpn_data[m_name]['wpn_name'], wpn_data[m_name]['condition'], new_cond)
+					SetHudMsg(game.translate_string("st_stolen_"..math.random(1,3)),3)
+				else
+					awr_sf.dout(nil, "Difference time %s < %s -> parts was not stolen", game.get_game_time():diffSec(time), settings_list.steal_delay)
+				end			
+			end
+			
+			--// Удаляем инфопоршень об установке оружия в тиски
+			db.actor:disable_info_portion(string.format("awr_%s_on_table", angles_t[p_name][1]))
+			if not (db.actor:has_info(string.format("awr_%s_on_table", angles_t[p_name][1]))) then
+				awr_sf.dout(nil, "Remove infoportion awr_%s_on_table", angles_t[p_name][1])
+			end
+			
+			local function wpn_alife(id, obj)
+				obj:set_condition(new_cond)
+				obj:unload_magazine()
+				obj:transfer_item(obj, db.actor)
+			end
+			
+			local sobj = alife():create(string.gsub(_obj:section(), '^(.*)(%_)(wpn)(.*)$', '%3%4'), db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id())
+
+			--// Читаем, и если надо, устанавливаем все ранее установленные апгрейды
+			wpn_upgrades = stpk_utils.get_weapon_data(sobj)
+			wpn_upgrades.upgrades = w_upgrades
+			stpk_utils.set_weapon_data(wpn_upgrades,sobj)
+
+			--// Callback на выход объекта оружия в онлайн
+			if sobj then
+				level.client_spawn_manager():add(sobj.id, 0, wpn_alife)
+			end
+
+			--// Включение анимации (если включено в настройках)
+			actor_effects.use_item("awr_repair_dummy")
+			
+			--// Создание callback на отложенный запуск, ждем delay мс, после чего вызываем функцию create_call
+			CreateTimeEvent("create_mesh","delay",delay,create_call,ch_obj,"awr_tiski",pos,lvID,gvID,awr_sf.GetAngle(_obj))
+
+			--// Перенос данных по замененным деталям в таблицы с новым ID
+			local _upg = string.format("%s_upg", old_id)
+			local _flags = string.format("%s_flags", old_id)
+			local _wpn_upg = awr_sf.l_v(_upg)
+			local _wpn_flags = awr_sf.l_v(_flags)
+			if _wpn_upg then
+				awr_sf.dout(nil, "Data in old_id %s exist. Transering to new ID %s", old_id, sobj.id)
+				awr_sf.s_v(string.format('%s_upg', sobj.id), _wpn_upg)
+				awr_sf.s_v(string.format('%s_flags', sobj.id), _wpn_flags)
+				awr_sf.d_t(_upg)
+				awr_sf.d_t(_flags)
+			end
+		end
+	end
+end
+
+--// Функция подсветки деталей при наведении на оружие и оружия при наведении на детали
+function on_item_focus(item)
+	if not (item) then
+		return
+	end
+	
+	-- local parent = item:parent()
+	-- if not (parent and parent:id() == db.actor:id()) then 
+	-- 	return 
+	-- end
+
+	local t = {}
+	local c_wpn = {}
+	local det_arg = {}
+	local parts = {}
+	local wpn_sect
+	local item_sect = item:section()
+	
+	--// Если курсор наведен на оружие
+	if IsWeapon(item) then
+		awr_sf.dout('on_item_focus', "Item %s on focus - is weapon", item_sect)
+		if awr_sf.InWpnList(item_sect) then
+			if awr_sf.HasScope(item_sect) then
+				local scope = string.format('_%s', awr_sf.HasScope(item_sect))
+				item_sect = item_sect:gsub(scope, '')
+			end
+			c_wpn = alun_utils.parse_list(ini,"awr_weapon_list", item_sect)
+			parts = { br_t = c_wpn[1], tc_t = c_wpn[2], bc_t = c_wpn[3], b_t  = c_wpn[4], gt_t = c_wpn[5] }
+			wpn_sect = item_sect
+
+			for _,k in ipairs(barrel_kits) do
+				local br_kit = alun_utils.parse_list(system_ini(), k, 'repair_only', true)
+				if br_kit[wpn_sect] then
+					table.insert(t, k)
+				end
+			end
+		end
+		
+		if wpn_sect then
+			for key, val in pairs(f_details) do
+				table.insert(t, string.format("awr_%s_%s_good",  val, parts[key]))
+				table.insert(t, string.format("awr_%s_%s_worn",  val, parts[key]))
+				table.insert(t, string.format("awr_%s_%s_rusty", val, parts[key]))
+				awr_sf.dout('on_item_focus', "Add awr_%s_%s to %s table", val, parts[key], wpn_sect)
+			end
+		end
+	--// Если курсор наведен на деталь
+	elseif awr_sf.IsDetail(item,"good") or awr_sf.IsDetail(item,"worn") or awr_sf.IsDetail(item,"rusty") then
+		for _, k in ipairs(weapons_list) do
+			det_arg[k] = alun_utils.parse_list(ini,"awr_weapon_list", k)
+			local type_d = string.gsub(string.gsub(item:section(), '^(%w+%_)(%w*)', '%2'), '(%_%d+%_%w+)$', '')
+			local num = string.gsub(item:section(), '^(.*)(%_)(%d+)(.*)$', '%3')
+			for n, v in ipairs(n_details) do
+				if v == type_d then
+					if det_arg[k][n] == num then
+						table.insert(t, k)
+						--awr_sf.dout(nil, "Detail %s refers to %s", item_sect, k)		--// Включать при необходимости, сильный спам в лог
+						for _, z in ipairs(scopes) do
+							table.insert(t, string.format("%s_%s", k, z))
+						end
+					end
+				end
+			end
+		end
+	else
+		return
+	end
+	
+	local inventory = ActorMenu.get_actor_menu()
+	if not (inventory and inventory:IsShown()) then 
+		return
+	end
+	
+	if #t > 0 then
+		for i=1,#t do 
+			inventory:highlight_section_in_slot(t[i],EDDListType.iActorBag)
+			inventory:highlight_section_in_slot(t[i],EDDListType.iActorTrade)
+			inventory:highlight_section_in_slot(t[i],EDDListType.iDeadBodyBag)
+			inventory:highlight_section_in_slot(t[i],EDDListType.iPartnerTrade)
+			inventory:highlight_section_in_slot(t[i],EDDListType.iPartnerTradeBag)
+		end
+	end
+end
+
+--// Callback при смерти механика
+function OnDeath(npc)
+	awr_sf.dout(nil, "Called for NPC, %s", npc:section())
+	if IsStalker(npc) and not (npc:alive()) then
+		local npc_s = npc:section()
+		awr_sf.dout(nil, "NPC %s exist and dead", npc:section())
+		for key, val in pairs(angles_t) do
+			if angles_t[key][1] == npc_s then
+				
+				--// Флаг 'dead' в таблице
+				angles_t[key][3] = 'dead'
+				
+				--// Удалить инфопорцию, если до сметри механика, у него был получен доступ
+				if db.actor:has_info(string.format('awr_%s_access', angles_t[key][1])) then
+					db.actor:disable_info_portion(string.format('awr_%s_access', angles_t[key][1]))
+					awr_sf.dout(nil, 'NPC is dead. Infoportion awr_%s_access has been removed', angles_t[key][1])
+				end
+
+				level.map_remove_object_spot(get_story_object(angles_t[key][1]):id(), "ui_pda2_mechanic_location")
+				
+				--// Добавляем маркер
+				SetMarker(key)
+				
+				--// Выдача инфорпорции
+				db.actor:give_info_portion(string.format("awr_%s_dead", npc_s))
+				--// Включение ламп
+				awr_sf.LampOn(npc_s)
+				
+				--// Сохранение данных в Store
+				awr_sf.s_v(key, angles_t[key])
+				
+				break
+			end
+		end
+	end
+end
+
+--// Функция добавления маркера на карту
+function SetMarker(name)
+	if compare_name[name] then
+		awr_sf.dout(nil, "Add marker on object %s", compare_name[name])
+		--// Если в тисках зажато оружие, добавляем в тултип к маркеру
+		if compare_name[name]:match('awr_m_') then
+			local s_name = compare_name[name]:gsub('(awr_m_)(.*[^%d+])(%d+)', '%2')
+			local inv_name = alun_utils.get_inv_name(s_name)
+			local spot_name = string.format(game.translate_string("st_mech_tiski_w"), inv_name)
+			level.map_add_object_spot_ser(compare_name[name]:gsub('.*[^%d]', ''), "ui_pda2_mechanic_location", spot_name)
+		else
+			level.map_add_object_spot_ser(compare_name[name]:gsub('.*[^%d]', ''), "ui_pda2_mechanic_location", "st_mech_tiski")
+		end
+	else
+		--// Добавление маркера на карту, если меш родительский
+		for i=1, 65534 do
+			local s_obj = alife():object(i)
+			if s_obj then
+				local c_name = s_obj:name()
+				if c_name:match(name) then
+					awr_sf.dout(nil, "Add marker on parent object %s with ID %s", name, s_obj.id)
+					level.map_add_object_spot_ser(s_obj.id, "ui_pda2_mechanic_location", "st_mech_tiski")
+				end
+			end
+		end
+	end
+end
+
+--// Функция закрытия UI AWR по окончании времени (при условии, что UI вызван, и actor находится в пределах 2 метров от меша)
+function CloseDl()
+
+	for i=1, 65534 do
+		local s_obj = alife():object(i)
+		if s_obj then
+			local c_obj = level.object_by_id(s_obj.id)
+			if c_obj then
+				if string.match(s_obj:name(), "awr_m_") and c_obj:position():distance_to(db.actor:position()) <= 2 then
+					awr_sf.dout(nil, "Called for %s, distance: %s <= 2", s_obj:name(), c_obj:position():distance_to(db.actor:position()))
+					if (ui) and ui:IsShown() then
+						awr_sf.dout(nil, "UI exist and already open")
+						ui:Exit()
+					end
+				end
+			end
+		end
+	end
+end

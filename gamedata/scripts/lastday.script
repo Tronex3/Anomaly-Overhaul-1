@@ -1,0 +1,105 @@
+--==============( Взято из сборки Стасона 6.03 )==============--
+-- =======================================================================================
+-- Modified by Tronex
+-- 2018/7/29 - improved script
+-- =======================================================================================
+
+
+local item_fx = actor_effects_data.item_fx
+-- Играем звук в голове ГГ
+function play_sound(snd)
+	if snd then
+		local snd_obj = xr_sound.get_safe_sound_object(snd)
+		snd_obj:play_no_feedback(db.actor, sound_object.s2d, 0, vector(), 1.0)
+	end
+end
+-- Чтение actor переменной
+function read_variable(params_name)
+	return pstor_retrieve(db.actor, params_name)
+end
+
+function eatmatches()
+	local item = db.actor:object("matches")
+	db.actor:eat(item)
+end
+-- Запись actor переменной
+function write_variable(params_name, value)
+	if not value then
+		pstor_clear(db.actor, params_name)
+	else
+		pstor_store(db.actor, params_name, value)
+	end
+end
+-- Инициализация actor переменной
+function set_safe_variable(variable_name, val)
+	if not read_variable(variable_name) then
+		if not val then
+			write_variable(variable_name, 0)
+		else
+			write_variable(variable_name, val)
+		end
+	end
+end
+
+
+--=======================================< Callbacks and messing around >=======================================--
+
+function turn_into_bandit() -- turn into bandit once your rep get shitty
+	if (character_community(db.actor) == "actor_stalker") and (current_reputation <= -2000) then
+		actor:set_character_community("actor_bandit", 0, 0)
+		disguise.update_default("bandit")
+		news_manager.send_tip(db.actor, game.translate_string("st_bad_turn_into_bandit_news"), nil, nil, nil, nil)
+		SetHudMsg(game.translate_string("st_bad_turn_into_bandit"),5)
+		xr_sound.set_sound_play(db.actor:id(), "pda_news")
+		game_relations.set_community_goodwill_for_faction("actor_bandit")
+	end
+end
+
+function dezombification(item) -- dezombification formula
+	local actor = db.actor
+	local actor_faction = character_community(actor)
+	
+	if item:section() == 'drug_anabiotic' and surge_manager.is_started() and surge_manager.get_surge_manager().actor_in_cover then
+		if level.name() == 'l08_yantar' or level.name() == 'l10_radar' then
+			if actor_faction == "actor_zombied" or actor_faction == "actor_monolith" then
+				local old_faction = alife_storage_manager.get_state().faction_before_zombie or "actor_stalker"
+				actor:set_character_community(old_faction, 0, 0)
+				disguise.update_default("stalker")
+				news_manager.send_tip(db.actor, game.translate_string("st_bad_turn_dezombification_news"), nil, nil, nil, nil)
+				SetHudMsg(game.translate_string("st_bad_turn_dezombification"),5)
+				xr_sound.set_sound_play(db.actor:id(), "pda_news")
+				game_relations.set_community_goodwill_for_faction(old_faction)
+			end
+		end
+	end
+end
+
+local last_update = 0
+function zombification()	-- Turn into zombie once you get enough psi damage
+	local tg = time_global()
+	if (last_update < tg) then return end 
+	last_update = tg + 1000
+	
+	local actor = db.actor
+	local actor_faction = character_community(actor)
+	local actor_reputation = actor:character_reputation()
+	
+	if (actor.psy_health < 0.25 and actor_faction ~= "actor_zombied" and actor_faction ~= "actor_monolith") then
+		alife_storage_manager.get_state().faction_before_zombie = actor_faction
+        level.add_pp_effector ("agr_u_fade.ppe", 3333, false)
+		actor:set_character_community("actor_zombied", 0, 0)
+		disguise.update_default("zombied")
+        actor.psy_health = 1
+		news_manager.send_tip(db.actor, game.translate_string("st_bad_turn_into_zombie_news"), nil, nil, nil, nil)
+		SetHudMsg(game.translate_string("st_bad_turn_into_zombie"),5)
+		xr_sound.set_sound_play(db.actor:id(), "pda_news")
+		game_relations.set_community_goodwill_for_faction("actor_zombied")
+		local snd = [[actor\die4]]
+		play_sound(snd)
+	end
+end
+
+function on_game_start()
+	RegisterScriptCallback("actor_on_item_use",dezombification) 
+	RegisterScriptCallback("actor_on_update",zombification)
+end

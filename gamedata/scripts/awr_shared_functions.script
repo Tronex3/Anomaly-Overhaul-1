@@ -1,0 +1,704 @@
+--[[
+		Advanced Weapon Repair Mod 0.3 [Shared Functions] by Faustle (2017)
+]]--
+
+local settings_list = {}
+local angles_t = {}
+local ini = ini_file("plugins\\item_management\\awr_settings.ltx")
+local debug_mode = ini:r_bool_ex("awr_mode","debug_mode",false)
+local debug_show_tables = ini:r_bool_ex("awr_mode","debug_show_tables",false)
+local settings = alun_utils.collect_section(ini,"awr_settings")
+local weapons_list = alun_utils.collect_section(ini,"awr_weapon_list")
+local mesh_list = alun_utils.collect_section(ini,"awr_angles")
+local scopes = alun_utils.collect_section(system_ini(), "addons_table")
+
+for _, k in ipairs(settings) do
+	settings_list[k] = ini:r_float_ex("awr_settings", k)
+end
+
+for _, k in ipairs(mesh_list) do
+	local t = alun_utils.parse_list(ini,"awr_angles", k)
+	angles_t[k] = {}
+	for _, v in ipairs(t) do
+		table.insert(angles_t[k], v)
+	end
+end
+
+--// Функция, передающая на выход таблицу со всеми секциями предметов инвентаря
+function iterate_inv()
+	local t = {}
+	local function iterate(actor, obj)
+		table.insert(t, obj:section())
+	end
+	
+	db.actor:iterate_inventory(iterate,db.actor)
+	table.sort(t)
+	dout(nil, 'Inventory has %s items', #t)
+	return t
+end
+
+--// Функция проверки качества оружия (изношенное)
+function IsWorn(sec)
+	return string.gsub(sec, '^(.*)(%_)(%w+)$', '%3') == "worn"
+end
+
+--// Функция проверки качества оружия (ржавое)
+function IsRusty(sec)
+	return string.gsub(sec, '^(.*)(%_)(%w+)$', '%3') == "rusty"
+end
+
+--// Функция воспроизведения звуков "неудачи" (NLC7(c))
+function PlayFailSnd()
+	local snd_obj =	{
+						'awr_fail_1',
+						'awr_fail_2',
+						'awr_fail_3',
+						'awr_fail_4',
+						'awr_fail_5'
+					}
+					
+	xr_sound.set_sound_play(db.actor:id(),snd_obj[math.random(1,5)])
+end
+
+function PlaySnd()
+	local snd_obj = sound_object("interface\\inv_detach_addon")
+	snd_obj:play(db.actor,0,sound_object.s2d)
+end
+
+--// Функция загрузки фона детали
+function SetBGImg(color,ui_obj)
+	local x1 = 0
+	local y1 = 9
+	
+	if color then
+		if color == 1 then				--// red
+			x1 = 9
+		elseif color == 2 then			--// yellow
+			x1 = 409
+		elseif color == 3 then			--// green
+			x1 = 209
+		elseif color == 4 then			--// transparent
+			x1 = 1200
+		end
+	end
+	
+	local w = 192
+	local h = 82
+	
+	local x2 = x1 + w
+	
+	local w,h = w,h
+	if (utils.is_widescreen()) then
+		w,h = w-(w*0.25),h
+	end
+	
+	ReloadImg(ui_obj, w, h, x1, x2, y1, y1 + h)
+end
+
+--// Функция загрузки изображения детали
+function SetImg(color, ui_obj, obj)
+	local y
+	
+	if color then
+		if color == 2 then
+			y = 420
+		elseif color == 3 then
+			y = 840
+		elseif color == 1 then
+			y = 1260
+		else 
+			y = 0
+		end
+	end
+	
+	local sec
+
+	if type(obj) == 'userdata' then
+		sec = string.format("%s_good",string.gsub(obj:section(), '(%_%w+)$', ''))
+	else
+		sec = obj
+	end
+
+	dout(nil, 'Set image for %s', sec)
+	
+	local x1,y1,x2,y2
+	
+	local w = 120
+	local h = 60
+	
+	local x1 = system_ini():r_float_ex(sec,"part_x") or 0
+	local y1 = y + system_ini():r_float_ex(sec,"part_y") or 0
+	
+	x2 = x1 + w
+	
+	local w,h = w,h
+	if (utils.is_widescreen()) then
+		w,h = w-(w*0.25),h
+	end
+	
+	ReloadImg(ui_obj, w, h, x1, x2, y1, y1 + h)
+end
+
+--// Функция вывода изображения (UI)
+function ReloadImg(static, w, h, x1, x2, y1, y2)
+	static:InitTexture("ui\\ui_awr_interface")
+	static:SetTextureRect(Frect():set(x1,y1,x2,y2))
+	static:SetWndSize(vector2():set(w,h))	
+
+	if not (static.x) then
+		local pos = static:GetWndPos()
+		static.x = pos.x
+		static.y = pos.y
+	end
+
+	static:SetWndPos(vector2():set(static.x, static.y))
+end
+
+--// Функция загрузки изображения статусной точки
+function SetImgDot(color, ui_obj)
+	local x1 = 9
+	local y1 = 0
+	
+	if color then
+		if color == 1 then				--// red
+			y1 = 449
+		elseif color == 2 then			--// green
+			y1 = 434
+		elseif color == 3 then			--// off
+			y1 = 463
+		end
+	end
+
+	local w = 11
+	local h = 10
+
+	local x2 = x1 + w
+	local y2 = y1 + h
+
+	local w,h = w,h
+	if (utils.is_widescreen()) then
+		w,h = w-(w*0.25),h
+	end
+
+	ReloadImg(ui_obj, w, h, x1, x2, y1, y2)
+end
+
+--// Функция-обертка для отправки форматированного сообщения
+function SendAwrMsg(color, type_m, text, ...)
+	local t = {...}
+
+	if color then
+		if color == 'success' then
+			s_color = "%c[0,0,255,0]"
+			e_color = "%c[0,255,255,255]"
+		elseif color == 'fail' then
+			s_color = "%c[0,255,0,0]"
+			e_color = "%c[0,255,255,255]"
+			PlayFailSnd()
+		end
+	end
+	
+	if type_m then
+		if type_m == 'detail' then
+			news_manager.send_tip(db.actor, string.format(game.translate_string(text), s_color, e_color, t[1]), nil, "awr", 6000)
+		elseif type_m == 'weapon' then
+			news_manager.send_tip(db.actor, string.format(game.translate_string(text), s_color, t[1], e_color, t[2]), nil, "awr", 6000)
+		elseif type_m == 'weapon_ammo' then
+			news_manager.send_tip(db.actor, string.format(game.translate_string(text), s_color, t[1], e_color, t[2], t[3]), nil, "awr", 6000)
+		elseif type_m == 'npc' then
+			news_manager.send_tip(db.actor, string.format(game.translate_string(text), s_color, t[1], t[2], e_color, t[3]), nil, "awr", 6000)
+		end
+	end
+end
+
+--// Функция сохранения данных в Store
+function s_v(name,val)
+	dout(nil, "Save data to Store, table %s on value %s", name, val)
+
+	local m_data = alife_storage_manager.get_state()
+	check_storage()
+	m_data.awr[name] = val
+	if debug_show_tables then print_table(m_data.awr, 'On Save') end
+end
+
+--// Функция загрузки данных из Store
+function l_v(name, def)
+	local function len(t)
+		local i = 0
+		for _ in pairs(t) do i = i + 1 end
+			return i
+	end
+
+	dout(nil, 'Trying to load %s from Store', name)
+	local m_data = alife_storage_manager.get_state()
+	check_storage()
+	if m_data.awr[name] and len(m_data.awr[name]) > 0 then
+		dout(nil, "Table %s with %s keys was loaded", name, len(m_data.awr[name]))
+		if debug_show_tables then print_table(m_data.awr, 'On Load') end
+		return m_data.awr[name] or def
+	else
+		dout(nil, 'Table %s does not exist or is empty. Skipped', name)
+	end
+	return def or nil
+end
+
+--// Функция удаления "пустых" таблиц с замененными деталями для оружия и флагами
+function r_unused()
+	local m_data = alife_storage_manager.get_state()
+	local chk = 0
+	dout(nil, 'Searching unused tables in AWR Store table...')
+	check_storage()
+	if m_data.awr then
+		for k, _ in pairs(m_data.awr) do
+			if k:match('_upg') then
+				dout(nil, 'Checking %s table...', k)
+				local count = 0
+				for key, val in pairs(m_data.awr[k]) do
+					count = count + val
+				end
+				if count == 5 then
+					local flags = string.format('%s%s', k:gsub('[^%d+]', ''), '_flags')
+					dout(nil, '%s table have default values, tables %s and %s will be removed', k, k, flags)
+					m_data.awr[k] = nil
+					m_data.awr[flags] = nil
+					chk = chk + 2
+				else
+					dout(nil, 'Data in table %s is used. Skipped', k)
+				end
+			end
+		end
+		if chk == 0 then
+			dout(nil, 'AWR Store table have no unused tables')
+		else
+			dout(nil, 'Removed %s tables', chk)
+		end
+	else
+		dout(nil, 'AWR table does not exist')
+	end
+	if debug_show_tables then print_table(m_data.awr, 'On Remove Unused') end
+end
+
+--// Функция удаления значения из таблцы Store
+function d_v(name, key)
+	dout(nil, "Trying to remove data from Store, in table %s on key %s", name, key)
+	
+	local m_data = alife_storage_manager.get_state()
+	check_storage()
+	if m_data.awr[name] then
+		if m_data.awr[name][key] then
+			dout(nil, "Removed data from Store, in table %s on key %s", name, key)
+			m_data.awr[name][key] = nil
+			if debug_show_tables then  print_table(m_data.awr, 'On Remove Value') end
+		else
+			dout(nil, "Key %s in table %s does not exist", key, name)
+		end
+	else
+		dout(nil, "Table %s does not exist", name)
+	end
+end
+
+--// Функция удаления таблцы из Store
+function d_t(name)
+	dout(nil, "Trying to remove table %s from Store...", name)
+	
+	local m_data = alife_storage_manager.get_state()
+	check_storage()
+	if m_data.awr[name] then
+		dout(nil, "Table %s was removed from Store", name)
+		m_data.awr[name] = nil
+		if debug_show_tables then print_table(m_data.awr, 'On Remove Table') end
+	else
+		dout(nil, "Table %s does not exist", name)
+	end
+end
+
+--// Функция проверки существования данных в Store
+function check_storage()
+	local m_data = alife_storage_manager.get_state()
+	if not (m_data.awr) then
+		dout(nil, "AWR table in Store does not exist. Creating new table...")
+	end
+	--dout(nil, "AWR table in Store exist")
+	m_data.awr = m_data.awr or {}
+end
+
+--// Функция определения родительского имени меша тисков
+function get_p_name(name)
+	local compare_name = l_v('compare_name')
+	
+	if name then
+		dout(nil, "Called for name %s", name)
+		if compare_name then
+			--dout(nil, "Table is not empty")
+			if not (compare_name[name]) then
+				for key, val in pairs(compare_name) do
+					if val == name then
+						dout(nil, "Found in table compare_name. Parent name of %s - %s", name, key)
+						return key
+					end
+				end
+				dout(nil, "Not in table. %s is a parent name", name)
+				return name	
+			else
+				dout(nil, "Found in table compare_name. %s is a parent name, key - %s", name, compare_name[name])
+				return name
+			end
+		else
+			dout(nil, "Table does not exist. %s is a parent name", name)
+			return name		
+		end
+	else
+		dout(nil, "Name is not valid")
+	end
+end
+
+--// Функция включения ламп, добавленных в AWR
+function LampOn(npc_name)
+	for i=1, 65534 do
+		local s_obj = alife():object(i)
+		if s_obj then
+			local c_obj = level.object_by_id(s_obj.id)
+			if c_obj then
+				if string.match(s_obj:name(), string.format('_awr_lamp_%s', npc_name))then
+					c_obj:get_hanging_lamp():turn_on()
+					dout(nil, "Lamp %s was turned on", s_obj:name())
+				end
+			end
+		end
+	end
+end
+
+--// Функция выключения ламп, добавленных в AWR
+function LampOff(npc_name)
+	for i=1, 65534 do
+		local s_obj = alife():object(i)
+		if s_obj then
+			local c_obj = level.object_by_id(s_obj.id)
+			if c_obj then
+				if string.match(s_obj:name(), string.format('_awr_lamp_%s', npc_name))then
+					c_obj:get_hanging_lamp():turn_off()
+					dout(nil, "Lamp %s was turned off", s_obj:name())
+				end
+			end
+		end
+	end
+end	
+
+--// Функция для установки логики при спавне, в случае, если механик мертв
+function set_logic(s_obj, lvl, num)
+	local name = s_obj:name()
+	local data = stpk_utils.get_physic_data(s_obj)
+	if (data) then
+		if string.match(name, 'awr_tiski') then
+			data.custom_data = string.format("[logic]\ncfg = scripts\\%s\\tiski_%s.ltx", lvl, num)	
+		elseif string.match(name, 'awr_m_wpn') then
+			data.custom_data = string.format("[logic]\ncfg = scripts\\%s\\awr_tiski_%s.ltx", lvl, num)
+		end
+		dout(nil, "Change logic for %s to: %s", name, data.custom_data)
+		stpk_utils.set_physic_data(data,s_obj)
+	end
+end
+
+--// Функция получения имени оружия по имени меша тисков
+function GetAWRWpn()
+	for i=1, 65534 do
+		local s_obj = alife():object(i)
+		if s_obj then
+			local c_obj = level.object_by_id(s_obj.id)
+			if c_obj then
+				if string.match(s_obj:name(), "awr_m_") and c_obj:position():distance_to(db.actor:position()) <= 10 then
+					dout(nil, "Get weapon name from mesh - %s", s_obj:name())
+					return s_obj:name()
+				end
+			end
+		end
+	end
+end
+
+function GetClearN(obj)
+	if type(obj) == 'userdata' then
+		obj = obj:section() or nil
+		dout(nil, "Arg is userdata, trying get section...")
+	end
+	
+	if not (obj) then
+		dout(nil, "Section was not recognized -> return")
+		return
+	end
+	
+	local wpn_sect
+	
+	if IsRusty(obj) then
+		wpn_sect = obj:gsub('(wpn.*)(%_.*)$', '%1')
+		--dout(nil, "Weapon %s is rusty, clean section %s", obj, wpn_sect)			--// Включать при необходимости, сильный спам в лог
+	elseif IsWorn(obj) then
+		wpn_sect = obj:gsub('(wpn.*)(%_.*)$', '%1')
+		--dout(nil, "Weapon %s is worn, clean section %s", obj, wpn_sect)			--// Включать при необходимости, сильный спам в лог
+	else
+		wpn_sect = obj
+		--dout(nil, "Weapon %s already has clean section", obj)					--// Включать при необходимости, сильный спам в лог
+	end
+	
+	return wpn_sect
+end
+
+--// Функция отладочного вывода (включен при debug_mode = true в awr_settings.ltx)
+function dout(call,fmt,...)
+	if not (debug_mode) then return end
+	if not (fmt) then return end
+	local fmt = tostring(fmt)
+	
+	--// Пытаемся определить из какой функции произошел вызов целевой функции
+	local caller_n = debug.getinfo(3, "n") and debug.getinfo(3, "n").name or "not specified"
+	local f_name = debug.getinfo(2, "n") and  debug.getinfo(2, "n").name or "not specified"
+
+	if call then
+		caller_n = tostring(call)
+	end
+	
+	if (select('#',...) >= 1) then
+		local i = 0
+		local p = {...}
+		local function sr(a)
+			i = i + 1
+			if (type(p[i]) == 'userdata') then
+				if (p[i].x and p[i].y) then
+					return vec_to_str(p[i])
+				end
+				return 'userdata'
+			end
+			return tostring(p[i])
+		end
+		fmt = string.gsub(fmt,"%%s",sr)
+	end
+		if (log) then
+			local str = string.format('[AWR]{%s->%s} %s', caller_n, f_name, fmt)
+			log(str)
+			--get_console():execute("flush")
+	else
+		get_console():execute("load ~#debug msg:"..str)
+	end	
+end
+
+--// Функция проверки, является ли предмет деталью. Список генерируется динамически. При изменении количества деталей, изменить значения в файле awr_settings на соответствующее.
+function IsDetail(item,q)
+	if not (item) or not (q) then
+		return
+	end
+	
+	if type(item) == 'userdata' then
+		item = item:section() or nil
+		--dout(nil, "Arg is userdata, trying get section...")
+	end
+	
+	if not (item) then
+		dout(nil, "Section was not recognized -> return")
+		return
+	end
+	
+	local x = 1
+	local all_details_f = {}
+	local all_details =		{
+								bolt = settings_list.bolt,
+								barrel = settings_list.barrel,	
+								gas_tube = settings_list.gas_tube,
+								bolt_carrier = settings_list.bolt_carrier,		
+								trigger_components = settings_list.trigger
+							}
+
+					
+	for key, val in pairs(all_details) do
+		while x < val+1 do
+			local name = string.format("awr_%s_%s_%s", key, x, q)
+			table.insert(all_details_f, name)
+			x = x + 1
+		end
+		x = 1
+	end
+
+	for _, k in ipairs(all_details_f) do
+		if k == item then
+			--dout(nil, "%s is detail", item)			--// Включать при необходимости, сильный спам в лог
+			return true
+		end
+	end
+end
+
+--// Функция проверки наличия itm в списке подходящего оружия из файла awr_settings
+function InWpnList(itm)
+	for _, k in ipairs(weapons_list) do
+		if string.match(itm, k) then
+			dout(nil, "Weapon %s in AWR weapon compatible list", itm)
+			return true
+		end
+	end
+	dout(nil, "Weapon %s is NOT in AWR weapon compatible list", itm)
+end
+
+--// Функция проверки наличия прицела
+function HasScope(section)
+	for _, k in ipairs(scopes) do
+		if string.match(section, k) then
+			dout(nil, "Weapon %s has attached scope: %s", section, k)
+			return k
+		end
+	end
+	dout(nil, "Weapon %s has not attached scope from DRX", section)
+end
+
+--// Функция получения значения угла для установки меша
+function GetAngle(obj)
+	if not (obj) then
+		return
+	end
+	
+	local obj_name = obj:name()
+	if not (obj_name:match('awr')) then
+		return
+	end
+	
+	dout(nil, "Called for %s", obj_name)
+	local name = get_p_name(obj_name)
+	if angles_t[name] then
+		dout(nil, "Angle for %s = %s", name, angles_t[name][2] or 0)
+		return angles_t[name][2] or 0
+	end
+end
+
+--// Функция удаления объектов
+function del_obj(obj)
+	local id = obj.id
+	local name = obj:name()
+	alife():release(obj)
+
+	local s_obj = alife():object(id) or nil
+	if s_obj then
+		dout(nil, '![ERROR] Object %s was NOT REMOVED!',name)	
+	else
+		dout(nil, 'Object %s was successfully removed',name)
+	end
+end
+
+--// Функция сравнения таблиц (спасибо Hisham H M, за то, что избавил от необходимости писать это самому :) )
+--// Оригинал  тут: https://stackoverflow.com/a/25976660
+function table_eq(table1, table2)
+   local avoid_loops = {}
+   local function recurse(t1, t2)
+      if type(t1) ~= type(t2) then return false end
+      if type(t1) ~= "table" then return t1 == t2 end
+      if avoid_loops[t1] then return avoid_loops[t1] == t2 end
+      avoid_loops[t1] = t2
+      local t2keys = {}
+      local t2tablekeys = {}
+      for k, _ in pairs(t2) do
+         if type(k) == "table" then table.insert(t2tablekeys, k) end
+         t2keys[k] = true
+      end
+      for k1, v1 in pairs(t1) do
+         local v2 = t2[k1]
+         if type(k1) == "table" then
+            local ok = false
+            for i, tk in ipairs(t2tablekeys) do
+               if table_eq(k1, tk) and recurse(v1, t2[tk]) then
+                  table.remove(t2tablekeys, i)
+                  t2keys[tk] = nil
+                  ok = true
+                  break
+               end
+            end
+            if not ok then return false end
+         else
+            if v2 == nil then return false end
+            t2keys[k1] = nil
+            if not recurse(v1, v2) then return false end
+         end
+      end
+      if next(t2keys) then return false end
+      return true
+   end
+   return recurse(table1, table2)
+end
+
+--// Функция для вывода содержимого таблицы в строковом виде (alun_utils)
+function print_table(tbl,header,format_only)
+	local txt = header and ("-- " .. tostring(header) .. "\n{\n\n") or "{\n\n"
+	local depth = 1
+
+	local function tab(amt)
+		local str = ""
+		for i=1,amt, 1 do
+			str = str .. "\t"
+		end
+		return str
+	end
+
+	local function table_to_string(tbl)
+		local size = 0
+		for k,v in pairs(tbl) do
+			size = size + 1
+		end
+
+		local key
+		local i = 1
+
+		for k,v in pairs(tbl) do
+			if (type(k) == "number") then
+				key = "[" .. k .. "]"
+			elseif (type(k) == "function" or type(k) == "string" or type(k) == "boolean" or type(k) == "table") then
+				key = "[\""..tostring(k) .. "\"]"
+			else 
+				key = "[____unknown_type]"
+			end
+
+			if (type(v) == "table") then
+				txt = txt .. tab(depth) .. key .. " =\n"..tab(depth).."{\n"
+				depth = depth + 1
+				table_to_string(v,tab(depth))
+				depth = depth - 1
+				txt = txt .. tab(depth) .. "}"
+			elseif (type(v) == "number" or type(v) == "boolean") then
+				txt = txt .. tab(depth) .. key .. " = " .. tostring(v)
+			elseif (type(v) == "userdata") then
+				if (v.diffSec) then 
+					local Y, M, D, h, m, s, ms = 0,0,0,0,0,0,0
+					Y, M, D, h, m, s, ms = v:get(Y, M, D, h, m, s, ms)
+					txt = strformat("%s%s%s = { Y=%s, M=%s, D=%s, h=%s, m=%s, s=%s, ms=%s } ",txt,tab(depth),key,Y, M, D, h, m, s, ms)
+				else
+					txt = txt .. tab(depth) .. key .. " = \"userdata\""
+				end
+			elseif (type(v) == "function") then
+				txt = txt .. tab(depth) .. key .. " = \"" .. tostring(v) .. "\""
+			elseif (type(v) == "string") then 
+				txt = txt .. tab(depth) .. key .. " = '" .. v .. "'"
+			else 
+				txt = txt .. tab(depth) .. key
+			end
+
+			if (i == size) then
+				txt = txt .. "\n"
+			else
+				txt = txt .. ",\n"
+			end
+
+			i = i + 1
+		end
+	end
+
+	table_to_string(tbl)
+
+	txt = txt .. "\n}"
+
+	if (format_only) then
+		return txt 
+	end
+	
+	printf(txt)
+	local file = io.open("gamedata\\awr_table.txt","a+")
+	file:write(txt.."\n\n")
+	file:close()
+end
+
+--// Обработчик ошибок для вызова функций через xpcall
+function err_call(f)
+	printf("![ERROR]: %s", f)
+end

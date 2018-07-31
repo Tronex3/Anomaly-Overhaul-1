@@ -429,14 +429,24 @@
 	<string id="st_ui_bonus">
 		<text>Bonus</text>
 	</string>
+	
+	<string id="st_item_use">
+		<text>use</text>
+	</string>
 	<string id="st_item_sort">
 		<text>sort</text>
+	</string>
+	<string id="st_item_play">
+		<text>play</text>
 	</string>
 	<string id="st_item_open">
 		<text>open</text>
 	</string>
 	<string id="st_item_reveal">
 		<text>reveal</text>
+	</string>
+	<string id="st_item_read">
+		<text>read</text>
 	</string>
 	<string id="st_item_separate">
 		<text>separate</text>

@@ -2,6 +2,31 @@
 	<!-- No images -->
 	<file name="ui\ui_console">
 		<texture id="encyclopedia__notes_state_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_basic_1_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_basic_2_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_basic_3_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_basic_4_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_basic_5_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_advanced_1_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_advanced_2_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_advanced_3_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_advanced_4_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_advanced_5_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_expert_1_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_expert_2_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_expert_3_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_expert_4_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_expert_5_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_drug_1_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_drug_2_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_drug_3_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_drug_4_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_drug_5_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_ammo_1_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_ammo_2_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_ammo_3_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_ammo_4_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_ammo_5_image" x="0" y="0" width="0" height="0"/>
 		
 		<texture id="encyclopedia_achievements_bookworm_food_image" x="0" y="0" width="0" height="0"/>
 		<texture id="encyclopedia_achievements_completionist_image" x="0" y="0" width="0" height="0"/>

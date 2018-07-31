@@ -1,0 +1,36 @@
+[config]
+pda_drain = true  	;;-- PDA
+nv_drain = true   	;;-- Night vision
+fl_drain = true   	;;-- Headlamp
+dt_drain = true		;;-- Detector
+af_drain = true		;;-- Container for artifact
+exo_drain = true 	;;-- Exoskeleton
+
+[main] ;;-- continuous: Drain battery every 10 second of use | on use: Drain battery on every single use
+pda_drain_speed = 0.00002 ;;-- continuous
+nv_drain_speed	= 0.00026 ;;-- continuous
+fl_drain_speed	= 0.00013 ;;-- continuous
+dt1_drain_speed	= 0.00092 ;;-- continuous
+dt2_drain_speed	= 0.00055 ;;-- continuous
+dt3_drain_speed	= 0.00069 ;;-- continuous
+dt4_drain_speed	= 0.00069 ;;-- continuous
+iam_drain_speed = 0.00005 ;;-- continuous
+aac_drain_speed = 0.0001  ;;-- continuous
+aam_drain_speed = 0.00015 ;;-- continuous
+exo_drain_speed = 0.00026 ;;-- continuous
+gei_drain_speed = 0.01 	  ;;-- on use
+gps_drain_speed = 0.05 	  ;;-- on use
+
+[battery_sections]
+batteries_ccell
+batteries
+batteries_dead
+
+[batteries_ccell]
+power = 0.93		;;--  0.99 because condition is never 1.0, it's 0.999e+
+
+[batteries]
+power = 0.52
+
+[batteries_dead]
+power = 0.14

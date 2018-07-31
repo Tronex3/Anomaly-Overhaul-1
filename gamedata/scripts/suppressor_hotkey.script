@@ -1,0 +1,75 @@
+-- ===================================== Made by TKGP ====================================
+-- ================================== Modified by Tronex =================================
+--| Hotkey to toggle suppressor
+
+-- Additional time (milliseconds) before weapon is reequipped
+local IMMERSIVE_DELAY = 1500
+local ATTACH_SOUND = "interface\\inv_attach_addon"
+local DETACH_SOUND = "interface\\inv_detach_addon"
+
+local config = system_ini()
+local info, attach, sound, restoreTime
+
+axr_keybind.bind("kCUSTOM13",function(p)
+	if p == 1 and db.actor and not info then
+		local weapon = db.actor:active_item()
+		if weapon and weapon:weapon_silencer_status() == 2 then
+			local supSection = config:r_string(weapon:section(), "silencer_name")
+			local proceed = false
+			if weapon:weapon_is_silencer() then
+				proceed = true
+				attach = false
+			elseif db.actor:object(supSection) then
+				proceed = true
+				attach = true
+			end
+			if proceed then
+				db.actor:hide_weapon()
+				info = {id = weapon:id(), section = supSection}
+			end
+		end
+	end
+end)
+
+RegisterScriptCallback("actor_on_update", function ()
+	if info and not db.actor:active_item() then
+		local success = false
+		local weapon = level.object_by_id(info.id)
+		if weapon and weapon:parent() and weapon:parent():id() == db.actor:id() then
+			local newSound
+			if attach then
+				local suppressor = db.actor:object(info.section)
+				if suppressor then
+					weapon:weapon_addon_attach(suppressor)
+					newSound = ATTACH_SOUND
+					success = true
+				end
+			else
+				weapon:weapon_addon_detach(info.section)
+				newSound = DETACH_SOUND
+				success = true
+			end
+			
+			if newSound then
+				if sound then
+					sound:stop()
+				end
+				sound = sound_object(newSound)
+				sound.volume = 1
+				sound:play(db.actor, 0, sound_object.s2d)
+			end
+		end
+		
+		info = nil
+		if success then
+			restoreTime = time_global() + IMMERSIVE_DELAY
+		else
+			db.actor:restore_weapon()
+		end
+	end
+	
+	if restoreTime and restoreTime <= time_global() then
+		restoreTime = nil
+		db.actor:restore_weapon()
+	end
+end)

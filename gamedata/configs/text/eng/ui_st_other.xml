@@ -663,4 +663,29 @@
 	<string id="st_imm_swiss_open">
 		<text>Open can</text>
 	</string>
+	
+	<string id="st_recipe_is_known">
+		<text>You know the content of this already</text>
+	</string>
+	
+	<!-- bad turn -->
+	<string id="st_bad_turn_into_bandit">
+		<text>You are expelled from the group!</text>
+	</string>
+	<string id="st_bad_turn_into_bandit_news">
+		<text>%c[0,255,0,0]You are expelled from the group!</text>
+	</string>
+	<string id="st_bad_turn_into_zombie">
+		<text>The Psi-radiation level is critical and you have been zombified!</text>
+	</string>
+	<string id="st_bad_turn_into_zombie_news">
+		<text>%c[0,255,64,0]The Psi-radiation level is critical and you have been zombified!</text>
+	</string>
+	<string id="st_bad_turn_dezombification">
+		<text>Dezombification finished succesfully!</text>
+	</string>
+	<string id="st_bad_turn_dezombification_news">
+		<text>%c[0,255,64,0]Dezombification finished succesfully!</text>
+	</string>
+	
 </string_table>

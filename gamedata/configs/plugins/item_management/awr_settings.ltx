@@ -1,0 +1,544 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;	Advanced Weapon Repair Mod 0.3 [SETTINGS] by Faustle (2018)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[awr_mode]
+; Режим вывода отладочной информации
+debug_mode = false
+; Режим вывода содержимого таблицы AWR из Store в лог, при каждом обращении к Store
+debug_show_tables = false
+; Отладочный режим тестирования мешей (последовательное переключение мешей по списку из секции awr_test)
+mesh_test_mode = false
+
+[awr_settings]
+; Задержка, по прошествии которой, оставленное в тисках оружие может быть украдено
+steal_delay = 18000
+; Перманентная прибавка к шансу получения детали при разборке, в формуле wpn_cond*100+x >= math.random(1,100)
+condition = 40
+outfit_condition = 10
+; Расстояние до механика при проверки дальности в функции выбора угла
+distance = 40
+; Количество деталей каждого типа (должно точно совпадать с реальным)
+bolt 			= 17
+barrel 			= 12
+gas_tube 		= 11
+bolt_carrier 	= 11
+trigger 		= 6
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Список оружия для разборки\модернизации
+; оружие = { ствол, УСМ, затвор, боевая личинка, газовая трубка }
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[awr_weapon_list]
+wpn_9a91						=	 11, 	2,		2, 		7, 		4 
+wpn_abakan						=	 8, 	3,		1, 		6, 		5 
+wpn_abakan_camo					=	 8, 	3,		1, 		6, 		5 
+wpn_abakan_worn					=	 8, 	3,		1, 		6, 		5 
+wpn_ace21						=	 7, 	2,		10,		13,		6 
+wpn_aek							=	 8, 	3,		1, 		6, 		5 
+wpn_aek_camo					=	 8, 	3,		1, 		6, 		5 
+wpn_aek_duty					=	 8, 	3,		1, 		6, 		5 
+wpn_aek_worn					=	 8, 	3,		1, 		6, 		5 
+wpn_ak							=	 7, 	2,		1, 		6, 		5 
+wpn_ak101						=	 9, 	2,		1, 		6, 		5 
+wpn_ak101_camo					=	 9, 	2,		1, 		6, 		5 
+wpn_ak102						=	 9, 	2,		1, 		6, 		5 
+wpn_ak103						=	 7, 	2,		1, 		6, 		5 
+wpn_ak103_camo					=	 7, 	2,		1, 		6, 		5 
+wpn_ak104						=	 7, 	2,		1, 		6, 		5 
+wpn_ak105						=	 8, 	2,		1, 		6, 		5 
+wpn_ak12						=	 8, 	3,		1, 		6, 		5 
+wpn_ak74						=	 8, 	2,		1, 		6, 		5 
+wpn_ak74m						=	 8, 	2,		1, 		6, 		5 
+wpn_ak74m_alt					=	 8, 	2,		1, 		6, 		5 
+wpn_ak74m_camo					=	 8, 	2,		1, 		6, 		5 
+wpn_ak74m_custom				=	 8, 	2,		1, 		6, 		5 
+wpn_ak74m_duty					=	 8, 	2,		1, 		6, 		5 
+wpn_ak74m_pka					=	 8, 	2,		1, 		6, 		5 
+wpn_ak74m_worn					=	 8, 	2,		1, 		6, 		5 
+wpn_ak74u						=	 8, 	2,		1, 		6, 		5 
+wpn_ak74u_camo					=	 8, 	2,		1, 		6, 		5 
+wpn_ak74u_custom				=	 8, 	2,		1, 		6, 		5 
+wpn_ak74u_old					=	 8, 	2,		1, 		6, 		5 
+wpn_ak74u_rusty					=	 8, 	2,		1, 		6, 		5 
+wpn_ak74u_snag					=	 8, 	2,		1, 		6, 		5 
+wpn_ak74u_worn					=	 8, 	2,		1, 		6, 		5 
+wpn_ak74_alt					=	 8, 	2,		1, 		6, 		5 
+wpn_ak74_custom					=	 8, 	2,		1, 		6, 		5 
+wpn_ak74_modern					=	 8, 	2,		1, 		6, 		5 
+wpn_ak74_old					=	 8, 	2,		1, 		6, 		5 
+wpn_ak74_rpk					=	 8, 	2,		1, 		6, 		5 
+wpn_ak74_rusty					=	 8, 	2,		1, 		6, 		5 
+wpn_ak74_worn					=	 8, 	2,		1, 		6, 		5 
+wpn_akm							=	 7, 	2,		1, 		6, 		5 
+wpn_akms						=	 7, 	2,		1, 		6, 		5 
+wpn_akms_alt					=	 7, 	2,		1, 		6, 		5 
+wpn_akms_worn					=	 7, 	2,		1, 		6, 		5 
+wpn_akm_worn					=	 7, 	2,		1, 		6, 		5 
+wpn_aks							=	 7, 	2,		1, 		6, 		5 
+wpn_aks74						=	 8, 	2,		1, 		6, 		5 
+wpn_aks74_new					=	 8, 	2,		1, 		6, 		5 
+wpn_aks74_rusty					=	 8, 	2,		1, 		6, 		5 
+wpn_aks74_worn					=	 8, 	2,		1, 		6, 		5 
+wpn_aug							=	 9, 	2,		3, 		10,		6 
+wpn_aug_custom					=	 9, 	2,		3, 		10,		6 
+wpn_aug_freedom					=	 9, 	2,		3, 		10,		6 
+wpn_aug_merc					=	 9, 	2,		3, 		10,		6 
+wpn_aug_modern					=	 9, 	2,		3, 		10,		6 
+wpn_aug_worn					=	 9, 	2,		3, 		10,		6 
+wpn_bm16						=	 2, 	6,		9, 		12,		10 
+wpn_bm16_alt					=	 2, 	6,		9, 		12,		10 
+wpn_bm16_full					=	 2, 	6,		9, 		12,		10
+wpn_bm16_full_alt				=	 2, 	6,		9, 		12,		10 
+wpn_bm16_full_rusty				=	 2, 	6,		9, 		12,		10
+wpn_bm16_full_worn				=	 2, 	6,		9, 		12,		10
+wpn_bm16_rusty					=	 2, 	6,		9, 		12,		10
+wpn_bm16_worn					=	 2, 	6,		9, 		12,		10 
+wpn_fn2000						=	 9, 	3,		3, 		9, 		6 
+wpn_fn2000_camo					=	 9, 	3,		3, 		9, 		6 
+wpn_fn2000_custom				=	 9, 	3,		3, 		9, 		6 
+wpn_fn2000_nimble				=	 9, 	3,		3, 		9, 		6 
+wpn_fn2000_worn					=	 9, 	3,		3, 		9, 		6 
+wpn_g3							=	 7, 	2,		5, 		14,		6 
+wpn_g36							=	 9, 	3,		3, 		9, 		6 
+wpn_g36k						=	 9, 	3,		3, 		9, 		6 
+wpn_g36k_worn					=	 9, 	3,		3, 		9, 		6 
+wpn_g36_camo					=	 9, 	3,		3, 		9, 		6 
+wpn_g36_nimble					=	 9, 	3,		3, 		9, 		6 
+wpn_g36_worn					=	 9, 	3,		3, 		9, 		6 
+wpn_g3sg1						=	 7, 	2,		5, 		14,		6 
+wpn_g3sg1_worn					=	 7, 	2,		5, 		14,		6 
+wpn_g3_worn						=	 7, 	2,		5, 		14,		6 
+wpn_g43							=	 5, 	4,		6, 		4, 		8 
+wpn_galil						=	 7, 	2,		10,		13,		6 
+wpn_galil_custom				=	 7, 	2,		10,		13,		6 
+wpn_galil_modern				=	 7, 	2,		10,		13,		6 
+wpn_galil_worn					=	 7, 	2,		10,		13,		6 
+wpn_groza						=	 11, 	2,		2, 		8, 		4 
+wpn_groza_nimble				=	 7, 	2,		1, 		8, 		4 
+wpn_hk416						=	 9, 	3,		3, 		9, 		6 
+wpn_k98							=	 5, 	4,		6, 		4, 		8 
+wpn_l85							=	 9, 	2,		3, 		9, 		6 
+wpn_l85a2						=	 9, 	2,		3, 		9, 		6 
+wpn_l85a2_alt					=	 9, 	2,		3, 		9, 		6 
+wpn_l85a2_custom				=	 9, 	2,		3, 		9, 		6 
+wpn_l85a2_modern				=	 9, 	2,		3, 		9, 		6 
+wpn_l85a2_worn					=	 9, 	2,		3, 		9, 		6 
+wpn_l85_alt						=	 9, 	2,		3, 		9, 		6 
+wpn_l85_custom					=	 9, 	2,		3, 		9, 		6 
+wpn_l85_modern					=	 9, 	2,		3, 		9, 		6 
+wpn_l85_worn					=	 9, 	2,		3, 		9, 		6 
+wpn_l96a1						=	 4, 	4,		6, 		4, 		8 
+wpn_l96a1m						=	 4, 	4,		6, 		4, 		8 
+wpn_l96a1_worn					=	 4, 	4,		6, 		4, 		8 
+wpn_lr300						=	 9, 	3,		3, 		9, 		6 
+wpn_lr300_camo					=	 9, 	3,		3, 		9, 		6 
+wpn_lr300_custom				=	 9, 	3,		3, 		9, 		6 
+wpn_lr300_rusty					=	 9, 	3,		3, 		9, 		6 
+wpn_lr300_worn					=	 9, 	3,		3, 		9, 		6 
+wpn_m16							=	 9, 	3,		3, 		9, 		6 
+wpn_m16a2						=	 9, 	3,		3, 		9, 		6 
+wpn_m16_worn					=	 9, 	3,		3, 		9, 		6 
+wpn_m24							=	 4, 	4,		6, 		4, 		8 
+wpn_m249						=	 9, 	3,		3, 		2, 		7 	
+wpn_m4							=	 9, 	2,		3, 		9, 		6 
+wpn_m4a1						=	 9, 	2,		3, 		9, 		6 
+wpn_m4a1_camo					=	 9, 	2,		3, 		9, 		6 
+wpn_m4a1_custom					=	 9, 	2,		3, 		9, 		6 
+wpn_m4a1_freedom				=	 9, 	2,		3, 		9, 		6 
+wpn_m4a1_worn					=	 9, 	2,		3, 		9, 		6 
+wpn_m4_worn						=	 9, 	2,		3, 		9, 		6 
+wpn_mosin						=	 4, 	4,		6, 		4, 		8 
+wpn_mosin_worn					=	 4, 	4,		6, 		4, 		8 
+wpn_mossberg590					=	 3, 	1,		7, 		1, 		2 
+wpn_mossberg590_worn			=	 3, 	1,		7, 		1, 		2 
+wpn_mp133						=	 3, 	1,		7, 		1, 		2 
+wpn_mp133_rusty					=	 3, 	1,		7, 		1, 		2 
+wpn_mp133_worn					=	 3, 	1,		7, 		1, 		2 
+wpn_mp153						=	 3, 	1,		7, 		1, 		1 
+wpn_mp153_rusty					=	 3, 	1,		7, 		1, 		1 
+wpn_mp153_worn					=	 3, 	1,		7, 		1, 		1 
+wpn_pkm							=	 10,	1,		1, 		2, 		7 
+wpn_pkm_zulus					=	 10,	1,		1, 		2, 		7 
+wpn_pkp							=	 10,	1,		1, 		2, 		7
+wpn_rpk							=	 7, 	2,		1, 		6, 		5 
+wpn_rpk74						=	 8, 	2,		1, 		6, 		5 
+wpn_rpk74_worn					=	 8, 	2,		1, 		6, 		5 
+wpn_rpk_worn					=	 7, 	2,		1, 		6, 		5 
+wpn_saiga12s					=	 3, 	1,		1, 		3, 		1 
+wpn_saiga12s_worn				=	 3, 	1,		1, 		3, 		1 
+wpn_scar						=	 7, 	2,		3, 		8, 		6 
+wpn_scar_custom					=	 7, 	2,		3, 		8, 		6 
+wpn_scar_new					=	 7, 	2,		3, 		8, 		6 
+wpn_scar_worn					=	 7, 	2,		3, 		8, 		6 
+wpn_sig550						=	 9, 	3,		3,		9,		6 
+wpn_sig550_camo					=	 9, 	3,		3,		9,		6 
+wpn_sig550_custom				=	 9, 	3,		3,		9,		6 
+wpn_sig550_luckygun 			=	 9, 	3,		3,		9,		6 
+wpn_sig550_rusty				=	 9, 	3,		3,		9,		6 
+wpn_sig550_sniper				=	 9, 	1,		3,		9,		6 
+wpn_sig550_worn					=	 9, 	3,		3,		9,		6 
+wpn_sig552						=	 9, 	3,		3,		9,		6 
+wpn_sig552_worn					=	 9, 	3,		3,		9,		6 
+wpn_sks							=	 4, 	1,		4, 		4, 		3 
+wpn_sks_modern					=	 4, 	1,		4, 		4, 		3 
+wpn_sks_worn					=	 4, 	1,		4, 		4, 		3 
+wpn_spas12						=	 3, 	2,		7, 		1, 		1 
+wpn_spas12_custom				=	 3, 	2,		7, 		1, 		1 
+wpn_spas12_nimble				=	 3, 	2,		7, 		1, 		1 
+wpn_spas12_rusty				=	 3, 	2,		7, 		1, 		1 
+wpn_spas12_worn					=	 3, 	2,		7, 		1, 		1 
+wpn_sr25						=	 4, 	1,		7, 		9, 		3 
+wpn_sv98						=	 4, 	4,		6, 		4, 		8 
+wpn_sv98_custom					=	 4, 	4,		6, 		4, 		8 
+wpn_sv98_worn					=	 4, 	4,		6, 		4, 		8 
+wpn_svd							=	 7, 	1,		1, 		5, 		5 
+wpn_svd_custom					=	 7, 	1,		1, 		5, 		5 
+wpn_svd_nimble					=	 7, 	1,		1, 		5, 		5 
+wpn_svd_rusty					=	 7, 	1,		1, 		5, 		5 
+wpn_svd_worn					=	 7, 	1,		1, 		5, 		5 
+wpn_svt40						=	 4, 	1,		4, 		4, 		3 
+wpn_svt40_modern				=	 4, 	1,		4, 		4, 		3 
+wpn_svt40_rusty					=	 4, 	1,		4, 		4, 		3 
+wpn_svt40_worn					=	 4, 	1,		4, 		4, 		3 
+wpn_svu							=	 7, 	1,		1, 		5, 		5 
+wpn_svu_alt						=	 7, 	1,		1, 		5, 		5 
+wpn_svu_nimble					=	 7, 	1,		1, 		5, 		5 
+wpn_svu_worn					=	 7, 	1,		1, 		5, 		5 
+wpn_toz34						=	 1, 	6,		8, 		11,		9 
+wpn_toz34_custom				=	 1, 	6,		8, 		11,		9 
+wpn_toz34_decor					=	 1, 	6,		8, 		11,		9 
+wpn_toz34_mark4					=	 1, 	6,		8, 		11,		9 
+wpn_toz34_obrez					=	 1, 	6,		8, 		11,		9 
+wpn_toz34_obrez_custom			=	 1, 	6,		8, 		11,		9 
+wpn_toz34_obrez_decor			=	 1, 	6,		8, 		11,		9 
+wpn_toz34_obrez_rusty			=	 1, 	6,		8, 		11,		9 
+wpn_toz34_obrez_worn			=	 1, 	6,		8, 		11,		9 
+wpn_toz34_rusty					=	 1, 	6,		8, 		11,		9 
+wpn_toz34_worn					=	 1, 	6,		8, 		11,		9 
+wpn_trg							=	 4, 	1,		6, 		5, 		3 
+wpn_type63						=	 4, 	1,		4, 		4, 		3 
+wpn_usas12						=	 3, 	2,		10,		3, 		1 
+wpn_val							=	 6, 	5,		2, 		8, 		4 
+wpn_val_modern					=	 6, 	5,		2, 		8, 		4 
+wpn_val_worn					=	 6, 	5,		2, 		8, 		4 
+wpn_vepr						=	 3, 	1,		1, 		3, 		1 
+wpn_vihr						=	 11, 	5,		2, 		8, 		4 
+wpn_vintorez					=	 6, 	5,		2, 		8, 		4 
+wpn_vintorez_1pn93				=	 6, 	5,		2, 		8, 		4 
+wpn_vintorez_alt				=	 6, 	5,		2, 		8, 		4 
+wpn_vintorez_nimble				=	 6, 	5,		2, 		8, 		4 
+wpn_vintorez_worn				=	 6, 	5,		2, 		8, 		4 
+wpn_vsk94						=	 6, 	2,		2, 		8, 		4 
+wpn_vsk94_worn					=	 6, 	2,		2, 		8, 		4 
+wpn_wincheaster1300				=	 3, 	1,		7, 		1, 		2 
+wpn_wincheaster1300_rusty		=	 3, 	1,		7, 		1, 		2 
+wpn_wincheaster1300_trapper		=	 3, 	1,		7, 		1, 		2 
+wpn_wincheaster1300_worn		=	 3, 	1,		7, 		1, 		2
+wpn_mp5							=	11,		2,		5, 		14, 	11
+wpn_mp5_custom					=	11,		2,		5, 		14, 	11
+wpn_mp5_alt						=	11,		2,		5, 		14, 	11
+wpn_mp5_worn					=	11,		2,		5, 		14, 	11
+wpn_mp5sd						=	6,		2,		5, 		14, 	11
+wpn_mp5sd_custom				=	6,		2,		5, 		14, 	11
+wpn_mp5sd_new					=	6,		2,		5, 		14, 	11
+wpn_mp5sd_worn					=	6,		2,		5, 		14, 	11
+wpn_mp5_nimble					=	11,		2,		5, 		14, 	4
+wpn_pp2000						=	11,		3,		11, 	15, 	4
+wpn_vityaz						=	11,		3,		11, 	15, 	4
+wpn_vz61						=	11,		2,		11, 	15, 	4
+wpn_vz61_freedom				=	11,		2,		11, 	15, 	4
+wpn_vz61_camo					=	11,		2,		11, 	15, 	4
+wpn_vz61_alt					=	11,		2,		11, 	15, 	4
+wpn_vz61_worn					=	11,		2,		11, 	15, 	4
+wpn_vz61_rusty					=	11,		2,		11, 	15, 	4
+wpn_bizon						=	11,		2,		11, 	15, 	4
+wpn_kiparis						=	11,		2,		11, 	15, 	4
+wpn_kiparis_worn				=	11,		2,		11, 	15, 	4
+wpn_ump45						=	11,		3,		11, 	16, 	4
+wpn_ump45_custom				=	11,		3,		11, 	16, 	4
+wpn_ump45_worn					=	11,		3,		11, 	16, 	4
+wpn_ppsh41						=	12,		2,		11, 	17, 	4
+wpn_ppsh41_woodnew				=	12,		2,		11, 	17, 	4
+wpn_ppsh41_worn					=	12,		2,		11, 	17, 	4
+wpn_ppsh41_rednew				=	12,		2,		11, 	17, 	4
+wpn_ppsh41_rusty				=	12,		2,		11, 	17, 	4
+
+; Оружие без возможности разборки и ремонта в силу собственной конструкции или уникальности деталей
+;wpn_protecta
+;wpn_protecta_camo
+;wpn_protecta_custom
+;wpn_protecta_worn
+;wpn_protecta_rusty
+;wpn_protecta_aim
+;wpn_rpd
+;wpn_m98b
+;wpn_vssk
+;wpn_rg-6
+;wpn_m79
+;wpn_gauss
+;wpn_p90
+;пистолеты
+
+; Секция с углами, под которыми необходимо спавнить меши (радианы, в диапазоне -3.14-3.14)
+[awr_angles]
+mil_awr_tiski_01 = mil_smart_terrain_7_7_freedom_mechanic_stalker,	 3.14,		alive				; Механик на базе свободы, Армейские склады
+pri_awr_tiski_02 = merc_pri_a18_mech_mlr,							 3.14,		alive				; Механик в магазине "Книги", Припять
+jup_awr_tiski_02 = mechanic_monolith_jup_depo,						 3.14,		alive				; Механик в депо, Юпитер
+cit_awr_tiski_01 = cit_killers_merc_mechanic_stalker,				 3.14,		alive				; Механик, Мертвый Город
+zat_awr_tiski_02 = zat_stancia_mech_merc,							 2.93,		alive				; Механик на станции переработки, Затон
+val_awr_tiski_01 = val_smart_terrain_7_3_bandit_mechanic_stalker,	 1.57,		alive				; Механик на базе бандитов, Темная долина
+mar_awr_tiski_01 = mar_base_stalker_tech,							 1.57,		alive				; Механик на базе ЧН, Болота
+pri_awr_tiski_01 = mechanic_monolith_kbo,							 1.57,		alive				; Механик в КБО, Припять
+yan_awr_tiski_01 = mechanic_army_yan_mlr,							 1.39, 		alive				; Механик около бункера, Янтарь
+esc_awr_tiski_02 = army_south_mechan_mlr,							 0.40, 		alive				; Механик на КПП, Кордон
+jup_awr_tiski_01 = zat_a2_stalker_mechanic,							 0, 		alive				; Механик на Янове, Юпитер
+zat_awr_tiski_01 = zat_tech_mlr,									 0, 		alive				; Механик на Скадовске, Затон
+agr_awr_tiski_01 = agr_smart_terrain_1_6_army_mechanic_stalker,		 -1.57, 	alive				; Механик на базе военных, Агропром
+esc_awr_tiski_01 = esc_smart_terrain_5_7_loner_mechanic_stalker,	 -1.57, 	alive				; Механик на ферме, у моста, Кордон
+pri_awr_tiski_03 = pri_monolith_monolith_mechanic_stalker,			 -1.57, 	alive				; Механик на базе монолита, Центр. Припять
+jup_awr_tiski_03 = jup_cont_mech_bandit,							 -1.57, 	alive				; Механик на складе контейнеров, Юпитер
+red_awr_tiski_01 = red_forester_tech,								 -1.57, 	alive				; Механик, Рыжий лес
+trc_awr_tiski_01 = trucks_cemetery_bandit_mechanic,					 -0.87,		alive				; Механик, Кладбище техники
+bar_awr_tiski_01 = bar_visitors_stalker_mechanic,					 -3.14, 	alive				; Механик, Бар
+ds_awr_tiski_01 = dasc_tech_mlr,									 0, 	alive				; Механик, Темная Долина
+
+;jup_b217_stalker_tech
+;jup_b6_scientist_tech
+;yan_ecolog_kruglov
+
+[awr_test]
+awr_m_wpn_bizon
+awr_m_wpn_kiparis
+awr_m_wpn_kiparis_worn
+awr_m_wpn_mp5
+awr_m_wpn_mp5_custom
+awr_m_wpn_mp5_alt
+awr_m_wpn_mp5_worn
+awr_m_wpn_mp5_nimble
+awr_m_wpn_mp5sd
+awr_m_wpn_mp5sd_custom
+awr_m_wpn_mp5sd_new
+awr_m_wpn_mp5sd_worn
+awr_m_wpn_pp2000
+awr_m_wpn_ppsh41
+awr_m_wpn_ppsh41_woodnew
+awr_m_wpn_ppsh41_worn
+awr_m_wpn_ppsh41_rednew
+awr_m_wpn_ppsh41_rusty
+awr_m_wpn_ump45
+awr_m_wpn_ump45_custom
+awr_m_wpn_ump45_worn
+awr_m_wpn_vityaz
+awr_m_wpn_vz61
+awr_m_wpn_vz61_freedom
+awr_m_wpn_vz61_camo
+awr_m_wpn_vz61_alt
+awr_m_wpn_vz61_worn
+awr_m_wpn_vz61_rusty
+awr_m_wpn_9a91
+awr_m_wpn_abakan
+awr_m_wpn_abakan_camo
+awr_m_wpn_abakan_worn
+awr_m_wpn_aek
+awr_m_wpn_aek_camo
+awr_m_wpn_aek_worn
+awr_m_wpn_aek_duty
+awr_m_wpn_ak
+awr_m_wpn_aks
+awr_m_wpn_ak101
+awr_m_wpn_ak101_camo
+awr_m_wpn_ak102
+awr_m_wpn_ak103
+awr_m_wpn_ak103_camo
+awr_m_wpn_ak104
+awr_m_wpn_ak105
+awr_m_wpn_ak12
+awr_m_wpn_ak74
+awr_m_wpn_ak74_custom
+awr_m_wpn_ak74_modern
+awr_m_wpn_ak74_alt
+awr_m_wpn_ak74_worn
+awr_m_wpn_ak74_rusty
+awr_m_wpn_ak74_old
+awr_m_wpn_ak74_rpk
+awr_m_wpn_ak74m
+awr_m_wpn_ak74m_duty
+awr_m_wpn_ak74m_camo
+awr_m_wpn_ak74m_custom
+awr_m_wpn_ak74m_alt
+awr_m_wpn_ak74m_worn
+awr_m_wpn_ak74m_pka
+awr_m_wpn_akm
+awr_m_wpn_akm_worn
+awr_m_wpn_akms
+awr_m_wpn_akms_alt
+awr_m_wpn_akms_worn
+awr_m_wpn_aks74
+awr_m_wpn_aks74_new
+awr_m_wpn_aks74_worn
+awr_m_wpn_aks74_rusty
+awr_m_wpn_ak74u
+awr_m_wpn_ak74u_camo
+awr_m_wpn_ak74u_custom
+awr_m_wpn_ak74u_worn
+awr_m_wpn_ak74u_rusty
+awr_m_wpn_ak74u_old
+awr_m_wpn_ak74u_snag
+awr_m_wpn_aug
+awr_m_wpn_aug_freedom
+awr_m_wpn_aug_merc
+awr_m_wpn_aug_custom
+awr_m_wpn_aug_modern
+awr_m_wpn_aug_worn
+awr_m_wpn_bm16
+awr_m_wpn_bm16_alt
+awr_m_wpn_bm16_worn
+awr_m_wpn_bm16_rusty
+awr_m_wpn_bm16_full
+awr_m_wpn_bm16_full_alt
+awr_m_wpn_bm16_full_worn
+awr_m_wpn_bm16_full_rusty
+awr_m_wpn_fn2000
+awr_m_wpn_fn2000_camo
+awr_m_wpn_fn2000_custom
+awr_m_wpn_fn2000_worn
+awr_m_wpn_fn2000_nimble
+awr_m_wpn_g36
+awr_m_wpn_g36_camo
+awr_m_wpn_g36_worn
+awr_m_wpn_g36k
+awr_m_wpn_g36k_worn
+awr_m_wpn_g36_nimble
+awr_m_wpn_g3sg1
+awr_m_wpn_g3sg1_worn
+awr_m_wpn_g3
+awr_m_wpn_g3_worn
+awr_m_wpn_g43
+awr_m_wpn_galil
+awr_m_wpn_galil_custom
+awr_m_wpn_galil_modern
+awr_m_wpn_galil_worn
+awr_m_wpn_ace21
+awr_m_wpn_groza
+awr_m_wpn_groza_nimble
+awr_m_wpn_hk416
+awr_m_wpn_k98
+awr_m_wpn_l85
+awr_m_wpn_l85_custom
+awr_m_wpn_l85_modern
+awr_m_wpn_l85_alt
+awr_m_wpn_l85_worn
+awr_m_wpn_l85a2
+awr_m_wpn_l85a2_custom
+awr_m_wpn_l85a2_modern
+awr_m_wpn_l85a2_alt
+awr_m_wpn_l85a2_worn
+awr_m_wpn_l96a1
+awr_m_wpn_l96a1_worn
+awr_m_wpn_l96a1m
+awr_m_wpn_lr300
+awr_m_wpn_lr300_camo
+awr_m_wpn_lr300_custom
+awr_m_wpn_lr300_worn
+awr_m_wpn_lr300_rusty
+awr_m_wpn_m16
+awr_m_wpn_m16_worn
+awr_m_wpn_m16a2
+awr_m_wpn_m24
+awr_m_wpn_m249
+awr_m_wpn_m4
+awr_m_wpn_m4_worn
+awr_m_wpn_m4a1
+awr_m_wpn_m4a1_freedom
+awr_m_wpn_m4a1_camo
+awr_m_wpn_m4a1_custom
+awr_m_wpn_m4a1_worn
+awr_m_wpn_mosin
+awr_m_wpn_mosin_worn
+awr_m_wpn_mossberg590
+awr_m_wpn_mossberg590_worn
+awr_m_wpn_mp133
+awr_m_wpn_mp133_worn
+awr_m_wpn_mp133_rusty
+awr_m_wpn_mp153
+awr_m_wpn_mp153_worn
+awr_m_wpn_mp153_rusty
+awr_m_wpn_pkm
+awr_m_wpn_pkp
+awr_m_wpn_pkm_zulus
+awr_m_wpn_rpk
+awr_m_wpn_rpk_worn
+awr_m_wpn_rpk74
+awr_m_wpn_rpk74_worn
+awr_m_wpn_saiga12s
+awr_m_wpn_saiga12s_worn
+awr_m_wpn_scar
+awr_m_wpn_scar_custom
+awr_m_wpn_scar_new
+awr_m_wpn_scar_worn
+awr_m_wpn_sig550
+awr_m_wpn_sig550_camo
+awr_m_wpn_sig550_custom
+awr_m_wpn_sig550_worn
+awr_m_wpn_sig550_rusty
+awr_m_wpn_sig550_luckygun
+awr_m_wpn_sig550_sniper
+awr_m_wpn_sig552
+awr_m_wpn_sig552_worn
+awr_m_wpn_sks
+awr_m_wpn_sks_modern
+awr_m_wpn_sks_worn
+awr_m_wpn_spas12
+awr_m_wpn_spas12_custom
+awr_m_wpn_spas12_worn
+awr_m_wpn_spas12_rusty
+awr_m_wpn_spas12_nimble
+awr_m_wpn_sr25
+awr_m_wpn_sv98
+awr_m_wpn_sv98_custom
+awr_m_wpn_sv98_worn
+awr_m_wpn_svd
+awr_m_wpn_svd_custom
+awr_m_wpn_svd_worn
+awr_m_wpn_svd_rusty
+awr_m_wpn_svd_nimble
+awr_m_wpn_svt40
+awr_m_wpn_svt40_modern
+awr_m_wpn_svt40_worn
+awr_m_wpn_svt40_rusty
+awr_m_wpn_svu
+awr_m_wpn_svu_alt
+awr_m_wpn_svu_worn
+awr_m_wpn_svu_nimble
+awr_m_wpn_wincheaster1300
+awr_m_wpn_wincheaster1300_worn
+awr_m_wpn_wincheaster1300_rusty
+awr_m_wpn_wincheaster1300_trapper
+awr_m_wpn_toz34
+awr_m_wpn_toz34_decor
+awr_m_wpn_toz34_custom
+awr_m_wpn_toz34_worn
+awr_m_wpn_toz34_rusty
+awr_m_wpn_toz34_mark4
+awr_m_wpn_toz34_obrez
+awr_m_wpn_toz34_obrez_decor
+awr_m_wpn_toz34_obrez_custom
+awr_m_wpn_toz34_obrez_worn
+awr_m_wpn_toz34_obrez_rusty
+awr_m_wpn_trg
+awr_m_wpn_type63
+awr_m_wpn_usas12
+awr_m_wpn_val
+awr_m_wpn_val_modern
+awr_m_wpn_val_worn
+awr_m_wpn_vepr
+awr_m_wpn_vihr
+awr_m_wpn_vintorez
+awr_m_wpn_vintorez_alt
+awr_m_wpn_vintorez_worn
+awr_m_wpn_vintorez_1pn93
+awr_m_wpn_vintorez_nimble
+awr_m_wpn_vsk94
+awr_m_wpn_vsk94_worn

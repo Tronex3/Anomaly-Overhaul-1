@@ -1,0 +1,1615 @@
+--[[
+		Advanced Weapon Repair Mod 0.3 [Main UI] by Faustle (2018)
+]]--
+
+class "awr_lbox_ui" (CUIListBoxItem)
+function awr_lbox_ui:__init(height) super(height)
+
+	self:SetTextColor(GetARGB(255, 170, 170, 170))
+	self.fn = self:GetTextItem()
+	self.fn:SetFont(GetFontLetterica16Russian())
+	self.fn:SetEllipsis(true)
+	
+	self.lbs = self:GetTextItem()
+	self.lbs:SetEllipsis(true)
+end
+
+function awr_lbox_ui:__finalize()
+end
+
+class "awr_main_ui" (CUIScriptWnd)
+function awr_main_ui:__init(owner,obj,section,condition,mesh_obj) super()
+
+	local ini = ini_file("plugins\\item_management\\awr_settings.ltx")
+
+	self.owner = owner
+	self.section = section
+	self.mesh_obj = mesh_obj
+	self.repairkit = nil
+	self.angles_t = {}
+	self.settings_list = {}
+
+	self.inv_name = game.translate_string(rx_utils.read_from_ini2(nil,self.section,"inv_name","string",0))
+	self.weapons_list = alun_utils.collect_section(ini,"awr_weapon_list") or self.awr_sf.dout('awr_main_ui', '![ERROR] Weapons list is nil')
+	self.wpn_parts_table = alun_utils.parse_list(ini,"awr_weapon_list", self.section) or self.awr_sf.dout('awr_main_ui', '![ERROR] Weapon table for %s is nil', self.section)
+	self.settings = alun_utils.collect_section(ini,"awr_settings") or self.awr_sf.dout('awr_main_ui', '![ERROR] Settings list is nil')
+	self.awr_sf = awr_shared_functions
+	self.p_section = self.section:gsub(self.awr_sf.GetClearN(self.section), '') == ''
+
+	for _, k in ipairs(self.settings) do
+		self.settings_list[k] = ini:r_float_ex("awr_settings", k)
+	end
+	
+	if condition then
+		self.cond = condition
+		self.condition = self.cond*100
+	else
+		self.condition = 0
+		self.cond = 0
+	end
+	
+	--// Загружаем таблицы из Store
+	if self.mesh_obj then
+		local obj_name = self.mesh_obj:name()
+		self.name = self.awr_sf.get_p_name(obj_name)
+		self.angles_t[self.name] = self.awr_sf.l_v(self.name)
+
+		self.wpn_data = self.awr_sf.l_v('wpn_data')
+		if self.wpn_data then
+			local mesh_name = self.mesh_obj:name()
+			self.w_id = tonumber(self.wpn_data[mesh_name]['id'])
+			self.w_upgrades = self.wpn_data[mesh_name]['upgrades']
+			self.old_weapon_sec = self.wpn_data[mesh_name]['wpn_sect'] or {}
+			self.awr_sf.dout('awr_main_ui', 'Get ID %s from %s', self.w_id, self.wpn_data[mesh_name]['wpn_name'])
+		end
+	end
+	
+	--// Формируем таблицу деталей для оружия
+	self.wpn_parts_t = {
+							br_t = self.wpn_parts_table[1],
+							tc_t = self.wpn_parts_table[2],
+							bc_t = self.wpn_parts_table[3],
+							b_t  = self.wpn_parts_table[4],
+							gt_t = self.wpn_parts_table[5]
+						}
+		
+	--// Таблица данных для установки пороговых значений ремонта каждой детали, для оружия всех типов качества
+	self.main_t = 	{
+						br_t = { 							--// Минимальный и максимальный порог прочности для barrel
+									r	= { 0, 20 },		--// ржавое (min, max)
+									w	= { 0, 25 },        --// изношенное (min, max)
+									n	= { 0, 30 }         --// новое (min, max)
+								},
+						
+						tc_t = { 							--// Минимальный и максимальный порог прочности для trigger_components
+									r	= { 20, 35 },		--// ржавое (min, max)
+									w	= { 25, 45 },		--// изношенное (min, max)
+									n	= { 30, 55 }		--// новое (min, max)
+								},
+							
+						b_t = 	{ 							--// Минимальный и максимальный порог прочности для bolt
+									r	= { 35, 45 },		--// ржавое (min, max)
+									w	= { 45, 60 },		--// изношенное (min, max)
+									n	= { 55, 70 } 		--// новое (min, max)
+								},
+							
+						gt_t = { 							--// Минимальный и максимальный порог прочности для gas_tube
+									r	= { 45, 55 },		--// ржавое (min, max)
+									w	= { 60, 70 },       --// изношенное (min, max)
+									n	= { 70, 80 }        --// новое (min, max)
+								},	
+						
+						bc_t = { 							--// Минимальный и максимальный порог прочности для bolt_carrier
+									r	= { 55, 65 },		--// ржавое (min, max)
+									w	= { 70, 75 },       --// изношенное (min, max)
+									n	= { 80, 85 }        --// новое (min, max)
+								}
+					}
+	------------------------------------- END -------------------------------------
+	--// Таблица данных для установки шанса на успешную замену детали
+	self.chance = 	{
+						w = 70,             --// изношенное
+						n = 90              --// новое
+					}
+	------------------------------------- END -------------------------------------
+	--// Таблица с секциями всех рем. наборов для инетарции по ключам
+	self.all_r_kits = 	{
+							barrelkit_db_vertical = 0,
+							barrelkit_db_horizontal = 0,
+							barrelkit_sb_smooth = 0,
+							barrelkit_762_rifle = 0,
+							barrelkit_792_rifle = 0,
+							barrelkit_9x_auto = 0,
+							barrelkit_9_auto_sil = 0,
+							barrelkit_762_auto = 0,
+							barrelkit_762_pp = 0,
+							barrelkit_545_auto = 0,
+							barrelkit_556_auto = 0,
+							barrelkit_762_heavy = 0,
+							awr_r_kit_u = 0,
+							awr_r_kit_u_2 = 0,
+							awr_r_kit_u_3 = 0
+						}
+	------------------------------------- END -------------------------------------
+	--// Таблица со списком уникальных типов оружия
+	self.uniq	 	= 	{ 
+							'_camo', '_duty', '_alt', '_custom', '_pka', '_old', '_snag', 
+							'_modern', '_rpk', '_new', '_freedom', '_merc', '_nimble', '_zulus', 
+							'_luckygun', '_sniper', '_decor', '_mark4', '_1pn93', '_trapper', '_rednew',
+							'_woodnew'
+						}
+	------------------------------------- END -------------------------------------
+	--// Служебные таблицы (значения не изменять!)
+	self.d_quality 	= 	{ n = { "_good", "n", "st_selected_good" }, w = { "_worn", "w", "st_selected_worn" } }
+	self.w_quality 	= 	{ r = { "_rusty", "r" }, w = { "_worn", "w" }, n = { "new", "n" } }					
+	self.r_stat		=	{ br_t = 0, tc_t = 0, b_t = 0, bc_t = 0, gt_t = 0 }	
+	self.part_t 	= 	{ 'tc_t', 'b_t', 'gt_t', 'bc_t' }
+	self.t 			= 	{}
+	
+	self.n_details 	=	{
+							tc_t = 'trigger_components',
+							b_t  = 'bolt',
+							bc_t = 'bolt_carrier',
+							gt_t = 'gas_tube'
+						}
+						
+	self.f_details	=	{
+							tc_t = 'trigger_components',
+							b_t  = 'bolt',
+							bc_t = 'bolt_carrier',
+							gt_t = 'gas_tube',
+							br_t = 'barrel'
+						}
+
+	self.all_details =	{
+							'bolt',
+							'barrel',		
+							'gas_tube',
+							'bolt_carrier',		
+							'trigger_components'
+						}
+
+	--// Таблица флагов
+	self.flags_t = 		{
+							bar_f 	= nil,	--// Флаг замены barrel. 1 - barrel заменен
+							c_flag 	= nil,	--// Флаг замены деталей, за исключением barrel. 1 - детали заменены
+							fail	= nil,	--// Флаг неудачной замены детали
+							state	= nil,	--// Флаг состояния для List_Box (список с рем.наборами\список с деталями)
+						}
+
+	--// Таблица данных для контроля за заменой деталей. 1 - замена на изношенную деталь, 2 - замена на исправную деталь
+	self.upg = 			{
+							tc_t 	= 1,
+							b_t 	= 1,
+							gt_t 	= 1,
+							bc_t 	= 1,
+							br_t 	= 1,
+						}
+	------------------------------------- END -------------------------------------
+	
+	self:InitControls()
+	self:InitCallBacks()
+end
+
+function awr_main_ui:__finalize()
+end
+
+function awr_main_ui:InitControls()
+	self:SetWndRect			(Frect():set(0,0,1024,768))
+	
+	if (utils.is_widescreen()) then
+		self:SetWndPos			(vector2():set(189,36))
+	else
+		self:SetWndPos			(vector2():set(90,36))
+	end
+	
+	local ctrl
+	
+	self.xml							= CScriptXmlInit()
+	self.xml:ParseFile					("ui_awr_main.xml")
+			
+	ctrl								= CUIWindow()
+	self.xml:InitWindow					("itm_awr_menu:lbox_ui:main",0,ctrl)
+		
+	self.lbox_ui_main_sz				= vector2():set(ctrl:GetWidth(),ctrl:GetHeight())
+			
+	self.xml:InitWindow					("itm_awr_menu:lbox_ui:fn",0,ctrl)
+	self.lbox_ui_fn_sz					= vector2():set(ctrl:GetWidth(),ctrl:GetHeight())
+			
+	self.xml:InitWindow					("itm_awr_menu:lbox_ui:lbs",0,ctrl)
+	self.lbox_ui_lbs_sz					= vector2():set(ctrl:GetWidth(),ctrl:GetHeight())
+
+	--// Инициализация статиков фона
+	self.main_ui						= self.xml:InitStatic("itm_awr_menu:main_ui",self)
+	self.main_ui						:SetWndPos(vector2():set(0, 0))
+
+	--// Инициализация окна справки
+	self.help_ui = self.xml:InitStatic("itm_awr_menu:help_ui",self)	
+	self.help_ui:SetWndPos(vector2():set(0, 0))
+	self.help_ui:Show(false)
+	self.work_area = self.xml:InitStatic("itm_awr_menu:help_ui:work_area",self.help_ui)
+	self.scroll	= self.xml:InitScrollView("itm_awr_menu:help_ui:work_area:scroll_v", self.work_area)
+
+	for i=0, 6 do
+		self['text_'..i] = self.xml:InitTextWnd("itm_awr_menu:help_ui:work_area:text_"..i,nil)
+		self['text_'..i]:SetText(game.translate_string('st_awr_help_'..i))
+		self.scroll:AddWindow(self['text_'..i], true)
+	end
+
+	self.trigger_components				= self.xml:InitStatic("itm_awr_menu:main_ui:trigger_components",self.main_ui)
+	self.bolt							= self.xml:InitStatic("itm_awr_menu:main_ui:bolt",self.main_ui)
+	self.barrel							= self.xml:InitStatic("itm_awr_menu:main_ui:barrel",self.main_ui)
+	self.bolt_carrier					= self.xml:InitStatic("itm_awr_menu:main_ui:bolt_carrier",self.main_ui)
+	self.gas_tube						= self.xml:InitStatic("itm_awr_menu:main_ui:gas_tube",self.main_ui)
+	
+	--// Инициализация статиков деталей
+	self.trigger_components_im			= self.xml:InitStatic("itm_awr_menu:main_ui:trigger_components_img",self.main_ui)
+	self.bolt_im						= self.xml:InitStatic("itm_awr_menu:main_ui:bolt_img",self.main_ui)
+	self.barrel_im						= self.xml:InitStatic("itm_awr_menu:main_ui:barrel_img",self.main_ui)
+	self.bolt_carrier_im				= self.xml:InitStatic("itm_awr_menu:main_ui:bolt_carrier_img",self.main_ui)
+	self.gas_tube_im					= self.xml:InitStatic("itm_awr_menu:main_ui:gas_tube_img",self.main_ui)
+	
+	--// Инициализация статиков точек
+	self.trigger_components_dot			= self.xml:InitStatic("itm_awr_menu:main_ui:trigger_components_dot",self.main_ui)
+	self.bolt_dot						= self.xml:InitStatic("itm_awr_menu:main_ui:bolt_dot",self.main_ui)
+	self.barrel_dot						= self.xml:InitStatic("itm_awr_menu:main_ui:barrel_dot",self.main_ui)
+	self.bolt_carrier_dot				= self.xml:InitStatic("itm_awr_menu:main_ui:bolt_carrier_dot",self.main_ui)
+	self.gas_tube_dot					= self.xml:InitStatic("itm_awr_menu:main_ui:gas_tube_dot",self.main_ui)
+	
+	--// Инициализация статиков оружия и рем.набора
+	self.wpn_img						= self.xml:InitStatic("itm_awr_menu:main_ui:wpn_img",self.main_ui)
+	self.kit_img						= self.xml:InitStatic("itm_awr_menu:main_ui:kit_img",self.main_ui)
+	
+	--// Инициализация текстов
+	self.wpn_name 						= self.xml:InitTextWnd("itm_awr_menu:main_ui:wpn_name",self.main_ui)
+	self.wpn_cond 						= self.xml:InitTextWnd("itm_awr_menu:main_ui:wpn_cond",self.main_ui)	
+	self.tc_t_cond				 		= self.xml:InitTextWnd("itm_awr_menu:main_ui:trigger_components_cond",self.main_ui)
+	self.b_t_cond 						= self.xml:InitTextWnd("itm_awr_menu:main_ui:bolt_cond",self.main_ui)
+	self.br_t_cond 						= self.xml:InitTextWnd("itm_awr_menu:main_ui:barrel_cond",self.main_ui)
+	self.bc_t_cond 						= self.xml:InitTextWnd("itm_awr_menu:main_ui:bolt_carrier_cond",self.main_ui)
+	self.gt_t_cond 						= self.xml:InitTextWnd("itm_awr_menu:main_ui:gas_tube_cond",self.main_ui)
+	
+	--// Инициализация списков
+	self.list_box						= self.xml:InitListBox("itm_awr_menu:main_ui:list",self.main_ui)
+	self.list_b_stat					= self.xml:InitListBox("itm_awr_menu:main_ui:list_stat",self.main_ui)
+	
+	--// Инициализация кнопок
+	self.back_btn_img					= self.xml:Init3tButton("itm_awr_menu:main_ui:back_btn_img",self.main_ui)
+	
+	--// Инициализация скрытых кнопок деталей
+	self.trigger_components_btn			= self.xml:Init3tButton("itm_awr_menu:main_ui:trigger_components_c_btn",self.main_ui)
+	self.bolt_btn						= self.xml:Init3tButton("itm_awr_menu:main_ui:bolt_c_btn",self.main_ui)
+	self.barrel_btn						= self.xml:Init3tButton("itm_awr_menu:main_ui:barrel_c_btn",self.main_ui)
+	self.bolt_carrier_btn				= self.xml:Init3tButton("itm_awr_menu:main_ui:bolt_carrier_c_btn",self.main_ui)
+	self.gas_tube_btn					= self.xml:Init3tButton("itm_awr_menu:main_ui:gas_tube_c_btn",self.main_ui)
+	
+	--// Инициализация фреймов списков
+	self.xml							:InitFrame("itm_awr_menu:main_ui:list_frame",self.main_ui)
+	self.xml							:InitFrame("itm_awr_menu:main_ui:list_stat_frame",self.main_ui)
+
+	--// Инициализация опций
+	self						:SetAutoDelete(true)
+	self.list_box				:ShowSelectedItem(true)
+	self.trigger_components_btn	:Enable(false) 
+	self.bolt_btn				:Enable(false) 
+	self.barrel_btn				:Enable(false) 
+	self.bolt_carrier_btn		:Enable(false) 
+	self.gas_tube_btn			:Enable(false)
+	self.wpn_cond				:SetText(string.format("%s%%", self.condition))
+	self.wpn_name				:SetText(self.inv_name)
+	
+	--// Загружаем картинку оружия, определяем состояние и красим его соотв. цветом, выводим информацию в статусный ListBox
+	self:ReloadImg(self.wpn_img, 1)
+	self:ReloadWCond()
+	self:SwitchMode()
+	
+	--// Загружаем список с деталями, если оружие уже было частично отремонтировано
+	self:LoadReplaced()
+
+	--// Функция генерации списка описаний с деталями
+	--self:EGenerateList()
+
+	--// Регистрация компонентов, требующих наличие callback
+	self:Register(self.list_box, "list_window")
+	self:Register(self.list_b_stat, "list_stat")
+	self:Register(self.back_btn_img, "button_back")
+	self:Register(self.trigger_components_btn, "trigger_components_btn_call")
+	self:Register(self.bolt_btn, "bolt_btn_call")
+	self:Register(self.barrel_btn, "barrel_btn_call")
+	self:Register(self.bolt_carrier_btn, "bolt_carrier_btn_call")
+	self:Register(self.gas_tube_btn, "gas_tube_btn_call")
+end
+
+function awr_main_ui:InitCallBacks()
+	self:AddCallback("list_window", 				ui_events.LIST_ITEM_CLICKED, 				self.OnListItemClicked, 			self)
+	self:AddCallback("list_window", 				ui_events.WINDOW_LBUTTON_DB_CLICK,		  	self.OnListItemDbClicked,			self)
+	self:AddCallback("button_back", 				ui_events.BUTTON_CLICKED, 					self.OnButtonBackClicked, 			self)
+	self:AddCallback("trigger_components_btn_call", ui_events.BUTTON_CLICKED, 					self.OnTriggerComponentsBtnClicked, self)
+	self:AddCallback("bolt_btn_call", 				ui_events.BUTTON_CLICKED, 					self.OnBoltBtnClicked, 				self)
+	self:AddCallback("barrel_btn_call", 			ui_events.BUTTON_CLICKED, 					self.OnBarrelBtnClicked, 			self)
+	self:AddCallback("bolt_carrier_btn_call", 		ui_events.BUTTON_CLICKED, 					self.OnBoltCBtnClicked, 			self)
+	self:AddCallback("gas_tube_btn_call", 			ui_events.BUTTON_CLICKED, 					self.OnGasTBtnClicked, 				self)
+end
+
+--// Функция рекурсивного заполнения list_box рем.наборами
+function awr_main_ui:FillList()
+	
+	--// Очищаем ListBox и заполняем таблицу
+	self.list_box:RemoveAll()
+	local inventory = self.awr_sf.iterate_inv()
+	
+	if not (inventory) then
+		self.awr_sf.dout(nil, "Inventory table is missed -> return")
+		return
+	end
+	
+	for _, k in ipairs(inventory) do
+		if k:match("barrelkit") then
+			local kit_repair_only = system_ini():r_string_ex(k, "repair_only")
+			if kit_repair_only:match(self.section) then
+				self:AddItemToList(db.actor:object(k), self.list_box)
+				--self.awr_sf.dout(nil, "Barrelkit %s for %s", k, self.section)
+			end
+		elseif k:match("awr_r_kit_u") then
+			self:AddItemToList(db.actor:object(k), self.list_box)
+			--self.awr_sf.dout(nil, "AWR Kit %s", k)
+		end
+	end
+end
+
+--// Функция рекурсивного заполнения list_box деталями, с учетом состояния оружия
+function awr_main_ui:ReloadList(item)
+	if not (item) then
+		self.awr_sf.dout(nil, "Section was not recognized -> return")
+		return
+	end
+	
+	--// Очищаем listbox и заполняем таблицы
+	self.list_box:RemoveAll()
+	local inventory = self.awr_sf.iterate_inv()
+	local barrel_inc = alun_utils.parse_list(system_ini(),item,"repair_parts_include",true)
+	
+	
+	--// Исключения
+	if not (barrel_inc) then
+		self.awr_sf.dout(nil, "Detail table for barrel section is missed -> return")
+		return
+	end
+	
+	if not (inventory) then
+		self.awr_sf.dout(nil, "Inventory table is missed -> return")
+		return
+	end
+	
+	--// Обходим инвентарь
+	for _, k in ipairs(inventory) do
+		if item:match("barrelkit") and not (self.awr_sf.IsDetail(k, 'rusty')) then
+			for _, v in pairs(self.w_quality) do
+				if self.section:match(v[1]) or self.p_section and v[1]:match('new') then
+				
+					--// Режима ремонта
+					if barrel_inc[k] and self.condition >= self.main_t.br_t[v[2]][1] and self.condition < self.main_t.br_t[v[2]][2] then
+						self:AddItemToList(db.actor:object(k),self.list_box)
+						self.flags_t.state = 1
+						self.back_btn_img:TextControl():SetText(game.translate_string("st_awr_back"))
+						self.awr_sf.dout(nil, "Repair Mode: weapon: %s, kit: %s, current condition: %s <= [%s] < %s", self.section, item, self.main_t.br_t[v[2]][1], self.condition, self.main_t.br_t[v[2]][2])
+					
+					--// Режим модернизации (только новые детали)
+					elseif self.awr_sf.IsDetail(k, 'good') and barrel_inc[k] and self.condition > 98 and self.condition <= 100 and self.upg.br_t == 1 and not (self.p_section) then
+						self:AddItemToList(db.actor:object(k),self.list_box)
+						self.flags_t.state = 1
+						self.back_btn_img:TextControl():SetText(game.translate_string("st_awr_back"))
+						self.awr_sf.dout(nil, "Modernization mode: weapon: %s, kit: %s, current condition: %s < [%s] <= %s", self.section, item, 98, self.condition, 100)
+					end
+				end
+			end		
+		elseif item:match("awr_r_kit_u") and not (self.awr_sf.IsDetail(k, 'rusty')) then
+			for _, v in pairs(self.w_quality) do
+				if self.section:match(v[1]) or self.p_section and v[1]:match('new') then
+					for key, val in pairs(self.n_details) do
+					
+						--// Режима ремонта
+						if k:match(string.format("%s_%s", val, self.wpn_parts_t[key])) and self.condition >= self.main_t[key][v[2]][1] and self.condition < self.main_t[key][v[2]][2] then
+							self:AddItemToList(db.actor:object(k),self.list_box)
+							self.flags_t.state = 1
+							self.back_btn_img:TextControl():SetText(game.translate_string("st_awr_back"))
+							self.awr_sf.dout(nil, "Repair Mode: weapon: %s, kit: %s, current condition: %s <= [%s] < %s", self.section, item, self.main_t[key][v[2]][1], self.condition, self.main_t[key][v[2]][2])
+						
+						--// Режим модернизации (только новые детали)
+						elseif k:match(string.format("%s_%s_good", val, self.wpn_parts_t[key])) and self.condition > 98 and self.condition <= 100 and self.upg[key] == 1 and not (self.p_section) then
+							self:AddItemToList(db.actor:object(k),self.list_box)
+							self.flags_t.state = 1
+							self.back_btn_img:TextControl():SetText(game.translate_string("st_awr_back"))
+							self.awr_sf.dout(nil, "Modernization mode: weapon: %s, kit: %s, current condition: %s < [%s] <= %s", self.section, item, 98, self.condition, 100)
+						else
+							--self.awr_sf.dout(nil, "[ERROR] Detail %s != %s ", k, string.format("%s_%s", val, self.wpn_parts_t[key]))			--// Включать при необходимости, сильный спам в лог
+						end
+					end
+				end
+			end
+		end
+	end
+end
+
+--// Функция добавления строки в list_box (наследуется от CUIListBoxItem)
+function awr_main_ui:AddItemToList(item,listbox)
+
+	local _itm			= awr_lbox_ui(self.lbox_ui_main_sz.y)
+	local sec 			= item and item:section()
+	local inv_name 		= item and game.translate_string(rx_utils.read_from_ini2(nil,sec,"inv_name","string","error")) or "none"
+
+	_itm:SetWndSize		(self.lbox_ui_main_sz)
+
+	_itm.fn:SetWndPos(vector2():set(0,0))
+	_itm.fn:SetWndSize	(self.lbox_ui_fn_sz)
+	_itm.fn:SetText		(inv_name)
+
+	if (item) then
+		_itm.item_id = item:id()
+
+		local inv_grid_width = rx_utils.read_from_ini2(system_ini(),sec,"inv_grid_width","float",0)
+		local inv_grid_height = rx_utils.read_from_ini2(system_ini(),sec,"inv_grid_height","float",0)
+		local inv_grid_x = rx_utils.read_from_ini2(system_ini(),sec,"inv_grid_x","float",0)
+		local inv_grid_y = rx_utils.read_from_ini2(system_ini(),sec,"inv_grid_y","float",0)
+
+		_itm.x1 = inv_grid_x*50
+		_itm.y1 = inv_grid_y*50
+
+		_itm.width = inv_grid_width*50
+		_itm.height = inv_grid_height*50
+
+		_itm.x2 = _itm.x1 + _itm.width
+		_itm.y2 = _itm.y1 + _itm.height
+	end
+
+	listbox:AddExistingItem(_itm)
+end
+
+--// Функция добавления строки в статусный list_b_stat (наследуется от CUIListBoxItem)
+function awr_main_ui:AddLBoxItem(arg)
+	local _itm			= awr_lbox_ui(self.lbox_ui_main_sz.y)
+	local inv_name 		= arg
+
+	_itm:SetWndSize		(self.lbox_ui_main_sz)
+
+	_itm.lbs:SetWndPos(vector2():set(0,0))
+	_itm.lbs:SetWndSize	(self.lbox_ui_lbs_sz)
+	_itm.lbs:SetText		(inv_name)
+	_itm.lbs:SetFont(GetFontLetterica16Russian())
+
+	self.list_b_stat:AddExistingItem(_itm)
+end
+
+--// Callback кнопки "Назад"\"Выход"
+function awr_main_ui:OnButtonBackClicked()
+	if self.flags_t.state then
+		self.flags_t.state = nil
+		self.back_btn_img:TextControl():SetText(game.translate_string("st_awr_exit"))
+		self:FillList()
+		self:Reset()
+		self.kit_img:SetTextureRect(Frect():set(0,0,0,0))
+	else
+		self:ReturnWpn()
+		self:HideDialog()
+	end
+end
+
+--// Обработчик одинарного клика по list_box
+function awr_main_ui:OnListItemClicked()	
+	if self.list_box:GetSize()==0 then return end
+
+	local item = self.list_box:GetSelectedItem()
+	if not (item) then
+		self.awr_sf.dout(nil, "Item is nil")
+		self.kit_img:SetTextureRect(Frect():set(0,0,0,0))
+		return
+	end
+	
+	local se_item = alife():object(item.item_id)
+	if (se_item == nil or not (db.actor:object(se_item:section_name()))) then
+		self.list_box:RemoveItem(item)
+		return
+	end
+	
+	local c_obj = se_item and db.actor:object(se_item:section_name()) or self.awr_sf.dout(nil, "![ERROR] Object not found")
+	local c_sec = c_obj and c_obj:section() or self.awr_sf.dout(nil, "![ERROR] Object section not found")
+	self.awr_sf.dout(nil, "Select %s", c_sec)
+
+	local str = c_sec and game.translate_string(rx_utils.read_from_ini2(nil,c_sec,"inv_name","string","error"))
+	local c_str = self.list_b_stat:GetSize() ~= 0 and self.list_b_stat:GetItemByIndex(0):GetTextItem():GetText()
+	
+	--// Локальная функция для измненеия окончаний слов, в зависимости от рода
+	local function ending()			
+		if string.sub(string.match(str, '%S+'), -2) == "ые" then
+			return game.translate_string("st_ending_1")
+		elseif string.sub(string.match(str, '%S+'), -2) == "ая" then
+			return game.translate_string("st_ending_2")
+		elseif string.sub(string.match(str, '%S+'), -2) == "ое" then
+			return game.translate_string("st_ending_3")
+		else
+			return ""
+		end
+	end
+	
+	--// Если флаг self.flags_t.state == nil, listbox заполнен рем.наборами
+	if not (self.flags_t.state) then
+		self.awr_sf.dout(nil, "State flag is nil")
+		
+		--// Подгружаем изображение рем. набора
+		self:ReloadImg(self.kit_img)
+		
+		if self.all_r_kits[c_sec] then
+			if self.list_b_stat:GetSize() ~= 0 then
+				self.awr_sf.dout(nil, "Repair kit %s in list", c_sec)
+				
+				--// Условие для исключения повторяющихся строк в статусном list_box
+				--// При сравнении строк на кириллице, 4 позиционный аргумент метода find обязателен
+				if c_str and not (c_str:find(str, 1, true)) then
+					self:ToSList(string.format(game.translate_string("st_selected_r_kit"), str))
+				end
+			else
+				self:ToSList(string.format(game.translate_string("st_selected_r_kit"), str))
+			end
+		end
+	else
+		self.awr_sf.dout(nil, "State flag exist")
+		for _, k in ipairs(self.all_details) do
+			if c_sec:match(k) then
+			
+				if k:match("barrel") then
+					self.awr_sf.dout(nil, "Reload UI for barrel")
+					self:ReloadUI_1(1)
+				else
+					self.awr_sf.dout(nil, "Reload UI for details")
+					self:ReloadUI_2(1)
+				end
+				
+				for _, val in pairs (self.d_quality) do
+				
+					--// Наличие регулярки обусловлено двойным совпадением для bolt_carrier (при матче bolt к bolt_carrier)
+					if c_sec:match(val[1].."_%d+_%w+$") then	
+						if self.list_b_stat:GetSize() ~= 0 then
+						
+							--// Условие для исключения повторяющихся строк в статусном list_box
+							--// При сравнении строк на кириллице, 4 позиционный аргумент метода find обязателен
+							if c_str and not (c_str:find(str, 1, true)) then
+								self.awr_sf.dout(nil, "Add %s", c_sec)
+								self:ToSList(string.format(game.translate_string(val[3]), ending(), str, self.chance[val[2]]))
+							end
+						else
+							self:ToSList(string.format(game.translate_string(val[3]), ending(), str, self.chance[val[2]]))
+						end
+					end
+				end
+			end
+		end
+	end
+end
+
+--// Обработчик двойного клика по list_box
+function awr_main_ui:OnListItemDbClicked()
+	if self.list_box:GetSize()==0 then return end
+
+	local item = self.list_box:GetSelectedItem()
+	if not (item) then
+		self.awr_sf.dout(nil, "Item is nil")
+		return
+	end
+
+	local se_item = item.item_id and alife():object(item.item_id)
+	if (se_item == nil or not (db.actor:object(se_item:section_name()))) then
+		self.list_box:RemoveItem(item)
+		return
+	end
+	
+	self.awr_sf.dout(nil, 'Current weapon section %s', self.section)
+	local c_obj = se_item and db.actor:object(se_item:section_name()) or self.awr_sf.dout(nil, "![ERROR] Object not found")
+	local c_sec = c_obj and c_obj:section() or self.awr_sf.dout(nil, "![ERROR] Object section not found")
+	local inv_name = c_sec and game.translate_string(rx_utils.read_from_ini2(nil,c_sec,"inv_name","string",0))
+	
+	self.awr_sf.dout(nil, "Select %s", c_sec)
+	
+	if c_sec:match("barrelkit") or c_sec:match("awr_r_kit_u") then
+		self.awr_sf.dout(nil, "Item %s is repair kit, ReloadList", c_sec)
+		self:ReloadList(c_sec)
+		self.repairkit = db.actor:object(c_sec)
+	else
+		self:ToSList(game.translate_string("st_sel_detail"))
+	end
+
+	if self.list_box:GetSize()==0 then
+		self:FillList()
+		
+		--// Обработчик вывода информации в статусный list_box 
+		if c_sec:match("barrelkit") then
+			for _, val in pairs(self.w_quality) do
+				if self.section:match(val[1]) or self.p_section and val[1]:match('new') then
+					if self.r_stat.br_t > 0 and self.condition >= self.main_t.br_t[val[2]][2] and not (self.p_section) then
+						self:ToSList(game.translate_string("st_already_repair"), "warn")
+					elseif self.condition >= self.main_t.br_t[val[2]][2] and self.p_section then
+						self:ToSList(game.translate_string("st_bar_no_need_new"), "warn")
+					elseif self.condition >= self.main_t.br_t[val[2]][2] and not (self.p_section) then
+						self:ToSList(game.translate_string("st_bar_no_need_old"), "warn")
+					else
+						self:ToSList(string.format(game.translate_string("st_no_barrel_to_kit"), string.gsub(inv_name, ".-%s", "")), "warn")
+					end
+				end
+			end
+		elseif c_sec:match("awr_r_kit_u") then
+			for _, val in pairs(self.w_quality) do
+				if self.section:match(val[1]) or self.p_section and val[1]:match('new') then	
+					local sum = 0
+					for k, v in pairs(self.r_stat) do
+						if k ~= "br_t" then
+							sum = sum + v
+						end
+					end				
+					if not (self.flags_t.bar_f) and self.condition < self.main_t.br_t[val[2]][2] or self.condition < self.main_t.br_t[val[2]][2] then
+						self:ToSList(game.translate_string("st_no_barrel"), "warn")
+					elseif sum > 0 and self.condition >= self.main_t.bc_t[val[2]][2] and not (self.p_section) then
+						self:ToSList(game.translate_string("st_already_repair"), "warn")
+					elseif self.condition >= self.main_t.bc_t[val[2]][2] and self.p_section then
+						self:ToSList(game.translate_string("st_part_no_need_new"), "warn")
+					elseif self.condition >= self.main_t.bc_t[val[2]][2] and not (self.p_section) then
+						self:ToSList(game.translate_string("st_part_no_need_old"), "warn")
+					else
+						self:ToSList(string.format(game.translate_string("st_no_details"), inv_name), "warn")
+					end
+				end
+			end
+		end
+	end
+
+end
+
+--// Callback-и для всех кнопок интерфейса
+function awr_main_ui:OnTriggerComponentsBtnClicked()
+	self:ButtonUI(self.main_t.tc_t, "tc_t")
+	self.flags_t.fail = nil
+	self.flags_t.c_flag = 1
+	if self.condition > 98 and self.condition <= 100 then
+		self:ReplaceResult()
+	end
+end
+
+function awr_main_ui:OnBarrelBtnClicked()
+	self:ButtonUI(self.main_t.br_t, "br_t")
+	self.flags_t.fail = nil
+	self.flags_t.bar_f = 1
+	if self.condition > 98 and self.condition <= 100 then
+		self:ReplaceResult()
+	end
+end
+
+function awr_main_ui:OnBoltBtnClicked()
+	self:ButtonUI(self.main_t.b_t, "b_t")
+	self.flags_t.fail = nil
+	self.flags_t.c_flag = 1
+	if self.condition > 98 and self.condition <= 100 then
+		self:ReplaceResult()
+	end
+end
+
+function awr_main_ui:OnGasTBtnClicked()
+	self:ButtonUI(self.main_t.gt_t, "gt_t")
+	self.flags_t.fail = nil
+	self.flags_t.c_flag = 1
+	if self.condition > 98 and self.condition <= 100 then
+		self:ReplaceResult()
+	end
+end
+
+function awr_main_ui:OnBoltCBtnClicked()
+	self:ButtonUI(self.main_t.bc_t, "bc_t")
+	if self.condition > 98 and self.condition <= 100 then
+		self:ReplaceResult()
+	else
+		self:Result()
+	end
+	self.flags_t.fail = nil
+	self.flags_t.c_flag = 1
+end
+
+--// Функция завершения замены деталей при оружии со 100%-ым состоянием	(Режим модернизации)
+function awr_main_ui:ReplaceResult()
+	local state = self:UpgCount()
+
+	--// Если количество баллов 10 (все детали были заменены на новые), и флаг неудачной замены отсутствует
+	if state == 10 and not (self.flags_t.fail) then
+		--// Ставим флаг завершения ремонта, чтобы не сохранять таблицы upg и flags_t в Store
+		self.repair_complete = 1
+
+		local old_sec = self.section
+		self.cond = 0.85
+		self.condition = 85
+		self.section = self.awr_sf.GetClearN(self.section)
+		self:FinCalls(old_sec)
+		if old_sec ~= self.section then
+			self:ToSList(game.translate_string("st_quality_good"), "success")
+		else
+			self:ToSList(game.translate_string("st_quality_wgood"), "success")
+		end
+	end
+	--// Удаление таблиц, если ремонт был закончен
+	if self.w_id then
+		if type(self.w_id) == 'number' then
+			self.awr_sf.dout(nil, 'Weapon ID is %s. Repair complete. Tables will be removed', self.w_id)
+			self.awr_sf.d_t(string.format("%s_upg", self.w_id))
+			self.awr_sf.d_t(string.format("%s_flags", self.w_id))
+		end
+	end
+end
+
+--// Функция завершения замены деталей при оружии с низким состоянием
+function awr_main_ui:Result()	
+	local state = self:UpgCount()
+	local p_name = self.awr_sf.GetClearN(self.section)
+	self.awr_sf.dout('Result', 'Result for %s', p_name)
+
+	--// Ставим флаг завершения ремонта, чтобы не сохранять таблицы upg и flags_t в Store
+	self.repair_complete = 1
+	
+	--// Условия для ремонта с использованием изношенных деталей
+	if state >= 5 and state < 10 and not (self.flags_t.fail) and (self.flags_t.bar_f) then
+
+		--// Не ухудшаем качество у уникального оружия
+		local new_name = string.format("%s_worn", p_name)
+		for _, k in ipairs(self.uniq) do
+			if p_name:match(k) then
+				new_name = p_name
+				self.awr_sf.dout('Result', "Weapon %s is uniq. Quality was not downgraded", p_name)
+			end
+		end
+		
+		--// Проверка, существует ли оружие с "чистой" секцией в качестве worn, чтобы понизить качество, при использовании изношенных деталей на новом оружии
+		if self.awr_sf.InWpnList(new_name) then
+			self.awr_sf.dout('Result', 'Weapon is worn')
+			local old_sec = self.section
+			self.cond = self.main_t.bc_t.w[2] / 100
+			self.condition = self.main_t.bc_t.w[2]
+			self.section = new_name
+			self:FinCalls(old_sec)
+			if old_sec ~= self.section then
+				self:ToSList(string.format("%s. %s", game.translate_string("st_quality_worn"), string.format(game.translate_string("st_cond_grow"), self.condition)), "atten")
+			else
+				self:ToSList(string.format("%s. %s", game.translate_string("st_quality_wgood"), string.format(game.translate_string("st_cond_grow"), self.condition)), "atten")
+			end
+		else
+			--// Качества worn для оружия не существует, оставляем текущее
+			self.cond = self.main_t.bc_t.n[2] / 100
+			self.condition = self.main_t.bc_t.n[2]
+			self.section = p_name
+			self:FinCalls(self.section)
+			self:ToSList(string.format("%s. %s", game.translate_string("st_quality_wgood"), string.format(game.translate_string("st_cond_grow"), self.condition)), "success")
+		end
+		
+	--// Условия для ремонта с использованием только новых деталей
+	elseif state == 10 and not (self.flags_t.fail) then
+		local old_sec = self.section
+		self.cond = self.main_t.bc_t.n[2] / 100
+		self.condition = self.main_t.bc_t.n[2]
+		self.section = p_name
+		self:FinCalls(old_sec)
+		if old_sec ~= self.section then
+			self:ToSList(string.format("%s. %s", game.translate_string("st_quality_good"), string.format(game.translate_string("st_cond_grow"), self.condition)), "success")
+		else
+			self:ToSList(string.format("%s. %s", game.translate_string("st_quality_wgood"), string.format(game.translate_string("st_cond_grow"), self.condition)), "success")
+		end
+	end	
+
+	--// Удаление таблиц, если ремонт был закончен
+	if self.w_id then
+		if type(self.w_id) == 'number' then
+			self.awr_sf.dout('Result', 'Weapon ID is %s. Repair complete. Tables will be removed', self.w_id)
+			self.awr_sf.d_t(string.format("%s_upg", self.w_id))
+			self.awr_sf.d_t(string.format("%s_flags", self.w_id))
+		end
+	end
+end
+
+--// Функция вывода информации при ремонте и модернизации оружия
+function awr_main_ui:FinCalls(sect)
+	self:ReloadWCond()
+	self:ReloadImg(self.wpn_img, 1)
+	self:ToSList(string.rep("=", 108))
+	self.wpn_name:SetText(game.translate_string(rx_utils.read_from_ini2(nil,self.section,"inv_name","string",0)))
+	self.wpn_cond:SetText(string.format("%s%%", self.condition))
+	
+	if sect ~= self.section then
+		self.awr_sf.dout('FinCalls', "Old section [%s], new section [%s], quality changed", sect, self.section)
+	else
+		self.awr_sf.dout('FinCalls', "Old section [%s], new section [%s], quality NOT changed", sect, self.section)
+	end
+end
+
+--// Функция возврата оружия с учетом разряженного магазина и текущей прочности. Также удаляет меш тисков с оружием и заменяет на обычные.
+function awr_main_ui:ReturnWpn()
+	local c_obj = level.object_by_id(self.mesh_obj.id)
+	local pos, lvID, gvID = c_obj:position(), c_obj:level_vertex_id(), c_obj:game_vertex_id()
+	local delay = axr_main.config:r_value("mm_options","enable_extra_animations",1) and 50 or 0
+
+	local function create_call(n_obj,new,pos,lv,gv,yaw)
+		local obj_name
+		
+		if (n_obj) then
+			obj_name = n_obj:name()
+			
+			--// Удаление маркера с меша
+			if level.map_has_object_spot(n_obj.id, "ui_pda2_mechanic_location") ~= 0 then
+				level.map_remove_object_spot(n_obj.id, "ui_pda2_mechanic_location")
+			end
+			self.awr_sf.del_obj(n_obj)
+		end
+
+		local s_obj = alife():create(new, pos, lv, gv)
+
+		if s_obj then
+			local c_name = self.awr_sf.l_v('compare_name')
+			local m_name = s_obj:name()
+			
+			--// Изменение параметра направления в cse_abstract
+			s_obj.repack = { ["direction"] = vector():set(0,tonumber(yaw),0) }		
+
+			self.awr_sf.dout("create_call", "%s is a parent name", self.name)
+			c_name[self.name] = m_name
+			
+			--// Удаление соотв. инфопорции, при размещении оружия на тиски (нужно для отслеживания времени и состояния, в случае, если оружие было "забыло в тисках")
+			db.actor:disable_info_portion(string.format("awr_%s_on_table", self.angles_t[self.name][1]))
+			if not (db.actor:has_info(string.format("awr_%s_on_table", self.angles_t[self.name][1]))) then
+				self.awr_sf.dout("create_call", "Remove infoportion awr_%s_on_table", self.angles_t[self.name][1])
+			end
+			
+			--// Изменение логики мешей (нужно для изменения текста при наведении на тиски, в зависимости от условий и alive() механика)
+			local num = string.gsub(self.name, '(.*%_)(%d+)$', '%2')
+			local lvl = string.gsub(level.name(), '(%w%d+%_)(.*)', '%2')
+			self.awr_sf.set_logic(s_obj, lvl, num)
+			
+			--// Добавление маркера на карту, если механик мертв
+			if db.actor:has_info(string.format("awr_%s_dead", self.angles_t[self.name][1])) then
+				level.map_add_object_spot_ser(s_obj.id, "ui_pda2_mechanic_location", "st_mech_tiski")
+			end
+			
+			--// Сохранение compare-таблицы в Store
+			self.awr_sf.s_v('compare_name', c_name)
+		end
+		
+		--// Удаление данных об оружии, если актор забрал его из тисков
+		self.awr_sf.d_v('wpn_data', obj_name)	
+		
+		return true
+	end
+	
+	--// Включение анимации (если включено в настройках)
+	actor_effects.use_item("awr_repair_dummy")
+
+	--// Создание callback на отложенный запуск, ждем delay мс, после чего вызываем функцию create_call
+	CreateTimeEvent("create_mesh","delay",delay,create_call,self.mesh_obj,"awr_tiski",pos,lvID,gvID,self.awr_sf.GetAngle(c_obj))	
+	
+	local function wpn_alife(id, obj)
+		local con = self.cond
+		con = con <= 1 and con or 0
+		obj:unload_magazine()
+		obj:set_condition(con)
+		obj:transfer_item(obj, db.actor)
+	end
+	
+	--// Создаем объект оружия в инвентаре актора
+	local sobj = alife():create(self.section, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id())
+
+	--// Записываем все установленные апгрейды
+	local wpn_upgrades = stpk_utils.get_weapon_data(sobj)
+	--self.awr_sf.print_table(wpn_upgrades)
+
+	--// Определяем, было ли изменено качество оружия, и если было, меняем секции апгрейдов на соответствующие
+	if self.old_weapon_sec == self.section then		
+		wpn_upgrades.upgrades = self.w_upgrades
+		--self.awr_sf.print_table(wpn_upgrades)
+		stpk_utils.set_weapon_data(wpn_upgrades,sobj)
+	else
+		local sec = self.section:gsub('wpn_','')
+		for i,k in ipairs(self.w_upgrades) do
+			self.w_upgrades[i] = k:gsub('(up_%w+_)(.*)',string.format('%%1%s', sec))
+		end
+		wpn_upgrades.upgrades = self.w_upgrades
+		--self.awr_sf.print_table(wpn_upgrades)
+		stpk_utils.set_weapon_data(wpn_upgrades,sobj)
+	end
+
+	--// Callback на выход объекта оружия в онлайн
+	if sobj then
+		level.client_spawn_manager():add(sobj.id, 0, wpn_alife)
+
+		--// Сохранение информации по замененным деталям
+		if not (self.repair_complete) then
+			self.awr_sf.s_v(string.format('%s_upg', sobj.id), self.upg)
+			self.awr_sf.s_v(string.format('%s_flags', sobj.id), self.flags_t)
+		end
+	end
+
+	--// Удаляем таблицы для предыдущего ID, если изменений сделано не было
+	local _upg = string.format("%s_upg", self.w_id)
+	local _flags = string.format("%s_flags", self.w_id)
+	local _wpn_upg = self.awr_sf.l_v(_upg)
+	if self.awr_sf.table_eq(_wpn_upg, self.upg) then
+		self.awr_sf.dout('create_call', 'Tables %s and current table %s_upg is equal. Tables %s and %s will be removed', _upg, sobj.id, _upg, _flags)
+		self.awr_sf.d_t(_upg)
+		self.awr_sf.d_t(_flags)
+	else
+		self.awr_sf.dout('create_call', 'Tables %s and %s_upg is NOT equal. Skipped', _upg, sobj.id)
+	end
+end
+
+--// Callback при нажатии на Escape
+function awr_main_ui:OnKeyboard(dik, keyboard_action)
+	CUIScriptWnd.OnKeyboard(self,dik,keyboard_action)
+	if (keyboard_action == ui_events.WINDOW_KEY_PRESSED) then
+		if (dik == DIK_keys.DIK_ESCAPE) then
+			if self.help_ui:IsShown() then
+				self.help_ui:Show(false)
+			else
+				self:OnButtonBackClicked()
+			end
+		elseif (dik == DIK_keys.DIK_F1) then
+			self.help_ui:Show(true)
+		end
+	end
+	return true
+end
+
+--// Функция вывода текущего состояния оружия со сменой цвета текста, в зависимости от значений из таблицы.
+function awr_main_ui:ReloadWCond()
+	
+	for _, val in pairs(self.w_quality) do
+		if self.section:match(val[1]) or self.p_section and val[1]:match('new') then
+			if self.condition < self.main_t.br_t[val[2]][2] then
+				self.wpn_cond:SetTextColor(GetARGB(255,255,0,0))		
+			elseif self.condition >= self.main_t.br_t[val[2]][2] and self.condition < self.main_t.bc_t[val[2]][2] then
+				self.wpn_cond:SetTextColor(GetARGB(255,255,144,0))	
+			elseif self.condition >= self.main_t.bc_t[val[2]][2] then
+				self.wpn_cond:SetTextColor(GetARGB(255,0,255,0))	
+			end
+		end
+	end
+end
+
+--// Функция вывода текста о статусе выполнения в list_b_stat. ToSList(сообщение[string], тип[warn(красный)|atten(оранжевый)|success(зеленый)])
+function awr_main_ui:ToSList(arg, m)
+		
+	self.list_b_stat:RemoveAll()
+	
+	if m == "warn" then
+		self.t[#self.t+1] = { arg, 1 }
+	elseif m == "success" then
+		self.t[#self.t+1] = { arg, 2 }
+	elseif m == "atten" then
+		self.t[#self.t+1] = { arg, 3 }
+	else
+		self.t[#self.t+1] = { arg, 4 }
+	end
+	
+	local i = #self.t
+	local z = 0
+	
+	while i > 0 do		
+		self:AddLBoxItem(self.t[i][1])
+		if self.t[i][2] == 1 then
+			local _item = self.list_b_stat:GetItemByIndex(z):GetTextItem()
+			_item:SetTextColor(GetARGB(255,255,0,0))
+			z = z + 1
+		elseif self.t[i][2] == 2 then
+			local _item = self.list_b_stat:GetItemByIndex(z):GetTextItem()
+			_item:SetTextColor(GetARGB(255,0,255,0))
+			z = z + 1
+		elseif self.t[i][2] == 3 then
+			local _item = self.list_b_stat:GetItemByIndex(z):GetTextItem()
+			_item:SetTextColor(GetARGB(255,255,144,0))
+			z = z + 1
+		elseif self.t[i][2] == 4 then
+			local _item = self.list_b_stat:GetItemByIndex(z):GetTextItem()
+			_item:SetTextColor(GetARGB(255,170,170,170))
+			z = z + 1
+		end
+		i = i - 1		
+	end
+end
+
+--// Функция расчета шанса
+function awr_main_ui:GetRandom(m)
+	if m == "w" then
+		return self.chance.w >= math.random(1, 100)
+	elseif m == "n" then
+		return self.chance.n >= math.random(1, 100)
+	end
+end
+
+--// Функция перезагрузки изображения оружия
+function awr_main_ui:ReloadImg(static,m)
+	--// Тип 1 - статик, инициализированный в конструкторе, без ID объекта
+	local item = {}
+	if m then
+		local inv_grid_width 			= rx_utils.read_from_ini2(system_ini(),self.section,"inv_grid_width","float",0)
+		local inv_grid_height 			= rx_utils.read_from_ini2(system_ini(),self.section,"inv_grid_height","float",0)
+		local inv_grid_x				= rx_utils.read_from_ini2(system_ini(),self.section,"inv_grid_x","float",0)
+		local inv_grid_y 				= rx_utils.read_from_ini2(system_ini(),self.section,"inv_grid_y","float",0)
+
+		item.x1 = inv_grid_x*50
+		item.y1 = inv_grid_y*50
+		item.width = inv_grid_width*50
+		item.height = inv_grid_height*50
+		item.x2 = item.x1 + item.width
+		item.y2 = item.y1 + item.height
+	else
+		item = self.list_box:GetSelectedItem()
+	end
+
+	local w,h = item.width,item.height
+	if (utils.is_widescreen()) then
+		w,h = item.width/1.5,item.height/1.2
+	else
+		w,h = item.width/1.2,item.height/1.2
+	end
+
+	static:InitTexture("ui\\ui_icon_equipment")
+	static:SetTextureRect(Frect():set(item.x1,item.y1,item.x2,item.y2))
+	static:SetWndSize(vector2():set(w,h))
+
+	if not (static.x) then
+		local pos = static:GetWndPos()
+		static.x = pos.x
+		static.y = pos.y
+	end
+	
+	static:SetWndPos(vector2():set(static.x-w/2, static.y-h/2))
+end
+
+--// Функция перезагрузки интерфейсных частей для ствола. При передаче необязательного аргумента, выставляет флаг для кнопки, вызывает функцию вывода текста и статусной точки.
+function awr_main_ui:ReloadUI_1(chk)
+	local item = self.list_box:GetSelectedItem()
+	local d_type = "br_t"
+
+	--// Сбрасываем UI
+	self:Reset()
+
+	--// Зажигаем "лампочки" красным
+	for key, val in pairs(self.f_details) do
+		self.awr_sf.SetImgDot(1, self[val..'_dot'])
+	end
+
+	for _, val in pairs(self.w_quality) do
+		if (string.find(self.section, val[1])) or self.p_section and val[1]:match('new') then
+			if self.condition > 98 and self.condition <= 100 then
+				self:InitImg(d_type)
+				if item and chk and self.upg.br_t == 1 then
+					self.barrel_btn:Enable(true)
+					self.awr_sf.SetImgDot(2, self.barrel_dot)
+					self.awr_sf.dout('ReloadUI_1', 'Enable barrel button')
+				end	
+			elseif self.condition >= self.main_t.br_t[val[2]][2] then
+				self:InitImg(d_type)
+				self.awr_sf.SetImgDot(2, self.barrel_dot)
+			elseif self.condition >= self.main_t.br_t[val[2]][1] and self.condition < self.main_t.br_t[val[2]][2] then
+				self.awr_sf.SetImg(1, self.barrel_im, string.format('awr_barrel_%s_good', self.wpn_parts_t['br_t']))
+				self.awr_sf.SetBGImg(1, self.barrel)
+				if item and chk then
+					self.barrel_btn:Enable(true)
+					self.br_t_cond:SetText(string.format('+%s%%', self.main_t.br_t[val[2]][2] - self.condition))
+					self.awr_sf.SetImgDot(2, self.barrel_dot)
+					self.awr_sf.dout('ReloadUI_1', 'Enable barrel button')
+				end			
+			end
+		end
+	end
+end
+
+--// Функция перезагрузки интерфейсных частей для деталей (кроме ствола). При передаче необязательного аргумента, выставляет флаг для кнопки, вызывает функцию вывода текста и статусной точки.
+function awr_main_ui:ReloadUI_2(chk)
+	local se_item
+	local item = self.list_box:GetSelectedItem()
+
+	if item then
+		se_item = alife():object(item.item_id)
+	end
+
+	local c_obj = se_item and db.actor:object(se_item:section_name())
+	local c_sec = c_obj and c_obj:section()
+
+	--// Сбрасываем UI
+	self:Reset()
+
+	--// Зажигаем "лампочки" красным
+	for key, val in pairs(self.f_details) do
+		self.awr_sf.SetImgDot(1, self[val..'_dot'])
+	end
+
+	for k, v in pairs(self.w_quality) do
+		if self.section:match(v[1]) or self.p_section and v[1]:match('new') then
+			if self.condition > 98 and self.condition <= 100 then
+				self:InitImg('tc_t','b_t','gt_t','bc_t')
+				self.awr_sf.dout('ReloadUI_2', 'Current condition %s', self.condition)
+				for key, val in pairs(self.n_details) do
+					if item and chk and string.find(c_sec, val.."_%d+_%w+$") and self.upg[key] == 1 then
+						self[val..'_btn']:Enable(true)
+						self.awr_sf.SetImgDot(2, self[val..'_dot'])
+						self.awr_sf.dout('RelaodUI_2', 'Enable %s button', val)
+					end
+				end		
+			elseif self.condition >= self.main_t.bc_t[v[2]][2] then
+				self:InitImg('tc_t','b_t','gt_t','bc_t')
+				self.awr_sf.dout('ReloadUI_2', 'Current condition %s', self.condition)
+			elseif self.condition >= self.main_t.bc_t[v[2]][1] and self.condition < self.main_t.bc_t[v[2]][2] then
+				self:InitImg('tc_t','b_t','gt_t')
+				self.awr_sf.dout('ReloadUI_2', 'Current condition %s', self.condition)
+				if item and chk then
+					self.bolt_carrier_btn:Enable(true)
+					self.bc_t_cond:SetText(string.format('+%s%%', self.main_t.bc_t[v[2]][2]-self.condition))
+					self.awr_sf.SetImgDot(2, self.bolt_carrier_dot)
+					self.awr_sf.dout('RelaodUI_2', 'Enable bolt_carrier button')
+				end		
+			elseif self.condition >= self.main_t.gt_t[v[2]][1] and self.condition < self.main_t.gt_t[v[2]][2] then
+				self:InitImg('tc_t','b_t')
+				self.awr_sf.dout('ReloadUI_2', 'Current condition %s', self.condition)
+				if item and chk then
+					self.gas_tube_btn:Enable(true) 
+					self.gt_t_cond:SetText(string.format('+%s%%', self.main_t.gt_t[v[2]][2]-self.condition))
+					self.awr_sf.SetImgDot(2, self.gas_tube_dot)
+					self.awr_sf.dout('RelaodUI_2', 'Enable gas_tube button')
+				end		
+			elseif self.condition >= self.main_t.b_t[v[2]][1] and self.condition < self.main_t.b_t[v[2]][2] then		
+				self:InitImg('tc_t')
+				self.awr_sf.dout('ReloadUI_2', 'Current condition %s', self.condition)
+				if item and chk then
+					self.bolt_btn:Enable(true)
+					self.b_t_cond:SetText(string.format('+%s%%', self.main_t.b_t[v[2]][2]-self.condition))
+					self.awr_sf.SetImgDot(2, self.bolt_dot)
+					self.awr_sf.dout('RelaodUI_2', 'Enable bolt button')
+				end
+			elseif self.condition >= self.main_t.tc_t[v[2]][1] and self.condition < self.main_t.tc_t[v[2]][2] then
+				self:InitImg()
+				self.awr_sf.dout('ReloadUI_2', 'Current condition %s', self.condition)
+				if item and chk then
+					self.trigger_components_btn:Enable(true)
+					self.tc_t_cond:SetText(string.format('+%s%%', self.main_t.tc_t[v[2]][2]-self.condition))
+					self.awr_sf.SetImgDot(2, self.trigger_components_dot)
+					self.awr_sf.dout('RelaodUI_2', 'Enable trigger_components button')
+				end
+			elseif self.condition >= self.main_t.br_t[v[2]][1] and self.condition < self.main_t.br_t[v[2]][2] then
+				self:InitImg()
+				self.awr_sf.dout('ReloadUI_2', 'Current condition %s', self.condition)
+			end
+		end
+	end
+end
+
+--// Функция сброса флага для кнопок деталей и текста с состоянием
+function awr_main_ui:Reset()
+	for k, v in pairs(self.f_details) do
+		self[v..'_btn']:Enable(false)
+		self[k..'_cond']:SetText('')
+		self.awr_sf.SetImgDot(3, self[v..'_dot'])	
+	end
+	self.awr_sf.dout('Reset', 'Reset all UI')
+end
+
+--// Функция финальной обработки интерфейса по нажатию кнопки детали
+function awr_main_ui:ButtonUI(table, upg_s)
+	if self.list_box:GetSize()==0 then return end
+	local item = self.list_box:GetSelectedItem()
+	
+	if not (item) then
+		return
+	end
+
+	local se_item = alife():object(item.item_id)
+	if (se_item == nil or not (db.actor:object(se_item:section_name()))) then
+		return
+	end
+
+	local c_obj = db.actor:object(alife():object(item.item_id):section_name()) or self.awr_sf.dout('ButtonUI', "![ERROR] Object not found")
+	local c_sec = c_obj and c_obj:section() or self.awr_sf.dout('ButtonUI', "![ERROR] Object section not found")
+	local detail = c_sec and game.translate_string(rx_utils.read_from_ini2(nil,c_sec,"inv_name","string",0))
+	
+	for _, v in pairs(self.w_quality) do
+		if self.section:match(v[1]) or self.p_section and v[1]:match('new') then
+			if c_sec:match("_worn") then
+				self.awr_sf.dout('ButtonUI', 'Current weapon quality: worn')
+				if self:GetRandom("w") then
+					self.condition = table[v[2]][2]
+					self.cond = self.condition / 100
+					self:ReloadWCond()
+					self.wpn_cond:SetText(string.format("%s%%", self.condition))
+					self:ToSList(string.format(game.translate_string("st_detail_success"), detail), "atten")
+					self.upg[upg_s] = 1	
+					self.r_stat[upg_s] = 1
+					self.awr_sf.PlaySnd()
+					self.awr_sf.dout('ButtonUI', 'Detail replace success, current condition %s', self.condition)
+				else
+					self:ToSList(string.format(game.translate_string("st_detail_fail"), detail), "warn")
+					self.flags_t.fail = 1
+					self.awr_sf.PlayFailSnd()
+					self.awr_sf.dout('ButtonUI', 'Detail replace failed, current condition %s', self.condition)
+				end
+			elseif c_sec:match("_good") then
+				self.awr_sf.dout('ButtonUI', 'Current weapon quality: worn')
+				if self:GetRandom("n") then
+					if self.condition > 98 and self.condition <= 100 then
+						self.awr_sf.dout('ButtonUI', 'Modernization success')
+						self:ToSList(string.format(game.translate_string("st_detail_success"), detail), "success")
+						self.upg[upg_s] = 2
+						self.r_stat[upg_s] = 1
+						self.awr_sf.PlaySnd()
+						self.awr_sf.dout('ButtonUI', 'Detail replace success, current condition %s', self.condition)
+					else
+						self.condition = table[v[2]][2]
+						self.cond = self.condition / 100
+						self:ReloadWCond()
+						self.wpn_cond:SetText(string.format("%s%%", self.condition))
+						self:ToSList(string.format(game.translate_string("st_detail_success"), detail), "success")
+						self.upg[upg_s] = 2
+						self.r_stat[upg_s] = 1
+						self.awr_sf.PlaySnd()
+						self.awr_sf.dout('ButtonUI', 'Detail replace success, current condition %s', self.condition)
+					end
+				else
+					if self.condition > 98 and self.condition <= 100 then
+						self:ToSList(string.format(game.translate_string("st_detail_fail"), detail), "warn")
+						self.flags_t.fail = 1
+						self.awr_sf.PlayFailSnd()
+						self.awr_sf.dout('ButtonUI', 'Modernization failed')
+					else
+						self:ToSList(string.format(game.translate_string("st_detail_fail"), detail), "warn")
+						self.flags_t.fail = 1
+						self.awr_sf.PlayFailSnd()
+						self.awr_sf.dout('ButtonUI', 'Detail replace failed, current condition %s', self.condition)
+					end
+				end
+			end
+		end
+	end
+	
+	--// Реинициализируем интерфейсы
+	if table == self.main_t.br_t then
+		self:ReloadUI_1()
+	else
+		self:ReloadUI_2()
+	end
+	
+	self.kit_img:SetTextureRect(Frect():set(0,0,0,0))
+	self:RemoveKit()
+	
+	db.actor:mark_item_dropped(c_obj)
+	local old_obj = alife():object(c_obj:id())
+	if old_obj then
+		self.awr_sf.del_obj(old_obj)
+	end
+
+	local function refill()
+		self.flags_t.state = nil
+		self.back_btn_img:TextControl():SetText(game.translate_string("st_awr_exit"))
+		self:FillList()
+		self.awr_sf.dout('ButtonUI', 'Refill called')
+		return true
+	end
+	
+	if self.flags_t.state then
+		CreateTimeEvent("refill list","delay",1,refill)
+	end
+end
+
+--// Функция удаления ремонтного набора и уменьшения кол-ва зарядов
+function awr_main_ui:RemoveKit()
+
+	if self.repairkit then
+		if self.repairkit:section() == "awr_r_kit_u_3" then
+			alife():create("awr_r_kit_u_2", db.actor:position(), 0, 0, 0)
+		elseif self.repairkit:section() == "awr_r_kit_u_2" then
+			alife():create("awr_r_kit_u", db.actor:position(), 0, 0, 0)
+		end
+
+		db.actor:mark_item_dropped(self.repairkit)
+		local old_obj = alife():object(self.repairkit:id())
+		if old_obj then
+			self.awr_sf.del_obj(old_obj)
+		end
+		self.repairkit = nil
+	else
+		self.awr_sf.dout(nil, 'self.repairkit is nil')
+	end
+end
+
+--// Функция вывода информации при открытии интерфейса
+function awr_main_ui:SwitchMode()
+	
+	local function r(c)
+		return string.rep(".",c)
+	end
+	local function gs(str)
+		return game.translate_string(str)
+	end
+
+	for k, v in pairs(self.w_quality) do
+		if self.section:match(v[1]) or self.p_section and v[1]:match('new') then
+
+			--// Режим "Модернизация", состояние оружия от 98 - 100%
+			if self.condition > 98 and self.condition <= 100 and not (self.p_section) then
+				self:ToSList(string.format(gs("st_text_warning_mode_1_4"), string.rep(" ", 14), self.main_t.bc_t.n[2]), 'warn')
+				self:ToSList(string.format(gs("st_text_warning_mode_1_3"), string.rep(" ", 14)), 'warn')
+				self:ToSList(gs("st_text_warning_mode_1_1"), "warn")
+
+				--// Цвет текста состояния
+				if self.condition < self.main_t.br_t[v[2]][2] then
+					self:ToSList(string.format(gs("st_text_status"), r(68), self.condition), 'warn')
+				elseif self.condition >= self.main_t.br_t[v[2]][2] and self.condition < self.main_t.bc_t[v[2]][2] then
+					self:ToSList(string.format(gs("st_text_status"), r(68), self.condition), 'atten')
+				elseif self.condition >= self.main_t.bc_t[v[2]][2] then
+					self:ToSList(string.format(gs("st_text_status"), r(68), self.condition), 'success')
+				end
+
+				--// Качество оружия
+				if self.section:match("rusty") or self.section:match("worn") then
+					self:ToSList(string.format(gs("st_text_wpn"), r(73), self.inv_name), 'atten')
+				else
+					self:ToSList(string.format(gs("st_text_wpn"), r(73), self.inv_name), 'success')
+				end
+
+				self:ToSList(string.format(gs('st_text_mode'), r(74), gs('st_text_mode_1')), 'atten')
+				self:ToSList(string.rep("=", 108))
+				self:ToSList(string.format(gs('st_text_warning_mode_help')), 'success')
+				self:ToSList(string.rep("=", 108))
+
+			--// Режим "Недоступен"
+			elseif self.condition >= self.main_t.bc_t[v[2]][2] and self.condition < 98 or self.p_section and self.condition >= self.main_t.bc_t.n[2] then
+				
+				--// При максимальном качестве оружия
+				if self.p_section then
+					self:ToSList(gs("st_text_warning_mode_3_1"), "warn")
+				else
+					--// При состоянии меншьше 98%
+					self:ToSList(string.format(gs("st_text_warning_mode_3_3"), string.rep(" ", 14)), 'warn')
+					self:ToSList(gs("st_text_warning_mode_3_2"), "warn")
+				end
+				
+				--// Цвет текста состояния
+				if self.condition < self.main_t.br_t[v[2]][2] then
+					self:ToSList(string.format(gs("st_text_status"), r(68), self.condition), 'warn')
+				elseif self.condition >= self.main_t.br_t[v[2]][2] and self.condition < self.main_t.bc_t[v[2]][2] then
+					self:ToSList(string.format(gs("st_text_status"), r(68), self.condition), 'atten')
+				elseif self.condition >= self.main_t.bc_t[v[2]][2] then
+					self:ToSList(string.format(gs("st_text_status"), r(68), self.condition), 'success')
+				end
+
+				--// Качество оружия
+				if self.section:match("rusty") or self.section:match("worn") then
+					self:ToSList(string.format(gs("st_text_wpn"), r(73), self.inv_name), 'atten')
+				else
+					self:ToSList(string.format(gs("st_text_wpn"), r(73), self.inv_name), 'success')
+				end
+
+				self:ToSList(string.format(gs('st_text_mode'), r(74), gs('st_text_mode_3')), 'warn')
+				self:ToSList(string.rep("=", 108))
+				self:ToSList(string.format(gs('st_text_warning_mode_help')), 'success')
+				self:ToSList(string.rep("=", 108))
+			else
+				--// Режим "Ремонт и модернизация"
+				self:ToSList(string.format(gs("st_text_warning_mode_2_5"), string.rep(" ", 14), self.main_t.bc_t.w[2], self.main_t.bc_t.n[2]), 'warn')
+				self:ToSList(string.format(gs("st_text_warning_mode_2_4"), string.rep(" ", 14), self.main_t.bc_t[v[2]][2]), 'warn' )
+				self:ToSList(string.format(gs('st_text_warning_mode_2_3'), string.rep(" ", 14)), 'warn')
+				self:ToSList(gs("st_text_warning_mode_2_1"), "warn")
+
+				--// Цвет текста состояния
+				if self.condition < self.main_t.br_t[v[2]][2] then
+					self:ToSList(string.format(gs("st_text_status"), r(68), self.condition), 'warn')
+				elseif self.condition >= self.main_t.br_t[v[2]][2] and self.condition < self.main_t.bc_t[v[2]][2] then
+					self:ToSList(string.format(gs("st_text_status"), r(68), self.condition), 'atten')
+				elseif self.condition >= self.main_t.bc_t[v[2]][2] then
+					self:ToSList(string.format(gs("st_text_status"), r(68), self.condition), 'success')
+				end
+				
+				--// Качество оружия
+				if self.section:match("rusty") or self.section:match("worn") then
+					self:ToSList(string.format(gs("st_text_wpn"), r(73), self.inv_name), 'atten')
+				else
+					self:ToSList(string.format(gs("st_text_wpn"), r(73), self.inv_name), 'success')
+				end	
+
+				self:ToSList(string.format(gs('st_text_mode'), r(74), gs('st_text_mode_2')), 'success')
+				self:ToSList(string.rep("=", 108))
+				self:ToSList(string.format(gs('st_text_warning_mode_help')), 'success')
+				self:ToSList(string.rep("=", 108))
+			end
+		end
+	end
+end
+
+--// Функция выхода из диалога при окончании таймера
+function awr_main_ui:Exit()
+	self:ReturnWpn()
+	self:HideDialog()
+end
+
+--// Функция-обертка для смены изображений деталей и фона
+function awr_main_ui:InitImg(...)
+	local p = {...}
+	local details = {}
+	self.awr_sf.dout(nil, 'Init for %s args', #p)
+
+	if p[1] == 'br_t' then
+		details = { 'br_t' }
+	else
+		details = self.part_t
+	end
+
+	local i = 0
+
+	local function sr(a)
+		i = i + 1
+		return tostring(p[i])
+	end
+
+	local function getn(str)
+		for k,v in pairs(self.f_details) do
+			if k == str then
+				return v
+			end
+		end
+	end
+
+	--// Subtraction таблиц
+	local t = {}
+	for i = 1, #p do
+		t[p[i]] = true;
+	end
+	for i = #details, 1, -1 do
+		if t[details[i]] then
+			table.remove(details, i);
+		end
+	end
+
+	for k, v in pairs(self.f_details) do
+		self[k..'_cond']:SetText("")
+		self.awr_sf.dout(nil, 'Clear text for %s', k)
+	end
+
+	for _, k in ipairs(details) do
+		self.awr_sf.SetImg(1, self[getn(k)..'_im'], string.format('awr_%s_%s_good', getn(k), self.wpn_parts_t[k]))
+		self.awr_sf.SetBGImg(1, self[getn(k)])
+		self.awr_sf.dout(nil, 'SetBGImg and SetImg for %s', k)
+	end
+
+	for _, k in ipairs(p) do
+		if self.upg[k] == 1 then
+			self.awr_sf.SetImg(2, self[getn(k)..'_im'], string.format('awr_%s_%s_good', getn(k), self.wpn_parts_t[k]))
+			self.awr_sf.SetBGImg(2, self[getn(k)])
+			self.awr_sf.dout(nil, 'SetBGImg and SetImg for %s (upg.flag == 1)', k)
+		else
+			self.awr_sf.SetImg(3, self[getn(k)..'_im'], string.format('awr_%s_%s_good', getn(k), self.wpn_parts_t[k]))
+			self.awr_sf.SetBGImg(3, self[getn(k)])
+			self.awr_sf.dout(nil, 'SetBGImg and SetImg for %s (upg.flag != 1)', k)
+		end
+	end
+end
+
+--// Функция-счетчик, для подсчета замененных деталей
+function awr_main_ui:UpgCount()
+	local state = 0
+	
+	--// Считаем количество баллов за замененные детали
+	for _, val in pairs(self.upg) do
+		if val >= 1 then
+			if val == 1 then
+				state = state + 1
+			elseif val == 2 then
+				state = state + 2
+			end
+		end
+	end
+	self.awr_sf.dout(nil, "State = %s", state)
+	return state
+end
+
+--// Функция для загрузки таблиц с замененными деталями для ID-оружия
+function awr_main_ui:LoadReplaced()
+
+	--// Загружаем бесцветные картинки деталей
+	for key, val in pairs(self.f_details) do
+		self.awr_sf.SetImg(0, self[val..'_im'], string.format('awr_%s_%s_good', val, self.wpn_parts_t[key]))
+	end
+
+	--// Загрузка таблиц с замененными деталями и флагами
+	if self.w_id then
+		if type(self.w_id) == 'number' then
+			self.awr_sf.dout(nil, 'Weapon ID is %s', self.w_id)
+			local wpn_upg = self.awr_sf.l_v(string.format("%s_upg", self.w_id))
+			if wpn_upg then
+				self.upg = wpn_upg
+			end
+
+			local wpn_flags = self.awr_sf.l_v(string.format("%s_flags", self.w_id))
+			if wpn_flags then
+				self.flags_t = wpn_flags
+			end
+
+			if wpn_upg and wpn_flags then
+				self.awr_sf.dout(nil, 'Weapons was not completely repaired. Reload UI')
+				self:ReloadUI_1()
+				self:ReloadUI_2()
+			end
+		else
+			self.awr_sf.dout(nil, 'Weapon ID is invalid')
+		end
+	else
+		self.awr_sf.dout(nil, 'wpn_data table is empty')
+	end
+end
+
+--[[
+--// Функция для генерации "описаний" каждого оружия, с учетом подходящих для него деталей	
+function awr_main_ui:GenerateList()
+	local c_wpn = {}
+	local wpn_parts_gen_t = {}
+	local ini = ini_file("plugins\\item_management\\awr_settings.ltx")
+	
+	for _, k in ipairs(self.weapons_list) do
+		c_wpn = alun_utils.parse_list(ini,"awr_weapon_list", k)
+		wpn_parts_gen_t = {
+							br_t = c_wpn[1],
+							tc_t = c_wpn[2],
+							bc_t = c_wpn[3],
+							b_t  = c_wpn[4],
+							gt_t = c_wpn[5]
+						}
+		printf(k)
+		printf("\\n \\n%c[0,140,140,140]ИСПОЛЬЗУЕМЫЕ ДЕТАЛИ: ")
+		for key, val in pairs(self.f_details) do
+			local str = game.translate_string(rx_utils.read_from_ini2(nil,string.format("awr_%s_%s_good", val, wpn_parts_gen_t[key]),"inv_name","string",0))
+			str = string.sub(str, 11)
+			printf("\\n%c[0,93,0,116] • %c[0,140,140,140] "..str)
+		end
+	end
+end
+
+--// Функция для генерации списка деталей для энциклопедии
+function awr_main_ui:EGenerateList()
+	local c_wpn = {}
+	local wpn_parts_gen_t = {}
+	local ini = ini_file("plugins\\item_management\\awr_settings.ltx")
+	local x
+	local all_details =		{
+								bolt = self.settings_list.bolt,
+								barrel = self.settings_list.barrel,	
+								gas_tube = self.settings_list.gas_tube,
+								bolt_carrier = self.settings_list.bolt_carrier,		
+								trigger_components = self.settings_list.trigger
+							}
+	local file = io.open("zzzz.txt","a+")
+	for k,v  in pairs(all_details) do
+
+		for i=1, v do
+			local d_name = game.translate_string(rx_utils.read_from_ini2(nil,string.format("awr_%s_%d_good",k, i),"inv_name","string",0))
+			file:write(string.format("<string id=\"encyclopedia_awr_%s_%s\">\n",k,i))
+			file:write(string.format("<text>%s</text>\n</string>\n",d_name))
+			file:write(string.format("<string id=\"encyclopedia_awr_%s_%s_text\">\n",k,i))
+			file:write(string.format("<text>\\n%%c[0,143, 188, 143]%s используется в: \n\\n \\n\n\n",d_name))
+
+			for _, weap in ipairs(self.weapons_list) do
+				c_wpn = alun_utils.parse_list(ini,"awr_weapon_list", weap)
+				wpn_parts_gen_t =	{
+										barrel = c_wpn[1],
+										trigger_components = c_wpn[2],
+										bolt_carrier = c_wpn[3],
+										bolt  = c_wpn[4],
+										gas_tube = c_wpn[5]
+									}
+				if tonumber(i) == tonumber(wpn_parts_gen_t[k]) then
+					local w_name = game.translate_string(rx_utils.read_from_ini2(nil,weap,"inv_name","string",0))
+					file:write("%c[0,215,215,215]• %c[0,140,140,140] ",w_name,'\\n\n')
+				end
+			end
+			file:write("\n</text>\n</string>\n\n")
+		end
+		
+	end
+	file:close()
+end
+
+]]--
+	

@@ -15,9 +15,14 @@ function map_ui:__init(owner,obj,section) super()
 	self.section = section
 	self.object = obj
 	self.map = system_ini():r_string_ex(section,"use_map") or "mil"
+	self.active_wep				   = db.actor:active_item() or false
 	
 	self:InitControls()
 	self:InitCallBacks()
+	
+	if self.active_wep then
+		db.actor:hide_weapon()
+	end
 end
 
 function map_ui:__finalize()
@@ -49,6 +54,9 @@ end
 ---------------< Callbacks >---------------
 
 function map_ui:OnAccept()
+	if self.active_wep then
+		db.actor:restore_weapon()
+	end
 	self:HideDialog()
 end
 

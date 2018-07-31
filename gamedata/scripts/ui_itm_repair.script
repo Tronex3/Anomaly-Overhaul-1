@@ -50,6 +50,7 @@ function repair_ui:__init(owner,obj,section) super()
 	self.section = section
 	self.obj = obj
 	
+	self.repair_frame = ini:r_string_ex(section,"repair_ui") or "ui_itm_repair"
 	self.use_condition = ini:r_bool_ex(section,"use_condition") or false
 	self.min_condition = ini:r_float_ex(section,"repair_min_condition") or 0
 	self.max_condition = ini:r_float_ex(section,"repair_max_condition") or 0
@@ -62,9 +63,14 @@ function repair_ui:__init(owner,obj,section) super()
 	self.parts_include = alun_utils.parse_list(ini,section,"repair_parts_include",true)
 	self.parts_exclude = alun_utils.parse_list(ini,section,"repair_parts_exclude",true)
 	self.use_actor_effects = ini:r_bool_ex(section,"repair_use_actor_effects",false)
+	self.active_wep				   = db.actor:active_item() or false
 	
 	self:InitControls()
 	self:InitCallBacks()
+	
+	if self.active_wep then
+		db.actor:hide_weapon()
+	end
 end
 
 function repair_ui:__finalize()
@@ -79,7 +85,7 @@ function repair_ui:InitControls()
 	xml:ParseFile			("ui_items.xml")
 
 	self.dialog					= xml:InitStatic("itm_repair:frame", self)
-	self.dialog:InitTexture("ui_itm_repair")
+	self.dialog:InitTexture(self.repair_frame)
 	self.dialog:SetStretchTexture(true)
 
 	self.item = {} -- Selected item
@@ -265,7 +271,7 @@ function repair_ui:OnRepair()
 	end
 	
 	-- Load item 2
-	local se_obj_2 = self.item[2] and alife():object(self.item[2])
+	local se_obj_2 = self.item[2] and alife_object(self.item[2])
 	if not (se_obj_2) then
 		return
 	end
@@ -273,19 +279,18 @@ function repair_ui:OnRepair()
 	local sec = se_obj_2:section_name()
 	local bonus = system_ini():r_float_ex(sec,"repair_part_bonus") or self.part_bonus or 0
 	
-	-- Setting up the new condition
+	-- Setting up the new condition for item 1
 	local con = obj_1:condition()
 	con = con + self.add_condition + bonus
 	con = con <= 1 and con or 1
 	obj_1:set_condition(con)
 	
-	-- Remove repair kit and support item
+	-- Remove the support item
 	alife():release(se_obj_2,true)
-	if (self.use_condition and self.obj and self.obj:get_remaining_uses() <= 0) then 
-		local se_obj = alife():object(self.obj:id())
-		if (se_obj) then 
-			alife():release(se_obj,true)
-		end
+	
+	-- Remove 1 use of the repair kit
+	if (not trx_utils.adjust_item_charge(self.obj,-1)) then
+		trx_utils.release_obj(self.obj)
 	end
 	
 	-- Hide dialog
@@ -299,13 +304,8 @@ function repair_ui:OnRepair()
 end
 
 function repair_ui:OnCancel()
-	if (self.use_condition and self.obj) then 
-		local r = self.obj:get_remaining_uses()
-		if (r + 1 <= self.obj:get_max_uses()) then
-			self.obj:set_remaining_uses(self.obj:get_remaining_uses() + 1)
-		end
-	else
-		alife():create(self.section,db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id(),db.actor:id())
+	if self.active_wep then
+		db.actor:restore_weapon()
 	end
 	self:HideDialog()
 end

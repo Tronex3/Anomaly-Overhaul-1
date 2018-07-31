@@ -12,8 +12,7 @@
 local ico_size = 0.7
 local ico_width = (device().width / device().height > (1024/768+0.01)) and 0.8 or 1
 local ini = system_ini()
-local ini_craft = ini_file("misc\\items\\item_management\\craft_recipes.ltx")
-
+local ini_craft = ini_file("plugins\\item_management\\recipes.ltx")
 
 
 --=======================================< List Item >=======================================--
@@ -48,22 +47,29 @@ function craft_ui:__init(owner,obj,section) super()
 	self.recipes = {}
 	self.allow = {}
 	self.size = 3
-	self.craft_use_actor_effects = alun_utils.read_from_ini (nil,section,"craft_use_actor_effects","bool",true)
+	self.base = ini:r_string_ex(section,"uses_base") or section
+	self.craft_use_actor_effects = ini:r_bool_ex(section,"craft_use_actor_effects") or true
+	self.active_wep				   = db.actor:active_item() or false
 	
 	-- Fill default recipes
-	self:FillRecipes(self.section .. "_recipe")
+	self:FillRecipes(self.base .. "_default")
 	
 	-- Fill all unlocked recipes
-	local n = 1
-	while ini_craft:section_exist(self.section .. "_recipe_" .. tostring(n)) do
-		if alife_storage_manager.get_state().unlock_recipe and alife_storage_manager.get_state().unlock_recipe[self.section .. "_recipe_" .. n] then
-			self:FillRecipes(self.section .. "_recipe_" .. n)
+	for i=1,#itms_manager.recipe_tools do
+		local recipe = itms_manager.recipe_tools[i]
+		if (ini:r_string_ex(recipe,"recipe_for") == self.base) then
+			if alife_storage_manager.get_state().unlocked_recipe and alife_storage_manager.get_state().unlocked_recipe[recipe] then
+				self:FillRecipes(recipe)
+			end
 		end
-		n = n + 1
 	end
 	
 	self:InitControls()
 	self:InitCallBacks()
+	
+	if self.active_wep then
+		db.actor:hide_weapon()
+	end
 end
 
 function craft_ui:__finalize()
@@ -78,7 +84,7 @@ function craft_ui:InitControls()
 	xml:ParseFile			("ui_items.xml")
 
 	self.dialog					= xml:InitStatic("itm_craft:frame", self)
-	self.dialog:InitTexture("ui_" .. self.section)
+	self.dialog:InitTexture("ui_" .. self.base)
 	self.dialog:SetStretchTexture(true)
 	
 	self.box_lines = xml:InitStatic("itm_craft:box_lines",self.dialog)
@@ -157,9 +163,8 @@ function craft_ui:OnCraft()
 	end
 	
 	-- Remove 1 use
-	if (not trx_utils.adjust_multi_item(self.obj,-1)) then
-		local se_obj = alife_object(self.obj:id())
-		alife():release(se_obj,true)
+	if (not trx_utils.adjust_item_charge(self.obj,-1)) then
+		trx_utils.release_obj(self.obj)
 	end
 	
 	-- Play repair effect
@@ -171,6 +176,9 @@ function craft_ui:OnCraft()
 end
 
 function craft_ui:OnCancel()
+	if self.active_wep then
+		db.actor:restore_weapon()
+	end
 	self:HideDialog()
 end
 

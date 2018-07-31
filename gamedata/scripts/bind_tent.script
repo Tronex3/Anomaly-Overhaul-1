@@ -1,0 +1,67 @@
+--[[
+Автор: O.Faustle
+Мод: Call of Misery 1.0c
+Адаптация: Deployable Tent (http://www.moddb.com/mods/call-of-chernobyl/addons/deployable-tent)
+--]]
+
+local ini = ini_file("plugins\\item_management\\itms_manager.ltx")
+local TentBagRadius = ini:r_float_ex("tent_i_bag","unsafe_radius") or 5000
+local TentBagPlaceable = ini:r_bool_ex("tent_i_bag","use_placeable",false)
+local TentBagSections = alun_utils.collect_section(ini,"tent_i_bag_sections",true)
+
+function on_game_start()
+	RegisterScriptCallback("actor_on_item_use",item_use)
+end
+
+function start_timer(obj)
+	local iTimer = time_global() + 4000
+	local function check_timer()
+		return time_global() > iTimer
+	end
+	if (obj:section() == "itm_tent") then
+		level.add_call(check_timer, itm_tent_func)
+	end
+	if (obj:section() == "itm_tent_bag") then
+		level.add_call(check_timer, itm_tent_bag_func)
+	end
+end
+
+function itm_tent_func()
+		local sec = "itm_tent"
+		if (TentBagPlaceable) then
+			local pos = db.actor:position()
+			local dir = db.actor:direction()
+			pos = pos:add(dir:mul(3))
+			local ph_sec = system_ini():r_string_ex(sec,"placeable_section")
+			local se_obj = alife():create(ph_sec or "ph_tent", pos, 1, db.actor:game_vertex_id())
+			local compr = alife():create("itm_tent_bag",db.actor:position(),0,0,0)
+		else
+			local se_obj = alife():create(sec,db.actor:position(),0,0,0)
+		end
+		return	
+end
+	
+function itm_tent_bag_func()
+	for i=1,65535 do
+		local s = alife():object(i)
+		if s then
+			local o = level.object_by_id(s.id)
+			if o  then
+				local slbag = o:section()
+				if slbag == "ph_tent" and o:position():distance_to(db.actor:position()) < 3.5 then
+					alife():create("itm_tent",db.actor:position(),0,0,0)
+					alife():release(s)
+					alife():release(alife():object(db.actor:object("itm_tent_bag"):id()))
+					break
+				end
+			end
+		end
+	end
+end
+
+function item_use(obj)
+	if (obj:section() == "itm_tent" or obj:section() == "itm_tent_bag") then
+		actor_effects.use_item("itm_sleepbag")
+		start_timer(obj)
+	end
+end

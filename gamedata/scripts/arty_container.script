@@ -1,0 +1,38 @@
+--------------------------------------------------------------------------------------
+--Artefact Containers Script
+
+--Written By Yastiandrie
+--------------------------------------------------------------------------------------
+
+local ini = ini_file("plugins\\item_management\\arty_container.ltx")
+local ContainerEnable = alun_utils.read_from_ini(ini,"artifact_container","enable","bool",true)
+local ArtyList = alun_utils.collect_section(ini,"artifacts",true)
+local ArtyCon = ContainerEnable and alun_utils.collect_section(ini,"containers",true)
+local Combined = alun_utils.collect_section(ini,"artyandcon", true)
+
+
+function on_game_start()
+	RegisterScriptCallback("actor_on_item_use",actor_on_item_use)
+end
+
+
+function actor_on_item_use(obj)
+	if ArtyCon[obj:section()] then -- Yasti. Searching for Artifact
+		local con_id = obj:id()
+		local hud = get_hud()
+		local ui = ui_arty_container and ui_arty_container.arty_ui(hud,obj:section()) --Yasti. Bring up UI
+		if (ui) then
+			ui:ShowDialog(true)
+			ui:FillPartsList()
+		end
+	end
+	
+	if obj:section() == "container_tool" then
+		local hud = get_hud()
+		local ui = ui_arty_container and ui_arty_container.arty_ui(hud,obj:section()) --Yasti. Bring up UI
+		if (ui) then
+			ui:ShowDialog(true)
+			ui:FillPartsList()
+		end
+	end
+end

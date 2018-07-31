@@ -83,8 +83,8 @@ cooking_campfire_tier					 = 2
 cooking_fuel							 = kerosene5,kerosene4,kerosene3,kerosene2,kerosene
 cooking_use_actor_effects				 = true
 ;use_sound			                     = interface\inv_cooking
-use1_functor         		             = itms_manager.inv_item_open_menu
-use1_action_functor  		             = itms_manager.inv_item_use
+use1_functor         		             = itms_manager.menu_open
+use1_action_functor  		             = itms_manager.use_tool
 
 ;;--==========================< Field cooking kit >=============================
 [cooking]:identity_immunities
@@ -112,10 +112,10 @@ cooking_fuel							 = charcoal,charcoal2,charcoal3
 cooking_use_actor_effects				 = true
 uses_base								 = cooking
 uses_index					             = 1
-use1_functor         		             = itms_manager.inv_item_open_menu
-use1_action_functor  		             = itms_manager.inv_item_use
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
+use1_functor         		             = itms_manager.menu_open
+use1_action_functor  		             = itms_manager.use_tool
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [cooking_2]:cooking
 inv_grid_y                               = 79
@@ -156,10 +156,10 @@ cooking_fuel							 = charcoal,charcoal2,charcoal3
 cooking_use_actor_effects				 = true
 uses_base								 = army_bowler
 uses_index					             = 1
-use1_functor         		             = itms_manager.inv_item_open_menu
-use1_action_functor  		             = itms_manager.inv_item_use
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
+use1_functor         		             = itms_manager.menu_open
+use1_action_functor  		             = itms_manager.use_tool
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [army_bowler_2]:army_bowler
 inv_grid_y                               = 79
@@ -220,8 +220,8 @@ use_condition                            = false
 ;use_sound			                     = interface\inv_matches
 remove_after_use                         = true
 uses_base			                     = box_matches_1
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
+use1_functor         		             = itms_manager.menu_separate
+use1_action_functor  		             = itms_manager.use_separate
 
 [box_matches_1]:box_matches
 inv_grid_x			                     = 8
@@ -301,8 +301,8 @@ immunities_sect			                 = explosive_jerrycan_immunities_sect
 repair_part_bonus	 	                 = 0.03
 uses_charges				             = 5
 uses_base					             = kerosene5
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
+use1_functor         		             = itms_manager.menu_separate
+use1_action_functor  		             = itms_manager.use_separate
 
 [kerosene]:kerosene_base	;;-- x5
 inv_grid_x                               = 4
@@ -381,8 +381,8 @@ snd_explode                              = weapons\explo\fuelcan_boom
 immunities_sect			                 = explosive_jerrycan_immunities_sect
 uses_charges				             = 3
 uses_base					             = charcoal3
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
+use1_functor         		             = itms_manager.menu_separate
+use1_action_functor  		             = itms_manager.use_separate
 
 
 [charcoal]:charcoal_base	;;-- x3
