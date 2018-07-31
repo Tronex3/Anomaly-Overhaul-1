@@ -137,10 +137,10 @@ craft_tool								 = true
 craft_use_actor_effects				 	 = true
 uses_base								 = itm_basickit
 uses_index					             = 1
-use1_functor         					 = itms_manager.inv_item_open_menu
-use1_action_functor  					 = itms_manager.inv_item_use
-use2_functor         		             = itms_manager.inv_item_separate_menu
-use2_action_functor  		             = itms_manager.inv_item_separate
+use1_functor         					 = itms_manager.menu_open
+use1_action_functor  					 = itms_manager.use_tool
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [itm_basickit_2]:itm_basickit
 inv_grid_y                               = 79
@@ -447,6 +447,181 @@ inv_name_short                           = st_itm_ammokit7_name
 uses_index					             = 7
 
 
+;;--==========================< Recipes >=============================
+[recipe_base]:identity_immunities
+$spawn 									 = "devices\roubles"
+$prefetch 								 = 16
+class_dbg			                     = S_TOOL
+class 									 = II_ATTCH
+cform									 = skeleton
+inv_grid_x                               = 3
+inv_grid_y                               = 45
+inv_grid_width                           = 1
+inv_grid_height                          = 1
+inv_weight                               = 0.1
+cost                                     = 500
+visual                                   = dynamics\equipments\trade\survivalguide.ogf
+description                              = st_recipe_descr
+inv_name                                 = st_recipe
+inv_name_short                           = st_recipe
+recipe									 = true
+use1_functor         					 = itms_manager.menu_read
+use1_action_functor  					 = itms_manager.use_recipe
+
+[recipe_basic_1]:recipe_base
+inv_grid_x                               = 5
+inv_grid_y                               = 44
+cost                                     = 500
+visual                                   = dynamics\equipments\trade\book1.ogf
+description                              = st_recipe_basic_descr
+inv_name                                 = st_recipe_basic_1
+inv_name_short                           = st_recipe_basic_1
+recipe_for								 = itm_basickit
+
+[recipe_basic_2]:recipe_basic_1
+cost                                     = 500
+inv_name                                 = st_recipe_basic_2
+inv_name_short                           = st_recipe_basic_2
+
+[recipe_basic_3]:recipe_basic_1
+cost                                     = 500
+inv_name                                 = st_recipe_basic_3
+inv_name_short                           = st_recipe_basic_3
+
+[recipe_basic_4]:recipe_basic_1
+cost                                     = 500
+inv_name                                 = st_recipe_basic_4
+inv_name_short                           = st_recipe_basic_4
+
+[recipe_basic_5]:recipe_basic_1
+cost                                     = 500
+inv_name                                 = st_recipe_basic_5
+inv_name_short                           = st_recipe_basic_5
+
+
+[recipe_advanced_1]:recipe_base
+inv_grid_x                               = 6
+inv_grid_y                               = 44
+cost                                     = 500
+visual                                   = dynamics\equipments\trade\book2.ogf
+description                              = st_recipe_advanced_descr
+inv_name                                 = st_recipe_advanced_1
+inv_name_short                           = st_recipe_advanced_1
+recipe_for								 = itm_advancedkit
+
+[recipe_advanced_2]:recipe_advanced_1
+cost                                     = 500
+inv_name                                 = st_recipe_advanced_2
+inv_name_short                           = st_recipe_advanced_2
+
+[recipe_advanced_3]:recipe_advanced_1
+cost                                     = 500
+inv_name                                 = st_recipe_advanced_3
+inv_name_short                           = st_recipe_advanced_3
+
+[recipe_advanced_4]:recipe_advanced_1
+cost                                     = 500
+inv_name                                 = st_recipe_advanced_4
+inv_name_short                           = st_recipe_advanced_4
+
+[recipe_advanced_5]:recipe_advanced_1
+cost                                     = 500
+inv_name                                 = st_recipe_advanced_5
+inv_name_short                           = st_recipe_advanced_5
+
+
+[recipe_expert_1]:recipe_base
+inv_grid_x                               = 7
+inv_grid_y                               = 44
+cost                                     = 500
+visual                                   = dynamics\equipments\trade\book3.ogf
+description                              = st_recipe_expert_descr
+inv_name                                 = st_recipe_expert_1
+inv_name_short                           = st_recipe_expert_1
+recipe_for								 = itm_expertkit
+
+[recipe_expert_2]:recipe_expert_1
+cost                                     = 500
+inv_name                                 = st_recipe_expert_2
+inv_name_short                           = st_recipe_expert_2
+
+[recipe_expert_3]:recipe_expert_1
+cost                                     = 500
+inv_name                                 = st_recipe_expert_3
+inv_name_short                           = st_recipe_expert_3
+
+[recipe_expert_4]:recipe_expert_1
+cost                                     = 500
+inv_name                                 = st_recipe_expert_4
+inv_name_short                           = st_recipe_expert_4
+
+[recipe_expert_5]:recipe_expert_1
+cost                                     = 500
+inv_name                                 = st_recipe_expert_5
+inv_name_short                           = st_recipe_expert_5
+
+
+[recipe_drug_1]:recipe_base
+inv_grid_x                               = 4
+inv_grid_y                               = 44
+cost                                     = 500
+visual                                   = dynamics\equipments\trade\book1.ogf
+description                              = st_recipe_drug_descr
+inv_name                                 = st_recipe_drug_1
+inv_name_short                           = st_recipe_drug_1
+recipe_for								 = itm_drugkit
+
+[recipe_drug_2]:recipe_drug_1
+cost                                     = 500
+inv_name                                 = st_recipe_drug_2
+inv_name_short                           = st_recipe_drug_2
+
+[recipe_drug_3]:recipe_drug_1
+cost                                     = 500
+inv_name                                 = st_recipe_drug_3
+inv_name_short                           = st_recipe_drug_3
+
+[recipe_drug_4]:recipe_drug_1
+cost                                     = 500
+inv_name                                 = st_recipe_drug_4
+inv_name_short                           = st_recipe_drug_4
+
+[recipe_drug_5]:recipe_drug_1
+cost                                     = 500
+inv_name                                 = st_recipe_drug_5
+inv_name_short                           = st_recipe_drug_5
+
+
+[recipe_ammo_1]:recipe_base
+inv_grid_x                               = 3
+inv_grid_y                               = 45
+cost                                     = 500
+visual                                   = dynamics\equipments\trade\survivalguide.ogf
+description                              = st_recipe_ammo_descr
+inv_name                                 = st_recipe_ammo_1
+inv_name_short                           = st_recipe_ammo_1
+recipe_for								 = itm_ammokit
+
+[recipe_ammo_2]:recipe_ammo_1
+cost                                     = 500
+inv_name                                 = st_recipe_ammo_2
+inv_name_short                           = st_recipe_ammo_2
+
+[recipe_ammo_3]:recipe_ammo_1
+cost                                     = 500
+inv_name                                 = st_recipe_ammo_3
+inv_name_short                           = st_recipe_ammo_3
+
+[recipe_ammo_4]:recipe_ammo_1
+cost                                     = 500
+inv_name                                 = st_recipe_ammo_4
+inv_name_short                           = st_recipe_ammo_4
+
+[recipe_ammo_5]:recipe_ammo_1
+cost                                     = 500
+inv_name                                 = st_recipe_ammo_5
+inv_name_short                           = st_recipe_ammo_5
+
 ;;--==========================< Anomaly Maps >=============================
 
 [itm_mapkit]:identity_immunities
@@ -456,8 +631,8 @@ class_dbg			                     = S_TOOL
 class 									 = II_ATTCH 
 cform									 = skeleton
 visual									 = dynamics\equipments\trade\mili_maps.ogf
-inv_grid_x                               = 13
-inv_grid_y                               = 42
+inv_grid_x                               = 4
+inv_grid_y                               = 9
 inv_grid_width                           = 2
 inv_grid_height                          = 1
 inv_weight                               = 0.2
@@ -469,8 +644,8 @@ attach_angle_offset						 = -0.287979, 1.560923, 1.544060
 attach_position_offset					 = 0.096910, -0.013594, 0.107925
 attach_bone_name						 = bip01_r_hand
 use_map									 = nil
-use1_functor         					 = itms_manager.inv_item_reveal_menu
-use1_action_functor  					 = itms_manager.inv_item_use
+use1_functor         					 = itms_manager.menu_reveal
+use1_action_functor  					 = itms_manager.use_tool
 
 [itm_mapkit_1]:itm_mapkit
 inv_name								 = st_itm_mapkit_1
@@ -544,8 +719,8 @@ repair_part_bonus	 	                 = 0.02
 disassemble_tool                         = true
 uses_base								 = swiss_knife
 uses_index					             = 1
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
+use1_functor         		             = itms_manager.menu_separate
+use1_action_functor  		             = itms_manager.use_separate
 
 [swiss_knife_2]:swiss_knife
 inv_grid_y                               = 79
@@ -604,8 +779,8 @@ repair_part_bonus	 	                 = 0.02
 disassemble_tool                         = true
 uses_base								 = grooming
 uses_index					             = 1
-use1_functor         		             = itms_manager.inv_item_separate_menu
-use1_action_functor  		             = itms_manager.inv_item_separate
+use1_functor         		             = itms_manager.menu_separate
+use1_action_functor  		             = itms_manager.use_separate
 
 [grooming_2]:grooming
 inv_grid_y                               = 79
@@ -659,8 +834,8 @@ attach_angle_offset						 = -0.287979, 1.560923, 1.544060
 attach_position_offset					 = 0.096910, -0.013594, 0.107925
 attach_bone_name						 = bip01_r_hand
 auto_attach								 = false
-use1_functor         					 = itms_manager.inv_item_sort_menu
-use1_action_functor  					 = itms_manager.inv_item_use
+use1_functor         					 = itms_manager.menu_sort
+use1_action_functor  					 = itms_manager.use_ammo_box
 
 
 ;;--==========================< Persnol Journal >=============================
@@ -687,9 +862,58 @@ attach_position_offset					 = 0.096910, -0.013594, 0.107925
 attach_bone_name						 = bip01_r_hand
 auto_attach								 = false
 repair_part_bonus	 					 = 0.02
-use1_functor         					 = itms_manager.inv_item_reveal_menu
-use1_action_functor  					 = itms_manager.inv_item_use
+use1_functor         					 = itms_manager.menu_reveal
+use1_action_functor  					 = itms_manager.use_tool
 
+;;--==========================< Guitar >=============================
+
+[guitar_a]:identity_immunities 			;;--"food and drugs\guitar_a"
+$spawn                                   = "devices\roubles"
+$prefetch 								 = 16
+cform                                    = skeleton
+class                                    = II_ATTCH
+class_dbg			                     = S_TOOL
+visual                                   = dynamics\devices\dev_guitar\dev_guitar.ogf
+cost                                     = 1220
+inv_name                                 = st_guitar_name
+inv_name_short                           = st_guitar_name
+description                              = st_guitar_descr
+inv_weight                               = 1.5
+inv_grid_width                           = 3
+inv_grid_height                          = 1
+inv_grid_x                               = 0
+inv_grid_y                               = 21
+attach_angle_offset                      = -1.651084, -1.341824, 1.200789
+attach_position_offset                   = 0.077492, -0.030020 , 0.090059
+attach_bone_name                         = bip01_l_hand
+auto_attach                              = false
+use1_functor         					 = itms_manager.menu_play
+use1_action_functor  					 = itms_manager.use_guitar
+
+;;--==========================< Harmonica >=============================
+
+[harmonica_a]:identity_immunities 			;;--"food and drugs\harmonica_a"
+$spawn                                   = "devices\roubles"
+$prefetch 								 = 16
+cform                                    = skeleton
+class                                    = II_ATTCH
+class_dbg			                     = S_TOOL
+visual                                   = dynamics\devices\dev_harmonica\dev_harmonica.ogf
+cost                                     = 655
+inv_name                                 = st_harmonica_name
+inv_name_short                           = st_harmonica_name
+description                              = st_harmonica_descr
+inv_weight                               = 0.35
+inv_grid_width                           = 1
+inv_grid_height                          = 1
+inv_grid_x                               = 1
+inv_grid_y                               = 4
+attach_angle_offset                      = 0.000000, -1.204452, -1.262921
+attach_position_offset                   = 0.081856, -0.035081, 0.011694
+attach_bone_name                         = bip01_l_hand
+auto_attach                              = false
+use1_functor         					 = itms_manager.menu_play
+use1_action_functor  					 = itms_manager.use_harmonica
 
 [compression_bag]:booster
 GroupControlSection                      = spawn_group
