@@ -565,10 +565,10 @@
 	</string>
 	
 	<string id="upgr_1_17_name">
-		<text>Carbon fiber</text>
+		<text>Polymeric inserts</text>
 	</string>
 	<string id="upgr_1_17_description">
-		<text>Special lightweight inserts made of carbon fiber. \n \n
+		<text>Special lightweight inserts made of organic polymer. \n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] polymeric materials\n
 		%c[0,100,100,255] • %c[0,140,140,140] used to improve the properties of medium and heavy armor\n
