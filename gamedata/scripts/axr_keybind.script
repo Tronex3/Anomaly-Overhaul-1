@@ -1,0 +1,229 @@
+-- ================================== Modified by Tronex =================================
+-- Ported from Call of Chernobyl 1.5
+-- Last modification: 2017/12/16
+-- =======================================================================================
+
+-- You can create your custom scripted keybinds
+-- PDA keybinds are at the bottom
+
+-- Handler for scripted keybinds
+local binded_actions = {}
+
+-- To add new keybinds, simply call axr_keybind.bind(dik_or_bind,functor). Param passed is 1 if pressed or 0 if released and 2 if held.
+-- In engine there has been 15 custom dik binds made for script use (ie. kCUSTOM1 to kCUSTOM15) see ui_keybinding.xml.
+-- Otherwise use DIK_keys. If you want them rebindable through axr_options.ltx, then specify an alias as the 3rd param.
+------------------------------------------------------------------
+-- Bind keypress to function
+------------------------------------------------------------------
+function bind(dik_or_bind,functor,alias)
+	if not (binded_actions[dik_or_bind]) then 
+		binded_actions[dik_or_bind] = {}
+	end
+	binded_actions[dik_or_bind][functor] = alias or dik_or_bind
+end
+
+function unbind(dik_or_bind,functor)
+	if (binded_actions[dik_or_bind]) then 
+		binded_actions[dik_or_bind][functor] = nil
+	end
+end
+
+--------------------------------------------------------------------
+-- On Game Start
+--------------------------------------------------------------------
+function on_game_start()
+	RegisterScriptCallback("on_key_press",on_key_press)
+	RegisterScriptCallback("on_key_release",on_key_release)
+	RegisterScriptCallback("on_key_hold",on_key_hold)
+	
+	local need_save
+	for dik_or_bind,t in pairs(binded_actions) do 
+		for functor,alias in pairs(t) do
+			if (key_bindings[dik_or_bind] == nil and alias ~= dik_to_bind) then
+				if not (axr_main.config:line_exist("global_keybinds",alias)) then 
+					axr_main.config:w_value("global_keybinds",alias,dik_or_bind)
+					need_save = true
+				end
+			end
+		end
+	end
+	
+	if (need_save) then
+		axr_main.config:save()
+	end
+end 
+-------------------------------------------
+-- callbacks
+-------------------------------------------
+function on_key_release(key)
+	try_key_action(key,0)
+end
+
+function on_key_press(key)
+	try_key_action(key,1)
+end
+
+function on_key_hold(key)
+	try_key_action(key,2)
+end
+
+function try_key_action(key,typ)
+	for dik_or_bind,t in pairs(binded_actions) do 
+		for functor,alias in pairs(t) do 
+			if (key_bindings[dik_or_bind]) then 
+				if (key_bindings[dik_or_bind] == dik_to_bind(key)) then 
+					functor(typ)
+				end
+			elseif (key == DIK_keys[axr_main.config:r_value("global_keybinds",alias,0,"")]) then 
+				functor(typ)
+			end
+		end
+	end
+end 
+
+------------------------------------------------------------------
+-- Misc. binds
+------------------------------------------------------------------
+
+--> HUD toggle
+bind("kCUSTOM6",function(p)
+	if (p==1) then
+		local val = not (get_console():get_bool("hud_draw"))
+		local toggl = val and 1 or 0
+		get_console():execute("hud_draw " .. toggl)
+		axr_main.config:w_value("mm_options","enable_hud_draw",val)
+		if slot_hud.HUD then slot_hud.HUD:update_hud() end
+		-- smurth's dynamic hud --
+		if weapon_heat and weapon_heat.feature_is_active and weapon_heat.UI_BAR ~= nil then
+			weapon_heat.UI_BAR = val
+		end
+		-- mags --
+		if mag_sys and mag_sys.feature_is_active then
+			mag_sys.update_icon_on_hud()
+		end
+	end
+end)
+
+--> PDA Map
+bind("kCUSTOM7",function(p)
+	if (p==1) then
+		local pda_menu = ActorMenu.get_pda_menu()
+		if not (pda_menu:IsShown()) then 
+			pda_menu:ShowDialog(true)
+			pda_menu:SetActiveSubdialog("eptTasks")
+		end
+	end
+end)
+
+--> PDA Relations
+bind("kCUSTOM8",function(p)
+	if (p==1) then
+		local pda_menu = ActorMenu.get_pda_menu()
+		if not (pda_menu:IsShown()) then 
+			pda_menu:ShowDialog(true)
+			pda_menu:SetActiveSubdialog("eptRelations")
+		end
+	end
+end)
+
+--> PDA Contacts
+bind("kCUSTOM9",function(p)
+	if (p==1) then
+		local pda_menu = ActorMenu.get_pda_menu()
+		if not (pda_menu:IsShown()) then 
+			pda_menu:ShowDialog(true)
+			pda_menu:SetActiveSubdialog("eptContacts")
+		end
+	end
+end)
+
+--> PDA Ranking
+bind("kCUSTOM10",function(p)
+	if (p==1) then
+		local pda_menu = ActorMenu.get_pda_menu()
+		if not (pda_menu:IsShown()) then 
+			pda_menu:ShowDialog(true)
+			pda_menu:SetActiveSubdialog("eptRanking")
+		end
+	end
+end)
+
+--> PDA Messages
+bind("kCUSTOM11",function(p)
+	if (p==1) then
+		local pda_menu = ActorMenu.get_pda_menu()
+		if not (pda_menu:IsShown()) then 
+			pda_menu:ShowDialog(true)
+			pda_menu:SetActiveSubdialog("eptLogs")
+		end
+	end
+end)
+
+--> PDA Guide
+bind("kCUSTOM12",function(p)
+	if (p==1) then
+		local pda_menu = ActorMenu.get_pda_menu()
+		if not (pda_menu:IsShown()) then 
+			pda_menu:ShowDialog(true)
+			pda_menu:SetActiveSubdialog("eptEncyclopedia")
+		end
+	end
+end)
+
+--> PDA Radio
+bind("kCUSTOM14",function(p)
+	if (p==1) then
+		local pda_menu = ActorMenu.get_pda_menu()
+		if not (pda_menu:IsShown()) then 
+			pda_menu:ShowDialog(true)
+			pda_menu:SetActiveSubdialog("eptRadio")
+		end
+	end
+end)
+
+--> Unload all weapons
+bind("kCUSTOM15",function(p)
+	if (p==1) then
+		local ts, ta, ini = {}, {}, system_ini()
+		local i, k, v
+		ts["wpn_knife"] = true
+		ts["wpn_binoc"] = true
+		for i=1,12 do
+			k = db.actor:item_in_slot(i)
+			if (k) then
+				ts[k:id()] = true
+			end
+		end
+		local function itr(npc,itm)
+			if (IsWeapon(itm) and not ts[itm:id()] and not ts[itm:section()]) then
+				i = itm:get_ammo_in_magazine()
+				if (i > 0) then
+					k = itm and alife():object(itm:id())
+					v = k and stpk_utils.get_weapon_data(k)
+					if (v) then
+						k = ini:r_string_ex(itm:section(),"ammo_class","")
+						if (k and k ~= "") then
+							k = alun_utils.str_explode(k,",")
+							if (k) then
+								k = k[v.ammo_type + 1]
+								if (k and k ~= "") then
+									if not (ta[k]) then
+										ta[k] = i
+									else
+										ta[k] = ta[k] + i
+									end
+									itm:unload_magazine()
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+		db.actor:iterate_inventory(itr,db.actor)
+		for k,v in pairs(ta) do
+			create_ammo(k,db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id(),db.actor:id(),v)
+		end
+	end
+end)
+
