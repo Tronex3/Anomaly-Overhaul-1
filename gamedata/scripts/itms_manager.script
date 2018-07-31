@@ -12,71 +12,69 @@ This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAl
 -- Modified by Tronex
 -- 2018/7/18 - Added support for new usable items (maps,craft)
 -- 2018/7/21 - Added the ability to gather/separate muti-use items
+-- 2018/7/26 - Added the ability to disassemble misc items
+-- 2018/7/26 - Rewrote a lot of function with better codes
+-- 2018/7/31 - Added new items, battery consumption for geiger counter and gps tracker
 -- =======================================================================================
 
+-- Prepare ini files
+local ini = system_ini()
+local ini_manager = ini_file("plugins\\item_management\\itms_manager.ltx")
+local ini_med = ini_file("plugins\\item_management\\med_packs.ltx")
+local ini_mutant = ini_file("plugins\\item_management\\mutant_loot.ltx")
+local ini_battery = ini_file("plugins\\item_management\\axr_battery.ltx")
 
-local ini = ini_file("plugins\\itms_manager.ltx")
-local ini_med = ini_file("misc\\items\\item_management\\med_packs.ltx")
-
--- Collect item sections of disassembling tools
-local itm_tbl_crafter = {}
-local itm_tbl_disassembler = {}
-local itm_tbl_cooker = {}
-system_ini():section_for_each(function(section)
-	if system_ini():r_bool_ex(section,"craft_tool") then
-		itm_tbl_crafter[#itm_tbl_crafter + 1] = section
-	elseif system_ini():r_bool_ex(section,"disassemble_tool") then
-		itm_tbl_disassembler[#itm_tbl_disassembler + 1] = section
-	elseif system_ini():r_bool_ex(section,"cooking_tool") then
-		itm_tbl_cooker[#itm_tbl_cooker + 1] = section
+-- Collect item sections of main tools
+craft_tools = {}
+recipe_tools = {}
+repair_tools = {}
+disassemble_tools = {}
+cook_tools = {}
+map_tools = {}
+ini:section_for_each(function(section) -- search all sections
+	if ini:r_bool_ex(section,"craft_tool") then
+		craft_tools[section] = true
+	elseif ini:r_bool_ex(section,"recipe") then
+		recipe_tools[section] = true
+	elseif ini:r_bool_ex(section,"repair_tool") then
+		repair_tools[section] = true
+	elseif ini:r_bool_ex(section,"disassemble_tool") then
+		disassemble_tools[section] = true
+	elseif ini:r_bool_ex(section,"cooking_tool") then
+		cook_tools[section] = true
+	elseif ini:r_string_ex(section,"use_map") then
+		map_tools[section] = true
 	end
 end)
 
 --Backpack stash mod
-local BackPackStashEnable = ini:r_bool_ex("backpack_stash","enable",false)
-local BackPackStashAllowInBase = BackPackStashEnable and ini:r_bool_ex("backpack_stash","allow_in_base",false)
-local BackPackStashSpot = BackPackStashEnable and ini:r_string_ex("backpack_stash","map_spot") or "treasure" 
-local BackPackStashEnableTip = BackPackStashEnable and ini:r_bool_ex("backpack_stash","enable_news_tip",false)
-local BackPackStashEnableUi = BackPackStashEnable and ini:r_bool_ex("backpack_stash","enable_ui",false)
+local BackPackStashEnable = ini_manager:r_bool_ex("backpack_stash","enable",false)
+local BackPackStashAllowInBase = BackPackStashEnable and ini_manager:r_bool_ex("backpack_stash","allow_in_base",false)
+local BackPackStashSpot = BackPackStashEnable and ini_manager:r_string_ex("backpack_stash","map_spot") or "treasure" 
+local BackPackStashEnableTip = BackPackStashEnable and ini_manager:r_bool_ex("backpack_stash","enable_news_tip",false)
+local BackPackStashEnableUi = BackPackStashEnable and ini_manager:r_bool_ex("backpack_stash","enable_ui",false)
 
 -- Sleep bag mod
-local SleepBagEnable = ini:r_bool_ex("sleeping_bag","enable",true)
-local SleepBagRadius = SleepBagEnable and ini:r_float_ex("sleeping_bag","unsafe_radius") or 5000
-local SleepBagPlaceable = SleepBagEnable and ini:r_bool_ex("sleeping_bag","use_placeable",false)
-local SleepBagGameStart = SleepBagEnable and ini:r_bool_ex("sleeping_bag","have_at_start",false)
-local SleepBagSections = SleepBagEnable and alun_utils.collect_section(ini,"sleeping_bag_sections",true)
-local SleepBagPlaceableSections = SleepBagEnable and alun_utils.collect_section(ini,"sleeping_bag_ph_sections",true)
+local SleepBagEnable = ini_manager:r_bool_ex("sleeping_bag","enable",true)
+local SleepBagRadius = SleepBagEnable and ini_manager:r_float_ex("sleeping_bag","unsafe_radius") or 5000
+local SleepBagPlaceable = SleepBagEnable and ini_manager:r_bool_ex("sleeping_bag","use_placeable",false)
+local SleepBagGameStart = SleepBagEnable and ini_manager:r_bool_ex("sleeping_bag","have_at_start",false)
+local SleepBagSections = SleepBagEnable and alun_utils.collect_section(ini_manager,"sleeping_bag_sections",true)
+local SleepBagPlaceableSections = SleepBagEnable and alun_utils.collect_section(ini_manager,"sleeping_bag_ph_sections",true)
 
 -- Actor backpack mod
-local ActorBackPackEnable = ini:r_bool_ex("actor_backpack","enable",false)
-local ActorBackPackSpot = ActorBackPackEnable and ini:r_string_ex("actor_backpack","map_spot") or "treasure"
-local ActorBackPackSlot = ActorBackPackEnable and ini:r_string_ex("actor_backpack","quick_slot") or "slot_3"
-local ActorBackPackKeep = ActorBackPackEnable and alun_utils.collect_section(ini,"actor_backpack_keep_items",true)
-local ActorBackPackForced = ActorBackPackEnable and ini:r_bool_ex("actor_backpack","actor_backpack_always_have",false)
+local ActorBackPackEnable = ini_manager:r_bool_ex("actor_backpack","enable",false)
+local ActorBackPackSpot = ActorBackPackEnable and ini_manager:r_string_ex("actor_backpack","map_spot") or "treasure"
+local ActorBackPackSlot = ActorBackPackEnable and ini_manager:r_string_ex("actor_backpack","quick_slot") or "slot_3"
+local ActorBackPackKeep = ActorBackPackEnable and alun_utils.collect_section(ini_manager,"actor_backpack_keep_items",true)
+local ActorBackPackForced = ActorBackPackEnable and ini_manager:r_bool_ex("actor_backpack","actor_backpack_always_have",false)
 
--- Repair mod
-local RepairModEnable = ini:r_bool_ex("repair_mod","enable",true)
-local RepairTools = RepairModEnable and alun_utils.collect_section(ini,"repair_mod_tools",true)
-local RepairUI = RepairModEnable and ini:r_bool_ex("repair_mod","use_ui",false)
-
--- Loot Mutant mod
-local MutantLootEnable = ini:r_bool_ex("mutant_loot_mod","enable",true)
-local MutantLootEnableUI = ini:r_bool_ex("mutant_loot_mod","enable_ui",false)
-local MutantLootDecayTime = ini:r_float_ex("mutant_loot_mod","decay_time") or 7200
-
--- Cooking mod
-local CookingModEnable = ini:r_bool_ex("cooking_mod","enable")
-local CookingTools = CookingModEnable and alun_utils.collect_section(ini,"cooking_mod_tools",true)
-
--- Condition checker mod
-local ConditionCheckerModEnable = alun_utils.read_from_ini(ini_file("plugins\\condition_checker.ltx"),"con_checker_mod","enable","bool",true)
-local ConditionCheckerTools = ConditionCheckerModEnable and alun_utils.collect_section(ini_file("plugins\\condition_checker.ltx"),"con_checker_mod_tools",true)
--- Campfire Cooking
-local CampCookingTools = alun_utils.collect_section(ini,"camp_cooking_tool",true)
+-- Loot Mutant
+local MutantLootDecayTime = ini_mutant:r_float_ex("mutant_loot_mod","decay_time") or 7200
 
 -- Flashlight mod
-local FlashlightModEnable = ini:r_bool_ex("flashlight_mod","enable",false)
-local FlashlightSections = FlashlightModEnable and alun_utils.collect_section(ini,"flashlight_sections",true)
+local FlashlightModEnable = ini_manager:r_bool_ex("flashlight_mod","enable",false)
+local FlashlightSections = FlashlightModEnable and alun_utils.collect_section(ini_manager,"flashlight_sections",true)
 local FlashlightFar = false
 
 -- Static Message
@@ -161,32 +159,6 @@ function actor_on_update()
 
 	if not has_alife_info("start_equipement_damaged") then
 		xr_effects.damage_actor_items()
-		--wild territory
-		local sec = "itm_repairkit_tier_1"
-		local pos = vector()
-			pos.x = -214.39
-			pos.y = 3.40
-			pos.z = 102.27
-		local gv_id = 1880
-		local lv_id = 22625
-		alife():create(sec,pos,lv_id,gv_id)
-		--red forest
-		sec = "itm_repairkit_tier_2"
-		pos.x = -139.86
-		pos.y = -6.19
-		pos.z = -64.10
-		gv_id = 2772
-		lv_id = 6166
-		alife():create(sec,pos,lv_id,gv_id)
-		--agro underground
-		sec = "itm_repairkit_tier_3"
-		pos.x = 117.16
-		pos.y = -7.06
-		pos.z = -58.85
-		gv_id = 3616
-		lv_id = 230
-		alife():create(sec,pos,lv_id,gv_id)
-		
 		give_info("start_equipement_damaged")
 	end
 
@@ -254,10 +226,7 @@ function actor_on_item_drop(obj) -- bind_stalker on_item_drop
 	end
 end
 
-function monster_on_actor_use_callback(obj,who) --// Faustle
-	if not (MutantLootEnable) then
-		return
-	end
+function monster_on_actor_use_callback(obj,who) -- Open mutant loot UI
 
 	local looted = utils.se_obj_load_var(obj:id(),obj:name(),"looted")
 	if (looted) then
@@ -287,9 +256,11 @@ function actor_on_item_use(obj) -- bind_stalker on_item_use
 	if (db.actor:has_info("actor_made_wish_for_riches")) then
 		return 
 	end
+	
+	local name = obj:section()
 
 	-- Backpack
-	if (BackPackStashEnable and obj:section() == "itm_backpack") then
+	if (BackPackStashEnable and name == "itm_backpack") then
 
 		if (BackPackStashAllowInBase ~= true) then
 			local in_base
@@ -337,10 +308,10 @@ function actor_on_item_use(obj) -- bind_stalker on_item_use
 	end
 
 	-- Sleeping bag
-	if (SleepBagEnable and SleepBagSections[obj:section()]) then
-		local sec = obj:section()
+	if (SleepBagEnable and SleepBagSections[name]) then
+		local sec = name
 		if (SleepBagPlaceable) then
-			local ph_sec = system_ini():r_string_ex(sec,"placeable_section")
+			local ph_sec = ini:r_string_ex(sec,"placeable_section")
 			local se_obj = alife():create(ph_sec or "ph_sleepbag",db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id())
 			local compr = alife():create("compression_bag",db.actor:position(),0,0,0)
 		else
@@ -354,28 +325,10 @@ function actor_on_item_use(obj) -- bind_stalker on_item_use
 		return
 	end
 	
-	if (obj:section() == "compression_bag") then
-	-- Compression bag
-		for i=1,65535 do
-			local s = alife():object(i)
-			if s then
-				local o = level.object_by_id(s.id)
-				if o  then
-					local slbag = o:section()
-					if slbag == "ph_sleepbag" and o:position():distance_to(db.actor:position()) < 1 then
-						alife():create("itm_sleepbag",db.actor:position(),0,0,0)
-						alife():release(s)
-						alife():release(alife():object(obj:id()))
-						actor_effects.use_item("itm_sleepbag")
-						break
-					end
-				end
-			end
-		end
-	end
+	if (name == "compression_bag") then use_compression_bag(obj) end
 
 	-- Actor backpack
-	if (ActorBackPackEnable and obj:section() == "itm_actor_backpack") then
+	if (ActorBackPackEnable and name == "itm_actor_backpack") then
 		local id = ActorBackPackForced and utils.load_var(db.actor,"actor_inv_backpack_id",nil)
 		if (id) then
 			SetHudMsg(game.translate_string("st_stash_placed"),4)
@@ -390,60 +343,8 @@ function actor_on_item_use(obj) -- bind_stalker on_item_use
 		utils.save_var(db.actor,"actor_inv_backpack_id",se_obj.id)
 	end
 
-	-- Repair mod
-	if (RepairModEnable and RepairTools[obj:section()]) then
-	--	if (RepairUI) then --? wafel don't know yet
-		local hud = get_hud()
-		if (hud) then
-			hud:HideActorMenu()
-			local ui = ui_itm_repair and ui_itm_repair.repair_ui(hud,obj,obj:section())
-			if (ui) then
-				ui:ShowDialog(true)
-				--ui:FillList()
-			end
-		end
-	end
-	
-	-- Cooking mod
-	if (CookingModEnable and CookingTools[obj:section()]) then
-		local hud = get_hud()
-		hud:HideActorMenu()
-		local ui = ui_itm_cooking and ui_itm_cooking.cooking_ui(hud,obj:section())
-		if (ui) then
-			ui:ShowDialog(true)
-			ui:FillList()
-		end
-	end
-	
-	if (obj:section() == "army_bowler") then
-		if (CookingModEnable and CampCookingTools[obj:section()] and campfire_cook()) then
-			local hud = get_hud()
-			--hud:HideActorMenu()
-			local ui = ui_itm_camp_cooking and ui_itm_camp_cooking.cooking_ui(hud,obj:section())
-			if (ui) then
-				ui:ShowDialog(true)	
-				ui:FillPartsList()
-			end
-		else
-			alife():create("army_bowler",db.actor:position(),0,0,0)
-			local text = game.translate_string("st_cfm")
-			SetHudMsg(text,3)
-		end
-	end
-	
-	-- Condition Checker mod
-	if (ConditionCheckerModEnable and ConditionCheckerTools[obj:section()]) then
-		local hud = get_hud()
-		--hud:HideActorMenu()
-		local ui = ui_con_checker and ui_con_checker.con_checker_ui(hud,obj:section())
-		if (ui) then
-			ui:ShowDialog(true)
-			ui:FillList()
-		end
-	end
-
 	-- Dummy Torch for Flashlight
-	if (FlashlightModEnable and obj:section() == "device_torch_dummy") then
+	if (FlashlightModEnable and name == "device_torch_dummy") then
 		local torch = db.actor:object("device_torch")
 		if not (has_alife_info("enable_device_torch")) then
 			give_info("enable_device_torch")
@@ -454,75 +355,51 @@ function actor_on_item_use(obj) -- bind_stalker on_item_use
 		end
 	end
 	
+	-- Condition Checker
+	-- if (name == "con_checker") then use_con_checker(obj) end
+
 	-- Deployable mgun
-	if (obj:section() == "itm_deployable_mgun") then
-		local pos = vector():set(device().cam_pos)
-		pos:add(device().cam_dir:mul(3))
-		alife():create("deployable_mgun",pos,level.vertex_id(pos),db.actor:game_vertex_id())
-	end
-	
+	if (name == "itm_deployable_mgun") then use_deployable_mgun(obj) end
 	
 	-- Geiger
-	if (obj:section() == "geiger_dead") then
-		local text = game.translate_string("st_rad_level")..": "..math.floor(db.actor.radiation*10000*0.387).." "..game.translate_string("st_msv")
-		SetHudMsg(text,3)
-	end
+	if (name == "geiger_dead") then use_gieger(obj) end
 	
+	-- GPS Tracker
+	if (name == "gps_tracker") then use_tracker(obj,nil) end
 	
 	local se_obj = alife_object(obj:id())
 	if se_obj then
-	
-		-- Med-packs
-		if (se_obj:section_name() == "medkit_ai1") or (se_obj:section_name()=="medkit_ai2") or (se_obj:section_name()=="medkit_ai3") then
-			local sec = se_obj:section_name() .. "_content"
-			
-			if (ini_med:section_exist(sec)) then
-				local n = ini_med:line_count(sec) or 0
-				for i=0, n-1 do
-					local result, id, value = ini_med:r_line(sec , i , "", "")
-					if (system_ini():section_exist(id)) then
-						alife():create(id, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
-					end
-				end
-			end
-		end 
 		
 		-- Everything else
-		if string.find(se_obj:section_name(),"ration_ukr_")
-		or string.find(se_obj:section_name(),"ration_ru_")
-		or string.find(se_obj:section_name(),"mre_")
-		or string.find(se_obj:section_name(),"drug_sleepingpills_")
-		or string.find(se_obj:section_name(),"drug_coagulant_")
-		or string.find(se_obj:section_name(),"drug_antidot_")
-		or string.find(se_obj:section_name(),"drug_radioprotector_")
-		or string.find(se_obj:section_name(),"antibio_sulfad")
-		or string.find(se_obj:section_name(),"antiemetic") then
-			local uses = system_ini():r_float_ex(obj:section(),"uses_index")
-			local base = system_ini():r_string_ex(obj:section(),"uses_base")
-			
-			if uses and uses >=2 and base and system_ini():section_exist(base) then
-				local sec = trx_utils.get_multi_item_section (base, uses, -1)
-				if sec and system_ini():section_exist(sec) then
-					alife():create(sec, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
-				end
+		local uses = ini:r_float_ex(name,"uses_index")
+		local base = ini:r_string_ex(name,"uses_base")
+		if uses and uses >=2 and base and ini:section_exist(base) then
+			if string.find(se_obj:section_name(),"ration_ukr_")
+			or string.find(se_obj:section_name(),"ration_ru_")
+			or string.find(se_obj:section_name(),"mre_")
+			or string.find(se_obj:section_name(),"drug_sleepingpills_")
+			or string.find(se_obj:section_name(),"drug_coagulant_")
+			or string.find(se_obj:section_name(),"drug_antidot_")
+			or string.find(se_obj:section_name(),"drug_radioprotector_")
+			or string.find(se_obj:section_name(),"antibio_sulfad")
+			or string.find(se_obj:section_name(),"antiemetic") then
+				local sec = trx_utils.get_item_charge (base, uses, -1)
+				trx_utils.create_inv_obj(sec)
 			end
 		end
 		
-		if (se_obj:section_name()=="chocolate") then
-			alife():create("chocolate_p", db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
-		end
-		
+		if (se_obj:section_name()=="chocolate") then trx_utils.create_inv_obj("chocolate_p") end
 	end
 	
 end
 
-function actor_on_item_take(obj)
+function actor_on_item_take(obj) -- explosive item special
 	if (obj:section() == "explosive_mobiltank")
 	or (obj:section() == "explosive_tank")
 	then
 		alife():release( alife():object(obj:id()) ,true)
 		local fuel = math.random(6,8)
-		alife():create("explo_jerrycan_fuel"..fuel,db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id(),db.actor:id())
+		alife():create("explo_jerrycan_fuel" .. fuel,db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id(),db.actor:id())
 	end
 end
 
@@ -580,10 +457,10 @@ function physic_object_on_use_callback(obj,who) -- bind_physic_object use_callba
 	end
 end
 
-function on_key_press(key)
+function on_key_press(key) -- turn off flashlight if actor don't have it
 	local obj = db.actor:active_detector()
 	if (obj and FlashlightSections[obj:section()]) then
-	local bind = dik_to_bind(key)
+		local bind = dik_to_bind(key)
 		if bind == key_bindings.kTORCH then
 			FlashlightFar = not FlashlightFar
 			xr_sound.set_sound_play(db.actor:id(),"torch_click")
@@ -598,12 +475,12 @@ function on_item_drag_dropped(obj_1, obj_2, slot_from, slot_to) -- combine multi
         return
     end
 	
-	local uses_1 = system_ini():r_float_ex(obj_1:section(),"uses_index")
-	local base_1 = system_ini():r_string_ex(obj_1:section(),"uses_base")
-	local uses_2 = system_ini():r_float_ex(obj_2:section(),"uses_index")
-	local base_2 = system_ini():r_string_ex(obj_2:section(),"uses_base")
+	local uses_1 = ini:r_float_ex(obj_1:section(),"uses_index")
+	local base_1 = ini:r_string_ex(obj_1:section(),"uses_base")
+	local uses_2 = ini:r_float_ex(obj_2:section(),"uses_index")
+	local base_2 = ini:r_string_ex(obj_2:section(),"uses_base")
 	
-	if (not uses_1) or (not base_1) or (not uses_2) or (not base_2) or (not system_ini():section_exist(base_1)) or (not system_ini():section_exist(base_2)) then
+	if (not uses_1) or (not base_1) or (not uses_2) or (not base_2) or (not ini:section_exist(base_1)) or (not ini:section_exist(base_2)) then
 		return
 	end
 	
@@ -612,17 +489,17 @@ function on_item_drag_dropped(obj_1, obj_2, slot_from, slot_to) -- combine multi
 	end
 	
 	-- Get new item section
-	local sec = trx_utils.get_multi_item_section (base_1, uses_1, uses_2)
-	if (not sec) or (not system_ini():section_exist(sec)) then
+	local sec = trx_utils.get_item_charge (base_1, uses_1, uses_2)
+	if (not sec) or (not ini:section_exist(sec)) then
 		return
 	end
 	
 	-- Collect old items (objects)
-	local item_1_tbl = trx_utils.collect_inv_item (obj_1:section(),1)
+	local item_1_tbl = trx_utils.collect_inv_obj (obj_1:section(),1)
 	local item_1 = item_1_tbl and item_1_tbl[1] or nil
 	if (not item_1) then return end
 	
-	local item_2_tbl = trx_utils.collect_inv_item (obj_2:section(),1,item_1:id())
+	local item_2_tbl = trx_utils.collect_inv_obj (obj_2:section(),1,item_1:id())
 	local item_2 = item_2_tbl and item_2_tbl[1] or nil
 	if (not item_2) then return end
 	
@@ -637,10 +514,9 @@ function on_item_drag_dropped(obj_1, obj_2, slot_from, slot_to) -- combine multi
 	
 end
 
-function on_item_focus(itm)
+function on_item_focus(itm) -- highlight compatible repair items
 	local section = itm:section()
-	if (RepairTools[section]) then 
-		local ini = system_ini()
+	if (repair_tools[section]) then 
 		local repair_type = ini:r_string_ex(section,"repair_type")
 		if not (repair_type) then 
 			return
@@ -667,56 +543,64 @@ end
 
 --=======================================< Special item use names >=======================================--
 
-function inv_item_use_menu(itm) -- return "Use" name
-
+function menu_use(itm) -- return "Use" name
 	local p = itm:parent()
 	if not (p and p:id() == db.actor:id()) then return end
 	
 	return game.translate_string("st_item_use")
 end
 
-function inv_item_reveal_menu(itm) -- return "Reveal" name
-
+function menu_reveal(itm) -- return "Reveal" name
 	local p = itm:parent()
 	if not (p and p:id() == db.actor:id()) then return end
 	
 	return game.translate_string("st_item_reveal")
 end
 
-function inv_item_open_menu(itm) -- return "Open" name
+function menu_read(itm) -- return "Read" name
+	local p = itm:parent()
+	if not (p and p:id() == db.actor:id()) then return end
+	
+	return game.translate_string("st_item_read")
+end
 
+function menu_open(itm) -- return "Open" name
 	local p = itm:parent()
 	if not (p and p:id() == db.actor:id()) then return end
 	
 	return game.translate_string("st_item_open")
 end
 
-function inv_item_sort_menu(itm) -- return "Sort" name
-
+function menu_sort(itm) -- return "Sort" name
 	local p = itm:parent()
 	if not (p and p:id() == db.actor:id()) then return end
 	
 	return game.translate_string("st_item_sort")
 end
 
-function inv_item_separate_menu(itm) -- return "Separate" name
-
+function menu_play(itm) -- return "Play" name
 	local p = itm:parent()
 	if not (p and p:id() == db.actor:id()) then return end
 	
-	local uses = system_ini():r_float_ex(itm:section(),"uses_index")
+	return game.translate_string("st_item_play")
+end
+
+function menu_separate(itm) -- return "Separate" name
+	local p = itm:parent()
+	if not (p and p:id() == db.actor:id()) then return end
+	
+	local uses = ini:r_float_ex(itm:section(),"uses_index")
 	if (not uses) then return end
 	if (uses < 2) then return end
 	
 	return game.translate_string("st_item_separate")
 end
 
-function inv_item_disassemble_menu(itm) -- return "Reveal" name
-
+function menu_disassemble(itm) -- return "Reveal" name
 	local p = itm:parent()
 	if not (p and p:id() == db.actor:id()) then return end
 	
-	if (not system_ini():r_string_ex(itm:section(),"disassemble_parts")) then return end
+	if (not ini:r_string_ex(itm:section(),"disassemble_parts")) then return end
 	
 	return game.translate_string("st_item_disassemble")
 end
@@ -724,108 +608,79 @@ end
 
 --=======================================< Special item use functions >=======================================--
 
-function inv_item_use(obj) -- use item
+function use_tool(obj) -- use item
 	local se_obj = alife():object(obj:id())
 	local p = obj:parent()
 	if not (p and p:id() == db.actor:id()) then
 		return
 	end
 	
+	local section = obj:section()
+	
+	local hud = get_hud()
+	if (hud) then
+		hud:HideActorMenu()
+	end
+	
 	-- Crafting tools
-	for i=1,#itm_tbl_crafter do
-		if (obj:section() == itm_tbl_crafter[i]) then
-			local hud = get_hud()
-			hud:HideActorMenu()
-			local ui = ui_itm_craft and ui_itm_craft.craft_ui(hud,obj,obj:section())
-			if (ui) then
-				ui:ShowDialog(true)
-			end	
-		end
+	if craft_tools[section] then
+		local ui = ui_itm_craft and ui_itm_craft.craft_ui(hud,obj,section)
+		if (ui) then
+			ui:ShowDialog(true)
+		end	
+	end
+	
+	-- Repair tools
+	if repair_tools[section] then
+		local ui = ui_itm_repair and ui_itm_repair.repair_ui(hud,obj,section)
+		if (ui) then
+			ui:ShowDialog(true)
+		end	
 	end
 	
 	-- Cooking tools
-	for i=1,#itm_tbl_cooker do
-		if (obj:section() == itm_tbl_cooker[i]) then
-			local hud = get_hud()
-			hud:HideActorMenu()
-			local ui = ui_itm_cooking and ui_itm_cooking.cook_ui(hud,obj,obj:section())
-			if (ui) then
-				ui:ShowDialog(true)
-			end	
-		end
+	if cook_tools[section] then
+		local ui = ui_itm_cooking and ui_itm_cooking.cook_ui(hud,obj,section)
+		if (ui) then
+			ui:ShowDialog(true)
+		end	
 	end
 	
 	-- Map kits
-	if 	(system_ini():r_string_ex(obj:section(),"use_map")) then
-		local hud = get_hud()
-		hud:HideActorMenu()
-		local ui = ui_itm_map and ui_itm_map.map_ui(hud,obj,obj:section())
+	if 	map_tools[section] then
+		local ui = ui_itm_map and ui_itm_map.map_ui(hud,obj,section)
 		if (ui) then
 			ui:ShowDialog(true)
 		end	
 	end
 	
 	-- Personal Journal
-	if (obj:section() == "journal") then
+	if (section == "journal") then
 		coc_treasure_manager.create_random_stash(nil,nil,nil)
 		alife():release(se_obj,true)
 	end
-	
-	-- Ammo Box
-	if (obj:section() == "ammo_box") then
-		local max_ammo = math.random(1,5)
-		local ammo_list = {}
-		
-		local ini_ammo = ini_file("misc\\items\\item_management\\ammo_box.ltx")
-		local n = ini_ammo:line_count("ammo_list") or 0
-		for i=0, n-1 do
-			local result, id, value = ini_ammo:r_line("ammo_list" , i , "", "")
-			
-			if (tostring(id) == "size") and value then
-				local t = alun_utils.str_explode(value,",")
-				max_ammo = math.random(tonumber(t[1]) , tonumber(t[2])) or max_ammo
-			end
-			
-			if system_ini():section_exist(tostring(id)) then
-				ammo_list[#ammo_list + 1] = tostring(id)
-			end
-		end
-		
-		for i = 1, max_ammo do
-			local ammo = ammo_list[math.random(#ammo_list)]
-			if (ammo) then		
-				create_ammo(ammo,db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id(),0,1)
-			end
-		end
-		
-		if (math.random(100) < 50) then
-			alife():create("ammo_bad", db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
-		end
-		
-		alife():release(se_obj)
-	end
 end
 
-function inv_item_separate(obj) -- separate item
-	local base = system_ini():r_string_ex(obj:section(),"uses_base")
+function use_separate(obj) -- separate item
+	local base = ini:r_string_ex(obj:section(),"uses_base")
 	
-	if trx_utils.adjust_multi_item(obj,-1) then
+	if trx_utils.adjust_item_charge(obj,-1) then
 		alife():create(base, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
 		printf("TRX - inv_item_separate | Get new base item : " .. base)
 	end
 end
 
-function inv_item_disassemble(obj) -- disassemble item
+function use_disassemble(obj) -- disassemble item
 
 	-- Collect disassemble parts of our item
-	local parts = system_ini():r_string_ex(obj:section(),"disassemble_parts")
+	local parts = ini:r_string_ex(obj:section(),"disassemble_parts")
 	if (not parts) then return end
 	local parts_tbl = alun_utils.str_explode(parts,",")
 	
 	-- Collect disassemble tools (objects)
 	local dis_itm
-	for i=1,#itm_tbl_disassembler do
-		local dis_tbl = trx_utils.collect_inv_item(itm_tbl_disassembler[i],1)
+	for i=1,#disassemble_tools do
+		local dis_tbl = trx_utils.collect_inv_obj(disassemble_tools[i],1)
 		dis_itm = dis_tbl and dis_tbl[1] or nil
 		if dis_itm then
 			break
@@ -834,7 +689,7 @@ function inv_item_disassemble(obj) -- disassemble item
 	if (not dis_itm) then return end
 
 	-- Delete old disassemble item or one use
-	local is_dis_multi_use = trx_utils.adjust_multi_item(dis_itm,-1)
+	local is_dis_multi_use = trx_utils.adjust_item_charge(dis_itm,-1)
 	if (not is_dis_multi_use) then
 		local se_dis_obj = alife_object(dis_itm:id())
 		alife():release(se_dis_obj,true)
@@ -842,7 +697,7 @@ function inv_item_disassemble(obj) -- disassemble item
 	end
 	
 	-- Delete old item or one use
-	local is_multi_use = trx_utils.adjust_multi_item(obj,-1)
+	local is_multi_use = trx_utils.adjust_item_charge(obj,-1)
 	if (not is_multi_use) then
 		local se_obj = alife_object(obj:id())
 		alife():release(se_obj,true)
@@ -851,7 +706,7 @@ function inv_item_disassemble(obj) -- disassemble item
 	
 	-- Give disassemble parts
 	for i=1,#parts_tbl do
-		if system_ini():section_exist(parts_tbl[i]) then
+		if ini:section_exist(parts_tbl[i]) then
 			alife():create(parts_tbl[i], db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
 			printf("TRX - inv_item_disassemble | Get new part from disassembling: " .. parts_tbl[i])
 		end
@@ -859,28 +714,195 @@ function inv_item_disassemble(obj) -- disassemble item
 
 end
 
+function use_ammo_box(obj)
+	local max_ammo = math.random(1,5)
+	local ammo_list = {}
+	
+	local ini_ammo = ini_file("misc\\items\\item_management\\ammo_box.ltx")
+	local n = ini_ammo:line_count("ammo_list") or 0
+	for i=0, n-1 do
+		local result, id, value = ini_ammo:r_line("ammo_list" , i , "", "")
+		
+		if (tostring(id) == "size") and value then
+			local t = alun_utils.str_explode(value,",")
+			max_ammo = math.random(tonumber(t[1]) , tonumber(t[2])) or max_ammo
+		end
+		
+		if ini:section_exist(tostring(id)) then
+			ammo_list[#ammo_list + 1] = tostring(id)
+		end
+	end
+	
+	for i = 1, max_ammo do
+		local ammo = ammo_list[math.random(#ammo_list)]
+		if (ammo) then		
+			create_ammo(ammo,db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id(),0,1)
+		end
+	end
+	
+	if (math.random(100) < 50) then
+		trx_utils.create_inv_obj("ammo_bad")
+	end
+	
+	trx_utils.release_obj(obj)
+end
 
---=======================================< Others >=======================================--
+function use_medpack(obj)
+	local sec = obj:section() .. "_content"
+		
+	if (ini_med:section_exist(sec)) then
+		actor_effects.use_item(obj:section())
+		
+		local n = ini_med:line_count(sec) or 0
+		for i=0, n-1 do
+			local result, id, value = ini_med:r_line(sec , i , "", "")
+			trx_utils.create_inv_obj(id)
+		end
+		
+		trx_utils.release_obj(obj)
+	end
+end
 
-function campfire_cook()
+function use_gieger(obj)
+	local threshold = alun_utils.read_from_ini(ini_battery,"main","gei_drain_speed","float",0.0001)
+	
+	-- Check out UPD power, return if power is low
+	local power = axr_battery.getBatteryCondition()
+	if power < threshold + 0.05 then
+		SetHudMsg(game.translate_string("st_upd_low"),3)
+		return
+	end
+	
+	-- Show rad level
+	local text = game.translate_string("st_rad_level") .. ": " .. math.floor(db.actor.radiation*10000*0.387) .. " " .. game.translate_string("st_msv")
+	SetHudMsg(text,3)
+	
+	-- Consume power
+	local battery = db.actor:object("wpn_upd")
+	axr_battery.updateBatteryCondition(battery,power,"gei")
+	
+	-- Play sound
+	--trx_utils.play_sound("interface\\inv_geiger")
+end
+
+function use_tracker(obj,target)
+	target = target or nil
+	local all = ini:r_bool_ex(obj:section(),"scan_all") or false
+	local period = ini:r_float_ex(obj:section(),"scan_time") or 20
+	local threshold = alun_utils.read_from_ini(ini_battery,"main","gps_drain_speed","float",0.0001)
+	
+	-- Hide inventory hud
+	local hud = get_hud()
+	if (hud) then
+		hud:HideActorMenu()
+	end
+	
+	-- Check out UPD power, return if power is low
+	local power = axr_battery.getBatteryCondition()
+	if power < threshold + 0.05 then
+		SetHudMsg(game.translate_string("st_upd_low"),3)
+		return
+	end
+	
+	-- Show map
+	local pda_menu = ActorMenu.get_pda_menu()
+	if not (pda_menu:IsShown()) then 
+		pda_menu:ShowDialog(true)
+		pda_menu:SetActiveSubdialog("eptTasks")
+	end
+
+	-- Show npc markers
+	squad_smart.active_tracker(period,all,target)
+	
+	-- Consume power
+	local battery = db.actor:object("wpn_upd")
+	axr_battery.updateBatteryCondition(battery,power,"gps")
+	
+	-- Play sound
+	trx_utils.play_sound("interface\\inv_gps")
+end
+
+function use_compression_bag(obj)
+	-- Compression bag
 	for i=1,65535 do
-		local zx = alife():object(i)
-		if zx then
-			local zn = level.object_by_id(zx.id)
-			if zn then
-				local cfm = zn:get_campfire()
-				if cfm and zn:position():distance_to(db.actor:position()) < 1.5 then
-					if (cfm:is_on()) then 
-						return true
-					else
-						return false
-					end
-					return false
+		local s = alife():object(i)
+		if s then
+			local o = level.object_by_id(s.id)
+			if o  then
+				local slbag = o:section()
+				if slbag == "ph_sleepbag" and o:position():distance_to(db.actor:position()) < 1 then
+					alife():create("itm_sleepbag",db.actor:position(),0,0,0)
+					alife():release(s)
+					alife():release(alife():object(obj:id()))
+					actor_effects.use_item("itm_sleepbag")
+					break
 				end
 			end
 		end
 	end
 end
+
+function use_deployable_mgun(obj)
+	local pos = vector():set(device().cam_pos)
+	pos:add(device().cam_dir:mul(3))
+	alife():create("deployable_mgun",pos,level.vertex_id(pos),db.actor:game_vertex_id())
+end
+
+function use_con_checker(obj)
+	local hud = get_hud()
+	--hud:HideActorMenu()
+	local ui = ui_con_checker and ui_con_checker.con_checker_ui(hud,obj:section())
+	if (ui) then
+		ui:ShowDialog(true)
+		ui:FillList()
+	end
+end
+
+function use_recipe(obj)
+	local sec = obj:section()
+	if not recipe_tools[sec] then
+		return
+	end
+	
+	if (not alife_storage_manager.get_state().unlocked_recipe) then
+		alife_storage_manager.get_state().unlocked_recipe = {}
+	end
+	
+	if (not alife_storage_manager.get_state().unlocked_recipe[sec]) then
+		alife_storage_manager.get_state().unlocked_recipe[sec] = true
+		dxr_encyclopedia.detect_note_interaction(sec)
+	else
+		SetHudMsg(game.translate_string("st_recipe_is_known"),3)
+	end
+	
+	-- effect
+	local hud = get_hud()
+	if (hud) then
+		hud:HideActorMenu()
+	end
+	--db.actor:hide_weapon()
+end
+
+function use_guitar(obj)
+	local n = math.random(28)
+	local snd = sound_object("music\\guitar_" .. tostring(n))
+	if (not snd) then return end
+	local period = snd:length()
+	snd:play_no_feedback(db.actor, sound_object.s2d, 0, vector(), 1)
+	actor_effects.play_continuous_effect(period)
+end
+
+function use_harmonica(obj)
+	local n = math.random(5)
+	local snd = sound_object("music\\harmonica_" .. tostring(n))
+	if (not snd) then return end
+	local period = snd:length()
+	snd:play_no_feedback(db.actor, sound_object.s2d, 0, vector(), 1)
+	actor_effects.play_continuous_effect(period)
+end
+
+
+--=======================================< Others >=======================================--
 
 function check_actor_backpack()
 	if (db.actor:has_info("actor_filled_backpack"))then
@@ -956,7 +978,7 @@ function is_ammo_for_wpn(sec)
 	for i=2,3 do
 		local wpn = db.actor:item_in_slot(i)
 		if (wpn) then
-			local ammos = alun_utils.parse_list(system_ini(),wpn:section(),"ammo_class",true)
+			local ammos = alun_utils.parse_list(ini,wpn:section(),"ammo_class",true)
 			if (ammos[sec]) then 
 				return true 
 			end
@@ -965,7 +987,7 @@ function is_ammo_for_wpn(sec)
 	return false
 end
 
-function loot_mutant(obj,clsid,t,npc,dont_create)
+function loot_mutant(obj,clsid,t,npc,dont_create) -- Prepare mutant loot
 	-- if not (db.actor) then 
 	-- 	return 
 	-- end 
@@ -975,7 +997,7 @@ function loot_mutant(obj,clsid,t,npc,dont_create)
 		return
 	end
 
-	local loot_table = alun_utils.collect_section(ini,clsid_to_section[clsid])
+	local loot_table = alun_utils.collect_section(ini_mutant,clsid_to_section[clsid])
 
 	local loot,sec
 	for i=1,#loot_table do
