@@ -6,9 +6,6 @@
 ----- Initialisation -----
 --------------------------
 
-local snd_guide = sound_object("device\\pda\\pda_guide")
-snd_guide.volume = 0.8
-
 local anomaly_match = {
 	"zone_field_psychic",
 	"zone_field_radioactive",
@@ -66,10 +63,14 @@ function actor_on_update()
 		-- Enable guide interactivity.
 		interaction_enabled = true
 		
-		-- Unlock articles the player's faction and the current level.
+		-- Unlock articles the player's faction, equipment and the current level.
 		local faction = character_community(db.actor):sub(7)
 		detect_faction_interaction(faction)
 		detect_level_interaction()
+		local function iterate(temp, obj)
+			detect_item_interaction(obj)
+		end
+		db.actor:iterate_inventory(iterate,nil)
 	end
 end
 
@@ -145,7 +146,12 @@ function detect_item_interaction(item)
 	if IsArtefact(item) then
 		create_interaction("artefacts", item:section())
 	else
-		--create_interaction("items", item:section())
+		local base = system_ini():r_string_ex(item:section(),"uses_base")
+		if base then
+			create_interaction("items", base)
+		else
+			create_interaction("items", item:section())
+		end
 	end
 end
 
@@ -169,6 +175,11 @@ end
 -- Vehicle articles for entering.
 function detect_vehicle_interaction(vehicle)
 	create_interaction("vehicles", vehicle:section())
+end
+
+-- Notes through various means.
+function detect_note_interaction(note)
+	create_interaction("notes", note)
 end
 
 ---------------------------
@@ -325,14 +336,26 @@ function unlock_article(section)
 	
 	-- Send a message about unlocking the article.
 	if (axr_main.config:r_value("pda_encyclopedia", "display_messages", 1, true)) then
-		-- Article and category texts.
-		local message = game.translate_string("pda_encyclopedia_notify")
-		local text_c = game.translate_string(guide.categories[index_c].section)
-		local text_a = game.translate_string(guide.categories[index_c].articles[index_a])
-		-- Other information.
-		local header = game.translate_string("st_tip")
-		local texture = "ui_iconsTotal_bar_darklab_documents" --news_manager.tips_icons["guide_unlock"] or "ui_inGame2_Poslednie_razrabotki"
-		db.actor:give_game_news(header, strformat(message, text_c, text_a), texture, 0, 5000, 0)
-		snd_guide:play(db.actor, 0, sound_object.s2d)
+		
+		if (guide.categories[index_c].section == "encyclopedia__notes") then
+			-- Article and category texts.
+			local message = game.translate_string("pda_encyclopedia_notify_note")
+			local text_a = game.translate_string(guide.categories[index_c].articles[index_a])
+			-- Other information.
+			local header = game.translate_string("st_tip")
+			local texture = "ui_iconsTotal_bar_darklab_documents" --news_manager.tips_icons["guide_unlock"] or "ui_inGame2_Poslednie_razrabotki"
+			db.actor:give_game_news(header, strformat(message, text_a), texture, 0, 5000, 0)
+			trx_utils.play_sound("device\\pda\\pda_note")
+		else
+			-- Article and category texts.
+			local message = game.translate_string("pda_encyclopedia_notify")
+			local text_c = game.translate_string(guide.categories[index_c].section)
+			local text_a = game.translate_string(guide.categories[index_c].articles[index_a])
+			-- Other information.
+			local header = game.translate_string("st_tip")
+			local texture = news_manager.tips_icons["guide_unlock"] or "ui_inGame2_Poslednie_razrabotki"
+			db.actor:give_game_news(header, strformat(message, text_c, text_a), texture, 0, 5000, 0)
+			trx_utils.play_sound("device\\pda\\pda_guide")
+		end
 	end
 end
