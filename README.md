@@ -49,7 +49,7 @@ Improving the item system and the progression behind it.
 - [ ] fill the note list
 
 ### General:
-- [x] special marker for companions on the map
+- [x] special map marker for companions
 - [x] "Unload all weapons" key has been moved to keybinds tab
 - [ ] rework the *death_items_by_communities* after finish adding all the new items
 - [x] organize item files
