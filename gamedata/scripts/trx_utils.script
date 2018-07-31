@@ -1,8 +1,8 @@
 
 -- =======================================================================================
 -- Created by Tronex
--- Last modification: 2018/7/27
--- A group of utility functions to be called and used by other scripts
+-- Last modification: 2018/7/29
+-- A bunch of useful utility functions to be called and used by other scripts
 -- =======================================================================================
 
 local ini = system_ini()
@@ -18,7 +18,6 @@ local clr_table = {
 	["green"]  = {0,51,255,102},
 	["yellow"] = {0,250,250,0}
 }
-
 
 function get_clr (str , code)
 
@@ -41,6 +40,95 @@ function get_clr (str , code)
 	return color_s
 end
 
+function play_sound (path, vol)
+	if (not path) or (type(path) ~= "string") then return end
+	
+	local snd = sound_object(path)
+	if snd then
+		--snd:play(db.actor, 0, sound_object.s2d)
+		snd:play_no_feedback(db.actor, sound_object.s2d, 0, vector(), vol or 1)
+		--snd.volume = vol or 1
+	end
+end
+
+function get_nearby_campfire (dist, result)
+
+-- Rule: search for available campfires in a radius of (dist)
+-- Input: [1] searching radius in meters (float) | [2] return type (boolean)
+-- Output: if a nearby campfire is found, return true or the campfire object (controlled by "result")
+
+	for i=1,65535 do
+		local se = alife_object(i)
+		if se then
+			local obj = level.object_by_id(se.id)
+			if obj then
+				local cf = obj:get_campfire()
+				if cf and (obj:position():distance_to(db.actor:position()) <= dist) then
+					printf("TRX - get_nearby_campfire | found campfire in a radius of: " .. obj:position():distance_to(db.actor:position()) .. " | id: " .. obj:id())
+					if result then
+						return obj
+					else
+						return true
+					end
+				end
+			end
+		end
+	end
+	return false
+end
+
+function set_msg (str)
+	local hud = ActorMenu.get_actor_menu()
+	if (hud and hud:IsShown()) then 
+		hud:HideDialog()
+	end
+
+	local text = game.translate_string(str)
+	SetHudMsg(text,3)
+end
+
+function collect_ini_sections (path) 
+
+-- Rule: function for parsing all sections in a file (modified part of alex1197 script)
+-- Input: path to ini file (path start inside "configs")
+-- Output: table of all sections from the ini file
+
+	local f = io.open(tostring("gamedata\\configs\\") .. path , "r")
+	local tab = {}
+	local line = ""
+	local newLine
+	local i
+	local currentTag = nil
+	while line ~= nil do	
+		line = line:gsub("\\;", "#_!36!_#") -- to keep \;
+		line = line:gsub("\\=", "#_!71!_#") -- to keep \=
+		if line ~= "" then
+
+			newLine = line
+			line = ""
+			for i=1, string.len(newLine) do				
+				if string.sub(newLine, i, i) ~= ";" then
+					line = line..newLine:sub(i, i)						
+				else				
+					break
+				end
+			end
+			line = line:gsub("^%s*(.-)%s*$", "%1")
+			-- Find tag			
+			if line:sub(1, 1) == "[" then
+				currentTag = line:gsub('%[(.*)%]%:.*','%1')
+				table.insert(tab, currentTag)						
+			end	
+
+		end
+		line = f:read("*line")		
+	end
+	f:close()
+	return tab
+end
+
+
+--============================================< Items >============================================--
 
 function get_item_axis (sec)
 
@@ -74,8 +162,95 @@ function get_item_axis (sec)
 	return a
 end
 
+function create_inv_obj (sec)
+	if sec and ini:section_exist(sec) then
+		alife():create(sec, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+	end
+end
 
-function adjust_multi_item (obj , num) 
+function release_obj (obj)
+	local se_obj = alife_object(obj:id())
+	if se_obj then
+		alife():release(se_obj)
+	end
+end
+
+function release_inv_obj (sec)
+	local obj = db.actor:object(sec)
+	local se_obj = alife_object(obj:id())
+	if se_obj then
+		alife():release(se_obj)
+	end
+end
+
+function replace_inv_obj (old_obj , new_sec)
+	if old_obj and new_sec then
+		release_obj(old_obj)
+		create_obj(new_sec)
+	end
+end
+
+function check_inv_obj (sec)
+	local obj = db.actor:object(sec)
+	return (obj and true)
+end
+
+function collect_inv_obj (sec , num , ... )
+
+-- Rule: search and collect available objects of a specific item from player's inventory
+-- Input: section of the target item , number of objects to obtain , id of items that should be excluded from the search
+-- Output: a table of the obtained objects of our item
+
+	local item_tbl = {}
+	local item_finale = {}
+	local p = {...}
+	local allow = true
+	
+	if (not num) then 
+		return 
+	end
+	
+	local function search(temp, item)
+		if p and (#p > 0) then
+			for i=1,#p do
+				if (item:id() == p[i]) then
+					allow = false
+				end
+			end
+		end
+		if (item:section() == sec) and allow then
+			item_tbl[#item_tbl+1] = item
+			printf("TRX - collect_inv_obj | found viable item: " .. item:section() .. " | id: " .. item:id())
+		end
+		allow = true
+	end
+	db.actor:iterate_inventory(search,nil)
+	
+	if (#item_tbl == 0) then
+		return false
+	end
+	
+	if (#item_tbl >= num) then
+		for i=1,num do
+			item_finale[#item_finale+1] = item_tbl[num]
+		end
+		return item_finale
+	end
+	
+	return false
+end
+
+function collect_inv()
+	local inv = {}
+	local function iterate(temp, obj)
+		inv[obj:id()] = obj:section()
+	end
+	
+	db.actor:iterate_inventory(iterate,nil)
+	return inv
+end
+
+function adjust_item_charge (obj , num) 
 
 -- Rule: adjust an existing multi-use item (increase or reduce the number of uses)
 -- Input: multi-use item (object) , uses adjusting (number)
@@ -91,7 +266,7 @@ function adjust_multi_item (obj , num)
 	
 	if (uses + num < 1) then return end
 	
-	local sec = get_multi_item_section (base, uses, num)
+	local sec = get_item_charge (base, uses, num)
 	if (not sec) or (not system_ini():section_exist(sec)) then
 		return false
 	end
@@ -99,13 +274,12 @@ function adjust_multi_item (obj , num)
 	local se_obj = alife_object(obj:id())
 	alife():release(se_obj,true)
 	alife():create(sec, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
-	printf("TRX - adjust_multi_item | Delete old item use: " .. obj:section() .. " | Get new item use: " .. sec)
+	printf("TRX - adjust_charge_item | Delete old item use: " .. obj:section() .. " | Get new item use: " .. sec)
 	
 	return true
 end
 
-
-function get_multi_item_section (base , uses_1 , uses_2)
+function get_item_charge (base , uses_1 , uses_2)
 
 -- Rule: get a multi-use item section based on a combination of uses of its base form
 -- Input: section of base multi-use item (string) , number of uses 1 , number of uses 2
@@ -160,76 +334,4 @@ function get_multi_item_section (base , uses_1 , uses_2)
 	end
 	
 	return nil
-end
-
-
-function collect_inv_item (sec , num , ... )
-
--- Rule: search and collect available objects of a specific item from player's inventory
--- Input: section of the target item , number of objects to obtain , id of items that should be excluded from the search
--- Output: a table of the obtained objects of our item
-
-	local item_tbl = {}
-	local item_finale = {}
-	local p = {...}
-	local allow = true
-	
-	if (not num) then 
-		return 
-	end
-	
-	local function search(temp, item)
-		if p and (#p > 0) then
-			for i=1,#p do
-				if (item:id() == p[i]) then
-					allow = false
-				end
-			end
-		end
-		if (item:section() == sec) and allow then
-			item_tbl[#item_tbl+1] = item
-			printf("TRX - collect_inv_item | found viable item: " .. item:section() .. " | id: " .. item:id())
-		end
-		allow = true
-	end
-	db.actor:iterate_inventory(search,nil)
-	
-	if (#item_tbl == 0) then
-		return false
-	end
-	
-	if (#item_tbl >= num) then
-		for i=1,num do
-			item_finale[#item_finale+1] = item_tbl[num]
-		end
-		return item_finale
-	end
-	
-	return false
-end
-
-function get_nearby_campfire (dist, result)
-
--- Rule: search for available campfires in a radius of (dist)
--- Input: [1] searching radius in meters (float) | [2] return type (boolean)
--- Output: if a nearby campfire is found, return true or the campfire object (controlled by "result")
-
-	for i=1,65535 do
-		local se = alife_object(i)
-		if se then
-			local obj = level.object_by_id(se.id)
-			if obj then
-				local cf = obj:get_campfire()
-				if cf and (obj:position():distance_to(db.actor:position()) <= dis) then
-					printf("TRX - get_nearby_campfire | found campfire in a radius of: " .. obj:position():distance_to(db.actor:position()) .. " | id: " .. obj:id())
-					if result then
-						return obj
-					else
-						return true
-					end
-				end
-			end
-		end
-	end
-	return false
 end
