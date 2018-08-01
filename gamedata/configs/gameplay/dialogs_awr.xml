@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!--
+	Advanced Weapon Repair Mod 0.3 by Faustle (2018)
+-->
+
+<game_dialogs>
+	<!-- Стандартный диалог для всех механиков -->
+	<dialog id="awr_tech_dialog_drink_1">
+		<precondition>dialogs_mlr.awr_not_on_table</precondition>
+		<precondition>xr_conditions.awr_have_no_info</precondition>
+		<phrase_list>
+			<phrase id="0">
+				<text>st_awr_dialog_1</text>
+				<next>10</next>
+			</phrase>
+			<phrase id="10">
+				<text>st_awr_dialog_2</text>
+				<next>1</next>
+				<next>2</next>
+			</phrase>
+			<phrase id="1">
+				<precondition>dialogs_mlr.awr_if_actor_has_1000</precondition>
+				<text>st_awr_dialog_3</text>
+				<next>11</next>
+                <action>dialogs_mlr.awr_give_1000</action>
+			</phrase>
+			<phrase id="11">
+				<text>st_awr_dialog_4</text>
+				<next>3</next>
+			</phrase>
+			<phrase id="2">
+				<text>st_awr_dialog_5</text>
+				<action>dialogs.break_dialog</action>
+			</phrase>
+			<phrase id="3">
+				<text>st_awr_dialog_6</text>
+
+				<action>dialogs_mlr.awr_timer_msg_on</action>
+				<action>dialogs.break_dialog</action>
+			</phrase>	
+		</phrase_list>
+    </dialog>
+	<!-- Диалог при установленном меше с оружием, с задержкой более 30 минут -->
+	<dialog id="awr_tech_dialog_forgot_1">
+		<precondition>dialogs_mlr.awr_on_table</precondition>
+		<precondition>xr_conditions.awr_have_no_info</precondition>
+		<precondition>xr_conditions.awr_forgot_weapon</precondition>
+		<precondition>xr_conditions.awr_full_forgot_weapon_1</precondition>
+		<phrase_list>
+			<phrase id="0">
+				<text>st_awr_dialog_8</text>
+				<next>10</next>
+			</phrase>
+			<phrase id="10">
+				<text>st_awr_dialog_9</text>
+				<next>1</next>
+				<next>2</next>
+			</phrase>
+			<phrase id="1">
+				<precondition>dialogs_mlr.awr_if_actor_has_2_full_vodka2</precondition>
+				<precondition>dialogs_mlr.awr_actor_have_money</precondition>	
+				<text>st_awr_dialog_10</text>
+				<next>11</next>
+                <action>dialogs_mlr.awr_give_2_full_vodka2</action>
+                <action>dialogs_mlr.awr_actor_give_money</action>
+			</phrase>
+			<phrase id="11">
+				<text>st_awr_dialog_11</text>
+				<next>3</next>
+			</phrase>
+			<phrase id="2">
+				<text>st_awr_dialog_12</text>
+				<action>dialogs.break_dialog</action>
+			</phrase>
+			<phrase id="3">
+				<text>st_awr_dialog_13</text>
+
+				<action>dialogs_mlr.awr_timer_msg_on</action>
+				<action>dialogs.break_dialog</action>
+			</phrase>	
+		</phrase_list>
+    </dialog>
+	<!-- Диалог при установленном меше с оружием, с задержкой менее 30 минут -->
+	<dialog id="awr_tech_dialog_forgot_2">
+		<precondition>dialogs_mlr.awr_on_table</precondition>
+		<precondition>xr_conditions.awr_have_no_info</precondition>
+		<precondition>xr_conditions.awr_forgot_weapon</precondition>
+		<precondition>xr_conditions.awr_full_forgot_weapon_2</precondition>
+		<phrase_list>
+			<phrase id="0">
+				<text>st_awr_dialog_14</text>
+				<next>10</next>
+			</phrase>
+			<phrase id="10">
+				<text>st_awr_dialog_15</text>
+				<next>1</next>
+				<next>2</next>
+			</phrase>
+			<phrase id="1">
+				<precondition>dialogs_mlr.awr_if_actor_has_full_vodka2</precondition>
+				<text>st_awr_dialog_3</text>
+				<next>11</next>
+                <action>dialogs_mlr.awr_give_full_vodka2</action>
+			</phrase>
+			<phrase id="11">
+				<text>st_awr_dialog_16</text>
+				<next>3</next>
+			</phrase>
+			<phrase id="2">
+				<text>st_awr_dialog_5</text>
+				<action>dialogs.break_dialog</action>
+			</phrase>
+			<phrase id="3">
+				<text>st_awr_dialog_6</text>
+
+				<action>dialogs_mlr.awr_timer_msg_on</action>
+				<action>dialogs.break_dialog</action>
+			</phrase>	
+		</phrase_list>
+    </dialog>
+    <!-- Диалог для продажи деталей -->
+	<dialog id="awr_tech_sell">
+		<precondition>xr_conditions.awr_have_details</precondition>
+		<phrase_list>
+			<phrase id="0">
+				<text>st_awr_sell_dialog_1</text>
+				<next>10</next>
+			</phrase>
+			<phrase id="10">
+				<text>st_awr_sell_dialog_2</text>
+				<next>1</next>
+			</phrase>
+			<phrase id="1">
+				<text>st_awr_sell_dialog_3</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="11">
+				<text>st_awr_sell_dialog_4</text>
+				<next>2</next>
+				<next>3</next>
+			</phrase>
+			<phrase id="2">
+				<text>st_awr_sell_dialog_5</text>
+				<next>12</next>
+		        <action>dialogs_mlr.awr_take_details</action>
+			</phrase>
+			<phrase id="3">
+				<text>st_awr_sell_dialog_6</text>
+				<action>dialogs.break_dialog</action>
+			</phrase>
+			<phrase id="12">
+				<text>st_awr_sell_dialog_7</text>
+				<next>4</next>
+			</phrase>
+			<phrase id="4">
+				<text>st_awr_sell_dialog_8</text>
+				<action>dialogs.break_dialog</action>
+			</phrase>
+		</phrase_list>
+	</dialog>
+</game_dialogs>	
+	
