@@ -33,7 +33,7 @@
 			<texture>ui_inGame2_pda_line_vertical</texture>
 		</auto_frameline>
 		<!-- Center-Right -->
-		<auto_frameline x="271" y="1" width="1" height="519" vertical="1">
+		<auto_frameline x="359" y="1" width="1" height="519" vertical="1">
 			<texture>ui_inGame2_pda_line_vertical</texture>
 		</auto_frameline>
 	</border>
@@ -52,7 +52,7 @@
 		<text r="170" g="170" b="170" font="letterica16" align="l" vert_align="c">st_pda_encyclopedia_message_checkbox</text>
 	</cap_message_checkbox>
 	
-	<article_list x="190" y="163" width="134" height="519" item_height="22" can_select="1" always_show_scroll="0">
+	<article_list x="190" y="163" width="222" height="519" item_height="22" can_select="1" always_show_scroll="0">
 		<font font="letterica16" r="210" g="210" b="210"/>
 	</article_list>
 	
@@ -61,11 +61,11 @@
 	</category_list>
 	
 	<description>
-		<scrollbar x="326" y="163" width="650" height="519" right_ident="0" left_ident="0" top_indent="0" bottom_indent="0" vert_interval="0" always_show_scroll="0"/>
-		<information width="628" height="1">
+		<scrollbar x="414" y="163" width="562" height="519" right_ident="0" left_ident="0" top_indent="0" bottom_indent="0" vert_interval="0" always_show_scroll="0"/>
+		<information width="540" height="1">
 			<text font="letterica16" color="ui_6" complex_mode="1" align="l" vert_align="t" x="5" y="6"/>
 		</information>
-		<information2 width="628" height="1">
+		<information2 width="540" height="1">
 			<text font="letterica16" color="ui_6" complex_mode="1" align="l" vert_align="t" x="5" y="6"/>
 		</information2>
 		<image_container>
