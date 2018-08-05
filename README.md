@@ -39,7 +39,7 @@ Improving the item system and the progression behind it.
 - [x] update the cooking UI
 - [x] (Field cooking kit) has 3 max uses, it can be used on campfires for low-tier meat or (charcoal) for high-tier meat, can be found on corpses
 - [x] (Army Kettle) has 7 max uses, it can be used on campfires or (charcoal), cook all kind of meat, can be found on corpses
-- [x] (Multi-fuel stove) has unlimited uses, can cook all meat, requires (Kerosene) exclusively, can be bought only.
+- [x] (Multi-fuel stove) has unlimited uses, can cook all meat, requires high-tier fuel, can be bought only.
 
 ### Encyclopedia:
 - [x] dynamic encyclopedia, unlock articles on discovery of many things
@@ -57,15 +57,15 @@ Improving the item system and the progression behind it.
 - [x] debug spawner will load sections automatically, it uses blacklist instead to prevent specific sections from appearing
 - [ ] remove items (Hexagon wood stove) (Multimedia PDA) (Paper of equipment condition) (Artefact Handeling Tool)
 - [ ] remove pre-spawned items from the game (items with static location) (if it can't be done outside of the SDK, forget about it for now)
-- [x] mechanics will ask for money OR vodka for using their vice
+- [x] mechanics will ask for money for using their vice
 - [x] fixed weird spawns in few areas (ex: monolith inside Yanov station)
 - [ ] reduce the weight of lead box
+- [x] improved item icons
 - [x] improve mutant looting UI, add new button "loot all"
-- [ ] update old Zone FM scripts
+- [x] improve rain texture
 
 ### Plans For the Future!
 - [ ] fix special npcs look doesn't match the icon
-- [ ] improve rain texture
 - [ ] add new inventory slots for backpacks, binocular, knife, pistol *(require engine edits!! might cancel it if it went behind my reach)*
 - [ ] nerf belt attachments, buff the artefacts
 - [ ] add new npcs: freedom barrier guard, bandits barman and more
