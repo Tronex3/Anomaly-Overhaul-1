@@ -14,12 +14,15 @@ function pda_encyclopedia_tab:__init() super()
 	self.articles_count = 0
 	self.articles_locked_count = 0
 	self.articles_unlocked_count = 0
+	self.notes_count = 0
+	self.notes_locked_count = 0
+	self.notes_unlocked_count = 0
 
 	-- Tables.
 	self.categories = {}
 	self.interactivity = {}
 	self.locked_articles = {}
-	self.special_articles = {}
+	self.locked_notes = {}
 	
 	-- Tiering.
 	self.highest_tier = 0
@@ -43,7 +46,7 @@ function pda_encyclopedia_entry:__init(sec, indx, clr) super(sec, indx, clr)
 	self.clr = clr
 	
 	self.sect = self:GetTextItem()
-	self.sect:SetWndRect(Frect():set(0, 0, 300, 22))
+	self.sect:SetWndRect(Frect():set(5, 0, 300, 22))
 	self:SetTextColor(GetARGB(self.clr[1], self.clr[2], self.clr[3], self.clr[4]))
 	self.sect:SetFont(GetFontLetterica18Russian())
 	self.sect:SetWndSize(vector2():set(400, 22))
@@ -101,15 +104,14 @@ function pda_encyclopedia_tab:SelectArticle(section_a)
 	if (not section) then return end
 	
 	-- Load the article text and image if it is unlocked.
-	local locked = (self.locked_articles[section] ~= nil)
+	local locked = (self.locked_articles[section] ~= nil) and (self.locked_notes[section] ~= nil)
 	local images_above_text = self.image_checkbox:GetCheck()
 	if (not locked) then
 		-- Set the article's text.
 		local str = game.translate_string(section .. "_text")
-		if (self.special_articles[section]) then
-			str = self:UpdateText(section, str)
-		end
-		self.information:SetText(str)
+		-- Adjust article's text if its special
+		str = self:UpdateText(section, str)
+		self.information:SetText("%c[0,170,170,170]" .. str)
 		
 		local trans = game.translate_string(section .. "_text2")
 		if (trans ~= section .. "_text2") then
@@ -231,7 +233,7 @@ function pda_encyclopedia_tab:InitArticles(section_c)
 		section = articles[i]
 		if (section) then
 			-- Hide the article's title if it isn't unlocked.
-			if (not self.locked_articles[section]) then
+			if (not self.locked_articles[section]) and (not self.locked_notes[section]) then
 				item = pda_encyclopedia_entry(section, n, trx_utils.get_clr("gray",true))
 				self.article_list:AddExistingItem(item)
 				n = n + 1
@@ -260,7 +262,7 @@ function pda_encyclopedia_tab:InitCategories()
 		if (section) then
 			local articles = self.categories[i].articles
 			for j=1,#articles do
-				if (not self.locked_articles[ articles[j] ]) then
+				if (not self.locked_articles[ articles[j] ]) and (not self.locked_notes[ articles[j] ]) then
 					allow = true
 				end
 			end
@@ -342,6 +344,7 @@ function pda_encyclopedia_tab:InitPlugin()
 	
 	-- Handles each individual article.
 	local unlocked_articles = xr_statistic.actor_articles
+	local unlocked_notes = xr_statistic.actor_notes
 	local function handle_article(section, value)
 		-- Information about the article.
 		local disabled = nil
@@ -357,6 +360,9 @@ function pda_encyclopedia_tab:InitPlugin()
 			["ironman"] = IsHardcoreMode(),
 			["story"] = IsStoryMode(),
 			["survival"] = IsSurvivalMode(),
+			["campfire"] = IsCampfireMode(),
+			["agony"] = IsAgonyMode(),
+			["timer"] = IsTimerMode()
 		}
 		
 		-- Check each value attached to the article.
@@ -396,17 +402,22 @@ function pda_encyclopedia_tab:InitPlugin()
 		-- Update the tiering information.
 		self.highest_tier = tier > self.highest_tier and tier or self.highest_tier
 
+		-- Lock or unlock the appropriate notes.
+		if string.find(section,"encyclopedia__notes") then 
+			if (unlocked or unlocked_notes[section]) then
+				unlocked_notes[section] = true
+			else
+				self.locked_notes[section] = tier
+				self.notes_locked_count = self.notes_locked_count + 1
+			end
 		-- Lock or unlock the appropriate articles.
-		if (unlocked or unlocked_articles[section]) then
-			unlocked_articles[section] = true
-		else
-			self.locked_articles[section] = tier
-			self.articles_locked_count = self.articles_locked_count + 1
-		end
-		
-		-- Add special articles to special table cause they are so special
-		if special then
-			self.special_articles[section] = true
+		else 
+			if (unlocked or unlocked_articles[section]) then
+				unlocked_articles[section] = true
+			else
+				self.locked_articles[section] = tier
+				self.articles_locked_count = self.articles_locked_count + 1
+			end
 		end
 		
 		-- Article can be added.
@@ -422,7 +433,11 @@ function pda_encyclopedia_tab:InitPlugin()
 				local junk1, section, value = ini:r_line(self.categories[i].section, j, "", "")
 				if (handle_article(section, value) == true) then
 					table.insert(self.categories[i].articles, section)
-					self.articles_count = self.articles_count + 1
+					if string.find(section,"encyclopedia__notes") then 
+						self.notes_count = self.notes_count + 1
+					else
+						self.articles_count = self.articles_count + 1
+					end
 				end
 			end
 		else printf("Encyclopedia category \"" .. self.categories[i].section .. "\" does not exist.") end
@@ -430,6 +445,7 @@ function pda_encyclopedia_tab:InitPlugin()
 	
 	-- Calculate how many articles must logically be unlocked.
 	self.articles_unlocked_count = (self.articles_count - self.articles_locked_count)
+	self.notes_unlocked_count = (self.notes_count - self.notes_locked_count)
 end
 
 -- Load the encyclopedia interactivity plugin.
@@ -467,7 +483,7 @@ end
 
 function pda_encyclopedia_tab:UpdateText(section, str)
 
-	if (section == "encyclopedia__notes_state") then -- equipment state
+	if (section == "encyclopedia__notes__state") then -- equipment state
 		local function fill_list(actor,obj)
 			if (obj) then
 				local con = obj:condition()
@@ -482,7 +498,7 @@ function pda_encyclopedia_tab:UpdateText(section, str)
 					end
 					
 					local name = game.translate_string(system_ini():r_string_ex (obj:section(),"inv_name") or "")
-					str = str .. "\\n " .. clr .. "• %c[0,150,150,150]" .. name .. " : " .. clr .. condition .. "%"
+					str = str .. "\\n " .. clr .. "• %c[0,170,170,170]" .. name .. " : " .. clr .. condition .. "%"
 				end
 			end
 		end

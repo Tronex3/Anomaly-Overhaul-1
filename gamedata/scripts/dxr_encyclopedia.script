@@ -110,7 +110,11 @@ function create_interaction(key, section)
 	local interactivity = guide.interactivity or {}
 	if (interaction_enabled and key and section and interactivity[key] and interactivity[key][section]) then
 		for k, v in pairs(interactivity[key][section]) do
-			unlock_article(v)
+			if (key == "notes") then
+				unlock_note(v)
+			else
+				unlock_article(v)
+			end
 		end
 	end
 end
@@ -232,6 +236,24 @@ function get_articles_unlocked_count()
 	return guide.articles_unlocked_count
 end
 
+-- Counts how many notes currently exist.
+function get_notes_count()
+	local guide = ui_pda_encyclopedia_tab.get_ui()
+	return guide.notes_count
+end
+
+-- Counts how many notes are locked.
+function get_notes_locked_count()
+	local guide = ui_pda_encyclopedia_tab.get_ui()
+	return guide.notes_locked_count
+end
+
+-- Counts how many notes are unlocked.
+function get_notes_unlocked_count()
+	local guide = ui_pda_encyclopedia_tab.get_ui()
+	return guide.notes_unlocked_count
+end
+
 --------------------------------
 ----- Article Manipulation -----
 --------------------------------
@@ -271,8 +293,7 @@ function set_article(section)
 	end
 end
 
--- Unlocks an article for the player.
--- A random one will be chosen if none is specified.
+-- Unlocks an article for the player. A random one will be chosen if none is specified.
 function unlock_article(section)
 	-- Instance of the guide object.
 	local guide = ui_pda_encyclopedia_tab.get_ui()
@@ -283,15 +304,15 @@ function unlock_article(section)
 	
 	-- Return if all articles have been unlocked.
 	if (get_articles_locked_count() == 0) then
-		return
+		return false
 	end
 	
 	-- Return if the specified article is already unlocked or doesn't exist.
 	if (section) then
 		if (unlocked_articles[section]) then
-			return
+			return false
 		elseif (not locked_articles[section]) then
-			return
+			return false
 		end
 		
 	-- Should no article be specified select one at random to unlock.
@@ -332,30 +353,71 @@ function unlock_article(section)
 	
 	-- Set the article and retrieve the indices.
 	local index_a, index_c = set_article(section)
-	if not (index_a and index_c) then return end
+	if not (index_a and index_c) then return false end
 	
 	-- Send a message about unlocking the article.
 	if (axr_main.config:r_value("pda_encyclopedia", "display_messages", 1, true)) then
-		
-		if (guide.categories[index_c].section == "encyclopedia__notes") then
-			-- Article and category texts.
-			local message = game.translate_string("pda_encyclopedia_notify_note")
-			local text_a = game.translate_string(guide.categories[index_c].articles[index_a])
-			-- Other information.
-			local header = game.translate_string("st_tip")
-			local texture = "ui_iconsTotal_bar_darklab_documents" --news_manager.tips_icons["guide_unlock"] or "ui_inGame2_Poslednie_razrabotki"
-			db.actor:give_game_news(header, strformat(message, text_a), texture, 0, 5000, 0)
-			trx_utils.play_sound("device\\pda\\pda_note")
-		else
-			-- Article and category texts.
-			local message = game.translate_string("pda_encyclopedia_notify")
-			local text_c = game.translate_string(guide.categories[index_c].section)
-			local text_a = game.translate_string(guide.categories[index_c].articles[index_a])
-			-- Other information.
-			local header = game.translate_string("st_tip")
-			local texture = news_manager.tips_icons["guide_unlock"] or "ui_inGame2_Poslednie_razrabotki"
-			db.actor:give_game_news(header, strformat(message, text_c, text_a), texture, 0, 5000, 0)
-			trx_utils.play_sound("device\\pda\\pda_guide")
-		end
+		-- Article and category texts.
+		local message = game.translate_string("pda_encyclopedia_notify")
+		local text_c = game.translate_string(guide.categories[index_c].section)
+		local text_a = game.translate_string(guide.categories[index_c].articles[index_a])
+		-- Other information.
+		local header = game.translate_string("st_tip")
+		local texture = news_manager.tips_icons["guide_unlock"] or "ui_inGame2_Poslednie_razrabotki"
+		db.actor:give_game_news(header, strformat(message, text_c, text_a), texture, 0, 5000, 0)
+		trx_utils.play_sound("device\\pda\\pda_guide")
 	end
+	
+	return true
+end
+
+-- Unlocks a note for the player.
+function unlock_note(section)
+	if (not section) then return false end
+	
+	-- Instance of the guide object.
+	local guide = ui_pda_encyclopedia_tab.get_ui()
+	
+	-- Instance of the locked and unlocked article tables.
+	local locked_notes = guide.locked_notes
+	local unlocked_notes = xr_statistic.actor_notes
+	
+	-- Return if all notes have been unlocked.
+	if (get_notes_locked_count() == 0) then
+		return false
+	end
+	
+	-- Return if the specified article is already unlocked or doesn't exist.
+	if (unlocked_notes[section]) then
+		return false
+	elseif (not locked_notes[section]) then
+		return false
+	end
+	
+	-- Update the required tables.
+	locked_notes[section] = nil
+	unlocked_notes[section] = true
+	
+	-- Update the required counters.
+	guide.notes_locked_count = guide.notes_locked_count - 1
+	guide.notes_unlocked_count = guide.notes_unlocked_count + 1
+	xr_statistic.inc_counter("notes")
+	
+	-- Set the article and retrieve the indices.
+	local index_a, index_c = set_article(section)
+	if not (index_a and index_c) then return false end
+	
+	-- Send a message about unlocking the article.
+	if (axr_main.config:r_value("pda_encyclopedia", "display_messages", 1, true)) then
+		-- Article and category texts.
+		local message = game.translate_string("pda_encyclopedia_notify_note")
+		local text_a = game.translate_string(guide.categories[index_c].notes[index_a])
+		-- Other information.
+		local header = game.translate_string("st_tip")
+		local texture = "ui_iconsTotal_bar_darklab_documents" --news_manager.tips_icons["guide_unlock"] or "ui_inGame2_Poslednie_razrabotki"
+		db.actor:give_game_news(header, strformat(message, text_a), texture, 0, 5000, 0)
+		trx_utils.play_sound("device\\pda\\pda_note")
+	end
+	
+	return true
 end
