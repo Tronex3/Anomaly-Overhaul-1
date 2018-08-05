@@ -55,11 +55,13 @@ Improving the item system and the progression behind it.
 - [x] organize item files
 - [x] remove the inventory grid
 - [x] debug spawner will load sections automatically, it uses blacklist instead to prevent specific sections from appearing
-- [ ] remove items (Hexagon wood stove) (Multimedia PDA) (Paper of equipment condition) (Artefact Handeling Tool)
+- [x] remove items (Hexagon wood stove) (Multimedia PDA) (Paper of equipment condition) (Artefact Handeling Tool)
+- [x] remove unused misc items
 - [ ] remove pre-spawned items from the game (items with static location) (if it can't be done outside of the SDK, forget about it for now)
 - [x] mechanics will ask for money for using their vice
 - [x] fixed weird spawns in few areas (ex: monolith inside Yanov station)
 - [ ] reduce the weight of lead box
+- [ ] fix the wrong values in the new artefact containers
 - [x] improved item icons
 - [x] improve mutant looting UI, add new button "loot all"
 - [x] improve rain texture

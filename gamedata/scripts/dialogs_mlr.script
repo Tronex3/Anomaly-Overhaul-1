@@ -39,7 +39,8 @@ function awr_actor_give_money(first_speaker, second_speaker)
 end
 
 function awr_timer_msg_on(first_speaker, second_speaker)
-	local npc_name = who_is_npc(first_speaker, second_speaker):section()
+	local npc = dialogs.who_is_npc(first_speaker, second_speaker)
+	local npc_name = npc:section()
 	awr_shared_functions.SendAwrMsg('success', 'detail', "st_awr_timer_msg_on")
 	awr_shared_functions.LampOn(npc_name)
 	awr_shared_functions.dout('dialogs', "Start timer")
@@ -50,7 +51,8 @@ function awr_timer_msg_on(first_speaker, second_speaker)
 end
 
 function awr_on_table(first_speaker, second_speaker)
-	local npc_name = who_is_npc(first_speaker, second_speaker):section()
+	local npc = dialogs.who_is_npc(first_speaker, second_speaker)
+	local npc_name = npc:section()
 	if db.actor:has_info(string.format("awr_%s_on_table", npc_name)) then
 		awr_shared_functions.dout('dialogs', "Infoportion awr_%s_on_table exist", npc_name)
 		return true
@@ -58,7 +60,8 @@ function awr_on_table(first_speaker, second_speaker)
 end
 
 function awr_not_on_table(first_speaker, second_speaker)
-	local npc_name = who_is_npc(first_speaker, second_speaker):section()
+	local npc = dialogs.who_is_npc(first_speaker, second_speaker)
+	local npc_name = npc:section()
 	if not (db.actor:has_info(string.format("awr_%s_on_table", npc_name))) then
 		awr_shared_functions.dout('dialogs', "Infoportion awr_%s_on_table not exist", npc_name)
 		return true

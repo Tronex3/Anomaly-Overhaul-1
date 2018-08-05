@@ -2176,72 +2176,72 @@
 	</string>
 	
 <!----------------------------- ZoneExpanded artefacts --------->
-	<string id="st_artefact_black_spray_name">
+	<string id="st_af_black_spray_name">
 		<text>Black Spray</text>
 	</string>  
-	<string id="st_artefact_black_spray_descr">
+	<string id="st_af_black_spray_descr">
 		<text>Black Sprays are artifacts with unknown properties, often used as jewelry outside the Zone. The Black Spray seems to delay the transmission of light that enters it.</text>
 	</string>  
-	<string id="st_artefact_bracelet_name">
+	<string id="st_af_bracelet_name">
 		<text>Bracelet</text>
 	</string>  
-	<string id="st_artefact_bracelet_descr">
+	<string id="st_af_bracelet_descr">
 		<text>The bracelet artefact is worn by some people for its healing abilities. A container will remove both radiation and all of its healing properties. It might fit around your arm on armor.</text>
 	</string>  	
-	<string id="st_artefact_death_lamp_name">
+	<string id="st_af_death_lamp_name">
 		<text>Death Lamp</text>
 	</string>  
-	<string id="st_artefact_death_lamp_descr">
+	<string id="st_af_death_lamp_descr">
 		<text>The death lamp is a legendary artefact, killing anyone who wears it within a very short time. The scientists are very interested in this artefact, as they had only seen it once before it was taken into the Zone again by an unknown stalker. Will they use this as a weapon??</text>
 	</string>  	
-	<string id="st_artefact_empty_name">
+	<string id="st_af_empty_name">
 		<text>Empty</text>
 	</string>  
-	<string id="st_artefact_empty_descr">
+	<string id="st_af_empty_descr">
 		<text>An Empty is made out of two disks the size of a saucer with nothing but empty space in between. There is no way to press the disks together, or pull them apart. Empties are common in the Zone, and a mystery to the scientists. Its size and shape makes it difficult to carry, and impossible to carry in a container.</text>
 	</string>  	
-	<string id="st_artefact_full_empty_name">
+	<string id="st_af_full_empty_name">
 		<text>Full Empty</text>
 	</string>  
-	<string id="st_artefact_full_empty_descr">
+	<string id="st_af_full_empty_descr">
 		<text>This is a filled "Empty" artefact. Normally there isn't anything between the two disks of the Empty at all. The Full Empty contains a blue fluid that slowly moves between its two disks. It is extremely heavy for one person to carry around, but you can sell it for a lot of cash. Its size and shape makes it difficult to carry, and impossible to carry in a container.</text>
 	</string>  	
-	<string id="st_artefact_itcher_name">
+	<string id="st_af_itcher_name">
 		<text>Itcher</text>
 	</string>  
-	<string id="st_artefact_itcher_descr">
+	<string id="st_af_itcher_descr">
 		<text>The Itcher is a soft, artefact that can be squeezed. When it's squeezed it may cause panic, depression and madness in people nearby. For most people, it just causes nosebleeds. It is a terrifying thing, that should be sold quickly. Somehow it affects the release of adrenaline in my body.</text>
 	</string>  	
-	<string id="st_artefact_lobster_eyes_name">
+	<string id="st_af_lobster_eyes_name">
 		<text>Lobster Eyes</text>
 	</string>  
-	<string id="st_artefact_lobster_eyes_descr">
+	<string id="st_af_lobster_eyes_descr">
 		<text>The Lobster eyes has the shape of two large eggs fused together. From a distance they look like eyes that follow you everywhere you go. It has only been found a few times, one of its unique properties is curing radiation sickness over time. Resistance against anomalies will be lowered while touching it, and it's very heavy.</text>
 	</string>  	
-	<string id="st_artefact_pin_name">
+	<string id="st_af_pin_name">
 		<text>Pin</text>
 	</string>  
-	<string id="st_artefact_pin_descr">
+	<string id="st_af_pin_descr">
 		<text>Pins are small artefacts that can emit red, green and yellow light when it is squeezed. Some Pins need a special machine before they show any light at all. The light it creates should mean something important, but what?</text>
 	</string>  	
-	<string id="st_artefact_ring_name">
+	<string id="st_af_ring_name">
 		<text>Ring</text>
 	</string>  
-	<string id="st_artefact_ring_descr">
+	<string id="st_af_ring_descr">
 		<text>When the Ring spins, it never stops spinning, defying the first law of thermodynamics. It looks like a "ring" and is difficult to spot because of its size.</text>
 	</string>  	
-	<string id="st_artefact_sponge_name">
+	<string id="st_af_sponge_name">
 		<text>Sponge</text>
 	</string>  
-	<string id="st_artefact_sponge_descr">
+	<string id="st_af_sponge_descr">
 		<text>The Sponge is an artefact made out of a web like material that sometimes tries to 'grab' an object it touches. This makes it almost impossible to close any container. The Sponge artefact creates a web like material around the container, as if it wants to escape.</text>
 	</string>  	
 	
 <!----------------------------- ZoneExpanded artefacts in IAM containers --------->
-	<string id="st_artefact_black_spray_iam_name">
+	<string id="st_af_black_spray_iam_name">
 		<text>IAM w/ Black Spray</text>
 	</string>
-	<string id="st_artefact_black_spray_iam_descr">
+	<string id="st_af_black_spray_iam_descr">
 		<text>Black Spray in Improvised Application Module. Black Sprays are artifacts with unknown properties, often used as jewelry outside the Zone. The Black Spray seems to delay the transmission of light that enters it. Radiation output decreased owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2252,10 +2252,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Black Spray artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
 	</string>
-	<string id="st_artefact_bracelet_iam_name">
+	<string id="st_af_bracelet_iam_name">
 		<text>IAM w/ Bracelet</text>
 	</string>
-	<string id="st_artefact_bracelet_iam_descr">
+	<string id="st_af_bracelet_iam_descr">
 		<text>Bracelet in Improvised Application Module. The bracelet has to be worn outside of a container to use its healing ability. Radiation output decreased owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2266,10 +2266,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Bracelet artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
 	</string>
-	<string id="st_artefact_death_lamp_iam_name">
+	<string id="st_af_death_lamp_iam_name">
 		<text>IAM w/ Death Lamp</text>
 	</string>
-	<string id="st_artefact_death_lamp_iam_descr">
+	<string id="st_af_death_lamp_iam_descr">
 		<text>Death Lamp in Improvised Application Module. Radiation output is extremely high. The container does not reduce the output at all. The death lamp is a legendary artefact, killing anyone who wears it within a very short time.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2280,10 +2280,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Death Lamp artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
 	</string>
-	<string id="st_artefact_empty_iam_name">
+	<string id="st_af_empty_iam_name">
 		<text>IAM w/ Empty</text>
 	</string>
-	<string id="st_artefact_empty_iam_descr">
+	<string id="st_af_empty_iam_descr">
 		<text>Empty in Improvised Application Module. An Empty is made out of two disks the size of a saucer with nothing but empty space in between. There is no way to press the disks together, or pull them apart. Empties are common in the Zone, and a mystery to the scientists. Radiation output decreased owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2294,10 +2294,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Empty artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
 	</string>
-	<string id="st_artefact_full_empty_iam_name">
+	<string id="st_af_full_empty_iam_name">
 		<text>IAM w/ Full Empty</text>
 	</string>
-	<string id="st_artefact_full_empty_iam_descr">
+	<string id="st_af_full_empty_iam_descr">
 		<text>Full Empty in Improvised Application Module. This is a filled "Empty" artefact. Normally there isn't anything between the two disks of the Empty at all. The Full Empty contains a blue fluid that slowly moves between its two disks. It is extremely heavy for one person to carry around, but you can sell it for a lot of cash. Radiation output decreased owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2308,10 +2308,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Full Empty artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
 	</string>
-	<string id="st_artefact_itcher_iam_name">
+	<string id="st_af_itcher_iam_name">
 		<text>IAM w/ Itcher</text>
 	</string>
-	<string id="st_artefact_itcher_iam_descr">
+	<string id="st_af_itcher_iam_descr">
 		<text>Itcher in Improvised Application Module. The Itcher is a soft, artefact that can be squeezed. When it's squeezed it may cause panic, depression and madness in people nearby. For most people, it just causes nosebleeds. It is a terrifying thing, that should be sold quickly. Somehow it affects the release of adrenaline in my body. Radiation output decreased owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2322,10 +2322,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Itcher artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
 	</string>
-	<string id="st_artefact_lobster_eyes_iam_name">
+	<string id="st_af_lobster_eyes_iam_name">
 		<text>IAM w/ Lobster Eyes</text>
 	</string>
-	<string id="st_artefact_lobster_eyes_iam_descr">
+	<string id="st_af_lobster_eyes_iam_descr">
 		<text>Lobster Eyes in Improvised Application Module. The Lobster eyes has the shape of two large eggs fused together. From a distance they look like eyes that follow you everywhere you go. It has only been found a few times, one of its unique properties is curing radiation sickness over time. Resistance against anomalies will be lowered while touching it, and it's very heavy.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2336,10 +2336,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Lobster Eyes artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
 	</string>
-	<string id="st_artefact_pin_iam_name">
+	<string id="st_af_pin_iam_name">
 		<text>IAM w/ Pin</text>
 	</string>
-	<string id="st_artefact_pin_iam_descr">
+	<string id="st_af_pin_iam_descr">
 		<text>Pin in Improvised Application Module. Pins are small artefacts that can emit red, green and yellow light when it is squeezed. Some Pins need a special machine before they show any light at all. The light it creates should mean something important, but what? Radiation output decreased owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2350,10 +2350,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Pin artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
 	</string>
-	<string id="st_artefact_ring_iam_name">
+	<string id="st_af_ring_iam_name">
 		<text>IAM w/ Ring</text>
 	</string>
-	<string id="st_artefact_ring_iam_descr">
+	<string id="st_af_ring_iam_descr">
 		<text>Ring in Improvised Application Module. When the Ring spins, it never stops spinning, defying the first law of thermodynamics. It looks like a "ring" and is difficult to spot because of its size. Radiation output decreased owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2364,10 +2364,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Ring artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
 	</string>
-	<string id="st_artefact_sponge_iam_name">
+	<string id="st_af_sponge_iam_name">
 		<text>IAM w/ Sponge</text>
 	</string>
-	<string id="st_artefact_sponge_iam_descr">
+	<string id="st_af_sponge_iam_descr">
 		<text>Sponge in Improvised Application Module. The Sponge is an artefact made out of a web like material that sometimes tries to 'grab' an object it touches. It is almost impossible to keep it inside any container, so radiation output can not be nullified.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2380,10 +2380,10 @@
 	</string>
 
 <!----------------------------- ZoneExpanded artefacts in AAC containers --------->
-	<string id="st_artefact_black_spray_aac_name">
+	<string id="st_af_black_spray_aac_name">
 		<text>AAC w/ Black Spray</text>
 	</string>
-	<string id="st_artefact_black_spray_aac_descr">
+	<string id="st_af_black_spray_aac_descr">
 		<text>Black Spray in Artifact Application Container. Black Sprays are artifacts with unknown properties, often used as jewelry outside the Zone. The Black Spray seems to delay the transmission of light that enters it. Radiation output decreased owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2394,10 +2394,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Black Spray artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable </text>
 	</string>
-	<string id="st_artefact_bracelet_aac_name">
+	<string id="st_af_bracelet_aac_name">
 		<text>AAC w/ Bracelet</text>
 	</string>
-	<string id="st_artefact_bracelet_aac_descr">
+	<string id="st_af_bracelet_aac_descr">
 		<text>Bracelet in Artifact Application Container. The bracelet has to be worn outside of a container to use its healing ability. Radiation output decreased owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2408,10 +2408,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Bracelet artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable </text>
 	</string>
-	<string id="st_artefact_death_lamp_aac_name">
+	<string id="st_af_death_lamp_aac_name">
 		<text>AAC w/ Death Lamp</text>
 	</string>
-	<string id="st_artefact_death_lamp_aac_descr">
+	<string id="st_af_death_lamp_aac_descr">
 		<text>Death Lamp in Artifact Application Container. Radiation output is extremely high. The container does not reduce the output at all. The death lamp is a legendary artefact, killing anyone who wears it within a very short time.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2422,10 +2422,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Death Lamp artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable </text>
 	</string>
-	<string id="st_artefact_empty_aac_name">
+	<string id="st_af_empty_aac_name">
 		<text>AAC w/ Empty</text>
 	</string>
-	<string id="st_artefact_empty_aac_descr">
+	<string id="st_af_empty_aac_descr">
 		<text>Empty in Artifact Application Container.An Empty is made out of two disks the size of a saucer with nothing but empty space in between. There is no way to press the disks together, or pull them apart. Empties are common in the Zone, and a mystery to the scientists. Radiation output decreased owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2436,10 +2436,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Empty artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable </text>
 	</string>
-	<string id="st_artefact_full_empty_aac_name">
+	<string id="st_af_full_empty_aac_name">
 		<text>AAC w/ Full Empty</text>
 	</string>
-	<string id="st_artefact_full_empty_aac_descr">
+	<string id="st_af_full_empty_aac_descr">
 		<text>Full Empty in Artifact Application Container. This is a filled "Empty" artefact. Normally there isn't anything between the two disks of the Empty at all. The Full Empty contains a blue fluid that slowly moves between its two disks. It is extremely heavy for one person to carry around, but you can sell it for a lot of cash. Radiation output decreased owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2450,10 +2450,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Full Empty artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable </text>
 	</string>
-	<string id="st_artefact_itcher_aac_name">
+	<string id="st_af_itcher_aac_name">
 		<text>AAC w/ Itcher</text>
 	</string>
-	<string id="st_artefact_itcher_aac_descr">
+	<string id="st_af_itcher_aac_descr">
 		<text>Itcher in Artifact Application Container. The Itcher is a soft, artefact that can be squeezed. When it's squeezed it may cause panic, depression and madness in people nearby. For most people, it just causes nosebleeds. It is a terrifying thing, that should be sold quickly. Somehow it affects the release of adrenaline in my body. Radiation output decreased owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2464,10 +2464,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Itcher artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable </text>
 	</string>
-	<string id="st_artefact_lobster_eyes_aac_name">
+	<string id="st_af_lobster_eyes_aac_name">
 		<text>AAC w/ Lobster Eyes</text>
 	</string>
-	<string id="st_artefact_lobster_eyes_aac_descr">
+	<string id="st_af_lobster_eyes_aac_descr">
 		<text>Lobster Eyes in Artifact Application Container. The Lobster eyes has the shape of two large eggs fused together. From a distance they look like eyes that follow you everywhere you go. It has only been found a few times, one of its unique properties is curing radiation sickness over time. Resistance against anomalies will be lowered while touching it, and it's very heavy.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2478,10 +2478,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Lobster Eyes artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable </text>
 	</string>
-	<string id="st_artefact_pin_aac_name">
+	<string id="st_af_pin_aac_name">
 		<text>AAC w/ Pin</text>
 	</string>
-	<string id="st_artefact_pin_aac_descr">
+	<string id="st_af_pin_aac_descr">
 		<text>Pin in Artifact Application Container. Pins are small artefacts that can emit red, green and yellow light when it is squeezed. Some Pins need a special machine before they show any light at all. The light it creates should mean something important, but what? Radiation output decreased owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2492,10 +2492,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Pin artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable </text>
 	</string>
-	<string id="st_artefact_ring_aac_name">
+	<string id="st_af_ring_aac_name">
 		<text>AAC w/ Ring</text>
 	</string>
-	<string id="st_artefact_ring_aac_descr">
+	<string id="st_af_ring_aac_descr">
 		<text>Ring in Artifact Application Container. When the Ring spins, it never stops spinning, defying the first law of thermodynamics. It looks like a "ring" and is difficult to spot because of its size. Radiation output decreased owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2506,10 +2506,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Ring artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable </text>
 	</string>
-	<string id="st_artefact_sponge_aac_name">
+	<string id="st_af_sponge_aac_name">
 		<text>AAC w/ Sponge</text>
 	</string>
-	<string id="st_artefact_sponge_aac_descr">
+	<string id="st_af_sponge_aac_descr">
 		<text>Sponge in Artifact Application Container. The Sponge is an artefact made out of a web like material that sometimes tries to 'grab' an object it touches. This makes it almost impossible to close any container. The Sponge artefact creates a web like material around the container, as if it wants to escape. Radiation output can not be nullified.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2522,10 +2522,10 @@
 	</string>	
 
 <!----------------------------- ZoneExpanded artefacts in AAM containers --------->	
-	<string id="st_artefact_black_spray_aam_name">
+	<string id="st_af_black_spray_aam_name">
 		<text>AAM w/ Black Spray</text>
 	</string>
-	<string id="st_artefact_black_spray_aam_descr">
+	<string id="st_af_black_spray_aam_descr">
 		<text>Black Spray in an Advanced Application Module. Black Sprays are artifacts with unknown properties, often used as jewelry outside the Zone. The Black Spray seems to delay the transmission of light that enters it. Radiation output decreased owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2537,10 +2537,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Black Spray artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
 	</string>	
-	<string id="st_artefact_bracelet_aam_name">
+	<string id="st_af_bracelet_aam_name">
 		<text>AAM w/ Bracelet</text>
 	</string>
-	<string id="st_artefact_bracelet_aam_descr">
+	<string id="st_af_bracelet_aam_descr">
 		<text>Bracelet in an Advanced Application Module. The bracelet has to be worn outside of a container to use its healing ability. Radiation output decreased owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2552,10 +2552,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Bracelet artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
 	</string>	
-	<string id="st_artefact_death_lamp_aam_name">
+	<string id="st_af_death_lamp_aam_name">
 		<text>AAM w/ Death Lamp</text>
 	</string>
-	<string id="st_artefact_death_lamp_aam_descr">
+	<string id="st_af_death_lamp_aam_descr">
 		<text>Death Lamp in an Advanced Application Module. Radiation output is extremely high. The container does not reduce the output at all. The death lamp is a legendary artefact, killing anyone who wears it within a very short time.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2567,10 +2567,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Death Lamp artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
 	</string>	
-	<string id="st_artefact_empty_aam_name">
+	<string id="st_af_empty_aam_name">
 		<text>AAM w/ Empty</text>
 	</string>
-	<string id="st_artefact_empty_aam_descr">
+	<string id="st_af_empty_aam_descr">
 		<text>Empty in an Advanced Application Module. An Empty is made out of two disks the size of a saucer with nothing but empty space in between. There is no way to press the disks together, or pull them apart. Empties are common in the Zone, and a mystery to the scientists. Radiation output decreased owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2582,10 +2582,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Empty artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
 	</string>	
-	<string id="st_artefact_full_empty_aam_name">
+	<string id="st_af_full_empty_aam_name">
 		<text>AAM w/ Full Empty</text>
 	</string>
-	<string id="st_artefact_full_empty_aam_descr">
+	<string id="st_af_full_empty_aam_descr">
 		<text>Full Empty in an Advanced Application Module. This is a filled "Empty" artefact. Normally there isn't anything between the two disks of the Empty at all. The Full Empty contains a blue fluid that slowly moves between its two disks. It is extremely heavy for one person to carry around, but you can sell it for a lot of cash. Radiation output decreased owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2597,10 +2597,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Full Empty artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
 	</string>	
-	<string id="st_artefact_itcher_aam_name">
+	<string id="st_af_itcher_aam_name">
 		<text>AAM w/ Itcher</text>
 	</string>
-	<string id="st_artefact_itcher_aam_descr">
+	<string id="st_af_itcher_aam_descr">
 		<text>Itcher in an Advanced Application Module. The Itcher is a soft, artefact that can be squeezed. When it's squeezed it may cause panic, depression and madness in people nearby. For most people, it just causes nosebleeds. It is a terrifying thing, that should be sold quickly. Somehow it affects the release of adrenaline in my body. Radiation output decreased owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2612,10 +2612,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Itcher artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
 	</string>	
-	<string id="st_artefact_lobster_eyes_aam_name">
+	<string id="st_af_lobster_eyes_aam_name">
 		<text>AAM w/ Lobster Eyes</text>
 	</string>
-	<string id="st_artefact_lobster_eyes_aam_descr">
+	<string id="st_af_lobster_eyes_aam_descr">
 		<text>Lobster Eyes in an Advanced Application Module. The Lobster eyes has the shape of two large eggs fused together. From a distance they look like eyes that follow you everywhere you go. It has only been found a few times, one of its unique properties is curing radiation sickness over time. Resistance against anomalies will be lowered while touching it, and it's very heavy.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2627,10 +2627,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Lobster Eyes artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
 	</string>	
-	<string id="st_artefact_pin_aam_name">
+	<string id="st_af_pin_aam_name">
 		<text>AAM w/ Pin</text>
 	</string>
-	<string id="st_artefact_pin_aam_descr">
+	<string id="st_af_pin_aam_descr">
 		<text>Pin in an Advanced Application Module. Pins are small artefacts that can emit red, green and yellow light when it is squeezed. Some Pins need a special machine before they show any light at all. The light it creates should mean something important, but what? Radiation output decreased owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2642,10 +2642,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Pin artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
 	</string>	
-	<string id="st_artefact_ring_aam_name">
+	<string id="st_af_ring_aam_name">
 		<text>AAM w/ Ring</text>
 	</string>
-	<string id="st_artefact_ring_aam_descr">
+	<string id="st_af_ring_aam_descr">
 		<text>Ring in an Advanced Application Module. When the Ring spins, it never stops spinning, defying the first law of thermodynamics. It looks like a "ring" and is difficult to spot because of its size. Radiation output decreased owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2657,10 +2657,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Ring artifact)\n
 		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
 	</string>
-	<string id="st_artefact_sponge_aam_name">
+	<string id="st_af_sponge_aam_name">
 		<text>AAM w/ Sponge</text>
 	</string>
-	<string id="st_artefact_sponge_aam_descr">
+	<string id="st_af_sponge_aam_descr">
 		<text>Sponge in an Advanced Application Module. The Sponge is an artefact made out of a web like material that sometimes tries to 'grab' an object it touches. This makes it almost impossible to close any container. The Sponge artefact creates a web like material around the container, as if it wants to escape. Radiation output can not be nullified.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2674,10 +2674,10 @@
 	</string>		
 		
 <!----------------------------- ZoneExpanded artefacts in LLMC containers --------->		
-	<string id="st_artefact_black_spray_lead_box_name">
+	<string id="st_af_black_spray_lead_box_name">
 		<text>LLMC w/ Black Spray</text>
 	</string>
-	<string id="st_artefact_black_spray_lead_box_descr">
+	<string id="st_af_black_spray_lead_box_descr">
 		<text>Black Spray in Lead-Lined Container. Black Sprays are artifacts with unknown properties, often used as jewelry outside the Zone. The Black Spray seems to delay the transmission of light that enters it. Radiation output nullified owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2688,10 +2688,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Black Spray artifact)\n
 		%c[0,153,255,255] • %c[0,204,0,51] unattachable</text>
 	</string>	
-	<string id="st_artefact_bracelet_lead_box_name">
+	<string id="st_af_bracelet_lead_box_name">
 		<text>LLMC w/ Bracelet</text>
 	</string>
-	<string id="st_artefact_bracelet_lead_box_descr">
+	<string id="st_af_bracelet_lead_box_descr">
 		<text>Bracelet in Lead-Lined Container. The bracelet has to be worn outside of a container to use its healing ability. Radiation output decreased owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2702,10 +2702,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Bracelet artifact)\n
 		%c[0,153,255,255] • %c[0,204,0,51] unattachable</text>
 	</string>
-	<string id="st_artefact_death_lamp_lead_box_name">
+	<string id="st_af_death_lamp_lead_box_name">
 		<text>LLMC w/ Death Lamp</text>
 	</string>
-	<string id="st_artefact_death_lamp_lead_box_descr">
+	<string id="st_af_death_lamp_lead_box_descr">
 		<text>Death Lamp in Lead-Lined Container. Radiation output is extremely high. The container does not reduce the output at all. The death lamp is a legendary artefact, killing anyone who wears it within a very short time.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2716,10 +2716,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Death Lamp artifact)\n
 		%c[0,153,255,255] • %c[0,204,0,51] unattachable</text>
 	</string>
-	<string id="st_artefact_empty_lead_box_name">
+	<string id="st_af_empty_lead_box_name">
 		<text>LLMC w/ Empty</text>
 	</string>
-	<string id="st_artefact_empty_lead_box_descr">
+	<string id="st_af_empty_lead_box_descr">
 		<text>Empty in Lead-Lined Container. An Empty is made out of two disks the size of a saucer with nothing but empty space in between. There is no way to press the disks together, or pull them apart. Empties are common in the Zone, and a mystery to the scientists. Radiation output nullified owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2730,10 +2730,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Empty artifact)\n
 		%c[0,153,255,255] • %c[0,204,0,51] unattachable</text>
 	</string>
-	<string id="st_artefact_full_empty_lead_box_name">
+	<string id="st_af_full_empty_lead_box_name">
 		<text>LLMC w/ Full Empty</text>
 	</string>
-	<string id="st_artefact_full_empty_lead_box_descr">
+	<string id="st_af_full_empty_lead_box_descr">
 		<text>Full Empty in Lead-Lined Container. This is a filled "Empty" artefact. Normally there isn't anything between the two disks of the Empty at all. The Full Empty contains a blue fluid that slowly moves between its two disks. It is extremely heavy for one person to carry around, but you can sell it for a lot of cash. Radiation output nullified owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2744,10 +2744,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Full Empty artifact)\n
 		%c[0,153,255,255] • %c[0,204,0,51] unattachable</text>
 	</string>
-	<string id="st_artefact_itcher_lead_box_name">
+	<string id="st_af_itcher_lead_box_name">
 		<text>LLMC w/ Itcher</text>
 	</string>
-	<string id="st_artefact_itcher_lead_box_descr">
+	<string id="st_af_itcher_lead_box_descr">
 		<text>Itcher in Lead-Lined Container. The Itcher is a soft, artefact that can be squeezed. When it's squeezed it may cause panic, depression and madness in people nearby. For most people, it just causes nosebleeds. It is a terrifying thing, that should be sold quickly. Somehow it affects the release of adrenaline in my body. Radiation output nullified owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2758,10 +2758,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Itcher artifact)\n
 		%c[0,153,255,255] • %c[0,204,0,51] unattachable</text>
 	</string>
-	<string id="st_artefact_lobster_eyes_lead_box_name">
+	<string id="st_af_lobster_eyes_lead_box_name">
 		<text>LLMC w/ Lobster Eyes</text>
 	</string>
-	<string id="st_artefact_lobster_eyes_lead_box_descr">
+	<string id="st_af_lobster_eyes_lead_box_descr">
 		<text>Lobster Eyes in Lead-Lined Container. The Lobster eyes has the shape of two large eggs fused together. From a distance they look like eyes that follow you everywhere you go. It has only been found a few times, one of its unique properties is curing radiation sickness over time. Resistance against anomalies will be lowered while touching it, and it's very heavy.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2772,10 +2772,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Lobster Eyes artifact)\n
 		%c[0,153,255,255] • %c[0,204,0,51] unattachable</text>
 	</string>
-	<string id="st_artefact_pin_lead_box_name">
+	<string id="st_af_pin_lead_box_name">
 		<text>LLMC w/ Pin</text>
 	</string>
-	<string id="st_artefact_pin_lead_box_descr">
+	<string id="st_af_pin_lead_box_descr">
 		<text>Pin in Lead-Lined Container. Pins are small artefacts that can emit red, green and yellow light when it is squeezed. Some Pins need a special machine before they show any light at all. The light it creates should mean something important, but what? Radiation output nullified owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2786,10 +2786,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Pin artifact)\n
 		%c[0,153,255,255] • %c[0,204,0,51] unattachable</text>
 	</string>
-	<string id="st_artefact_ring_lead_box_name">
+	<string id="st_af_ring_lead_box_name">
 		<text>LLMC w/ Ring</text>
 	</string>
-	<string id="st_artefact_ring_lead_box_descr">
+	<string id="st_af_ring_lead_box_descr">
 		<text>Ring in Lead-Lined Container. When the Ring spins, it never stops spinning, defying the first law of thermodynamics. It looks like a "ring" and is difficult to spot because of its size. Radiation output nullified owing to the container.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
@@ -2800,10 +2800,10 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Ring artifact)\n
 		%c[0,153,255,255] • %c[0,204,0,51] unattachable</text>
 	</string>
-	<string id="st_artefact_sponge_lead_box_name">
+	<string id="st_af_sponge_lead_box_name">
 		<text>LLMC w/ Sponge</text>
 	</string>
-	<string id="st_artefact_sponge_lead_box_descr">
+	<string id="st_af_sponge_lead_box_descr">
 		<text>Sponge in Lead-Lined Container. The Sponge is an artefact made out of a web like material that sometimes tries to 'grab' an object it touches. This makes it almost impossible to close any container. The Sponge artefact creates a web like material around the container, as if it wants to escape. Radiation output can not be nullified.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] technological item\n

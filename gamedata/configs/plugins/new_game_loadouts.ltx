@@ -1,0 +1,163 @@
+
+;; ===========================< Loadout >=============================
+;; To add items in the item lists:
+;; -------------------------------
+;; add a new line: "item_section			= value_1,value_2,value3" under the correct section below
+;; "item_section": is the section name of the your item
+;; "value_1": (boolean  value, must be true or false) determines wether this item should be added to player's inventory list (false) or to the loadout pick list (true)
+;; "value_2": (number) the amount of the said item
+;; "value_3": (number) how many points it requires
+;; ========================================================
+;; put your custom items under "custom" section, they will always appear to pick from
+
+
+[points]
+total_points = 1000
+
+
+[custom]	
+
+
+[shared]:custom
+device_flashlight 		= false,1,0
+;con_checker 			= false,1,0
+wpn_upd 				= false,1,0
+wpn_knife 				= false,1,0
+box_matches_4 			= false,1,0
+batteries_dead 			= false,2,0
+flask_2 				= false,1,0
+wpn_ak74u_worn			= true,1,550
+wpn_aks74_worn			= true,1,600
+wpn_bm16_rusty			= true,1,450
+wpn_l85_worn			= true,1,650
+wpn_mp5_worn			= true,1,500
+wpn_sig552_worn			= true,1,650
+wpn_toz34_rusty			= true,1,450
+wpn_ump45_worn			= true,1,600
+cigarettes_lucky_3		= true,1,100
+cigarettes_russian_3	= true,1,80
+vodka 					= true,2,60
+bread					= true,2,50
+energy_drink			= true,2,50
+ration_ru_3				= true,1,200
+beans					= true,1,100
+tomato					= true,1,60
+kolbasa					= true,2,100
+batteries_dead			= true,3,50
+batteries_ccell			= true,1,160
+geiger_dead				= true,1,250
+lead_box				= true,1,200
+charcoal3				= true,1,80
+cooking_3				= true,1,150
+detector_simple			= true,1,300
+bandage					= true,2,60
+stimpack				= true,2,100
+stimpack_army			= true,2,150
+medkit 					= true,2,75
+medkit_army				= true,1,100
+medkit_scientic			= true,1,150
+antirad					= true,1,125
+drug_anabiotic			= true,1,175
+drug_psy_blockade_2		= true,1,140
+grenade_f1				= true,1,170
+ps01					= true,1,150
+acog					= true,1,150
+
+[stalker_loadout]:shared
+helm_resp_worn			= false,1,0
+novice_outfit_worn		= false,1,0
+wpn_pm_worn				= false,1,0
+stalker_patch			= false,1,0
+harmonica_a				= false,1,0
+
+[bandit_loadout]:shared
+helm_cloth_mask_worn	= false,1,0
+trenchcoat_outfit_worn	= false,1,0
+wpn_pm_worn				= false,1,0
+bandit_patch			= false,1,0
+porn					= false,1,0
+
+[ecolog_loadout]:shared
+helm_resp_worn			= false,1,0
+novice_outfit_worn		= false,1,0
+wpn_glock_worn			= false,1,0
+ecolog_patch			= false,1,0
+book3					= false,1,0
+
+[dolg_loadout]:shared
+helm_rp_bala_worn		= false,1,0
+dolg_novice_outfit_worn	= false,1,0
+wpn_pm_worn				= false,1,0
+duty_patch				= false,1,0
+ammo_bad				= false,1,0
+
+[freedom_loadout]:shared
+helm_rp_bala_worn		= false,1,0
+svoboda_light_outfit_worn	= false,1,0
+wpn_pm_worn				= false,1,0
+freedom_patch			= false,1,0
+cigarettes_lucky_2		= false,1,0
+
+[killer_loadout]:shared
+helm_rp_bala_worn		= false,1,0
+merc_outfit_worn		= false,1,0
+wpn_glock_worn			= false,1,0
+merc_patch				= false,1,0
+swiss					= false,1,0
+
+[army_loadout]:shared
+helm_rp_bandana_worn	= false,1,0
+army_outfit_worn		= false,1,0
+wpn_glock_worn			= false,1,0
+army_patch				= false,1,0
+picture_woman			= false,1,0
+survivalguide			= false,1,0
+
+[monolith_loadout]:shared
+helm_resp_worn			= false,1,0
+monolith_outfit_worn	= false,1,0
+wpn_pm_worn				= false,1,0
+monolith_patch			= false,1,0
+maps_kit				= false,1,0
+
+[csky_loadout]:shared
+helm_cloth_mask_worn	= false,1,0
+cs_novice_outfit_worn	= false,1,0
+wpn_glock_worn			= false,1,0
+csky_patch				= false,1,0
+welding_goggles			= false,1,0
+
+[zombied_loadout]:shared,stalker_loadout
+
+
+
+;; ===========================< Money >=============================
+[stalker_money]
+money = 1000
+
+[bandit_money]
+money = 1000
+
+[ecolog_money]
+money = 1600
+
+[dolg_money]
+money = 1400
+
+[freedom_money]
+money = 1400
+
+[killer_money]
+money = 2000
+
+[army_money]
+money = 1200
+
+[monolith_money]
+money = 1600
+
+[csky_money]
+money = 1400
+
+[zombied_money]
+money = 1000
