@@ -350,6 +350,10 @@ function IsTimerMode()
 	return axr_main.config and axr_main.config:r_value("character_creation","new_game_timer_mode",1) == true or type(alife_storage_manager.get_state().enable_timer_mode) == "number"
 end
 
+function IsCampfireMode()
+	return axr_main.config and axr_main.config:r_value("character_creation","new_game_campfire_mode",1) == true or alife_storage_manager.get_state().enable_campfire_mode == true
+end
+
 
 --------------------------------------------------------------------
 -- Serialization of userdata for Marshal Library

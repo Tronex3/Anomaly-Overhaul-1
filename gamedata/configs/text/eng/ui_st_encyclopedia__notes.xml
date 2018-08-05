@@ -5,12 +5,12 @@
 		<text>Notes</text>
 	</string>
 	
-	<string id="encyclopedia__notes_state">
+	<string id="encyclopedia__notes__state">
 		<text>Equipment States</text>
 	</string>
-	<string id="encyclopedia__notes_state_text">
+	<string id="encyclopedia__notes__state_text">
 		<text>
-			%c[0,170,170,170]My equipment states.\n\n
+			%c[0,170,170,170]My equipment states.\n \n
 		</text>
 	</string>
 

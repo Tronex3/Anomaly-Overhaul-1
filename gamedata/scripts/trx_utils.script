@@ -16,7 +16,11 @@ local clr_table = {
 	["red"]    = {0,204,0,51},
 	["purple"] = {0,93,0,116},
 	["green"]  = {0,51,255,102},
-	["yellow"] = {0,250,250,0}
+	["yellow"] = {0,250,250,0},
+	
+	["e_green"] = {0,56,209,115},
+	["e_blue"] = {0,56,166,209},
+	["e_orange"] = {0,209,209,56},
 }
 
 function get_clr (str , code)
@@ -127,6 +131,36 @@ function collect_ini_sections (path)
 	return tab
 end
 
+function time_spent_in_zone(ind)
+
+-- Rule: calculate and return how much time the player has spent in the zone based on a time scale
+-- Input: indicator (number from 1 to 5)
+-- Output: the time spent (number) so far, time scale depends on input
+
+	if (not ind) and (not db.actor) then
+		return false
+	end
+	
+	local s_time = level.get_start_time()
+	local seconds = tonumber(game.get_game_time():diffSec(s_time))
+	local minutes = math.floor(seconds/60)
+	local hours = math.floor(minutes/60)
+	local days = math.floor(hours/24)
+	local weeks = math.floor(days/7)
+	
+	if (ind == 1) then
+		return seconds
+	elseif (ind == 2) then
+		return minutes
+	elseif (ind == 3) then
+		return hours
+	elseif (ind == 4) then
+		return days
+	elseif (ind == 5) then
+		return weeks
+	end
+	return false
+end
 
 --============================================< Items >============================================--
 

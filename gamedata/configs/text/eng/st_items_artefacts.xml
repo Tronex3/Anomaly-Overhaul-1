@@ -2175,7 +2175,7 @@
 		%c[0,153,255,255] • %c[0,204,0,51] unattachable</text>
 	</string>
 	
-<!----------------------------- "ZoneExpanded artefacts" --------->
+<!----------------------------- ZoneExpanded artefacts --------->
 	<string id="st_artefact_black_spray_name">
 		<text>Black Spray</text>
 	</string>  
@@ -2237,7 +2237,7 @@
 		<text>The Sponge is an artefact made out of a web like material that sometimes tries to 'grab' an object it touches. This makes it almost impossible to close any container. The Sponge artefact creates a web like material around the container, as if it wants to escape.</text>
 	</string>  	
 	
-	<!----------------------------- "ZoneExpanded artefacts in IAM containers" --------->
+<!----------------------------- ZoneExpanded artefacts in IAM containers --------->
 	<string id="st_artefact_black_spray_iam_name">
 		<text>IAM w/ Black Spray</text>
 	</string>
@@ -2379,7 +2379,7 @@
 		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
 	</string>
 
-	<!----------------------------- "ZoneExpanded artefacts in AAC containers" --------->
+<!----------------------------- ZoneExpanded artefacts in AAC containers --------->
 	<string id="st_artefact_black_spray_aac_name">
 		<text>AAC w/ Black Spray</text>
 	</string>
@@ -2521,7 +2521,7 @@
 		%c[0,153,255,255] • %c[0,140,140,140] attachable </text>
 	</string>	
 
-	<!----------------------------- "ZoneExpanded artefacts in AAM containers" --------->	
+<!----------------------------- ZoneExpanded artefacts in AAM containers --------->	
 	<string id="st_artefact_black_spray_aam_name">
 		<text>AAM w/ Black Spray</text>
 	</string>
@@ -2673,7 +2673,7 @@
 		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
 	</string>		
 		
-	<!----------------------------- "ZoneExpanded artefacts in LLMC containers" --------->		
+<!----------------------------- ZoneExpanded artefacts in LLMC containers --------->		
 	<string id="st_artefact_black_spray_lead_box_name">
 		<text>LLMC w/ Black Spray</text>
 	</string>
@@ -2814,6 +2814,6 @@
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Sponge artifact)\n
 		%c[0,153,255,255] • %c[0,204,0,51] unattachable</text>
 	</string>
-	<!----------------------------- "ZoneExpanded artefacts end" --------->
+<!----------------------------- ZoneExpanded artefacts end --------->
 	
 </string_table>

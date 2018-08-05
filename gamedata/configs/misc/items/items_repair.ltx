@@ -6,9 +6,22 @@
 ;;-- Section configs for 'repair kits' - items which initiate the manual repair UI. Kits are allowed to use other items as 'materials' boosting repair efficiency. 30.05.2013 ponney (GFX), damjancd (SFX), alundaio (scripting), trojanuch (concept & gameplay implementation), trikzter (text)
 
 
+;; -- base repair item
+[repair_kit_base]:identity_immunities
+$spawn 									 = "devices\roubles"
+$prefetch 								 = 16
+class_dbg			                     = S_REPAIR
+class 									 = II_ATTCH
+cform									 = skeleton
+repair_tool                              = true
+use1_functor         		             = itms_manager.menu_open
+use1_action_functor  		             = itms_manager.use_tool
+
+
+
 ;;----==============================================< Sharpening stones >=================================================
 
-[sharpening_stones]:booster ;;--x4
+[sharpening_stones]:repair_kit_base ;;--x4
 $spawn 				                     = "devices\repair_kit_10"
 class_dbg			                     = S_REPAIR
 description			                     = st_sharpening_stones_descr
@@ -27,7 +40,7 @@ use_condition                            = false
 max_uses                                 = 1
 remove_after_use                         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_2
 repair_min_condition 	                 = 0.10		;;--Min required condition to use
 repair_max_condition 	                 = 0.99		;;--Max required condition to use
 repair_add_condition 	                 = 0.11		;;--Amount of condition added to repaired item
@@ -42,8 +55,8 @@ repair_use_actor_effects                 = true      ;;--Uses actor_effects scri
 ;use_sound			                     = interface\inv_repair_spray_oil
 uses_base					             = sharpening_stones
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [sharpening_stones_2]:sharpening_stones
 $spawn 				                     = "devices\repair_kit_10"
@@ -69,7 +82,7 @@ uses_index					             = 4
 
 ;;----==============================================< Lubricants and solvents >=================================================
 
-[gun_oil]:booster ;;-- Universal gun spray lubricant ;;--x2
+[gun_oil]:repair_kit_base ;;-- Universal gun spray lubricant ;;--x2
 $spawn 				                     = "devices\repair_kit_10"
 class_dbg			                     = S_REPAIR
 description			                     = st_gun_oil_descr
@@ -88,7 +101,7 @@ use_condition                            = false
 max_uses                                 = 1
 remove_after_use                         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_1
 repair_min_condition 	                 = 0.84		;;--Min required condition to use
 repair_max_condition 	                 = 0.99		;;--Max required condition to use
 repair_add_condition 	                 = 0.05		;;--Amount of condition added to repaired item
@@ -103,8 +116,8 @@ repair_use_actor_effects                 = true      ;;--Uses actor_effects scri
 ;use_sound			                     = interface\inv_repair_spray_oil
 uses_base					             = gun_oil
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [gun_oil_2]:gun_oil
 $spawn 				                     = "devices\repair_kit_10"
@@ -115,7 +128,7 @@ uses_index					             = 2
 
 ;;----===============================================================================================
 
-[gun_oil_ru_d]:booster ;;--x2
+[gun_oil_ru_d]:repair_kit_base ;;--x2
 $spawn 				                     = "devices\repair_kit_10"
 class_dbg			                     = S_REPAIR
 description			                     = st_gun_oil_ru_d_descr
@@ -134,7 +147,7 @@ use_condition                            = false
 max_uses                                 = 1
 remove_after_use                         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_1
 repair_min_condition 	                 = 0.89		;;--Min required condition to use
 repair_max_condition 	                 = 0.99		;;--Max required condition to use
 repair_add_condition 	                 = 0.08		;;--Amount of condition added to repaired item
@@ -149,8 +162,8 @@ repair_use_actor_effects                 = true
 ;use_sound			                     = interface\inv_repair_spray_oil
 uses_base					             = gun_oil_ru_d
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [gun_oil_ru_d_2]:gun_oil_ru_d
 $spawn 				                     = "devices\repair_kit_10"
@@ -161,7 +174,7 @@ uses_index					             = 2
 
 ;;----===============================================================================================
 
-[gun_oil_ru]:booster ;;-- (Russian gun oil (plastic bottle)) ;;--x2
+[gun_oil_ru]:repair_kit_base ;;-- (Russian gun oil (plastic bottle)) ;;--x2
 $spawn 				                     = "devices\repair_kit_10"
 class_dbg			                     = S_REPAIR
 description			                     = st_gun_oil_ru_descr
@@ -180,7 +193,7 @@ use_condition                            = false
 max_uses                                 = 1
 remove_after_use                         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_1
 repair_min_condition 	                 = 0.89		;;--Min required condition to use
 repair_max_condition 	                 = 0.99		;;--Max required condition to use
 repair_add_condition 	                 = 0.03		;;--Amount of condition added to repaired item
@@ -195,8 +208,8 @@ repair_use_actor_effects                 = true
 ;use_sound			                     = interface\inv_repair_spray_oil
 uses_base					             = gun_oil_ru
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [gun_oil_ru_2]:gun_oil_ru
 $spawn 				                     = "devices\repair_kit_10"
@@ -207,7 +220,7 @@ uses_index					             = 2
 
 ;;----===============================================================================================
 
-[solvent]:booster ;;-- (Cleaning solvent) http://www.midwayusa.com/product/533373/hoppes-9-bore-cleaning-solvent-5-oz-liquid ;;--x2
+[solvent]:repair_kit_base ;;-- (Cleaning solvent) http://www.midwayusa.com/product/533373/hoppes-9-bore-cleaning-solvent-5-oz-liquid ;;--x2
 $spawn 				                     = "devices\repair_kit_10"
 class_dbg			                     = S_REPAIR
 description			                     = st_solvent_descr
@@ -226,7 +239,7 @@ use_condition                            = false
 max_uses                                 = 1
 remove_after_use                         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_2
 repair_min_condition 	                 = 0.86		;;--Min required condition to use
 repair_max_condition 	                 = 0.99		;;--Max required condition to use
 repair_add_condition 	                 = 0.07		;;--Amount of condition added to repaired item
@@ -241,8 +254,8 @@ repair_use_actor_effects                 = true
 ;use_sound			                     = interface\inv_repair_spray_oil
 uses_base					             = solvent
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [solvent_2]:solvent
 $spawn 				                     = "devices\repair_kit_10"
@@ -254,7 +267,7 @@ uses_index					             = 2
 
 ;;----==============================================< Barrel blashes >=================================================
 
-[cleaning_kit_p]:booster ;;-- Cleaning kit 9mm .357 .45 ;;--x3
+[cleaning_kit_p]:repair_kit_base ;;-- Cleaning kit 9mm .357 .45 ;;--x3
 $spawn 				                     = "devices\repair_kit_10"
 class_dbg			                     = S_REPAIR
 description			                     = st_cleaning_kit_p_descr
@@ -273,7 +286,7 @@ use_condition                            = false
 max_uses                                 = 1
 remove_after_use                         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_2
 repair_min_condition 	                 = 0.74		;;--Min required condition to use
 repair_max_condition 	                 = 0.99		;;--Max required condition to use
 repair_add_condition 	                 = 0.08		;;--Amount of condition added to repaired item
@@ -288,8 +301,8 @@ repair_use_actor_effects                 = true      ;;--Uses actor_effects scri
 ;use_sound			                     = interface\inv_repair_brushes
 uses_base					             = cleaning_kit_p
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [cleaning_kit_p_2]:cleaning_kit_p
 $spawn 				                     = "devices\repair_kit_10"
@@ -307,7 +320,7 @@ uses_index					             = 3
 
 ;;----===============================================================================================
 
-[cleaning_kit_s]:booster ;;-- Cleaning kit 12ga ;;--x3
+[cleaning_kit_s]:repair_kit_base ;;-- Cleaning kit 12ga ;;--x3
 $spawn 				                     = "devices\repair_kit_10"
 class_dbg			                     = S_REPAIR
 description			                     = st_cleaning_kit_s_descr
@@ -326,7 +339,7 @@ use_condition                            = false
 max_uses                                 = 1
 remove_after_use                         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_2
 repair_min_condition 	                 = 0.74		;;--Min required condition to use
 repair_max_condition 	                 = 0.99		;;--Max required condition to use
 repair_add_condition 	                 = 0.08		;;--Amount of condition added to repaired item
@@ -341,8 +354,8 @@ repair_use_actor_effects                 = true
 ;use_sound			                     = interface\inv_repair_brushes
 uses_base					             = cleaning_kit_s
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [cleaning_kit_s_2]:cleaning_kit_s
 $spawn 				                     = "devices\repair_kit_10"
@@ -360,7 +373,7 @@ uses_index					             = 3
 
 ;;----===============================================================================================
 
-[cleaning_kit_r5]:booster ;;-- Cleaning kit 5.54mm 5.56mm ;;--x3
+[cleaning_kit_r5]:repair_kit_base ;;-- Cleaning kit 5.54mm 5.56mm ;;--x3
 $spawn 				                     = "devices\repair_kit_10"
 class_dbg			                     = S_REPAIR
 description			                     = st_cleaning_kit_r5_descr
@@ -379,7 +392,7 @@ use_condition                            = false
 max_uses                                 = 1
 remove_after_use                         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_3
 repair_min_condition 	                 = 0.74		;;--Min required condition to use
 repair_max_condition 	                 = 0.99		;;--Max required condition to use
 repair_add_condition 	                 = 0.08		;;--Amount of condition added to repaired item
@@ -394,8 +407,8 @@ repair_use_actor_effects                 = true
 ;use_sound			                     = interface\inv_repair_brushes
 uses_base					             = cleaning_kit_r5
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [cleaning_kit_r5_2]:cleaning_kit_r5
 $spawn 				                     = "devices\repair_kit_10"
@@ -413,7 +426,7 @@ uses_index					             = 2
 
 ;;----===============================================================================================
 
-[cleaning_kit_r7]:booster ;;-- Cleaning kit 7.62mm 7.92mm .300 ;;--x3
+[cleaning_kit_r7]:repair_kit_base ;;-- Cleaning kit 7.62mm 7.92mm .300 ;;--x3
 $spawn 				                     = "devices\repair_kit_10"
 class_dbg			                     = S_REPAIR
 description			                     = st_cleaning_kit_r7_descr
@@ -432,7 +445,7 @@ use_condition                            = false
 max_uses                                 = 1
 remove_after_use                         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_3
 repair_min_condition 	                 = 0.74		;;--Min required condition to use
 repair_max_condition 	                 = 0.99		;;--Max required condition to use
 repair_add_condition 	                 = 0.08		;;--Amount of condition added to repaired item
@@ -447,8 +460,8 @@ repair_use_actor_effects                 = true
 ;use_sound			                     = interface\inv_repair_brushes
 uses_base					             = cleaning_kit_r7
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [cleaning_kit_r7_2]:cleaning_kit_r7
 $spawn 				                     = "devices\repair_kit_10"
@@ -466,7 +479,7 @@ uses_index					             = 3
 
 ;;----===============================================================================================
 
-[cleaning_kit_u]:booster ;;-- Universal cleaning kit ;;--x3
+[cleaning_kit_u]:repair_kit_base ;;-- Universal cleaning kit ;;--x3
 $spawn 				                     = "devices\repair_kit_10"
 class_dbg			                     = S_REPAIR
 description			                     = st_cleaning_kit_u_descr
@@ -485,7 +498,7 @@ use_condition                            = false
 max_uses                                 = 1
 remove_after_use                         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_5
 repair_min_condition 	                 = 0.64		;;--Min required condition to use
 repair_max_condition 	                 = 0.99		;;--Max required condition to use
 repair_add_condition 	                 = 0.11		;;--Amount of condition added to repaired item
@@ -500,8 +513,8 @@ repair_use_actor_effects                 = true
 ;use_sound			                     = interface\inv_repair_brushes
 uses_base					             = cleaning_kit_u
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [cleaning_kit_u_2]:cleaning_kit_u
 $spawn 				                     = "devices\repair_kit_10"
@@ -519,7 +532,7 @@ uses_index					             = 3
 
 ;;----==============================================< Gunsmith toolkits >=================================================
 
-[toolkit_p]:booster ;;-- Pistol toolkit with replacement parts ;;--x4
+[toolkit_p]:repair_kit_base ;;-- Pistol toolkit with replacement parts ;;--x4
 $spawn 				                     = "devices\repair_kit_10"
 class_dbg			                     = S_REPAIR
 description			                     = st_repair_kit_p_descr
@@ -538,7 +551,7 @@ use_condition                            = false
 max_uses                                 = 1
 remove_after_use                         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_4
 repair_min_condition 	                 = 0.24		;;--Min required condition to use
 repair_max_condition 	                 = 0.99		;;--Max required condition to use
 repair_add_condition 	                 = 0.28		;;--Amount of condition added to repaired item
@@ -553,8 +566,8 @@ repair_use_actor_effects                 = true      ;;--Uses actor_effects scri
 ;use_sound			                     = interface\inv_repair_kit_with_brushes
 uses_base					             = toolkit_p
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [toolkit_p_2]:toolkit_p
 $spawn 				                     = "devices\repair_kit_10"
@@ -602,7 +615,7 @@ repair_part_bonus	 	                 = 0.04
 
 ;;----===============================================================================================
 
-[toolkit_s]:booster ;;-- Shotgun toolkit with replacement parts ;;--x4
+[toolkit_s]:repair_kit_base ;;-- Shotgun toolkit with replacement parts ;;--x4
 $spawn 				                     = "devices\repair_kit_10"
 class_dbg			                     = S_REPAIR
 description			                     = st_repair_kit_s_descr
@@ -621,7 +634,7 @@ use_condition                            = false
 max_uses                                 = 1
 remove_after_use                         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_4
 repair_min_condition 	                 = 0.24		;;--Min required condition to use
 repair_max_condition 	                 = 0.99		;;--Max required condition to use
 repair_add_condition 	                 = 0.28		;;--Amount of condition added to repaired item
@@ -636,8 +649,8 @@ repair_use_actor_effects                 = true      ;;--Uses actor_effects scri
 ;use_sound			                     = interface\inv_repair_kit_with_brushes
 uses_base					             = toolkit_s
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [toolkit_s_2]:toolkit_s
 $spawn 				                     = "devices\repair_kit_10"
@@ -685,7 +698,7 @@ repair_part_bonus	 	                 = 0.04
 
 ;;----===============================================================================================
 
-[toolkit_r5]:booster ;;-- NATO rifle toolkit with replacement parts ;;--x4
+[toolkit_r5]:repair_kit_base ;;-- NATO rifle toolkit with replacement parts ;;--x4
 $spawn 				                     = "devices\repair_kit_10"
 class_dbg			                     = S_REPAIR
 description			                     = st_repair_kit_r5_descr
@@ -704,7 +717,7 @@ use_condition                            = false
 max_uses                                 = 1
 remove_after_use                         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_5
 repair_min_condition 	                 = 0.24		;;--Min required condition to use
 repair_max_condition 	                 = 0.99		;;--Max required condition to use
 repair_add_condition 	                 = 0.28		;;--Amount of condition added to repaired item
@@ -719,8 +732,8 @@ repair_use_actor_effects                 = true      ;;--Uses actor_effects scri
 ;use_sound			                     = interface\inv_repair_kit_with_brushes
 uses_base					             = toolkit_r5
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [toolkit_r5_2]:toolkit_r5
 $spawn 				                     = "devices\repair_kit_10"
@@ -768,7 +781,7 @@ repair_part_bonus	 	                 = 0.04
 
 ;;----===============================================================================================
 
-[toolkit_r7]:booster ;;-- WP rifle toolkit with replacement parts ;;--x4
+[toolkit_r7]:repair_kit_base ;;-- WP rifle toolkit with replacement parts ;;--x4
 $spawn 				                     = "devices\repair_kit_10"
 class_dbg			                     = S_REPAIR
 description			                     = st_repair_kit_r7_descr
@@ -787,7 +800,7 @@ use_condition                            = false
 max_uses                                 = 1
 remove_after_use                         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_4
 repair_min_condition 	                 = 0.24		;;--Min required condition to use
 repair_max_condition 	                 = 0.99		;;--Max required condition to use
 repair_add_condition 	                 = 0.28		;;--Amount of condition added to repaired item
@@ -802,8 +815,8 @@ repair_use_actor_effects                 = true      ;;--Uses actor_effects scri
 ;use_sound			                     = interface\inv_repair_kit_with_brushes
 uses_base					             = toolkit_r7
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [toolkit_r7_2]:toolkit_r7
 $spawn 				                     = "devices\repair_kit_10"
@@ -856,7 +869,7 @@ repair_part_bonus	 	                 = 0.04
 
 ;;----==============================================< Sewing kits >=================================================
 
-[sewing_kit_b]:booster ;;-- (Basic sewing kit) ;;--x4
+[sewing_kit_b]:repair_kit_base ;;-- (Basic sewing kit) ;;--x4
 $spawn 				                     = "devices\repair_kit_10"
 class_dbg			                     = S_REPAIR
 description			                     = st_sewing_kit_b_descr
@@ -875,7 +888,7 @@ use_condition                            = false
 max_uses                                 = 1
 remove_after_use                         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_1
 repair_min_condition 	                 = 0.84		;;--Min required condition to use
 repair_max_condition 	                 = 0.99		;;--Max required condition to use
 repair_add_condition 	                 = 0.06		;;--Amount of condition added to repaired item
@@ -890,8 +903,8 @@ repair_use_actor_effects                 = true      ;;--Uses actor_effects scri
 ;use_sound			                     = interface\inv_sewing_kit
 uses_base					             = sewing_kit_b
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [sewing_kit_b_2]:sewing_kit_b
 $spawn 				                     = "devices\repair_kit_10"
@@ -916,7 +929,7 @@ uses_index					             = 4
 
 ;;----===============================================================================================
 
-[sewing_kit_a]:booster ;;-- (Advanced sewing kit) ;;--x4
+[sewing_kit_a]:repair_kit_base ;;-- (Advanced sewing kit) ;;--x4
 $spawn 				                     = "devices\repair_kit_10"
 class_dbg			                     = S_REPAIR
 description			                     = st_sewing_kit_a_descr
@@ -935,7 +948,7 @@ use_condition                            = false
 max_uses                                 = 1
 remove_after_use                         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_3
 repair_min_condition 	                 = 0.69		;;--Min required condition to use
 repair_max_condition 	                 = 0.99		;;--Max required condition to use
 repair_add_condition 	                 = 0.09		;;--Amount of condition added to repaired item
@@ -950,8 +963,8 @@ repair_use_actor_effects                 = true      ;;--Uses actor_effects scri
 ;use_sound			                     = interface\inv_sewing_kit
 uses_base					             = sewing_kit_a
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [sewing_kit_a_2]:sewing_kit_a
 $spawn 				                     = "devices\repair_kit_10"
@@ -976,7 +989,7 @@ uses_index					             = 4
 
 ;;----===============================================================================================
 
-[sewing_kit_h]:booster ;;-- (Heavy sewing kit) ;;--x4
+[sewing_kit_h]:repair_kit_base ;;-- (Heavy sewing kit) ;;--x4
 $spawn 				                     = "devices\repair_kit_10"
 class_dbg			                     = S_REPAIR
 description			                     = st_sewing_kit_h_descr
@@ -995,7 +1008,7 @@ use_condition                            = false
 max_uses                                 = 1
 remove_after_use                         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_2
 repair_min_condition 	                 = 0.54		;;--Min required condition to use
 repair_max_condition 	                 = 0.99		;;--Max required condition to use
 repair_add_condition 	                 = 0.12		;;--Amount of condition added to repaired item
@@ -1010,8 +1023,8 @@ repair_use_actor_effects                 = true      ;;--Uses actor_effects scri
 ;use_sound			                     = interface\inv_sewing_kit
 uses_base					             = sewing_kit_h
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [sewing_kit_h_2]:sewing_kit_h
 $spawn 				                     = "devices\repair_kit_10"
@@ -1036,7 +1049,7 @@ uses_index					             = 4
 
 ;;----==============================================< Glues >=================================================
 
-[glue_b]:booster ;;-- (Basic glue) ;;--x2
+[glue_b]:repair_kit_base ;;-- (Basic glue) ;;--x2
 $spawn 				                     = "devices\repair_kit_10"
 class_dbg			                     = S_REPAIR
 description			                     = st_glue_b_descr
@@ -1055,7 +1068,7 @@ use_condition                            = false
 max_uses                                 = 1
 remove_after_use                         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_1
 repair_min_condition 	                 = 0.89		;;--Min required condition to use
 repair_max_condition 	                 = 0.99		;;--Max required condition to use
 repair_add_condition 	                 = 0.02		;;--Amount of condition added to repaired item
@@ -1070,8 +1083,8 @@ repair_use_actor_effects                 = true      ;;--Uses actor_effects scri
 ;use_sound			                     = interface\inv_glue
 uses_base					             = glue_b
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [glue_b_2]:glue_b
 $spawn 				                     = "devices\repair_kit_10"
@@ -1082,7 +1095,7 @@ uses_index					             = 2
 
 ;;----===============================================================================================
 
-[glue_a]:booster ;;-- (Advanced glue) ;;--x2
+[glue_a]:repair_kit_base ;;-- (Advanced glue) ;;--x2
 $spawn 				                     = "devices\repair_kit_10"
 class_dbg			                     = S_REPAIR
 description			                     = st_glue_a_descr
@@ -1101,7 +1114,7 @@ use_condition                            = false
 max_uses                                 = 1
 remove_after_use                         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_1
 repair_min_condition 	                 = 0.74		;;--Min required condition to use
 repair_max_condition 	                 = 0.99		;;--Max required condition to use
 repair_add_condition 	                 = 0.04		;;--Amount of condition added to repaired item
@@ -1116,8 +1129,8 @@ repair_use_actor_effects                 = true      ;;--Uses actor_effects scri
 ;use_sound			                     = interface\inv_glue
 uses_base					             = glue_a
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [glue_a_2]:glue_a
 $spawn 				                     = "devices\repair_kit_10"
@@ -1128,7 +1141,7 @@ uses_index					             = 2
 
 ;;----===============================================================================================
 
-[glue_e]:booster ;;-- (Extreme glue) ;;--x2
+[glue_e]:repair_kit_base ;;-- (Extreme glue) ;;--x2
 $spawn 				                     = "devices\repair_kit_10"
 class_dbg			                     = S_REPAIR
 description			                     = st_glue_e_descr
@@ -1147,7 +1160,7 @@ use_condition                            = false
 max_uses                                 = 1
 remove_after_use                         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_1
 repair_min_condition 	                 = 0.59		;;--Min required condition to use
 repair_max_condition 	                 = 0.99		;;--Max required condition to use
 repair_add_condition 	                 = 0.06		;;--Amount of condition added to repaired item
@@ -1162,8 +1175,8 @@ repair_use_actor_effects                 = true      ;;--Uses actor_effects scri
 ;use_sound			                     = interface\inv_glue
 uses_base					             = glue_e
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [glue_e_2]:glue_e
 $spawn 				                     = "devices\repair_kit_10"
@@ -1174,7 +1187,7 @@ uses_index					             = 2
 
 ;;----==============================================< Repair kits >=================================================
 
-[armor_repair_fa]:booster ;;-- (First aid armor repair set (Textile residues and duct tape)) ;;--x2
+[armor_repair_fa]:repair_kit_base ;;-- (First aid armor repair set (Textile residues and duct tape)) ;;--x2
 $spawn 				                     = "devices\repair_kit_10"
 class_dbg			                     = S_REPAIR
 description			                     = st_armor_repair_fa_descr
@@ -1193,7 +1206,7 @@ use_condition                            = false
 max_uses                                 = 1
 remove_after_use                         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_2
 repair_min_condition 	                 = 0.84		;;--Min required condition to use
 repair_max_condition 	                 = 0.99		;;--Max required condition to use
 repair_add_condition 	                 = 0.06		;;--Amount of condition added to repaired item
@@ -1208,8 +1221,8 @@ repair_use_actor_effects                 = true      ;;--Uses actor_effects scri
 ;use_sound			                     = interface\inv_tape
 uses_base					             = armor_repair_fa
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [armor_repair_fa_2]:armor_repair_fa
 $spawn 				                     = "devices\repair_kit_10"
@@ -1220,7 +1233,7 @@ uses_index					             = 2
 
 ;;----===============================================================================================
 
-[armor_repair_pro]:booster ;;-- (Professional armor repair set (Chemical substance to fix closed respiratory material shredding)) ;;--x4
+[armor_repair_pro]:repair_kit_base ;;-- (Professional armor repair set (Chemical substance to fix closed respiratory material shredding)) ;;--x4
 $spawn 				                     = "devices\repair_kit_10"
 class_dbg			                     = S_REPAIR
 description			                     = st_armor_repair_pro_descr
@@ -1239,7 +1252,7 @@ use_condition                            = false
 max_uses                                 = 1
 remove_after_use                         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_3
 repair_min_condition 	                 = 0.39		;;--Min required condition to use
 repair_max_condition 	                 = 0.99		;;--Max required condition to use
 repair_add_condition 	                 = 0.14		;;--Amount of condition added to repaired item
@@ -1254,8 +1267,8 @@ repair_use_actor_effects                 = true      ;;--Uses actor_effects scri
 ;use_sound			                     = interface\inv_repair_kit
 uses_base					             = armor_repair_pro
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [armor_repair_pro_2]:armor_repair_pro
 $spawn 				                     = "devices\repair_kit_10"
@@ -1303,7 +1316,7 @@ repair_part_bonus	 	                 = 0.03
 
 ;;----===============================================================================================
 
-[helmet_repair_kit]:booster ;;--x3
+[helmet_repair_kit]:repair_kit_base ;;--x3
 $spawn 				                     = "devices\repair_kit_10"
 class_dbg			                     = S_REPAIR
 description			                     = st_helmet_repair_kit_descr
@@ -1322,7 +1335,7 @@ use_condition                            = false
 max_uses                                 = 1
 remove_after_use                         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_3
 repair_min_condition 	                 = 0.44		;;--Min required condition to use
 repair_max_condition 	                 = 0.99		;;--Max required condition to use
 repair_add_condition 	                 = 0.12		;;--Amount of condition added to repaired item
@@ -1337,8 +1350,8 @@ repair_use_actor_effects                 = true      ;;--Uses actor_effects scri
 ;use_sound			                     = interface\inv_repair_kit
 uses_base					             = helmet_repair_kit
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [helmet_repair_kit_2]:helmet_repair_kit
 $spawn 				                     = "devices\repair_kit_10"
@@ -1379,7 +1392,7 @@ repair_part_bonus	 	                 = 0.04
 
 ;;----===============================================================================================
 
-[toolkit_u]:booster ;;--x4
+[toolkit_u]:repair_kit_base ;;--x4
 $spawn 				                     = "devices\repair_kit_10"
 class_dbg			                     = S_REPAIR
 description			                     = st_repair_kit_descr
@@ -1398,7 +1411,7 @@ use_condition                            = false
 max_uses                                 = 1
 remove_after_use                         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_4
 repair_min_condition 	                 = 0.29		;;--Min required condition to use
 repair_max_condition 	                 = 0.99		;;--Max required condition to use
 repair_add_condition 	                 = 0.22		;;--Amount of condition added to repaired item
@@ -1413,8 +1426,8 @@ repair_use_actor_effects                 = true      ;;--Uses actor_effects scri
 ;use_sound			                     = interface\inv_repair_kit
 uses_base					             = toolkit_u
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [toolkit_u_2]:toolkit_u
 $spawn 				                     = "devices\repair_kit_10"
@@ -1485,7 +1498,7 @@ use_condition                  	         = false
 max_uses                       	         = 1
 remove_after_use               	         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_4
 repair_min_condition 			         = 0.19		;;--Min required condition to use
 repair_max_condition 			         = 0.99		;;--Max required condition to use
 repair_add_condition 			         = 0.14		;;--Amount of condition added to repaired item
@@ -1500,8 +1513,8 @@ repair_use_actor_effects 		         = true      ;;--Uses actor_effects script. S
 ;use_sound						         = interface\inv_repair_kit
 uses_base					             = exo_repair_kit
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [exo_repair_kit_2]:exo_repair_kit
 $spawn 							         = "devices\repair_kit_10"
@@ -1568,7 +1581,7 @@ use_condition                  	         = false
 max_uses                       	         = 1
 remove_after_use               	         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_4
 repair_min_condition 			         = 0.19		;;--Min required condition to use
 repair_max_condition 			         = 0.99		;;--Max required condition to use
 repair_add_condition 			         = 0.14		;;--Amount of condition added to repaired item
@@ -1583,8 +1596,8 @@ repair_use_actor_effects 		         = true      ;;--Uses actor_effects script. S
 ;use_sound						         = interface\inv_repair_kit
 uses_base					             = exolight_repair_kit
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [exolight_repair_kit_2]:exolight_repair_kit
 $spawn 							         = "devices\repair_kit_10"
@@ -1651,7 +1664,7 @@ use_condition                  	         = false
 max_uses                       	         = 1
 remove_after_use               	         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_5
 repair_min_condition 			         = 0.19		;;--Min required condition to use
 repair_max_condition 			         = 0.99		;;--Max required condition to use
 repair_add_condition 			         = 0.14		;;--Amount of condition added to repaired item
@@ -1666,8 +1679,8 @@ repair_use_actor_effects 		         = true      ;;--Uses actor_effects script. S
 ;use_sound						         = interface\inv_repair_kit
 uses_base					             = seva_repair_kit
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [seva_repair_kit_2]:seva_repair_kit
 $spawn 							         = "devices\repair_kit_10"
@@ -1734,7 +1747,7 @@ use_condition                  	         = false
 max_uses                       	         = 1
 remove_after_use               	         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_5
 repair_min_condition 			         = 0.19		;;--Min required condition to use
 repair_max_condition 			         = 0.99		;;--Max required condition to use
 repair_add_condition 			         = 0.14		;;--Amount of condition added to repaired item
@@ -1749,8 +1762,8 @@ repair_use_actor_effects 		         = true      ;;--Uses actor_effects script. S
 ;use_sound						         = interface\inv_repair_kit
 uses_base					             = proto_repair_kit
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [proto_repair_kit_2]:proto_repair_kit
 $spawn 							         = "devices\repair_kit_10"
@@ -1817,7 +1830,7 @@ use_condition                  	         = false
 max_uses                       	         = 1
 remove_after_use               	         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_4
 repair_min_condition 			         = 0.19		;;--Min required condition to use
 repair_max_condition 			         = 0.99		;;--Max required condition to use
 repair_add_condition 			         = 0.14		;;--Amount of condition added to repaired item
@@ -1832,8 +1845,8 @@ repair_use_actor_effects 		         = true      ;;--Uses actor_effects script. S
 ;use_sound						         = interface\inv_repair_kit
 uses_base					             = light_repair_kit
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [light_repair_kit_2]:light_repair_kit
 $spawn 							         = "devices\repair_kit_10"
@@ -1900,7 +1913,7 @@ use_condition                  	         = false
 max_uses                       	         = 1
 remove_after_use               	         = true
 repair_tool                              = true
-repair_ui                                = ui_itm_repair
+repair_ui                                = ui_itm_repair_4
 repair_min_condition 			         = 0.19		;;--Min required condition to use
 repair_max_condition 			         = 0.99		;;--Max required condition to use
 repair_add_condition 			         = 0.14		;;--Amount of condition added to repaired item
@@ -1915,8 +1928,8 @@ repair_use_actor_effects 		         = true      ;;--Uses actor_effects script. S
 ;use_sound						         = interface\inv_repair_kit
 uses_base					             = medium_repair_kit
 uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
+use2_functor         		             = itms_manager.menu_separate
+use2_action_functor  		             = itms_manager.use_separate
 
 [medium_repair_kit_2]:medium_repair_kit
 $spawn 							         = "devices\repair_kit_10"

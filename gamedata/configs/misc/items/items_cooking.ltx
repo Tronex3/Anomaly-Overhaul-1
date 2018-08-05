@@ -4,35 +4,6 @@
 
 ;;-- Section configs for 'cooking kits' - items which initiate the manual cooking UI. Kits are allowed to use other items as 'materials' boosting cooking efficiency. 19.10.2013 ponney68
 
-[matches]:booster
-$spawn 				                     = "devices\pda"
-$prefetch 			                     = 16
-class				                     = S_PDA
-cform				                     = skeleton
-visual				                     = dynamics\drink\drink_match0.ogf
-radius				                     = 68; 50
-class_dbg			                     = S_TOOL
-description			                     = st_matches_descr
-inv_name			                     = st_matches
-inv_name_short		                     = st_matches
-inv_weight				                 = 0.02
-inv_grid_width			                 = 1
-inv_grid_height			                 = 1
-inv_grid_x				                 = 12
-inv_grid_y				                 = 29
-cost				                     = 220
-can_trade			                     = true
-quest_item      	                     = false
-use_condition                            = false
-;use_sound			                     = interface\inv_matches
-remove_after_use                         = true
-
-attach_angle_offset		                 = -0.287979, 1.560923, 1.544060
-attach_position_offset		             = 0.096910, -0.013594, 0.107925
-attach_bone_name		                 = bip01_r_hand
-auto_attach				                 = false
-
-
 [wood_stove]:booster ;;-- remove me later
 $spawn 				                     = "devices\repair_kit_10"
 can_trade			                     = true
@@ -59,6 +30,7 @@ cooking_use_actor_effects                = true      ;Uses actor_effects script.
 
 ;use_sound			                     = interface\inv_cooking
 
+;;--==========================< Multi-fuel Stove >=============================
 [fieldcooker]:identity_immunities
 $spawn 									 = "devices\roubles"
 $prefetch 								 = 16
@@ -75,12 +47,13 @@ inv_grid_width			                 = 2
 inv_grid_height			                 = 1
 inv_grid_x				                 = 13
 inv_grid_y				                 = 0
+cooking_ui								 = ui_itm_cook
 cooking_tool							 = true
 cooking_limited							 = false
 cooking_tier							 = 2
 cooking_campfire						 = false
 cooking_campfire_tier					 = 2
-cooking_fuel							 = kerosene5,kerosene4,kerosene3,kerosene2,kerosene
+cooking_fuel							 = kerosene5,kerosene4,kerosene3,kerosene2,kerosene,explo_balon_gas,explo_balon_gas2,explo_balon_gas3,explo_balon_gas4,explo_balon_gas5,explo_balon_gas6,explo_balon_gas7,explo_balon_gas8,explo_jerrycan_fuel,explo_jerrycan_fuel2,explo_jerrycan_fuel3,explo_jerrycan_fuel4,explo_jerrycan_fuel5,explo_jerrycan_fuel6,explo_jerrycan_fuel7,explo_jerrycan_fuel8
 cooking_use_actor_effects				 = true
 ;use_sound			                     = interface\inv_cooking
 use1_functor         		             = itms_manager.menu_open
@@ -103,6 +76,7 @@ inv_grid_height		                     = 1
 inv_grid_x			                     = 96
 inv_grid_y			                     = 80
 cost				                     = 270
+cooking_ui								 = ui_itm_cook
 cooking_tool							 = true
 cooking_limited							 = true
 cooking_tier							 = 2
@@ -147,6 +121,7 @@ inv_grid_width			                 = 2
 inv_grid_height			                 = 1
 inv_grid_x				                 = 94
 inv_grid_y				                 = 80
+cooking_ui								 = ui_itm_cook
 cooking_tool							 = true
 cooking_limited							 = true
 cooking_tier							 = 2
@@ -196,58 +171,6 @@ inv_grid_y                               = 74
 cost                                     = 2940
 inv_weight				    			 = 1.5
 uses_index					             = 7
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;; A box of matches ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-[box_matches]:booster
-$spawn 				                     = "devices\pda"
-visual                                   = dynamics\drink\drink_match0.ogf
-class_dbg			                     = S_TOOL
-description			                     = st_box_matches_1_descr
-inv_name			                     = st_box_matches_1
-inv_name_short		                     = st_box_matches_1
-inv_grid_width	                         = 1
-inv_grid_height		                     = 1
-inv_grid_x			                     = 8
-inv_grid_y			                     = 46
-cost				                     = 221
-inv_weight			                     = 0.01
-can_trade			                     = true
-quest_item      	                     = false
-use_condition                            = false
-;use_sound			                     = interface\inv_matches
-remove_after_use                         = true
-uses_base			                     = box_matches_1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
-
-[box_matches_1]:box_matches
-inv_grid_x			                     = 8
-cost				                     = 221
-uses_index			                     = 1
-
-[box_matches_2]:box_matches
-inv_grid_x			                     = 7
-cost				                     = 340
-uses_index			                     = 2
-
-[box_matches_3]:box_matches
-inv_grid_x			                     = 6
-cost				                     = 438
-uses_index			                     = 3
-
-[box_matches_4]:box_matches
-inv_grid_x			                     = 5
-cost				                     = 554
-uses_index			                     = 4
-
-[box_matches_5]:box_matches
-inv_grid_x			                     = 4
-cost				                     = 662
-uses_index			                     = 5
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;; Cooking fuels ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

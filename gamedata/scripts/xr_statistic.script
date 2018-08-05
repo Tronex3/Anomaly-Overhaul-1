@@ -146,6 +146,7 @@ artefacts_table = {
 taken_artefacts = {}
 
 actor_articles = {} -- Guide articles unlocked. Should be empty by default.
+actor_notes = {} -- Notes unlocked. Should be empty by default.
 
 function on_game_start()
 	RegisterScriptCallback("on_game_load",on_game_load)

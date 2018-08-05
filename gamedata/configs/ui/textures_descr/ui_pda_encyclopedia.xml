@@ -1,32 +1,6 @@
 <w>
 	<!-- No images -->
 	<file name="ui\ui_console">
-		<texture id="encyclopedia__notes_state_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia__notes_recipe_basic_1_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia__notes_recipe_basic_2_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia__notes_recipe_basic_3_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia__notes_recipe_basic_4_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia__notes_recipe_basic_5_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia__notes_recipe_advanced_1_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia__notes_recipe_advanced_2_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia__notes_recipe_advanced_3_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia__notes_recipe_advanced_4_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia__notes_recipe_advanced_5_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia__notes_recipe_expert_1_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia__notes_recipe_expert_2_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia__notes_recipe_expert_3_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia__notes_recipe_expert_4_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia__notes_recipe_expert_5_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia__notes_recipe_drug_1_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia__notes_recipe_drug_2_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia__notes_recipe_drug_3_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia__notes_recipe_drug_4_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia__notes_recipe_drug_5_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia__notes_recipe_ammo_1_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia__notes_recipe_ammo_2_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia__notes_recipe_ammo_3_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia__notes_recipe_ammo_4_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia__notes_recipe_ammo_5_image" x="0" y="0" width="0" height="0"/>
 		
 		<texture id="encyclopedia_achievements_bookworm_food_image" x="0" y="0" width="0" height="0"/>
 		<texture id="encyclopedia_achievements_completionist_image" x="0" y="0" width="0" height="0"/>
@@ -44,67 +18,138 @@
 		<texture id="encyclopedia_achievements_well_dressed_image" x="0" y="0" width="0" height="0"/>
 		<texture id="encyclopedia_achievements_wishful_thinking_image" x="0" y="0" width="0" height="0"/>
 		
-		<texture id="encyclopedia_artefacts_baloon" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_blood" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_cristall_flower" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_cristall" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_dummy_battery" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_dummy_dummy" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_dummy_glassbeads" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_electra_flash" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_electra_moonlight" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_electra_sparkler" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_eye" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_fire" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_fireball" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_fuzz_kolobok" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_gold_fish" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_gravi" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_ice" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_medusa" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_mincer_meat" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_night_star" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_soul" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_vyvert" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_compass" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_oasis_heart" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_glass" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_baloon_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_blood_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_cristall_flower_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_cristall_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_dummy_battery_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_dummy_dummy_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_dummy_glassbeads_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_electra_flash_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_electra_moonlight_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_electra_sparkler_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_eye_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_fire_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_fireball_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_fuzz_kolobok_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_gold_fish_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_gravi_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_ice_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_medusa_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_mincer_meat_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_night_star_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_soul_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_vyvert_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_compass_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_oasis_heart_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_glass_image" x="0" y="0" width="0" height="0"/>
 		
+		<texture id="encyclopedia_features_azazel_mode_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_features_ironman_mode_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_features_story_mode_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_features_survival_mode_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_features_campfire_mode_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_features_agony_mode_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_features_timer_mode_image" x="0" y="0" width="0" height="0"/>
 		<texture id="encyclopedia_features_companions_image" x="0" y="0" width="0" height="0"/>
 		<texture id="encyclopedia_features_equipment_image" x="0" y="0" width="0" height="0"/>
 		<texture id="encyclopedia_features_rank_image" x="0" y="0" width="0" height="0"/>
 		<texture id="encyclopedia_features_reputation_image" x="0" y="0" width="0" height="0"/>
 		<texture id="encyclopedia_features_stashes_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_features_awr_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_features_guide_image" x="0" y="0" width="0" height="0"/>
 		
-		<texture id="encyclopedia_mutants_historic_rat_wolf_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_mutants_historic_tark_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_historic_rat_wolf_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_historic_tark_image" x="0" y="0" width="0" height="0"/>
 		
-		<texture id="encyclopedia_options_gameplay_ai_die_to_anomalies_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_options_gameplay_aoe_pickup_mode_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_options_gameplay_artefact_degradation_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_options_gameplay_delayed_repairs_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_options_gameplay_difficulty_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_options_gameplay_enhanced_recoil_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_options_gameplay_hardcore_ai_aim_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_options_gameplay_helicopter_patrols_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_options_gameplay_localisation_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_options_gameplay_lootmoney_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_options_gameplay_online_exclusion_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_options_gameplay_population_factors_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_options_gameplay_quicksave_count_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_options_gameplay_radio_music_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_options_gameplay_sleep_deprivation_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_options_gameplay_thirst_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_options_gameplay_dynamic_news_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_options_gameplay_extended_hud_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_options_gameplay_portrait_by_outfit_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_options_gameplay_use_battery_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_options_ai_die_to_anomalies_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_options_aoe_pickup_mode_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_options_artefact_degradation_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_options_delayed_repairs_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_options_difficulty_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_options_enhanced_recoil_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_options_hardcore_ai_aim_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_options_helicopter_patrols_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_options_localisation_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_options_lootmoney_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_options_online_exclusion_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_options_population_factors_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_options_quicksave_count_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_options_radio_music_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_options_sleep_deprivation_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_options_thirst_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_options_dynamic_news_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_options_extended_hud_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_options_portrait_by_outfit_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_options_use_battery_image" x="0" y="0" width="0" height="0"/>
+
+	</file>
+	
+	<!-- features -->
+	<file name="ui\guide\encyclopedia_features">
+		<texture id="encyclopedia_features_awr_image" x="0" y="256" width="512" height="256"/>
+		<texture id="encyclopedia_features_map_spots_image" x="512" y="0" width="512" height="256"/>
+		<texture id="encyclopedia_features_hud_image" x="0" y="0" width="512" height="256"/>
+	</file>
+	
+	<!-- notes -->
+	<file name="ui\guide\encyclopedia_notes">
+		<texture id="encyclopedia__notes__state_image" x="0" y="0" width="512" height="256"/>
 		
-		<texture id="encyclopedia_options_other_azazel_mode_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_options_other_ironman_mode_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_options_other_story_mode_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_options_other_survival_mode_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes_recipe_basic_1_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_recipe_basic_2_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_recipe_basic_3_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_recipe_basic_4_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_recipe_basic_5_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_recipe_advanced_1_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_recipe_advanced_2_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_recipe_advanced_3_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_recipe_advanced_4_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_recipe_advanced_5_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_recipe_expert_1_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_recipe_expert_2_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_recipe_expert_3_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_recipe_expert_4_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_recipe_expert_5_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_recipe_drug_1_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_recipe_drug_2_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_recipe_drug_3_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_recipe_drug_4_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_recipe_drug_5_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_recipe_ammo_1_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_recipe_ammo_2_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_recipe_ammo_3_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_recipe_ammo_4_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_recipe_ammo_5_image" x="512" y="256" width="512" height="256"/>
+	</file>
+	
+	<!-- Items -->
+	<file name="ui\guide\encyclopedia_items">
+		<texture id="encyclopedia_items_detector_simple_image" x="0" y="0" width="512" height="256"/>
+		<texture id="encyclopedia_items_detector_advanced_image" x="512" y="0" width="512" height="256"/>
+		<texture id="encyclopedia_items_detector_elite_image" x="1024" y="0" width="512" height="256"/>
+		<texture id="encyclopedia_items_detector_scientific_image" x="1536" y="0" width="512" height="256"/>
+		
+		<texture id="encyclopedia_items_lead_box_image" x="0" y="256" width="512" height="256"/>
+		<texture id="encyclopedia_items_itm_basickit_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia_items_itm_advancedkit_image" x="1024" y="256" width="512" height="256"/>
+		<texture id="encyclopedia_items_itm_expertkit_image" x="1536" y="256" width="512" height="256"/>
+		
+		<texture id="encyclopedia_items_itm_drugkit_image" x="0" y="512" width="512" height="256"/>
+		<texture id="encyclopedia_items_itm_ammokit_image" x="512" y="512" width="512" height="256"/>
+		<texture id="encyclopedia_items_cooking_image" x="1024" y="512" width="512" height="256"/>
+		<texture id="encyclopedia_items_army_bowler_image" x="1536" y="512" width="512" height="256"/>
+		
+		<texture id="encyclopedia_items_fieldcooker_image" x="0" y="768" width="512" height="256"/>
+		<texture id="encyclopedia_items_kit_hunt_image" x="512" y="768" width="512" height="256"/>
+		<texture id="encyclopedia_items_geiger_dead_image" x="1024" y="768" width="512" height="256"/>
+		<texture id="encyclopedia_items_itm_upd_image" x="1536" y="768" width="512" height="256"/>
+		
+		<texture id="encyclopedia_items_gps_tracker_image" x="0" y="1024" width="512" height="256"/>
+		<texture id="encyclopedia_items_af_aam_image" x="512" y="1024" width="512" height="256"/>
+		<texture id="encyclopedia_items_af_aac_image" x="1024" y="1024" width="512" height="256"/>
+		<texture id="encyclopedia_items_af_iam_image" x="1536" y="1024" width="512" height="256"/>
+		
+		<texture id="encyclopedia_items_pda_image" x="0" y="1280" width="512" height="256"/>
 	</file>
 	
 	<!-- Anomalies -->
@@ -170,12 +215,6 @@
 		<texture id="encyclopedia_characters_xenotech_image" x="256" y="0" width="256" height="256"/>
 	</file>
 	
-	<!-- Features -->
-	<file name="ui\guide\encyclopedia_features">
-		<texture id="encyclopedia_features_guide_image" x="0" y="256" width="512" height="256"/>
-		<texture id="encyclopedia_features_map_spots_image" x="0" y="0" width="512" height="256"/>
-	</file>
-	
 	<!-- Factions, Factions (Historic) & Factions (Other) -->
 	<file name="ui\guide\encyclopedia_factions">
 		<texture id="encyclopedia_factions_bandit_image" x="0" y="0" width="256" height="256"/>
@@ -187,10 +226,11 @@
 		<texture id="encyclopedia_factions_mercenary_image" x="0" y="512" width="256" height="256"/>
 		<texture id="encyclopedia_factions_military_image" x="256" y="512" width="256" height="256"/>
 		<texture id="encyclopedia_factions_monolith_image" x="512" y="512" width="256" height="256"/>
-		<texture id="encyclopedia_factions_historic_final_day_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_factions_historic_isg_image" x="0" y="768" width="256" height="256"/>
-		<texture id="encyclopedia_factions_historic_renegade_image" x="256" y="768" width="256" height="256"/>
-		<texture id="encyclopedia_factions_other_zombified_image" x="512" y="768" width="256" height="256"/>
+		<texture id="encyclopedia_factions_zombified_image" x="512" y="768" width="256" height="256"/>
+		
+		<texture id="encyclopedia_historic_final_day_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_historic_isg_image" x="0" y="768" width="256" height="256"/>
+		<texture id="encyclopedia_historic_renegade_image" x="256" y="768" width="256" height="256"/>
 	</file>
 	
 	<!-- Locations -->
