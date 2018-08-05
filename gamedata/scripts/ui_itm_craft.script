@@ -49,6 +49,7 @@ function craft_ui:__init(owner,obj,section) super()
 	self.size = 3
 	self.base = ini:r_string_ex(section,"uses_base") or section
 	self.craft_use_actor_effects = ini:r_bool_ex(section,"craft_use_actor_effects") or true
+	self.craft_frame = ini:r_string_ex(section,"craft_ui") or "ui_itm_basickit"
 	self.active_wep				   = db.actor:active_item() or false
 	
 	-- Fill default recipes
@@ -84,7 +85,7 @@ function craft_ui:InitControls()
 	xml:ParseFile			("ui_items.xml")
 
 	self.dialog					= xml:InitStatic("itm_craft:frame", self)
-	self.dialog:InitTexture("ui_" .. self.base)
+	self.dialog:InitTexture(self.craft_frame)
 	self.dialog:SetStretchTexture(true)
 	
 	self.box_lines = xml:InitStatic("itm_craft:box_lines",self.dialog)

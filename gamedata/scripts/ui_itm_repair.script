@@ -50,7 +50,7 @@ function repair_ui:__init(owner,obj,section) super()
 	self.section = section
 	self.obj = obj
 	
-	self.repair_frame = ini:r_string_ex(section,"repair_ui") or "ui_itm_repair"
+	self.repair_frame = ini:r_string_ex(section,"repair_ui") or "ui_itm_repair_1"
 	self.use_condition = ini:r_bool_ex(section,"use_condition") or false
 	self.min_condition = ini:r_float_ex(section,"repair_min_condition") or 0
 	self.max_condition = ini:r_float_ex(section,"repair_max_condition") or 0
@@ -96,8 +96,8 @@ function repair_ui:InitControls()
 	self.con_item = {} -- Item's Condition
 	for i=1,2 do
 		xml:InitStatic("itm_repair:cap_" .. tostring(i),self.dialog)
-		xml:InitStatic("itm_repair:frame_list_" .. tostring(i),self.dialog)
-		xml:InitStatic("itm_repair:frame_item_" .. tostring(i),self.dialog)
+		--xml:InitStatic("itm_repair:frame_list_" .. tostring(i),self.dialog)
+		--xml:InitStatic("itm_repair:frame_item_" .. tostring(i),self.dialog)
 		
 		self.list[i] = xml:InitListBox("itm_repair:list_" .. tostring(i),self.dialog)
 		self.list[i]:ShowSelectedItem(true)

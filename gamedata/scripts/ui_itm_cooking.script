@@ -43,6 +43,7 @@ function cook_ui:__init(owner,obj,section) super()
 	self.section = section
 	self.obj = obj
 	
+	self.cooking_frame 			   = ini:r_string_ex(section,"cooking_ui") or "ui_itm_cook"
 	self.cooking_tier              = ini:r_float_ex(section,"cooking_tier") or 1
 	self.cooking_campfire          = ini:r_bool_ex(section,"cooking_campfire") or false
 	self.cooking_campfire_tier     = ini:r_float_ex(section,"cooking_campfire_tier") or 1
@@ -77,7 +78,7 @@ function cook_ui:InitControls()
 	xml:ParseFile			("ui_items.xml")
 
 	self.dialog					= xml:InitStatic("itm_cook:frame", self)
-	self.dialog:InitTexture("ui_itm_cook")
+	self.dialog:InitTexture(self.cooking_frame)
 	self.dialog:SetStretchTexture(true)
 
 	self.list = {} -- List of items
@@ -86,8 +87,8 @@ function cook_ui:InitControls()
 	self.text_item = {} -- Item's Name
 	for i=1,2 do
 		xml:InitStatic("itm_cook:cap_" .. tostring(i),self.dialog)
-		xml:InitStatic("itm_cook:frame_list_" .. tostring(i),self.dialog)
-		xml:InitStatic("itm_cook:frame_item_" .. tostring(i),self.dialog)
+		--xml:InitStatic("itm_cook:frame_list_" .. tostring(i),self.dialog)
+		--xml:InitStatic("itm_cook:frame_item_" .. tostring(i),self.dialog)
 		
 		self.list[i] = xml:InitListBox("itm_cook:list_" .. tostring(i),self.dialog)
 		self.list[i]:ShowSelectedItem(true)
