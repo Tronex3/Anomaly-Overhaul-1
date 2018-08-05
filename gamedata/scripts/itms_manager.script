@@ -15,6 +15,7 @@ This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAl
 -- 2018/7/26 - Added the ability to disassemble misc items
 -- 2018/7/26 - Rewrote a lot of function with better codes
 -- 2018/7/31 - Added new items, battery consumption for geiger counter and gps tracker
+-- 2018/8/2  - Drag artefacts on containers to put them, container tool is not used
 -- =======================================================================================
 
 -- Prepare ini files
@@ -23,6 +24,7 @@ local ini_manager = ini_file("plugins\\item_management\\itms_manager.ltx")
 local ini_med = ini_file("plugins\\item_management\\med_packs.ltx")
 local ini_mutant = ini_file("plugins\\item_management\\mutant_loot.ltx")
 local ini_battery = ini_file("plugins\\item_management\\axr_battery.ltx")
+local ini_container = ini_file("plugins\\item_management\\arty_container.ltx")
 
 -- Collect item sections of main tools
 craft_tools = {}
@@ -31,6 +33,7 @@ repair_tools = {}
 disassemble_tools = {}
 cook_tools = {}
 map_tools = {}
+artefact_containers = alun_utils.collect_section(ini_container,"containers",true) or {}
 ini:section_for_each(function(section) -- search all sections
 	if ini:r_bool_ex(section,"craft_tool") then
 		craft_tools[section] = true
@@ -357,6 +360,9 @@ function actor_on_item_use(obj) -- bind_stalker on_item_use
 	
 	-- Condition Checker
 	-- if (name == "con_checker") then use_con_checker(obj) end
+	
+	-- Repair tools
+	--if repair_tools[name] then use_tool(obj) end
 
 	-- Deployable mgun
 	if (name == "itm_deployable_mgun") then use_deployable_mgun(obj) end
@@ -468,50 +474,66 @@ function on_key_press(key) -- turn off flashlight if actor don't have it
 	end
 end
 
-function on_item_drag_dropped(obj_1, obj_2, slot_from, slot_to) -- combine multi-items
+function on_item_drag_dropped(obj_1, obj_2, slot_from, slot_to)
 
 	-- Check capability
 	if not (slot_from == EDDListType.iActorBag and slot_to == EDDListType.iActorBag) then
         return
     end
 	
-	local uses_1 = ini:r_float_ex(obj_1:section(),"uses_index")
-	local base_1 = ini:r_string_ex(obj_1:section(),"uses_base")
-	local uses_2 = ini:r_float_ex(obj_2:section(),"uses_index")
-	local base_2 = ini:r_string_ex(obj_2:section(),"uses_base")
-	
-	if (not uses_1) or (not base_1) or (not uses_2) or (not base_2) or (not ini:section_exist(base_1)) or (not ini:section_exist(base_2)) then
-		return
+	-- Put artefact in container
+	if artefact_containers[obj_2:section()] and (ini:r_string_ex(obj_1:section(),"class") == "ARTEFACT") then
+		local cont = obj_2:section()
+		local arty = obj_1:section()
+		if ini:section_exist(arty .. "_" .. cont) then
+			trx_utils.create_inv_obj(arty .. "_" .. cont)
+			trx_utils.release_obj(obj_1)
+			trx_utils.release_obj(obj_2)
+			if actor_effects.use_item("container_tool_" .. cont .. "_dummy") then
+				actor_effects.use_item("container_tool_" .. cont .. "_dummy")
+				--level_weathers.get_weather_manager():forced_weather_change()
+			end
+		end
+		
+	-- Combine multi-use items
+	else 
+		local uses_1 = ini:r_float_ex(obj_1:section(),"uses_index")
+		local base_1 = ini:r_string_ex(obj_1:section(),"uses_base")
+		local uses_2 = ini:r_float_ex(obj_2:section(),"uses_index")
+		local base_2 = ini:r_string_ex(obj_2:section(),"uses_base")
+		
+		if (not uses_1) or (not base_1) or (not uses_2) or (not base_2) or (not ini:section_exist(base_1)) or (not ini:section_exist(base_2)) then
+			return
+		end
+		
+		if (base_1 ~= base_2) then
+			return
+		end
+		
+		-- Get new item section
+		local sec = trx_utils.get_item_charge (base_1, uses_1, uses_2)
+		if (not sec) or (not ini:section_exist(sec)) then
+			return
+		end
+		
+		-- Collect old items (objects)
+		local item_1_tbl = trx_utils.collect_inv_obj (obj_1:section(),1)
+		local item_1 = item_1_tbl and item_1_tbl[1] or nil
+		if (not item_1) then return end
+		
+		local item_2_tbl = trx_utils.collect_inv_obj (obj_2:section(),1,item_1:id())
+		local item_2 = item_2_tbl and item_2_tbl[1] or nil
+		if (not item_2) then return end
+		
+		printf("TRX - Combine Items | item_1: " .. item_1:section() .. " [" .. item_1:id() .. "] | item_2: " .. item_2:section() .. " [" .. item_2:id() .. "] | New: " .. sec)
+		
+		-- Remove old items, create the new one
+		local se_obj_1 = alife_object(item_1:id())
+		local se_obj_2 = alife_object(item_2:id())
+		alife():release(se_obj_1,true)
+		alife():release(se_obj_2,true)
+		alife():create(sec, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
 	end
-	
-	if (base_1 ~= base_2) then
-		return
-	end
-	
-	-- Get new item section
-	local sec = trx_utils.get_item_charge (base_1, uses_1, uses_2)
-	if (not sec) or (not ini:section_exist(sec)) then
-		return
-	end
-	
-	-- Collect old items (objects)
-	local item_1_tbl = trx_utils.collect_inv_obj (obj_1:section(),1)
-	local item_1 = item_1_tbl and item_1_tbl[1] or nil
-	if (not item_1) then return end
-	
-	local item_2_tbl = trx_utils.collect_inv_obj (obj_2:section(),1,item_1:id())
-	local item_2 = item_2_tbl and item_2_tbl[1] or nil
-	if (not item_2) then return end
-	
-	printf("TRX - Combine Items | item_1: " .. item_1:section() .. " [" .. item_1:id() .. "] | item_2: " .. item_2:section() .. " [" .. item_2:id() .. "] | New: " .. sec)
-	
-	-- Remove old items, create the new one
-	local se_obj_1 = alife_object(item_1:id())
-	local se_obj_2 = alife_object(item_2:id())
-	alife():release(se_obj_1,true)
-	alife():release(se_obj_2,true)
-	alife():create(sec, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
-	
 end
 
 function on_item_focus(itm) -- highlight compatible repair items
@@ -901,6 +923,35 @@ function use_harmonica(obj)
 	actor_effects.play_continuous_effect(period)
 end
 
+function use_arty_container(obj)
+	local break_con
+	local break_arty
+	local sec = obj:section()
+	
+	if (string.find(sec, "(lead.-_box)",3)) then
+		break_con = "lead_box"
+		break_arty = sec:gsub("_lead_box", "")		
+	elseif (string.find(sec, "(af.-_iam)",3)) then
+		break_con = "af_iam"
+		break_arty = sec:gsub("_af_iam", "")
+	elseif (string.find(sec, "(af.-_aac)",3)) then
+		break_con = "af_aac"
+		break_arty = sec:gsub("_af_aac", "")
+	elseif (string.find(sec, "(af.-_aam)",3)) then
+		break_con = "af_aam"
+		break_arty = sec:gsub("_af_aam", "")
+	end
+	
+	if break_con and break_arty then
+		trx_utils.create_inv_obj(break_con)
+		trx_utils.create_inv_obj(break_arty)
+		trx_utils.release_obj(obj)
+		if (actor_effects.use_item(break_con .. "_dummy")) then
+			actor_effects.use_item(break_con .. "_dummy")
+			--level_weathers.get_weather_manager():forced_weather_change()
+		end
+	end
+end
 
 --=======================================< Others >=======================================--
 

@@ -66,6 +66,9 @@ artefact_activation_seq		    = af_activation_bold
 
 repair_part_bonus	 	        = 0.06
 
+use1_functor         					 = itms_manager.menu_open
+use1_action_functor  					 = itms_manager.use_arty_container
+
 [af_iam_absorbation]
 burn_immunity 			        = 0				;;--коэффициенты иммунитета
 strike_immunity 		        = 0
@@ -134,6 +137,9 @@ additional_inventory_weight2	= 1.54;;--2.34 W;;--
 artefact_activation_seq		    = af_activation_bold
 
 repair_part_bonus	 	        = 0.10
+
+use1_functor         					 = itms_manager.menu_open
+use1_action_functor  					 = itms_manager.use_arty_container
 
 [af_aac_absorbation]
 burn_immunity 			        = 0				;;--коэффициенты иммунитета
@@ -204,6 +210,9 @@ artefact_activation_seq		    = af_activation_bold
 
 repair_part_bonus	 	        = 0.14
 
+use1_functor         					 = itms_manager.menu_open
+use1_action_functor  					 = itms_manager.use_arty_container
+
 [af_aam_absorbation]
 burn_immunity 			        = 0				;;--коэффициенты иммунитета
 strike_immunity 		        = 0
@@ -237,6 +246,9 @@ additional_inventory_weight	    = 0.0;;--0 W;;--
 additional_inventory_weight2	= 0.0;;--0 W;;--
 
 repair_part_bonus	 	        = 0.10
+
+use1_functor         					 = itms_manager.menu_open
+use1_action_functor  					 = itms_manager.use_arty_container
 
 [lead_box_dummy]:lead_box
 inv_grid_x			            = 21
@@ -4218,8 +4230,8 @@ radius				            = 68;;-- 50
 
 ;;------------------------------
 
-[artefact_death_lamp_lead_box]:lead_box_closed
-class				            = S_PDA
+[artefact_death_lamp_lead_box]:artefact_death_lamp_af_iam ;;-- fix
+visual				            = dynamics\equipments\lead_box_closed.ogf
 inv_weight			            = 11.74
 cost				            = 0
 can_trade 			            = false
@@ -4242,11 +4254,6 @@ additional_inventory_weight2	= 0
 
 hit_absorbation_sect 		    = artefact_death_lamp_absorbation
 
-attach_angle_offset		        = -0.287979, 1.560923, 1.544060
-attach_position_offset		    = 0.096910, -0.013594, 0.107925
-attach_bone_name		        = bip01_r_hand
-auto_attach				        = false
-radius				            = 68;;-- 50
 
 ;;------------------------------
 
