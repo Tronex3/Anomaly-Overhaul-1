@@ -451,182 +451,6 @@ inv_name                                 = st_itm_ammokit7_name
 inv_name_short                           = st_itm_ammokit7_name
 uses_index					             = 7
 
-
-;;--==========================< Recipes >=============================
-[recipe_base]:identity_immunities
-$spawn 									 = "devices\roubles"
-$prefetch 								 = 16
-class_dbg			                     = S_TOOL
-class 									 = II_ATTCH
-cform									 = skeleton
-inv_grid_x                               = 3
-inv_grid_y                               = 45
-inv_grid_width                           = 1
-inv_grid_height                          = 1
-inv_weight                               = 0.1
-cost                                     = 500
-visual                                   = dynamics\equipments\trade\survivalguide.ogf
-description                              = st_recipe_descr
-inv_name                                 = st_recipe
-inv_name_short                           = st_recipe
-recipe									 = true
-use1_functor         					 = itms_manager.menu_read
-use1_action_functor  					 = itms_manager.use_recipe
-
-[recipe_basic_1]:recipe_base
-inv_grid_x                               = 5
-inv_grid_y                               = 44
-cost                                     = 500
-visual                                   = dynamics\equipments\trade\book1.ogf
-description                              = st_recipe_basic_descr
-inv_name                                 = st_recipe_basic_1
-inv_name_short                           = st_recipe_basic_1
-recipe_for								 = itm_basickit
-
-[recipe_basic_2]:recipe_basic_1
-cost                                     = 500
-inv_name                                 = st_recipe_basic_2
-inv_name_short                           = st_recipe_basic_2
-
-[recipe_basic_3]:recipe_basic_1
-cost                                     = 500
-inv_name                                 = st_recipe_basic_3
-inv_name_short                           = st_recipe_basic_3
-
-[recipe_basic_4]:recipe_basic_1
-cost                                     = 500
-inv_name                                 = st_recipe_basic_4
-inv_name_short                           = st_recipe_basic_4
-
-[recipe_basic_5]:recipe_basic_1
-cost                                     = 500
-inv_name                                 = st_recipe_basic_5
-inv_name_short                           = st_recipe_basic_5
-
-
-[recipe_advanced_1]:recipe_base
-inv_grid_x                               = 6
-inv_grid_y                               = 44
-cost                                     = 500
-visual                                   = dynamics\equipments\trade\book2.ogf
-description                              = st_recipe_advanced_descr
-inv_name                                 = st_recipe_advanced_1
-inv_name_short                           = st_recipe_advanced_1
-recipe_for								 = itm_advancedkit
-
-[recipe_advanced_2]:recipe_advanced_1
-cost                                     = 500
-inv_name                                 = st_recipe_advanced_2
-inv_name_short                           = st_recipe_advanced_2
-
-[recipe_advanced_3]:recipe_advanced_1
-cost                                     = 500
-inv_name                                 = st_recipe_advanced_3
-inv_name_short                           = st_recipe_advanced_3
-
-[recipe_advanced_4]:recipe_advanced_1
-cost                                     = 500
-inv_name                                 = st_recipe_advanced_4
-inv_name_short                           = st_recipe_advanced_4
-
-[recipe_advanced_5]:recipe_advanced_1
-cost                                     = 500
-inv_name                                 = st_recipe_advanced_5
-inv_name_short                           = st_recipe_advanced_5
-
-
-[recipe_expert_1]:recipe_base
-inv_grid_x                               = 7
-inv_grid_y                               = 44
-cost                                     = 500
-visual                                   = dynamics\equipments\trade\book3.ogf
-description                              = st_recipe_expert_descr
-inv_name                                 = st_recipe_expert_1
-inv_name_short                           = st_recipe_expert_1
-recipe_for								 = itm_expertkit
-
-[recipe_expert_2]:recipe_expert_1
-cost                                     = 500
-inv_name                                 = st_recipe_expert_2
-inv_name_short                           = st_recipe_expert_2
-
-[recipe_expert_3]:recipe_expert_1
-cost                                     = 500
-inv_name                                 = st_recipe_expert_3
-inv_name_short                           = st_recipe_expert_3
-
-[recipe_expert_4]:recipe_expert_1
-cost                                     = 500
-inv_name                                 = st_recipe_expert_4
-inv_name_short                           = st_recipe_expert_4
-
-[recipe_expert_5]:recipe_expert_1
-cost                                     = 500
-inv_name                                 = st_recipe_expert_5
-inv_name_short                           = st_recipe_expert_5
-
-
-[recipe_drug_1]:recipe_base
-inv_grid_x                               = 4
-inv_grid_y                               = 44
-cost                                     = 500
-visual                                   = dynamics\equipments\trade\book1.ogf
-description                              = st_recipe_drug_descr
-inv_name                                 = st_recipe_drug_1
-inv_name_short                           = st_recipe_drug_1
-recipe_for								 = itm_drugkit
-
-[recipe_drug_2]:recipe_drug_1
-cost                                     = 500
-inv_name                                 = st_recipe_drug_2
-inv_name_short                           = st_recipe_drug_2
-
-[recipe_drug_3]:recipe_drug_1
-cost                                     = 500
-inv_name                                 = st_recipe_drug_3
-inv_name_short                           = st_recipe_drug_3
-
-[recipe_drug_4]:recipe_drug_1
-cost                                     = 500
-inv_name                                 = st_recipe_drug_4
-inv_name_short                           = st_recipe_drug_4
-
-[recipe_drug_5]:recipe_drug_1
-cost                                     = 500
-inv_name                                 = st_recipe_drug_5
-inv_name_short                           = st_recipe_drug_5
-
-
-[recipe_ammo_1]:recipe_base
-inv_grid_x                               = 3
-inv_grid_y                               = 45
-cost                                     = 500
-visual                                   = dynamics\equipments\trade\survivalguide.ogf
-description                              = st_recipe_ammo_descr
-inv_name                                 = st_recipe_ammo_1
-inv_name_short                           = st_recipe_ammo_1
-recipe_for								 = itm_ammokit
-
-[recipe_ammo_2]:recipe_ammo_1
-cost                                     = 500
-inv_name                                 = st_recipe_ammo_2
-inv_name_short                           = st_recipe_ammo_2
-
-[recipe_ammo_3]:recipe_ammo_1
-cost                                     = 500
-inv_name                                 = st_recipe_ammo_3
-inv_name_short                           = st_recipe_ammo_3
-
-[recipe_ammo_4]:recipe_ammo_1
-cost                                     = 500
-inv_name                                 = st_recipe_ammo_4
-inv_name_short                           = st_recipe_ammo_4
-
-[recipe_ammo_5]:recipe_ammo_1
-cost                                     = 500
-inv_name                                 = st_recipe_ammo_5
-inv_name_short                           = st_recipe_ammo_5
-
 ;;--==========================< Anomaly Maps >=============================
 
 [itm_mapkit]:identity_immunities
@@ -703,6 +527,7 @@ use_map									 = agr
 $spawn 				                     = "devices\roubles"
 $prefetch 			                     = 16
 class				                     = S_PDA
+class_dbg			                     = S_TOOL
 cform				                     = skeleton
 visual				                     = dynamics\equipments\trade\swiss.ogf
 radius				                     = 68; 50
@@ -761,7 +586,7 @@ uses_index					             = 7
 [grooming]:identity_immunities
 $spawn 				                     = "devices\roubles"
 $prefetch 			                     = 16
-class_dbg			                     = S_MISC
+class_dbg			                     = S_TOOL
 class				                     = S_PDA
 cform				                     = skeleton
 visual				                     = dynamics\equipments\trade\grooming.ogf
