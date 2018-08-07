@@ -46,7 +46,7 @@ Improving the item system and the progression behind it.
 - [x] update the articles with content (anomaly, artefacts, awr)
 - [x] new category (Notes), store personal notes like crafting recipes, notes from special characters
 - [x] new category (Tools), contains articles about tools and how to use them in general
-- [ ] fill the note list
+- [x] fill the note list
 
 ### General:
 - [x] special map marker for companions
@@ -60,7 +60,7 @@ Improving the item system and the progression behind it.
 - [ ] remove pre-spawned items from the game (items with static location) (if it can't be done outside of the SDK, forget about it for now)
 - [x] mechanics will ask for money for using their vice
 - [x] fixed weird spawns in few areas (ex: monolith inside Yanov station)
-- [ ] reduce the weight of lead box
+- [x] reduce the weight of lead box
 - [ ] fix the wrong values in the new artefact containers
 - [x] improved item icons
 - [x] improve mutant looting UI, add new button "loot all"
