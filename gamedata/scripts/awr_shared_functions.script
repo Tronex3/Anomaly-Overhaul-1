@@ -186,7 +186,8 @@ end
 --// Функция-обертка для отправки форматированного сообщения
 function SendAwrMsg(color, type_m, text, ...)
 	local t = {...}
-
+	local ico = "disassemble"
+	
 	if color then
 		if color == 'success' then
 			s_color = "%c[0,0,255,0]"
@@ -194,19 +195,19 @@ function SendAwrMsg(color, type_m, text, ...)
 		elseif color == 'fail' then
 			s_color = "%c[0,255,0,0]"
 			e_color = "%c[0,255,255,255]"
-			PlayFailSnd()
+			--PlayFailSnd()
 		end
 	end
 	
 	if type_m then
 		if type_m == 'detail' then
-			news_manager.send_tip(db.actor, string.format(game.translate_string(text), s_color, e_color, t[1]), nil, "awr", 6000)
+			news_manager.send_tip(db.actor, string.format(game.translate_string(text), s_color, e_color, t[1]), nil, ico, 6000)
 		elseif type_m == 'weapon' then
-			news_manager.send_tip(db.actor, string.format(game.translate_string(text), s_color, t[1], e_color, t[2]), nil, "awr", 6000)
+			news_manager.send_tip(db.actor, string.format(game.translate_string(text), s_color, t[1], e_color, t[2]), nil, ico, 6000)
 		elseif type_m == 'weapon_ammo' then
-			news_manager.send_tip(db.actor, string.format(game.translate_string(text), s_color, t[1], e_color, t[2], t[3]), nil, "awr", 6000)
+			news_manager.send_tip(db.actor, string.format(game.translate_string(text), s_color, t[1], e_color, t[2], t[3]), nil, ico, 6000)
 		elseif type_m == 'npc' then
-			news_manager.send_tip(db.actor, string.format(game.translate_string(text), s_color, t[1], t[2], e_color, t[3]), nil, "awr", 6000)
+			news_manager.send_tip(db.actor, string.format(game.translate_string(text), s_color, t[1], t[2], e_color, t[3]), nil, ico, 6000)
 		end
 	end
 end

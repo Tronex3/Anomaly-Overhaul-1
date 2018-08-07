@@ -31,6 +31,14 @@
 		<text>New note: %s</text>
 	</string>
 	
+	<!-- Misc -->
+	<string id="pda_encyclopedia_info">
+		<text>Information</text>
+	</string>
+	<string id="pda_encyclopedia_properties">
+		<text>Properties</text>
+	</string>
+	
 	<!-- Locked articles -->
 	<string id="pda_encyclopedia_locked">
 		<text>??????????</text>

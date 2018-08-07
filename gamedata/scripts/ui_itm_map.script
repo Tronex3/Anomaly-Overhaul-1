@@ -54,9 +54,7 @@ end
 ---------------< Callbacks >---------------
 
 function map_ui:OnAccept()
-	if self.active_wep then
-		db.actor:restore_weapon()
-	end
+	db.actor:restore_weapon()
 	self:HideDialog()
 end
 

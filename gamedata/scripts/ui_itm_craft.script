@@ -56,10 +56,13 @@ function craft_ui:__init(owner,obj,section) super()
 	self:FillRecipes(self.base .. "_default")
 	
 	-- Fill all unlocked recipes
+	local guide = ui_pda_encyclopedia_tab.get_ui()
+	local locked_notes = guide.locked_notes
+	local unlocked_articles = xr_statistic.actor_articles
 	for i=1,#itms_manager.recipe_tools do
 		local recipe = itms_manager.recipe_tools[i]
 		if (ini:r_string_ex(recipe,"recipe_for") == self.base) then
-			if alife_storage_manager.get_state().unlocked_recipe and alife_storage_manager.get_state().unlocked_recipe[recipe] then
+			if (not locked_notes["encyclopedia__notes_" .. recipe]) and (unlocked_articles["encyclopedia__notes_" .. recipe]) then
 				self:FillRecipes(recipe)
 			end
 		end
@@ -68,6 +71,14 @@ function craft_ui:__init(owner,obj,section) super()
 	self:InitControls()
 	self:InitCallBacks()
 	
+	-- Play sound
+	if (self.base == "itm_drugkit") then
+		trx_utils.play_sound("interface\\inv_briefcase_open")
+	else
+		trx_utils.play_sound("interface\\inv_briefcase_tools_open")
+	end
+	
+	-- Hide weapon
 	if self.active_wep then
 		db.actor:hide_weapon()
 	end
@@ -168,18 +179,19 @@ function craft_ui:OnCraft()
 		trx_utils.release_obj(self.obj)
 	end
 	
-	-- Play repair effect
+	-- Hide dialog
+	self:HideDialog()
+		
+	-- Play effect
 	if (self.craft_use_actor_effects and actor_effects) then
 		actor_effects.use_item("toolkit_u_dummy")
 	end
-	
-	self:HideDialog()
+	db.actor:restore_weapon()
 end
 
 function craft_ui:OnCancel()
-	if self.active_wep then
-		db.actor:restore_weapon()
-	end
+	db.actor:restore_weapon()
+	trx_utils.play_sound("interface\\inv_briefcase_close")
 	self:HideDialog()
 end
 

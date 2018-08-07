@@ -68,6 +68,14 @@ function repair_ui:__init(owner,obj,section) super()
 	self:InitControls()
 	self:InitCallBacks()
 	
+	-- Play sound
+	if (self.repair_frame == "ui_itm_repair_1") or (self.repair_frame == "ui_itm_repair_2") then
+		trx_utils.play_sound("interface\\inv_zipper_open")
+	else
+		trx_utils.play_sound("interface\\inv_briefcase_tools_open")
+	end
+	
+	-- Hide weapon
 	if self.active_wep then
 		db.actor:hide_weapon()
 	end
@@ -271,12 +279,12 @@ function repair_ui:OnRepair()
 	end
 	
 	-- Load item 2
-	local se_obj_2 = self.item[2] and alife_object(self.item[2])
-	if not (se_obj_2) then
+	local obj_2 = self.item[2] and level.object_by_id(self.item[2])
+	if not (obj_2) then
 		return
 	end
 	
-	local sec = se_obj_2:section_name()
+	local sec = obj_2:section()
 	local bonus = system_ini():r_float_ex(sec,"repair_part_bonus") or self.part_bonus or 0
 	
 	-- Setting up the new condition for item 1
@@ -285,8 +293,10 @@ function repair_ui:OnRepair()
 	con = con <= 1 and con or 1
 	obj_1:set_condition(con)
 	
-	-- Remove the support item
-	alife():release(se_obj_2,true)
+	-- Remove 1 use of the support item
+	if (not trx_utils.adjust_item_charge(obj_2,-1)) then
+		trx_utils.release_obj(obj_2)
+	end
 	
 	-- Remove 1 use of the repair kit
 	if (not trx_utils.adjust_item_charge(self.obj,-1)) then
@@ -301,12 +311,19 @@ function repair_ui:OnRepair()
 		actor_effects.use_item(self.section.."_dummy")
 		level_weathers.get_weather_manager():forced_weather_change()
 	end
+	db.actor:restore_weapon()
 end
 
 function repair_ui:OnCancel()
-	if self.active_wep then
-		db.actor:restore_weapon()
+	db.actor:restore_weapon()
+	
+	-- Play sound
+	if (self.repair_frame == "ui_itm_repair_1") or (self.repair_frame == "ui_itm_repair_2") then
+		trx_utils.play_sound("interface\\inv_zipper_close")
+	else
+		trx_utils.play_sound("interface\\inv_briefcase_close")
 	end
+	
 	self:HideDialog()
 end
 

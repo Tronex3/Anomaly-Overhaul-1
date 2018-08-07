@@ -188,6 +188,7 @@ function save_state(data)
 	end
 
 	data.xr_statistic.actor_articles = actor_articles
+	data.xr_statistic.actor_notes = actor_notes
 	data.xr_statistic.actor_statistic = actor_statistic
 	data.xr_statistic.artefacts_table = artefacts_table
 	data.xr_statistic.taken_artefacts = taken_artefacts
@@ -206,6 +207,7 @@ function load_state(data)
 	end
 	
 	actor_articles = data.xr_statistic.actor_articles or actor_articles
+	actor_notes = data.xr_statistic.actor_notes or  actor_notes
 	actor_statistic = data.xr_statistic.actor_statistic or actor_statistic
 	artefacts_table = data.xr_statistic.artefacts_table or artefacts_table
 	taken_artefacts = data.xr_statistic.taken_artefacts or taken_artefacts

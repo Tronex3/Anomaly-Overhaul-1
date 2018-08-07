@@ -238,13 +238,13 @@ function cook_ui:OnCook()
 	local meal = self.list[2]:GetSelectedItem()
 	if (not fuel) or (not meal) then return end
 	
-	local se_fuel, se_meal, result
+	local obj_fuel, obj_meal, result
 	local is_campfire = fuel and (fuel.sec == "itm_campfire") or false
 	
 	-- Load item 1 (fuel)
 	if (fuel.id) then 
-		se_fuel = alife_object(fuel.id)
-		if (not se_fuel) then
+		obj_fuel = level.object_by_id(fuel.id)
+		if (not obj_fuel) then
 			return
 		end
 	elseif (not fuel.id) and (not is_campfire) then
@@ -253,18 +253,18 @@ function cook_ui:OnCook()
 	
 	-- Load item 2 (meal)
 	result = ini:r_string_ex(meal.sec,"cooking_result")
-	local se_meal = meal.id and alife():object(meal.id)
-	if (not se_meal) or (not result) or (not ini:section_exist(result)) then
+	local obj_meal = meal.id and level.object_by_id(meal.id)
+	if (not obj_meal) or (not result) or (not ini:section_exist(result)) then
 		return
 	end
 	
 	-- Release old items, give new meal
 	if (not is_campfire) then
-		if (not trx_utils.adjust_item_charge(level.object_by_id(fuel.id),-1)) then
-			alife():release(se_fuel,true)
+		if (not trx_utils.adjust_item_charge(obj_fuel,-1)) then
+			trx_utils.release_obj(obj_fuel)
 		end
 	end
-	alife():release(se_meal)
+	trx_utils.release_obj(obj_meal)
 	alife():create(result, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
 		
 	if self.cooking_limited then
@@ -273,22 +273,21 @@ function cook_ui:OnCook()
 		end
 	end
 	
-	-- Hide dialog
-	self:HideDialog()
-	
-	-- Effect
+	-- Play effect
 	if (self.cooking_use_actor_effects and actor_effects) then
 		local itm_base = ini:r_string_ex(self.section,"uses_base")
 		itm_base = itm_base or self.section
 		actor_effects.use_item(itm_base .. "_dummy")
 		--level_weathers.get_weather_manager():forced_weather_change()
 	end
+	db.actor:restore_weapon()
+	
+	-- Hide dialog
+	self:HideDialog()
 end
 
 function cook_ui:OnCancel()
-	if self.active_wep then
-		db.actor:restore_weapon()
-	end
+	db.actor:restore_weapon()
 	self:HideDialog()
 end
 

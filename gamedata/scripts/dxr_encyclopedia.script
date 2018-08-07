@@ -84,9 +84,14 @@ end
 ----- Interactivity -----
 -------------------------
 
--- Scan online objects in a radius of 20m
+-- Scan online objects in a radius of 10 m
 function scan_objects()
 	ResetTimeEvent(0,"ScanForGuide",10)
+	
+	-- Return if the player didn't spend 3 hours in the zone
+	if (not trx_utils.is_time_spent_in_zone(0,0,3)) then
+		return false
+	end
 	
 	for k,v in pairs (db.storage) do
 		if v and v.object then
@@ -147,15 +152,15 @@ end
 
 -- Item articles for taking, using or moving to slot.
 function detect_item_interaction(item)
+	local base = system_ini():r_string_ex(item:section(),"uses_base")
+	if base then
+		create_interaction("items", base)
+	else
+		create_interaction("items", item:section())
+	end
+		
 	if IsArtefact(item) then
 		create_interaction("artefacts", item:section())
-	else
-		local base = system_ini():r_string_ex(item:section(),"uses_base")
-		if base then
-			create_interaction("items", base)
-		else
-			create_interaction("items", item:section())
-		end
 	end
 end
 
@@ -411,7 +416,7 @@ function unlock_note(section)
 	if (axr_main.config:r_value("pda_encyclopedia", "display_messages", 1, true)) then
 		-- Article and category texts.
 		local message = game.translate_string("pda_encyclopedia_notify_note")
-		local text_a = game.translate_string(guide.categories[index_c].notes[index_a])
+		local text_a = game.translate_string(guide.categories[index_c].articles[index_a])
 		-- Other information.
 		local header = game.translate_string("st_tip")
 		local texture = "ui_iconsTotal_bar_darklab_documents" --news_manager.tips_icons["guide_unlock"] or "ui_inGame2_Poslednie_razrabotki"

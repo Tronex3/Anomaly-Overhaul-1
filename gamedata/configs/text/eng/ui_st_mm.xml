@@ -613,6 +613,9 @@
 	<string id="st_cap_check_azazel_mode">
 		<text>Azazel mode</text>
 	</string>
+	<string id="ui_mm_awr_disassembly">
+		<text>Disassembly with the CTRL button</text>
+	</string>
 	
 	<!-- added -->
 	<string id="ui_mm_debug_map_hud">

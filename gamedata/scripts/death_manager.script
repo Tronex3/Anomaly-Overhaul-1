@@ -243,7 +243,15 @@ function create_release_item(npc)
 								["ammo_m209"] = true,
 								["ammo_vog-25"] = true,
 								["ammo_og-7b"] = true
-							}
+	}
+	
+	local guide = ui_pda_encyclopedia_tab.get_ui()
+	local locked_notes = guide.locked_notes
+	local unlocked_articles = xr_statistic.actor_articles
+	
+	-- Unlock faction article (npcs will unlock your articles!)
+	--dxr_encyclopedia.detect_faction_interaction(comm)
+	
 	for sec,v in pairs(spawn_items) do
 		if (v > 0 and item_count[sec] and not utils.is_ammo(sec) and not grenade_classes[sec]) then
 			local number = math.random(item_count[sec][1], item_count[sec][2])
@@ -255,6 +263,13 @@ function create_release_item(npc)
 				-- If articles are added after achievement is unlocked, they might become unobtainable.
 				if dxr_encyclopedia.get_articles_locked_count() == 0 then
 					sec = "itm_pda_rare"
+				end
+			end
+			
+			-- Prevent recipes and letters from spawning once they're discovered
+			if string.find(sec,"letter") or string.find(sec,"recipe") then
+				if (not locked_notes["encyclopedia__notes_" .. sec]) and (unlocked_articles["encyclopedia__notes_" .. sec]) then
+					v = 0.0
 				end
 			end
 			

@@ -21,6 +21,7 @@ local clr_table = {
 	["e_green"] = {0,56,209,115},
 	["e_blue"] = {0,56,166,209},
 	["e_orange"] = {0,209,209,56},
+	["e_white"] = {0,170,170,170}
 }
 
 function get_clr (str , code)
@@ -162,6 +163,45 @@ function time_spent_in_zone(ind)
 	return false
 end
 
+function is_time_spent_in_zone(s,m,h,d,w,mo)
+
+-- Rule: return true of the time spent in the zone exceeds the input (sec,min,hrs,days,weeks,months)
+-- Input: time scales (sec,min,hrs,days,weeks,months)
+	
+	s = s or 0
+	m = m or 0
+	h = h or 0
+	d = d or 0
+	w = w or 0
+	mo = mo or 0
+	
+	local s_time = level.get_start_time()
+	local seconds = tonumber(game.get_game_time():diffSec(s_time))
+	local minutes = math.floor(seconds/60)
+	local hours = math.floor(minutes/60)
+	local days = math.floor(hours/24)
+	local weeks = math.floor(days/7)
+	local months = math.floor(weeks/4)
+	
+	printf(">>> TRX - is_time_spent_in_zone(" .. s .. ":" .. m .. ":" .. h .. "," .. d .. "," .. w .. "," .. mo .. ") | Current time: (" .. seconds .. ":" .. minutes .. ":" .. hours .. "," .. days .. "," .. weeks .. "," .. months .. ")")
+	
+	if (months > mo) then
+		return true
+	elseif (months == mo) and (weeks > w) then
+		return true
+	elseif (months == mo) and (weeks == w) and (days > d) then
+		return true
+	elseif (months == mo) and (weeks == w) and (days == d) and (hours > h) then
+		return true
+	elseif (months == mo) and (weeks == w) and (days == d) and (hours == h) and (minutes > m) then
+		return true
+	elseif (months == mo) and (weeks == w) and (days == d) and (hours == h) and (minutes == m) and (seconds > s) then
+		return true
+	end
+	
+	return false
+end
+
 --============================================< Items >============================================--
 
 function get_item_axis (sec)
@@ -241,7 +281,7 @@ function collect_inv_obj (sec , num , ... )
 	local allow = true
 	
 	if (not num) then 
-		return 
+		return false
 	end
 	
 	local function search(temp, item)
@@ -254,7 +294,7 @@ function collect_inv_obj (sec , num , ... )
 		end
 		if (item:section() == sec) and allow then
 			item_tbl[#item_tbl+1] = item
-			printf("TRX - collect_inv_obj | found viable item: " .. item:section() .. " | id: " .. item:id())
+			--printf("TRX - collect_inv_obj | found viable item: " .. item:section() .. " | id: " .. item:id())
 		end
 		allow = true
 	end

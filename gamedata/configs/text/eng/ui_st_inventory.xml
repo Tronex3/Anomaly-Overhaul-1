@@ -429,6 +429,9 @@
 	<string id="st_ui_bonus">
 		<text>Bonus</text>
 	</string>
+	<string id="st_news_dis_items">
+		<text>%c[0,255,0,0]Swiss knife or Grooming kit is required for disassembling items.</text>
+	</string>
 	
 	<string id="st_item_use">
 		<text>use</text>
@@ -453,5 +456,20 @@
 	</string>
 	<string id="st_item_disassemble">
 		<text>disassemble</text>
+	</string>
+		<string id="st_awr_r_detail">
+		<text>restore part [!]</text>
+	</string>
+	<string id="st_awr_disassembly_weapon">
+		<text>disassemble weapon [!]</text>
+	</string>
+	<string id="st_awr_disassembly_outfit">
+		<text>disassemble outfit [!]</text>
+	</string>
+	<string id="st_awr_disassembly_helmet">
+		<text>disassemble headgear [!]</text>
+	</string>
+	<string id="st_awr_disassembly_cloth">
+		<text>disassemble [!]</text>
 	</string>
 </string_table>

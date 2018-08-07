@@ -113,16 +113,23 @@ function pda_encyclopedia_tab:SelectArticle(section_a)
 		str = self:UpdateText(section, str)
 		self.information:SetText("%c[0,170,170,170]" .. str)
 		
+		-- Set additional information
+		self.information2:SetText("")
 		local trans = game.translate_string(section .. "_text2")
 		if (trans ~= section .. "_text2") then
-			self.information2:SetText(game.translate_string(section .. "_text2"))
+			self.information2:SetText("%c[0,240,240,240]" .. trans)
+		end
+		
+		local section_pic = section
+		if string.find(section,"encyclopedia_artefacts") then
+			section_pic = "encyclopedia_empty"
 		end
 
 		-- Set the article's image.
 		-- A bit hacky, but to allow for dynamic width/height we have to initialise the texture twice.
 		-- We load the texture, grab its dimensions, set the window size then reinitialise it a second time.
 		-- If we don't do this then for whatever weird and wonderful reason the image refuses to draw on the UI.
-		self.image:InitTexture(section .. "_image")
+		self.image:InitTexture(section_pic .. "_image")
 		
 		-- Grab the dimensions of the image to resize the container.
 		local image_width = self.image:GetTextureRect().x2 - self.image:GetTextureRect().x1
@@ -138,7 +145,7 @@ function pda_encyclopedia_tab:SelectArticle(section_a)
 		self.image_container:SetWndSize(vector2():set(image_width, image_height + image_offset))
 		self.image:SetWndSize(vector2():set(image_width * x_coefficient, image_height))
 		self.image:SetStretchTexture(true)
-		self.image:InitTexture(section .. "_image")
+		self.image:InitTexture(section_pic .. "_image")
 	else
 		self.information:SetText(game.translate_string("pda_encyclopedia_locked_text"))
 		self.information2:SetText("")
@@ -155,7 +162,7 @@ function pda_encyclopedia_tab:SelectArticle(section_a)
 	self.information2:SetWndSize(vector2():set(self.information2:GetWidth(), self.information2:GetHeight() + information_offset))
 	local pos = self.information2:GetWndPos()
 	local pos2 = self.information:GetWndPos()
-	self.information2:SetWndPos(vector2():set(pos.x,pos2.y+self.information:GetHeight() + information_offset + 10))
+	self.information2:SetWndPos(vector2():set(pos.x , pos2.y + self.information:GetHeight() + information_offset + 10))
 	
 	-- Clear the scrollbar.
 	self.scrollbar:Clear()
@@ -483,6 +490,7 @@ end
 
 function pda_encyclopedia_tab:UpdateText(section, str)
 
+	-- Equipment State
 	if (section == "encyclopedia__notes__state") then -- equipment state
 		local function fill_list(actor,obj)
 			if (obj) then
@@ -498,12 +506,57 @@ function pda_encyclopedia_tab:UpdateText(section, str)
 					end
 					
 					local name = game.translate_string(system_ini():r_string_ex (obj:section(),"inv_name") or "")
-					str = str .. "\\n " .. clr .. "• %c[0,170,170,170]" .. name .. " : " .. clr .. condition .. "%"
+					str = str .. "\\n%c[0,170,170,170]• " .. name .. ": " .. clr .. condition .. "%"
 				end
 			end
 		end
 	
 		db.actor:iterate_inventory(fill_list,db.actor)
+		
+	-- Artefacts
+	elseif (string.find(section,"encyclopedia_artefacts")) then 
+		local art = string.gsub(section,"encyclopedia_artefacts_","")
+		art = "af_" .. art
+		if (system_ini():section_exist(art)) then
+		
+			-- Description
+			str = trx_utils.get_clr("e_green") .. game.translate_string("pda_encyclopedia_info") .. ":" .. trx_utils.get_clr("e_white") .. " \\n"
+			str = str .. game.translate_string(system_ini():r_string_ex(art,"description"))
+			
+			str = str .. trx_utils.get_clr("e_blue") .. " \\n" .. " \\n" .. game.translate_string("pda_encyclopedia_properties") .. ":" .. trx_utils.get_clr("e_white") .. " \\n"
+			
+			-- Properties
+			local art_tbl = {}
+			art_tbl["health_restore_speed"]         = {system_ini():r_float_ex(art,"health_restore_speed") or 0        						,1          	,"%"			,"ui_inv_health"}
+			art_tbl["radiation_restore_speed"]      = {system_ini():r_float_ex(art,"radiation_restore_speed") or 0     						,47727.27273    ,"mSv / sec"	,"ui_inv_radiation"}
+			art_tbl["satiety_restore_speed"]        = {system_ini():r_float_ex(art,"satiety_restore_speed") or 0       						,1          	,"%"			,"ui_inv_satiety"}
+			art_tbl["power_restore_speed"]          = {system_ini():r_float_ex(art,"power_restore_speed") or 0         						,30000          ,"%"			,"ui_inv_power"}
+			art_tbl["bleeding_restore_speed"]       = {system_ini():r_float_ex(art,"bleeding_restore_speed") or 0      						,15027.3224     ,"ml / min"		,"ui_inv_bleeding"}
+			art_tbl["burn_immunity"]                = {system_ini():r_float_ex(art .. "_absorbation","burn_immunity") or 0			   		,72992.70073	,"%"			,"ui_inv_outfit_burn_protection"}
+			art_tbl["shock_immunity"]               = {system_ini():r_float_ex(art .. "_absorbation","shock_immunity") or 0			   		,2000			,"kv"			,"ui_inv_outfit_shock_protection"}
+			art_tbl["radiation_immunity"]           = {system_ini():r_float_ex(art .. "_absorbation","radiation_immunity") or 0          	,16666.6667 	,"%"			,"ui_inv_outfit_radiation_protection"}
+			art_tbl["chemical_burn_immunity"]       = {system_ini():r_float_ex(art .. "_absorbation","chemical_burn_immunity") or 0	   		,80000      	,"%"			,"ui_inv_outfit_chemical_burn_protection"}
+			art_tbl["telepatic_immunity"]           = {system_ini():r_float_ex(art .. "_absorbation","telepatic_immunity") or 0          	,23284.31373    ,"%"			,"ui_inv_outfit_telepatic_protection"}
+			art_tbl["strike_immunity"]              = {system_ini():r_float_ex(art .. "_absorbation","strike_immunity") or 0             	,1          	,"%"			,"ui_inv_outfit_strike_protection"}
+			art_tbl["explosion_immunity"]           = {system_ini():r_float_ex(art .. "_absorbation","explosion_immunity") or 0		   		,2778			,"H/mm2"		,"ui_inv_outfit_explosion_protection"}
+			art_tbl["wound_immunity"]               = {system_ini():r_float_ex(art .. "_absorbation","wound_immunity") or 0			   		,2500			,"H/mm2"		,"ui_inv_outfit_wound_protection"}
+			art_tbl["fire_wound_immunity"]          = {system_ini():r_float_ex(art .. "_absorbation","fire_wound_immunity") or 0			,2500			,"H/mm2"		,"ui_inv_outfit_fire_wound_protection"}
+			art_tbl["additional_inventory_weight"]  = {system_ini():r_float_ex(art,"additional_inventory_weight") or 0 						,1000			,"g"			,"ui_inv_weight"}
+			
+			-- Actual values
+			local art_val = {}
+			for k,v in pairs(art_tbl) do
+				art_val[k] = (v[1] ~= 0) and utils.round(v[1]*v[2],2) or 0
+			end
+
+			for k,v in pairs(art_val) do
+				if (v ~= 0) then
+					local clr = (v < 0) and "%c[0,255,100,100]" or "%c[0,250,250,250]"
+					local sign = (v > 0) and "+" or ""
+					str = str .. "\\n " .. trx_utils.get_clr("e_white") .. "• " .. game.translate_string(art_tbl[k][4]) .. ": " .. clr .. sign .. tostring(v) .. " " .. art_tbl[k][3]
+				end
+			end
+		end
 	end
 	
 	return str

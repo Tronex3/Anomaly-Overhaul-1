@@ -1224,26 +1224,8 @@
 	<string id="st_awr_exit">
 		<text>Exit</text>
 	</string>
-	<string id="ui_mm_awr_disassembly">
-		<text>[AWR] Disassembly with the CTRL button</text>
-	</string>
-	<string id="st_awr_r_detail">
-		<text>restore part [!]</text>
-	</string>
-	<string id="st_awr_disassembly_weapon">
-		<text>disassemble weapon [!]</text>
-	</string>
-	<string id="st_awr_disassembly_outfit">
-		<text>disassemble outfit [!]</text>
-	</string>
-	<string id="st_awr_disassembly_helmet">
-		<text>disassemble headgear [!]</text>
-	</string>
-	<string id="st_awr_disassembly_cloth">
-		<text>disassemble [!]</text>
-	</string>
 	<string id="st_awr_ctrl">
-		<text>%sTo prevent unintentional disassembly of weapons and armour,\nthe procedure can be carried out only when the CTRL key is held down%s</text>
+		<text>%sTo prevent unintentional disassembly of items,\nthe procedure can be carried out only when the CTRL key is held down%s</text>
 	</string>
 	<string id="st_unload">
 		<text>Weapon needs to be unloaded and free of any attachments before maintenance</text>

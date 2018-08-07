@@ -94,8 +94,8 @@
 	</string>
 	<string id="encyclopedia_features_timer_mode_text">
 		<text>
-			%c[0,250,250,250]In Timer mode%c[0,170,170,170], you can save your game every specific amount of time. 
-			\nOnce you save your game, you cannot make another save once again until the timer is over.
+			%c[0,250,250,250]In Timer mode%c[0,170,170,170], you can save your progress every specific amount of time. 
+			\nOnce you save, you cannot make another until the timer is over.
 		</text>
 	</string>
 	
@@ -225,13 +225,15 @@
 			\n• Replacement parts (should be suitable for your weapons. You can get them by disassembling similar weapon types using the %c[0,250,250,250]Multitool%c[0,170,170,170])
 			\n• Weapon repair kit
 			\n• Weapon modification kits
-			\n \n%c[0,56,166,209]Repair and upgrade procedurec%c[0,170,170,170]
+			
+			\n \n%c[0,56,166,209]Repair and upgrade procedures%c[0,170,170,170]
 			\nReplacing parts when repairing weapons with a low state occurs in a certain sequence:
 			\n• At condition 0-20/0-25/0-30% - Replacement of barrel
 			\n• At condition 20-35/25-45/30-55% - Replacement of trigger (shock-trigger mechanism)
 			\n• At condition 35-45/45-60/55-70% - Replacement of breech head
 			\n• At condition 45-55/60-70/70-80% - Replacement of gas tube
 			\n• At condition 55-65/70-75/80-85% - Replacement of breech block
+			
 			\n \n%c[0,209,209,56]Steps:%c[0,170,170,170]
 			\n1• Disassemble your weapon at a mechanic's vice.
 			\n2• Select a %c[0,250,250,250]weapon repair kit%c[0,170,170,170] to replace the weapon barrel with another barrel of the same caliber, this can be also done by using a %c[0,250,250,250]weapon upgrade kit%c[0,170,170,170] in a condition from 20-65%/25-75%/30-85%. Double click on the kit to apply the repair procedure.
@@ -241,6 +243,29 @@
 			\n6• In case the part has been damaged, try again if there is a repair kit and any more weapon parts.
 			\n7• All replaced parts are retained until the condition of the weapon is lowered. In this case, to improve the quality, the parts will need to be replaced anew.
 			\n8• When all five parts have been replaced, the quality of the weapon will be changed to the corresponding one. On that note, if at least one of the replaced items has been worn out, the quality of the weapon will be changed to "worn", even if other weapon parts are replaced with new ones.
+		</text>
+	</string>
+	
+	<string id="encyclopedia_features_disassembly">
+		<text>Item disassembly</text>
+	</string>
+	<string id="encyclopedia_features_disassembly_text">
+		<text>
+			You can %c[0,250,250,250]disassemble%c[0,170,170,170] various types of items to acquire basic parts out of them.
+			
+			\n \n%c[0,56,209,115]Information%c[0,170,170,170]
+			\nDisassembly helps with recycling unwanted items to acquire parts that can be used for other meaningful purposes such as repairing or crafting other items.
+			\nIt can be done by using one of those three tools:
+			\n• %c[0,250,250,250]Swiss knife%c[0,170,170,170] (for small equipment and misc items)
+			\n• %c[0,250,250,250]Grooming kit%c[0,170,170,170] (for small equipment and misc items)
+			\n• %c[0,250,250,250]Multi-tool%c[0,170,170,170] (for weapons, helmets and outfits)
+			
+			\n \n%c[0,56,166,209]Procedure%c[0,170,170,170]
+			\nItems that can be disassembled will show (disassemble [!]) option when you click on them in your inventory.
+			\nTo disassemble an item, make sure that you have a suitable disassembling tool, then hold Left CTRL button and click on your item and choose (disassemble [!])
+			
+			\n \n%c[0,209,209,56]Note%c[0,170,170,170]
+			\nLeft CTRL button acts as a safety procedure to prevent accidental disassembly. It can be disabled from the options.
 		</text>
 	</string>
 	

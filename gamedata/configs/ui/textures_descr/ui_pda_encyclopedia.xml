@@ -1,6 +1,7 @@
 <w>
 	<!-- No images -->
 	<file name="ui\ui_console">
+		<texture id="encyclopedia_empty_image" x="0" y="0" width="0" height="0"/>
 		
 		<texture id="encyclopedia_achievements_bookworm_food_image" x="0" y="0" width="0" height="0"/>
 		<texture id="encyclopedia_achievements_completionist_image" x="0" y="0" width="0" height="0"/>
@@ -18,37 +19,10 @@
 		<texture id="encyclopedia_achievements_well_dressed_image" x="0" y="0" width="0" height="0"/>
 		<texture id="encyclopedia_achievements_wishful_thinking_image" x="0" y="0" width="0" height="0"/>
 		
-		<texture id="encyclopedia_artefacts_baloon_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_blood_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_cristall_flower_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_cristall_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_dummy_battery_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_dummy_dummy_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_dummy_glassbeads_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_electra_flash_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_electra_moonlight_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_electra_sparkler_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_eye_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_fire_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_fireball_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_fuzz_kolobok_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_gold_fish_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_gravi_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_ice_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_medusa_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_mincer_meat_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_night_star_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_soul_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_vyvert_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_compass_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_oasis_heart_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_glass_image" x="0" y="0" width="0" height="0"/>
-		
 		<texture id="encyclopedia_features_azazel_mode_image" x="0" y="0" width="0" height="0"/>
 		<texture id="encyclopedia_features_ironman_mode_image" x="0" y="0" width="0" height="0"/>
 		<texture id="encyclopedia_features_story_mode_image" x="0" y="0" width="0" height="0"/>
 		<texture id="encyclopedia_features_survival_mode_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_features_campfire_mode_image" x="0" y="0" width="0" height="0"/>
 		<texture id="encyclopedia_features_agony_mode_image" x="0" y="0" width="0" height="0"/>
 		<texture id="encyclopedia_features_timer_mode_image" x="0" y="0" width="0" height="0"/>
 		<texture id="encyclopedia_features_companions_image" x="0" y="0" width="0" height="0"/>
@@ -86,9 +60,11 @@
 	
 	<!-- features -->
 	<file name="ui\guide\encyclopedia_features">
-		<texture id="encyclopedia_features_awr_image" x="0" y="256" width="512" height="256"/>
-		<texture id="encyclopedia_features_map_spots_image" x="512" y="0" width="512" height="256"/>
 		<texture id="encyclopedia_features_hud_image" x="0" y="0" width="512" height="256"/>
+		<texture id="encyclopedia_features_map_spots_image" x="512" y="0" width="512" height="256"/>
+		<texture id="encyclopedia_features_awr_image" x="0" y="256" width="512" height="256"/>
+		<texture id="encyclopedia_features_disassembly_image" x="512" y="256" width="512" height="256"/>
+		<texture id="encyclopedia_features_campfire_mode_image" x="0" y="512" width="512" height="256"/>
 	</file>
 	
 	<!-- notes -->
@@ -120,6 +96,25 @@
 		<texture id="encyclopedia__notes_recipe_ammo_3_image" x="512" y="256" width="512" height="256"/>
 		<texture id="encyclopedia__notes_recipe_ammo_4_image" x="512" y="256" width="512" height="256"/>
 		<texture id="encyclopedia__notes_recipe_ammo_5_image" x="512" y="256" width="512" height="256"/>
+		
+		<texture id="encyclopedia__notes_letter_memoirs_1_of_2_image" x="512" y="512" width="512" height="256"/>
+		<texture id="encyclopedia__notes_letter_memoirs_2_of_2_image" x="512" y="512" width="512" height="256"/>
+		<texture id="encyclopedia__notes_letter_freedom_manual_1_of_2_image" x="0" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_letter_freedom_manual_2_of_2_image" x="0" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_letter_stalker_letter_1_of_2_image" x="512" y="512" width="512" height="256"/>
+		<texture id="encyclopedia__notes_letter_stalker_letter_2_of_2_image" x="512" y="512" width="512" height="256"/>
+		<texture id="encyclopedia__notes_letter_stalker_letter_3_image" x="0" y="512" width="512" height="256"/>
+		<texture id="encyclopedia__notes_letter_ecologist_report_1_of_3_image" x="0" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_letter_ecologist_report_2_of_3_image" x="0" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_letter_ecologist_report_3_of_3_image" x="0" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_letter_monolith_prayer_1_of_3_image" x="0" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_letter_monolith_prayer_2_of_3_image" x="0" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_letter_monolith_prayer_3_of_3_image" x="0" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_letter_monolithian_thoughts_image" x="0" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_letter_letter_to_outside_image" x="0" y="768" width="512" height="256"/>
+		<texture id="encyclopedia__notes_letter_military_stalker_image" x="0" y="256" width="512" height="256"/>
+		<texture id="encyclopedia__notes_letter_mercenary_image" x="512" y="0" width="512" height="256"/>
+		<texture id="encyclopedia__notes_letter_military_log_image" x="512" y="0" width="512" height="256"/>
 	</file>
 	
 	<!-- Items -->

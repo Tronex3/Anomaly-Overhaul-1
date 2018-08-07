@@ -33,6 +33,7 @@ repair_tools = {}
 disassemble_tools = {}
 cook_tools = {}
 map_tools = {}
+letter_tools = {}
 artefact_containers = alun_utils.collect_section(ini_container,"containers",true) or {}
 ini:section_for_each(function(section) -- search all sections
 	if ini:r_bool_ex(section,"craft_tool") then
@@ -47,6 +48,8 @@ ini:section_for_each(function(section) -- search all sections
 		cook_tools[section] = true
 	elseif ini:r_string_ex(section,"use_map") then
 		map_tools[section] = true
+	elseif ini:r_bool_ex(section,"letter") then
+		letter_tools[section] = true
 	end
 end)
 
@@ -87,6 +90,7 @@ ShowMessageTime = nil
 
 TorchType = 0
 local torch_delay
+local d_flag = false
 local actor_fill_backpack
 local clsid_to_section = {
 	--> TRX A-Life Revamp
@@ -128,6 +132,7 @@ function on_game_start()
 	RegisterScriptCallback("actor_on_item_take_from_box",actor_on_item_take_from_box)
 	RegisterScriptCallback("physic_object_on_use_callback",physic_object_on_use_callback)
 	RegisterScriptCallback("on_key_press",on_key_press)
+	RegisterScriptCallback("on_key_release",on_key_release)
 	RegisterScriptCallback("CUIActorMenu_OnItemDropped",on_item_drag_dropped)
 	--RegisterScriptCallback("CUIActorMenu_OnItemFocusReceive",on_item_focus)
 end
@@ -472,6 +477,16 @@ function on_key_press(key) -- turn off flashlight if actor don't have it
 			xr_sound.set_sound_play(db.actor:id(),"torch_click")
 		end
 	end
+	
+	if(key == DIK_keys["DIK_LCONTROL"] ) then
+		d_flag = true
+	end
+end
+
+function on_key_release(key)
+	if(key == DIK_keys["DIK_LCONTROL"] ) then
+		d_flag = false
+	end
 end
 
 function on_item_drag_dropped(obj_1, obj_2, slot_from, slot_to)
@@ -589,6 +604,7 @@ end
 function menu_open(itm) -- return "Open" name
 	local p = itm:parent()
 	if not (p and p:id() == db.actor:id()) then return end
+	if artefact_containers[itm:section()] then return end -- default containers
 	
 	return game.translate_string("st_item_open")
 end
@@ -624,7 +640,7 @@ function menu_disassemble(itm) -- return "Reveal" name
 	
 	if (not ini:r_string_ex(itm:section(),"disassemble_parts")) then return end
 	
-	return game.translate_string("st_item_disassemble")
+	return game.translate_string("st_awr_disassembly_cloth")
 end
 
 
@@ -688,11 +704,16 @@ function use_separate(obj) -- separate item
 	
 	if trx_utils.adjust_item_charge(obj,-1) then
 		alife():create(base, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
-		printf("TRX - inv_item_separate | Get new base item : " .. base)
+		--printf("TRX - inv_item_separate | Get new base item : " .. base)
 	end
 end
 
 function use_disassemble(obj) -- disassemble item
+	local chk = axr_main.config:r_value("mm_options","enable_awr_disassembly",1,true)
+	if chk and (not d_flag) then
+		awr_shared_functions.SendAwrMsg("success", "detail", "st_awr_ctrl")
+		return
+	end
 
 	-- Collect disassemble parts of our item
 	local parts = ini:r_string_ex(obj:section(),"disassemble_parts")
@@ -701,36 +722,35 @@ function use_disassemble(obj) -- disassemble item
 	
 	-- Collect disassemble tools (objects)
 	local dis_itm
-	for i=1,#disassemble_tools do
-		local dis_tbl = trx_utils.collect_inv_obj(disassemble_tools[i],1)
+	for k,v in pairs (disassemble_tools) do
+		local dis_tbl = trx_utils.collect_inv_obj(k,1)
 		dis_itm = dis_tbl and dis_tbl[1] or nil
 		if dis_itm then
 			break
 		end
 	end
-	if (not dis_itm) then return end
+	if (not dis_itm) then 
+		news_manager.send_tip(db.actor, game.translate_string("st_news_dis_items"), nil, "disassemble", 6000)
+		return 
+	end
 
 	-- Delete old disassemble item or one use
-	local is_dis_multi_use = trx_utils.adjust_item_charge(dis_itm,-1)
-	if (not is_dis_multi_use) then
-		local se_dis_obj = alife_object(dis_itm:id())
-		alife():release(se_dis_obj,true)
-		printf("TRX - inv_item_disassemble | Delete disassembling tool: " .. dis_itm:section())
+	if (not trx_utils.adjust_item_charge(dis_itm,-1)) then
+		trx_utils.release_obj(dis_itm)
+		--printf("TRX - inv_item_disassemble | Delete disassembling tool: " .. dis_itm:section())
 	end
-	
+		
 	-- Delete old item or one use
-	local is_multi_use = trx_utils.adjust_item_charge(obj,-1)
-	if (not is_multi_use) then
-		local se_obj = alife_object(obj:id())
-		alife():release(se_obj,true)
-		printf("TRX - inv_item_disassemble | Delete disassembled item: " .. obj:section())
+	if (not trx_utils.adjust_item_charge(obj,-1)) then
+		trx_utils.release_obj(obj)
+		--printf("TRX - inv_item_disassemble | Delete disassembled item: " .. obj:section())
 	end
 	
 	-- Give disassemble parts
 	for i=1,#parts_tbl do
 		if ini:section_exist(parts_tbl[i]) then
 			alife():create(parts_tbl[i], db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
-			printf("TRX - inv_item_disassemble | Get new part from disassembling: " .. parts_tbl[i])
+			--printf("TRX - inv_item_disassemble | Get new part from disassembling: " .. parts_tbl[i])
 		end
 	end
 
@@ -740,7 +760,7 @@ function use_ammo_box(obj)
 	local max_ammo = math.random(1,5)
 	local ammo_list = {}
 	
-	local ini_ammo = ini_file("misc\\items\\item_management\\ammo_box.ltx")
+	local ini_ammo = ini_file("plugins\\item_management\\ammo_box.ltx")
 	local n = ini_ammo:line_count("ammo_list") or 0
 	for i=0, n-1 do
 		local result, id, value = ini_ammo:r_line("ammo_list" , i , "", "")
@@ -886,13 +906,12 @@ function use_recipe(obj)
 		return
 	end
 	
-	if (not alife_storage_manager.get_state().unlocked_recipe) then
-		alife_storage_manager.get_state().unlocked_recipe = {}
-	end
-	
-	if (not alife_storage_manager.get_state().unlocked_recipe[sec]) then
-		alife_storage_manager.get_state().unlocked_recipe[sec] = true
+	local guide = ui_pda_encyclopedia_tab.get_ui()
+	local locked_notes = guide.locked_notes
+	local unlocked_articles = xr_statistic.actor_articles
+	if (locked_notes["encyclopedia__notes_" .. sec]) and (not unlocked_articles["encyclopedia__notes_" .. sec]) then
 		dxr_encyclopedia.detect_note_interaction(sec)
+		trx_utils.release_obj(obj)
 	else
 		SetHudMsg(game.translate_string("st_recipe_is_known"),3)
 	end
@@ -902,7 +921,29 @@ function use_recipe(obj)
 	if (hud) then
 		hud:HideActorMenu()
 	end
-	--db.actor:hide_weapon()
+end
+
+function use_letter(obj)
+	local sec = obj:section()
+	if not letter_tools[sec] then
+		return
+	end
+	
+	local guide = ui_pda_encyclopedia_tab.get_ui()
+	local locked_notes = guide.locked_notes
+	local unlocked_articles = xr_statistic.actor_articles
+	if (locked_notes["encyclopedia__notes_" .. sec]) and (not unlocked_articles["encyclopedia__notes_" .. sec]) then
+		dxr_encyclopedia.detect_note_interaction(sec)
+		trx_utils.release_obj(obj)
+	else
+		SetHudMsg(game.translate_string("st_letter_is_known"),3)
+	end
+	
+	-- effect
+	local hud = get_hud()
+	if (hud) then
+		hud:HideActorMenu()
+	end
 end
 
 function use_guitar(obj)
