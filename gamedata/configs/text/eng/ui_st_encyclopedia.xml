@@ -38,6 +38,9 @@
 	<string id="pda_encyclopedia_properties">
 		<text>Properties</text>
 	</string>
+	<string id="pda_encyclopedia_subject">
+		<text>Subject</text>
+	</string>
 	
 	<!-- Locked articles -->
 	<string id="pda_encyclopedia_locked">

@@ -170,6 +170,11 @@
 		<texture id="encyclopedia_anomalies_teleport_image" x="1536" y="768" width="512" height="256"/>
 	</file>
 	
+	<!-- Artefacts -->
+	<file name="ui\guide\encyclopedia_artefacts">
+		<texture id="encyclopedia_artefacts_image" x="0" y="0" width="512" height="256"/>
+	</file>
+	
 	<!-- Characters -->
 	<!-- Split into multiple files to prevent loading massive textures. -->
 	<file name="ui\guide\encyclopedia_characters">

@@ -365,7 +365,10 @@ function unlock_article(section)
 		-- Article and category texts.
 		local message = game.translate_string("pda_encyclopedia_notify")
 		local text_c = game.translate_string(guide.categories[index_c].section)
-		local text_a = game.translate_string(guide.categories[index_c].articles[index_a])
+		local text_a
+		text_a = guide.categories[index_c].articles[index_a]
+		text_a = ui_pda_encyclopedia_tab.UpdateName(text_a)
+		text_a = game.translate_string(text_a)
 		-- Other information.
 		local header = game.translate_string("st_tip")
 		local texture = news_manager.tips_icons["guide_unlock"] or "ui_inGame2_Poslednie_razrabotki"
@@ -416,7 +419,10 @@ function unlock_note(section)
 	if (axr_main.config:r_value("pda_encyclopedia", "display_messages", 1, true)) then
 		-- Article and category texts.
 		local message = game.translate_string("pda_encyclopedia_notify_note")
-		local text_a = game.translate_string(guide.categories[index_c].articles[index_a])
+		local text_a
+		text_a = guide.categories[index_c].articles[index_a]
+		text_a = ui_pda_encyclopedia_tab.UpdateName(text_a)
+		text_a = game.translate_string(text_a)
 		-- Other information.
 		local header = game.translate_string("st_tip")
 		local texture = "ui_iconsTotal_bar_darklab_documents" --news_manager.tips_icons["guide_unlock"] or "ui_inGame2_Poslednie_razrabotki"

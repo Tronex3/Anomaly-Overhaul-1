@@ -51,7 +51,7 @@ function pda_encyclopedia_entry:__init(sec, indx, clr) super(sec, indx, clr)
 	self.sect:SetFont(GetFontLetterica18Russian())
 	self.sect:SetWndSize(vector2():set(400, 22))
 	self.sect:SetEllipsis(true)
-	self.sect:SetText(game.translate_string(self.sec))
+	self.sect:SetText(game.translate_string( UpdateName(self.sec) ))
 end
 
 -------------------------
@@ -110,7 +110,7 @@ function pda_encyclopedia_tab:SelectArticle(section_a)
 		-- Set the article's text.
 		local str = game.translate_string(section .. "_text")
 		-- Adjust article's text if its special
-		str = self:UpdateText(section, str)
+		str = UpdateDescr(section, str)
 		self.information:SetText("%c[0,170,170,170]" .. str)
 		
 		-- Set additional information
@@ -122,7 +122,7 @@ function pda_encyclopedia_tab:SelectArticle(section_a)
 		
 		local section_pic = section
 		if string.find(section,"encyclopedia_artefacts") then
-			section_pic = "encyclopedia_empty"
+			section_pic = "encyclopedia_artefacts"
 		end
 
 		-- Set the article's image.
@@ -488,7 +488,24 @@ function pda_encyclopedia_tab:InitPlugin2()
 	end
 end
 
-function pda_encyclopedia_tab:UpdateText(section, str)
+---------------------
+----- Utility -----
+---------------------
+
+function UpdateName(section)
+
+	-- Artefacts
+	if (string.find(section,"encyclopedia_artefacts")) then 
+		local art = string.gsub(section,"encyclopedia_artefacts_","")
+		if (system_ini():section_exist(art)) then
+			section = alun_utils.get_inv_name(art) or section
+		end
+	end
+	
+	return section
+end
+
+function UpdateDescr(section, str)
 
 	-- Equipment State
 	if (section == "encyclopedia__notes__state") then -- equipment state
@@ -516,31 +533,32 @@ function pda_encyclopedia_tab:UpdateText(section, str)
 	-- Artefacts
 	elseif (string.find(section,"encyclopedia_artefacts")) then 
 		local art = string.gsub(section,"encyclopedia_artefacts_","")
-		art = "af_" .. art
 		if (system_ini():section_exist(art)) then
 		
 			-- Description
-			str = trx_utils.get_clr("e_green") .. game.translate_string("pda_encyclopedia_info") .. ":" .. trx_utils.get_clr("e_white") .. " \\n"
-			str = str .. game.translate_string(system_ini():r_string_ex(art,"description"))
-			
-			str = str .. trx_utils.get_clr("e_blue") .. " \\n" .. " \\n" .. game.translate_string("pda_encyclopedia_properties") .. ":" .. trx_utils.get_clr("e_white") .. " \\n"
+			str = " \\n" .. trx_utils.get_clr("e_blue") .. game.translate_string("pda_encyclopedia_subject")
+			str = str .. " \\n- " .. trx_utils.get_clr("e_gray") .. alun_utils.get_inv_name(art)
+			str = str .. " \\n" .. " \\n" .. trx_utils.get_clr("e_green") .. game.translate_string("pda_encyclopedia_info")
+			str = str .. " \\n" .. trx_utils.get_clr("e_gray") .. game.translate_string(system_ini():r_string_ex(art,"description"))
+			str = str .. " \\n" .. " \\n" .. trx_utils.get_clr("e_orange") .. game.translate_string("pda_encyclopedia_properties")
+			str = str .. " \\n" .. trx_utils.get_clr("e_gray")
 			
 			-- Properties
 			local art_tbl = {}
-			art_tbl["health_restore_speed"]         = {system_ini():r_float_ex(art,"health_restore_speed") or 0        						,1          	,"%"			,"ui_inv_health"}
+			art_tbl["health_restore_speed"]         = {system_ini():r_float_ex(art,"health_restore_speed") or 0        						,5000          	,""				,"ui_inv_health"}
 			art_tbl["radiation_restore_speed"]      = {system_ini():r_float_ex(art,"radiation_restore_speed") or 0     						,47727.27273    ,"mSv / sec"	,"ui_inv_radiation"}
 			art_tbl["satiety_restore_speed"]        = {system_ini():r_float_ex(art,"satiety_restore_speed") or 0       						,1          	,"%"			,"ui_inv_satiety"}
 			art_tbl["power_restore_speed"]          = {system_ini():r_float_ex(art,"power_restore_speed") or 0         						,30000          ,"%"			,"ui_inv_power"}
 			art_tbl["bleeding_restore_speed"]       = {system_ini():r_float_ex(art,"bleeding_restore_speed") or 0      						,15027.3224     ,"ml / min"		,"ui_inv_bleeding"}
-			art_tbl["burn_immunity"]                = {system_ini():r_float_ex(art .. "_absorbation","burn_immunity") or 0			   		,72992.70073	,"%"			,"ui_inv_outfit_burn_protection"}
+			art_tbl["burn_immunity"]                = {system_ini():r_float_ex(art .. "_absorbation","burn_immunity") or 0			   		,72972.97297	,"%"			,"ui_inv_outfit_burn_protection"}
 			art_tbl["shock_immunity"]               = {system_ini():r_float_ex(art .. "_absorbation","shock_immunity") or 0			   		,2000			,"kv"			,"ui_inv_outfit_shock_protection"}
-			art_tbl["radiation_immunity"]           = {system_ini():r_float_ex(art .. "_absorbation","radiation_immunity") or 0          	,16666.6667 	,"%"			,"ui_inv_outfit_radiation_protection"}
+			art_tbl["radiation_immunity"]           = {system_ini():r_float_ex(art .. "_absorbation","radiation_immunity") or 0          	,16666.66667 	,"%"			,"ui_inv_outfit_radiation_protection"}
 			art_tbl["chemical_burn_immunity"]       = {system_ini():r_float_ex(art .. "_absorbation","chemical_burn_immunity") or 0	   		,80000      	,"%"			,"ui_inv_outfit_chemical_burn_protection"}
 			art_tbl["telepatic_immunity"]           = {system_ini():r_float_ex(art .. "_absorbation","telepatic_immunity") or 0          	,23284.31373    ,"%"			,"ui_inv_outfit_telepatic_protection"}
-			art_tbl["strike_immunity"]              = {system_ini():r_float_ex(art .. "_absorbation","strike_immunity") or 0             	,1          	,"%"			,"ui_inv_outfit_strike_protection"}
-			art_tbl["explosion_immunity"]           = {system_ini():r_float_ex(art .. "_absorbation","explosion_immunity") or 0		   		,2778			,"H/mm2"		,"ui_inv_outfit_explosion_protection"}
+			art_tbl["strike_immunity"]              = {system_ini():r_float_ex(art .. "_absorbation","strike_immunity") or 0             	,2494.590811    ,"%"			,"ui_inv_outfit_strike_protection"}
+			art_tbl["explosion_immunity"]           = {system_ini():r_float_ex(art .. "_absorbation","explosion_immunity") or 0		   		,2671.232877	,"H/mm2"		,"ui_inv_outfit_explosion_protection"}
 			art_tbl["wound_immunity"]               = {system_ini():r_float_ex(art .. "_absorbation","wound_immunity") or 0			   		,2500			,"H/mm2"		,"ui_inv_outfit_wound_protection"}
-			art_tbl["fire_wound_immunity"]          = {system_ini():r_float_ex(art .. "_absorbation","fire_wound_immunity") or 0			,2500			,"H/mm2"		,"ui_inv_outfit_fire_wound_protection"}
+			art_tbl["fire_wound_immunity"]          = {system_ini():r_float_ex(art .. "_absorbation","fire_wound_immunity") or 0			,2387.096774	,"H/mm2"		,"ui_inv_outfit_fire_wound_protection"}
 			art_tbl["additional_inventory_weight"]  = {system_ini():r_float_ex(art,"additional_inventory_weight") or 0 						,1000			,"g"			,"ui_inv_weight"}
 			
 			-- Actual values
@@ -553,7 +571,7 @@ function pda_encyclopedia_tab:UpdateText(section, str)
 				if (v ~= 0) then
 					local clr = (v < 0) and "%c[0,255,100,100]" or "%c[0,250,250,250]"
 					local sign = (v > 0) and "+" or ""
-					str = str .. "\\n " .. trx_utils.get_clr("e_white") .. "• " .. game.translate_string(art_tbl[k][4]) .. ": " .. clr .. sign .. tostring(v) .. " " .. art_tbl[k][3]
+					str = str .. "\\n " .. trx_utils.get_clr("e_gray") .. "• " .. game.translate_string(art_tbl[k][4]) .. ": " .. clr .. sign .. tostring(math.ceil(v)) .. " " .. art_tbl[k][3]
 				end
 			end
 		end
