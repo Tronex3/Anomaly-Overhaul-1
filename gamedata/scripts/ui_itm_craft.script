@@ -7,7 +7,6 @@
 -- =======================================================================================
 
 
-
 --=======================================< Controls >=======================================--
 local ico_size = 0.7
 local ico_width = (device().width / device().height > (1024/768+0.01)) and 0.8 or 1
@@ -44,7 +43,7 @@ function craft_ui:__init(owner,obj,section) super()
 	self.obj = obj
 	self.section = section
 	
-	self.recipes = {}
+	self.recipes = {} -- self.recipes[number][craft_item] = {{item_1,count_1},{item_2,count_2},{item_3,count_3}}
 	self.allow = {}
 	self.size = 3
 	self.base = ini:r_string_ex(section,"uses_base") or section
@@ -73,15 +72,13 @@ function craft_ui:__init(owner,obj,section) super()
 	
 	-- Play sound
 	if (self.base == "itm_drugkit") then
-		trx_utils.play_sound("interface\\inv_briefcase_open")
+		--trx_utils.play_sound("interface\\inv_briefcase_open")
 	else
-		trx_utils.play_sound("interface\\inv_briefcase_tools_open")
+		trx_utils.play_sound("interface\\inv_briefcase_light_open")
 	end
 	
 	-- Hide weapon
-	if self.active_wep then
-		db.actor:hide_weapon()
-	end
+	actor_effects.use_weapon(0)
 end
 
 function craft_ui:__finalize()
@@ -160,13 +157,16 @@ function craft_ui:OnCraft()
 	for i=1,self.size do
 		if #self.item[i] > 0 then
 			for j=1,#self.item[i] do
-				alife():release(alife_object(self.item[i][j]),true)
+				local obj_itm = level.object_by_id(self.item[i][j])
+				if (not trx_utils.adjust_item_charge(obj_itm,-1)) then
+					trx_utils.release_obj(obj_itm)
+				end
 			end
 		end
 	end
 	
 	-- Craft
-	if (string.find(self.item[4][1],"ammo_")) then
+	if (utils.is_ammo(self.item[4][1])) then
 		create_ammo(self.item[4][1],db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id(),0,self.item[4][2])
 	else
 		for i = 1, self.item[4][2] do
@@ -185,13 +185,15 @@ function craft_ui:OnCraft()
 	-- Play effect
 	if (self.craft_use_actor_effects and actor_effects) then
 		actor_effects.use_item("toolkit_u_dummy")
+	else
+		actor_effects.use_weapon(1)
 	end
-	db.actor:restore_weapon()
 end
 
 function craft_ui:OnCancel()
-	db.actor:restore_weapon()
-	trx_utils.play_sound("interface\\inv_briefcase_close")
+	actor_effects.use_weapon(1)
+	--trx_utils.play_sound("interface\\inv_briefcase_close")
+	
 	self:HideDialog()
 end
 
@@ -244,13 +246,18 @@ function craft_ui:OnKeyboard(dik, keyboard_action)
 end
 
 ---------------< Utility >---------------
-function craft_ui:UpdateItem (n, sec, amt, result)
+function craft_ui:UpdateItem (n, sec, amount, result)
 	
 	-- Reset
 	self.item[n] = {}
 	self.allow[n] = false
 	
 	-- Text (Amount)
+	local amt = amount
+	if utils.is_ammo(sec) then
+		local box = ini:r_float_ex(sec,"box_size")
+		amt = box * amount
+	end
 	self.text_multi[n]:SetText("x" .. tostring(amt))
 	
 	-- Text (Name)
@@ -263,7 +270,7 @@ function craft_ui:UpdateItem (n, sec, amt, result)
 		-- Collect valid items
 		local function search(temp, item)
 			if (item:section() == sec) and (not parts_id[item:id()]) then
-				parts_id[item:id()] = true
+				parts_id[item:id()] = item
 			end
 		end
 		db.actor:iterate_inventory(search,nil)
@@ -271,16 +278,33 @@ function craft_ui:UpdateItem (n, sec, amt, result)
 		-- Check and Allow/Prevent
 		local count = 0
 		for _ in pairs(parts_id) do count = count + 1 end
-		if count >= amt then
-			self.text_item[n]:SetTextColor(GetARGB(200, 50, 255, 50))
-			self.allow[n] = true
+		if utils.is_ammo(sec) then -- ammo
+			local full_ammo = 0
+			for k,v in pairs(parts_id) do
+				local size = v:ammo_get_count()
+				local box_size = v:ammo_box_size()
+				if (size >= box_size) then
+					full_ammo = full_ammo + 1
+				else
+					parts_id[k] = nil
+				end
+				if (full_ammo >= amount) then
+					self.text_item[n]:SetTextColor(GetARGB(200, 50, 255, 50))
+					self.allow[n] = true
+				end
+			end
+		else -- normal items
+			if (count >= amount) then
+				self.text_item[n]:SetTextColor(GetARGB(200, 50, 255, 50))
+				self.allow[n] = true
+			end
 		end
 		
 		-- Store items id
 		count = 0
 		for k,v in pairs(parts_id) do
 			count = count + 1
-			if (count <= amt) then
+			if (count <= amount) then
 				self.item[n][#self.item[n] + 1] = k
 			end
 		end
@@ -289,7 +313,7 @@ function craft_ui:UpdateItem (n, sec, amt, result)
 			self.allow[4] = true
 			self.text_item[n]:SetTextColor(GetARGB(200, 50, 255, 50))
 		end
-		self.item[n] = {sec , amt}
+		self.item[n] = {sec , amount}
 	end
 	
 	-- Icon
@@ -347,22 +371,24 @@ function craft_ui:FillRecipes (section)
 		local result, id, value = ini_craft:r_line(section , i , "", "")
 		if ini:section_exist(id) then
 			local t = alun_utils.str_explode(value,",")
-			local ind = #self.recipes + 1
-			self.recipes[ind] = {}
-			self.recipes[ind][id] = {}
-			if t[1] and t[2] then -- support item 1
-				if ini:section_exist(tostring(t[1])) then
-					self.recipes[ind][id][1] = {tostring(t[1]),tonumber(t[2])}
+			if (#t == 4) or (#t == 6) then
+				local ind = #self.recipes + 1
+				self.recipes[ind] = {}
+				self.recipes[ind][id] = {}
+				if t[1] and t[2] then -- support item 1
+					if ini:section_exist(tostring(t[1])) then
+						self.recipes[ind][id][1] = {tostring(t[1]),tonumber(t[2])}
+					end
 				end
-			end
-			if t[3] and t[4] then -- support item 2
-				if ini:section_exist(tostring(t[3])) then
-					self.recipes[ind][id][2] = {tostring(t[3]),tonumber(t[4])}
+				if t[3] and t[4] then -- support item 2
+					if ini:section_exist(tostring(t[3])) then
+						self.recipes[ind][id][2] = {tostring(t[3]),tonumber(t[4])}
+					end
 				end
-			end
-			if t[5] and t[6] then -- support item 3
-				if ini:section_exist(tostring(t[5])) then
-					self.recipes[ind][id][3] = {tostring(t[5]),tonumber(t[6])}
+				if t[5] and t[6] then -- support item 3
+					if ini:section_exist(tostring(t[5])) then
+						self.recipes[ind][id][3] = {tostring(t[5]),tonumber(t[6])}
+					end
 				end
 			end
 		end

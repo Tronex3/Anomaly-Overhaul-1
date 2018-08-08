@@ -71,14 +71,14 @@ function repair_ui:__init(owner,obj,section) super()
 	-- Play sound
 	if (self.repair_frame == "ui_itm_repair_1") or (self.repair_frame == "ui_itm_repair_2") then
 		trx_utils.play_sound("interface\\inv_zipper_open")
+	elseif  (self.repair_frame == "ui_itm_repair_3") then
+		--trx_utils.play_sound("interface\\inv_briefcase_light_open")
 	else
-		trx_utils.play_sound("interface\\inv_briefcase_tools_open")
+		trx_utils.play_sound("interface\\inv_briefcase_light_open")
 	end
 	
 	-- Hide weapon
-	if self.active_wep then
-		db.actor:hide_weapon()
-	end
+	actor_effects.use_weapon(0)
 end
 
 function repair_ui:__finalize()
@@ -310,18 +310,19 @@ function repair_ui:OnRepair()
 	if (self.use_actor_effects and actor_effects) then
 		actor_effects.use_item(self.section.."_dummy")
 		level_weathers.get_weather_manager():forced_weather_change()
+	else
+		actor_effects.use_weapon(1)
 	end
-	db.actor:restore_weapon()
 end
 
 function repair_ui:OnCancel()
-	db.actor:restore_weapon()
+	actor_effects.use_weapon(1)
 	
 	-- Play sound
 	if (self.repair_frame == "ui_itm_repair_1") or (self.repair_frame == "ui_itm_repair_2") then
-		trx_utils.play_sound("interface\\inv_zipper_close")
+		--trx_utils.play_sound("interface\\inv_zipper_close")
 	else
-		trx_utils.play_sound("interface\\inv_briefcase_close")
+		--trx_utils.play_sound("interface\\inv_briefcase_close")
 	end
 	
 	self:HideDialog()

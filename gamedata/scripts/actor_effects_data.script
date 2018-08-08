@@ -4837,7 +4837,7 @@ item_fx = {
 	},
 
 	gun_oil_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -4850,7 +4850,7 @@ item_fx = {
 		[6650] = "actor_effects.use_weapon(1)"
 	},
 	gun_oil_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -4863,7 +4863,7 @@ item_fx = {
 		[6650] = "actor_effects.use_weapon(1)"
 	},	
 	cleaning_kit_p_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -4877,7 +4877,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	cleaning_kit_p_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -4891,7 +4891,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	cleaning_kit_p_3_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -4905,7 +4905,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	cleaning_kit_s_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -4919,7 +4919,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	cleaning_kit_s_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -4933,7 +4933,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	cleaning_kit_s_3_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -4947,7 +4947,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	cleaning_kit_r5_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -4961,7 +4961,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	cleaning_kit_r5_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -4975,7 +4975,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	cleaning_kit_r5_3_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -4989,7 +4989,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	cleaning_kit_r7_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -5003,7 +5003,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	cleaning_kit_r7_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -5017,7 +5017,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	cleaning_kit_r7_3_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -5031,7 +5031,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	cleaning_kit_u_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -5045,7 +5045,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	cleaning_kit_u_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -5059,7 +5059,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	cleaning_kit_u_3_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -5073,7 +5073,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	toolkit_p_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5090,7 +5090,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	toolkit_p_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5107,7 +5107,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	toolkit_p_3_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5124,7 +5124,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	toolkit_p_4_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5141,7 +5141,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	toolkit_s_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5158,7 +5158,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	toolkit_s_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5175,7 +5175,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	toolkit_s_3_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5192,7 +5192,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	toolkit_s_4_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5209,7 +5209,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	toolkit_r5_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5226,7 +5226,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	toolkit_r5_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5243,7 +5243,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	toolkit_r5_3_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5260,7 +5260,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	toolkit_r5_4_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5277,7 +5277,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	toolkit_r7_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5294,7 +5294,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	toolkit_r7_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5311,7 +5311,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	toolkit_r7_3_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5328,7 +5328,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	toolkit_r7_4_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5345,7 +5345,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	toolkit_u_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5362,7 +5362,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	toolkit_u_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5379,7 +5379,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	toolkit_u_3_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5396,7 +5396,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	toolkit_u_4_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5413,7 +5413,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
     },
     exo_repair_kit_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5430,7 +5430,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	exo_repair_kit_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5447,7 +5447,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	exo_repair_kit_3_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5464,7 +5464,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	exo_repair_kit_4_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5481,7 +5481,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	exolight_repair_kit_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5498,7 +5498,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	exolight_repair_kit_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5515,7 +5515,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	exolight_repair_kit_3_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5532,7 +5532,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	exolight_repair_kit_4_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5549,7 +5549,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	seva_repair_kit_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5566,7 +5566,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	seva_repair_kit_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5583,7 +5583,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	seva_repair_kit_3_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5600,7 +5600,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	seva_repair_kit_4_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5617,7 +5617,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	proto_repair_kit_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5634,7 +5634,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	proto_repair_kit_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5651,7 +5651,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	proto_repair_kit_3_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5668,7 +5668,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	proto_repair_kit_4_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5685,7 +5685,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	light_repair_kit_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5702,7 +5702,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	light_repair_kit_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5719,7 +5719,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	light_repair_kit_3_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5736,7 +5736,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	light_repair_kit_4_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5753,7 +5753,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	medium_repair_kit_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5770,7 +5770,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	medium_repair_kit_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5787,7 +5787,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	medium_repair_kit_3_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5804,7 +5804,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	medium_repair_kit_4_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -5821,7 +5821,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	sharpening_stones_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -5835,7 +5835,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	sharpening_stones_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -5849,7 +5849,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	sharpening_stones_3_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -5863,7 +5863,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	sharpening_stones_4_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -5877,7 +5877,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	gun_oil_ru_d_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -5891,7 +5891,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	gun_oil_ru_d_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -5905,7 +5905,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	gun_oil_ru_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -5919,7 +5919,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	gun_oil_ru_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -5933,7 +5933,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	solvent_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -5947,7 +5947,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	solvent_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -5961,7 +5961,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	glue_b_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -5975,7 +5975,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	glue_b_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -5989,7 +5989,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	glue_a_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -6003,7 +6003,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	glue_a_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -6017,7 +6017,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	glue_e_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -6031,7 +6031,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	glue_e_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[378] = "actor_effects.use_helmet(0)",
 --		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -6045,7 +6045,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	sewing_kit_b_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -6062,7 +6062,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	sewing_kit_b_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -6079,7 +6079,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	sewing_kit_b_3_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -6096,7 +6096,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	sewing_kit_b_4_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -6113,7 +6113,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	sewing_kit_a_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -6130,7 +6130,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	sewing_kit_a_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -6147,7 +6147,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	sewing_kit_a_3_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -6164,7 +6164,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	sewing_kit_a_4_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -6181,7 +6181,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	sewing_kit_h_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -6198,7 +6198,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	sewing_kit_h_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -6215,7 +6215,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	sewing_kit_h_3_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -6232,7 +6232,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	sewing_kit_h_4_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -6249,7 +6249,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	armor_repair_fa_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 		[378] = "actor_effects.use_helmet(0)",
 		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -6263,7 +6263,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	armor_repair_fa_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 		[378] = "actor_effects.use_helmet(0)",
 		[379] = "xr_effects.disable_nv(db.actor, nil)",
@@ -6277,7 +6277,7 @@ item_fx = {
 		[9680] = "actor_effects.use_weapon(1)"
 	},
 	helmet_repair_kit_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -6294,7 +6294,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	helmet_repair_kit_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -6311,7 +6311,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	helmet_repair_kit_3_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -6328,7 +6328,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	armor_repair_pro_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -6345,7 +6345,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	armor_repair_pro_2_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -6362,7 +6362,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	armor_repair_pro_3_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -6379,7 +6379,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	armor_repair_pro_4_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
 		[378] = "actor_effects.use_helmet(0)",
@@ -6396,7 +6396,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	fieldcooker_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_inventory(db.actor, nil)",
 		[2] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[3] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
@@ -6430,7 +6430,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	cooking_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_inventory(db.actor, nil)",
 		[2] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[3] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
@@ -6447,7 +6447,7 @@ item_fx = {
 		[12800] = "actor_effects.use_weapon(1)"
 	},
 	army_bowler_dummy = {
-		[0] = "actor_effects.use_weapon(0)",
+		--[0] = "actor_effects.use_weapon(0)",
 		[1] = "xr_effects.disable_ui_inventory(db.actor, nil)",
 		[2] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
 --		[3] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
@@ -9083,6 +9083,23 @@ medkit_ai3 = {
 --		[5150] = "actor_effects.use_helmet(1)",
 		[5750] = "xr_effects.enable_imput(db.actor, nil)",
 		[6350] = "actor_effects.use_weapon(1)"	
-	}
+	},
+	craft_dummy = {
+		--[0] = "actor_effects.use_weapon(0)",
+		[0] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
+--		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
+		[378] = "actor_effects.use_helmet(0)",
+		[379] = "xr_effects.disable_nv(db.actor, nil)",
+		[380] = "xr_effects.disable_ui_inventory(db.actor, nil)",
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8024, false,'')",
+		[800] = "xr_effects.play_inv_repair_kit()",
+		[3020] = "level.add_cam_effector('camera_effects\\\\item_use_slow.anm', 8025, false,'')",
+--		[6500] = "_G.mus_vol = math.max(get_console():get_float('snd_volume_music'),_G.mus_vol or 0) _G.amb_vol = math.max(get_console():get_float('snd_volume_eff'),_G.amb_vol or 0) get_console():execute('snd_volume_music 0') get_console():execute('snd_volume_eff 0')",
+--		[10300] = "get_console():execute('snd_volume_music '..tostring(_G.mus_vol)) get_console():execute('snd_volume_eff '..tostring(_G.amb_vol))",
+		[10301] = "xr_effects.enable_ui_lite(db.actor, nil)",
+		[11600] = "actor_effects.use_helmet(1)",
+		[12200] = "xr_effects.enable_nv_and_imput(db.actor, nil)",
+		[12800] = "actor_effects.use_weapon(1)"
+	},
 }
 

@@ -20,9 +20,7 @@ function map_ui:__init(owner,obj,section) super()
 	self:InitControls()
 	self:InitCallBacks()
 	
-	if self.active_wep then
-		db.actor:hide_weapon()
-	end
+	actor_effects.use_weapon(0)
 end
 
 function map_ui:__finalize()
@@ -54,7 +52,7 @@ end
 ---------------< Callbacks >---------------
 
 function map_ui:OnAccept()
-	db.actor:restore_weapon()
+	actor_effects.use_weapon(1)
 	self:HideDialog()
 end
 

@@ -61,9 +61,10 @@ function cook_ui:__init(owner,obj,section) super()
 	self:InitControls()
 	self:InitCallBacks()
 	
-	if self.active_wep then
-		db.actor:hide_weapon()
-	end
+	-- Play sound
+	trx_utils.play_sound("interface\\inv_cooking_open")
+	
+	actor_effects.use_weapon(0)
 end
 
 function cook_ui:__finalize()
@@ -279,15 +280,17 @@ function cook_ui:OnCook()
 		itm_base = itm_base or self.section
 		actor_effects.use_item(itm_base .. "_dummy")
 		--level_weathers.get_weather_manager():forced_weather_change()
+	else
+		actor_effects.use_weapon(1)
 	end
-	db.actor:restore_weapon()
 	
 	-- Hide dialog
 	self:HideDialog()
 end
 
 function cook_ui:OnCancel()
-	db.actor:restore_weapon()
+	actor_effects.use_weapon(1)
+	
 	self:HideDialog()
 end
 
