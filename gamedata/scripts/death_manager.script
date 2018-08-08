@@ -249,8 +249,11 @@ function create_release_item(npc)
 	local locked_notes = guide.locked_notes
 	local unlocked_articles = xr_statistic.actor_articles
 	
-	-- Unlock faction article (npcs will unlock your articles!)
-	--dxr_encyclopedia.detect_faction_interaction(comm)
+	-- Stupid hack: Unlock faction article if actor is close to the corpse while being looted
+	-- Why? cause I didn't find a legit way to determine the looter. Let me know if its possible 
+	if (npc:position():distance_to(db.actor:position()) < 2) then
+		dxr_encyclopedia.detect_faction_interaction(comm)
+	end
 	
 	for sec,v in pairs(spawn_items) do
 		if (v > 0 and item_count[sec] and not utils.is_ammo(sec) and not grenade_classes[sec]) then
