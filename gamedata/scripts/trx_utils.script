@@ -21,7 +21,8 @@ local clr_table = {
 	["e_green"] = {0,56,209,115},
 	["e_blue"] = {0,56,166,209},
 	["e_orange"] = {0,209,209,56},
-	["e_white"] = {0,170,170,170}
+	["e_gray"] = {0,170,170,170},
+	["e_white"] = {0,250,250,250}
 }
 
 function get_clr (str , code)
@@ -69,7 +70,7 @@ function get_nearby_campfire (dist, result)
 			if obj then
 				local cf = obj:get_campfire()
 				if cf and (obj:position():distance_to(db.actor:position()) <= dist) then
-					printf("TRX - get_nearby_campfire | found campfire in a radius of: " .. obj:position():distance_to(db.actor:position()) .. " | id: " .. obj:id())
+					--printf("TRX - get_nearby_campfire | found campfire in a radius of: " .. obj:position():distance_to(db.actor:position()) .. " | id: " .. obj:id())
 					if result then
 						return obj
 					else
@@ -183,7 +184,7 @@ function is_time_spent_in_zone(s,m,h,d,w,mo)
 	local weeks = math.floor(days/7)
 	local months = math.floor(weeks/4)
 	
-	printf(">>> TRX - is_time_spent_in_zone(" .. s .. ":" .. m .. ":" .. h .. "," .. d .. "," .. w .. "," .. mo .. ") | Current time: (" .. seconds .. ":" .. minutes .. ":" .. hours .. "," .. days .. "," .. weeks .. "," .. months .. ")")
+	--printf(">>> TRX - is_time_spent_in_zone(" .. s .. ":" .. m .. ":" .. h .. "," .. d .. "," .. w .. "," .. mo .. ") | Current time: (" .. seconds .. ":" .. minutes .. ":" .. hours .. "," .. days .. "," .. weeks .. "," .. months .. ")")
 	
 	if (months > mo) then
 		return true
@@ -348,7 +349,7 @@ function adjust_item_charge (obj , num)
 	local se_obj = alife_object(obj:id())
 	alife():release(se_obj,true)
 	alife():create(sec, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
-	printf("TRX - adjust_charge_item | Delete old item use: " .. obj:section() .. " | Get new item use: " .. sec)
+	--printf("TRX - adjust_charge_item | Delete old item use: " .. obj:section() .. " | Get new item use: " .. sec)
 	
 	return true
 end

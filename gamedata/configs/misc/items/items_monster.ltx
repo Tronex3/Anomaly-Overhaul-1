@@ -311,13 +311,13 @@ bone_name				        = bip01_r_hand
 position_offset			        = 0.0,0.0,0.0 0.117
 angle_offset			        = 1.570790,1.570790,3.92699
 
-eat_satiety				        = 0.928
+eat_satiety				        = 0.572
 
-eat_radiation		            = 0.066
+eat_radiation		            = 0.032
 
 eat_sleepiness				    = 0.018
 
-eat_health			            = -0.0645
+eat_health			            = -0.0345
 
 use_sound			            = interface\inv_eat_paperwrap_2
 
@@ -348,7 +348,7 @@ angle_offset			        = 1.570790,1.570790,3.92699
 
 eat_satiety				        = 0.514
 
-eat_radiation		            = 0.053
+eat_radiation		            = 0.033
 
 eat_sleepiness				    = 0.013
 
@@ -875,7 +875,7 @@ description			            = mutant_psysucker_meat_description
 inv_grid_x                      = 2
 inv_grid_y                      = 70
 cost				            = 1100
-eat_satiety				        = 0.497
+eat_satiety				        = 0.467
 eat_radiation		            = 0.0695
 eat_sleepiness				    = 0.0141
 eat_health			            = -0.0135
@@ -934,10 +934,12 @@ description			            = mutant_lurker_meat_description
 inv_grid_x                      = 0
 inv_grid_y                      = 70
 cost				            = 1408
-eat_satiety				        = 0.714
-eat_radiation		            = 0.084
+
+eat_satiety				        = 0.510
+eat_radiation		            = 0.082
 eat_sleepiness				    = 0.013
-eat_health			            = -0.019
+eat_health			            = -0.027
+
 use_sound			            = interface\inv_eat_mutant_food
 repair_part_bonus	 	        = 0.04
 cooking_part					= true
@@ -1435,8 +1437,8 @@ power_restore_speed		        = 0
 bleeding_restore_speed		    = 0 ; 0.00065
 hit_absorbation_sect		    = hide_psysucker_absorbation
 
-additional_inventory_weight	    = 0.36
-additional_inventory_weight2	= 0.36
+additional_inventory_weight	    = 0.23
+additional_inventory_weight2	= 0.23
 
 artefact_activation_seq		    = af_activation_bold
 
@@ -1445,13 +1447,13 @@ repair_part_bonus	 	        = 0.06
 [hide_psysucker_absorbation]
 burn_immunity 			        = -0.00026				;коэффициенты иммунитета
 strike_immunity 		        = 0
-shock_immunity 			        = 0.0126
-wound_immunity 			        = 0.0221
-radiation_immunity 		        = 0.00012
-telepatic_immunity 		        = 0
-chemical_burn_immunity 		    = 0.00014
-explosion_immunity 			    = 0.0146 ; 4 sheets of kevlar
-fire_wound_immunity  		    = 0.0155 ; 4 sheets of kevlar
+shock_immunity 			        = 0.0086
+wound_immunity 			        = 0.0121
+radiation_immunity 		        = 0.00006
+telepatic_immunity 		        = 0.00047
+chemical_burn_immunity 		    = 0.00018
+explosion_immunity 			    = 0.0076 ; 4 sheets of kevlar
+fire_wound_immunity  		    = 0.0105 ; 4 sheets of kevlar
 
 
 [hide_lurker]:af_base
@@ -1494,23 +1496,23 @@ power_restore_speed		        = 0
 bleeding_restore_speed		    = 0 ; 0.00065
 hit_absorbation_sect		    = hide_lurker_absorbation
 
-additional_inventory_weight	    = 0.661
-additional_inventory_weight2	= 0.661
+additional_inventory_weight	    = 0.83
+additional_inventory_weight2	= 0.83
 
 artefact_activation_seq		    = af_activation_bold
 
 repair_part_bonus	 	        = 0.03
 
 [hide_lurker_absorbation]
-burn_immunity 			        = 0.00037				;коэффициенты иммунитета
+burn_immunity 			        = -0.00037				;коэффициенты иммунитета
 strike_immunity 		        = 0
 shock_immunity 			        = 0.0272
-wound_immunity 			        = 0.008
+wound_immunity 			        = 0.0072
 radiation_immunity 		        = -0.00036
 telepatic_immunity 		        = 0
-chemical_burn_immunity 		    = -0.00005
-explosion_immunity 			    = 0.0061 ; 1.5 sheets of kevlar
-fire_wound_immunity  		    = 0.0068 ; 1.5 sheets of kevlar
+chemical_burn_immunity 		    = 0.00015
+explosion_immunity 			    = 0.0071 ; 1.5 sheets of kevlar
+fire_wound_immunity  		    = 0.0078 ; 1.5 sheets of kevlar
 
 
 [hide_boar]:af_base

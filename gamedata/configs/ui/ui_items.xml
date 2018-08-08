@@ -26,16 +26,16 @@
 			<text complex_mode="1" r="150" g="150" b="150" align="c" font="letterica16"/>
 		</text_item_4>
 		
-		<text_multi_3 x="333" y="222" width="15" height="15">
+		<text_multi_3 x="333" y="222" width="40" height="15">
 			<text complex_mode="1" r="150" g="150" b="150" align="l" font="letterica16"/>
 		</text_multi_3>
-		<text_multi_2 x="333" y="330" width="15" height="15">
+		<text_multi_2 x="333" y="330" width="40" height="15">
 			<text complex_mode="1" r="150" g="150" b="150" align="l" font="letterica16"/>
 		</text_multi_2>
-		<text_multi_1 x="333" y="436" width="15" height="15">
+		<text_multi_1 x="333" y="436" width="40" height="15">
 			<text complex_mode="1" r="150" g="150" b="150" align="l" font="letterica16"/>
 		</text_multi_1>
-		<text_multi_4 x="186" y="436" width="15" height="15">
+		<text_multi_4 x="186" y="436" width="40" height="15">
 			<text complex_mode="1" r="150" g="150" b="150" align="l" font="letterica16"/>
 		</text_multi_4>
 		
