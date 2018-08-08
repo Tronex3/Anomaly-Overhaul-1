@@ -91,7 +91,18 @@ function sim_squad_scripted.sim_squad_scripted.show(self)
 	
 	-- 3. GPS Tracker active
 	elseif param["allow"] then
-		if (not is_squad_monster[self.player_id]) and self.online then --and (param["all"] or (self.position:distance_to(se_actor.position) < 40)) then
+		local pass = false
+		local gg = game_graph()
+		if (se_actor and gg:valid_vertex_id(self.m_game_vertex_id) and gg:valid_vertex_id(se_actor.m_game_vertex_id)) then
+			local level = sim:level_name(gg:vertex(self.m_game_vertex_id):level_id())
+			local actor_level = sim:level_name(gg:vertex(se_actor.m_game_vertex_id):level_id())
+
+			if (level == actor_level) then
+				pass = true
+			end
+		end
+				
+		if (not is_squad_monster[self.player_id]) and pass then --self.online then --and (param["all"] or (self.position:distance_to(se_actor.position) < 40)) then
 			local relation = self:get_squad_relation()
 			if param["target"] and (param["target"] == self.player_id) and squad_icons[param["target"]] then
 				spot = squad_icons[relation] or squad_icons[self.player_id]
