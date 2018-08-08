@@ -1,0 +1,141 @@
+-- ### Config ###
+-- autosave every x seconds, default 90
+local autosave_interval = 900
+-- remove old savefiles when more than x savefiles, change to 0 or nil to disable autosave files rotation, default 100
+local autosave_keep_last_x_saves = 12
+
+local saves_enabled = true
+
+-- ### Script ###
+local saved_game_extension	= ".scop"
+local autosave_prefix = "{a}"
+
+local function opt_on_accept(handler,optMgr,ctrl)
+	local enabled = ctrl:GetCheck()
+
+	if not level.present() then
+		saves_enabled = enabled
+		return
+	end
+	
+	-- Disable autosave if hardcore save modes are active
+	if (alife_storage_manager.get_state().enable_campfire_mode) or (alife_storage_manager.get_state().enable_conditions_mode) or (alife_storage_manager.get_state().enable_timer_mode) then
+		enabled = false
+	end
+
+	if saves_enabled then
+		RemoveTimeEvent("CustomAutoSave","AutoSave")
+	end
+
+	saves_enabled = enabled
+
+	if saves_enabled then
+		CreateTimeEvent("CustomAutoSave","AutoSave",autosave_interval,autosave___savegame)
+	end
+end
+
+local function menu_on_init(menu)
+	menu.gameplay_options["autosave_every_15_min"]	= {default=true, debug_only=false, typ="check", on_accept=opt_on_accept}
+end
+
+-- called directly from axr_main
+function main_menu_on_quit()
+	UnregisterScriptCallback("opt_menu_on_init",menu_on_init)
+end
+
+-- called directly from axr_main
+function main_menu_on_init()
+	RegisterScriptCallback("opt_menu_on_init",menu_on_init)
+end
+
+function on_game_start()
+	RegisterScriptCallback("on_game_load",on_game_load)
+end
+
+function on_game_load()
+	saves_enabled = axr_main.config:r_bool_ex("mm_options","enable_autosave_every_15_min",true)
+
+	-- Disable autosave if hardcore save modes are active
+	if (alife_storage_manager.get_state().enable_campfire_mode) or (alife_storage_manager.get_state().enable_conditions_mode) or (alife_storage_manager.get_state().enable_timer_mode) then
+		saves_enabled = false
+	end
+	
+	if saves_enabled then
+		CreateTimeEvent("CustomAutoSave","AutoSave",autosave_interval,autosave___savegame)
+	end
+end
+
+function autosave___savegame()
+	if not saves_enabled then return end
+
+	if level.present() and db.actor ~= nil and db.actor:alive() then
+		local level_name = game.translate_string(level.name())
+		local player_health = string.format("%s %d",game.translate_string("st_ui_health_sensor"), db.actor.health*100)
+		local time_elapsed = autosave___get_time_elapsed()
+		local save_name = string.format("%s %s - %s - %s",autosave_prefix, time_elapsed, player_health, level_name)
+		
+		--"[\/:*?"<>|()]"
+		local sanitized_savename = string.gsub(save_name, "[\\/:\"<>|()]", function() return "" end)
+		sanitized_savename = autosave___generate_new_name_if_exists(sanitized_savename)
+	
+		get_console():execute("save "..sanitized_savename)
+		
+		autosave___keep_last_x_saves()
+	end
+
+	ResetTimeEvent("CustomAutoSave","AutoSave",autosave_interval)
+	return false
+end
+
+function autosave___get_time_elapsed()
+	local s_time = level.get_start_time()
+	local seconds = tonumber(game.get_game_time():diffSec(s_time))
+	
+	local remainder = seconds
+	local time_days = remainder/86400
+	remainder = remainder%86400
+	local time_hours = remainder/3600
+	remainder = remainder%3600
+	local time_mins = remainder/60
+	remainder = remainder%60
+	local time_secs = remainder
+	
+	local days = string.format("%d %s",time_days,game.translate_string("ui_st_days"))	
+	return string.format("%s %02dh %02dm %02ds",days,time_hours,time_mins,time_secs)
+end
+
+function autosave___generate_new_name_if_exists(save_name)
+	local new_save_name = save_name
+
+	local f = getFS()
+	local file_struct = f:exist("$game_saves$", new_save_name .. saved_game_extension )
+	
+	local i = 0
+	while file_struct ~= nil do
+		i = i + 1
+		new_save_name = save_name.." "..i
+		file_struct = f:exist("$game_saves$", new_save_name .. saved_game_extension )
+    end
+	
+	return new_save_name
+end
+
+function autosave___keep_last_x_saves() 
+	if (autosave_keep_last_x_saves == nil or autosave_keep_last_x_saves == 0) then
+		return
+	end	
+
+	local flist = getFS():file_list_open_ex("$game_saves$",	bit_or(FS.FS_ListFiles,FS.FS_RootOnly),autosave_prefix.."*"..ui_load_dialog.saved_game_extension)
+	local save_count = flist and flist:Size() or 0
+	
+	if (save_count > 0) then
+		flist:Sort(FS.FS_sort_by_modif_up)
+		local number_of_saves_to_remove = save_count - autosave_keep_last_x_saves
+
+		for i=0, number_of_saves_to_remove-1 do
+			local file_name = flist:GetAt(i):NameFull():sub(0,-6):lower()
+			ui_load_dialog.delete_save_game(file_name)
+		end
+	end
+end
+
