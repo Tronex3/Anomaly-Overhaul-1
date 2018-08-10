@@ -1039,24 +1039,15 @@ ammo_gauss
 ammo_gauss_cardan
 
 ;ammo bad
-
 ammo_gauss_bad
-ammo_gauss_verybad
 ammo_gauss_cardan
 ammo_gauss_cardan_bad
-ammo_gauss_cardan_verybad
 ammo_9x18_fmj_bad                           
-ammo_9x18_fmj_verybad                       
 ammo_9x18_pmm_bad                           
-ammo_9x18_pmm_verybad                       
-ammo_9x18_ap_bad                            
-ammo_9x18_ap_verybad                        
-ammo_9x19_pbp_bad                           
-ammo_9x19_pbp_verybad                       
+ammo_9x18_ap_bad 
+ammo_9x19_pbp_bad
 ammo_9x19_fmj_bad                           
-ammo_9x19_fmj_verybad                       
 ammo_9x19_ap_bad
-ammo_9x19_ap_verybad
 ammo_11.43x23_hydro_bad                    
 ammo_11.43x23_fmj_bad                      
 ammo_11.43x23_ap_bad
@@ -1068,10 +1059,7 @@ ammo_5.45x39_fmj_bad
 ammo_9x39_ap_bad                            
 ammo_9x39_pab9_bad                          
 ammo_5.56x45_ss190_bad                      
-ammo_5.56x45_ap_bad                         
-ammo_7.62x54_7h14_bad                       
-ammo_7.62x54_7h1_bad                        
-ammo_7.62x54_ap_bad                         
+ammo_5.56x45_ap_bad                                              
 ammo_og-7b_bad                              
 ammo_vog-25_bad
 ammo_m209_bad
@@ -1085,14 +1073,27 @@ ammo_7.62x51_ap_bad
 ammo_7.62x25_p_bad
 ammo_7.62x25_ps_bad
 ammo_7.62x25_p41_bad
-ammo_7.92x33_fmj_bad
-ammo_7.92x33_ap_bad
+ammo_7.62x39_ap_bad
+ammo_7.62x39_fmj_bad
 ammo_7.62x54_7h1_bad
 ammo_7.62x54_7h14_bad
+ammo_7.62x54_ap_bad 
+ammo_7.92x33_fmj_bad
+ammo_7.92x33_ap_bad 
 ammo_magnum_300_bad
 ammo_magnum_300_ap_bad
 ammo_12.7x55_fmj_bad
 ammo_12.7x55_ap_bad
+
+;ammo damaged
+ammo_gauss_verybad
+ammo_gauss_cardan_verybad
+ammo_9x18_fmj_verybad 
+ammo_9x18_pmm_verybad 
+ammo_9x18_ap_verybad 
+ammo_9x19_pbp_verybad 
+ammo_9x19_fmj_verybad  
+ammo_9x19_ap_verybad
 ammo_11.43x23_hydro_verybad
 ammo_11.43x23_fmj_verybad
 ammo_11.43x23_ap_verybad
@@ -1105,9 +1106,6 @@ ammo_9x39_ap_verybad
 ammo_9x39_pab9_verybad
 ammo_5.56x45_ss190_verybad
 ammo_5.56x45_ap_verybad
-ammo_7.62x54_7h14_verybad
-ammo_7.62x54_7h1_verybad
-ammo_7.62x54_ap_verybad
 ammo_og-7b_verybad
 ammo_vog-25_verybad
 ammo_m209_verybad
@@ -1116,23 +1114,23 @@ ammo_357_hp_mag_ap_veybad
 ammo_357_hp_mag_verybad
 ammo_5.7x28_ss190_verybad
 ammo_5.7x28_ss195_verybad
-ammo_7.62x51_fmj_verybad
-ammo_7.62x51_ap_verybad
 ammo_7.62x25_p_verybad
 ammo_7.62x25_ps_verybad
 ammo_7.62x25_p41_verybad
-ammo_7.92x33_fmj_verybad
-ammo_7.92x33_ap_verybad
+ammo_7.62x39_ap_verybad
+ammo_7.62x39_fmj_verybad
+ammo_7.62x51_fmj_verybad
+ammo_7.62x51_ap_verybad
 ammo_7.62x54_7h1_verybad
 ammo_7.62x54_7h14_verybad
+ammo_7.62x54_ap_verybad
+ammo_7.92x33_fmj_verybad
+ammo_7.92x33_ap_verybad
 ammo_magnum_300_verybad
 ammo_magnum_300_ap_verybad
 ammo_12.7x55_fmj_verybad
 ammo_12.7x55_ap_verybad
-ammo_7.62x39_ap_bad
-ammo_7.62x39_ap_verybad
-ammo_7.62x39_fmj_bad
-ammo_7.62x39_fmj_verybad
+
 
 [artefacts]
 ;artefact
@@ -1224,8 +1222,8 @@ drug_sleepingpills_4
 drug_sleepingpills_5		
 bandage
 medkit_ai1
-medkit_ai1
-medkit_ai1
+medkit_ai2
+medkit_ai3
 antirad_kalium
 antirad_cystamine
 antibio_sulfad
@@ -1273,6 +1271,7 @@ salicidic_acid
 glucose
 glucose_s
 morphine
+rebirth
 
 
 [food]
@@ -1394,6 +1393,8 @@ itm_actor_backpack
 itm_backpack
 itm_sleepbag
 cooking
+cooking_2
+cooking_3
 fieldcooker
 ;wood_stove
 kerosene
@@ -1852,6 +1853,8 @@ corn_opened
 tomato_opened
 tushonka_opened
 
+e_syringe
+broken_detector
 ammo_box
 gloves
 hand_watch
@@ -1864,11 +1867,11 @@ basic_transistors
 basic_copper
 basic_wood
 basic_scrap
-basic_glass
-basic_ceramic
-basic_leather
+;basic_glass
+;basic_ceramic
+;basic_leather
 basic_plastic
-basic_rubber
+;basic_rubber
 
 letter_memoirs_1_of_2
 letter_memoirs_2_of_2
@@ -1893,27 +1896,22 @@ recipe_basic_1
 recipe_basic_2
 recipe_basic_3
 recipe_basic_4
-recipe_basic_5
 recipe_advanced_1
 recipe_advanced_2
 recipe_advanced_3
 recipe_advanced_4
-recipe_advanced_5
 recipe_expert_1
 recipe_expert_2
 recipe_expert_3
 recipe_expert_4
-recipe_expert_5
 recipe_drug_1
 recipe_drug_2
 recipe_drug_3
 recipe_drug_4
-recipe_drug_5
 recipe_ammo_1
 recipe_ammo_2
 recipe_ammo_3
 recipe_ammo_4
-recipe_ammo_5
 
 [repair]
 ;repair
@@ -2030,8 +2028,14 @@ geiger_dead
 ;extension_pda
 wpn_dynamo_hand
 itm_tent
-army_bowler
 
+army_bowler
+army_bowler_2
+army_bowler_3
+army_bowler_4
+army_bowler_5
+army_bowler_6
+army_bowler_7
 itm_mapkit_1
 itm_mapkit_2
 itm_mapkit_3

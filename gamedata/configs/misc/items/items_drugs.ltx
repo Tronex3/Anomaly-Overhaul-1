@@ -161,6 +161,9 @@ inv_grid_width				             = 1
 inv_grid_height				             = 1
 inv_grid_x					             = 6
 inv_grid_y					             = 26
+use1_functor         		             = itms_manager.menu_disassemble
+use1_action_functor  		             = itms_manager.use_disassemble
+disassemble_parts						 = jar
 		
 [drug_booster_use]:drug_booster
 inv_grid_width				             = 1
@@ -598,34 +601,6 @@ use_sound					             = interface\inv_syringe
 
 ;--=====================================================================
 
-[jgut]:booster
-$spawn 						             = "food and drugs\jgut"
-visual						             = dynamics\equipments\medical\iten_jgut.ogf
-class_dbg			                     = S_MED
-description					             = st_jgut_descr
-cost						             = 830
-inv_name					             = st_jgut_zhgut
-inv_name_short				             = st_jgut
-inv_weight					             = 0.02
-inv_grid_width				             = 1
-inv_grid_height				             = 1
-inv_grid_x         			             = 21
-inv_grid_y         			             = 68
-
-[jgut_use]:jgut
-inv_grid_width				             = 1
-inv_grid_height				             = 1
-inv_grid_x					             = 300
-inv_grid_y					             = 300
-boost_time 					             = 5
-boost_bleeding_restore 		             = 0.014
-eat_satiety 				             = -0.094
-eat_alcohol			    	             = 0.008
-eat_sleepiness				             = 0.0172
-use_sound					             = interface\inv_bandage_3p7
-
-;--=====================================================================
-
 [yadylin]:booster
 $spawn 						             = "food and drugs\yadylin"
 visual 						             = dynamics\equipments\medical\item_yad.ogf
@@ -646,6 +621,9 @@ eat_alcohol					             = 0.3
 eat_satiety 				             = -0.1
 eat_sleepiness				             = 0.132
 use_sound					             = interface\inv_drink_flask
+use1_functor         		             = itms_manager.menu_disassemble
+use1_action_functor  		             = itms_manager.use_disassemble
+disassemble_parts						 = jar
 
 ;--=====================================================================
 
@@ -671,3 +649,6 @@ eat_alcohol					             = 0.034
 eat_satiety					             = -0.237
 eat_sleepiness				             = 0.284
 use_sound					             = interface\inv_syringe
+use1_functor         		             = itms_manager.menu_disassemble
+use1_action_functor  		             = itms_manager.use_disassemble
+disassemble_parts						 = e_syringe

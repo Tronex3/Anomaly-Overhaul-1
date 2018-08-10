@@ -9101,5 +9101,36 @@ medkit_ai3 = {
 		[12200] = "xr_effects.enable_nv_and_imput(db.actor, nil)",
 		[12800] = "actor_effects.use_weapon(1)"
 	},
+	disassemble_weapon_dummy = {
+		[0] = "actor_effects.use_weapon(0)",
+		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
+--		[378] = "actor_effects.use_helmet(0)",
+--		[379] = "xr_effects.disable_nv(db.actor, nil)",
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8063, false,'')",
+		[1040] = "xr_effects.disable_ui_inventory(db.actor, nil)",
+		[1460] = "xr_effects.play_inv_repair_brushes()",
+		[3020] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8064, false,'')",
+		[7681] = "xr_effects.enable_ui_lite(db.actor, nil)",
+--		[8480] = "actor_effects.use_helmet(1)",
+		[9080] = "xr_effects.enable_imput(db.actor, nil)",
+		[9680] = "actor_effects.use_weapon(1)"
+	},
+	disassemble_outfit_dummy = {
+		[0] = "actor_effects.use_weapon(0)",
+		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
+--		[2] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
+		[378] = "actor_effects.use_helmet(0)",
+		[379] = "xr_effects.disable_nv(db.actor, nil)",
+		[380] = "xr_effects.disable_ui_inventory(db.actor, nil)",
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8024, false,'')",
+		[800] = "xr_effects.play_inv_repair_sewing_kit()",
+		[3020] = "level.add_cam_effector('camera_effects\\\\item_use_slow.anm', 8025, false,'')",
+--		[6500] = "_G.mus_vol = math.max(get_console():get_float('snd_volume_music'),_G.mus_vol or 0) _G.amb_vol = math.max(get_console():get_float('snd_volume_eff'),_G.amb_vol or 0) get_console():execute('snd_volume_music 0') get_console():execute('snd_volume_eff 0')",
+--		[10300] = "get_console():execute('snd_volume_music '..tostring(_G.mus_vol)) get_console():execute('snd_volume_eff '..tostring(_G.amb_vol))",
+		[10301] = "xr_effects.enable_ui_lite(db.actor, nil)",
+		[11600] = "actor_effects.use_helmet(1)",
+		[12200] = "xr_effects.enable_nv_and_imput(db.actor, nil)",
+		[12800] = "actor_effects.use_weapon(1)"
+	},
 }
 

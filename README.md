@@ -14,7 +14,7 @@ Improving the item system and the progression behind it.
    - [x] Drug-making kit *(craft all kind of meds and drugs)*
    - [x] Ammunition kit *(craft better ammo by using bad and damaged types with lead)*
 - [x] add items (Recipes) that can be found on corpses, using them will unlock new recipes for the craft kits
-- [ ] fill the recipes list file
+- [x] fill the recipes list file
 - [x] Rework the UI of old repair kits
 
 ### Item management
@@ -61,6 +61,7 @@ Improving the item system and the progression behind it.
 - [x] mechanics will ask for money for using their vice
 - [x] fixed weird spawns in few areas (ex: monolith inside Yanov station)
 - [x] reduce the weight of lead box
+- [x] reduced prices of upgrade parts to half the value
 - [ ] fix the wrong values in the new artefact containers
 - [x] improved item icons
 - [x] improve mutant looting UI, add new button "loot all"

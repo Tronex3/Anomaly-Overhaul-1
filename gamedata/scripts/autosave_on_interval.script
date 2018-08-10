@@ -5,11 +5,32 @@ local autosave_interval = 900
 local autosave_keep_last_x_saves = 12
 
 local saves_enabled = true
+local timer_enabled = false
 
 -- ### Script ###
 local saved_game_extension	= ".scop"
 local autosave_prefix = "{a}"
 
+function activate_feature()
+	saves_enabled = true
+	
+	if (alife_storage_manager.get_state().enable_campfire_mode) or (alife_storage_manager.get_state().enable_conditions_mode) or (alife_storage_manager.get_state().enable_timer_mode) then
+		saves_enabled = false
+	end
+	
+	if saves_enabled then
+		CreateTimeEvent("CustomAutoSave","AutoSave",autosave_interval,autosave___savegame)
+	end
+end
+
+function deactivate_feature()
+	saves_enabled = false
+	if (timer_enabled) then
+		RemoveTimeEvent("CustomAutoSave","AutoSave")
+	end
+end
+
+--[[
 local function opt_on_accept(handler,optMgr,ctrl)
 	local enabled = ctrl:GetCheck()
 
@@ -47,6 +68,7 @@ end
 function main_menu_on_init()
 	RegisterScriptCallback("opt_menu_on_init",menu_on_init)
 end
+--]]
 
 function on_game_start()
 	RegisterScriptCallback("on_game_load",on_game_load)
@@ -82,6 +104,8 @@ function autosave___savegame()
 		
 		autosave___keep_last_x_saves()
 	end
+	
+	timer_enabled = true
 
 	ResetTimeEvent("CustomAutoSave","AutoSave",autosave_interval)
 	return false

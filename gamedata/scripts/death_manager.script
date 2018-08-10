@@ -247,7 +247,7 @@ function create_release_item(npc)
 	
 	local guide = ui_pda_encyclopedia_tab.get_ui()
 	local locked_notes = guide.locked_notes
-	local unlocked_articles = xr_statistic.actor_articles
+	local unlocked_notes = xr_statistic.actor_notes
 	
 	-- Stupid hack: Unlock faction article if actor is close to the corpse while being looted
 	-- Why? cause I didn't find a legit way to determine the looter. Let me know if its possible 
@@ -271,7 +271,7 @@ function create_release_item(npc)
 			
 			-- Prevent recipes and letters from spawning once they're discovered
 			if string.find(sec,"letter") or string.find(sec,"recipe") then
-				if (not locked_notes["encyclopedia__notes_" .. sec]) and (unlocked_articles["encyclopedia__notes_" .. sec]) then
+				if (not locked_notes["encyclopedia__notes_" .. sec]) and (unlocked_notes["encyclopedia__notes_" .. sec]) then
 					v = 0.0
 				end
 			end

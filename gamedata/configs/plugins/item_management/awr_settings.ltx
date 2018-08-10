@@ -13,21 +13,24 @@ mesh_test_mode = false
 [awr_settings]
 ; Задержка, по прошествии которой, оставленное в тисках оружие может быть украдено
 steal_delay = 18000
-; Перманентная прибавка к шансу получения детали при разборке, в формуле wpn_cond*100+x >= math.random(1,100)
+; A permanent increase in the chance of obtaining a part when disassembling, in formula wpn_cond*100+x >= math.random(1,100)
 condition = 40
 outfit_condition = 10
-; Расстояние до механика при проверки дальности в функции выбора угла
+; The distance to the mechanic when checking the range in the angle selection function
 distance = 40
-; Количество деталей каждого типа (должно точно совпадать с реальным)
+; The number of parts of each type (must exactly match the real one)
 bolt 			= 17
 barrel 			= 12
 gas_tube 		= 11
 bolt_carrier 	= 11
 trigger 		= 6
 
+[awr_weapons_spare_parts]
+basic_scrap
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Список оружия для разборки\модернизации
-; оружие = { ствол, УСМ, затвор, боевая личинка, газовая трубка }
+; List of weapons for disassembly / modernization
+; weapon = {barrel, usl, shutter, warhead, gas tube}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [awr_weapon_list]

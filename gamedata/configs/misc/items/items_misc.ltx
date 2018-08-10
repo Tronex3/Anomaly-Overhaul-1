@@ -28,7 +28,7 @@ attach_bone_name		                           = bip01_r_hand
 auto_attach				                           = false
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
-disassemble_parts								   = basic_scrap,basic_wood
+disassemble_parts								   = basic_scrap
 
 ;;-- Military field shovel
 [shovel_mili]:identity_immunities
@@ -85,58 +85,6 @@ use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
 disassemble_parts								   = basic_paper
 
-;;-- Plastic jar
-[jar]:identity_immunities
-$spawn 				                               = "devices\roubles"
-$prefetch 			                               = 16
-class_dbg			                               = S_MISC
-class				                               = S_PDA
-cform				                               = skeleton
-visual				                               = dynamics\equipments\trade\jar.ogf
-radius				                               = 68; 50
-description			                               = st_jar_descr
-inv_name			                               = st_jar
-inv_name_short			                           = st_jar
-inv_grid_width			                           = 1
-inv_grid_height			                           = 1
-inv_grid_x			                               = 3
-inv_grid_y			                               = 43
-cost				                               = 1190
-;box_size			                               = 1
-inv_weight			                               = 0.58
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
-use1_functor         		             		   = itms_manager.menu_disassemble
-use1_action_functor  		             		   = itms_manager.use_disassemble
-disassemble_parts								   = basic_plastic
-
-;;-- Weapon spare parts
-[spareparts]:identity_immunities ;;-- (removed)
-$spawn 				                               = "devices\roubles"
-$prefetch 			                               = 16
-class_dbg			                               = S_MISC
-class				                               = II_ATTCH
-cform				                               = skeleton
-visual				                               = dynamics\equipments\trade\parts.ogf
-radius				                               = 68; 50
-description			                               = st_wpn_spareparts_descr
-inv_name			                               = st_wpn_spareparts
-inv_name_short		                               = st_wpn_spareparts
-inv_grid_width			                           = 2
-inv_grid_height			                           = 1
-inv_grid_x			                               = 2
-inv_grid_y			                               = 42
-cost				                               = 25
-;box_size			                               = 1
-inv_weight			                               = 2.33
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
-repair_part_bonus	 	                           = 0.00
-
 ;;-- Bed spread
 [beadspread]:identity_immunities
 $spawn 				                               = "devices\roubles"
@@ -192,6 +140,33 @@ use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
 disassemble_parts								   = basic_transistors,batteries_dead_empty
 
+;;-- Broken detector
+[broken_detector]:identity_immunities ;;-- (new)
+$spawn 				                               = "devices\roubles"
+$prefetch 			                               = 16
+class_dbg			                               = S_MISC
+class				                               = S_PDA
+cform				                               = skeleton
+visual                                             = dynamics\devices\dev_fmradio\dev_fmradio.ogf
+radius				                               = 68; 50
+description			                               = st_broken_detector_descr
+inv_name			                               = st_broken_detector
+inv_name_short			                           = st_broken_detector
+inv_grid_width			                           = 1
+inv_grid_height			                           = 1
+inv_grid_x			                               = 8
+inv_grid_y			                               = 45
+cost				                               = 420
+;box_size			                               = 1
+inv_weight			                               = 0.42
+attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
+attach_position_offset		                       = 0.096910, -0.013594, 0.107925
+attach_bone_name		                           = bip01_r_hand
+auto_attach				                           = false
+use1_functor         		             		   = itms_manager.menu_disassemble
+use1_action_functor  		             		   = itms_manager.use_disassemble
+disassemble_parts								   = basic_transistors,basic_capacitors,batteries_dead_empty
+
 ;;-- Deck of Cards
 [cards]:identity_immunities
 $spawn 				                               = "devices\roubles"
@@ -215,9 +190,6 @@ attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
 auto_attach				                           = false
-use1_functor         		             		   = itms_manager.menu_disassemble
-use1_action_functor  		             		   = itms_manager.use_disassemble
-disassemble_parts								   = basic_paper
 
 ;;-- Leather boots
 [boots]:identity_immunities
@@ -273,56 +245,7 @@ auto_attach				                           = false
 repair_part_bonus	 	                           = 0.04
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
-disassemble_parts								   = textile_patch_m
-
-;;-- Mapmaking kit
-[maps_kit]:identity_immunities ;;-- (removed)
-$spawn 				                               = "devices\roubles"
-$prefetch 			                               = 16
-class_dbg			                               = S_MISC
-class				                               = S_PDA
-cform				                               = skeleton
-visual				                               = dynamics\equipments\trade\maps.ogf
-radius				                               = 68; 50
-description			                               = st_maps_kit_descr
-inv_name			                               = st_maps_kit
-inv_name_short			                           = st_maps_kit
-inv_grid_width			                           = 1
-inv_grid_height			                           = 2
-inv_grid_x			                               = 0
-inv_grid_y			                               = 43
-cost				                               = 1740
-;box_size			                               = 1
-inv_weight			                               = 0.145
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
-
-;;-- Military maps
-[mili_maps]:identity_immunities ;;-- (removed)
-$spawn 				                               = "devices\roubles"
-$prefetch 			                               = 16
-class_dbg			                               = S_MISC
-class				                               = II_ATTCH
-cform				                               = skeleton
-visual				                               = dynamics\equipments\trade\mili_maps.ogf
-radius				                               = 68; 50
-description			                               = st_mili_maps_descr
-inv_name			                               = st_mili_maps
-inv_name_short			                           = st_mili_maps
-inv_grid_width			                           = 2
-inv_grid_height			                           = 1
-inv_grid_x			                               = 13
-inv_grid_y			                               = 42
-cost				                               = 1130
-;box_size			                               = 1
-inv_weight			                               = 0.2
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
-repair_part_bonus	 	                           = 0.03
+disassemble_parts								   = textile_patch_b,basic_textolite
 
 ;;-- Old head lamp
 [headlamp]:identity_immunities
@@ -403,7 +326,7 @@ attach_bone_name		                           = bip01_r_hand
 auto_attach				                           = false
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
-disassemble_parts								   = basic_scrap
+disassemble_parts								   = basic_textolite
 
 ;;-- Decorated jewelry box
 [jewelry_box]:identity_immunities
@@ -423,86 +346,11 @@ inv_grid_x			                               = 2
 inv_grid_y			                               = 44
 cost				                               = 1490
 ;box_size			                               = 1
-inv_weight			                               = 0.36
+inv_weight			                               = 0.46
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
 auto_attach				                           = false
-
-;;-- Mechanics manual
-[book1]:identity_immunities	;;-- (removed)
-$spawn 				                               = "devices\roubles"
-$prefetch 			                               = 16
-class_dbg			                               = S_MISC
-class				                               = II_ATTCH
-cform				                               = skeleton
-visual				                               = dynamics\equipments\trade\book1.ogf
-radius				                               = 68; 50
-description			                               = st_book1_descr
-inv_name			                               = st_book1
-inv_name_short			                           = st_book1
-inv_grid_width			                           = 1
-inv_grid_height			                           = 1
-inv_grid_x			                               = 5
-inv_grid_y			                               = 44
-cost				                               = 320
-;box_size			                               = 1
-inv_weight			                               = 0.18
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
-repair_part_bonus	 	                           = 0.02
-
-;;-- Engineering manual
-[book2]:identity_immunities	;;-- (removed)
-$spawn 				                               = "devices\roubles"
-$prefetch 			                               = 16
-class_dbg			                               = S_MISC
-class				                               = II_ATTCH
-cform				                               = skeleton
-visual				                               = dynamics\equipments\trade\book2.ogf
-radius				                               = 68; 50
-description			                               = st_book2_descr
-inv_name			                               = st_book2
-inv_name_short			                           = st_book2
-inv_grid_width			                           = 1
-inv_grid_height			                           = 1
-inv_grid_x			                               = 6
-inv_grid_y			                               = 44
-cost				                               = 380
-;box_size			                               = 1
-inv_weight			                               = 0.22
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
-repair_part_bonus	 	                           = 0.02
-
-;;-- Drug distribution notes
-[book3]:identity_immunities	;;-- (removed)
-$spawn 				                               = "devices\roubles"
-$prefetch 			                               = 16
-class_dbg			                               = S_MISC
-class				                               = II_ATTCH
-cform				                               = skeleton
-visual				                               = dynamics\equipments\trade\book3.ogf
-radius				                               = 68; 50
-description			                               = st_drugnotes_descr
-inv_name			                               = st_drugnotes
-inv_name_short			                           = st_drugnotes
-inv_grid_width			                           = 1
-inv_grid_height			                           = 1
-inv_grid_x			                               = 7
-inv_grid_y			                               = 44
-cost				                               = 430
-;box_size			                               = 1
-inv_weight			                               = 0.17
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
-repair_part_bonus	 	                           = 0.02
 
 ;;-- Picture of a woman
 [picture_woman]:identity_immunities
@@ -528,30 +376,6 @@ attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
 auto_attach				                           = false
 repair_part_bonus	 	                           = 0.01
-
-
-[drugs_kit]:identity_immunities	;;-- (removed)
-$spawn 				                               = "devices\roubles"
-$prefetch 			                               = 16
-class_dbg			                               = S_MISC
-class				                               = S_PDA
-cform				                               = skeleton
-visual				                               = dynamics\equipments\trade\drugskit.ogf
-radius				                               = 68; 50
-description			                               = st_drugs_kit_descr
-inv_name			                               = st_drugs_kit
-inv_name_short			                           = st_drugs_kit
-inv_grid_width			                           = 1
-inv_grid_height			                           = 1
-inv_grid_x			                               = 4
-inv_grid_y			                               = 45
-cost				                               = 1070
-;box_size			                               = 1
-inv_weight			                               = 0.268
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
 
 ;;-- Broken flashlight
 [flashlight_broken]:identity_immunities
@@ -693,32 +517,6 @@ repair_part_bonus	 	                           = 0.02
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
 disassemble_parts								   = basic_paper
-
-[survivalguide]:booster	;;-- (removed)
-$spawn 				                               = "devices\repair_kit_10"
-$prefetch 			                               = 16
-visual				                               = dynamics\equipments\trade\survivalguide.ogf
-description			                               = fieldcraft_survivalguide_descr
-radius				                               = 68; 50
-inv_name			                               = fieldcraft_survivalguide_name
-inv_name_short			                           = fieldcraft_survivalguide_name
-inv_weight			                               = 0.23	;0.2
-inv_grid_width			                           = 1
-inv_grid_height			                           = 1
-inv_grid_x			                               = 3
-inv_grid_y			                               = 45
-cost				                               = 450
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset	                           = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
-// should be deleted after update
-bone_name				                           = bip01_r_hand
-position_offset			                           = 0.0,0.0,0.0
-angle_offset			                           = 1.570790,1.570790,3.92699
-cooking_use_actor_effects                          = true      ;Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
-use_sound			                               = interface\inv_close
-repair_part_bonus	 	                           = 0.03
 
 ;;-- Camouflaged tarpaulin
 [tarpaulin]:identity_immunities
@@ -877,39 +675,9 @@ attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
 auto_attach				                           = false
 repair_part_bonus	 	                           = 0.06
-
-;;-- not found
-[itm_pda_personal]:booster
-GroupControlSection                                = spawn_group
-discovery_dependency                               =
-$spawn                                             = "devices\pda"
-$prefetch                                          = 16
-class_dbg			                               = S_MISC
-class                                              = II_FOOD
-cform                                              = skeleton
-visual                                             = dynamics\devices\dev_pda\dev_pda.ogf
-description                                        = st_pda_descr
-radius                                             = 68	                                       ; 50
-slot                                               = 7
-default_to_ruck                                    = false
-sprint_allowed                                     = true
-control_inertion_factor                            = 1
-script_binding                                     = bind_physic_object.init
-description								           = st_perspda_descr
-inv_name                                           = st_perspda
-inv_name_short                                     = st_perspda
-inv_weight                                         = 0.1	                                       ;0.2
-
-inv_grid_width                                     = 1
-inv_grid_height                                    = 1
-inv_grid_x                                         = 7
-inv_grid_y                                         = 3
-cost                                               = 0
-attach_angle_offset                                = -1.303,0.107,-1.702	                                       ;onoaiaaeeaaaony a ?aaeaiao Angle*PI/180
-attach_position_offset                             = 0.14,0.001,0.02
-attach_bone_name                                   = bip01_l_hand
-auto_attach                                        = false
-remove_after_use						           = false
+use1_functor         		             		   = itms_manager.menu_disassemble
+use1_action_functor  		             		   = itms_manager.use_disassemble
+disassemble_parts								   = jar
 
 [hand_watch]:identity_immunities ;;--(new)
 $spawn 				                               = "devices\roubles"
@@ -922,12 +690,12 @@ visual                                             = dynamics\equipments\trade\b
 inv_name			                               = st_hand_watch
 inv_name_short		                               = st_hand_watch
 description			                               = st_hand_watch_descr
-inv_weight   	                                   = 0.139
+inv_weight   	                                   = 0.3
 inv_grid_width		                               = 1
 inv_grid_height		                               = 1
 inv_grid_x			                               = 9
 inv_grid_y			                               = 45
-cost    		                                   = 32
+cost    		                                   = 346
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -947,12 +715,12 @@ visual                                             = dynamics\equipments\trade\h
 inv_name			                               = st_ball_hammer
 inv_name_short		                               = st_ball_hammer
 description			                               = st_ball_hammer_descr
-inv_weight   	                                   = 0.139
+inv_weight   	                                   = 0.9
 inv_grid_width		                               = 1
 inv_grid_height		                               = 1
 inv_grid_x			                               = 10
 inv_grid_y			                               = 45
-cost    		                                   = 32
+cost    		                                   = 116
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -960,6 +728,31 @@ auto_attach				                           = false
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
 disassemble_parts								   = basic_scrap
+repair_part_bonus	 	                           = 0.02
+
+;;-- Steel Wool
+[steel_wool]:identity_immunities
+$spawn 				                               = "devices\roubles"
+$prefetch 			                               = 16
+class_dbg			                               = S_MISC
+class				                               = II_ATTCH
+cform				                               = skeleton
+visual				                               = dynamics\repair\steel_wool.ogf
+radius				                               = 68; 50
+description			                               = st_steel_wool_descr
+inv_name			                               = st_steel_wool
+inv_name_short			                           = st_steel_wool
+inv_grid_width			                           = 1
+inv_grid_height			                           = 1
+inv_grid_x			                               = 5
+inv_grid_y			                               = 45
+cost				                               = 744
+inv_weight			                               = 0.224
+attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
+attach_position_offset		                       = 0.096910, -0.013594, 0.107925
+attach_bone_name		                           = bip01_r_hand
+auto_attach				                           = false
+repair_part_bonus	 	                           = 0.05
 
 [duct_tape]:identity_immunities ;;--(new)
 $spawn 				                               = "devices\roubles"
@@ -972,16 +765,17 @@ visual                                             = dynamics\repair\armor_repai
 inv_name			                               = st_duct_tape
 inv_name_short		                               = st_duct_tape
 description			                               = st_duct_tape_descr
-inv_weight   	                                   = 0.139
+inv_weight   	                                   = 0.267
 inv_grid_width		                               = 1
 inv_grid_height		                               = 1
 inv_grid_x			                               = 12
 inv_grid_y			                               = 45
-cost    		                                   = 32
+cost    		                                   = 90
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
 auto_attach				                           = false
+repair_part_bonus	 	                           = 0.03
 
 [batteries_empty]:identity_immunities
 $spawn 				                               = "devices\roubles"
@@ -1026,33 +820,105 @@ inv_grid_x			                               = 18
 inv_grid_y			                               = 25
 
 
-;;============================================================================
-;;=========================| BASE CRAFT/REPAIR ITEMS |========================
-;;============================================================================
+;;===============================================================
+;;=========================| BASE ITEMS |========================
+;;===============================================================
 
-;;-- Steel Wool
-[steel_wool]:identity_immunities
+;;-- Plastic jar
+[jar]:identity_immunities
 $spawn 				                               = "devices\roubles"
 $prefetch 			                               = 16
 class_dbg			                               = S_MISC
-class				                               = II_ATTCH
+class				                               = S_PDA
 cform				                               = skeleton
-visual				                               = dynamics\repair\steel_wool.ogf
+visual				                               = dynamics\equipments\trade\jar.ogf
 radius				                               = 68; 50
-description			                               = st_steel_wool_descr
-inv_name			                               = st_steel_wool
-inv_name_short			                           = st_steel_wool
+description			                               = st_jar_descr
+inv_name			                               = st_jar
+inv_name_short			                           = st_jar
 inv_grid_width			                           = 1
 inv_grid_height			                           = 1
-inv_grid_x			                               = 5
-inv_grid_y			                               = 45
-cost				                               = 744
-inv_weight			                               = 0.224
+inv_grid_x			                               = 3
+inv_grid_y			                               = 44
+cost				                               = 1190
+;box_size			                               = 1
+inv_weight			                               = 0.58
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
 auto_attach				                           = false
-repair_part_bonus	 	                           = 0.05
+;use1_functor         		             		   = itms_manager.menu_disassemble
+;use1_action_functor  		             		   = itms_manager.use_disassemble
+;disassemble_parts								   = basic_plastic
+
+[e_syringe]:identity_immunities
+$spawn 				                               = "devices\roubles"
+$prefetch 			                               = 16
+visual						                       = dynamics\devices\glucose_shots\glucose_s.ogf
+radius				                               = 68
+class_dbg			                               = S_MISC
+class				                               = II_ATTCH
+cform				                               = skeleton
+cost						                       = 45
+inv_weight					                       = 0.012
+inv_name					                       = st_e_syringe
+inv_name_short				                       = st_e_syringe
+description					                       = st_e_syringe_descr
+inv_grid_width				                       = 1
+inv_grid_height				                       = 1
+inv_grid_x					                       = 19
+inv_grid_y					                       = 46
+attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
+attach_position_offset		                       = 0.096910, -0.013594, 0.107925
+attach_bone_name		                           = bip01_r_hand
+auto_attach				                           = false
+
+;;-- Rope
+[rope]:identity_immunities
+GroupControlSection		                           = spawn_group
+discovery_dependency	                           =
+$spawn					                           = "food and drugs\harmonica_a"
+cform                                              = skeleton
+class_dbg			                               = S_MISC
+class					                           = II_ATTCH
+visual					                           = dynamics\equipments\trade\rope.ogf
+cost					                           = 190
+inv_name				                           = st_rope
+inv_name_short				                       = st_rope
+description				                           = st_rope_descr
+inv_weight				                           = 0.7
+inv_grid_width			                           = 1
+inv_grid_height			                           = 1
+inv_grid_x				                           = 13
+inv_grid_y				                           = 41
+attach_angle_offset		                           = 0.000000, -1.204452, -1.262921
+attach_position_offset	                           = 0.081856, -0.035081, 0.011694
+attach_bone_name		                           = bip01_l_hand
+auto_attach				                           = false
+repair_part_bonus	 	                           = 0.03
+
+;;-- Lead
+[ammo_bad]:identity_immunities
+$spawn 				                               = "devices\roubles"
+$prefetch 			                               = 16
+class_dbg			                               = S_MISC
+class				                               = S_PDA
+cform				                               = skeleton
+visual				                               = dynamics\equipments\trade\ammo.ogf
+radius				                               = 68; 50
+description			                               = st_ammo_bad_descr
+inv_name			                               = st_ammo_bad
+inv_name_short			                           = st_ammo_bad
+inv_grid_width			                           = 1
+inv_grid_height			                           = 1
+inv_grid_x			                               = 19
+inv_grid_y			                               = 44
+cost				                               = 22
+inv_weight			                               = 0.13
+attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
+attach_position_offset		                       = 0.096910, -0.013594, 0.107925
+attach_bone_name		                           = bip01_r_hand
+auto_attach				                           = false
 
 ;;-- Paper Sheet
 [basic_paper]:identity_immunities ;;-- (new)
@@ -1062,7 +928,7 @@ class_dbg			                               = S_MISC
 class					                           = II_ATTCH
 cform                                              = skeleton
 visual                                             = dynamics\equipments\quest\notes_letter_1.ogf
-cost				                               = 300
+cost				                               = 31
 inv_name                                           = st_basic_paper
 inv_name_short                                     = st_basic_paper
 description                                        = st_basic_paper_descr
@@ -1075,7 +941,7 @@ attach_angle_offset		                           = 0.000000, -1.204452, -1.262921
 attach_position_offset	                           = 0.081856, -0.035081, 0.011694
 attach_bone_name		                           = bip01_l_hand
 auto_attach				                           = false
-repair_part_bonus	 	                           = 0.02
+repair_part_bonus	 	                           = 0.01
 
 ;;-- Textolite base
 [basic_textolite]:identity_immunities ;;-- (new)
@@ -1086,7 +952,7 @@ cform                                              = skeleton
 class_dbg			                               = S_MISC
 class					                           = II_ATTCH
 visual                                             = dynamics\equipments\quest\materials_textolite.ogf
-cost				                               = 1000
+cost				                               = 78
 inv_name                                           = st_basic_textolite
 inv_name_short                                     = st_basic_textolite
 description                                        = st_basic_textolite_descr
@@ -1099,7 +965,7 @@ attach_angle_offset		                           = 0.000000, -1.204452, -1.262921
 attach_position_offset	                           = 0.081856, -0.035081, 0.011694
 attach_bone_name		                           = bip01_l_hand
 auto_attach				                           = false
-repair_part_bonus	 	                           = 0.03
+repair_part_bonus	 	                           = 0.02
 
 ;;-- Cloth sheet
 [textile_patch_b]:identity_immunities ; (Basic textile patch)
@@ -1117,7 +983,7 @@ inv_grid_width			                           = 1
 inv_grid_height			                           = 1
 inv_grid_x			                               = 1
 inv_grid_y			                               = 24
-cost				                               = 229
+cost				                               = 89
 inv_weight			                               = 0.194
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
@@ -1141,7 +1007,7 @@ inv_grid_width			                           = 1
 inv_grid_height			                           = 1
 inv_grid_x			                               = 2
 inv_grid_y			                               = 24
-cost				                               = 336
+cost				                               = 136
 inv_weight			                               = 0.283
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
@@ -1182,11 +1048,11 @@ cform                                              = skeleton
 class_dbg			                               = S_MISC
 class					                           = II_ATTCH
 visual                                             = dynamics\equipments\quest\box_condensers.ogf
-cost				                               = 800
+cost				                               = 93
 inv_name                                           = st_basic_capacitors
 inv_name_short                                     = st_basic_capacitors
 description                                        = st_basic_capacitors_descr
-inv_weight                                         = 0.15
+inv_weight                                         = 0.31
 inv_grid_width                                     = 1
 inv_grid_height                                    = 1
 inv_grid_x                                         = 2
@@ -1195,7 +1061,6 @@ attach_angle_offset		                           = 0.000000, -1.204452, -1.262921
 attach_position_offset	                           = 0.081856, -0.035081, 0.011694
 attach_bone_name		                           = bip01_l_hand
 auto_attach				                           = false
-repair_part_bonus	 	                           = 0.03
 
 ;;-- Pack of Transistors
 [basic_transistors]:identity_immunities ;;-- (new)
@@ -1206,11 +1071,11 @@ cform                                              = skeleton
 class_dbg			                               = S_MISC
 class					                           = II_ATTCH
 visual                                             = dynamics\equipments\quest\box_transistors.ogf
-cost				                               = 800
+cost				                               = 140
 inv_name                                           = st_basic_transistors
 inv_name_short                                     = st_basic_transistors
 description                                        = st_basic_transistors_descr
-inv_weight                                         = 0.15
+inv_weight                                         = 0.28
 inv_grid_width                                     = 1
 inv_grid_height                                    = 1
 inv_grid_x                                         = 4
@@ -1219,7 +1084,6 @@ attach_angle_offset		                           = 0.000000, -1.204452, -1.262921
 attach_position_offset	                           = 0.081856, -0.035081, 0.011694
 attach_bone_name		                           = bip01_l_hand
 auto_attach				                           = false
-repair_part_bonus	 	                           = 0.03
 
 ;;-- A coil of copper wire
 [basic_copper]:identity_immunities ;;-- (new)
@@ -1230,11 +1094,11 @@ cform                                              = skeleton
 class_dbg			                               = S_MISC
 class					                           = II_ATTCH
 visual                                             = dynamics\equipments\quest\materials_wire.ogf
-cost				                               = 300
+cost				                               = 74
 inv_name                                           = st_basic_copper
 inv_name_short                                     = st_basic_copper
 description                                        = st_basic_copper_descr
-inv_weight                                         = 0.1
+inv_weight                                         = 0.21
 inv_grid_width                                     = 1
 inv_grid_height                                    = 1
 inv_grid_x                                         = 5
@@ -1242,54 +1106,6 @@ inv_grid_y                                         = 3
 attach_angle_offset		                           = 0.000000, -1.204452, -1.262921
 attach_position_offset	                           = 0.081856, -0.035081, 0.011694
 attach_bone_name		                           = bip01_l_hand
-auto_attach				                           = false
-repair_part_bonus	 	                           = 0.03
-
-;;-- Rope
-[rope]:identity_immunities
-GroupControlSection		                           = spawn_group
-discovery_dependency	                           =
-$spawn					                           = "food and drugs\harmonica_a"
-cform                                              = skeleton
-class_dbg			                               = S_MISC
-class					                           = II_ATTCH
-visual					                           = dynamics\equipments\trade\rope.ogf
-cost					                           = 490
-inv_name				                           = st_rope
-inv_name_short				                       = st_rope
-description				                           = st_rope_descr
-inv_weight				                           = 0.7
-inv_grid_width			                           = 1
-inv_grid_height			                           = 1
-inv_grid_x				                           = 13
-inv_grid_y				                           = 41
-attach_angle_offset		                           = 0.000000, -1.204452, -1.262921
-attach_position_offset	                           = 0.081856, -0.035081, 0.011694
-attach_bone_name		                           = bip01_l_hand
-auto_attach				                           = false
-repair_part_bonus	 	                           = 0.03
-
-;;-- Lead
-[ammo_bad]:identity_immunities
-$spawn 				                               = "devices\roubles"
-$prefetch 			                               = 16
-class_dbg			                               = S_MISC
-class				                               = S_PDA
-cform				                               = skeleton
-visual				                               = dynamics\equipments\trade\ammo.ogf
-radius				                               = 68; 50
-description			                               = st_ammo_bad_descr
-inv_name			                               = st_ammo_bad
-inv_name_short			                           = st_ammo_bad
-inv_grid_width			                           = 1
-inv_grid_height			                           = 1
-inv_grid_x			                               = 19
-inv_grid_y			                               = 44
-cost				                               = 22
-inv_weight			                               = 0.05
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
 auto_attach				                           = false
 
 ;;-- Wooden parts
@@ -1308,8 +1124,8 @@ inv_grid_width			                           = 1
 inv_grid_height			                           = 1
 inv_grid_x			                               = 11
 inv_grid_y			                               = 45
-cost				                               = 22
-inv_weight			                               = 0.05
+cost				                               = 21
+inv_weight			                               = 0.27
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -1331,8 +1147,8 @@ inv_grid_width			                           = 1
 inv_grid_height			                           = 1
 inv_grid_x			                               = 13
 inv_grid_y			                               = 45
-cost				                               = 22
-inv_weight			                               = 0.05
+cost				                               = 14
+inv_weight			                               = 0.28
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -1354,8 +1170,8 @@ inv_grid_width			                           = 1
 inv_grid_height			                           = 1
 inv_grid_x			                               = 17
 inv_grid_y			                               = 45
-cost				                               = 22
-inv_weight			                               = 0.05
+cost				                               = 24
+inv_weight			                               = 0.36
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -1377,8 +1193,8 @@ inv_grid_width			                           = 1
 inv_grid_height			                           = 1
 inv_grid_x			                               = 14
 inv_grid_y			                               = 45
-cost				                               = 22
-inv_weight			                               = 0.05
+cost				                               = 46
+inv_weight			                               = 0.42
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -1400,8 +1216,8 @@ inv_grid_width			                           = 1
 inv_grid_height			                           = 1
 inv_grid_x			                               = 15
 inv_grid_y			                               = 45
-cost				                               = 22
-inv_weight			                               = 0.05
+cost				                               = 54
+inv_weight			                               = 0.24
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -1423,12 +1239,13 @@ inv_grid_width			                           = 1
 inv_grid_height			                           = 1
 inv_grid_x			                               = 16
 inv_grid_y			                               = 45
-cost				                               = 22
-inv_weight			                               = 0.05
+cost				                               = 15
+inv_weight			                               = 0.18
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
 auto_attach				                           = false
+repair_part_bonus	 	                           = 0.01
 
 ;;-- Rubber base
 [basic_rubber]:identity_immunities
@@ -1447,8 +1264,241 @@ inv_grid_height			                           = 1
 inv_grid_x			                               = 18
 inv_grid_y			                               = 45
 cost				                               = 22
-inv_weight			                               = 0.05
+inv_weight			                               = 0.13
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
 auto_attach				                           = false
+
+;;===========================================================
+;;=========================| UNUSED |========================
+;;===========================================================
+;;-- Weapon spare parts
+[spareparts]:identity_immunities ;;-- (removed)
+$spawn 				                               = "devices\roubles"
+$prefetch 			                               = 16
+class_dbg			                               = S_MISC
+class				                               = II_ATTCH
+cform				                               = skeleton
+visual				                               = dynamics\equipments\trade\parts.ogf
+radius				                               = 68; 50
+description			                               = st_wpn_spareparts_descr
+inv_name			                               = st_wpn_spareparts
+inv_name_short		                               = st_wpn_spareparts
+inv_grid_width			                           = 2
+inv_grid_height			                           = 1
+inv_grid_x			                               = 2
+inv_grid_y			                               = 42
+cost				                               = 25
+;box_size			                               = 1
+inv_weight			                               = 2.33
+attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
+attach_position_offset		                       = 0.096910, -0.013594, 0.107925
+attach_bone_name		                           = bip01_r_hand
+auto_attach				                           = false
+repair_part_bonus	 	                           = 0.00
+
+;;-- Mapmaking kit
+[maps_kit]:identity_immunities ;;-- (removed)
+$spawn 				                               = "devices\roubles"
+$prefetch 			                               = 16
+class_dbg			                               = S_MISC
+class				                               = S_PDA
+cform				                               = skeleton
+visual				                               = dynamics\equipments\trade\maps.ogf
+radius				                               = 68; 50
+description			                               = st_maps_kit_descr
+inv_name			                               = st_maps_kit
+inv_name_short			                           = st_maps_kit
+inv_grid_width			                           = 1
+inv_grid_height			                           = 2
+inv_grid_x			                               = 0
+inv_grid_y			                               = 43
+cost				                               = 1740
+;box_size			                               = 1
+inv_weight			                               = 0.145
+attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
+attach_position_offset		                       = 0.096910, -0.013594, 0.107925
+attach_bone_name		                           = bip01_r_hand
+auto_attach				                           = false
+
+;;-- Military maps
+[mili_maps]:identity_immunities ;;-- (removed)
+$spawn 				                               = "devices\roubles"
+$prefetch 			                               = 16
+class_dbg			                               = S_MISC
+class				                               = II_ATTCH
+cform				                               = skeleton
+visual				                               = dynamics\equipments\trade\mili_maps.ogf
+radius				                               = 68; 50
+description			                               = st_mili_maps_descr
+inv_name			                               = st_mili_maps
+inv_name_short			                           = st_mili_maps
+inv_grid_width			                           = 2
+inv_grid_height			                           = 1
+inv_grid_x			                               = 13
+inv_grid_y			                               = 42
+cost				                               = 1130
+;box_size			                               = 1
+inv_weight			                               = 0.2
+attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
+attach_position_offset		                       = 0.096910, -0.013594, 0.107925
+attach_bone_name		                           = bip01_r_hand
+auto_attach				                           = false
+repair_part_bonus	 	                           = 0.03
+
+;;-- Mechanics manual
+[book1]:identity_immunities	;;-- (removed)
+$spawn 				                               = "devices\roubles"
+$prefetch 			                               = 16
+class_dbg			                               = S_MISC
+class				                               = II_ATTCH
+cform				                               = skeleton
+visual				                               = dynamics\equipments\trade\book1.ogf
+radius				                               = 68; 50
+description			                               = st_book1_descr
+inv_name			                               = st_book1
+inv_name_short			                           = st_book1
+inv_grid_width			                           = 1
+inv_grid_height			                           = 1
+inv_grid_x			                               = 5
+inv_grid_y			                               = 44
+cost				                               = 320
+;box_size			                               = 1
+inv_weight			                               = 0.18
+attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
+attach_position_offset		                       = 0.096910, -0.013594, 0.107925
+attach_bone_name		                           = bip01_r_hand
+auto_attach				                           = false
+repair_part_bonus	 	                           = 0.02
+
+;;-- Engineering manual
+[book2]:identity_immunities	;;-- (removed)
+$spawn 				                               = "devices\roubles"
+$prefetch 			                               = 16
+class_dbg			                               = S_MISC
+class				                               = II_ATTCH
+cform				                               = skeleton
+visual				                               = dynamics\equipments\trade\book2.ogf
+radius				                               = 68; 50
+description			                               = st_book2_descr
+inv_name			                               = st_book2
+inv_name_short			                           = st_book2
+inv_grid_width			                           = 1
+inv_grid_height			                           = 1
+inv_grid_x			                               = 6
+inv_grid_y			                               = 44
+cost				                               = 380
+;box_size			                               = 1
+inv_weight			                               = 0.22
+attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
+attach_position_offset		                       = 0.096910, -0.013594, 0.107925
+attach_bone_name		                           = bip01_r_hand
+auto_attach				                           = false
+repair_part_bonus	 	                           = 0.02
+
+;;-- Drug distribution notes
+[book3]:identity_immunities	;;-- (removed)
+$spawn 				                               = "devices\roubles"
+$prefetch 			                               = 16
+class_dbg			                               = S_MISC
+class				                               = II_ATTCH
+cform				                               = skeleton
+visual				                               = dynamics\equipments\trade\book3.ogf
+radius				                               = 68; 50
+description			                               = st_drugnotes_descr
+inv_name			                               = st_drugnotes
+inv_name_short			                           = st_drugnotes
+inv_grid_width			                           = 1
+inv_grid_height			                           = 1
+inv_grid_x			                               = 7
+inv_grid_y			                               = 44
+cost				                               = 430
+;box_size			                               = 1
+inv_weight			                               = 0.17
+attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
+attach_position_offset		                       = 0.096910, -0.013594, 0.107925
+attach_bone_name		                           = bip01_r_hand
+auto_attach				                           = false
+repair_part_bonus	 	                           = 0.02
+
+[drugs_kit]:identity_immunities	;;-- (removed)
+$spawn 				                               = "devices\roubles"
+$prefetch 			                               = 16
+class_dbg			                               = S_MISC
+class				                               = S_PDA
+cform				                               = skeleton
+visual				                               = dynamics\equipments\trade\drugskit.ogf
+radius				                               = 68; 50
+description			                               = st_drugs_kit_descr
+inv_name			                               = st_drugs_kit
+inv_name_short			                           = st_drugs_kit
+inv_grid_width			                           = 1
+inv_grid_height			                           = 1
+inv_grid_x			                               = 4
+inv_grid_y			                               = 45
+cost				                               = 1070
+;box_size			                               = 1
+inv_weight			                               = 0.268
+attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
+attach_position_offset		                       = 0.096910, -0.013594, 0.107925
+attach_bone_name		                           = bip01_r_hand
+auto_attach				                           = false
+
+[survivalguide]:booster	;;-- (removed)
+$spawn 				                               = "devices\repair_kit_10"
+$prefetch 			                               = 16
+visual				                               = dynamics\equipments\trade\survivalguide.ogf
+description			                               = fieldcraft_survivalguide_descr
+radius				                               = 68; 50
+inv_name			                               = fieldcraft_survivalguide_name
+inv_name_short			                           = fieldcraft_survivalguide_name
+inv_weight			                               = 0.23	;0.2
+inv_grid_width			                           = 1
+inv_grid_height			                           = 1
+inv_grid_x			                               = 3
+inv_grid_y			                               = 45
+cost				                               = 450
+attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
+attach_position_offset	                           = 0.096910, -0.013594, 0.107925
+attach_bone_name		                           = bip01_r_hand
+auto_attach				                           = false
+// should be deleted after update
+bone_name				                           = bip01_r_hand
+position_offset			                           = 0.0,0.0,0.0
+angle_offset			                           = 1.570790,1.570790,3.92699
+cooking_use_actor_effects                          = true      ;Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
+use_sound			                               = interface\inv_close
+repair_part_bonus	 	                           = 0.03
+
+;;-- not found
+[itm_pda_personal]:booster
+GroupControlSection                                = spawn_group
+discovery_dependency                               =
+$spawn                                             = "devices\pda"
+$prefetch                                          = 16
+class_dbg			                               = S_MISC
+class                                              = II_FOOD
+cform                                              = skeleton
+visual                                             = dynamics\devices\dev_pda\dev_pda.ogf
+description                                        = st_pda_descr
+radius                                             = 68	                                       ; 50
+slot                                               = 7
+default_to_ruck                                    = false
+sprint_allowed                                     = true
+control_inertion_factor                            = 1
+script_binding                                     = bind_physic_object.init
+description								           = st_perspda_descr
+inv_name                                           = st_perspda
+inv_name_short                                     = st_perspda
+inv_weight                                         = 0.1	                                       ;0.2
+inv_grid_width                                     = 1
+inv_grid_height                                    = 1
+inv_grid_x                                         = 7
+inv_grid_y                                         = 3
+cost                                               = 0
+attach_angle_offset                                = -1.303,0.107,-1.702	                                       ;onoaiaaeeaaaony a ?aaeaiao Angle*PI/180
+attach_position_offset                             = 0.14,0.001,0.02
+attach_bone_name                                   = bip01_l_hand
+auto_attach                                        = false
+remove_after_use						           = false

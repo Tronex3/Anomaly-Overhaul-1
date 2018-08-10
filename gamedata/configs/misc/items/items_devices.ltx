@@ -72,6 +72,9 @@ inv_name                                           = st_memory_stick_name
 inv_name_short                                     = st_memory_stick_name
 class                                              = II_FOOD
 class_dbg								           = S_TOOL
+use1_functor         		             		   = itms_manager.menu_disassemble
+use1_action_functor  		             		   = itms_manager.use_disassemble
+disassemble_parts								   = basic_transistors
 
 [itm_guide_usb_2]:booster
 can_trade                                          = false
@@ -82,7 +85,9 @@ inv_name                                           = st_memory_stick_name
 inv_name_short                                     = st_memory_stick_name
 class                                              = II_FOOD
 class_dbg								           = S_TOOL
-
+use1_functor         		             		   = itms_manager.menu_disassemble
+use1_action_functor  		             		   = itms_manager.use_disassemble
+disassemble_parts								   = basic_transistors
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;; DETECTORS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -382,7 +387,7 @@ snd_draw                                           = weapons\detector\detector_d
 snd_holster                                        = weapons\detector\detector_holster
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
-disassemble_parts								   = basic_capacitors,basic_transistors,basic_copper,batteries_dead
+disassemble_parts								   = basic_capacitors,basic_capacitors,basic_transistors,basic_transistors,basic_copper,batteries_dead,basic_scrap
 
 [detector_base_hud]:hud_base
 attach_place_idx		                           = 1
@@ -454,7 +459,7 @@ af_radius		                                   = 30
 af_vis_radius		                               = 4
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
-disassemble_parts								   = basic_capacitors,basic_transistors,basic_capacitors,batteries
+disassemble_parts								   = basic_capacitors,basic_capacitors,basic_capacitors,basic_transistors,basic_transistors,basic_transistors,batteries,batteries,basic_scrap
 
 [detector_advanced_hud]:detector_base_hud
 
@@ -503,7 +508,7 @@ af_radius		                                   = 30
 af_vis_radius		                               = 5
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
-disassemble_parts								   = basic_transistors,basic_transistors,basic_capacitors,batteries
+disassemble_parts								   = basic_transistors,basic_transistors,basic_transistors,basic_transistors,basic_capacitors,basic_capacitors,batteries,batteries,basic_scrap
 
 [detector_elite_hud]:detector_base_hud
 item_position				                       = -0.071685,0.036188,-0.009934
@@ -551,7 +556,7 @@ af_radius		                                   = 30
 af_vis_radius		                               = 6
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
-disassemble_parts								   = basic_transistors,basic_transistors,basic_capacitors,basic_capacitors,batteries
+disassemble_parts								   = basic_transistors,basic_transistors,basic_transistors,basic_transistors,basic_capacitors,basic_capacitors,basic_capacitors,basic_capacitors,batteries,batteries,basic_scrap
 
 
 zone_class_1		                               = zone_mine_acidic_weak
@@ -751,7 +756,7 @@ snd_holster                                        = flashlight\flashlight_holst
 hud						                           = device_flashlight_hud
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
-disassemble_parts								   = basic_capacitors,basic_copper,batteries_dead
+disassemble_parts								   = basic_capacitors,basic_capacitors,basic_copper,batteries_dead,batteries_dead
 
 [device_flashlight_hud]:detector_base_hud
 item_position			                           = -0.065,0.033,0.01

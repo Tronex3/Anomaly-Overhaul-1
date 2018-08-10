@@ -203,16 +203,20 @@ function craft_ui:OnItemClicked()
 		return
 	end
 	
-	local parts = self.recipes[item.idx][item.name]
+	local parts = self.recipes[item.idx][item.name] or {}
 	
 	-- Item 1
-	self:UpdateItem (1, parts[1][1], parts[1][2], false)
+	if parts[1] and parts[1][1] and parts[1][2] then
+		self:UpdateItem (1, parts[1][1], parts[1][2], false)
+	end
 	
 	-- Item 2
-	self:UpdateItem (2, parts[2][1], parts[2][2], false)
+	if parts[2] and parts[2][1] and parts[2][2] then
+		self:UpdateItem (2, parts[2][1], parts[2][2], false)
+	end
 	
 	-- Item 3
-	if parts[3] then
+	if parts[3] and parts[3][1] and parts[3][2] then
 		self.size = 3
 		self.box_lines:InitTexture("ui_craft_lines_3i")
 		self:UpdateItem (3, parts[3][1], parts[3][2], false)
@@ -371,6 +375,7 @@ function craft_ui:FillRecipes (section)
 		local result, id, value = ini_craft:r_line(section , i , "", "")
 		if ini:section_exist(id) then
 			local t = alun_utils.str_explode(value,",")
+			
 			if (#t == 4) or (#t == 6) then
 				local ind = #self.recipes + 1
 				self.recipes[ind] = {}

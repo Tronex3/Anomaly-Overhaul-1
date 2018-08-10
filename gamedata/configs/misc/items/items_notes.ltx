@@ -18,6 +18,9 @@ inv_name_short                           = st_recipe
 recipe									 = true
 use1_functor         					 = itms_manager.menu_read
 use1_action_functor  					 = itms_manager.use_recipe
+use2_functor         		             = itms_manager.menu_disassemble
+use2_action_functor  		             = itms_manager.use_disassemble
+disassemble_parts						 = basic_paper
 
 [recipe_basic_1]:recipe_base
 inv_grid_x                               = 5
@@ -183,31 +186,27 @@ class				                     = S_PDA
 cform				                     = skeleton
 visual				                     = dynamics\equipments\quest\notes_writing_book_2.ogf
 radius				                     = 68; 50
-
 description			                     = st_memoirs_1_of_2_desc
 inv_name			                     = st_memoirs_1_of_2_name
 inv_name_short			                 = st_memoirs_1_of_2_name
-
 inv_grid_width		                     = 1
 inv_grid_height		                     = 1
-inv_grid_x			                     = 16
+inv_grid_x			                     = 17
 inv_grid_y			                     = 1
-
 cost				                     = 140
-
 ;box_size			                     = 1
-
 inv_weight			                     = 0.018
-
 attach_angle_offset		                 = -0.287979, 1.560923, 1.544060
 attach_position_offset		             = 0.096910, -0.013594, 0.107925
 attach_bone_name		                 = bip01_r_hand
 auto_attach				                 = false
-
 repair_part_bonus	 	                 = 0.02
 letter									 = true
 use1_functor         					 = itms_manager.menu_read
 use1_action_functor  					 = itms_manager.use_letter
+use2_functor         		             = itms_manager.menu_disassemble
+use2_action_functor  		             = itms_manager.use_disassemble
+disassemble_parts						 = basic_paper
 
 [letter_memoirs_2_of_2]:identity_immunities
 $spawn 				                     = "devices\roubles"
@@ -224,7 +223,7 @@ inv_name_short			                 = st_memoirs_2_of_2_name
 
 inv_grid_width		                     = 1
 inv_grid_height		                     = 1
-inv_grid_x			                     = 16
+inv_grid_x			                     = 17
 inv_grid_y			                     = 1
 
 cost				                     = 140
@@ -242,6 +241,9 @@ repair_part_bonus	 	                 = 0.02
 letter									 = true
 use1_functor         					 = itms_manager.menu_read
 use1_action_functor  					 = itms_manager.use_letter
+use2_functor         		             = itms_manager.menu_disassemble
+use2_action_functor  		             = itms_manager.use_disassemble
+disassemble_parts						 = basic_paper
 
 [letter_freedom_manual_1_of_2]:identity_immunities
 $spawn 				                     = "devices\roubles"
@@ -276,6 +278,9 @@ repair_part_bonus	 	                 = 0.01
 letter									 = true
 use1_functor         					 = itms_manager.menu_read
 use1_action_functor  					 = itms_manager.use_letter
+use2_functor         		             = itms_manager.menu_disassemble
+use2_action_functor  		             = itms_manager.use_disassemble
+disassemble_parts						 = basic_paper
 
 [letter_freedom_manual_2_of_2]:identity_immunities
 $spawn 				                     = "devices\roubles"
@@ -310,6 +315,9 @@ repair_part_bonus	 	                 = 0.01
 letter									 = true
 use1_functor         					 = itms_manager.menu_read
 use1_action_functor  					 = itms_manager.use_letter
+use2_functor         		             = itms_manager.menu_disassemble
+use2_action_functor  		             = itms_manager.use_disassemble
+disassemble_parts						 = basic_paper
 
 [letter_stalker_letter_1_of_2]:identity_immunities
 $spawn 				                     = "devices\roubles"
@@ -326,7 +334,7 @@ inv_name_short			                 = st_stalker_letter_1_of_2_name
 
 inv_grid_width		                     = 1
 inv_grid_height		                     = 1
-inv_grid_x			                     = 16
+inv_grid_x			                     = 17
 inv_grid_y			                     = 1
 
 cost				                     = 135
@@ -344,6 +352,9 @@ repair_part_bonus	 	                 = 0.01
 letter									 = true
 use1_functor         					 = itms_manager.menu_read
 use1_action_functor  					 = itms_manager.use_letter
+use2_functor         		             = itms_manager.menu_disassemble
+use2_action_functor  		             = itms_manager.use_disassemble
+disassemble_parts						 = basic_paper
 
 [letter_stalker_letter_2_of_2]:identity_immunities
 $spawn 				                     = "devices\roubles"
@@ -360,7 +371,7 @@ inv_name_short			                 = st_stalker_letter_2_of_2_name
 
 inv_grid_width		                     = 1
 inv_grid_height		                     = 1
-inv_grid_x			                     = 16
+inv_grid_x			                     = 17
 inv_grid_y			                     = 1
 
 cost				                     = 135
@@ -378,6 +389,9 @@ repair_part_bonus	 	                 = 0.01
 letter									 = true
 use1_functor         					 = itms_manager.menu_read
 use1_action_functor  					 = itms_manager.use_letter
+use2_functor         		             = itms_manager.menu_disassemble
+use2_action_functor  		             = itms_manager.use_disassemble
+disassemble_parts						 = basic_paper
 
 [letter_ecologist_report_1_of_3]:identity_immunities
 $spawn 				                     = "devices\roubles"
@@ -412,6 +426,9 @@ repair_part_bonus	 	                 = 0.02
 letter									 = true
 use1_functor         					 = itms_manager.menu_read
 use1_action_functor  					 = itms_manager.use_letter
+use2_functor         		             = itms_manager.menu_disassemble
+use2_action_functor  		             = itms_manager.use_disassemble
+disassemble_parts						 = basic_paper,basic_paper,basic_paper
 
 [letter_ecologist_report_2_of_3]:identity_immunities
 $spawn 				                     = "devices\roubles"
@@ -446,6 +463,9 @@ repair_part_bonus	 	                 = 0.02
 letter									 = true
 use1_functor         					 = itms_manager.menu_read
 use1_action_functor  					 = itms_manager.use_letter
+use2_functor         		             = itms_manager.menu_disassemble
+use2_action_functor  		             = itms_manager.use_disassemble
+disassemble_parts						 = basic_paper,basic_paper,basic_paper
 
 [letter_ecologist_report_3_of_3]:identity_immunities
 $spawn 				                     = "devices\roubles"
@@ -480,6 +500,9 @@ repair_part_bonus	 	                 = 0.02
 letter									 = true
 use1_functor         					 = itms_manager.menu_read
 use1_action_functor  					 = itms_manager.use_letter
+use2_functor         		             = itms_manager.menu_disassemble
+use2_action_functor  		             = itms_manager.use_disassemble
+disassemble_parts						 = basic_paper,basic_paper,basic_paper
 
 [letter_monolith_prayer_1_of_3]:identity_immunities
 $spawn 				                     = "devices\roubles"
@@ -514,6 +537,9 @@ repair_part_bonus	 	                 = 0.01
 letter									 = true
 use1_functor         					 = itms_manager.menu_read
 use1_action_functor  					 = itms_manager.use_letter
+use2_functor         		             = itms_manager.menu_disassemble
+use2_action_functor  		             = itms_manager.use_disassemble
+disassemble_parts						 = basic_paper
 
 [letter_monolith_prayer_2_of_3]:identity_immunities
 $spawn 				                     = "devices\roubles"
@@ -548,6 +574,9 @@ repair_part_bonus	 	                 = 0.01
 letter									 = true
 use1_functor         					 = itms_manager.menu_read
 use1_action_functor  					 = itms_manager.use_letter
+use2_functor         		             = itms_manager.menu_disassemble
+use2_action_functor  		             = itms_manager.use_disassemble
+disassemble_parts						 = basic_paper
 
 [letter_monolith_prayer_3_of_3]:identity_immunities
 $spawn 				                     = "devices\roubles"
@@ -582,6 +611,9 @@ repair_part_bonus	 	                 = 0.01
 letter									 = true
 use1_functor         					 = itms_manager.menu_read
 use1_action_functor  					 = itms_manager.use_letter
+use2_functor         		             = itms_manager.menu_disassemble
+use2_action_functor  		             = itms_manager.use_disassemble
+disassemble_parts						 = basic_paper
 
 [letter_monolithian_thoughts]:identity_immunities
 $spawn 				                     = "devices\roubles"
@@ -598,7 +630,7 @@ inv_name_short			                 = st_monolithian_thoughts_name
 
 inv_grid_width		                     = 1
 inv_grid_height		                     = 1
-inv_grid_x			                     = 16
+inv_grid_x			                     = 17
 inv_grid_y			                     = 1
 
 cost				                     = 255
@@ -616,6 +648,9 @@ repair_part_bonus	 	                 = 0.01
 letter									 = true
 use1_functor         					 = itms_manager.menu_read
 use1_action_functor  					 = itms_manager.use_letter
+use2_functor         		             = itms_manager.menu_disassemble
+use2_action_functor  		             = itms_manager.use_disassemble
+disassemble_parts						 = basic_paper
 
 [letter_letter_to_outside]:identity_immunities
 $spawn 				                     = "devices\roubles"
@@ -632,7 +667,7 @@ inv_name_short			                 = st_letter_to_outside_name
 
 inv_grid_width		                     = 1
 inv_grid_height		                     = 1
-inv_grid_x			                     = 16
+inv_grid_x			                     = 17
 inv_grid_y			                     = 1
 
 cost				                     = 145
@@ -650,6 +685,9 @@ repair_part_bonus	 	                 = 0.01
 letter									 = true
 use1_functor         					 = itms_manager.menu_read
 use1_action_functor  					 = itms_manager.use_letter
+use2_functor         		             = itms_manager.menu_disassemble
+use2_action_functor  		             = itms_manager.use_disassemble
+disassemble_parts						 = basic_paper
 
 [letter_military_stalker]:identity_immunities
 $spawn 				                     = "devices\roubles"
@@ -684,6 +722,9 @@ repair_part_bonus	 	                 = 0.01
 letter									 = true
 use1_functor         					 = itms_manager.menu_read
 use1_action_functor  					 = itms_manager.use_letter
+use2_functor         		             = itms_manager.menu_disassemble
+use2_action_functor  		             = itms_manager.use_disassemble
+disassemble_parts						 = basic_paper
 
 [letter_mercenary]:identity_immunities
 $spawn 				                     = "devices\roubles"
@@ -700,7 +741,7 @@ inv_name_short			                 = st_letter_mercenary_name
 
 inv_grid_width		                     = 1
 inv_grid_height		                     = 1
-inv_grid_x			                     = 16
+inv_grid_x			                     = 17
 inv_grid_y			                     = 1
 
 cost				                     = 165
@@ -718,6 +759,9 @@ repair_part_bonus	 	                 = 0.01
 letter									 = true
 use1_functor         					 = itms_manager.menu_read
 use1_action_functor  					 = itms_manager.use_letter
+use2_functor         		             = itms_manager.menu_disassemble
+use2_action_functor  		             = itms_manager.use_disassemble
+disassemble_parts						 = basic_paper
 
 [letter_military_log]:identity_immunities
 $spawn 				                     = "devices\roubles"
@@ -752,6 +796,9 @@ repair_part_bonus	 	                 = 0.01
 letter									 = true
 use1_functor         					 = itms_manager.menu_read
 use1_action_functor  					 = itms_manager.use_letter
+use2_functor         		             = itms_manager.menu_disassemble
+use2_action_functor  		             = itms_manager.use_disassemble
+disassemble_parts						 = basic_paper
 
 [letter_stalker_letter_3]:identity_immunities
 $spawn 				                     = "devices\roubles"
@@ -768,7 +815,7 @@ inv_name_short			                 = st_letter_stalker_letter_3_name
 
 inv_grid_width		                     = 1
 inv_grid_height		                     = 1
-inv_grid_x			                     = 16
+inv_grid_x			                     = 17
 inv_grid_y			                     = 1
 
 cost				                     = 161
@@ -786,6 +833,9 @@ repair_part_bonus	 	                 = 0.01
 letter									 = true
 use1_functor         					 = itms_manager.menu_read
 use1_action_functor  					 = itms_manager.use_letter
+use2_functor         		             = itms_manager.menu_disassemble
+use2_action_functor  		             = itms_manager.use_disassemble
+disassemble_parts						 = basic_paper
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

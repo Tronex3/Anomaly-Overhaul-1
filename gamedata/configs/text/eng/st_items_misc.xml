@@ -102,16 +102,6 @@
 		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+2%)</text>
 	</string>
 	
-	<string id="st_jar">
-		<text>Plastic jar</text>
-	</string>
-	<string id="st_jar_descr">
-		<text>A handful of gold teeth in a small plastic jar filled with sand and leaves to minimize the noise while running. Liberating a fallen stalker of his teeth is a favored practice among bandits.\n \n
-		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,100,100,255] • %c[0,140,140,140] personal belongings\n
-		%c[0,100,100,255] • %c[0,140,140,140] valuable</text>
-	</string>
-	
 	<string id="st_journal">
 		<text>Personal journal</text>
 	</string>
@@ -321,17 +311,6 @@
 		%c[0,100,100,255] • %c[0,140,140,140] everyday item</text>
 	</string>
 	
-	<string id="st_ammo_bad">
-		<text>Lead</text>
-	</string>
-	<string id="st_ammo_bad_descr">
-		<text>Every stalker is aware of the importance of reliable weaponry. That's the reason a daily and thorough examination of your shooter is vital to your survival. Stalkers often count their ammo and clean it to minimize the risk of a weapon jam in the heat of battle. On the contrary, this lead can be reused by technicians later for the creation of better ammunition.\n \n
-		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,100,100,255] • %c[0,140,140,140] military item\n
-		%c[0,204,0,51] • %c[0,140,140,140] broken beyond repair\n
-		%c[0,204,0,51] • %c[0,140,140,140] unusable</text>
-	</string>
-	
 	<string id="st_mili_maps">
 		<text>Military maps</text>
 	</string>
@@ -377,145 +356,331 @@
 		<text>Camouflaged tarpaulin</text>
 	</string>
 	<string id="st_tarpaulin_descr">
-		<text>A tarpaulin (or hootch) is a large sheet of strong, flexible, water-resistant or waterproof material, often cloth such as canvas or polyester coated with urethane, or made of plastics such as polyethylene. It has reinforced grommets at the corners and along the sides to form attachment points for rope, allowing them to be tied down or suspended. Serves many purposes, but is mainly used to create small and simple tent-like hideouts. Trading value is low due to easily found alternatives.\n \n
+		<text>
+		A tarpaulin (or hootch) is a large sheet of strong, flexible, water-resistant or waterproof material, often cloth such as canvas or polyester coated with urethane, or made of plastics such as polyethylene. It has reinforced grommets at the corners and along the sides to form attachment points for rope, allowing them to be tied down or suspended. Serves many purposes, but is mainly used to create small and simple tent-like hideouts. Trading value is low due to easily found alternatives.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] military item\n
-		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+5%)</text>
-	</string>
-	
-	<string id="st_rope">
-		<text>Rope</text>
-	</string>
-	<string id="st_rope_descr">
-		<text>A good rope serves many purposes, especially in a place like the Zone. Many stalkers can put it to good use, which generates a rather high trading value. About 10-meters long.\n \n
-		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
-		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs (+3%)</text>
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+5%)
+		</text>
 	</string>
 	
 	<string id="st_synthrope">
 		<text>2 synthetic ropes</text>
 	</string>
 	<string id="st_synthrope_descr">
-		<text>Synthetic ropes are commonly found in military warehouses. But for some reason few military stalkers actually carry them. A good rope serves many purposes, especially in a place like the Zone. Many stalkers can put this to good use, which generates a rather high trading value. Each is about 5 meters long.\n \n
+		<text>
+		Synthetic ropes are commonly found in military warehouses. But for some reason few military stalkers actually carry them. A good rope serves many purposes, especially in a place like the Zone. Many stalkers can put this to good use, which generates a rather high trading value. Each is about 5 meters long.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
-		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs (+4%)</text>
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs (+4%)
+		</text>
 	</string>
 	
 	<string id="st_cutlery">
 		<text>Field cutlery</text>
 	</string>
 	<string id="st_cutlery_descr">
-		<text>A spoon, a knife and a fork made of heavy steel. A robust and reasonably light cutlery set, ideal for backpacking and field exploration. The cutlery is held together by a copper cord. If cleaned properly and derusted, it would be safe to use.\n \n
+		<text>
+		A spoon, a knife and a fork made of heavy steel. A robust and reasonably light cutlery set, ideal for backpacking and field exploration. The cutlery is held together by a copper cord. If cleaned properly and derusted, it would be safe to use.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
-		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon cleaning and lubrication (+2%)</text>
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon cleaning and lubrication (+2%)
+		</text>
 	</string>
 	
 	<string id="st_radio">
 		<text>Small radio</text>
 	</string>
 	<string id="st_radio_descr">
-		<text>Music is a good way to calm your nerves. But with a broken antenna this radio is of little use. Moisture and dirt have also damaged this item.\n \n
+		<text>
+		Music is a good way to calm your nerves. But with a broken antenna this radio is of little use. Moisture and dirt have also damaged this item.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
 		%c[0,204,0,51] • %c[0,140,140,140] broken beyond repair\n
-		%c[0,204,0,51] • %c[0,140,140,140] unusable</text>
+		%c[0,204,0,51] • %c[0,140,140,140] unusable
+		</text>
 	</string>
 	
 	<string id="st_radio2">
 		<text>Broken radio</text>
 	</string>
 	<string id="st_radio2_descr">
-		<text>A small radio in a poor condition. Dirty and damaged by moisture. The interior seems to be in quite a bad shape as the radio rattles when moved around. No to little value.\n \n
+		<text>
+		A small radio in a poor condition. Dirty and damaged by moisture. The interior seems to be in quite a bad shape as the radio rattles when moved around. No to little value.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
 		%c[0,204,0,51] • %c[0,140,140,140] broken beyond repair\n
-		%c[0,204,0,51] • %c[0,140,140,140] unusable</text>
+		%c[0,204,0,51] • %c[0,140,140,140] unusable
+		</text>
 	</string>
 	
+	<string id="st_broken_detector">
+		<text>Broken detector</text>
+	</string>
+	<string id="st_broken_detector_descr">
+		<text>
+		A small radio in a poor condition. Dirty and damaged by moisture. The interior seems to be in quite a bad shape as the radio rattles when moved around. No to little value.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,204,0,51] • %c[0,140,140,140] broken beyond repair\n
+		%c[0,204,0,51] • %c[0,140,140,140] unusable
+		</text>
+	</string>
+	
+	<string id="st_gloves">
+		<text>Leather gloves</text>
+	</string>
+	<string id="st_gloves_descr">
+		<text>
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs (+4%)
+		</text>
+	</string>
+	
+	<string id="st_hand_watch">
+		<text>hand watch</text>
+	</string>
+	<string id="st_hand_watch_descr">
+		<text>
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] valuable
+		</text>
+	</string>
+	
+	<string id="st_ball_hammer">
+		<text>Ball-peen hammer</text>
+	</string>
+	<string id="st_ball_hammer_descr">
+		<text>
+		Small ball-peen hammer with a wooden handle and an iron head.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+2%)\n
+		</text>
+	</string>
+	
+	<string id="st_duct_tape">
+		<text>Duct tape</text>
+	</string>
+	<string id="st_duct_tape_descr">
+		<text>
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+3%)
+		</text>
+	</string>
 		
-	<string id="st_textolite">
-		<text>Textolite base</text>
-	</string>
-	<string id="st_textolite_descr">
-		<text>Layered plastic based on fabric of fibers and polymeric binder (bakelite, polyester resin, epoxy resin). With proper skill it can be great help in repairing.\n \n
-		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] high value</text>
-	</string>
+
 	
 <!-- Base -->	
+	<string id="st_jar">
+		<text>Plastic jar</text>
+	</string>
+	<string id="st_jar_descr">
+		<text>
+		A handful of gold teeth in a small plastic jar filled with sand and leaves to minimize the noise while running. Liberating a fallen stalker of his teeth is a favored practice among bandits.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] basic item\n
+		</text>
+	</string>
+	
+	<string id="st_e_syringe">
+		<text>Empty syringe</text>
+	</string>
+	<string id="st_e_syringe_descr">
+		<text>
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] basic item\n
+		</text>
+	</string>
+	
+	<string id="st_ammo_bad">
+		<text>Lead</text>
+	</string>
+	<string id="st_ammo_bad_descr">
+		<text>
+		Every stalker is aware of the importance of reliable weaponry. That's the reason a daily and thorough examination of your shooter is vital to your survival. Stalkers often count their ammo and clean it to minimize the risk of a weapon jam in the heat of battle. On the contrary, this lead can be reused by technicians later for the creation of better ammunition.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		</text>
+	</string>
+	
+	<string id="st_rope">
+		<text>Rope</text>
+	</string>
+	<string id="st_rope_descr">
+		<text>
+		A good rope serves many purposes, especially in a place like the Zone. Many stalkers can put it to good use, which generates a rather high trading value. About 10-meters long.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs (+3%)
+		</text>
+	</string>
+	
 	<string id="st_paper">
 		<text>Paper sheet</text>
 	</string>
 	<string id="st_paper_descr">
-		<text>Electrotechnical copper wire is used practically in all devices, devices, apparatuses, installations, machines where the production, transmission or use of electric energy occurs. In its pure form it is rare, but if necessary it can be easily extracted from common old radios, walkie-talkies and other electronics.\n \n
+		<text>
+		Electrotechnical copper wire is used practically in all devices, devices, apparatuses, installations, machines where the production, transmission or use of electric energy occurs. In its pure form it is rare, but if necessary it can be easily extracted from common old radios, walkie-talkies and other electronics.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] high value</text>
+		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+1%)
+		</text>
+	</string>
+	
+	<string id="st_basic_textolite">
+		<text>Textolite base</text>
+	</string>
+	<string id="st_basic_textolite_descr">
+		<text>
+		Layered plastic based on fabric of fibers and polymeric binder (bakelite, polyester resin, epoxy resin). With proper skill it can be great help in repairing.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] basic item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+2%)
+		</text>
 	</string>
 	
 	<string id="st_textile_patch_b">
 		<text>Cloth sheet</text>
 	</string>
 	<string id="st_textile_patch_b_descr">
-		<text>Simple cloth sheet, commonly used both to patch clothing and spread oils and cleaning solvents onto firearm mechanisms. Can be applied by any needle or glue.\n \n
+		<text>
+		Simple cloth sheet, commonly used both to patch clothing and spread oils and cleaning solvents onto firearm mechanisms. Can be applied by any needle or glue.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
-		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+3%)</text>
+		%c[0,100,100,255] • %c[0,140,140,140] basic item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+3%)
+		</text>
 	</string>
 	
 	<string id="st_textile_patch_m">
 		<text>Textile sheet</text>
 	</string>
 	<string id="st_textile_patch_m_descr">
-		<text>Sheet of military-grade textile that can be used for field repairs of clothing and light armor. Valued for its relatively low price and high versatility, this material is commonly used by the Zoners. Medium-grade sewing equipment and advanced glue required for use. It can also be used to improve spread of liquids during weapon maintenance.\n \n
+		<text>
+		Sheet of military-grade textile that can be used for field repairs of clothing and light armor. Valued for its relatively low price and high versatility, this material is commonly used by the Zoners. Medium-grade sewing equipment and advanced glue required for use. It can also be used to improve spread of liquids during weapon maintenance.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,100,100,255] • %c[0,140,140,140] military item\n
-		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+4%)</text>
+		%c[0,100,100,255] • %c[0,140,140,140] basic item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+4%)
+		</text>
 	</string>
 	
 	<string id="st_textile_patch_e">
 		<text>Reinforced textile sheet</text>
 	</string>
 	<string id="st_textile_patch_e_descr">
-		<text>Thick textile patch reinforced with kevlar padding. Can be used to repair medium and heavy armors. Large enough to cover multiple damaged areas. High quality sewing kits and adhesives are required to make use of it. Its alternative usage is weapon lubrication and cleaning - due to increased hardness it's able reach even less accessible areas of firearm parts.\n \n
+		<text>
+		Thick textile patch reinforced with kevlar padding. Can be used to repair medium and heavy armors. Large enough to cover multiple damaged areas. High quality sewing kits and adhesives are required to make use of it. Its alternative usage is weapon lubrication and cleaning - due to increased hardness it's able reach even less accessible areas of firearm parts.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,100,100,255] • %c[0,140,140,140] military item\n
-		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
-		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+6%)</text>
+		%c[0,100,100,255] • %c[0,140,140,140] basic item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+6%)
+		</text>
 	</string>
 	
-	<string id="st_capacitors">
+	<string id="st_basic_capacitors">
 		<text>A pack of capacitors</text>
 	</string>
-	<string id="st_capacitors_descr">
-		<text>Electric capacitors can store electricity. The simplest capacitor consists of two metal plates and a dielectric between them. It is a main component is most of electrical devices due to its important job in rectifying alternative current, storing electrical energy and bypassing noise. They are quite rare in the Zone, but they are very useful.\n \n
+	<string id="st_basic_capacitors_descr">
+		<text>
+		Electric capacitors can store electricity. The simplest capacitor consists of two metal plates and a dielectric between them. It is a main component is most of electrical devices due to its important job in rectifying alternative current, storing electrical energy and bypassing noise. They are quite rare in the Zone, but they are very useful.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] high value</text>
+		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		</text>
 	</string>
 	
-	<string id="st_transistor">
+	<string id="st_basic_transistors">
 		<text>A box of transistors</text>
 	</string>
-	<string id="st_transistor_descr">
-		<text>A box of high-quality BJT transistors. A transistor consists of three Semiconductor parts (base, emitter, collector) that serve together to generate, convert and amplify electrical oscillations. The ultimate dream of electronics engineers, if such a miracle will bring to the Area.\n \n
+	<string id="st_basic_transistors_descr">
+		<text>
+		A box of high-quality BJT transistors. A transistor consists of three Semiconductor parts (base, emitter, collector) that serve together to generate, convert and amplify electrical oscillations. The ultimate dream of electronics engineers, if such a miracle will bring to the Area.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] high value</text>
+		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		</text>
 	</string>
 	
-	<string id="st_copper_coil">
+	<string id="st_basic_copper">
 		<text>Copper wire</text>
 	</string>
-	<string id="st_copper_coil_descr">
-		<text>Electrotechnical copper wire is used practically in all devices, devices, apparatuses, installations, machines where the production, transmission or use of electric energy occurs. In its pure form it is rare, but if necessary it can be easily extracted from common old radios, walkie-talkies and other electronics.\n \n
+	<string id="st_basic_copper_descr">
+		<text>
+		Electrotechnical copper wire is used practically in all devices, devices, apparatuses, installations, machines where the production, transmission or use of electric energy occurs. In its pure form it is rare, but if necessary it can be easily extracted from common old radios, walkie-talkies and other electronics.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] high value</text>
+		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		</text>
+	</string>
+	
+	<string id="st_basic_wood">
+		<text>Wooden parts</text>
+	</string>
+	<string id="st_basic_wood_descr">
+		<text>
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		</text>
+	</string>
+	
+	<string id="st_basic_scrap">
+		<text>Scrap parts</text>
+	</string>
+	<string id="st_basic_scrap_descr">
+		<text>
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		</text>
+	</string>
+	
+	<string id="st_basic_glass">
+		<text>Glass pieces</text>
+	</string>
+	<string id="st_basic_glass_descr">
+		<text>
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		</text>
+	</string>
+	
+	<string id="basic_ceramic">
+		<text>Ceramic base</text>
+	</string>
+	<string id="basic_ceramic_descr">
+		<text>
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		</text>
+	</string>
+	
+	<string id="st_basic_leather">
+		<text>Leather roll</text>
+	</string>
+	<string id="st_basic_leather_descr">
+		<text>
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		</text>
+	</string>
+	
+	<string id="st_basic_plastic">
+		<text>Plastic base</text>
+	</string>
+	<string id="st_basic_plastic_descr">
+		<text>
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		</text>
+	</string>
+	
+	<string id="st_basic_rubber">
+		<text>Rubber</text>
+	</string>
+	<string id="st_basic_rubber_descr">
+		<text>
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		</text>
 	</string>
 	
 </string_table>
