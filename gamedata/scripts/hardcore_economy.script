@@ -1,0 +1,41 @@
+local buy_factor = 1
+local sell_factor = 1
+local repair_factor = 1
+
+function activate_feature()
+	buy_factor = 0.75
+	sell_factor = 1.25
+	repair_factor = 3.2
+end
+
+function deactivate_feature()
+	buy_factor = 1
+	sell_factor = 1
+	repair_factor = 1
+end
+
+function get_buy_factor()
+	return buy_factor
+end
+
+function get_sell_factor()
+	return sell_factor
+end
+
+function get_repair_factor()
+	return repair_factor
+end
+
+--=======================================< Callbacks >=======================================--
+local function on_game_load()
+	if (axr_main.config:r_value("mm_options","enable_hardcore_economy",1,false)) then
+		activate_feature()
+	end
+end
+
+function on_game_start()
+	RegisterScriptCallback("on_game_load",on_game_load)
+end
+
+
+

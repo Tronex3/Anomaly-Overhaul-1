@@ -54,26 +54,17 @@ function enable_state_update(old_state, new_state)
 	end
 end
 
-local function opt_on_accept(handler,optMgr,ctrl)
+function activate_feature()
 	local was_enabled = is_enabled
-	is_enabled = ctrl:GetCheck()
+	is_enabled = true
 	enable_state_update(was_enabled, is_enabled)
 end
 
-local function menu_on_init(menu)
-	menu.gameplay_options["disguise_system"]	= {default=true, debug_only=false, typ="check", on_accept=opt_on_accept}
+function deactivate_feature()
+	local was_enabled = is_enabled
+	is_enabled = false
+	enable_state_update(was_enabled, is_enabled)
 end
-
--- called directly from axr_main
-function main_menu_on_quit()
-	UnregisterScriptCallback("opt_menu_on_init",menu_on_init)
-end
-
--- called directly from axr_main
-function main_menu_on_init()
-	RegisterScriptCallback("opt_menu_on_init",menu_on_init)
-end
-
 
 function on_game_start()
 	RegisterScriptCallback("actor_on_update",update)

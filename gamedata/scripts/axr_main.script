@@ -238,11 +238,11 @@ end
 function main_menu_on_init(menu)
 	xrs_dyn_music.main_menu_on(menu)
 	closecaption.main_menu_on_init(menu)
-	autosave_on_interval.main_menu_on_init(menu)
-	hardcore_economy.main_menu_on_init(menu)
+	--autosave_on_interval.main_menu_on_init(menu)
+	--hardcore_economy.main_menu_on_init(menu)
 	game_relations.main_menu_on_init(menu)
-	disguise.main_menu_on_init(menu)
-	drx_da_main.main_menu_on_init(menu)
+	--disguise.main_menu_on_init(menu)
+	--drx_da_main.main_menu_on_init(menu)
 	--axr_main_options.main_menu_on_init(menu)
 end
 
@@ -252,11 +252,11 @@ end
 function main_menu_on_quit(menu)
 	closecaption.main_menu_on_quit(menu)
 	xrs_dyn_music.main_menu_off(menu)
-	autosave_on_interval.main_menu_on_quit(menu)
-	hardcore_economy.main_menu_on_quit(menu)
+	--autosave_on_interval.main_menu_on_quit(menu)
+	--hardcore_economy.main_menu_on_quit(menu)
 	game_relations.main_menu_on_quit(menu)
-	disguise.main_menu_on_quit(menu)
-	drx_da_main.main_menu_on_quit(menu)
+	--disguise.main_menu_on_quit(menu)
+	--drx_da_main.main_menu_on_quit(menu)
 end
 
 ------------------

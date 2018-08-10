@@ -12,26 +12,6 @@
 --=============================================================
 
 
-local function opt_on_accept(handler,optMgr,ctrl)
-	local enabled = ctrl:GetCheck()
-	--printf("Dynamic Anomalies: " .. (enabled and "enabled" or "disabled"))
-end
-
-local function menu_on_init(menu)
-	menu.gameplay_options["dynamic_anomalies"]	= {default=false, debug_only=false, typ="check", on_accept=opt_on_accept}
-end
-
--- called directly from axr_main
-function main_menu_on_quit()
-	UnregisterScriptCallback("opt_menu_on_init",menu_on_init)
-end
-
--- called directly from axr_main
-function main_menu_on_init()
-	RegisterScriptCallback("opt_menu_on_init",menu_on_init)
-end
-
-
 -- ________________________________________________________________________________________________
 
 
