@@ -714,11 +714,18 @@ function use_disassemble(obj) -- disassemble item
 		awr_shared_functions.SendAwrMsg("success", "detail", "st_awr_ctrl")
 		return
 	end
+	
+	local delay = axr_main.config:r_value("mm_options","enable_extra_animations",1) and 42 or 0
+	local name = alun_utils.get_inv_name(obj:section())
 
 	-- Collect disassemble parts of our item
 	local parts = ini:r_string_ex(obj:section(),"disassemble_parts")
 	if (not parts) then return end
 	local parts_tbl = alun_utils.str_explode(parts,",")
+	local parts_text = ""
+	for i=1,#parts_tbl do
+		parts_text = parts_text .. "\\n" .. alun_utils.get_inv_name(parts_tbl[i])
+	end
 	
 	-- Collect disassemble tools (objects)
 	local dis_itm
@@ -746,14 +753,22 @@ function use_disassemble(obj) -- disassemble item
 		--printf("TRX - inv_item_disassemble | Delete disassembled item: " .. obj:section())
 	end
 	
-	-- Give disassemble parts
-	for i=1,#parts_tbl do
-		if ini:section_exist(parts_tbl[i]) then
-			alife():create(parts_tbl[i], db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
-			--printf("TRX - inv_item_disassemble | Get new part from disassembling: " .. parts_tbl[i])
+	local function disasm()
+	
+		-- Send news
+		awr_sf.SendAwrMsg('success', 'weapon_ammo', "st_dis_text_7", name, game.translate_string('st_dis_text_9'), parts_text)
+	
+		-- Give disassemble parts
+		for i=1,#parts_tbl do
+			if ini:section_exist(parts_tbl[i]) then
+				alife():create(parts_tbl[i], db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+				--printf("TRX - inv_item_disassemble | Get new part from disassembling: " .. parts_tbl[i])
+			end
 		end
 	end
-
+	
+	actor_effects.use_item("disassemble_weapon_dummy")
+	CreateTimeEvent("disasm","delay",delay,disasm,obj)
 end
 
 function use_ammo_box(obj)
