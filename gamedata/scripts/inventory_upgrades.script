@@ -30,6 +30,7 @@ cur_hint = nil
 local issue_condlist = true
 local char_ini = ini_file("item_upgrades.ltx")
 local param_ini = ini_file("misc\\stalkers_upgrade_info.ltx")
+local eco_ini = ini_file("plugins\\economy_difficulty.ltx")
 local cur_price_percent = 2
 
 local RepairItemList = {}
@@ -790,8 +791,8 @@ local function how_much_repair( item_name, item_condition )
 	local cost = ltx:r_u32(item_name, "cost")
 	local class = ltx:r_string_ex(item_name, "class")
 	local factor = 0.62
-	
-	if hardcore_economy then factor = factor * hardcore_economy.get_repair_factor() end
+	local eco_factor = hardcore_economy.get_factor("repair") or 1
+	factor = factor * eco_factor
 
 	return math.floor( cost * ((1 * (1-item_condition)) / (1 / (1-item_condition))) * factor * cur_price_percent )
 end

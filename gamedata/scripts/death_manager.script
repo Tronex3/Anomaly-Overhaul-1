@@ -3,9 +3,20 @@ local item_count = {}
 local always_keep_item = {}
 local item_by_story_id
 local death_ini = ini_file("misc\\death_generic.ltx")
+local diff_multi,cnt_multi_1,cnt_multi_2 = 0.8,1,1
+
+function SetDiffModifications()
+	local diff = hardcore_economy.get_factor("loot") or 1
+	diff_multi = (diff - 0.2) or 0.8
+	cnt_multi_1 = diff or 1
+	cnt_multi_2 = diff or 1
+end
 
 function init_drop_settings()
 	-- Create a list by community of the percent chance to spawn an item
+	
+	SetDiffModifications()
+	
 	local community_list = {
 	"stalker", 
 	"dolg", 
@@ -116,7 +127,9 @@ function init_drop_settings()
 			local id, value = "", ""
 			for i=0,n-1 do
 				result, id, value	= death_ini:r_line_ex(v,i,"","")
-				item_by_community[v][id] = tonumber(value) or 0
+				local temp = not (death_ini:line_exist("exclude_from_multi",id)) and diff_multi or 1
+				item_by_community[v][id] = value and tonumber(value) * temp or 0
+				--printf("item by community difficulty multi %s : %s",temp,item_by_community[v][id])
 			end
 		end
 	end
@@ -129,7 +142,8 @@ function init_drop_settings()
 		if (p) then
 			p[1] = tonumber(p[1]) or 0
 			p[2] = tonumber(p[2]) or p[1]
-			item_count[id] = {p[1],p[2]}
+			item_count[id] = {math.ceil(p[1] * cnt_multi_1),math.ceil(p[2] * cnt_multi_2)}
+			--printf("item count  min%s:max%s  item_count[id] min%s:max%s",cnt_multi_1,cnt_multi_2,item_count[id][1],item_count[id][2])
 		end
 	end
 	
@@ -210,7 +224,7 @@ function create_release_item(npc)
 		--local p = alun_utils.str_explode(item_by_story_id[sid],",")
 		--printf("sid=%s p=%s",sid,p)
 		if (p and p ~= "" and p ~= "nil") then
-			create_items(npc, p, 1, 100)
+			create_items(npc, p, 1, 100 * cnt_multi_2)
 		end
 	end
 
@@ -249,12 +263,6 @@ function create_release_item(npc)
 	local locked_notes = guide.locked_notes
 	local unlocked_notes = xr_statistic.actor_notes
 	
-	-- Stupid hack: Unlock faction article if actor is close to the corpse while being looted
-	-- Why? cause I didn't find a legit way to determine the looter. Let me know if its possible 
-	if (npc:position():distance_to(db.actor:position()) < 2) then
-		dxr_encyclopedia.detect_faction_interaction(comm)
-	end
-	
 	for sec,v in pairs(spawn_items) do
 		if (v > 0 and item_count[sec] and not utils.is_ammo(sec) and not grenade_classes[sec]) then
 			local number = math.random(item_count[sec][1], item_count[sec][2])
@@ -272,7 +280,7 @@ function create_release_item(npc)
 			-- Prevent recipes and letters from spawning once they're discovered
 			if string.find(sec,"letter") or string.find(sec,"recipe") then
 				if (not locked_notes["encyclopedia__notes_" .. sec]) and (unlocked_notes["encyclopedia__notes_" .. sec]) then
-					v = 0.0
+					v = 0
 				end
 			end
 			
@@ -358,7 +366,7 @@ function keep_item(npc, item)
 		return 
 	end
 	
-	local m = item:get_max_uses()
+	local m = math.ceil(item:get_max_uses() * math.random(diff_multi,1))
 	if (m > 0) then 
 		local r = math.random(0,m)
 		item:set_remaining_uses(r)
@@ -378,7 +386,8 @@ function keep_item(npc, item)
 		return
 	end
 	
-	if (item:is_ammo() ~= true and xr_corpse_detection.lootable_table and xr_corpse_detection.lootable_table[section] and math.random(1,100) < 65) then
+	local temp = not (death_ini:line_exist("exclude_from_multi",item:section())) and diff_multi or 1
+	if (item:is_ammo() ~= true and xr_corpse_detection.lootable_table and xr_corpse_detection.lootable_table[section] and math.random(1,100) < 65 * temp) then
 		return
 	end
 	
@@ -386,7 +395,10 @@ function keep_item(npc, item)
 end
 
 function set_weapon_drop_condition(npc,itm)
---mlr
+
+	local eco_factor = hardcore_economy.get_factor("wpn_condition") or 1
+	local condition = 0.3
+	
 	if (axr_main.config:r_value("mm_options","enable_rank_loot_option",1,true)) then
 		local rank = ranks.get_obj_rank_name(npc)
 		local cond = {
@@ -400,15 +412,20 @@ function set_weapon_drop_condition(npc,itm)
 			legend			= {40, 40}
 		}	
 		if npc:character_community() ~= "zombied" then
-			itm:set_condition((math.random(cond[rank][1]) + cond[rank][2])/100)
+			condition = math.random(cond[rank][1]) + cond[rank][2]
 		else
-			itm:set_condition((math.random(cond.novice[1]) + cond.novice[2])/100)
+			condition = math.random(cond.novice[1]) + cond.novice[2]
 		end
 	else
-		local condition = (math.random(30)+5)/100
-		itm:set_condition(condition)
+		condition = math.random(30) + 5
 	end
---mlr
+	
+	condition = condition * eco_factor
+	condition = utils.clamp(condition,5,100)
+	condition = condition / 100
+	
+	itm:set_condition(condition)
+	
 	if (IsWeapon(nil,itm:clsid()) and not npc:marked_dropped(itm)) then
 		local ini = system_ini()
 		local sec,number
@@ -474,6 +491,7 @@ function create_items(npc, section, number, rnd)
 			if (math.random(1,1000)/1000) <=  rnd then
 				alife():create(section,npc:position(),npc:level_vertex_id(),npc:game_vertex_id(),npc:id())
 				--printf("-CREATE ITEM: "..section)
+				
 			end
 		end
 	end

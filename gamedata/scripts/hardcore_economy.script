@@ -1,41 +1,33 @@
-local buy_factor = 1
-local sell_factor = 1
-local repair_factor = 1
+local eco_ini = ini_file("plugins\\economy_difficulty.ltx")
+local economy = 2
+local factors = {}
 
-function activate_feature()
-	buy_factor = 0.75
-	sell_factor = 1.25
-	repair_factor = 3.2
+function set_factors(eco)
+	factors["loot"]				= eco_ini:r_float_ex("econ_" .. eco , "factor_loot") or 1
+	factors["goodwill"]			= eco_ini:r_float_ex("econ_" .. eco , "factor_goodwill") or 1
+	factors["repair"]			= eco_ini:r_float_ex("econ_" .. eco , "factor_repair") or 1
+	factors["buy"]				= eco_ini:r_float_ex("econ_" .. eco , "factor_buy") or 1
+	factors["sell"]				= eco_ini:r_float_ex("econ_" .. eco , "factor_sell") or 1
+	factors["money"]			= eco_ini:r_float_ex("econ_" .. eco , "factor_money") or 1
+	factors["stash"]			= eco_ini:r_float_ex("econ_" .. eco , "chance_stash") or 0.2
+	factors["wpn_condition"]	= eco_ini:r_float_ex("econ_" .. eco , "factor_wpn_condition") or 1
+	factors["fast_travel"]		= eco_ini:r_bool_ex("econ_" .. eco , "enable_fast_travel") or false
+	factors["multiuse_medkits"]	= eco_ini:r_bool_ex("econ_" .. eco , "enable_multiuse_medkits") or false
 end
 
-function deactivate_feature()
-	buy_factor = 1
-	sell_factor = 1
-	repair_factor = 1
-end
-
-function get_buy_factor()
-	return buy_factor
-end
-
-function get_sell_factor()
-	return sell_factor
-end
-
-function get_repair_factor()
-	return repair_factor
+function get_factor(key)
+	return factors[key]
 end
 
 --=======================================< Callbacks >=======================================--
 local function on_game_load()
-	if (axr_main.config:r_value("mm_options","enable_hardcore_economy",1,false)) then
-		activate_feature()
-	end
+	economy = alife_storage_manager.get_state().economy or 2
+	set_factors(economy)
 end
 
 function on_game_start()
 	RegisterScriptCallback("on_game_load",on_game_load)
 end
 
-
-
+-- Fill
+set_factors(economy)

@@ -405,13 +405,22 @@ function actor_on_item_use(obj) -- bind_stalker on_item_use
 end
 
 function actor_on_item_take(obj) -- explosive item special
-	if (obj:section() == "explosive_mobiltank")
-	or (obj:section() == "explosive_tank")
-	then
+	if (obj:section() == "explosive_mobiltank") or (obj:section() == "explosive_tank") then
 		alife():release( alife():object(obj:id()) ,true)
 		local fuel = math.random(6,8)
 		alife():create("explo_jerrycan_fuel" .. fuel,db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id(),db.actor:id())
 	end
+	
+	-- Set medkits uses to 1 on hardcore economy
+	if (string.find(obj:section(),"medkit")) then
+		local uses = obj:get_remaining_uses()
+		local allow = hardcore_economy.get_factor("multiuse_medkits")
+		if (uses > 1) and (not allow) then
+			obj:set_remaining_uses(1)
+		end
+	end
+	
+	--db.actor:give_game_news(" ", "%c[0,170,170,100]" .. alun_utils.get_inv_name(obj:section()), "ui_inGame2_D_Ohotnik_na_mutantov", 0, 1500, 0)
 end
 
 function actor_on_item_take_from_box(box,obj) -- bind_stalker take_item_from_iventory_box
@@ -724,7 +733,7 @@ function use_disassemble(obj) -- disassemble item
 	local parts_tbl = alun_utils.str_explode(parts,",")
 	local parts_text = ""
 	for i=1,#parts_tbl do
-		parts_text = parts_text .. "\\n" .. alun_utils.get_inv_name(parts_tbl[i])
+		parts_text = parts_text .. "\\n¥ " .. alun_utils.get_inv_name(parts_tbl[i])
 	end
 	
 	-- Collect disassemble tools (objects)
@@ -756,7 +765,7 @@ function use_disassemble(obj) -- disassemble item
 	local function disasm()
 	
 		-- Send news
-		awr_sf.SendAwrMsg('success', 'weapon_ammo', "st_dis_text_7", name, game.translate_string('st_dis_text_9'), parts_text)
+		awr_shared_functions.SendAwrMsg("success", "weapon_ammo", "st_dis_text_11", name, game.translate_string("st_dis_text_9"), parts_text)
 	
 		-- Give disassemble parts
 		for i=1,#parts_tbl do
@@ -765,6 +774,8 @@ function use_disassemble(obj) -- disassemble item
 				--printf("TRX - inv_item_disassemble | Get new part from disassembling: " .. parts_tbl[i])
 			end
 		end
+		
+		return true
 	end
 	
 	actor_effects.use_item("disassemble_weapon_dummy")

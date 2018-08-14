@@ -1,0 +1,81 @@
+
+function lootmoney(npc)
+ 	if not (axr_main.config:r_value("mm_options","enable_lootmoney_option",1,true)) then
+		return
+	end
+	
+	if npc:money() < 10000 then
+		local actor = db.actor
+		local money = npc:money()
+		if money ~= nil and money > 0 then
+			local deadmoney = money
+			local npc_rank
+			npc_rank = ranks.get_obj_rank_name(npc)
+			if npc_rank ~= nil then
+				local eco_factor = hardcore_economy.get_factor("money") or 1
+			
+				if npc_rank == "novice" and deadmoney >=50 then deadmoney = math.random(50,200) * eco_factor
+				elseif npc_rank == "trainee" and deadmoney >=100 then deadmoney = math.random(100,300) * eco_factor 
+				elseif npc_rank == "experienced" and deadmoney >=200 then deadmoney = math.random(150,400) * eco_factor 
+				elseif npc_rank == "professional" and deadmoney >=300 then deadmoney = math.random(200,500) * eco_factor 
+				elseif npc_rank == "veteran" and deadmoney >=400 then deadmoney = math.random(300,600) * eco_factor 
+				elseif npc_rank == "expert" and deadmoney >=500 then deadmoney = math.random(400,700) * eco_factor  
+				elseif npc_rank == "master" and deadmoney >=600 then deadmoney = math.random(500,800) * eco_factor  
+				elseif npc_rank == "legend" and deadmoney >=800 then deadmoney = math.random(700,1000) * eco_factor  
+			  end
+			end
+			local news_caption = "Dead stalker: "..npc:character_name()
+			local news_text = "Found money: %c[255,255,0,0]"..game.translate_string(deadmoney).."%c[default] RU."
+			--xr_sound.set_sound_play(actor:id(), "pda_news")
+			actor:give_game_news(news_caption, news_text, "ui_iconsTotal_found_money", 0, 10000)
+			actor:give_money(deadmoney)
+			-- game_stats.money_quest_update(deadmoney) 
+			npc:give_money(-money)
+			-- game_stats.money_quest_update(-money)
+			
+			-- Unlock npc's faction artefact
+			local comm = character_community(npc)
+			dxr_encyclopedia.detect_faction_interaction(comm)
+			
+			local stash_factor = hardcore_economy.get_factor("stash") or 0.2
+			stash_factor = stash_factor - 1
+			stash_factor = stash_factor * 100
+			stash_factor = utils.clamp(stash_factor,0,100)
+			if (math.random(1,100) >= stash_factor) then
+				coc_treasure_manager.create_random_stash(nil,"Stash of " ..  npc:character_name(), nil, true)
+			end
+		end
+	end
+end
+
+function lootmoney_effect(npc,corpse_npc)
+ 	if not (axr_main.config:r_value("mm_options","enable_lootmoney_option",1,true)) then
+		return
+	end
+	
+	if corpse_npc:money() < 10000 then
+		local num = c orpse_npc:money() 
+		if num and num > 0 then 
+			local deadmoney = num
+			local gi_rank
+			gi_rank = ranks.get_obj_rank_name(corpse_npc)
+			if gi_rank ~= nil then
+				local eco_factor = hardcore_economy.get_factor("money") or 1
+				
+				if gi_rank == "novice" and deadmoney >=100 then deadmoney = math.random(25,400) * eco_factor    
+				elseif gi_rank == "trainee" and deadmoney >=200 then deadmoney = math.random(50,400) * eco_factor  
+				elseif gi_rank == "experienced" and deadmoney >=250 then deadmoney = math.random(200,500) * eco_factor  
+				elseif gi_rank == "professional" and deadmoney >=300 then deadmoney = math.random(400,600) * eco_factor 
+				elseif gi_rank == "veteran" and deadmoney >=350 then deadmoney = math.random(400,700) * eco_factor 
+				elseif gi_rank == "expert" and deadmoney >=400 then deadmoney = math.random(500,800) * eco_factor  
+				elseif gi_rank == "master" and deadmoney >=450 then deadmoney = math.random(500,900) * eco_factor  
+				elseif gi_rank == "legend" and deadmoney >=500 then deadmoney = math.random(600,1000) * eco_factor  
+				end
+			end
+			npc:give_money(deadmoney) 
+			-- game_stats.money_quest_update(deadmoney) 
+			corpse_npc:give_money(-num) 
+			-- game_stats.money_quest_update(-num) 
+		end
+	end
+end
