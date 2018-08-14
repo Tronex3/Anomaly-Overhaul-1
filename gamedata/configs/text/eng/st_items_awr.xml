@@ -1132,31 +1132,6 @@
 	<string id="st_barrelkit_762_heavy_descr">
 		<text>A special kit with tools designed for replacing barrels of machine guns at a technician’s workshop. It can only be used with parts of the 7.62 caliber at a technician’s workshop.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26] • %c[0,140,140,140] must be used with:%c[0,170,170,170] technician’s vice</text>
 	</string>
-	<string id="st_awr_r_kit_u">
-		<text>Weapon modification kit</text>
-	</string>
-	<string id="st_awr_r_kit_u_descr">
-		<text>A special kit with tools designed for replacing weapon parts. It can only be used at a technician’s workshop.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n%c[255,238,153,26] • %c[0,140,140,140] must be used with:%c[0,170,170,170] technician’s vice</text>
-	</string>
-	<string id="st_leatherman_tool">
-		<text>Multitool</text>
-	</string>
-	<string id="st_leatherman_tool_descr">
-		<text>A worn but functional multitool, used to disassemble weapons and armour on parts and to maintain worn and rusty trigger mechanisms.\n \n%c[0,140,140,140]PROPERTIES:\n%c[0,153,255,255] • %c[0,140,140,140] military part\n \n%c[0,140,140,140]AUXILIARY MATERIALS:\n%c[255,238,153,26] • %c[0,140,140,140] gun lubricants\n%c[255,238,153,26] • %c[0,140,140,140] gasoline\n%c[255,238,153,26] • %c[0,140,140,140] kerosene\n%c[255,238,153,26] • %c[0,140,140,140] cloth or rags</text>
-	</string>
-	<string id="st_rasp_tool">
-		<text>File</text>
-	</string>
-	<string id="st_rasp_tool_descr">
-		<text>A file, used to restore weapon parts such as a worn or rusty barrel or breech head.\n \n%c[0,140,140,140]AUXILIARY MATERIALS:\n%c[255,238,153,26] • %c[0,140,140,140] gun lubricants\n%c[255,238,153,26] • %c[0,140,140,140] industrial grease\n%c[255,238,153,26] • %c[0,140,140,140] kerosene\n%c[255,238,153,26] • %c[0,140,140,140] cloth or rags</text>
-	</string>
-	<string id="st_ramrod_tool">
-		<text>Ramrod</text>
-	</string>
-	<string id="st_ramrod_tool_descr">
-		<text>An old ramrod consisting of three composite wooden parts, used to restore parts such as worn or rusty barrels and gas tubes.\n \n%c[0,140,140,140]AUXILIARY MATERIALS:\n%c[255,238,153,26] • %c[0,140,140,140] cleaning solvents\n%c[255,238,153,26] • %c[0,140,140,140] gasoline\n%c[255,238,153,26] • %c[0,140,140,140] kerosene\n%c[255,238,153,26] • %c[0,140,140,140] cloth or rags</text>
-	</string>
-
 
 	<!--
 		Interface
@@ -1366,6 +1341,9 @@
 	</string>
 	<string id="st_dis_text_10">
 		<text>%sYou have tried to cut %s %s, but no parts have been obtained.</text>
+	</string>
+	<string id="st_dis_text_11">
+		<text>%s %s %s %s %s</text>
 	</string>
 	<!-- Dialogues -->
 	<string id="st_awr_dialog_1">

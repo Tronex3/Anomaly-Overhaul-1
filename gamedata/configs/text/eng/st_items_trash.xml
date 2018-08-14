@@ -419,7 +419,7 @@
 	</string>
 	<string id="st_broken_detector_descr">
 		<text>
-		A small radio in a poor condition. Dirty and damaged by moisture. The interior seems to be in quite a bad shape as the radio rattles when moved around. No to little value.\n \n
+		A broken Bear detector. The screen is smashed and the interior seems to be in quite a bad shape. Some of the electronic parts inside are still safe. They can be reused for repair purposes, or perhaps even in crafting.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
 		%c[0,204,0,51] • %c[0,140,140,140] broken beyond repair\n
@@ -432,6 +432,7 @@
 	</string>
 	<string id="st_gloves_descr">
 		<text>
+		A pair of leather gloves. Feel and smell good as if they are bought recently. When the weather gets cold, it's important to keep your hands warm and ready.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
 		%c[0,100,100,255] • %c[0,140,140,140] valuable
@@ -440,11 +441,13 @@
 	</string>
 	
 	<string id="st_hand_watch">
-		<text>hand watch</text>
+		<text>Hand watch</text>
 	</string>
 	<string id="st_hand_watch_descr">
 		<text>
+		An old, classic Soviet "raketa3" watch. Looks like it's still in a good shape. It's not surprising that many stalkers prefer mechanical watches over PDAs for usual time checking. Giving the fact that those watches are reliable and durable even at the worst situations, they come in handy where PDAs fail due to strong electromagnetic waves coming from emissions or nearby anomaly fields. However, some simply wear them as a style accessory.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] personal belongings\n
 		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
 		%c[0,100,100,255] • %c[0,140,140,140] valuable
 		</text>
@@ -455,10 +458,10 @@
 	</string>
 	<string id="st_ball_hammer_descr">
 		<text>
-		Small ball-peen hammer with a wooden handle and an iron head.\n \n
+		Also known as a machinist's hammer. Ball-peen hammer is a type of peening hammer used in metalworking. Despite being old and rusty, you can never go wrong with having one for small repair jobs.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
-		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+2%)\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+3%)\n
 		</text>
 	</string>
 	
@@ -467,6 +470,7 @@
 	</string>
 	<string id="st_duct_tape_descr">
 		<text>
+		Duct tape is commonly used in situations that require a strong, flexible, and very sticky tape. An easy and temporary solution for quick repair jobs. This type also has a long-lasting adhesive and resistance to weathering.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
 		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+3%)
@@ -481,9 +485,10 @@
 	</string>
 	<string id="st_jar_descr">
 		<text>
-		A handful of gold teeth in a small plastic jar filled with sand and leaves to minimize the noise while running. Liberating a fallen stalker of his teeth is a favored practice among bandits.\n \n
+		A tiny plastic jar. Such jars are always handy for keeping small items safe, especially medicines. It protects the contents from moisture and ensures the moisture content of the product remains the same.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,100,100,255] • %c[0,140,140,140] basic item\n
+		%c[0,100,100,255] • %c[0,140,140,140] basic material\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
 		</text>
 	</string>
 	
@@ -491,20 +496,21 @@
 		<text>Empty syringe</text>
 	</string>
 	<string id="st_e_syringe_descr">
-		<text>
+		<text>A 12mL medical syringe with a lousy plunger. Seems like it has been used quite frequently. With a drug-making kit and proper knowledge, this syringe can come in handy for the creation of various types of medicines.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,100,100,255] • %c[0,140,140,140] basic item\n
+		%c[0,100,100,255] • %c[0,140,140,140] basic material\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
 		</text>
 	</string>
 	
 	<string id="st_ammo_bad">
-		<text>Lead</text>
+		<text>Bad ammo</text>
 	</string>
 	<string id="st_ammo_bad_descr">
 		<text>
-		Every stalker is aware of the importance of reliable weaponry. That's the reason a daily and thorough examination of your shooter is vital to your survival. Stalkers often count their ammo and clean it to minimize the risk of a weapon jam in the heat of battle. On the contrary, this lead can be reused by technicians later for the creation of better ammunition.\n \n
+		Even with good supplies, it’s not uncommon to end up with one or more cartridges of what might be considered as “bad” ammunition. Unlucky stalkers might find themselves in very bad situations when their weapons jam at critical moments due to bad cartridges. On the contrary, this ammo can be reused for the creation of better variants. That's why some stalkers prefer to keep them around.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		%c[0,153,255,255] • %c[0,140,140,140] basic material\n
 		</text>
 	</string>
 	
@@ -515,19 +521,20 @@
 		<text>
 		A good rope serves many purposes, especially in a place like the Zone. Many stalkers can put it to good use, which generates a rather high trading value. About 10-meters long.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		%c[0,153,255,255] • %c[0,140,140,140] basic material\n
 		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs (+3%)
 		</text>
 	</string>
 	
 	<string id="st_paper">
-		<text>Paper sheet</text>
+		<text>Paper sheets</text>
 	</string>
 	<string id="st_paper_descr">
 		<text>
-		Electrotechnical copper wire is used practically in all devices, devices, apparatuses, installations, machines where the production, transmission or use of electric energy occurs. In its pure form it is rare, but if necessary it can be easily extracted from common old radios, walkie-talkies and other electronics.\n \n
+		Torn sheets of silk coated paper. Even in a place like the Zone, it can be used for all kind of things. The cheapest way for packaging food or cleaning dirt.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		%c[0,153,255,255] • %c[0,140,140,140] basic material\n
 		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+1%)
 		</text>
 	</string>
@@ -539,7 +546,7 @@
 		<text>
 		Layered plastic based on fabric of fibers and polymeric binder (bakelite, polyester resin, epoxy resin). With proper skill it can be great help in repairing.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,100,100,255] • %c[0,140,140,140] basic item\n
+		%c[0,100,100,255] • %c[0,140,140,140] basic material\n
 		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+2%)
 		</text>
 	</string>
@@ -551,7 +558,7 @@
 		<text>
 		Simple cloth sheet, commonly used both to patch clothing and spread oils and cleaning solvents onto firearm mechanisms. Can be applied by any needle or glue.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,100,100,255] • %c[0,140,140,140] basic item\n
+		%c[0,100,100,255] • %c[0,140,140,140] basic material\n
 		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+3%)
 		</text>
 	</string>
@@ -563,7 +570,7 @@
 		<text>
 		Sheet of military-grade textile that can be used for field repairs of clothing and light armor. Valued for its relatively low price and high versatility, this material is commonly used by the Zoners. Medium-grade sewing equipment and advanced glue required for use. It can also be used to improve spread of liquids during weapon maintenance.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,100,100,255] • %c[0,140,140,140] basic item\n
+		%c[0,100,100,255] • %c[0,140,140,140] basic material\n
 		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+4%)
 		</text>
 	</string>
@@ -575,7 +582,7 @@
 		<text>
 		Thick textile patch reinforced with kevlar padding. Can be used to repair medium and heavy armors. Large enough to cover multiple damaged areas. High quality sewing kits and adhesives are required to make use of it. Its alternative usage is weapon lubrication and cleaning - due to increased hardness it's able reach even less accessible areas of firearm parts.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,100,100,255] • %c[0,140,140,140] basic item\n
+		%c[0,100,100,255] • %c[0,140,140,140] basic material\n
 		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+6%)
 		</text>
 	</string>
@@ -587,7 +594,7 @@
 		<text>
 		Electric capacitors can store electricity. The simplest capacitor consists of two metal plates and a dielectric between them. It is a main component is most of electrical devices due to its important job in rectifying alternative current, storing electrical energy and bypassing noise. They are quite rare in the Zone, but they are very useful.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		%c[0,153,255,255] • %c[0,140,140,140] basic material\n
 		</text>
 	</string>
 	
@@ -598,7 +605,7 @@
 		<text>
 		A box of high-quality BJT transistors. A transistor consists of three Semiconductor parts (base, emitter, collector) that serve together to generate, convert and amplify electrical oscillations. The ultimate dream of electronics engineers, if such a miracle will bring to the Area.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		%c[0,153,255,255] • %c[0,140,140,140] basic material\n
 		</text>
 	</string>
 	
@@ -609,7 +616,7 @@
 		<text>
 		Electrotechnical copper wire is used practically in all devices, devices, apparatuses, installations, machines where the production, transmission or use of electric energy occurs. In its pure form it is rare, but if necessary it can be easily extracted from common old radios, walkie-talkies and other electronics.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		%c[0,153,255,255] • %c[0,140,140,140] basic material\n
 		</text>
 	</string>
 	
@@ -618,18 +625,21 @@
 	</string>
 	<string id="st_basic_wood_descr">
 		<text>
+		Pieces of wide-grained, light cedar wood. Mostly used for outdoor projects such as furniture, decks and tools. White it's not that useful in a place like the Zone, it could be used in crafting.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		%c[0,153,255,255] • %c[0,140,140,140] basic material\n
 		</text>
 	</string>
 	
 	<string id="st_basic_scrap">
-		<text>Scrap parts</text>
+		<text>Metallic scrap</text>
 	</string>
 	<string id="st_basic_scrap_descr">
 		<text>
+		Handful of metal bolts, screws, bits and pieces of equipment. A variety of many different types and grades of steel and aluminum alloys. Could be used to aid in repairing gear in the field, or perhaps even in crafting.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		%c[0,153,255,255] • %c[0,140,140,140] basic material\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+2%)
 		</text>
 	</string>
 	
@@ -639,7 +649,7 @@
 	<string id="st_basic_glass_descr">
 		<text>
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		%c[0,153,255,255] • %c[0,140,140,140] basic material\n
 		</text>
 	</string>
 	
@@ -649,7 +659,7 @@
 	<string id="basic_ceramic_descr">
 		<text>
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		%c[0,153,255,255] • %c[0,140,140,140] basic material\n
 		</text>
 	</string>
 	
@@ -659,17 +669,17 @@
 	<string id="st_basic_leather_descr">
 		<text>
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		%c[0,153,255,255] • %c[0,140,140,140] basic material\n
 		</text>
 	</string>
 	
 	<string id="st_basic_plastic">
-		<text>Plastic base</text>
+		<text>Plastic film</text>
 	</string>
 	<string id="st_basic_plastic_descr">
-		<text>
+		<text>A small pack made of low density polyethylene film. These thin plastic membranes are used to separate areas or volumes, hold items and act as barriers. Plastic films are used in a wide variety of applications. Despite being partly torn, polyethylene's characteristics makes it a great solution for packaging and isolating, especially for food and medicines.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		%c[0,153,255,255] • %c[0,140,140,140] basic material\n
 		</text>
 	</string>
 	
@@ -679,7 +689,7 @@
 	<string id="st_basic_rubber_descr">
 		<text>
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,153,255,255] • %c[0,140,140,140] basic item\n
+		%c[0,153,255,255] • %c[0,140,140,140] basic material\n
 		</text>
 	</string>
 	

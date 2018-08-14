@@ -23,8 +23,8 @@
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
 		%c[0,0,255,30] • %c[0,140,140,140] low-tier field cooking equipment\n
-		%c[0,0,255,30] • %c[0,140,140,140] fuel: %c[0,170,170,170] charcoal\n
-		%c[0,0,255,30] • %c[0,140,140,140] usable for cooking meats of lesser mutants</text>
+		%c[0,0,255,30] • %c[0,140,140,140] fuel: %c[0,170,170,170] charcoal%c[0,140,140,140] (for all types of meat)\n
+		%c[0,0,255,30] • %c[0,140,140,140] usable on %c[0,170,170,170]campfires%c[0,140,140,140] for cooking meats of lesser mutants</text>
 	</string>
 	
 	<string id="st_wood_stove">
@@ -54,7 +54,7 @@
 		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
 		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
 		%c[0,0,255,30] • %c[0,140,140,140] high-tier cooking equipment\n
-		%c[0,0,255,30] • %c[0,140,140,140] av. fuel: %c[0,170,170,170] gasoline, natural gas, kerosene\n
+		%c[0,0,255,30] • %c[0,140,140,140] fuel: %c[0,170,170,170] gasoline, natural gas, kerosene\n
 		%c[0,0,255,30] • %c[0,140,140,140] usable for cooking meats of all mutants</text>
 	</string>
 	
@@ -70,7 +70,8 @@
 		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
 		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
 		%c[0,0,255,30] • %c[0,140,140,140] high-tier cooking equipment\n
-		%c[0,0,255,30] • %c[0,140,140,140] av. fuel: %c[0,170,170,170] gasoline, natural gas, kerosene\n
+		%c[0,0,255,30] • %c[0,140,140,140] fuel: %c[0,170,170,170] charcoal\n
+		%c[0,0,255,30] • %c[0,140,140,140] usable on %c[0,170,170,170]campfires%c[0,140,140,140]
 		%c[0,0,255,30] • %c[0,140,140,140] usable for cooking meats of all mutants</text>
 	</string>
 	

@@ -28,12 +28,11 @@
 		<text>Basic tools (7 uses)</text>
 	</string>
 	<string id="st_itm_basickit_descr">
-		<text>A children's toolkit. Unlikely to be suitable for maintenance, but they could be useful in the hands of a thrifty technician.\n \n
+		<text>A basic repair toolkit. Unlikely to be suitable for advanced maintenance, but they could be useful in the hands of a thrifty technician. Contains different types and sizes of pliers, screws, adhesives and assorted fasteners. With enough knowledge and experience, this kit can be used for the creation of basic equipment.\n \n
 		%c[0,200,200,200]NOTES:\n
 		%c[0,250,250,0] • %c[0,140,140,140] A technician could use these to fully modify weapons and armour.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,93,0,116] • %c[0,140,140,140] craftsman toolkit\n
-		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
 		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
 		%c[0,204,0,51] • %c[0,140,140,140] requires suitable materials</text>
 	</string>
@@ -61,12 +60,11 @@
 		<text>Advanced tools (7 uses)</text>
 	</string>
 	<string id="st_itm_advancedkit_descr">
-		<text>A decent set of old tools, but despite their age they appear to be in good condition.\n \n
+		<text>A decent set of old tools, but despite their age they appear to be in good condition. Contains a handful set of small pliers, tipped tweezers, probe and pick set. With enough knowledge and experience, this kit can be used for the creation of better equipment.\n \n
 		%c[0,200,200,200]NOTES:\n
 		%c[0,250,250,0] • %c[0,140,140,140] A technician could use these to fully modify weapons and armour.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,93,0,116] • %c[0,140,140,140] craftsman toolkit\n
-		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
 		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
 		%c[0,204,0,51] • %c[0,140,140,140] requires suitable materials</text>
 	</string>
@@ -93,12 +91,11 @@
 		<text>Expert tools (7 uses)</text>
 	</string>
 	<string id="st_itm_expertkit_descr">
-		<text>A professional set of high quality tools for fine-tuning equipment.\n \n
+		<text>A professional set of high quality tools for fine-tuning equipment. Contains drill bit set, precision tweezers, soldiering iron, 4 mm Screwdriver bits and a multimeter. With enough knowledge and experience, this kit can be used for the creation of advanced equipment.\n \n
 		%c[0,200,200,200]NOTES:\n
 		%c[0,250,250,0] • %c[0,140,140,140] A technician could use these to fully modify weapons and armour.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,93,0,116] • %c[0,140,140,140] craftsman toolkit\n
-		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
 		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
 		%c[0,204,0,51] • %c[0,140,140,140] requires suitable materials</text>
 	</string>
@@ -134,28 +131,28 @@
 	</string>
 	
 	<string id="st_itm_ammokit">
-		<text>Ammunition kit (1 use)</text>
+		<text>Gunsmithing tools (1 use)</text>
 	</string>
 	<string id="st_itm_ammokit2_name">
-		<text>Ammunition kit (2 uses)</text>
+		<text>Gunsmithing tools (2 uses)</text>
 	</string>
 	<string id="st_itm_ammokit3_name">
-		<text>Ammunition kit (3 uses)</text>
+		<text>Gunsmithing tools (3 uses)</text>
 	</string>
 	<string id="st_itm_ammokit4_name">
-		<text>Ammunition kit (4 uses)</text>
+		<text>Gunsmithing tools (4 uses)</text>
 	</string>
 	<string id="st_itm_ammokit5_name">
-		<text>Ammunition kit (5 uses)</text>
+		<text>Gunsmithing tools (5 uses)</text>
 	</string>
 	<string id="st_itm_ammokit6_name">
-		<text>Ammunition kit (6 uses)</text>
+		<text>Gunsmithing tools (6 uses)</text>
 	</string>
 	<string id="st_itm_ammokit7_name">
-		<text>Ammunition kit (7 uses)</text>
+		<text>Gunsmithing tools (7 uses)</text>
 	</string>
 	<string id="st_itm_ammokit_descr">
-		<text>This kit is used for crafting better ammo quality out of bad variants.\n \n
+		<text>A decent set of old gunsmithing tools and accessories. Contains a pin punch set, wheeler hammer, press tool and a black powder measure kit. With enough knowledge and experience, this kit can be used for recycling damaged ammunition and creation of better variants.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,93,0,116] • %c[0,140,140,140] craftsman tool kit\n
 		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
@@ -254,8 +251,8 @@
 		<text>Want to open cans of food, keep your mechanical gear tight, cut ropes or sharpen your best bullets? Use the universal and elegant Swiss knife. Packed in a small box. Commonly found in the Zone, so it is of little value. However, it can be utilized as a supportive material in both weapon and outfit repairs.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
-		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+2%)\n
-		%c[255,238,153,26] • %c[0,140,140,140] disassembling tool</text>
+		%c[0,93,0,116] • %c[0,140,140,140] disassembling tool\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+2%)</text>
 	</string>
 	
 	<string id="st_grooming">
@@ -265,8 +262,8 @@
 		<text>Grooming kit that packs a ballistic nylon travel case with a beard and moustache comb and detail facial scissors, featuring man-sized finger rings, ultra-sharp cutting blades of stainless steel, non-slip rubberized grip, and a precision trimming tip.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
-		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+2%)\n
-		%c[255,238,153,26] • %c[0,140,140,140] disassembling tool</text>
+		%c[0,93,0,116] • %c[0,140,140,140] disassembling tool\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+2%)</text>
 	</string>
 	
 	<string id="st_cash_name">
@@ -467,13 +464,13 @@
 	</string>
 	
 	<string id="st_itm_mapkit">
-		<text>Anomaly Map</text>
+		<text>Anomaly map</text>
 	</string>
 	<string id="st_itm_mapkit_descr">
-		<text>It seems that some artefact hunter has marked the location of important anomalous fields in specific part of the Zone.\n \n
+		<text>An untitled document that contains some hand-written sheets of paper, personal pictures and few worn paragraphs. Nothing really special except for one big printed map with some marked locations. Apparently the owner was an artefact hunter.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,51,255,102] • %c[0,140,140,140] informative\n
 		%c[0,153,255,255] • %c[0,140,140,140] personal belongings\n
+		%c[0,51,255,102] • %c[0,140,140,140] informative\n
 		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit maintenance (+3%)</text>
 	</string>
 	<string id="st_itm_mapkit_1">
@@ -502,6 +499,65 @@
 	</string>
 	<string id="st_itm_mapkit_9">
 		<text>Anomaly map (Agroprom)</text>
+	</string>
+	
+	<string id="st_ammo_box">
+		<text>A box of ammo</text>
+	</string>
+	<string id="st_ammo_box_descr">
+		<text>Every stalker is aware of the importance of reliable weaponry. That's the reason a daily and thorough examination of your shooter is vital to your survival. Stalkers often count their ammo and clean it to minimize the risk of a weapon jam in the heat of battle.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
+		</text>
+	</string>
+	
+	<string id="st_awr_r_kit_u">
+		<text>Weapon modification kit</text>
+	</string>
+	<string id="st_awr_r_kit_u_descr">
+		<text>A special kit with tools designed for replacing weapon parts. It can only be used at a technician’s workshop.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] military part\n
+		%c[255,238,153,26] • %c[0,140,140,140] must be used with:%c[0,170,170,170] technician’s vice</text>
+	</string>
+	
+	<string id="st_leatherman_tool">
+		<text>Multitool</text>
+	</string>
+	<string id="st_leatherman_tool_descr">
+		<text>A worn but functional multitool, used to disassemble weapons and armour on parts and to maintain worn and rusty trigger mechanisms.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] military part\n \n
+		%c[0,93,0,116] • %c[0,140,140,140] disassembling tool\n
+		%c[0,140,140,140]AUXILIARY MATERIALS:\n
+		%c[255,238,153,26] • %c[0,140,140,140] gun lubricants\n
+		%c[255,238,153,26] • %c[0,140,140,140] gasoline\n
+		%c[255,238,153,26] • %c[0,140,140,140] kerosene\n
+		%c[255,238,153,26] • %c[0,140,140,140] cloth or rags</text>
+	</string>
+	
+	<string id="st_rasp_tool">
+		<text>File</text>
+	</string>
+	<string id="st_rasp_tool_descr">
+		<text>A file, used to restore weapon parts such as a worn or rusty barrel or breech head.\n \n
+		%c[0,140,140,140]AUXILIARY MATERIALS:\n
+		%c[255,238,153,26] • %c[0,140,140,140] gun lubricants\n
+		%c[255,238,153,26] • %c[0,140,140,140] industrial grease\n
+		%c[255,238,153,26] • %c[0,140,140,140] kerosene\n
+		%c[255,238,153,26] • %c[0,140,140,140] cloth or rags</text>
+	</string>
+	
+	<string id="st_ramrod_tool">
+		<text>Ramrod</text>
+	</string>
+	<string id="st_ramrod_tool_descr">
+		<text>An old ramrod consisting of three composite wooden parts, used to restore parts such as worn or rusty barrels and gas tubes.\n \n
+		%c[0,140,140,140]AUXILIARY MATERIALS:\n
+		%c[255,238,153,26] • %c[0,140,140,140] cleaning solvents\n
+		%c[255,238,153,26] • %c[0,140,140,140] gasoline\n
+		%c[255,238,153,26] • %c[0,140,140,140] kerosene\n
+		%c[255,238,153,26] • %c[0,140,140,140] cloth or rags</text>
 	</string>
 	
 </string_table>

@@ -32,7 +32,7 @@ function map_ui:InitControls()
 	
 	self.xml				= CScriptXmlInit()
 	local xml = self.xml
-	xml:ParseFile			("ui_items.xml")
+	xml:ParseFile			("ui_itm_main.xml")
 
 	self.dialog					= xml:InitStatic("itm_map:frame", self)
 	
@@ -53,6 +53,7 @@ end
 
 function map_ui:OnAccept()
 	actor_effects.use_weapon(1)
+	trx_utils.play_sound("interface\\inv_close")
 	self:HideDialog()
 end
 

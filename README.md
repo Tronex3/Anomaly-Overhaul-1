@@ -17,6 +17,13 @@ Improving the item system and the progression behind it.
 - [x] fill the recipes list file
 - [x] Rework the UI of old repair kits
 
+### Economy
+- [x] added economy option (progression difficulty) in the new game menu with 3 choices (fast,normal,hardcore)
+	- [x] the economy option affects: trade and repair prices, loots in general (even the money), discovery chance of stashes
+	- [x] (Normal) for vanilla experience
+	- [x] (Fast) will make the game easier for those who prefer more forgiving gameplay similar to CoC
+	- [x] Not only (Hardcore economy) makes everything harder, but also all taken medkits will have a single use
+
 ### Item management
 - [x] add the ability to combine multi-use items
 - [x] add the ability to separate multi-use items
@@ -66,6 +73,15 @@ Improving the item system and the progression behind it.
 - [x] improved item icons
 - [x] improve mutant looting UI, add new button "loot all"
 - [x] improve rain texture
+- [x] removed (fake news) option, it has no purpose
+- [x] TRX: Dynamic News Revamp:
+	- [x] fixed a case where news start before completely loading
+	- [x] removed stashes news and death by surge reports cause they are static/spammy
+- [x] TRX: Sounds Revamp
+	- [x] improved footstep sound effects
+	- [x] doubled the silence periods between ambient sounds for less spam and better output 
+- [x] TRX: Dynamic Faction Relations
+	- [x] added new limiters to avoid the chance of getting loved by all factions after killing bandits and monolith, relation changes will be slower but more balanced
 
 ### Plans For the Future!
 - [ ] fix special npcs look doesn't match the icon

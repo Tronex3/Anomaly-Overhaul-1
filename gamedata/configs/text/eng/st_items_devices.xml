@@ -27,7 +27,7 @@
 	</string>
 	
 	<string id="st_detector2">
-		<text>Detector "Bear"</text>
+		<text>Bear detector</text>
 	</string>
 	<string id="st_detector2_descr">
 		<text>This last generation anomalous activity detector can be used to locate anomalous formations and has a color diode panel, which not only indicates the direction of artifacts, but also measures the distance to them. To switch to artifact search mode, open the device's front cover. Unfortunately, the device is programmed with a somewhat outdated list of detectable artifacts.\n \n
@@ -47,7 +47,7 @@
 	</string>
 	
 	<string id="st_detector4">
-		<text>Svarog detector prototype</text>
+		<text>Svarog detector</text>
 	</string>
 	<string id="st_detector4_descr">
 		<text>A prototype of an expanded functionality anomalous frequency scanner. This device comes with a program used to identify static areas of anomalous activity stored in its database, while retaining the ability to locate artifacts. The position of anomalous areas and artifacts is displayed on a special screen. The artifact search mode, which can be activated by opening the front LED display, has been modified to detect anomalous formations currently unknown to science.\n \n
@@ -137,6 +137,17 @@
 		<text>An expensive moisture- and shock-resistant PDA, featuring a chat client and an integrated music player.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] allows for playback of music and interaction in the stalker network</text>
+	</string>
+	
+	<string id="st_gps_tracker">
+		<text>Military GPS module</text>
+	</string>
+	<string id="st_gps_tracker_descr">
+		<text>A prototype of the next generation of GPS navigation devices. Only few copies are made. Distributed among the highest military ranks exclusively, although some of these have been leaked out to other sides. The improved module guarantees operation even in hostile environments. High sensitivity during acquisition or while tracking allows for use in many different environments and under toughest operating conditions. Unlike usual GPS modules, this one relies on sets of codes that allows the module to acquire special privileges on the connected channel. It retrieves the position of other connected modules in a radius of 300 meters. On the other hand, this module consumes a considerable amount of electrical power while operating. An automatic switching circuit is included inside the module to turn it off after 20 seconds of continuous scanning.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[0,100,100,255] • %c[0,140,140,140] very high UPD consumption
+		</text>
 	</string>
 
 </string_table>

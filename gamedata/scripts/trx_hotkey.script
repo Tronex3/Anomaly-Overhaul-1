@@ -1,0 +1,53 @@
+--[[ ================================== Hotkeys script =================================
+	["Page_Up"] = 201,
+	["Tab"] = 15,
+	["Caps_Lock"] = 58,
+	["Left_Control"] = 29,
+	["Left_Shift"] = 42,
+	["Left_Alt"] = 56,
+	["Left_Win"] = 219,
+	["Application"] = 221,
+	["Num1"] = 79,
+	["Num2"] = 80,
+	["Num3"] = 81,
+	["Num4"] = 75,
+	["Num5"] = 76,
+	["Num6"] = 77,
+	["Num7"] = 71,
+	["Num8"] = 72,
+	["Num9"] = 73,
+	["Num/"] = 181,
+	["Num*"] = 55,
+	["Num-"] = 74,
+	["Num+"] = 78,
+	["Num_Del"] = 83,
+	["NumEnter"] = 156,
+	["F1"] = 59,
+	["F2"] = 60,
+	["F3"] = 61,
+	["F4"] = 62,
+	["F5"] = 63,
+	["F6"] = 64,
+	["F7"] = 65,
+	["F8"] = 66,
+	["F9"] = 67,
+	["F10"] = 68,
+	["F11"] = 87,
+	["F12"] = 88
+--]]
+
+local function on_key_release(key)
+	if (key == 64) then -- F6
+		printf(">>> Tronex: F6")
+	elseif (key == 65) then -- F7
+		printf(">>> Tronex: F7")
+		local function search(temp, item)
+			printf(">>> TRX inv: " .. item:section())
+		end
+		db.actor:iterate_inventory(search,nil)
+	end
+end
+
+function on_game_start()
+	RegisterScriptCallback("on_key_release",on_key_release)
+end

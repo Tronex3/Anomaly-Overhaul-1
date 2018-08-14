@@ -1,0 +1,434 @@
+--=====================< created by av661194 >=====================
+
+
+
+-- ==============================================================================================
+-- //////////////////////////////////////////////////////////////////////////////////////////////
+--											Options
+-- //////////////////////////////////////////////////////////////////////////////////////////////
+-- ==============================================================================================
+
+local dlg_is_show
+local options_btn = 201
+
+local btn_tbl = {
+	["Page_Up"] = 201,
+	["Tab"] = 15,
+	["Caps_Lock"] = 58,
+	["Left_Control"] = 29,
+	["Left_Shift"] = 42,
+	["Left_Alt"] = 56,
+	["Left_Win"] = 219,
+	["Application"] = 221,
+
+	["Num1"] = 79,
+	["Num2"] = 80,
+	["Num3"] = 81,
+	["Num4"] = 75,
+	["Num5"] = 76,
+	["Num6"] = 77,
+	["Num7"] = 71,
+	["Num8"] = 72,
+	["Num9"] = 73,
+	["Num/"] = 181,
+	["Num*"] = 55,
+	["Num-"] = 74,
+	["Num+"] = 78,
+	["Num_Del"] = 83,
+	["NumEnter"] = 156
+}
+
+--option table
+local options = { 
+	["options_btn"] = {
+		typ = "list",
+		list = {"Tab", "Caps_Lock", "Left_Control", "Left_Shift", "Left_Alt", "Left_Win", "Num1", "Num2", "Num3", "Num4", "Num5", "Num6", "Num7", "Num8", "Num9", "Num/", "Num*", "Num-", "Num+", "Num_Del", "NumEnter","Page_Up",},
+		default = "Page_Up",
+		txt = game.translate_string("ui_st_dyn_news_btn_access"),
+		on_accept = function(handler,optMgr,ctrl)
+			options_btn = btn_tbl[ctrl:GetText()]
+			--[[local file = io.open(game.translate_string("ui_st_dyn_news_btn_call"), "w")
+				if io.type(file) == "file" then
+					file:write(ctrl:GetText(), "\n")
+					file:flush()
+					file:close()
+				end]]--
+		end,
+		num = 0.1
+	},
+	["message_duration"] 			= {typ = "edit", default = 10, txt = game.translate_string("ui_st_dyn_news_message_duration"), num = 0.2},
+	
+	["space_news_event"] 			= {typ = "text", default = game.translate_string("ui_st_dyn_news_space_news_event"), cap = "tab_gameplay:cap_text_axr", num = 1.01},
+	["death_stalker_news"] 			= {typ = "check", default = true, txt = game.translate_string("ui_st_dyn_news_death_stalker_news"), num = 1.02},
+	["death_mutant_news"] 			= {typ = "check", default = true, txt = game.translate_string("ui_st_dyn_news_death_mutant_news"), num = 1.03},
+	["generic_death_news"] 			= {typ = "check", default = false, txt = game.translate_string("ui_st_dyn_news_generic_death_news"), num = 1.04},
+	["death_report_news"] 			= {typ = "check", default = true, txt = game.translate_string("ui_st_dyn_news_death_report_news"), num = 1.05},
+	--["tips_news"] 				= {typ = "check", default = true, txt = game.translate_string("ui_st_dyn_news_tips_news"), num = 1.06},
+	["kill_wounded_news"] 			= {typ = "check", default = true, txt = game.translate_string("ui_st_dyn_news_kill_wounded_news"), num = 1.07},
+	["found_artifact_news"] 		= {typ = "check", default = true, txt = game.translate_string("ui_st_dyn_news_found_artifact_news"), num = 1.08},
+	["heli_call_news"] 				= {typ = "check", default = true, txt = game.translate_string("ui_st_dyn_news_heli_call_news"), num = 1.09},
+	["loot_news"] 					= {typ = "check", default = true, txt = game.translate_string("ui_st_dyn_news_loot_news"), num = 1.10},
+	--["stash_news"] 					= {typ = "check", default = false, txt = game.translate_string("ui_st_dyn_news_stash_news"), num = 1.11},
+	
+	["space_news_reaction"] 		= {typ = "text", default = game.translate_string("ui_st_dyn_news_space_news_reaction"), cap = "tab_gameplay:cap_text_axr", num = 2.1},
+	["reaction_news"] 				= {typ = "check", default = true, txt = game.translate_string("ui_st_dyn_news_reaction_news"), num = 2.2},
+	
+	["space_news_special"] 			= {typ = "text", default = game.translate_string("ui_st_dyn_news_space_news_special"), cap = "tab_gameplay:cap_text_axr", num = 3.1},
+	["weather_news"] 				= {typ = "check", default = true, txt = game.translate_string("ui_st_dyn_news_weather_news"), num = 3.2},
+	["time_news"] 					= {typ = "check", default = true, txt = game.translate_string("ui_st_dyn_news_time_news"), num = 3.3},
+	["nearby_activity_news"] 		= {typ = "check", default = true, txt = game.translate_string("ui_st_dyn_news_nearby_activity_news"), num = 3.4},
+	["dumb_zombie_news"] 			= {typ = "check", default = true, txt = game.translate_string("ui_st_dyn_news_dumb_zombie_news"), num = 3.5},
+	["cycle_of_special_news"] 		= {typ = "edit", default = 240, txt = game.translate_string("ui_st_dyn_news_cycle_of_special_news"), num = 3.6},
+	
+	["space_news_task"] 			= {typ = "text", default = game.translate_string("ui_st_dyn_news_space_news_task"), cap = "tab_gameplay:cap_text_axr", num = 4.1},
+	["bounty_news"] 				= {typ = "check", default = true, txt = game.translate_string("ui_st_dyn_news_bounty_news"), num = 4.2},
+	["cycle_of_task_news"] 			= {typ = "edit", default = 300, txt = game.translate_string("ui_st_dyn_news_cycle_of_task_news"), num = 4.3},
+	
+	["space_news_random"] 			= {typ = "text", default = game.translate_string("ui_st_dyn_news_space_news_random"), cap = "tab_gameplay:cap_text_axr", num = 5.1},
+	["random_msg_news"] 			= {typ = "check", default = true, txt = game.translate_string("ui_st_dyn_news_random_msg_news"), num = 5.2},
+	["factions_report_news"] 		= {typ = "check", default = true, txt = game.translate_string("ui_st_dyn_news_factions_report_news"), num = 5.3},
+	["zone_activity_news"] 			= {typ = "check", default = true, txt = game.translate_string("ui_st_dyn_news_zone_activity_news"), num = 5.4},
+	["found_dead_news"] 			= {typ = "check", default = true, txt = game.translate_string("ui_st_dyn_news_found_dead_news"), num = 5.5},
+	["surge_news"]					= {typ = "check", default = true, txt = game.translate_string("ui_st_dyn_news_surge_news"), num = 5.6},
+	["cycle_of_random_news"] 		= {typ = "edit", default = 240, txt = game.translate_string("ui_st_dyn_news_cycle_of_random_news"), num = 5.7},
+	
+	["space_news_companion"] 		= {typ = "text", default = game.translate_string("ui_st_dyn_news_space_news_companion"), cap = "tab_gameplay:cap_text_axr", num = 6.1},
+	["companions_news"] 			= {typ = "check", default = true, txt = game.translate_string("ui_st_dyn_news_companions_news"), num = 6.2},
+	["cycle_of_companions_news"] 	= {typ = "edit", default = 240, txt = game.translate_string("ui_st_dyn_news_cycle_of_companions_news"), num = 6.3}
+}
+
+function start_ui(main_menu,level_present,options)
+	if not dlg_is_show then
+		dlg_is_show = true
+		local ui = DynamicNewsOptionsDialog(main_menu,level_present,options)
+		main_menu:HideDialog()
+		main_menu:Show(false)
+		ui:ShowDialog(true)
+	end
+end
+
+
+
+-- ==============================================================================================
+-- //////////////////////////////////////////////////////////////////////////////////////////////
+--									Text input with Cyrillic support
+-- //////////////////////////////////////////////////////////////////////////////////////////////
+-- ==============================================================================================
+
+local tbl, valid_tbl = {}, {}
+
+local function get_str(symbol)
+	return  lang_prm and (valid_tbl[symbol] or "") or tbl[symbol] or ""
+end
+
+function translate(str)
+	local input_str = game.translate_string("st_trx_input_symbols")
+	local output_str = game.translate_string("st_trx_output_symbols")
+		for n = 1, #output_str do
+			local input = string.sub(input_str, n, n)
+			local output = string.sub(output_str, n, n)
+			tbl[input] = output
+			valid_tbl[output] = output
+		end
+		tbl[""] = ""
+		valid_tbl[""] = ""
+		translate = get_str
+	return  get_str(str)
+end
+
+
+
+-- ==============================================================================================
+-- //////////////////////////////////////////////////////////////////////////////////////////////
+--											Callbacks
+-- //////////////////////////////////////////////////////////////////////////////////////////////
+-- ==============================================================================================
+
+local function options_default_config()
+	options_btn = btn_tbl[axr_main.config:r_value("mm_dynamic_news_options","options_btn",0,"Page_Up")] or 201
+	local need_save
+	for k,v in pairs(options) do
+		local key = ((v.typ=="check" and "enable_") or "") .. k
+		if not axr_main.config:line_exist("mm_dynamic_news_options", key) and v.typ~="text" then
+			axr_main.config:w_value("mm_dynamic_news_options", key, v.default)
+			need_save = true
+		end
+	end
+	if (need_save) then
+		axr_main.config:save()
+	end
+	dynamic_news_manager.update_options()
+end
+
+local function main_menu_on_keyboard(dik,keyboard_action,main_menu,level_present)
+	if keyboard_action ~= ui_events.WINDOW_KEY_RELEASED then
+		return
+	end
+	if dik == options_btn then
+		start_ui(main_menu,level_present,options)
+	end
+end
+
+function on_game_start()
+	RegisterScriptCallback("on_game_load",options_default_config)
+	RegisterScriptCallback("main_menu_on_keyboard",main_menu_on_keyboard)
+end
+
+
+
+-- ==============================================================================================
+-- //////////////////////////////////////////////////////////////////////////////////////////////
+--											Dynamic News Options Menu (GUI)
+-- //////////////////////////////////////////////////////////////////////////////////////////////
+-- ==============================================================================================
+
+class "DynamicNewsOptionsDialog" (CUIScriptWnd)
+function DynamicNewsOptionsDialog:__init(main_menu,level_present,options) super()
+	self.owner = main_menu
+	self.level_present = level_present
+	self.options = options or {}
+
+	self:InitControls()
+	self:InitCallBacks()
+
+	self.edit_opt = {}
+
+	-- auto-generate UI elements for Gameplay Tab
+	local abc_opt, opts, elements = {}, {}, {}
+	local _st 
+	self.scroll_v:Clear()
+	
+	-- add UI elements to scroll view in specific order
+	for cap,t in pairs(self.options) do
+		_st = self.xml:InitStatic("tab_gameplay:templ_item", nil)
+		local ctrl	-- control
+
+		if (t.typ == "check") then
+			-- caption
+			ctrl = self.xml:InitStatic("tab_gameplay:cap_check_axr",_st)
+			-- set caption text
+			ctrl:TextControl():SetText(t.txt)
+			-- sort by name and type
+			opts[t.num] = ctrl:TextControl():GetText()
+			elements[ctrl:TextControl():GetText()] = _st
+			-- create control
+			ctrl = self.xml:InitCheck("tab_gameplay:check_axr",_st)
+			-- register for callbacks
+			self:Register(ctrl,"ck_"..cap)
+
+		elseif(t.typ == "list") then
+			ctrl = self.xml:InitStatic("tab_gameplay:cap_list_axr",_st)
+			ctrl:TextControl():SetText(t.txt) 
+			-- sort by name and type
+			opts[t.num] = ctrl:TextControl():GetText()
+			elements[ctrl:TextControl():GetText()] = _st
+			-- create control
+			ctrl = self.xml:InitComboBox("tab_gameplay:list_axr",_st)
+				for i,v in ipairs(t.list) do 
+					ctrl:AddItem(v,i-1)
+				end
+			self:Register(ctrl,"lst_"..cap)
+				if (t.on_list_item_select) then
+					local _wrapper = function(handler)
+					t.on_list_item_select(handler,ctrl)
+					end
+				self:AddCallback("lst_"..cap, ui_events.LIST_ITEM_SELECT,_wrapper,self)
+				end
+
+		elseif(t.typ == "edit") then
+		ctrl = self.xml:InitStatic("tab_gameplay:cap_edit_axr",_st)
+		ctrl:TextControl():SetText(t.txt) 
+			-- sort by name and type
+			opts[t.num] = ctrl:TextControl():GetText()
+			elements[ctrl:TextControl():GetText()] = _st
+				
+			-- create control
+			ctrl = self.xml:InitEditBox("tab_gameplay:edit_axr",_st)
+			-- register for callbacks
+			self:Register(ctrl,"edt_"..cap)
+			self.edit_opt[cap]=axr_main.config:r_value("mm_dynamic_news_options",cap,0,t.default)
+
+		elseif (t.typ == "text") then
+			ctrl = self.xml:InitStatic("tab_gameplay:cap_text_axr",_st)
+			ctrl:TextControl():SetText(t.default)
+			opts[t.num] = ctrl:TextControl():GetText()
+			elements[ctrl:TextControl():GetText()] = _st
+		end
+		self.options[cap].ctrl = ctrl
+	end
+	-- sort ui elements to display in alphabetical order
+	for k in pairs(opts) do
+		abc_opt[#abc_opt + 1] = k
+	end
+	table.sort(abc_opt)
+
+	for i=1,#abc_opt do
+		abc_opt[i] =  opts[abc_opt[i]]
+		-- add to UIScrollView
+		self.scroll_v:AddWindow(elements[abc_opt[i]],true) 
+		elements[abc_opt[i]]:SetAutoDelete(false)
+	end
+
+self:SetCurrentValues()
+end
+
+function DynamicNewsOptionsDialog:__finalize()
+end
+
+function DynamicNewsOptionsDialog:InitControls()
+	self:SetWndRect(Frect():set(0,0,1024,768))
+	self:SetAutoDelete(true)
+	self:Enable(true)
+
+	self.xml = CScriptXmlInit()
+	self.xml:ParseFile("ui_mm_opt_dynamic_news.xml")
+	self.xml:InitStatic("background", self)
+	self.dialog = self.xml:InitStatic("main_dialog:dialog", self)
+	self.xml:InitStatic("main_dialog:cap_news_opt", self.dialog)
+
+	self.opt_dialog = news_options_window()
+	self.opt_dialog:InitControls(0,0, self.xml, self)
+	self.opt_dialog:Show(true)
+	self.dialog:AttachChild(self.opt_dialog)
+	self.xml:InitWindow("tab_size", 0, self.opt_dialog)
+
+	local btn
+	btn = self.xml:Init3tButton("main_dialog:btn_accept", self.dialog)
+	self:Register(btn, "btn_accept")
+	btn = self.xml:Init3tButton("main_dialog:btn_cancel", self.dialog)
+	self:Register(btn, "btn_cancel")
+	btn = self.xml:Init3tButton("main_dialog:btn_default", self.dialog)
+	self:Register(btn, "btn_default")
+end
+
+
+
+function DynamicNewsOptionsDialog:InitCallBacks()
+	self:AddCallback("btn_accept",ui_events.BUTTON_CLICKED,	self.OnBtnAccept,self)
+	self:AddCallback("btn_cancel",ui_events.BUTTON_CLICKED,	self.OnBtnCancel,self)
+	self:AddCallback("btn_default",ui_events.BUTTON_CLICKED,self.SetDefValues,self)
+end
+
+function DynamicNewsOptionsDialog:SetDefValues()
+	for k,v in pairs(self.options) do
+		if (v.typ=="check") then
+		v.ctrl:SetCheck(v.default)
+		elseif (v.typ=="list") or (v.typ=="edit") then
+		v.ctrl:SetText(v.default)
+		end
+	end
+	self.edit_opt = self.edit_opt or {}
+	for k in pairs(self.edit_opt) do
+		local v = self.options[k]
+		local t = v.ctrl:GetText()
+		self.edit_opt[k] = t
+	end
+end
+
+function DynamicNewsOptionsDialog:OnBtnAccept()
+local optMgr = COptionsManager()
+	for k,v in pairs(self.options) do
+		if (v.typ=="check") then
+		axr_main.config:w_value("mm_dynamic_news_options","enable_"..k,v.ctrl:GetCheck())
+		elseif (v.typ=="edit") then
+			local value = math.floor(tonumber(v.ctrl:GetText()) or v.default)
+			value = (value >= 0 and value <= 999) and value or v.default
+			axr_main.config:w_value("mm_dynamic_news_options",k,value)
+
+		elseif (v.typ=="list") then
+		axr_main.config:w_value("mm_dynamic_news_options",k,v.ctrl:GetText() or v.default)
+		end
+		if (v.on_accept) then 
+			v.on_accept(self,optMgr,v.ctrl)
+		end
+	end
+	if db.actor and db.actor:alive() and self.level_present then
+		dynamic_news_manager.update_options()
+		--printf(">>> Tronex: changes accepted")
+	end
+	axr_main.config:save()
+	self:OnBtnCancel()
+end
+
+
+function DynamicNewsOptionsDialog:SetCurrentValues()
+	for k,v in pairs(self.options) do
+		if (v.typ=="check") then
+			v.ctrl:SetCheck(axr_main.config:r_value("mm_dynamic_news_options","enable_"..k,1,v.default))
+		elseif (v.typ=="edit") then
+			v.ctrl:SetText(axr_main.config:r_value("mm_dynamic_news_options",k,2,v.default))
+		elseif (v.typ=="list") then
+			v.ctrl:SetText(axr_main.config:r_value("mm_dynamic_news_options",k,0,v.default))
+		end
+	end 
+end
+
+function DynamicNewsOptionsDialog:OnBtnCancel()
+	self:TextChange()
+	self.owner:ShowDialog(true)
+	--if (self:IsShown()) then
+		self:HideDialog()
+		dlg_is_show = nil
+	--end
+	self.owner:Show(true)
+end
+
+function DynamicNewsOptionsDialog:OnKeyboard(dik, keyboard_action)
+	local res = CUIScriptWnd.OnKeyboard(self,dik,keyboard_action)
+	if res == false then
+		if keyboard_action == ui_events.WINDOW_KEY_PRESSED then
+			if dik_to_bind(dik) == key_bindings.kQUIT then
+				self:OnBtnCancel()
+			end
+		end
+	else
+		if keyboard_action == ui_events.WINDOW_KEY_PRESSED then
+			if dik == DIK_keys.DIK_TAB then
+				lang_prm = not lang_prm
+			end
+			for k,t in pairs(self.edit_opt) do
+			local ctrl = self.options[k].ctrl
+				if dik == DIK_keys.DIK_BACK then
+					self.edit_opt[k] = ctrl:GetText()
+				else
+					local txt = ctrl:GetText()
+					txt = t == "" and txt or string.sub(txt,string.len(t)+1,-1)
+					t = t .. translate(txt)
+					ctrl:SetText(t)
+					self.edit_opt[k] = t
+				end
+			end
+		end
+	end
+	return res
+end
+
+function DynamicNewsOptionsDialog:TextChange()
+	self.edit_opt = self.edit_opt or {}
+	for k in pairs(self.edit_opt) do
+		local v = self.options[k]
+		local t = axr_main.config:r_value("mm_dynamic_news_options",k,0,v.default)
+		v.ctrl:SetText(t)
+		self.edit_opt[k] = t
+	end
+end
+
+function DynamicNewsOptionsDialog:Update()
+	CUIScriptWnd.Update(self)
+end
+
+-------------------------------Options window
+class "news_options_window" (CUIWindow)
+function news_options_window:__init() super()
+end
+
+function news_options_window:__finalize()
+end
+
+function news_options_window:InitControls(x, y, xml, handler)
+	self:SetWndPos(vector2():set(x,y))
+	self:SetWndSize(vector2():set(738,416))
+	self:SetAutoDelete(true)
+	self.scroll_v = xml:InitScrollView("tab_gameplay:scroll_v", self)
+	handler.scroll_v = self.scroll_v
+end

@@ -4,7 +4,7 @@
 -- New Game menu + Ironman mode save killer + Setting up new games
 -- =======================================================================================
 
-local trx_go = true
+
 --=======================================< Controls >=======================================--
 local ico_size = 0.7
 local ico_width = (device().width / device().height > (1024/768+0.01)) and 0.8 or 1
@@ -75,28 +75,13 @@ local function on_game_load(binder)
 			config:w_value("character_creation","new_game_difficulty")
 			need_save = true
 		end
-		--[[
-		if (config:r_value("character_creation","new_game_economy_goodwill",2)) then
-			alife_storage_manager.get_state().economy_goodwill = config:r_value("character_creation","new_game_economy_goodwill",2)
-			config:w_value("character_creation","new_game_economy_goodwill")
+	
+		-- Economy
+		if (config:r_value("character_creation","new_game_economy",2)) then
+			alife_storage_manager.get_state().economy = config:r_value("character_creation","new_game_economy",2)
+			config:w_value("character_creation","new_game_economy")
 			need_save = true
 		end
-		if (config:r_value("character_creation","new_game_economy_money",2)) then
-			alife_storage_manager.get_state().economy_money = config:r_value("character_creation","new_game_economy_money",2)
-			config:w_value("character_creation","new_game_economy_money")
-			need_save = true
-		end
-		if (config:r_value("character_creation","new_game_economy_wpn",2)) then
-			alife_storage_manager.get_state().economy_wpn = config:r_value("character_creation","new_game_economy_wpn",2)
-			config:w_value("character_creation","new_game_economy_wpn")
-			need_save = true
-		end
-		if (config:r_value("character_creation","new_game_economy_loot",2)) then
-			alife_storage_manager.get_state().economy_loot = config:r_value("character_creation","new_game_economy_loot",2)
-			config:w_value("character_creation","new_game_economy_loot")
-			need_save = true
-		end
-		--]]
 	end
 	
 	-- Name
@@ -274,8 +259,13 @@ local function on_game_load(binder)
 			db.actor:give_money(-db.actor:money()+money)
 		end 
 		config:w_value("character_creation","new_game_money")
-		
-		
+
+		-- mlr
+		if not mlr_utils.load_var('transitions_faction') then		
+			mlr_utils.save_var('transitions_faction', faction)
+		end
+		-- mlr
+
 		-- Loadout
 		local sim = alife()
 		local loadout = config:r_value("character_creation","new_game_loadout",3)
@@ -308,13 +298,7 @@ local function on_game_load(binder)
 		
 		se_actor:set_profile_name("actor_"..faction)
 	end
-	--[[
-	-- Loading economy values from save file
-	axr_main.config:w_value("mm_options","multi_rewards_goodwill", utils.round(alife_storage_manager.get_state().economy_goodwill,2))
-	axr_main.config:w_value("mm_options","multi_rewards_money", utils.round(alife_storage_manager.get_state().economy_money,2))
-	axr_main.config:w_value("mm_options","multi_wpn_conditions", utils.round(alife_storage_manager.get_state().economy_wpn,2))
-	axr_main.config:w_value("mm_options","multi_loot", utils.round(alife_storage_manager.get_state().economy_loot,2))
-	--]]
+
 	if (need_save) then
 		config:save()
 	end
@@ -355,7 +339,7 @@ local function actor_on_first_update(binder,delta)
 		end
 	end
 
-	if trx_go and start_pos and #start_pos == 3 then
+	if start_pos and #start_pos == 3 then
 		ChangeLevel(start_pos[3],start_pos[1],start_pos[2],vector():set(0,0,0))
 	end
 end
@@ -429,7 +413,7 @@ function faction_ui:__init(owner) super()
 	self.table_loadout = {}
 	self.table_inv = {}
 	self.table_difficulty = {"novice","stalker","veteran","master"}
-	self.table_economy = {"st_econ_1","st_econ_2","st_econ_3","st_econ_4"}
+	self.table_economy = {"st_econ_1","st_econ_2","st_econ_3"}
 	
 	self.table_hardcore_lives = {}
 	local n = ini_opt:line_count("new_game_hardcore_lives") or 0
@@ -613,13 +597,13 @@ function faction_ui:Main_Controls()
 		self.list_difficulty:SetAutoDelete(true)
 		self:Register(self.list_difficulty, "list_difficulty")
 		self:LoadDifficulty()
-		--[[
+		
 		self.list_economy_cap = xml:InitStatic("main_dialog:list_economy_cap",self.dialog)
 		self.list_economy = xml:InitComboBox("main_dialog:list_economy", self.dialog)
 		self.list_economy:SetAutoDelete(true)
 		self:Register(self.list_economy, "list_economy")
 		self:LoadEconomy()
-		--]]
+		
 		self.ck_story_cap = xml:InitStatic("main_dialog:options:cap_check_story",self.templ_options)
 		self.ck_story = xml:InitCheck("main_dialog:options:check_story",	self.templ_options)
 		self:Register(self.ck_story,"check_story")
@@ -1252,7 +1236,7 @@ function faction_ui:LoadDifficulty (rand)
 	self.list_difficulty:SetText(gs("gd_" .. pick))
 	self.selected_difficulty = pick
 end
---[[
+
 function faction_ui:LoadEconomy (rand)
 	self.list_economy:ClearList()
 	for i=1,#self.table_economy do
@@ -1262,7 +1246,7 @@ function faction_ui:LoadEconomy (rand)
 	self.list_economy:SetText(gs(pick))
 	self.selected_economy = pick
 end
---]]
+
 function faction_ui:LoadHardcoreLives (rand)
 	local str
 	self.list_hardcore_lives:ClearList()
@@ -1412,11 +1396,11 @@ end
 function faction_ui:OnSelectDifficulty()
 	self.selected_difficulty = self.table_difficulty[self.list_difficulty:CurrentID()]
 end
---[[
+
 function faction_ui:OnSelectEconomy()
 	self.selected_economy = self.table_economy[self.list_economy:CurrentID()]
 end
---]]
+
 function faction_ui:OnSelectHardcoreLives()
 	self.selected_hardcore_lives = self.table_hardcore_lives[self.list_hardcore_lives:CurrentID()]
 end
@@ -1681,8 +1665,8 @@ function faction_ui:OnRandomize()
 	self:UpdateAll(true, self.selected_faction)
 	
 	-- Difficulty and Economy
-	self:LoadDifficulty(true)
-	--self:LoadEconomy(true)
+	--self:LoadDifficulty(true)
+	self:LoadEconomy(true)
 end
 
 function faction_ui:OnKeyboard(dik, keyboard_action)
@@ -1751,23 +1735,17 @@ function faction_ui:OnStartGame()
 			loadout_str = loadout_str .. "," .. item.name
 		end
 	end
-	--[[
+
 	-- preparing economy values
 	if (self.selected_economy == nil or self.selected_economy == "") then
 		self.selected_economy = self.table_economy[2]
 	end
-	local econ = self.selected_economy:gsub("st_","")
-	local goodwill = ini_eco:r_float_ex(econ, "multi_goodwill") or axr_main.config:r_value("mm_options","multi_rewards_goodwill",2,1)
-	local money = ini_eco:r_float_ex(econ, "multi_money") or axr_main.config:r_value("mm_options","multi_rewards_money",2,1)
-	local wpn = ini_eco:r_float_ex(econ, "multi_wpn_condition") or axr_main.config:r_value("mm_options","multi_wpn_conditions",2,1)
-	local loot = ini_eco:r_float_ex(econ, "multi_loot") or axr_main.config:r_value("mm_options","multi_loot",2,1)
+	local econ = self.selected_economy:gsub("st_econ_","")
+	econ = tonumber(econ) or 2
 	
 	axr_main.config:w_value("character_creation","new_game_difficulty",self.selected_difficulty)
-	axr_main.config:w_value("character_creation","new_game_economy_goodwill",utils.round(goodwill,2))
-	axr_main.config:w_value("character_creation","new_game_economy_money",utils.round(money,2))
-	axr_main.config:w_value("character_creation","new_game_economy_wpn",utils.round(wpn,2))
-	axr_main.config:w_value("character_creation","new_game_economy_loot",utils.round(loot,2))
-	--]]
+	axr_main.config:w_value("character_creation","new_game_economy",econ)
+
 	axr_main.config:w_value("character_creation","new_game_hardcore_mode",self.ck_hardcore and self.ck_hardcore:GetCheck() and true or nil)
 	axr_main.config:w_value("character_creation","new_game_hardcore_mode_lives",self.ck_hardcore and self.selected_hardcore_lives[1] or nil)
 	axr_main.config:w_value("character_creation","new_game_hardcore_mode_regenerate",self.ck_hardcore and hardcore_regen or nil)
@@ -1801,7 +1779,7 @@ function set_list_text:__init(idx, name, points, allow) super(idx, name, points,
 	self.string 				= name
 	self.text					= self:GetTextItem()
 	self.text:SetWndRect		(Frect():set(0,0,300,22))
-	self:SetTextColor			(GetARGB(255, 130, 128, 120))
+	self:SetTextColor			(GetARGB(255, 170, 170, 170))
 	self.text:SetFont			(GetFontLetterica16Russian())
 	self.text:SetWndSize		(vector2():set(400,22))
 	self.text:SetEllipsis		(true)

@@ -7,12 +7,13 @@
 <string_table>
 	
 	<string id="st_antirad">
-		<text>Anti-radiation drugs (imported)</text>
+		<text>Anti-radiation drugs</text>
 	</string>
 	<string id="st_antirad_descr">
 		<text>Mexaminum radiation protection drugs are common in the Zone. When used, this drug induces contraction of peripheral blood vessels and oxygen deprivation, which serve to treat and prevent radiation exposure. The drug does not have severe side effects, although isolated cases of mild nausea, dizziness, cramps and stomach pain have been reported.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] medicine\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] fast usage (syringe)\n
 		%c[0,204,0,51] • %c[0,140,140,140] significant health reduction\n \n
 		%c[0,200,200,200]DETAILS:\n
@@ -48,10 +49,14 @@
 	</string>
 	
 	<string id="st_drug_anabiotic">
-		<text>Anabiotics (Zone-produced)</text>
+		<text>Anabiotics</text>
 	</string>
 	<string id="st_drug_anabiotic_descr">
-		<text>An experimental drug developed by Professor Ozersky for scientific research teams working in the Zone. At its core, the drug contains tetrodotoxin, known colloquially as "zombie powder," which causes a complete shutdown of the body's central nervous system that may allow people to survive emissions outside cover. The drug has not undergone clinical or field testing, which puts its effectiveness in doubt and raises the issue of possible side effects.\n \n%c[0,153,255,255] • %c[0,140,140,140] medicine\n%c[0,204,0,51] • %c[0,140,140,140] causes temporary blackout</text>
+		<text>An experimental drug developed by Professor Ozersky for scientific research teams working in the Zone. At its core, the drug contains tetrodotoxin, known colloquially as "zombie powder," which causes a complete shutdown of the body's central nervous system that may allow people to survive emissions outside cover. The drug has not undergone clinical or field testing, which puts its effectiveness in doubt and raises the issue of possible side effects.\n \n
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] medicine\n
+		%c[0,100,100,255] • %c[0,140,140,140] zone-produced\n
+		%c[0,204,0,51] • %c[0,140,140,140] causes temporary blackout</text>
 	</string>
 	
 	<string id="st_drug_psy_blockade">
@@ -82,12 +87,13 @@
 	</string>
 	
 	<string id="st_drug_booster">
-		<text>Hercules (imported)</text>
+		<text>Hercules</text>
 	</string>
 	<string id="st_drug_booster_descr">
 		<text>The main component of this product is an anabolic androgen, an artificial steroid, the chemical composition of which resembles testosterone. Often used by stalkers during long raids to reduce muscle fatigue. Significantly increases weight-carrying capacity. The effects of the drug are long-lasting.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] drink\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] medicine\n
 		%c[0,100,100,255] • %c[0,140,140,140] mild alcohol sobering effect\n
 		%c[0,204,0,51] • %c[0,140,140,140] significant sleepiness increase\n \n
@@ -134,7 +140,7 @@
 		%c[0,210,210,210]CONTENTS:\n
 		%c[255,1,255,255] • %c[default] bandage (4)\n
 		%c[255,1,255,255] • %c[default] diclofenac sodium\n
-		%c[255,1,255,255] • %c[default] improvised stimpack (Zone-produced)\n
+		%c[255,1,255,255] • %c[default] improvised stimpack\n
 		%c[255,1,255,255] • %c[default] metamizole ampoule\n
 		%c[255,1,255,255] • %c[default] mineral water\n
 		%c[255,1,255,255] • %c[default] sulfadimethoxine\n
@@ -188,12 +194,13 @@
 	</string>
 	
 	<string id="st_analgetic">
-		<text>Diclofenac sodium (imported)</text>
+		<text>Diclofenac sodium</text>
 	</string>
 	<string id="st_analgetic_descr">
 		<text>Non-steroidal anti-inflammatory drug from the group of phenylacetic acid derivatives. The effect of the drug dulls the user's nervous activity. Because of the huge number of side effects, such as headache, dizziness, drowsiness, and in some cases memory disorders, disorientation, irritability, it is not used for medicinal purposes in most countries. However, in the Zone it has become popular due to a side effect expressed in violation of the sensitivity of the central nervous system, which allows it to withstand severe injuries, such as gunshot and shrapnel wounds.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] medicine\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,93,0,116] • %c[0,140,140,140] average damage resistance bonus\n
 		%c[0,100,100,255] • %c[0,140,140,140] slight health restoration on usage</text>
 	</string>
@@ -214,12 +221,13 @@
 	</string>
 	
 	<string id="st_yadylin">
-		<text>Yadulin (imported)</text>
+		<text>Yadulin</text>
 	</string>
 	<string id="st_yadylin_descr">
 		<text>A semi-drug based on morphine. It allows the user to quickly dull pain and increase production of adrenaline, aiding the user in withstanding even the most intense battles. It is popular among stalkers, often used as a recreative drug among criminal groups, and is allegedly being supplied to the Monolith.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] medicine\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] agonistic effect\n
 		%c[0,204,0,51] • %c[0,140,140,140] causes a short-term clouding of consciousness</text>
 	</string>
@@ -257,46 +265,50 @@
 	</string>
 	
 	<string id="st_glucose_s">
-		<text>Small glucose shot (imported)</text>
+		<text>Small glucose shot</text>
 	</string>
 	<string id="st_glucose_s_descr">
 		<text>Glucose shots are used in cases of severe diabetic hypoglycemia, but can also be employed as a stimulant. Instant induction of carbohydrates entails a rapid boost of energy, thus allowing the user to undertake increased physical effort and withstand stress. Due to its convenient means of administration, they can be used in combat situations. This makes glucose shot a very good way to speed-up the healing process.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] medicine\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] fast usage (syringe)\n
 		%c[0,204,0,51] • %c[0,140,140,140] slight sleepiness increase</text>
 	</string>
 	
 	<string id="st_glucose">
-		<text>Large glucose shot (imported)</text>
+		<text>Large glucose shot</text>
 	</string>
 	<string id="st_glucose_descr">
 		<text>Glucose shots are used in cases of severe diabetic hypoglycemia, but can also be employed as a stimulant. Instant induction of carbohydrates entails a rapid boost of energy, thus allowing the user to undertake increased physical effort and withstand stress. Due to its convenient means of administration, they can be used in combat situations. This makes glucose shot a very good way to speed-up the healing process.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] medicine\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] fast usage (syringe)\n
 		%c[0,204,0,51] • %c[0,140,140,140] moderate sleepiness increase</text>
 	</string>
 	
 	<string id="st_stim_impro">
-		<text>Improvised stimpack (Zone-produced)</text>
+		<text>Improvised stimpack</text>
 	</string>
 	<string id="st_stim_impro_descr">
 		<text>Improvised stimpacks are popular among novice Zoners as they are easy to obtain and inexpensive. Produced in the Zone from commonly available ingredients, without proper equipment and purification. This is the cause of many side effects which include headache, paraesthesia and considerable increase in nutrition demand. Injected in the thigh.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] medicine\n
+		%c[0,100,100,255] • %c[0,140,140,140] zone-produced\n
 		%c[0,100,100,255] • %c[0,140,140,140] fast usage (syringe)\n
 		%c[0,100,100,255] • %c[0,140,140,140] moderate body recovery time\n
 		%c[0,204,0,51] • %c[0,140,140,140] moderate sleepiness increase</text>
 	</string>
 	
 	<string id="st_stim_military">
-		<text>Military stimpack (imported)</text>
+		<text>Military stimpack</text>
 	</string>
 	<string id="st_stim_military_descr">
 		<text>Military stims constitute a part of standard-issue soldier equipment for field operations in the Zone. Easily available on the market and can be acquired for a moderate price. Popular among experienced Zoners. They are significantly more potent and faster working than their improvised counterparts, which makes them perfect for use in life-threatening situations. Produced from raw agents of high density which can take their toll on the body. Side effects include shock, extreme dizziness and increased hunger.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] medicine\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] military item\n
 		%c[0,100,100,255] • %c[0,140,140,140] fast usage (syringe)\n
 		%c[0,100,100,255] • %c[0,140,140,140] fast body recovery time\n
@@ -304,12 +316,13 @@
 	</string>
 	
 	<string id="st_stim_scientic">
-		<text>Scientific stimpack (imported)</text>
+		<text>Scientific stimpack</text>
 	</string>
 	<string id="st_stim_scientic_descr">
 		<text>Created by the same defense research institute in Kiev which developed the well-known SEVA suit, this state-of-the-art solution constitutes the most potent health stabilizer available in the Zone. Best quality ingredients and perfected formula enable almost instant recuperation and ensure prompt radiation cleansing. Side effects are minimized. Extremely high cost practically limits the target group of the drug to most skillful and successful stalkers.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] medicine\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
 		%c[0,100,100,255] • %c[0,140,140,140] fast usage (syringe)\n
 		%c[0,100,100,255] • %c[0,140,140,140] rapid body recovery time\n
@@ -345,12 +358,13 @@
 	</string>
 	
 	<string id="st_adrenalin">
-		<text>Epinephrine shot (imported)</text>
+		<text>Epinephrine shot</text>
 	</string>
 	<string id="st_adrenalin_descr">
 		<text>Epinephrine (also known as adrenalin) is a hormone and a neurotransmitter. Epinephrine has many functions in the body, instantly regulating heart rate, blood vessel and air passage diameters, and metabolic shifts. Epinephrine release is a crucial component of the fight-or-flight response of the sympathetic nervous system. The effects lead to increased blood glucose and fatty acids, providing substrates for instant energy production within cells throughout the body.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] medicine\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
 		%c[0,100,100,255] • %c[0,140,140,140] fast usage (syringe)\n
 		%c[0,100,100,255] • %c[0,140,140,140] very potent alcohol sobering effect\n
@@ -365,12 +379,13 @@
 	</string>
 	
 	<string id="st_morphine">
-		<text>Morphine ampoule (imported)</text>
+		<text>Morphine ampoule</text>
 	</string>
 	<string id="st_morphine_descr">
 		<text>An iron ampoule designed as field equipment for military field personnel for instant pain reduction. This ampoule contains a powerful dose of morphine. In clinical medicine, morphine is regarded as the gold standard of opioid analgesics used to relieve severe or agonizing pain and suffering. Like other opioids, such as oxycodone, hydromorphone, and diacetylmorphine (heroin), morphine acts directly on the central nervous system (CNS) to relieve pain. Injected into an arm or a thigh.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] medicine\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
 		%c[0,100,100,255] • %c[0,140,140,140] fast usage (syringe)\n
 		%c[0,93,0,116] • %c[0,140,140,140] large damage resistance bonus\n
@@ -378,12 +393,13 @@
 	</string>
 	
 	<string id="st_salicidic_acid">
-		<text>Metamizole ampoule (imported)</text>
+		<text>Metamizole ampoule</text>
 	</string>
 	<string id="st_salicidic_acid_descr">
 		<text>An iron ampoule designed as field equipment for military field personnel for instant pain reduction. It contains a powerful dose of metamizole mixed with an antihemorrhagic drug. Metamizole is one of the strongest Non-Steroidal Anti-Inflammatory Drugs (NSAIDs), especially effective at easing aches and pains as well as reducing fevers. It is also useful as anti-inflammatory drug when used in higher doses. May cause some delayed side effects such as leucopenia or agranulocytosis, so it should be used with moderation. Injected into an arm or a thigh. Its availability in the Zone is limited due to the difficulty of smuggling the medicine across military cordons.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] medicine\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] fast usage (syringe)\n
 		%c[0,93,0,116] • %c[0,140,140,140] moderate damage resistance bonus\n
 		%c[0,100,100,255] • %c[0,140,140,140] small health restoration on usage</text>
@@ -407,53 +423,58 @@
 	</string>
 	
 		<string id="st_antirad_cystamine">
-		<text>Cystamine (imported)</text>
+		<text>Cystamine</text>
 	</string>
 	<string id="st_antirad_cystamine_descr">
 		<text>A substance functioning as a radioprotector, used to weaken the effects of radiation on the body. The radioprotective effect of cystamine is based on the ability to bind free radicals - ionized and excited molecules formed in tissues upon irradiation - as well as the ability of the drug to interact with certain enzymes and impart resistance to ionizing radiation. The effects of cystamine do not counteract already accumulated radiation.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] medicine\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,204,0,51] • %c[0,140,140,140] slight sleepiness increase\n
 		%c[0,204,0,51] • %c[0,140,140,140] mild dizziness\n
 		%c[0,204,0,51] • %c[0,140,140,140] significant health reduction</text>
 	</string>
 	
 	<string id="st_antibio_sulfad">
-		<text>Sulfadimethoxine (imported)</text>
+		<text>Sulfadimethoxine</text>
 	</string>
 	<string id="st_antibio_sulfad_descr">
 		<text>Sulfanilamide medication, effective against gram-positive and gram-negative bacteria. It acts on pneumococci, streptococci, staphylococcus, E. coli, Klebsiella stick (Friedlander's stick), causative agents of dysentery; is less active with respect to the protein; is active against the trachoma virus (an infectious eye disease that can lead to blindness); It does not act on strains of bacteria resistant to other sulfanilamide preparations. Adverse effects include headaches, digestive disorders, skin rashes, fevers and leukopenia. The effects of the drug are long-lasting.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] medicine\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,204,0,51] • %c[0,140,140,140] significant health reduction</text>
 	</string>
 	
 	<string id="st_antibio_chlor">
-		<text>Chlortetracycline (imported)</text>
+		<text>Chlortetracycline</text>
 	</string>
 	<string id="st_antibio_chlor_descr">
 		<text>An antibiotic. Crystalline powder of golden yellow color, bitter taste, soluble in water. This is one of the first open antibiotics (after penicillin).\n Chlorotetracycline hydrochloride has a bacteriostatic effect on gram-positive and gram-negative microbes, rickettsia and some large viruses.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] medicine\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,204,0,51] • %c[0,140,140,140] average increase in drowsiness</text>
 	</string>
 	
 	<string id="st_antiemetic">
-		<text>Etperazine (imported)</text>
+		<text>Etperazine</text>
 	</string>
 	<string id="st_antiemetic_descr">
 		<text>Tablets coated with a shell, containing 4.6 and 10 mg of perphenazine. The drug is a neuroleptic - an antipsychotic agent that provides antiallergic, sedative, miorelaxing, antiemetic, weak anticholinergic, hypotensive and hypothermic actions. The efficacy of Etperazine is due to the blockade of D2 receptors in the mesocortical and mesolimbic systems. Rarely used in the Zone.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] anti-inflammatory</text>
 	</string>
 	
 	<string id="st_joint">
-		<text>Cannabis joint (Zone-produced)</text>
+		<text>Cannabis joint</text>
 	</string>
 	<string id="st_joint_descr">
 		<text>A joint calms you and lets you relax for a little while. Induces a soothing effect if combined with alcohol. Increases hunger.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] stimulant\n
+		%c[0,100,100,255] • %c[0,140,140,140] zone-produced\n
 		%c[0,100,100,255] • %c[0,140,140,140] mild alcohol sobering effect\n
 		%c[0,204,0,51] • %c[0,140,140,140] moderate sleepiness increase\n
 		%c[255,238,153,26] • %c[0,140,140,140] requires a: %c[0,170,170,170] matchbox\n \n
@@ -483,23 +504,25 @@
 	</string>
 	
 	<string id="st_tetanus">
-		<text>Tetanus vaccine (imported)</text>
+		<text>Tetanus vaccine</text>
 	</string>
 	<string id="st_tetanus_descr">
 		<text>Tetanus vaccine is composed of inactivated tetanus toxin and is used to prevent an individual from contracting tetanus. Tetanus, also known as lockjaw, is a disease caused by the bacteria Clostridium tetani which enter the body through open wounds and release a poison called tetanospasmin. Tetanus is a potentially deadly disease because the poison attacks the nervous system blocking nerve signals from the spinal cord to and from the muscles. Animals and mutants alike are prone to carry Clostridium tetani which can be transferred through bites. Injection of inactivated toxin enhances your immunological system and can lead to several positive side-effects. Moreover, this vaccine has been supplemented with several additional anti-toxins making it usable for purposes other than preventing contraction of tetanus.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] medicine\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] fast usage (syringe)\n
 		%c[0,204,0,51] • %c[0,140,140,140] slight sleepiness increase</text>
 	</string>
 	
 	<string id="st_antirad_kalium">
-		<text>Potassium iodide (imported)</text>
+		<text>Potassium iodide</text>
 	</string>
 	<string id="st_antirad_kalium_descr">
 		<text>A pharmacological compound, used in the Zone as a cheap means of countering the effects of radiation on the body. Causes numerous side effects, notably gastrointestinal tract blistering, numbness to pain and dysfunction of the thyroid gland.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] medicine\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,204,0,51] • %c[0,140,140,140] moderate sleepiness increase\n
 		%c[0,204,0,51] • %c[0,140,140,140] mild dizziness\n
 		%c[0,204,0,51] • %c[0,140,140,140] significant health reduction\n \n

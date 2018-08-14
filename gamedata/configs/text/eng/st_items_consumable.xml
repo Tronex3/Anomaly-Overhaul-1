@@ -64,12 +64,13 @@
 	</string>
 	
 		<string id="st_beer">
-		<text>Ukrainian beer (500 ml, imported)</text>
+		<text>Ukrainian beer (500 ml)</text>
 	</string>
 	<string id="st_beer_descr">
 		<text>Ukrainian beer. Another - beside vodka - popular beverage in the Zone.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] drink\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] stimulant\n
 		%c[0,204,0,51] • %c[0,140,140,140] light alcohol\n
 		%c[0,204,0,51] • %c[0,140,140,140] slight sleepiness increase\n
@@ -101,12 +102,13 @@
 	
 <!-------------------------------------------------------------< FOOD >------------------------------------------------------------->
 	<string id="st_energy_drink">
-		<text>Strong energy drink (250 ml, imported)</text>
+		<text>Strong energy drink (250 ml)</text>
 	</string>
 	<string id="st_energy_drink_descr">
 		<text>Often used by stalkers on long trips due to its exhilarating effect when you're tired. The drink also sobers you up a bit if you're drunk as well as induces the release of adrenaline into the bloodstream. Do not overdose.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] drink\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] stimulant\n
 		%c[0,100,100,255] • %c[0,140,140,140] potent alcohol sobering effect\n
 		%c[0,100,100,255] • %c[0,140,140,140] significant sleepiness decrease\n
@@ -163,144 +165,137 @@
 	</string>
 	
 	<string id="st_tomato">
-		<text>Canned tomatoes (imported)</text>
+		<text>Canned tomatoes</text>
 	</string>
 	<string id="st_tomato_opened">
-		<text>Canned tomatoes (imported, opened)</text>
+		<text>Canned tomatoes (opened)</text>
 	</string>
 	<string id="st_tomato_descr">
 		<text>Canned, sliced and diced tomatoes are imported to the Zone on a regular basis. The best before date on the bottom suggests they're still fresh.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source\n \n
-		%c[0,200,200,200]DETAILS:\n
-		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +281 kcal eq.\n
-		%c[0,93,0,116] • %c[0,140,140,140] Requires: %c[0,170,170,170] Swiss knife
 		</text>
 	</string>
 	
 	<string id="st_sausage">
-		<text>Smoked sausage (imported)</text>
+		<text>Smoked sausage</text>
 	</string>
 	<string id="st_sausage_descr">
 		<text>Made of beef and pork. Smoked and vacuum packaged, it can be preserved for long periods of time. This particular piece has been imported from the Russian Federation. Famous among certain Russian mafia leaders for its exceptional flavor and taste.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source</text>
 	</string>
 	
 	<string id="st_corn">
-		<text>Canned corn (imported)</text>
+		<text>Canned corn</text>
 	</string>
 	<string id="st_corn_opened">
-		<text>Canned corn (imported, opened)</text>
+		<text>Canned corn (opened)</text>
     </string>
 	<string id="st_corn_descr">
 		<text>Canned sweet corn imported from the outside. Can be eaten as it is, but there are some who use it as a soup ingredient.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source\n \n
-		%c[0,200,200,200]DETAILS:\n
-		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +249 kcal eq.\n
-		%c[0,93,0,116] • %c[0,140,140,140] Requires: %c[0,170,170,170] Swiss knife
 		</text>
 	</string>
 	
 	<string id="st_beans">
-		<text>Baked beans (imported)</text>
+		<text>Baked beans</text>
 	</string>
 	<string id="st_beans_opened">
-		<text>Baked beans (imported, opened)</text>
+		<text>Baked beans (opened)</text>
 	</string>
 	<string id="st_beans_descr">
 		<text>Canned baked beans brought from the West. The kidney beans with tomato sauce may bring back nice memories for some people.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source\n \n
-		%c[0,200,200,200]DETAILS:\n
-		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +437 kcal eq.\n
-		%c[0,93,0,116] • %c[0,140,140,140] Requires: %c[0,170,170,170] Swiss knife
 		</text>
 	</string>
 	
 	<string id="st_chili">
-		<text>Chili beans (imported)</text>
+		<text>Chili beans</text>
 	</string>
 	<string id="st_chili_opened">
-		<text>Chili beans (imported, opened)</text>
+		<text>Chili beans (opened)</text>
     </string>
 	<string id="st_chili_descr">
 		<text>Canned chili beans imported from the West. Popular as an ingredient in some dishes in the Zone.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source\n \n
-		%c[0,200,200,200]DETAILS:\n
-		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +322 kcal eq.\n
-		%c[0,93,0,116] • %c[0,140,140,140] Requires: %c[0,170,170,170] Swiss knife
 		</text>
 	</string>
 	
 	<string id="st_conserva">
-		<text>Can of tuna (imported)</text>
+		<text>Can of tuna</text>
 	</string>
 	<string id="st_conserva_opened">
-		<text>Can of tuna (imported, opened)</text>
+		<text>Can of tuna (opened)</text>
 	</string>
 	<string id="st_conserva_descr">
 		<text>The best before date at the back of the tin can indicates that you shouldn't expect delicacies.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source\n \n
-		%c[0,200,200,200]DETAILS:\n
-		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +228 kcal eq.\n
-		%c[0,93,0,116] • %c[0,140,140,140] Requires: %c[0,170,170,170] Swiss knife
 		</text>
 	</string>
 	
 	<string id="st_tushonka">
-		<text>"Abakan" beef tushonka (imported)</text>
+		<text>"Abakan" beef tushonka</text>
 	</string>
 	<string id="st_tushonka_opened">
-		<text>"Abakan" beef tushonka (imported, opened)</text>
+		<text>"Abakan" beef tushonka (opened)</text>
 	</string>
 	<string id="st_tushonka_descr">
 		<text>Tushonka is a common name of canned, stewed meat produced in the Soviet Union and other Warsaw Pact countries. The irony is that the idea originally came to Russia in a form of World War II aid transports from the United States. Since then, various kinds of tushonkas have become a primary means of long-time meat preservation, used both by the civilian population and as a standard-issue Red Army food ration. Despite their long expiry date, tushonkas are known for their high nutrition value (mostly owing to high fat content) and a relatively good taste. The Chernobyl Exclusion Zone has seen hundreds of types and tastes of tushonkas. In the spring of 2013 'Abakan' minced-meat brand remains the unquestionable king, and certainly the Zone has seen worse than that.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source\n \n
-		%c[0,200,200,200]DETAILS:\n
-		%c[0,0,255,30] • %c[0,140,140,140] Satiety Level: %c[0,170,170,170] +584 kcal eq.\n
-		%c[0,93,0,116] • %c[0,140,140,140] Requires: %c[0,170,170,170] Swiss knife
 		</text>
 	</string>
 	
 	<string id="st_salmon">
-		<text>Smoked salmon (imported)</text>
+		<text>Smoked salmon</text>
 	</string>
 	<string id="st_salmon_descr">
 		<text>Ukrainian smoked salmon. As soon as it's brought to the Zone, the fish changes hands until it finds its way to the highest bidder. Very valuable.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
 		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source</text>
 	</string>
 	
 	<string id="st_raisins">
-		<text>Raisins (imported)</text>
+		<text>Raisins</text>
 	</string>
 	<string id="st_raisins_descr">
 		<text>A pack of raisins. Rich in nutrients, balances sugar in the blood.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source</text>
 	</string>
 	
 	<string id="st_chocolate">
-		<text>Russian chocolate (imported)</text>
+		<text>Russian chocolate</text>
 	</string>
 	<string id="st_chocolate_descr">
 		<text>Russian chocolate. Very rare in the Zone and quite valuable even though its taste is nothing special. Brings back many fond childhood memories, which may help soothe the pain of living in the harsh and unforgiving conditions of the Zone.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
 		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
 		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source</text>
@@ -313,6 +308,7 @@
 		<text>Russian chocolate. Very rare in the Zone and quite valuable even though its taste is nothing special. Brings back many fond childhood memories, which may help soothe the pain of living in the harsh and unforgiving conditions of the Zone.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
 		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
 		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source</text>
@@ -333,12 +329,13 @@
 	</string>
 	
 	<string id="st_nuts">
-		<text>Mixed nuts (imported)</text>
+		<text>Mixed nuts</text>
 	</string>
 	<string id="st_nuts_descr">
 		<text>Assorted peanuts, hazelnuts, cashews and almonds in a nice and popular blend. Nutrition value is quite high. Imported from South Africa.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
 		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source</text>
 	</string>
@@ -396,43 +393,47 @@
 	</string>
 	
 	<string id="st_bread">
-		<text>Bread loaf (imported)</text>
+		<text>Bread loaf</text>
 	</string>
 	<string id="st_bread_descr">
 		<text>A fine bread loaf baked by Nimble's wife living outside the Zone. It was the first commodity Nimble started to sell before his business expanded. Nowadays, he provides barkeepers with this fine bread, acting as an intermediary. After all, he has more pressing matters to attend to as he has his own company to manage.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source</text>
 	</string>
 	
 	<string id="st_breadold">
-		<text>Breadcrumbs (imported)</text>
+		<text>Breadcrumbs</text>
 	</string>
 	<string id="st_breadold_descr">
 		<text>Crumbs of bread baked in the Great Land.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source</text>
 	</string>
 	
 	<string id="st_protein">
-		<text>Chocolate protein bar (imported)</text>
+		<text>Chocolate protein bar</text>
 	</string>
 	<string id="st_protein_descr">
 		<text>This bar provides the body with necessary proteins and sugars which give you a welcome boost. Useful on longer trips when you're on the go and need to eat something fast.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] food\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source\n
 		%c[0,100,100,255] • %c[0,140,140,140] high quality</text>
 	</string>
 	
 	<string id="st_water_drink">
-		<text>Sparkling water (350 ml, imported)</text>
+		<text>Sparkling water (350 ml)</text>
 	</string>
 	<string id="st_water_drink_descr">
 		<text>Sparkling water for thirsty stalkers. It has some exhilarating effect when you're tired.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] drink\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] mild alcohol sobering effect\n
 		%c[0,100,100,255] • %c[0,140,140,140] slight sleepiness decrease\n
 		%c[0,100,100,255] • %c[0,140,140,140] clean nutrition source\n
@@ -458,12 +459,13 @@
 	
 <!-------------------------------------------------------------< SMOKE >------------------------------------------------------------->
 	<string id="st_cuban_cigar">
-		<text>Cuban cigar (imported)</text>
+		<text>Cuban cigar</text>
 	</string>
 	<string id="st_cuban_cigar_descr">
 		<text>This valuable Cuban cigar can bring you bliss for a short while, especially when you're admiring a nice sunset. Some stalkers noticed that smoking strong tobacco repels mosquitoes. Cuban cigars are considered the finest in the world. A rare commodity.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] stimulant\n
+		%c[0,100,100,255] • %c[0,140,140,140] imported\n
 		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
 		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
 		%c[0,100,100,255] • %c[0,140,140,140] potent alcohol sobering effect\n

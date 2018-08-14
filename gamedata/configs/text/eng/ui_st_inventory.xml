@@ -430,7 +430,7 @@
 		<text>Bonus</text>
 	</string>
 	<string id="st_news_dis_items">
-		<text>%c[0,255,0,0]Swiss knife or Grooming kit is required for disassembling items.</text>
+		<text>%c[0,255,0,0]A proper disassembling tool is required.</text>
 	</string>
 	
 	<string id="st_item_use">

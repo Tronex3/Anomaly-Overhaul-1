@@ -56,11 +56,12 @@
 			%c[0,170,170,170]Pockets of ionizing radiation, or simply %c[0,56,209,115]radiation%c[0,170,170,170] for short, are areas where the ambient radiation count exceeds 50 mR per hour.
 			\n \n%c[0,56,209,115]Information%c[0,170,170,170]
 			\nThey can be found all over the Zone. In the outside areas, radiation tends to be dominant in wide, open spaces and on piles of scrap (such as the dirt or scrap piles in Garbage. Also cars, tractors and anything mechanical).
+			
 			\n \n%c[0,56,209,115]Tips%c[0,170,170,170]
-			\n• Geiger counter is an essential tool for detecting and measuring ionizing radiation. The more rapid the clicking, the more radiation in the area.
+			\n• The %c[0,250,250,250]Geiger counter%c[0,170,170,170] is an essential tool for detecting and measuring ionizing radiation. The more rapid the clicking, the more radiation in the area.
 			\n• A lot of stalkers die due to radiation sickness. It is highly advised to keep a packet of %c[0,250,250,250]anti-radiation drugs (Known as Anti-rad)%c[0,170,170,170] in your pocket.
 			\n• Make sure that your gas mask is always in a good condition.
-			\n• %c[0,250,250,250]Vodka%c[0,170,170,170] is widely used among stalkers as a cheap, weak yet considerable alternative to anti-rads. It helps by slowly curing the radiation poisoning.
+			\n• %c[0,250,250,250]Vodka%c[0,170,170,170] and %c[0,250,250,250]cigarettes%c[0,170,170,170] are widely used among stalkers as a cheap yet considerable alternative to anti-rads. They help by curing the radiation poisoning slowly.
 		</text>
 	</string>
 	
@@ -98,8 +99,11 @@
 			• Name: %c[0,153,255,255]Burner%c[0,170,170,170]
 			\n• Type: %c[255,238,153,26]Flame-based%c[0,170,170,170]
 			\n \n%c[0,0,255,30]Information%c[0,170,170,170]
-			\nThe Burner can be a bit difficult to see, even in daylight, as it's only revealed by a faint heat haze. If the anomaly is triggered by either a living being or an object such as a metal bolt, it shoots out a tall pillar of flame in the air, burning everything in its vicinity. Though somewhat rare, the Burner anomaly is often found in clusters. Some clusters also emit extreme high ambient temperature, which hurts anything in their vicinity. Burners can emit temperatures as low as 100 degrees Celsius, up to several thousand, hot enough to crack concrete and melt metal, which explains why some Burners appear in areas that have massive cracks and severe damaged soil, while other sites are untouched.
-			\nBurners are very dangerous at high difficulties, and can be extremely dangerous even with top-tier armor. The Burners don't have a set spawn point like other anomalies do, or even a set trigger point. Simply being in the same vicinity can trigger a conflagration. A tactic for avoiding damage is to first throw a bolt into the anomaly, triggering it, then quickly running through the jet of flame. This tactic, if used repeatedly and without delay, can mean the difference between traversing a cluster unharmed and getting scorched at least once.		
+			\nThe Burner can be a bit difficult to see, even in daylight, as it's only revealed by a faint heat haze.
+			\nIf the anomaly is triggered by either a living being or an object such as a metal bolt, it shoots out a tall pillar of flame in the air, burning everything in its vicinity.
+			\n \nThough somewhat rare, the Burner anomaly is often found in clusters. Some clusters also emit extreme high ambient temperature, which hurts anything in their vicinity. Burners can emit temperatures as low as 100 degrees Celsius, up to several thousand, hot enough to crack concrete and melt metal, which explains why some Burners appear in areas that have massive cracks and severe damaged soil, while other sites are untouched.
+			\n \nBurners are very dangerous at high difficulties, and can be extremely dangerous even with top-tier armor. The Burners don't have a set spawn point like other anomalies do, or even a set trigger point. Simply being in the same vicinity can trigger a conflagration.
+			\nA tactic for avoiding damage is to first throw a bolt into the anomaly, triggering it, then quickly running through the jet of flame. This tactic, if used repeatedly and without delay, can mean the difference between traversing a cluster unharmed and getting scorched at least once.		
 		</text>
 	</string>
 	
@@ -143,7 +147,8 @@
 			\n• Type: %c[255,238,153,26]Gravity-based%c[0,170,170,170]
 			\n \n%c[0,0,255,30]Information%c[0,170,170,170]
 			\nIt was one of the first types of anomalies ever recorded. A Springboard is an unstable gravitational field limited to a pocket on ground level, about 1-2 meters wide. Reacts to the presence of creatures or objects by sending out a powerful shockwave that damages anything within radius. The damage caused by this changes throughout the anomaly's lifetime, ranging from minor bruises through serious wounds to instant death.
-			\n \nThe Springboard anomaly is very common and can be found almost anywhere in the Zone, both outside and in buildings. To the naked eye, the anomaly appears as a rippling heat haze or air fluctuation accompanied by dancing leaves and sometimes crimson-colored stains on the ground. Throwing a bolt into a Springboard causes it to send out its distinctive shockwave, making it easily identifiable. It is also one of the anomalies that are harmless to pass through for a split moment after having been triggered, making bolts very useful tools for navigating a Springboard field. As players approach a Springboard their vision becomes gradually but markedly brighter as they get closer to the anomaly itself.
+			\n \nThe Springboard anomaly is very common and can be found almost anywhere in the Zone, both outside and in buildings. To the naked eye, the anomaly appears as a rippling heat haze or air fluctuation accompanied by dancing leaves and sometimes crimson-colored stains on the ground. Throwing a bolt into a Springboard causes it to send out its distinctive shockwave, making it easily identifiable.
+			\nIt is also one of the anomalies that are harmless to pass through for a split moment after having been triggered, making bolts very useful tools for navigating a Springboard field. As players approach a Springboard their vision becomes gradually but markedly brighter as they get closer to the anomaly itself.
 			\n \nSpringboards are easily identifiable, and easily avoidable but varying locations and odd spawn points in the games can make them a nuisance in a firefight. Players have often died in the middle of a fight, forgetting or not noticing the anomaly's presence with all the distractions, then walking straight into it. Just like all anomalies, its best to scout the location and find a way around it.
 		</text>
 	</string>
@@ -241,7 +246,8 @@
 			• Name: %c[0,153,255,255]Tesla%c[0,170,170,170]
 			\n• Type: %c[255,238,153,26]Electricity-based%c[0,170,170,170]
 			\n \n%c[0,0,255,30]Information%c[0,170,170,170]
-			\nThe Tesla anomaly functions much like an Electro anomaly and deals electric damage, with the difference is that the Tesla is mobile. In that sense, it's the Electro's equivalent of the Comet. It takes the appearance of a fast-moving ball of pure electricity. It can be said the Tesla is the evolved or greater form of an Electro. It's possible that a particularly large or intense Electro anomaly went undisturbed or built up a massive charge for an extensive amount of time and became mobile as a result, either to discharge its built up energy or to 'hunt' for targets or prey.
+			\nThe Tesla anomaly functions much like an Electro anomaly and deals electric damage, with the difference is that the Tesla is mobile. In that sense, it's the Electro's equivalent of the Comet. It takes the appearance of a fast-moving ball of pure electricity.
+			\nIt can be said the Tesla is the evolved or greater form of an Electro. It's possible that a particularly large or intense Electro anomaly went undisturbed or built up a massive charge for an extensive amount of time and became mobile as a result, either to discharge its built up energy or to 'hunt' for targets or prey.
 			\n \nUnless one is equipped with a few electricity-absorbing artifacts and/or wearing a suit with high electrical protection, simply being scraped by this anomaly reduces the player's health to 10% and outrights kills them if they get struck directly by it.
 			\n \nThis anomaly does not spawn any kind of artifact.
 		</text>

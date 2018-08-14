@@ -180,7 +180,7 @@ function disassembly_weapon(weapon_obj)
 
 	--// Table with the names of all the details that can be extracted
 	for _, k in ipairs(result_details) do
-		result_details_names = result_details_names .. "\\n" .. alun_utils.get_inv_name(k)
+		result_details_names = result_details_names .. "\\n- " .. alun_utils.get_inv_name(k)
 	end
 	
 	--// Preparing the spare parts
@@ -189,7 +189,7 @@ function disassembly_weapon(weapon_obj)
 		if (num > 0) then
 			for j=1,num do
 				table.insert(result_details,wep_spare[i])
-				result_details_names = result_details_names .. "\\n" .. alun_utils.get_inv_name(wep_spare[i])
+				result_details_names = result_details_names .. "\\n- " .. alun_utils.get_inv_name(wep_spare[i])
 			end
 		end
 	end
@@ -454,9 +454,9 @@ function disassembly_outfit(o_obj)
 	--// We collect all the part names in the table
 	for k, v in pairs(result_details_count) do
 		if v == 1 then
-			result_details_names = string.format('%s\\n%s', result_details_names, alun_utils.get_inv_name(k))
+			result_details_names = string.format('%s\\n- %s', result_details_names, alun_utils.get_inv_name(k))
 		else
-			result_details_names = string.format('%s\\n%s %s%s', result_details_names, alun_utils.get_inv_name(k), v, game.translate_string('st_dis_count'))
+			result_details_names = string.format('%s\\n- %s %s%s', result_details_names, alun_utils.get_inv_name(k), v, game.translate_string('st_dis_count'))
 		end
 	end
 

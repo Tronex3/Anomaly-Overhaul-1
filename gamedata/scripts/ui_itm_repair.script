@@ -90,7 +90,7 @@ function repair_ui:InitControls()
 	
 	self.xml				= CScriptXmlInit()
 	local xml = self.xml
-	xml:ParseFile			("ui_items.xml")
+	xml:ParseFile			("ui_itm_main.xml")
 
 	self.dialog					= xml:InitStatic("itm_repair:frame", self)
 	self.dialog:InitTexture(self.repair_frame)
@@ -176,7 +176,8 @@ function repair_ui:LoadItemList_2()
 	local obj = level.object_by_id(item.id)
 	local function fill_list(actor,itm)
 		if (itm and itm:id() ~= item.id) then
-			if (self.parts_include and self.parts_include[itm:section()]) or (self.parts_exclude == nil and string.find(obj:section(),itm:section())) or (self.parts_exclude and self.parts_exclude[itm:section()] == nil and string.find(obj:section(),itm:section())) then
+			local base = ini:r_string_ex(itm:section(),"uses_base")
+			if (self.parts_include and self.parts_include[itm:section()]) or (self.parts_include and self.parts_include[base]) or (self.parts_exclude == nil and string.find(obj:section(),itm:section())) or (self.parts_exclude and self.parts_exclude[itm:section()] == nil and string.find(obj:section(),itm:section())) then
 				local part_bonus = ini:r_float_ex(itm:section(),"repair_part_bonus") or self.part_bonus
 				part_bonus = math.ceil(part_bonus*100)
 				local _itm = list_element(self.list[2]:GetWidth(), _le, itm:section(), itm:id(), part_bonus)
@@ -319,11 +320,13 @@ function repair_ui:OnCancel()
 	actor_effects.use_weapon(1)
 	
 	-- Play sound
-	if (self.repair_frame == "ui_itm_repair_1") or (self.repair_frame == "ui_itm_repair_2") then
+	--if (self.repair_frame == "ui_itm_repair_1") or (self.repair_frame == "ui_itm_repair_2") then
 		--trx_utils.play_sound("interface\\inv_zipper_close")
-	else
+	--else
 		--trx_utils.play_sound("interface\\inv_briefcase_close")
-	end
+	--end
+	
+	trx_utils.play_sound("interface\\inv_close")
 	
 	self:HideDialog()
 end

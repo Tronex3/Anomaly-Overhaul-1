@@ -11,8 +11,13 @@
 	<string id="encyclopedia_items_pda_text">
 		<text>
 		A %c[0,250,250,250]Personal Digital Assistant%c[0,170,170,170], or %c[0,250,250,250]"PDA"%c[0,170,170,170], is a pocket-sized electronic device meant to encompass the basic and most vital functions of a computer.
+		
 		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
-		The PDA consumes 
+		\nThe PDA is essential for daily information sharing. For this reason, almost every stalker in the Zone owns one.
+		\nA GPS module is used to provide geolocation and time information to the user.
+		\nApart from basic functions, the PDA has many features. Including an access to the local network. Stalkers can easily communicate on normal days.
+		\nIt also comes with an FM radio receiver, providing an access to local radio channels.
+		\n \n• The PDA consumes %c[0,250,250,250]1 uAh%c[0,170,170,170] per second of continuous usage.
 		</text>
 	</string>
 	
@@ -21,14 +26,13 @@
 	</string>
 	<string id="encyclopedia_items_itm_upd_text">
 		<text>
-		The %c[0,250,250,250]Universal Power Device%c[0,170,170,170] is a portable power unit about the size of a small walkie talkie. Accepts almost any type of batteries. Utilizes every bit of energy from inserted batteries and supplies electronic devices with power in an enhanced stream through a set of micro wires. These can be connected to any piece of equipment, regardless of its complexity or age. Allows stalkers to use and handle numerous electronic devices even if they have only one battery.\n \n
+		The %c[0,250,250,250]Universal Power Device%c[0,170,170,170] is a portable power unit about the size of a small walkie talkie. Accepts almost any type of batteries. Utilizes every bit of energy from inserted batteries and supplies electronic devices with power in an enhanced stream through a set of micro wires. These can be connected to any piece of equipment, regardless of its complexity or age. Allows stalkers to use and handle numerous electronic devices even if they have only one battery.
+		
 		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
-		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
-		%c[0,100,100,255] • %c[0,140,140,140] portable energy source\n
-		%c[0,100,100,255] • %c[0,140,140,140] supports most modern devices\n
-		%c[0,100,100,255] • %c[0,140,140,140] accepts all battery types\n
-		%c[0,100,100,255] • %c[0,140,140,140] storage capacity 
-		%c[0,170,170,170]3 Ah (ampere-hours)
+		\nThe UPD has a total power capacity of 3 Ah (ampere-hours).
+		\nAll active devices will consume electric power out of the UPD. Consumption varies between devices.
+		\nWhen the UPD runs out of charge, all connected devices will stop working. 
+		\nAlways Keep an eye on the power left, and make sure you have some backup batteries in case your UPD ran out of power.
 		</text>
 	</string>
 	
@@ -37,14 +41,13 @@
 	</string>
 	<string id="encyclopedia_items_itm_basickit_text">
 		<text>
-		A children's toolkit. Unlikely to be suitable for maintenance, but they could be useful in the hands of a thrifty technician.\n \n
-		%c[0,200,200,200]NOTES:\n
-		%c[0,250,250,0] • %c[0,140,140,140] A technician could use these to fully modify weapons and armour.\n \n
-		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,93,0,116] • %c[0,140,140,140] craftsman toolkit\n
-		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
-		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
-		%c[0,204,0,51] • %c[0,140,140,140] requires suitable materials
+		The %c[0,250,250,250]Basic tools%c[0,170,170,170] can be used for crafting basic equipment, devices and outfit upgrade parts.
+		
+		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
+		\nUnlikely to be suitable for advanced maintenance, but they could be useful in the hands of a thrifty technician.
+		\nThe kit Contains different types and sizes of pliers, screws, adhesives and assorted fasteners.
+		\n%c[0,250,250,250]Survival guides%c[0,170,170,170] usually provide informations about basic equipment and survival kits. With enough knowledge, a thrifty stalker can make a great use out of this kit.
+		\nA good idea is to keep basic materials around. After all, you can't craft things out of thin air.
 		</text>
 	</string>
 	
@@ -53,14 +56,13 @@
 	</string>
 	<string id="encyclopedia_items_itm_advancedkit_text">
 		<text>
-		A decent set of old tools, but despite their age they appear to be in good condition.\n \n
-		%c[0,200,200,200]NOTES:\n
-		%c[0,250,250,0] • %c[0,140,140,140] A technician could use these to fully modify weapons and armour.\n \n
-		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,93,0,116] • %c[0,140,140,140] craftsman toolkit\n
-		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
-		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
-		%c[0,204,0,51] • %c[0,140,140,140] requires suitable materials
+		The %c[0,250,250,250]Advanced tools%c[0,170,170,170] can be used for crafting better equipment, devices and outfit upgrade parts.
+		
+		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
+		\nA decent set of old tools, but despite their age they appear to be in good condition.
+		\nContains a handful set of small pliers, tipped tweezers, probe and pick set.
+		\n%c[0,250,250,250]Mechanics manuals%c[0,170,170,170] provide informations about mechanical engineering. With enough knowledge, a thrifty stalker can make a great use out of this kit.
+		\nA good idea is to keep basic materials around. After all, you can't craft things out of thin air.
 		</text>
 	</string>
 	
@@ -69,14 +71,13 @@
 	</string>
 	<string id="encyclopedia_items_itm_expertkit_text">
 		<text>
-		A professional set of high quality tools for fine-tuning equipment.\n \n
-		%c[0,200,200,200]NOTES:\n
-		%c[0,250,250,0] • %c[0,140,140,140] A technician could use these to fully modify weapons and armour.\n \n
-		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,93,0,116] • %c[0,140,140,140] craftsman toolkit\n
-		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
-		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
-		%c[0,204,0,51] • %c[0,140,140,140] requires suitable materials
+		The %c[0,250,250,250]Advanced tools%c[0,170,170,170] can be used for crafting advanced equipment, devices and outfit upgrade parts.
+		
+		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
+		\nA professional set of high quality tools for fine-tuning equipment.
+		\nContains drill bit set, precision tweezers, soldiering iron, 4 mm Screwdriver bits and a multimeter.
+		\n%c[0,250,250,250]Engineering manuals%c[0,170,170,170] provide informations about industrial engineering. With enough knowledge, a thrifty stalker can make a great use out of this kit.
+		\nA good idea is to keep basic materials around. After all, you can't craft things out of thin air.
 		</text>
 	</string>
 	
@@ -85,12 +86,12 @@
 	</string>
 	<string id="encyclopedia_items_itm_drugkit_text">
 		<text>
-		Small cases and various metal objects constitute a kit for managing and producing drugs. Contains some plastic packages, tablets and ampoules.\n \n
-		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,93,0,116] • %c[0,140,140,140] craftsman toolkit\n
-		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
-		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
-		%c[0,204,0,51] • %c[0,140,140,140] requires suitable materials
+		The %c[0,250,250,250]Drug-making kit%c[0,170,170,170] can be used for crafting various types of drugs and medicines.
+		
+		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
+		\nSmall cases and various metal objects constitute a kit for managing and producing drugs. Contains some plastic packages, tablets and ampoules.
+		\nFew people with enough knowledge on drugs can make use out of these kits. Keep an eye on those who possess informative %c[0,250,250,250]recipes%c[0,170,170,170].
+		\nA good idea is to keep basic materials around. After all, you can't craft things out of thin air.
 		</text>
 	</string>
 	
@@ -99,12 +100,13 @@
 	</string>
 	<string id="encyclopedia_items_itm_ammokit_text">
 		<text>
-		This kit is used for crafting better ammo quality out of bad variants.\n \n
-		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,93,0,116] • %c[0,140,140,140] craftsman tool kit\n
-		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
-		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
-		%c[0,204,0,51] • %c[0,140,140,140] requires suitable materials
+		%c[0,250,250,250]Gunsmithing tools%c[0,170,170,170] can be used for recycling damaged ammunition and creation of better variants.
+		
+		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
+		\nA decent set of old gunsmithing tools and accessories.
+		\nContains a pin punch set, wheeler hammer, press tool and a black powder measure kit.
+		\n%c[0,250,250,250]Safety guides to ammunition%c[0,170,170,170] provides in-depth view about the operation of bullet, the components and recycling damaged cartridges. With enough knowledge, a thrifty stalker can make a great use out of this kit.
+		\nA good idea is to keep damaged ammunition around. After all, you can't craft things out of thin air.
 		</text>
 	</string>
 	
@@ -113,10 +115,12 @@
 	</string>
 	<string id="encyclopedia_items_kit_hunt_text">
 		<text>
-		A whole bag full of hooks, knives and other equipment used for skinning and gutting animals and mutants. Few stalkers carry professional equipment for mutant hunting. That is probably the reason why so many Zoners suffer from indigestion after eating mutant meat. Thanks to the variety of tools, the kit can effectively improve weapon and armor maintenance.\n \n
-		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
-		%c[255,238,153,26] • %c[0,140,140,140] possession increases number of body parts obtained from mutants
+		The possession of %c[0,250,250,250]hunter's kit%c[0,170,170,170] increases number of body parts obtained from mutants.
+		
+		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
+		\nA whole bag full of hooks, knives and other equipment used for skinning and gutting animals and mutants.
+		\nFew stalkers carry professional equipment for mutant hunting. That is probably the reason why so many Zoners suffer from indigestion after eating mutant meat.
+		\nThanks to the variety of tools, the kit can effectively improve weapon and armor maintenance.
 		</text>
 	</string>
 	
@@ -125,16 +129,19 @@
 	</string>
 	<string id="encyclopedia_items_fieldcooker_text">
 		<text>
-		The stove has been tested extensively over many years and has been used on countless expeditions. It is extremely robust, reliable and powerful and was designed to handle demanding situations, extreme altitudes and both low and high temperatures. It has a very high output and can be used with virtually any kind of fuel, including butane, gasoline / petrol, diesel, kerosene / paraffin, and even aviation fuel. Using the separate control knob, you can adjust the flame to the heat you want, even if you are wearing gloves.\n \n
-		%c[0,210,210,210]NOTES:\n \n
-		%c[0,170,170,170]Since fuels used in the multi-fuel stove are much more efficient energy-carriers than the wood or coal, the multi-fuel stove is - in the long run - significantly more cost-effective than traditional wood or coal stoves. On the other hand, these fuels are usually carried in heavy metal containers, which makes them more suited for use at bases, rather than in field operations.\n \n
-		%c[0,170,170,170]Mutant meats that do not require high temperature to be prepared are referred to as 'low-tier', whereas those that require high temperature - 'high-tier'.\n \n
-		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
-		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
-		%c[0,0,255,30] • %c[0,140,140,140] high-tier cooking equipment\n
-		%c[0,0,255,30] • %c[0,140,140,140] av. fuel: %c[0,170,170,170] gasoline, natural gas, kerosene\n
-		%c[0,0,255,30] • %c[0,140,140,140] usable for cooking meats of all mutants
+		The %c[0,250,250,250]Multi-fuel stove%c[0,170,170,170] allows its user to cook mutants meat.
+		
+		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
+		The stove has been tested extensively over many years and has been used on countless expeditions. It is extremely robust, reliable and powerful and was designed to handle demanding situations, extreme altitudes and both low and high temperatures.
+		\nIt has a very high output and can be used with virtually any kind of fuel, including butane, gasoline / petrol, diesel, kerosene / paraffin, and even aviation fuel. Using the separate control knob, you can adjust the flame to the heat you want, even if you are wearing gloves.
+		
+		\n \n%c[0,56,166,209]Details%c[0,170,170,170]
+		\nSince fuels used in the multi-fuel stove are much more efficient energy-carriers than the wood or coal, the multi-fuel stove is - in the long run - significantly more cost-effective than traditional wood or coal stoves. 
+		\nOn the other hand, these fuels are usually carried in heavy metal containers, which makes them more suited for use at bases, rather than in field operations.
+		\nMutant meats that do not require high temperature to be prepared are referred to as 'low-tier', whereas those that require high temperature - 'high-tier'.
+		\n• Unlimited usage.
+		\n• The Multi-fuel stove can cook all types of meat.
+		\n• Available fuel: %c[0,250,250,250]gasoline, natural gas, kerosene%c[0,170,170,170]
 		</text>
 	</string>
 	
@@ -143,15 +150,17 @@
 	</string>
 	<string id="encyclopedia_items_cooking_text">
 		<text>
-		A field cooking travel kit. Contains cooking accessories and utensils for use when camping and travelling. Produces a lot of noise and is unwieldy due to its heavy weight. Very popular among larger groups of stalkers.\n \n
-		%c[0,210,210,210]NOTES:\n \n
-		%c[0,170,170,170]Although charcoal is available in the Zone at relatively cheap prices, you need to use a significant amount of it in order to prepare a single meal. For this reason, charcoal is not as cost effective as it would seem. On the other hand, it is relatively light, which makes it perfect for longer trips deep in the Zone.\n \n
-		%c[0,170,170,170]Mutant meats that do not require high temperature to be prepared are referred to as 'low-tier', whereas those that require high temperature - 'high-tier'.\n \n
-		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
-		%c[0,0,255,30] • %c[0,140,140,140] low-tier field cooking equipment\n
-		%c[0,0,255,30] • %c[0,140,140,140] fuel: %c[0,170,170,170] charcoal\n
-		%c[0,0,255,30] • %c[0,140,140,140] usable for cooking meats of lesser mutants
+		The %c[0,250,250,250]field cooking travel kit%c[0,170,170,170] allows its user to cook mutants meat.
+		
+		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
+		\nA field cooking travel kit. Contains cooking accessories and utensils for use when camping and travelling. Produces a lot of noise and is unwieldy due to its heavy weight. Very popular among larger groups of stalkers.
+		
+		\n \n%c[0,56,166,209]Details%c[0,170,170,170]
+		\nAlthough charcoal is available in the Zone at relatively cheap prices, you need to use a significant amount of it in order to prepare a single meal. For this reason, charcoal is not as cost effective as it would seem. On the other hand, it is relatively light, which makes it perfect for longer trips deep in the Zone.
+		\nMutant meats that do not require high temperature to be prepared are referred to as 'low-tier', whereas those that require high temperature - 'high-tier'.
+		
+		\n \n• Number of max uses: %c[0,250,250,250]3%c[0,170,170,170]
+		\n• The field cooking kit can be used on %c[0,250,250,250]campfires%c[0,170,170,170] to cook low-tier mutant meat. On the other hand, %c[0,250,250,250]Charcoal%c[0,170,170,170] is required for cooking high-tier meat.
 		</text>
 	</string>
 	
@@ -160,45 +169,34 @@
 	</string>
 	<string id="encyclopedia_items_army_bowler_text">
 		<text>
-		This army kettle features a convex-concave bottom profile, concave on one side. It is supplied with a wire handle-loop for hanging and carrying. When worn on the waist belt, the concave side should be placed to the body. The bowl cover can be used as a pan when heating or preparing a second dish. The handle of the lid is designed to hold it, securely closing the lid when carrying, and a tablespoon is inserted into the special holes on the handle.\n \n
-		%c[0,210,210,210]NOTES:\n \n
-		%c[0,170,170,170]Since fuels used in the multi-fuel stove are much more efficient energy-carriers than the wood or coal, the multi-fuel stove is - in the long run - significantly more cost-effective than traditional wood or coal stoves. On the other hand, these fuels are usually carried in heavy metal containers, which makes them more suited for use at bases, rather than in field operations.\n \n
-		%c[0,170,170,170]Mutant meats that do not require high temperature to be prepared are referred to as 'low-tier', whereas those that require high temperature - 'high-tier'.\n \n
-		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
-		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
-		%c[0,0,255,30] • %c[0,140,140,140] high-tier cooking equipment\n
-		%c[0,0,255,30] • %c[0,140,140,140] av. fuel: %c[0,170,170,170] gasoline, natural gas, kerosene\n
-		%c[0,0,255,30] • %c[0,140,140,140] usable for cooking meats of all mutants
+		The %c[0,250,250,250]army kettle%c[0,170,170,170] allows its user to cook mutants meat.
+		
+		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
+		\nThe army kettle features a convex-concave bottom profile, concave on one side. It is supplied with a wire handle-loop for hanging and carrying. 
+		\nWhen worn on the waist belt, the concave side should be placed to the body. The bowl cover can be used as a pan when heating or preparing a second dish. The handle of the lid is designed to hold it, securely closing the lid when carrying, and a tablespoon is inserted into the special holes on the handle.
+		
+		\n \n%c[0,56,166,209]Details%c[0,170,170,170]
+		\nAlthough charcoal is available in the Zone at relatively cheap prices, you need to use a significant amount of it in order to prepare a single meal. For this reason, charcoal is not as cost effective as it would seem. On the other hand, it is relatively light, which makes it perfect for longer trips deep in the Zone.
+		\nMutant meats that do not require high temperature to be prepared are referred to as 'low-tier', whereas those that require high temperature - 'high-tier'.
+		
+		\n \n• Number of max uses: %c[0,250,250,250]7%c[0,170,170,170]
+		\n• The army kettle can be used on %c[0,250,250,250]campfires%c[0,170,170,170] or %c[0,250,250,250]charcoal%c[0,170,170,170].
+		\n• It can cook all types of meat.
 		</text>
 	</string>
 	
-	<string id="encyclopedia_items_lead_box">
-		<text>LLMC</text>
-	</string>
-	<string id="encyclopedia_items_lead_box_text">
-		<text>
-		The lead-lined metal container (LLMC) is a simple metal box with thick walls and foam inserts as well as a heavy lid with pressure-sealing mechanism. Specifically designed for transporting radioactive materials, in the Zone LLMC is most commonly employed as artifact storage and transportation device. It stops all radiation from leaking, thus ensuring safety of the user when in possession of artifacts. However, the device cannot be attached to the belt, which means that both positive and negative properties of artifacts won't apply. The contents can be manipulated with an artifact handling tool.\n \n
-		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
-		%c[0,100,100,255] • %c[0,140,140,140] does not require UPD\n
-		%c[0,225,225,225] • %c[0,140,140,140] artifact storage device\n
-		%c[0,225,225,225] • %c[0,140,140,140] capacity: %c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state: %c[0,170,170,170] empty\n \n
-		%c[0,204,0,51]WARNING:\n \n
-		%c[default]You have to remove artifacts from the container prior to selling them.
-		</text>
-	</string>
 	
 	<string id="encyclopedia_items_geiger_dead">
 		<text>Geiger counter</text>
 	</string>
 	<string id="encyclopedia_items_geiger_dead_text">
 		<text>
-		A Geiger counter measures ionizing (radioactive) radiation. It detects the emission of alpha particles, beta particles and gamma particles. Invented in 1908, Geiger counters remain popular technological object used for measurements in health, physics, industry, geology and other fields of activity. Made of simple electronic circuits.\n \n
-		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,100,100,255] • %c[0,140,140,140] technological device \n
-		%c[255,238,153,26] • %c[0,140,140,140] measures the level of radioactive contamination
+		%c[0,250,250,250]Geiger counters%c[0,170,170,170] are used to measure the radiation level.
+		
+		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
+		\nA Geiger counter measures ionizing (radioactive) radiation. It detects the emission of alpha particles, beta particles and gamma particles. Invented in 1908, Geiger counters remain popular technological object used for measurements in health, physics, industry, geology and other fields of activity. Made of simple electronic circuits.
+		
+		\n \n• Consumes %c[0,250,250,250]50 mAh%c[0,170,170,170] per single use.
 		</text>
 	</string>
 	
@@ -207,10 +205,15 @@
 	</string>
 	<string id="encyclopedia_items_detector_simple_text">
 		<text>
-		This dated anomalous activity detector produces an alarm signal when anomalous particles enter a special chamber as you approach an anomaly. It can also register the presence of artifacts and measure the distance to the nearest one. The distance is indicated by the frequency of the sound the detector emits. To switch to artifact search mode, open the device's front cover. Due to its simple design, Echo can only be used to locate the most common artifacts.\n \n
-		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
-		%c[0,100,100,255] • %c[0,140,140,140]  moderate UPD consumption
+		The %c[0,250,250,250]Echo detector%c[0,170,170,170] is a device with the ability to locate nearby artefacts.
+		
+		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
+		\nThis dated anomalous activity detector produces an alarm signal when anomalous particles enter a special chamber as you approach an anomaly. It can also register the presence of artifacts and measure the distance to the nearest one.
+		\nThe distance is indicated by the frequency of the sound the detector emits.
+		\nTo switch to artifact search mode, open the device's front cover.
+		\nDue to its simple design, Echo can only be used to locate the most common artifacts.
+		
+		\n \n• Consumes %c[0,250,250,250]4.6 mAh%c[0,170,170,170] per second of continuous usage.
 		</text>
 	</string>
 	
@@ -219,10 +222,14 @@
 	</string>
 	<string id="encyclopedia_items_detector_advanced_text">
 		<text>
-		This last generation anomalous activity detector can be used to locate anomalous formations and has a color diode panel, which not only indicates the direction of artifacts, but also measures the distance to them. To switch to artifact search mode, open the device's front cover. Unfortunately, the device is programmed with a somewhat outdated list of detectable artifacts.\n \n
-		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
-		%c[0,100,100,255] • %c[0,140,140,140] moderate UPD consumption
+		The %c[0,250,250,250]Bear detector%c[0,170,170,170] is a device with the ability to locate nearby artefacts.
+		
+		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
+		\nThis last generation anomalous activity detector can be used to locate anomalous formations and has a color diode panel, which not only indicates the direction of artifacts, but also measures the distance to them.
+		\nTo switch to artifact search mode, open the device's front cover.
+		\nUnfortunately, the device is programmed with a somewhat outdated list of detectable artifacts.
+		
+		\n \n• Consumes %c[0,250,250,250]2.73 mAh%c[0,170,170,170] per second of continuous usage.
 		</text>
 	</string>
 	
@@ -231,10 +238,14 @@
 	</string>
 	<string id="encyclopedia_items_detector_elite_text">
 		<text>
-		A next generation scientific detection scanner. Thanks to three modernized detection chambers, the position of artifacts is shown on a special display screen. When closed, the device registers only radiation and anomalies. To switch to artifact search mode, open the front LED display. When in search mode, the detector is capable of locating all artifacts known to science.\n \n
-		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
-		%c[0,100,100,255] • %c[0,140,140,140] high UPD consumption
+		%c[0,250,250,250]Veles detector%c[0,170,170,170] is an advanced device with the ability to locate nearby artefacts accurately.
+		
+		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
+		\nA next generation scientific detection scanner. Thanks to three modernized detection chambers, the position of artifacts is shown on a special display screen.
+		\nWhen closed, the device registers only radiation and anomalies.
+		\nTo switch to artifact search mode, open the front LED display. When in search mode, the detector is capable of locating all artifacts known to science.
+		
+		\n \n• Consumes %c[0,250,250,250]3.45 mAh%c[0,170,170,170] per second of continuous usage.
 		</text>
 	</string>
 	
@@ -243,19 +254,54 @@
 	</string>
 	<string id="encyclopedia_items_detector_scientific_text">
 		<text>
-		A prototype of an expanded functionality anomalous frequency scanner. This device comes with a program used to identify static areas of anomalous activity stored in its database, while retaining the ability to locate artifacts. The position of anomalous areas and artifacts is displayed on a special screen. The artifact search mode, which can be activated by opening the front LED display, has been modified to detect anomalous formations currently unknown to science.\n \n
-		%c[0,200,200,200]PROPERTIES:\n
-		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
-		%c[0,100,100,255] • %c[0,140,140,140] high UPD consumption
+		%c[0,250,250,250]Svarog detector%c[0,170,170,170] is an advanced device with the ability to locate nearby artefacts accurately.
+		
+		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
+		\nA prototype of an expanded functionality anomalous frequency scanner. This device comes with a program used to identify static areas of anomalous activity stored in its database, while retaining the ability to locate artifacts. 
+		\nThe position of anomalous areas and artifacts is displayed on a special screen.
+		\nThe artifact search mode, which can be activated by opening the front LED display, has been modified to detect anomalous formations currently unknown to science.
+		
+		\n \n• Consumes %c[0,250,250,250]3.45 mAh%c[0,170,170,170] per second of continuous usage.
 		</text>
 	</string>
 	
 	<string id="encyclopedia_items_gps_tracker">
-		<text>GPS tracker</text>
+		<text>Military GPS module</text>
 	</string>
 	<string id="encyclopedia_items_gps_tracker_text">
 		<text>
-		GPS tracker desc
+		The %c[0,250,250,250]military GPS module%c[0,170,170,170] allows its user to locate nearby natural stalkers.
+		
+		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
+		\nA prototype of the next generation of GPS navigation devices. Only few copies are made. Distributed among the highest military ranks exclusively, although some of these have been leaked out to other sides.
+		\nThe improved module guarantees operation even in hostile environments. High sensitivity during acquisition or while tracking allows for use in many different environments and under toughest operating conditions.
+		\nUnlike usual GPS modules, this one relies on sets of codes that allows the module to acquire special privileges on the connected channel. It retrieves the position of other connected modules in a radius of 300 meters.
+		\nOn the other hand, this module consumes a considerable amount of electrical power while operating. An automatic switching circuit is included inside the module to turn it off after 20 seconds of continuous scanning.
+		
+		\n \n%c[0,56,166,209]Details%c[0,170,170,170]
+		\n• Scanning time: %c[0,250,250,250]20 sec%c[0,170,170,170]
+		\n• Scanning radius: %c[0,250,250,250]300 meters%c[0,170,170,170]
+		\n• Consumes %c[0,250,250,250]0.25 Ah%c[0,170,170,170] per single usage.
+		</text>
+	</string>
+	
+	<string id="encyclopedia_items_lead_box">
+		<text>LLMC</text>
+	</string>
+	<string id="encyclopedia_items_lead_box_text">
+		<text>
+		%c[0,250,250,250]Lead-lined metal containers (LLMC)%c[0,170,170,170] are used to store artefacts and completely isolate their effects.
+		
+		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
+		\nThe lead-lined metal container (LLMC) is a simple metal box with thick walls and foam inserts as well as a heavy lid with pressure-sealing mechanism.
+		\nSpecifically designed for transporting radioactive materials, in the Zone LLMC is most commonly employed as artifact storage and transportation device.
+		\nIt stops all radiation from leaking, thus ensuring safety of the user when in possession of artifacts.
+		\nHowever, the device cannot be attached to the belt, which means that both positive and negative properties of artifacts won't apply. The contents can be manipulated with an artifact handling tool.\n \n
+		
+		\n \n%c[0,56,166,209]Details%c[0,170,170,170]
+		\n• You have to remove artifacts from the container prior to selling them.
+		\n• Drag and drop an artefact on the container to store it inside.
+		\n• Weight: %c[0,250,250,250]3.62 kg%c[0,170,170,170]
 		</text>
 	</string>
 	
@@ -264,15 +310,20 @@
 	</string>
 	<string id="encyclopedia_items_af_iam_text">
 		<text>
-		The Improvised Application Module (IAM) filters a small amount of radiation particles emitted from artefacts. This mechanical metal pouch is the cheapest device that allows the user to harness the power of less potent artefacts. Artefact filter is composed of multiple layers made primarily of lead which shield from radiation. A low-cost alternative to the more reliable AAC and AAM. In case of emergency or if no longer needed, the module can be utilized as a source of quality metal for use in outfit or helmet repairs. Currently unusable. To attach it to the belt, you have to put an artefact inside. The artefact will retain its characteristics with the exception of reduced radiation output.\n \n
-		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
-		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
-		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
-		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] empty\n
-		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+6%)
+		The %c[0,250,250,250]Improvised Application Module (IAM)%c[0,170,170,170] is used to store artefacts and filter low radiation levels, allowing its user to attach artefacts safely on their belt.
+		
+		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
+		\nThe Improvised Application Module (IAM) filters a small amount of radiation particles emitted from artefacts.
+		\nThis mechanical metal pouch is the cheapest device that allows the user to harness the power of less potent artefacts. Artefact filter is composed of multiple layers made primarily of lead which shield from radiation.
+		\nA low-cost alternative to the more reliable AAC and AAM. In case of emergency or if no longer needed, the module can be utilized as a source of quality metal for use in outfit or helmet repairs.
+		\n \nTo attach it to the belt, you have to put an artefact inside. The artefact will retain its characteristics with the exception of reduced radiation output.
+		
+		\n \n%c[0,56,166,209]Details%c[0,170,170,170]
+		\n• You have to remove artifacts from the container prior to selling them.
+		\n• Drag and drop an artefact on the container to store it inside.
+		\n• Weight: %c[0,250,250,250]2.4 kg%c[0,170,170,170]
+		\n• The Maximum permissible level of radiation: %c[0,250,250,250]7 mSv%c[0,170,170,170]
+		\n• Consumes %c[0,250,250,250]0.25 mAh%c[0,170,170,170] per second of continuous usage.
 		</text>
 	</string>
 	
@@ -281,15 +332,21 @@
 	</string>
 	<string id="encyclopedia_items_af_aac_text">
 		<text>
-		The Artefact Application Container (AAC) filters a moderate amount of radiation particles emitted from artefacts. This mechanical aluminum container is the most cost-efficient and thus the most popular way of handling artefacts as it allows the user to harness the power of more potent artefacts. Artefact filter is composed of multiple layers made primarily of lead, with one layer of thorium which has strong radiation shielding properties. This device has been manufactured by scientists residing in military bunkers around the Zone. In case of emergency or if no longer needed, the module can be utilized as a source of quality metal for use in outfit or helmet repairs. Currently unusable. To attach it to the belt, you have to put an artefact inside. The artefact will retain its characteristics with the exception of reduced radiation output.\n \n
-		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
-		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
-		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
-		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] empty\n
-		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		The %c[0,250,250,250]Artefact Application Container (AAC)%c[0,170,170,170] is used to store artefacts and filter moderate radiation levels, allowing its user to attach artefacts safely on their belt.
+		
+		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
+		\nThe Artefact Application Container (AAC) filters a moderate amount of radiation particles emitted from artefacts.
+		\nThis mechanical aluminum container is the most cost-efficient and thus the most popular way of handling artefacts as it allows the user to harness the power of more potent artefacts.
+		\nArtefact filter is composed of multiple layers made primarily of lead, with one layer of thorium which has strong radiation shielding properties. 
+		\nThis device has been manufactured by scientists residing in military bunkers around the Zone. In case of emergency or if no longer needed, the module can be utilized as a source of quality metal for use in outfit or helmet repairs. 
+		\n \nTo attach it to the belt, you have to put an artefact inside. The artefact will retain its characteristics with the exception of reduced radiation output.
+		
+		\n \n%c[0,56,166,209]Details%c[0,170,170,170]
+		\n• You have to remove artifacts from the container prior to selling them.
+		\n• Drag and drop an artefact on the container to store it inside.
+		\n• Weight: %c[0,250,250,250]2.73 kg%c[0,170,170,170]
+		\n• The Maximum permissible level of radiation: %c[0,250,250,250]12 mSv%c[0,170,170,170]
+		\n• Consumes %c[0,250,250,250]0.5 mAh%c[0,170,170,170] per second of continuous usage.
 		</text>
 	</string>
 	
@@ -298,16 +355,23 @@
 	</string>
 	<string id="encyclopedia_items_af_aam_text">
 		<text>
-		The Artefact Application Module (AAM) filters a significant amount of radiation particles emitted from artefacts. This advanced mechanical module is the most effective way of harnessing the power of most potent artefacts. Artefact filter is composed of numerous layers made of nano-carbon. It is hence lightweight and has strongest radiation shielding properties of all devices. Regarded as a symbol of affluence in the Zone. Most commonly used by the scientists to minimize the harmful effects of artefacts. Designed and manufactured in Ukraine by a government institute which provides equipment for the scientists residing in the Zone of Alienation. In case of emergency or if no longer needed, the module can be utilized as a source of quality metal for use in outfit or helmet repairs. Currently unusable. To attach it to the belt, you have to put an artefact inside. The artefact will retain its characteristics with the exception of reduced radiation output.\n \n
-		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] high quality\n
-		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
-		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
-		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
-		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] empty\n
-		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+14%)
+		The %c[0,250,250,250]Artefact Application Module (AAM)%c[0,170,170,170] is used to store artefacts and filter dangerous radiation levels, allowing its user to attach artefacts safely on their belt.
+		
+		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
+		\nThe Artefact Application Module (AAM) filters a significant amount of radiation particles emitted from artefacts.
+		\nThis advanced mechanical module is the most effective way of harnessing the power of most potent artefacts.
+		\nArtefact filter is composed of numerous layers made of nano-carbon. It is hence lightweight and has strongest radiation shielding properties of all devices.
+		\nRegarded as a symbol of affluence in the Zone. Most commonly used by the scientists to minimize the harmful effects of artefacts.
+		\nDesigned and manufactured in Ukraine by a government institute which provides equipment for the scientists residing in the Zone of Alienation.
+		\nIn case of emergency or if no longer needed, the module can be utilized as a source of quality metal for use in outfit or helmet repairs. 
+		\n \nTo attach it to the belt, you have to put an artefact inside. The artefact will retain its characteristics with the exception of reduced radiation output.
+		
+		\n \n%c[0,56,166,209]Details%c[0,170,170,170]
+		\n• You have to remove artifacts from the container prior to selling them.
+		\n• Drag and drop an artefact on the container to store it inside.
+		\n• Weight: %c[0,250,250,250]3.06 kg%c[0,170,170,170]
+		\n• The Maximum permissible level of radiation: %c[0,250,250,250]23 mSv%c[0,170,170,170]
+		\n• Consumes %c[0,250,250,250]0.75 mAh%c[0,170,170,170] per second of continuous usage.
 		</text>
 	</string>
 	

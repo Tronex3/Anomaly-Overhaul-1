@@ -78,7 +78,7 @@ function loot_ui:InitControls()
 
 	self.xml				= CScriptXmlInit()
 	local ctrl
-	self.xml:ParseFile			("ui_items.xml")
+	self.xml:ParseFile			("ui_itm_main.xml")
 
 	ctrl					= CUIWindow()
 	self.xml:InitWindow			("mutant_loot:file_item:main",0,ctrl)

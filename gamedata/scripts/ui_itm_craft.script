@@ -49,7 +49,7 @@ function craft_ui:__init(owner,obj,section) super()
 	self.base = ini:r_string_ex(section,"uses_base") or section
 	self.craft_use_actor_effects = ini:r_bool_ex(section,"craft_use_actor_effects") or true
 	self.craft_frame = ini:r_string_ex(section,"craft_ui") or "ui_itm_basickit"
-	self.active_wep				   = db.actor:active_item() or false
+	self.active_wep	 = db.actor:active_item() or false
 	
 	-- Fill default recipes
 	self:FillRecipes(self.base .. "_default")
@@ -57,11 +57,11 @@ function craft_ui:__init(owner,obj,section) super()
 	-- Fill all unlocked recipes
 	local guide = ui_pda_encyclopedia_tab.get_ui()
 	local locked_notes = guide.locked_notes
-	local unlocked_articles = xr_statistic.actor_articles
-	for i=1,#itms_manager.recipe_tools do
-		local recipe = itms_manager.recipe_tools[i]
+	local unlocked_notes = xr_statistic.actor_notes
+	for k,v in pairs(itms_manager.recipe_tools) do
+		local recipe = k
 		if (ini:r_string_ex(recipe,"recipe_for") == self.base) then
-			if (not locked_notes["encyclopedia__notes_" .. recipe]) and (unlocked_articles["encyclopedia__notes_" .. recipe]) then
+			if (not locked_notes["encyclopedia__notes_" .. recipe]) and (unlocked_notes["encyclopedia__notes_" .. recipe]) then
 				self:FillRecipes(recipe)
 			end
 		end
@@ -90,7 +90,7 @@ function craft_ui:InitControls()
 	
 	self.xml				= CScriptXmlInit()
 	local xml = self.xml
-	xml:ParseFile			("ui_items.xml")
+	xml:ParseFile			("ui_itm_main.xml")
 
 	self.dialog					= xml:InitStatic("itm_craft:frame", self)
 	self.dialog:InitTexture(self.craft_frame)
@@ -192,8 +192,7 @@ end
 
 function craft_ui:OnCancel()
 	actor_effects.use_weapon(1)
-	--trx_utils.play_sound("interface\\inv_briefcase_close")
-	
+	trx_utils.play_sound("interface\\inv_close")
 	self:HideDialog()
 end
 
@@ -262,13 +261,14 @@ function craft_ui:UpdateItem (n, sec, amount, result)
 		local box = ini:r_float_ex(sec,"box_size")
 		amt = box * amount
 	end
-	self.text_multi[n]:SetText("x" .. tostring(amt))
+	--self.text_multi[n]:SetText("x" .. tostring(amt))
 	
 	-- Text (Name)
 	local parts_id = {}
+	local counter = 0
 	local name = game.translate_string(ini:r_string_ex(sec,"inv_name"))
 	self.text_item[n]:SetText(name)
-	self.text_item[n]:SetTextColor(GetARGB(200, 255, 50, 20))
+	self.text_item[n]:SetTextColor(GetARGB(250, 255, 50, 50)) --GetARGB(200, 255, 50, 20)
 	
 	if (not result) then
 		-- Collect valid items
@@ -297,11 +297,13 @@ function craft_ui:UpdateItem (n, sec, amount, result)
 					self.allow[n] = true
 				end
 			end
+			self.text_multi[n]:SetText(tostring(full_ammo) .. "/" .. tostring(amt))
 		else -- normal items
 			if (count >= amount) then
 				self.text_item[n]:SetTextColor(GetARGB(200, 50, 255, 50))
 				self.allow[n] = true
 			end
+			self.text_multi[n]:SetText(tostring(count) .. "/" .. tostring(amt))
 		end
 		
 		-- Store items id
@@ -318,6 +320,7 @@ function craft_ui:UpdateItem (n, sec, amount, result)
 			self.text_item[n]:SetTextColor(GetARGB(200, 50, 255, 50))
 		end
 		self.item[n] = {sec , amount}
+		self.text_multi[n]:SetText("")
 	end
 	
 	-- Icon
@@ -373,6 +376,7 @@ function craft_ui:FillRecipes (section)
 	local n = ini_craft:line_count(section) or 0
 	for i=0, n-1 do
 		local result, id, value = ini_craft:r_line(section , i , "", "")
+		id = string.sub(id,3)
 		if ini:section_exist(id) then
 			local t = alun_utils.str_explode(value,",")
 			

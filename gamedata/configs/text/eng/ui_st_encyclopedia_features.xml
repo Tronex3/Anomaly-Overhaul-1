@@ -256,9 +256,9 @@
 			\n \n%c[0,56,209,115]Information%c[0,170,170,170]
 			\nDisassembly helps with recycling unwanted items to acquire parts that can be used for other meaningful purposes such as repairing or crafting other items.
 			\nIt can be done by using one of those three tools:
-			\n• %c[0,250,250,250]Swiss knife%c[0,170,170,170] (for small equipment and misc items)
-			\n• %c[0,250,250,250]Grooming kit%c[0,170,170,170] (for small equipment and misc items)
-			\n• %c[0,250,250,250]Multi-tool%c[0,170,170,170] (for weapons, helmets and outfits)
+			\n• %c[0,250,250,250]Swiss knife%c[0,170,170,170] (small equipment)
+			\n• %c[0,250,250,250]Grooming kit%c[0,170,170,170] (small equipment)
+			\n• %c[0,250,250,250]Multi-tool%c[0,170,170,170] (everything)
 			
 			\n \n%c[0,56,166,209]Procedure%c[0,170,170,170]
 			\nItems that can be disassembled will show (disassemble [!]) option when you click on them in your inventory.

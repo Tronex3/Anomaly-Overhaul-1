@@ -41,6 +41,9 @@
 	<string id="pda_encyclopedia_subject">
 		<text>Subject</text>
 	</string>
+	<string id="pda_encyclopedia_content">
+		<text>Content</text>
+	</string>
 	
 	<!-- Locked articles -->
 	<string id="pda_encyclopedia_locked">

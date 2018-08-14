@@ -5,6 +5,26 @@
 		<text>Artifacts</text>
 	</string>
 	
+	<string id="encyclopedia_artefacts__about">
+		<text>About</text>
+	</string>
+	<string id="encyclopedia_artefacts__about_text">
+		<text>
+		%c[0,250,250,250]Artefacts%c[0,170,170,170] are objects that have been changed by the conditions in the Zone.\n
+		
+		\n%c[0,56,209,115]Information%c[0,170,170,170]
+		\nMost artifacts have strange and useful characteristics. For example, when kept close to the body, some artifacts create a protective field that increases its user's resilience to damage. Others may increase the user's stamina or protect against fire, etc. Artifacts are also valuable scientific study material and outside corporations would pay a hefty price to obtain one of these artifacts from the zone.
+		
+		\n \n%c[0,56,166,209]Birth of an artifact%c[0,170,170,170]
+		\nArtifacts are formed from anomalies, exposed to certain objects or conditions: The combination of an ordinary object(s) and an anomaly, the degeneration and death of an anomaly or if the anomaly is exposed to certain conditions. 
+		\nAn example is the Crystal where it is a combination of metallic substances and the Burner anomaly. Emissions are known to be the catalyst in the actual creation of an artifact, although scientists in the zone are still unable to explain how this happens.
+		
+		\n \n%c[0,209,209,56]Financial uses of Artifacts%c[0,170,170,170]
+		\nArtifacts are very valuable and Stalkers commonly sell them to traders, who in turn sell them to high profile buyers ranging from the military, scientists, large business companies down to collectors.
+		\nScientists, notably professor Sakharov greatly value artifacts as they are great research materials and claim that they could be the key to answer the world's problems and the key to several technological advancements.
+		</text>
+	</string>
+	
 	<!-- Artefacts articles will use the description from artefact sections automatically -->
 		
 </string_table>

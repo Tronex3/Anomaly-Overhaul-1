@@ -7,17 +7,22 @@
 
 
 ;; -- base repair item
-[repair_kit_base]:identity_immunities
-$spawn 									 = "devices\roubles"
-$prefetch 								 = 16
+[repair_kit_base]:identity_immunities	;;-- (base)
+GroupControlSection                      = spawn_group 
+discovery_dependency                     = 
+$spawn                                   = "food and drugs\harmonica_a"
 class_dbg			                     = S_REPAIR
 class 									 = II_ATTCH
 cform									 = skeleton
+attach_angle_offset                      = 0.000000, -1.204452, -1.262921 
+attach_position_offset                   = 0.081856, -0.035081, 0.011694 
+attach_bone_name                         = bip01_l_hand 
+auto_attach                              = false 
 repair_tool                              = true
 use1_functor         		             = itms_manager.menu_open
 use1_action_functor  		             = itms_manager.use_tool
-use2_functor         		        	 = itms_manager.menu_disassemble
-use2_action_functor  		        	 = itms_manager.use_disassemble
+use3_functor         		        	 = itms_manager.menu_disassemble
+use3_action_functor  		        	 = itms_manager.use_disassemble
 disassemble_parts				 		 = basic_scrap,textile_patch_m,textile_patch_m,basic_textolite
 
 
@@ -26,7 +31,6 @@ disassemble_parts				 		 = basic_scrap,textile_patch_m,textile_patch_m,basic_tex
 
 [sharpening_stones]:repair_kit_base ;;--x4
 $spawn 				                     = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description			                     = st_sharpening_stones_descr
 inv_name			                     = st_sharpening_stones
 inv_name_short			                 = st_sharpening_stones
@@ -87,7 +91,6 @@ uses_index					             = 4
 
 [gun_oil]:repair_kit_base ;;-- Universal gun spray lubricant ;;--x2
 $spawn 				                     = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description			                     = st_gun_oil_descr
 inv_name			                     = st_gun_oil
 inv_name_short			                 = st_gun_oil
@@ -113,7 +116,7 @@ repair_use_parts	 	                 = true		;;--Allows the use of lesser conditi
 repair_type			 	                 = weapon	;;--weapon or outfit
 repair_refuse			                 = 
 repair_only				                 = pistol, shotgun, rifle_5, rifle_7, dynamo_hand
-repair_parts_include                     = textile_patch_b, textile_patch_m, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, helm_cloth_mask, tarpaulin, underwear, survivalguide, meinkampf, journal, grooming, cutlery, swiss, porn, porn2, picture_woman			;;--Add sections of items to include to be considered repair parts
+repair_parts_include                     = duct_tape, textile_patch_b, textile_patch_m, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, helm_cloth_mask, tarpaulin, underwear, basic_paper, meinkampf, journal, grooming, cutlery, swiss_knife, porn, porn2, picture_woman			;;--Add sections of items to include to be considered repair parts
 repair_parts_exclude	                 = pistol, shotgun, rifle_5, rifle_7, dynamo_hand
 repair_use_actor_effects                 = true      ;;--Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
 ;use_sound			                     = interface\inv_repair_spray_oil
@@ -133,7 +136,6 @@ uses_index					             = 2
 
 [gun_oil_ru_d]:repair_kit_base ;;--x2
 $spawn 				                     = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description			                     = st_gun_oil_ru_d_descr
 inv_name			                     = st_gun_oil_ru_d
 inv_name_short			                 = st_gun_oil_ru_d
@@ -159,7 +161,7 @@ repair_use_parts	 	                 = true		;;--Allows the use of lesser conditi
 repair_type			 	                 = weapon	;;--weapon or outfit
 repair_refuse			                 = 
 repair_only				                 = pistol, shotgun, rifle_5, rifle_7, dynamo_hand
-repair_parts_include                     = textile_patch_b, textile_patch_m, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, helm_cloth_mask, tarpaulin, underwear, survivalguide, meinkampf, journal, grooming, cutlery, swiss, porn, porn2, picture_woman			;;--Add sections of items to include to be considered repair parts
+repair_parts_include                     = duct_tape, textile_patch_b, textile_patch_m, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, helm_cloth_mask, tarpaulin, underwear, basic_paper, meinkampf, journal, grooming, cutlery, swiss_knife, porn, porn2, picture_woman			;;--Add sections of items to include to be considered repair parts
 repair_parts_exclude	                 = pistol, shotgun, rifle_5, rifle_7, dynamo_hand
 repair_use_actor_effects                 = true
 ;use_sound			                     = interface\inv_repair_spray_oil
@@ -179,7 +181,6 @@ uses_index					             = 2
 
 [gun_oil_ru]:repair_kit_base ;;-- (Russian gun oil (plastic bottle)) ;;--x2
 $spawn 				                     = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description			                     = st_gun_oil_ru_descr
 inv_name			                     = st_gun_oil_ru
 inv_name_short			                 = st_gun_oil_ru
@@ -205,7 +206,7 @@ repair_use_parts	 	                 = true		;;--Allows the use of lesser conditi
 repair_type			 	                 = weapon	;;--weapon or outfit
 repair_refuse			                 = 
 repair_only				                 = pistol, shotgun, rifle_5, rifle_7, dynamo_hand
-repair_parts_include                     = textile_patch_b, textile_patch_m, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, helm_cloth_mask, tarpaulin, underwear, survivalguide, meinkampf, journal, grooming, cutlery, swiss, porn, porn2, picture_woman			;;--Add sections of items to include to be considered repair parts
+repair_parts_include                     = duct_tape, textile_patch_b, textile_patch_m, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, helm_cloth_mask, tarpaulin, underwear, basic_paper, meinkampf, journal, grooming, cutlery, swiss_knife, porn, porn2, picture_woman			;;--Add sections of items to include to be considered repair parts
 repair_parts_exclude	                 = pistol, shotgun, rifle_5, rifle_7, dynamo_hand
 repair_use_actor_effects                 = true
 ;use_sound			                     = interface\inv_repair_spray_oil
@@ -213,6 +214,7 @@ uses_base					             = gun_oil_ru
 uses_index					             = 1
 use2_functor         		             = itms_manager.menu_separate
 use2_action_functor  		             = itms_manager.use_separate
+disassemble_parts				 		 = jar,textile_patch_m,basic_textolite
 
 [gun_oil_ru_2]:gun_oil_ru
 $spawn 				                     = "devices\repair_kit_10"
@@ -225,7 +227,6 @@ uses_index					             = 2
 
 [solvent]:repair_kit_base ;;-- (Cleaning solvent) http://www.midwayusa.com/product/533373/hoppes-9-bore-cleaning-solvent-5-oz-liquid ;;--x2
 $spawn 				                     = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description			                     = st_solvent_descr
 inv_name			                     = st_solvent
 inv_name_short			                 = st_solvent
@@ -251,7 +252,7 @@ repair_use_parts	 	                 = true		;;--Allows the use of lesser conditi
 repair_type			 	                 = weapon	;;--weapon or outfit
 repair_refuse			                 = 
 repair_only				                 = pistol, shotgun, rifle_5, rifle_7, dynamo_hand
-repair_parts_include                     = textile_patch_b, textile_patch_m, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, helm_cloth_mask, tarpaulin, underwear, survivalguide, meinkampf, journal, grooming, cutlery, swiss, porn, porn2, picture_woman			;;--Add sections of items to include to be considered repair parts
+repair_parts_include                     = duct_tape, textile_patch_b, textile_patch_m, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, helm_cloth_mask, tarpaulin, underwear, basic_paper, meinkampf, journal, grooming, cutlery, swiss_knife, porn, porn2, picture_woman			;;--Add sections of items to include to be considered repair parts
 repair_parts_exclude	                 = pistol, shotgun, rifle_5, rifle_7, dynamo_hand
 repair_use_actor_effects                 = true
 ;use_sound			                     = interface\inv_repair_spray_oil
@@ -259,6 +260,7 @@ uses_base					             = solvent
 uses_index					             = 1
 use2_functor         		             = itms_manager.menu_separate
 use2_action_functor  		             = itms_manager.use_separate
+disassemble_parts				 		 = jar,textile_patch_m,basic_textolite
 
 [solvent_2]:solvent
 $spawn 				                     = "devices\repair_kit_10"
@@ -272,7 +274,6 @@ uses_index					             = 2
 
 [cleaning_kit_p]:repair_kit_base ;;-- Cleaning kit 9mm .357 .45 ;;--x3
 $spawn 				                     = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description			                     = st_cleaning_kit_p_descr
 inv_name			                     = st_cleaning_kit_p
 inv_name_short			                 = st_cleaning_kit_p
@@ -298,7 +299,7 @@ repair_use_parts	 	                 = true		;;--Allows the use of lesser conditi
 repair_type			 	                 = weapon	;;--weapon or outfit
 repair_refuse			                 = 
 repair_only				                 = pistol, dynamo_hand
-repair_parts_include                     = textile_patch_b, textile_patch_m, grease, grease2, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, kerosene, kerosene2, kerosene3, kerosene4, kerosene5, explo_jerrycan_fuel, explo_jerrycan_fuel2, explo_jerrycan_fuel3, explo_jerrycan_fuel4, explo_jerrycan_fuel5, explo_jerrycan_fuel6, explo_jerrycan_fuel7, explo_jerrycan_fuel8, flask, flask2, flask3, mineral_water, mineral_water2, mineral_water3, water_drink, grooming, cutlery, swiss, vodka, vodka_2, vodka_3, vodka2, vodka2_2, vodka2_3, vodka_quality, vodka_quality2, vodka_quality3, bottle_metal, bottle_metal2, bottle_metal3, mutant_part_flesh_meat, mutant_part_boar_chop, mutant_part_dog_meat, mutant_part_psevdodog_meat, mutant_part_krovosos_meat, mutant_part_chimera_meat
+repair_parts_include                     = duct_tape, textile_patch_b, textile_patch_m, grease, grease2, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, kerosene, kerosene2, kerosene3, kerosene4, kerosene5, explo_jerrycan_fuel, explo_jerrycan_fuel2, explo_jerrycan_fuel3, explo_jerrycan_fuel4, explo_jerrycan_fuel5, explo_jerrycan_fuel6, explo_jerrycan_fuel7, explo_jerrycan_fuel8, flask, flask2, flask3, mineral_water, mineral_water2, mineral_water3, water_drink, grooming, cutlery, swiss_knife, vodka, vodka_2, vodka_3, vodka2, vodka2_2, vodka2_3, vodka_quality, vodka_quality2, vodka_quality3, bottle_metal, bottle_metal2, bottle_metal3, mutant_part_flesh_meat, mutant_part_boar_chop, mutant_part_dog_meat, mutant_part_psevdodog_meat, mutant_part_krovosos_meat, mutant_part_chimera_meat
 repair_parts_exclude	                 = pistol, dynamo_hand
 repair_use_actor_effects                 = true      ;;--Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
 ;use_sound			                     = interface\inv_repair_brushes
@@ -325,7 +326,6 @@ uses_index					             = 3
 
 [cleaning_kit_s]:repair_kit_base ;;-- Cleaning kit 12ga ;;--x3
 $spawn 				                     = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description			                     = st_cleaning_kit_s_descr
 inv_name			                     = st_cleaning_kit_s
 inv_name_short			                 = st_cleaning_kit_s
@@ -351,7 +351,7 @@ repair_use_parts	 	                 = true		;;--Allows the use of lesser conditi
 repair_type			 	                 = weapon	;;--weapon or outfit
 repair_refuse			                 = 
 repair_only				                 = shotgun
-repair_parts_include                     = textile_patch_b, textile_patch_m, grease, grease2, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, kerosene, kerosene2, kerosene3, kerosene4, kerosene5, explo_jerrycan_fuel, explo_jerrycan_fuel2, explo_jerrycan_fuel3, explo_jerrycan_fuel4, explo_jerrycan_fuel5, explo_jerrycan_fuel6, explo_jerrycan_fuel7, explo_jerrycan_fuel8, flask, flask2, flask3, mineral_water, mineral_water2, mineral_water3, water_drink, grooming, cutlery, swiss, vodka, vodka_2, vodka_3, vodka2, vodka2_2, vodka2_3, vodka_quality, vodka_quality2, vodka_quality3, bottle_metal, bottle_metal2, bottle_metal3, mutant_part_flesh_meat, mutant_part_boar_chop, mutant_part_dog_meat, mutant_part_psevdodog_meat, mutant_part_krovosos_meat, mutant_part_chimera_meat
+repair_parts_include                     = duct_tape, textile_patch_b, textile_patch_m, grease, grease2, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, kerosene, kerosene2, kerosene3, kerosene4, kerosene5, explo_jerrycan_fuel, explo_jerrycan_fuel2, explo_jerrycan_fuel3, explo_jerrycan_fuel4, explo_jerrycan_fuel5, explo_jerrycan_fuel6, explo_jerrycan_fuel7, explo_jerrycan_fuel8, flask, flask2, flask3, mineral_water, mineral_water2, mineral_water3, water_drink, grooming, cutlery, swiss_knife, vodka, vodka_2, vodka_3, vodka2, vodka2_2, vodka2_3, vodka_quality, vodka_quality2, vodka_quality3, bottle_metal, bottle_metal2, bottle_metal3, mutant_part_flesh_meat, mutant_part_boar_chop, mutant_part_dog_meat, mutant_part_psevdodog_meat, mutant_part_krovosos_meat, mutant_part_chimera_meat
 repair_parts_exclude	                 = shotgun
 repair_use_actor_effects                 = true
 ;use_sound			                     = interface\inv_repair_brushes
@@ -378,7 +378,6 @@ uses_index					             = 3
 
 [cleaning_kit_r5]:repair_kit_base ;;-- Cleaning kit 5.54mm 5.56mm ;;--x3
 $spawn 				                     = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description			                     = st_cleaning_kit_r5_descr
 inv_name			                     = st_cleaning_kit_r5
 inv_name_short			                 = st_cleaning_kit_r5
@@ -404,7 +403,7 @@ repair_use_parts	 	                 = true		;;--Allows the use of lesser conditi
 repair_type			 	                 = weapon	;;--weapon or outfit
 repair_refuse			                 = 
 repair_only				                 = rifle_5
-repair_parts_include                     = textile_patch_b, textile_patch_m, grease, grease2, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, kerosene, kerosene2, kerosene3, kerosene4, kerosene5, explo_jerrycan_fuel, explo_jerrycan_fuel2, explo_jerrycan_fuel3, explo_jerrycan_fuel4, explo_jerrycan_fuel5, explo_jerrycan_fuel6, explo_jerrycan_fuel7, explo_jerrycan_fuel8, flask, flask2, flask3, mineral_water, mineral_water2, mineral_water3, water_drink, grooming, cutlery, swiss, vodka, vodka_2, vodka_3, vodka2, vodka2_2, vodka2_3, vodka_quality, vodka_quality2, vodka_quality3, bottle_metal, bottle_metal2, bottle_metal3, mutant_part_flesh_meat, mutant_part_boar_chop, mutant_part_dog_meat, mutant_part_psevdodog_meat, mutant_part_krovosos_meat, mutant_part_chimera_meat
+repair_parts_include                     = duct_tape, textile_patch_b, textile_patch_m, grease, grease2, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, kerosene, kerosene2, kerosene3, kerosene4, kerosene5, explo_jerrycan_fuel, explo_jerrycan_fuel2, explo_jerrycan_fuel3, explo_jerrycan_fuel4, explo_jerrycan_fuel5, explo_jerrycan_fuel6, explo_jerrycan_fuel7, explo_jerrycan_fuel8, flask, flask2, flask3, mineral_water, mineral_water2, mineral_water3, water_drink, grooming, cutlery, swiss_knife, vodka, vodka_2, vodka_3, vodka2, vodka2_2, vodka2_3, vodka_quality, vodka_quality2, vodka_quality3, bottle_metal, bottle_metal2, bottle_metal3, mutant_part_flesh_meat, mutant_part_boar_chop, mutant_part_dog_meat, mutant_part_psevdodog_meat, mutant_part_krovosos_meat, mutant_part_chimera_meat
 repair_parts_exclude	                 = rifle_5
 repair_use_actor_effects                 = true
 ;use_sound			                     = interface\inv_repair_brushes
@@ -431,7 +430,6 @@ uses_index					             = 2
 
 [cleaning_kit_r7]:repair_kit_base ;;-- Cleaning kit 7.62mm 7.92mm .300 ;;--x3
 $spawn 				                     = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description			                     = st_cleaning_kit_r7_descr
 inv_name			                     = st_cleaning_kit_r7
 inv_name_short			                 = st_cleaning_kit_r7
@@ -457,7 +455,7 @@ repair_use_parts	 	                 = true		;;--Allows the use of lesser conditi
 repair_type			 	                 = weapon	;;--weapon or outfit
 repair_refuse			                 = 
 repair_only				                 = rifle_7
-repair_parts_include                     = textile_patch_b, textile_patch_m, grease, grease2, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, kerosene, kerosene2, kerosene3, kerosene4, kerosene5, explo_jerrycan_fuel, explo_jerrycan_fuel2, explo_jerrycan_fuel3, explo_jerrycan_fuel4, explo_jerrycan_fuel5, explo_jerrycan_fuel6, explo_jerrycan_fuel7, explo_jerrycan_fuel8, flask, flask2, flask3, mineral_water, mineral_water2, mineral_water3, water_drink, grooming, cutlery, swiss, vodka, vodka_2, vodka_3, vodka2, vodka2_2, vodka2_3, vodka_quality, vodka_quality2, vodka_quality3, bottle_metal, bottle_metal2, bottle_metal3, mutant_part_flesh_meat, mutant_part_boar_chop, mutant_part_dog_meat, mutant_part_psevdodog_meat, mutant_part_krovosos_meat, mutant_part_chimera_meat
+repair_parts_include                     = duct_tape, textile_patch_b, textile_patch_m, grease, grease2, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, kerosene, kerosene2, kerosene3, kerosene4, kerosene5, explo_jerrycan_fuel, explo_jerrycan_fuel2, explo_jerrycan_fuel3, explo_jerrycan_fuel4, explo_jerrycan_fuel5, explo_jerrycan_fuel6, explo_jerrycan_fuel7, explo_jerrycan_fuel8, flask, flask2, flask3, mineral_water, mineral_water2, mineral_water3, water_drink, grooming, cutlery, swiss_knife, vodka, vodka_2, vodka_3, vodka2, vodka2_2, vodka2_3, vodka_quality, vodka_quality2, vodka_quality3, bottle_metal, bottle_metal2, bottle_metal3, mutant_part_flesh_meat, mutant_part_boar_chop, mutant_part_dog_meat, mutant_part_psevdodog_meat, mutant_part_krovosos_meat, mutant_part_chimera_meat
 repair_parts_exclude	                 = rifle_7
 repair_use_actor_effects                 = true
 ;use_sound			                     = interface\inv_repair_brushes
@@ -484,7 +482,6 @@ uses_index					             = 3
 
 [cleaning_kit_u]:repair_kit_base ;;-- Universal cleaning kit ;;--x3
 $spawn 				                     = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description			                     = st_cleaning_kit_u_descr
 inv_name			                     = st_cleaning_kit_u
 inv_name_short			                 = st_cleaning_kit_u
@@ -510,7 +507,7 @@ repair_use_parts	 	                 = true		;;--Allows the use of lesser conditi
 repair_type			 	                 = weapon	;;--weapon or outfit
 repair_refuse			                 = 
 repair_only				                 = pistol, shotgun, rifle_5, rifle_7, dynamo_hand
-repair_parts_include                     = textile_patch_b, textile_patch_m, grease, grease2, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, kerosene, kerosene2, kerosene3, kerosene4, kerosene5, explo_jerrycan_fuel, explo_jerrycan_fuel2, explo_jerrycan_fuel3, explo_jerrycan_fuel4, explo_jerrycan_fuel5, explo_jerrycan_fuel6, explo_jerrycan_fuel7, explo_jerrycan_fuel8, flask, flask2, flask3, mineral_water, mineral_water2, mineral_water3, water_drink, grooming, cutlery, swiss, vodka, vodka_2, vodka_3, vodka2, vodka2_2, vodka2_3, vodka_quality, vodka_quality2, vodka_quality3, bottle_metal, bottle_metal2, bottle_metal3, mutant_part_flesh_meat, mutant_part_boar_chop, mutant_part_dog_meat, mutant_part_psevdodog_meat, mutant_part_krovosos_meat, mutant_part_chimera_meat
+repair_parts_include                     = duct_tape, textile_patch_b, textile_patch_m, grease, grease2, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, kerosene, kerosene2, kerosene3, kerosene4, kerosene5, explo_jerrycan_fuel, explo_jerrycan_fuel2, explo_jerrycan_fuel3, explo_jerrycan_fuel4, explo_jerrycan_fuel5, explo_jerrycan_fuel6, explo_jerrycan_fuel7, explo_jerrycan_fuel8, flask, flask2, flask3, mineral_water, mineral_water2, mineral_water3, water_drink, grooming, cutlery, swiss_knife, vodka, vodka_2, vodka_3, vodka2, vodka2_2, vodka2_3, vodka_quality, vodka_quality2, vodka_quality3, bottle_metal, bottle_metal2, bottle_metal3, mutant_part_flesh_meat, mutant_part_boar_chop, mutant_part_dog_meat, mutant_part_psevdodog_meat, mutant_part_krovosos_meat, mutant_part_chimera_meat
 repair_parts_exclude	                 = pistol, shotgun, rifle_5, rifle_7, scope, dynamo_hand
 repair_use_actor_effects                 = true
 ;use_sound			                     = interface\inv_repair_brushes
@@ -537,7 +534,6 @@ uses_index					             = 3
 
 [toolkit_p]:repair_kit_base ;;-- Pistol toolkit with replacement parts ;;--x4
 $spawn 				                     = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description			                     = st_repair_kit_p_descr
 inv_name			                     = st_repair_kit_p
 inv_name_short			                 = st_repair_kit_p
@@ -563,7 +559,7 @@ repair_use_parts	 	                 = true		;;--Allows the use of lesser conditi
 repair_type			 	                 = weapon	;;--weapon or outfit
 repair_refuse			                 = 
 repair_only				                 = pistol, dynamo_hand
-repair_parts_include	                 = dis_scrap, sp_triggermechanism, sp_spring, sp_pistolgrip, toolkit_p_0, toolkit_s_0, toolkit_r5_0, toolkit_r7_0, toolkit_u_0, swiss, grease, grease2, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, cleaning_kit_p, cleaning_kit_p_2, cleaning_kit_p_3, cleaning_kit_u, cleaning_kit_u_2, cleaning_kit_u_3, hammer_inv, crowbar, kerosene, kerosene2, kerosene3, kerosene4, kerosene5, explo_jerrycan_fuel, explo_jerrycan_fuel2, explo_jerrycan_fuel3, explo_jerrycan_fuel4, explo_jerrycan_fuel5, explo_jerrycan_fuel6, explo_jerrycan_fuel7, explo_jerrycan_fuel8, explo_jerrycan_fuel_empty, explo_balon_gas, explo_balon_gas2, explo_balon_gas3, explo_balon_gas4, explo_balon_gas5, explo_balon_gas6, explo_balon_gas7, explo_balon_gas8, explo_balon_gas_empty, flask, flask2, flask3, mineral_water, mineral_water2, mineral_water3, vodka, vodka_2, vodka_3, vodka2, vodka2_2, vodka2_3, vodka_quality, vodka_quality2, vodka_quality3, bottle_metal, bottle_metal2, bottle_metal3, mutant_part_flesh_meat, mutant_part_boar_chop, mutant_part_dog_meat, mutant_part_psevdodog_meat, mutant_part_krovosos_meat, mutant_part_chimera_meat		;;--wpn_aps,wpn_gp100,wpn_gsh18,wpn_tt33,wpn_oc33,wpn_ump45,wpn_scorpion,wpn_scorpion_camo,wpn_mp5,wpn_pm,wpn_pb,wpn_fort,wpn_hpsa,wpn_beretta,wpn_walther,wpn_sig220,wpn_colt1911,wpn_usp,wpn_gp100,wpn_desert_eagle,wpn_beretta_custom,wpn_beretta_alt,wpn_beretta_camo,wpn_beretta_worn,wpn_colt1911_camo,wpn_colt1911_alt1,wpn_colt1911_alt2,wpn_colt1911_worn,wpn_desert_eagle_custom,wpn_desert_eagle_alt,wpn_desert_eagle_camo,wpn_desert_eagle_worn,wpn_fort_custom,wpn_fort_snag,wpn_fort_camo,wpn_fort_rusty,wpn_fort_worn,wpn_hpsa_custom,wpn_hpsa_alt,wpn_hpsa_camo,wpn_hpsa_worn,wpn_mp5_custom,wpn_mp5_alt,wpn_mp5_worn,wpn_pm_custom,wpn_pm_alt,wpn_pm_worn,wpn_ppsh41,wpn_ppsh41_woodnew,wpn_ppsh41_woodworn,wpn_ppsh41_rednew,wpn_ppsh41_redworn,wpn_sig220_custom,wpn_sig220_camo,wpn_sig220_worn,wpn_sig220_rusty,wpn_usp_custom, wpn_usp_nimble,wpn_usp_alt1,wpn_usp_alt2,wpn_usp_worn,wpn_walther_custom,wpn_walther_alt1,wpn_walther_alt2,wpn_walther_worn,wpn_pm_actor,wpn_desert_eagle_nimble,wpn_mp5_nimble,wpn_sig220_nimble ;;--Add sections separated by commas that exclude all sections but these
+repair_parts_include	                 = dis_scrap, sp_triggermechanism, sp_spring, sp_pistolgrip, toolkit_p_0, toolkit_s_0, toolkit_r5_0, toolkit_r7_0, toolkit_u_0, swiss_knife, grease, grease2, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, cleaning_kit_p, cleaning_kit_p_2, cleaning_kit_p_3, cleaning_kit_u, cleaning_kit_u_2, cleaning_kit_u_3, hammer_inv, crowbar, kerosene, kerosene2, kerosene3, kerosene4, kerosene5, explo_jerrycan_fuel, explo_jerrycan_fuel2, explo_jerrycan_fuel3, explo_jerrycan_fuel4, explo_jerrycan_fuel5, explo_jerrycan_fuel6, explo_jerrycan_fuel7, explo_jerrycan_fuel8, explo_jerrycan_fuel_empty, explo_balon_gas, explo_balon_gas2, explo_balon_gas3, explo_balon_gas4, explo_balon_gas5, explo_balon_gas6, explo_balon_gas7, explo_balon_gas8, explo_balon_gas_empty, flask, flask2, flask3, mineral_water, mineral_water2, mineral_water3, vodka, vodka_2, vodka_3, vodka2, vodka2_2, vodka2_3, vodka_quality, vodka_quality2, vodka_quality3, bottle_metal, bottle_metal2, bottle_metal3, mutant_part_flesh_meat, mutant_part_boar_chop, mutant_part_dog_meat, mutant_part_psevdodog_meat, mutant_part_krovosos_meat, mutant_part_chimera_meat		;;--wpn_aps,wpn_gp100,wpn_gsh18,wpn_tt33,wpn_oc33,wpn_ump45,wpn_scorpion,wpn_scorpion_camo,wpn_mp5,wpn_pm,wpn_pb,wpn_fort,wpn_hpsa,wpn_beretta,wpn_walther,wpn_sig220,wpn_colt1911,wpn_usp,wpn_gp100,wpn_desert_eagle,wpn_beretta_custom,wpn_beretta_alt,wpn_beretta_camo,wpn_beretta_worn,wpn_colt1911_camo,wpn_colt1911_alt1,wpn_colt1911_alt2,wpn_colt1911_worn,wpn_desert_eagle_custom,wpn_desert_eagle_alt,wpn_desert_eagle_camo,wpn_desert_eagle_worn,wpn_fort_custom,wpn_fort_snag,wpn_fort_camo,wpn_fort_rusty,wpn_fort_worn,wpn_hpsa_custom,wpn_hpsa_alt,wpn_hpsa_camo,wpn_hpsa_worn,wpn_mp5_custom,wpn_mp5_alt,wpn_mp5_worn,wpn_pm_custom,wpn_pm_alt,wpn_pm_worn,wpn_ppsh41,wpn_ppsh41_woodnew,wpn_ppsh41_woodworn,wpn_ppsh41_rednew,wpn_ppsh41_redworn,wpn_sig220_custom,wpn_sig220_camo,wpn_sig220_worn,wpn_sig220_rusty,wpn_usp_custom, wpn_usp_nimble,wpn_usp_alt1,wpn_usp_alt2,wpn_usp_worn,wpn_walther_custom,wpn_walther_alt1,wpn_walther_alt2,wpn_walther_worn,wpn_pm_actor,wpn_desert_eagle_nimble,wpn_mp5_nimble,wpn_sig220_nimble ;;--Add sections separated by commas that exclude all sections but these
 repair_parts_exclude	                 = pistol, shotgun, rifle_5, rifle_7, scope, dynamo_hand
 repair_use_actor_effects                 = true      ;;--Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
 ;use_sound			                     = interface\inv_repair_kit_with_brushes
@@ -593,13 +589,7 @@ cost				                     = 19660
 inv_weight			                     = 2.943
 uses_index					             = 4
 
-[toolkit_p_0]:identity_immunities ;;-- empty container
-$spawn 				                     = "devices\roubles"
-$prefetch 			                     = 16
-class				                     = S_PDA
-cform				                     = skeleton
-radius				                     = 68;;-- 50
-class_dbg			                     = S_REPAIR
+[toolkit_p_0]:repair_kit_base ;;-- empty container
 description			                     = st_repair_kit_p_empty_descr
 inv_name			                     = st_repair_kit_p_empty
 inv_name_short		                     = st_repair_kit_p_empty
@@ -620,7 +610,6 @@ repair_part_bonus	 	                 = 0.04
 
 [toolkit_s]:repair_kit_base ;;-- Shotgun toolkit with replacement parts ;;--x4
 $spawn 				                     = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description			                     = st_repair_kit_s_descr
 inv_name			                     = st_repair_kit_s
 inv_name_short			                 = st_repair_kit_s
@@ -646,7 +635,7 @@ repair_use_parts	 	                 = true		;;--Allows the use of lesser conditi
 repair_type			 	                 = weapon	;;--weapon or outfit
 repair_refuse			                 = 
 repair_only				                 = shotgun
-repair_parts_include	                 = dis_scrap, sp_stock, sp_triggermechanism, sp_spring, sp_pistolgrip, toolkit_p_0, toolkit_s_0, toolkit_r5_0, toolkit_r7_0, toolkit_u_0, swiss, grease, grease2, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, cleaning_kit_s, cleaning_kit_s_2, cleaning_kit_s_3, cleaning_kit_u, cleaning_kit_u_2, cleaning_kit_u_3, hammer_inv, crowbar, kerosene, kerosene2, kerosene3, kerosene4, kerosene5, explo_jerrycan_fuel, explo_jerrycan_fuel2, explo_jerrycan_fuel3, explo_jerrycan_fuel4, explo_jerrycan_fuel5, explo_jerrycan_fuel6, explo_jerrycan_fuel7, explo_jerrycan_fuel8, explo_jerrycan_fuel_empty, explo_balon_gas, explo_balon_gas2, explo_balon_gas3, explo_balon_gas4, explo_balon_gas5, explo_balon_gas6, explo_balon_gas7, explo_balon_gas8, explo_balon_gas_empty, flask, flask2, flask3, mineral_water, mineral_water2, mineral_water3, vodka, vodka_2, vodka_3, vodka2, vodka2_2, vodka2_3, vodka_quality, vodka_quality2, vodka_quality3, bottle_metal, bottle_metal2, bottle_metal3, mutant_part_flesh_meat, mutant_part_boar_chop, mutant_part_dog_meat, mutant_part_psevdodog_meat, mutant_part_krovosos_meat, mutant_part_chimera_meat, sp_smooth_barrel, sp_smooth_barrel_worn
+repair_parts_include	                 = dis_scrap, sp_stock, sp_triggermechanism, sp_spring, sp_pistolgrip, toolkit_p_0, toolkit_s_0, toolkit_r5_0, toolkit_r7_0, toolkit_u_0, swiss_knife, grease, grease2, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, cleaning_kit_s, cleaning_kit_s_2, cleaning_kit_s_3, cleaning_kit_u, cleaning_kit_u_2, cleaning_kit_u_3, hammer_inv, crowbar, kerosene, kerosene2, kerosene3, kerosene4, kerosene5, explo_jerrycan_fuel, explo_jerrycan_fuel2, explo_jerrycan_fuel3, explo_jerrycan_fuel4, explo_jerrycan_fuel5, explo_jerrycan_fuel6, explo_jerrycan_fuel7, explo_jerrycan_fuel8, explo_jerrycan_fuel_empty, explo_balon_gas, explo_balon_gas2, explo_balon_gas3, explo_balon_gas4, explo_balon_gas5, explo_balon_gas6, explo_balon_gas7, explo_balon_gas8, explo_balon_gas_empty, flask, flask2, flask3, mineral_water, mineral_water2, mineral_water3, vodka, vodka_2, vodka_3, vodka2, vodka2_2, vodka2_3, vodka_quality, vodka_quality2, vodka_quality3, bottle_metal, bottle_metal2, bottle_metal3, mutant_part_flesh_meat, mutant_part_boar_chop, mutant_part_dog_meat, mutant_part_psevdodog_meat, mutant_part_krovosos_meat, mutant_part_chimera_meat, sp_smooth_barrel, sp_smooth_barrel_worn
 repair_parts_exclude	                 = pistol, shotgun, rifle_5, rifle_7, scope, dynamo_hand
 repair_use_actor_effects                 = true      ;;--Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
 ;use_sound			                     = interface\inv_repair_kit_with_brushes
@@ -676,13 +665,7 @@ cost				                     = 23660
 inv_weight			                     = 3.216
 uses_index					             = 4
 
-[toolkit_s_0]:identity_immunities
-$spawn 				                     = "devices\roubles"
-$prefetch 			                     = 16
-class				                     = S_PDA
-cform				                     = skeleton
-radius				                     = 68;;-- 50
-class_dbg			                     = S_REPAIR
+[toolkit_s_0]:repair_kit_base
 description			                     = st_repair_kit_s_empty_descr
 inv_name			                     = st_repair_kit_s_empty
 inv_name_short		                     = st_repair_kit_s_empty
@@ -703,7 +686,6 @@ repair_part_bonus	 	                 = 0.04
 
 [toolkit_r5]:repair_kit_base ;;-- NATO rifle toolkit with replacement parts ;;--x4
 $spawn 				                     = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description			                     = st_repair_kit_r5_descr
 inv_name			                     = st_repair_kit_r5
 inv_name_short			                 = st_repair_kit_r5
@@ -729,7 +711,7 @@ repair_use_parts	 	                 = true		;;--Allows the use of lesser conditi
 repair_type			 	                 = weapon	;;--weapon or outfit
 repair_refuse			                 = 
 repair_only				                 = rifle_5
-repair_parts_include	                 = dis_scrap, sp_stock, sp_rifle_boltcarrier, sp_triggermechanism, sp_spring, sp_pistolgrip, toolkit_p_0, toolkit_s_0, toolkit_r5_0, toolkit_r7_0, toolkit_u_0, swiss, grease, grease2, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, cleaning_kit_r5, cleaning_kit_r5_2, cleaning_kit_r5_3, cleaning_kit_u, cleaning_kit_u_2, cleaning_kit_u_3, hammer_inv, crowbar, kerosene, kerosene2, kerosene3, kerosene4, kerosene5, explo_jerrycan_fuel, explo_jerrycan_fuel2, explo_jerrycan_fuel3, explo_jerrycan_fuel4, explo_jerrycan_fuel5, explo_jerrycan_fuel6, explo_jerrycan_fuel7, explo_jerrycan_fuel8, explo_jerrycan_fuel_empty, explo_balon_gas, explo_balon_gas2, explo_balon_gas3, explo_balon_gas4, explo_balon_gas5, explo_balon_gas6, explo_balon_gas7, explo_balon_gas8, explo_balon_gas_empty, flask, flask2, flask3, mineral_water, mineral_water2, mineral_water3, vodka, vodka_2, vodka_3, vodka2, vodka2_2, vodka2_3, vodka_quality, vodka_quality2, vodka_quality3, bottle_metal, bottle_metal2, bottle_metal3, mutant_part_flesh_meat, mutant_part_boar_chop, mutant_part_dog_meat, mutant_part_psevdodog_meat, mutant_part_krovosos_meat, mutant_part_chimera_meat			;;--wpn_abakan,wpn_ak74,wpn_fn2000,wpn_l85,wpn_lr300,wpn_sig550,wpn_ak105,wpn_aks74_cobra,wpn_famas3,wpn_far15,wpn_fr2000,wpn_m4a1,wpn_m16a1,wpn_sig552,wpn_abakan_custom,wpn_abakan_alt,wpn_abakan_camo,wpn_abakan_worn,wpn_abakan_rusty,wpn_ak47m_custom,wpn_ak74_custom1,wpn_ak74_custom2,wpn_ak74_alt,wpn_ak74_camo,wpn_ak74_worn,wpn_ak74_rusty,wpn_ak74u_custom,wpn_ak74u_camo,wpn_ak74u_worn,wpn_ak74u,wpn_ak74u_snag,wpn_ak74u_rusty,wpn_fn2000_custom,wpn_fn2000_alt1,wpn_fn2000_alt2,wpn_fn2000_alt3,wpn_fn2000_worn,wpn_l85_custom,wpn_l85_camo,wpn_l85_worn,wpn_lr300_custom,wpn_lr300_alt,wpn_lr300_camo,wpn_lr300_worn,wpn_aug,wpn_sig550_sniper,wpn_sig550_custom,wpn_sig550_alt,wpn_sig550_worn,wpn_sig550_luckygun,wpn_g36_nimble,wpn_g36,wpn_g36_custom,wpn_fn2000_nimble,wpn_ak74u_snag ;;--Add sections separated by commas that exclude all sections but these
+repair_parts_include	                 = dis_scrap, sp_stock, sp_rifle_boltcarrier, sp_triggermechanism, sp_spring, sp_pistolgrip, toolkit_p_0, toolkit_s_0, toolkit_r5_0, toolkit_r7_0, toolkit_u_0, swiss_knife, grease, grease2, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, cleaning_kit_r5, cleaning_kit_r5_2, cleaning_kit_r5_3, cleaning_kit_u, cleaning_kit_u_2, cleaning_kit_u_3, hammer_inv, crowbar, kerosene, kerosene2, kerosene3, kerosene4, kerosene5, explo_jerrycan_fuel, explo_jerrycan_fuel2, explo_jerrycan_fuel3, explo_jerrycan_fuel4, explo_jerrycan_fuel5, explo_jerrycan_fuel6, explo_jerrycan_fuel7, explo_jerrycan_fuel8, explo_jerrycan_fuel_empty, explo_balon_gas, explo_balon_gas2, explo_balon_gas3, explo_balon_gas4, explo_balon_gas5, explo_balon_gas6, explo_balon_gas7, explo_balon_gas8, explo_balon_gas_empty, flask, flask2, flask3, mineral_water, mineral_water2, mineral_water3, vodka, vodka_2, vodka_3, vodka2, vodka2_2, vodka2_3, vodka_quality, vodka_quality2, vodka_quality3, bottle_metal, bottle_metal2, bottle_metal3, mutant_part_flesh_meat, mutant_part_boar_chop, mutant_part_dog_meat, mutant_part_psevdodog_meat, mutant_part_krovosos_meat, mutant_part_chimera_meat			;;--wpn_abakan,wpn_ak74,wpn_fn2000,wpn_l85,wpn_lr300,wpn_sig550,wpn_ak105,wpn_aks74_cobra,wpn_famas3,wpn_far15,wpn_fr2000,wpn_m4a1,wpn_m16a1,wpn_sig552,wpn_abakan_custom,wpn_abakan_alt,wpn_abakan_camo,wpn_abakan_worn,wpn_abakan_rusty,wpn_ak47m_custom,wpn_ak74_custom1,wpn_ak74_custom2,wpn_ak74_alt,wpn_ak74_camo,wpn_ak74_worn,wpn_ak74_rusty,wpn_ak74u_custom,wpn_ak74u_camo,wpn_ak74u_worn,wpn_ak74u,wpn_ak74u_snag,wpn_ak74u_rusty,wpn_fn2000_custom,wpn_fn2000_alt1,wpn_fn2000_alt2,wpn_fn2000_alt3,wpn_fn2000_worn,wpn_l85_custom,wpn_l85_camo,wpn_l85_worn,wpn_lr300_custom,wpn_lr300_alt,wpn_lr300_camo,wpn_lr300_worn,wpn_aug,wpn_sig550_sniper,wpn_sig550_custom,wpn_sig550_alt,wpn_sig550_worn,wpn_sig550_luckygun,wpn_g36_nimble,wpn_g36,wpn_g36_custom,wpn_fn2000_nimble,wpn_ak74u_snag ;;--Add sections separated by commas that exclude all sections but these
 repair_parts_exclude	                 = pistol, shotgun, rifle_5, rifle_7, scope, dynamo_hand
 repair_use_actor_effects                 = true      ;;--Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
 ;use_sound			                     = interface\inv_repair_kit_with_brushes
@@ -759,13 +741,7 @@ cost				                     = 27420
 inv_weight			                     = 3.484
 uses_index					             = 4
 
-[toolkit_r5_0]:identity_immunities
-$spawn 				                     = "devices\roubles"
-$prefetch 			                     = 16
-class				                     = S_PDA
-cform				                     = skeleton
-radius				                     = 68;;-- 50
-class_dbg			                     = S_REPAIR
+[toolkit_r5_0]:repair_kit_base
 description			                     = st_repair_kit_r5_empty_descr
 inv_name			                     = st_repair_kit_r5_empty
 inv_name_short		                     = st_repair_kit_r5_empty
@@ -786,7 +762,6 @@ repair_part_bonus	 	                 = 0.04
 
 [toolkit_r7]:repair_kit_base ;;-- WP rifle toolkit with replacement parts ;;--x4
 $spawn 				                     = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description			                     = st_repair_kit_r7_descr
 inv_name			                     = st_repair_kit_r7
 inv_name_short			                 = st_repair_kit_r7
@@ -812,7 +787,7 @@ repair_use_parts	 	                 = true		;;--Allows the use of lesser conditi
 repair_type			 	                 = weapon	;;--weapon or outfit
 repair_refuse			                 = 
 repair_only				                 = rifle_7
-repair_parts_include	                 = dis_scrap, sp_stock, sp_rifle_boltcarrier, sp_triggermechanism, sp_spring, sp_pistolgrip, toolkit_p_0, toolkit_s_0, toolkit_r5_0, toolkit_r7_0, toolkit_u_0, swiss, grease, grease2, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, cleaning_kit_r7, cleaning_kit_r7_2, cleaning_kit_r7_3, cleaning_kit_u, cleaning_kit_u_2, cleaning_kit_u_3, hammer_inv, crowbar, kerosene, kerosene2, kerosene3, kerosene4, kerosene5, explo_jerrycan_fuel, explo_jerrycan_fuel2, explo_jerrycan_fuel3, explo_jerrycan_fuel4, explo_jerrycan_fuel5, explo_jerrycan_fuel6, explo_jerrycan_fuel7, explo_jerrycan_fuel8, explo_jerrycan_fuel_empty, explo_balon_gas, explo_balon_gas2, explo_balon_gas3, explo_balon_gas4, explo_balon_gas5, explo_balon_gas6, explo_balon_gas7, explo_balon_gas8, explo_balon_gas_empty, flask, flask2, flask3, mineral_water, mineral_water2, mineral_water3, vodka, vodka_2, vodka_3, vodka2, vodka2_2, vodka2_3, vodka_quality, vodka_quality2, vodka_quality3, bottle_metal, bottle_metal2, bottle_metal3, mutant_part_flesh_meat, mutant_part_boar_chop, mutant_part_dog_meat, mutant_part_psevdodog_meat, mutant_part_krovosos_meat, mutant_part_chimera_meat			;;--wpn_pkm,wpn_svu,wpn_svu_nimble,wpn_svd,wpn_svd_nimble,wpn_val,wpn_groza,wpn_groza_nimble,wpn_vintorez,wpn_ak47m,wpn_sako,wpn_fnfal,wpn_fnfallelcan,wpn_fnfallelcan_custom,wpn_fnfallelcan_modern,wpn_fnfallelcan_camo,wpn_g43,wpn_galil,wpn_k98,wpn_m1891,wpn_obrez,wpn_m1891_alt,wpn_m21,wpn_m24,wpn_rpk74,wpn_stg44,wpn_vsk94,wpn_sks,wpn_sks_modern,wpn_trg,wpn_ak47m_modern,wpn_ak47m_camo,wpn_ak47m_alt,wpn_ak47m_worn,wpn_stg44_new,wpn_stg44_alt,wpn_stg44_old,wpn_stg44_worn,wpn_pkm_zulus,wpn_vintorez_nimble,wpn_aek973,wpn_svd_alt ;;--Add sections separated by commas that exclude all sections but these
+repair_parts_include	                 = dis_scrap, sp_stock, sp_rifle_boltcarrier, sp_triggermechanism, sp_spring, sp_pistolgrip, toolkit_p_0, toolkit_s_0, toolkit_r5_0, toolkit_r7_0, toolkit_u_0, swiss_knife, grease, grease2, steel_wool, steel_wool2, solvent, solvent_2, gun_oil, gun_oil_2, gun_oil_ru, gun_oil_ru_2, gun_oil_ru_d, gun_oil_ru_d_2, cleaning_kit_r7, cleaning_kit_r7_2, cleaning_kit_r7_3, cleaning_kit_u, cleaning_kit_u_2, cleaning_kit_u_3, hammer_inv, crowbar, kerosene, kerosene2, kerosene3, kerosene4, kerosene5, explo_jerrycan_fuel, explo_jerrycan_fuel2, explo_jerrycan_fuel3, explo_jerrycan_fuel4, explo_jerrycan_fuel5, explo_jerrycan_fuel6, explo_jerrycan_fuel7, explo_jerrycan_fuel8, explo_jerrycan_fuel_empty, explo_balon_gas, explo_balon_gas2, explo_balon_gas3, explo_balon_gas4, explo_balon_gas5, explo_balon_gas6, explo_balon_gas7, explo_balon_gas8, explo_balon_gas_empty, flask, flask2, flask3, mineral_water, mineral_water2, mineral_water3, vodka, vodka_2, vodka_3, vodka2, vodka2_2, vodka2_3, vodka_quality, vodka_quality2, vodka_quality3, bottle_metal, bottle_metal2, bottle_metal3, mutant_part_flesh_meat, mutant_part_boar_chop, mutant_part_dog_meat, mutant_part_psevdodog_meat, mutant_part_krovosos_meat, mutant_part_chimera_meat			;;--wpn_pkm,wpn_svu,wpn_svu_nimble,wpn_svd,wpn_svd_nimble,wpn_val,wpn_groza,wpn_groza_nimble,wpn_vintorez,wpn_ak47m,wpn_sako,wpn_fnfal,wpn_fnfallelcan,wpn_fnfallelcan_custom,wpn_fnfallelcan_modern,wpn_fnfallelcan_camo,wpn_g43,wpn_galil,wpn_k98,wpn_m1891,wpn_obrez,wpn_m1891_alt,wpn_m21,wpn_m24,wpn_rpk74,wpn_stg44,wpn_vsk94,wpn_sks,wpn_sks_modern,wpn_trg,wpn_ak47m_modern,wpn_ak47m_camo,wpn_ak47m_alt,wpn_ak47m_worn,wpn_stg44_new,wpn_stg44_alt,wpn_stg44_old,wpn_stg44_worn,wpn_pkm_zulus,wpn_vintorez_nimble,wpn_aek973,wpn_svd_alt ;;--Add sections separated by commas that exclude all sections but these
 repair_parts_exclude	                 = pistol, shotgun, rifle_5, rifle_7, scope, dynamo_hand
 repair_use_actor_effects                 = true      ;;--Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
 ;use_sound			                     = interface\inv_repair_kit_with_brushes
@@ -842,13 +817,7 @@ cost				                     = 31080
 inv_weight			                     = 3.592
 uses_index					             = 4
 
-[toolkit_r7_0]:identity_immunities
-$spawn 				                     = "devices\roubles"
-$prefetch 			                     = 16
-class				                     = S_PDA
-cform				                     = skeleton
-radius				                     = 68;;-- 50
-class_dbg			                     = S_REPAIR
+[toolkit_r7_0]:repair_kit_base
 description			                     = st_repair_kit_r7_empty_descr
 inv_name			                     = st_repair_kit_r7_empty
 inv_name_short		                     = st_repair_kit_r7_empty
@@ -874,7 +843,6 @@ repair_part_bonus	 	                 = 0.04
 
 [sewing_kit_b]:repair_kit_base ;;-- (Basic sewing kit) ;;--x4
 $spawn 				                     = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description			                     = st_sewing_kit_b_descr
 inv_name			                     = st_sewing_kit_b
 inv_name_short			                 = st_sewing_kit_b
@@ -900,7 +868,7 @@ repair_use_parts	 	                 = true		;;--Allows the use of lesser conditi
 repair_type			 	                 = outfit 	;;--weapon	;;--weapon or outfit
 repair_refuse			                 = 
 repair_only				                 = outfit, helmet_light
-repair_parts_include	                 = dis_metalplate, dis_scrap, copper_wire, af_camelbak, swiss, rope, toolkit_u, toolkit_u_2, toolkit_u_3, toolkit_u_4, armor_repair_pro, armor_repair_pro_2, armor_repair_pro_3, armor_repair_pro_4, sewing_kit_h, sewing_kit_h_2, sewing_kit_h_3, sewing_kit_h_4, sewing_kit_a, sewing_kit_a_2, sewing_kit_a_3, sewing_kit_a_4, glue_e, glue_e_2, glue_a, glue_a_2, glue_b, glue_b_2, armor_repair_fa, armor_repair_fa_2, textile_patch_b, textile_patch_m, textile_patch_e, survival_kit, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, helm_cloth_mask, underwear, hide_psy_dog, hide_pseudodog, hide_bloodsucker, hide_boar, hide_flesh, hide_burer, hide_controller, helmet_repair_kit_0, armor_repair_pro_0,cloth_brown,cloth_white,cloth_black,cloth_green,plate_small,plate_unload,plate_cloth,plate_light, plastic_pieces		;;--Add sections of items to include to be considered repair parts
+repair_parts_include	                 = dis_metalplate, dis_scrap, copper_wire, af_camelbak, swiss_knife, rope, toolkit_u, toolkit_u_2, toolkit_u_3, toolkit_u_4, armor_repair_pro, armor_repair_pro_2, armor_repair_pro_3, armor_repair_pro_4, sewing_kit_h, sewing_kit_h_2, sewing_kit_h_3, sewing_kit_h_4, sewing_kit_a, sewing_kit_a_2, sewing_kit_a_3, sewing_kit_a_4, glue_e, glue_e_2, glue_a, glue_a_2, glue_b, glue_b_2, armor_repair_fa, armor_repair_fa_2, duct_tape, textile_patch_b, textile_patch_m, textile_patch_e, survival_kit, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, helm_cloth_mask, underwear, hide_psy_dog, hide_pseudodog, hide_bloodsucker, hide_boar, hide_flesh, hide_burer, hide_controller, helmet_repair_kit_0, armor_repair_pro_0,cloth_brown,cloth_white,cloth_black,cloth_green,plate_small,plate_unload,plate_cloth,plate_light, plastic_pieces		;;--Add sections of items to include to be considered repair parts
 repair_parts_exclude	                 = outfit, helmet, helmet_light
 repair_use_actor_effects                 = true      ;;--Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
 ;use_sound			                     = interface\inv_sewing_kit
@@ -934,7 +902,6 @@ uses_index					             = 4
 
 [sewing_kit_a]:repair_kit_base ;;-- (Advanced sewing kit) ;;--x4
 $spawn 				                     = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description			                     = st_sewing_kit_a_descr
 inv_name			                     = st_sewing_kit_a
 inv_name_short			                 = st_sewing_kit_a
@@ -960,7 +927,7 @@ repair_use_parts	 	                 = true		;;--Allows the use of lesser conditi
 repair_type			 	                 = outfit 	;;--weapon	;;--weapon or outfit
 repair_refuse			                 = 
 repair_only				                 = outfit, helmet_light
-repair_parts_include	                 = fieldcraft_plate_attch, dis_metalplate, dis_scrap, copper_wire, af_camelbak, swiss, boots, rope, synthrope, mutant_part_snork_mask, toolkit_u, toolkit_u_2, toolkit_u_3, toolkit_u_4, armor_repair_pro, armor_repair_pro_2, armor_repair_pro_3, armor_repair_pro_4, sewing_kit_h, sewing_kit_h_2, sewing_kit_h_3, sewing_kit_h_4, sewing_kit_b, sewing_kit_b_2, sewing_kit_b_3, sewing_kit_b_4, glue_e, glue_e_2, glue_a, glue_a_2, glue_b, glue_b_2, af_kevlar, armor_repair_fa, armor_repair_fa_2, textile_patch_b, textile_patch_m, textile_patch_e, survival_kit, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, helm_cloth_mask, tarpaulin, bedspread, underwear, hide_psy_dog, hide_pseudodog, hide_boar, hide_flesh, hide_burer, hide_controller ,hide_bloodsucker, hide_chimera, hide_pseudogiant, helmet_repair_kit_0, armor_repair_pro_0,cloth_brown,cloth_white,cloth_black,cloth_green,plate_small,plate_unload,plate_monolith,plate_military,plate_cloth,plate_light,plate_medium,plate_heavy,plate_seva, plastic_pieces		;;--Add sections of items to include to be considered repair parts
+repair_parts_include	                 = fieldcraft_plate_attch, dis_metalplate, dis_scrap, copper_wire, af_camelbak, swiss_knife, boots, rope, synthrope, mutant_part_snork_mask, toolkit_u, toolkit_u_2, toolkit_u_3, toolkit_u_4, armor_repair_pro, armor_repair_pro_2, armor_repair_pro_3, armor_repair_pro_4, sewing_kit_h, sewing_kit_h_2, sewing_kit_h_3, sewing_kit_h_4, sewing_kit_b, sewing_kit_b_2, sewing_kit_b_3, sewing_kit_b_4, glue_e, glue_e_2, glue_a, glue_a_2, glue_b, glue_b_2, af_kevlar, armor_repair_fa, armor_repair_fa_2, duct_tape, textile_patch_b, textile_patch_m, textile_patch_e, survival_kit, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, helm_cloth_mask, tarpaulin, bedspread, underwear, hide_psy_dog, hide_pseudodog, hide_boar, hide_flesh, hide_burer, hide_controller ,hide_bloodsucker, hide_chimera, hide_pseudogiant, helmet_repair_kit_0, armor_repair_pro_0,cloth_brown,cloth_white,cloth_black,cloth_green,plate_small,plate_unload,plate_monolith,plate_military,plate_cloth,plate_light,plate_medium,plate_heavy,plate_seva, plastic_pieces		;;--Add sections of items to include to be considered repair parts
 repair_parts_exclude	                 = outfit, helmet, helmet_light
 repair_use_actor_effects                 = true      ;;--Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
 ;use_sound			                     = interface\inv_sewing_kit
@@ -994,7 +961,6 @@ uses_index					             = 4
 
 [sewing_kit_h]:repair_kit_base ;;-- (Heavy sewing kit) ;;--x4
 $spawn 				                     = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description			                     = st_sewing_kit_h_descr
 inv_name			                     = st_sewing_kit_h
 inv_name_short			                 = st_sewing_kit_h
@@ -1020,7 +986,7 @@ repair_use_parts	 	                 = true		;;--Allows the use of lesser conditi
 repair_type			 	                 = outfit 	;;--weapon	;;--weapon or outfit
 repair_refuse			                 = 
 repair_only				                 = outfit, helmet_light
-repair_parts_include	                 = fieldcraft_plate_attch, dis_metalplate, dis_scrap, copper_wire, af_camelbak, swiss, boots, rope, synthrope, mutant_part_snork_mask, toolkit_u, toolkit_u_2, toolkit_u_3, toolkit_u_4, armor_repair_pro, armor_repair_pro_2, armor_repair_pro_3, armor_repair_pro_4, sewing_kit_a, sewing_kit_a_2, sewing_kit_a_3, sewing_kit_a_4, sewing_kit_b, sewing_kit_b_2, sewing_kit_b_3, sewing_kit_b_4, glue_e, glue_e_2, glue_a, glue_a_2, glue_b, glue_b_2, af_kevlar, armor_repair_fa, armor_repair_fa_2, textile_patch_b, textile_patch_m, textile_patch_e, survival_kit, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, helm_cloth_mask, tarpaulin, bedspread, underwear, hammer_inv, crowbar, hide_chimera, hide_pseudogiant, hide_psy_dog, hide_pseudodog, hide_boar, hide_flesh, hide_burer, hide_controller ,hide_bloodsucker, helmet_repair_kit_0, armor_repair_pro_0,cloth_brown,cloth_white,cloth_black,cloth_green,plate_small,plate_unload,plate_monolith,plate_military,plate_cloth,plate_light,plate_medium,plate_heavy,plate_seva,plastic_pieces		;;--Add sections of items to include to be considered repair parts
+repair_parts_include	                 = fieldcraft_plate_attch, dis_metalplate, dis_scrap, copper_wire, af_camelbak, swiss_knife, boots, rope, synthrope, mutant_part_snork_mask, toolkit_u, toolkit_u_2, toolkit_u_3, toolkit_u_4, armor_repair_pro, armor_repair_pro_2, armor_repair_pro_3, armor_repair_pro_4, sewing_kit_a, sewing_kit_a_2, sewing_kit_a_3, sewing_kit_a_4, sewing_kit_b, sewing_kit_b_2, sewing_kit_b_3, sewing_kit_b_4, glue_e, glue_e_2, glue_a, glue_a_2, glue_b, glue_b_2, af_kevlar, armor_repair_fa, armor_repair_fa_2, duct_tape, textile_patch_b, textile_patch_m, textile_patch_e, survival_kit, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, helm_cloth_mask, tarpaulin, bedspread, underwear, hammer_inv, crowbar, hide_chimera, hide_pseudogiant, hide_psy_dog, hide_pseudodog, hide_boar, hide_flesh, hide_burer, hide_controller ,hide_bloodsucker, helmet_repair_kit_0, armor_repair_pro_0,cloth_brown,cloth_white,cloth_black,cloth_green,plate_small,plate_unload,plate_monolith,plate_military,plate_cloth,plate_light,plate_medium,plate_heavy,plate_seva,plastic_pieces		;;--Add sections of items to include to be considered repair parts
 repair_parts_exclude	                 = outfit, helmet, helmet_light
 repair_use_actor_effects                 = true      ;;--Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
 ;use_sound			                     = interface\inv_sewing_kit
@@ -1054,7 +1020,6 @@ uses_index					             = 4
 
 [glue_b]:repair_kit_base ;;-- (Basic glue) ;;--x2
 $spawn 				                     = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description			                     = st_glue_b_descr
 inv_name			                     = st_glue_b
 inv_name_short			                 = st_glue_b
@@ -1080,7 +1045,7 @@ repair_use_parts	 	                 = true		;;--Allows the use of lesser conditi
 repair_type			 	                 = outfit 	;;--weapon	;;--weapon or outfit
 repair_refuse			                 = 
 repair_only				                 = outfit, helmet, helmet_light
-repair_parts_include	                 = dis_metalplate, dis_scrap, copper_wire, swiss, toolkit_u, toolkit_u_2, toolkit_u_3, toolkit_u_4, armor_repair_pro, armor_repair_pro_2, armor_repair_pro_3, armor_repair_pro_4, sewing_kit_h, sewing_kit_h_2, sewing_kit_h_3, sewing_kit_h_4, sewing_kit_a, sewing_kit_a_2, sewing_kit_a_3, sewing_kit_a_4, sewing_kit_b, sewing_kit_b_2, sewing_kit_b_3, sewing_kit_b_4, glue_e, glue_e_2, glue_a, glue_a_2, armor_repair_fa, armor_repair_fa_2, textile_patch_b, textile_patch_m, textile_patch_e, survival_kit, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, helm_cloth_mask, cloth_brown,cloth_white,cloth_black,cloth_green,plate_small,plate_unload,plate_cloth,plate_light, plastic_pieces
+repair_parts_include	                 = dis_metalplate, dis_scrap, copper_wire, swiss_knife, toolkit_u, toolkit_u_2, toolkit_u_3, toolkit_u_4, armor_repair_pro, armor_repair_pro_2, armor_repair_pro_3, armor_repair_pro_4, sewing_kit_h, sewing_kit_h_2, sewing_kit_h_3, sewing_kit_h_4, sewing_kit_a, sewing_kit_a_2, sewing_kit_a_3, sewing_kit_a_4, sewing_kit_b, sewing_kit_b_2, sewing_kit_b_3, sewing_kit_b_4, glue_e, glue_e_2, glue_a, glue_a_2, armor_repair_fa, armor_repair_fa_2, duct_tape, textile_patch_b, textile_patch_m, textile_patch_e, survival_kit, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, helm_cloth_mask, cloth_brown,cloth_white,cloth_black,cloth_green,plate_small,plate_unload,plate_cloth,plate_light, plastic_pieces
 repair_parts_exclude	                 = outfit, helmet, helmet_light
 repair_use_actor_effects                 = true      ;;--Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
 ;use_sound			                     = interface\inv_glue
@@ -1088,6 +1053,7 @@ uses_base					             = glue_b
 uses_index					             = 1
 use2_functor         		             = itms_manager.menu_separate
 use2_action_functor  		             = itms_manager.use_separate
+disassemble_parts				 		 = jar,textile_patch_m,basic_textolite
 
 [glue_b_2]:glue_b
 $spawn 				                     = "devices\repair_kit_10"
@@ -1100,7 +1066,6 @@ uses_index					             = 2
 
 [glue_a]:repair_kit_base ;;-- (Advanced glue) ;;--x2
 $spawn 				                     = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description			                     = st_glue_a_descr
 inv_name			                     = st_glue_a
 inv_name_short			                 = st_glue_a
@@ -1126,7 +1091,7 @@ repair_use_parts	 	                 = true		;;--Allows the use of lesser conditi
 repair_type			 	                 = outfit 	;;--weapon	;;--weapon or outfit
 repair_refuse			                 = 
 repair_only				                 = outfit, helmet, helmet_light
-repair_parts_include	                 = fieldcraft_plate_attch, dis_metalplate, dis_scrap, copper_wire, swiss, toolkit_u, toolkit_u_2, toolkit_u_3, toolkit_u_4, armor_repair_pro, armor_repair_pro_2, armor_repair_pro_3, armor_repair_pro_4, sewing_kit_h, sewing_kit_h_2, sewing_kit_h_3, sewing_kit_h_4, sewing_kit_a, sewing_kit_a_2, sewing_kit_a_3, sewing_kit_a_4, sewing_kit_b, sewing_kit_b_2, sewing_kit_b_3, sewing_kit_b_4, glue_e, glue_e_2, glue_b, glue_b_2, af_kevlar, armor_repair_fa, armor_repair_fa_2, textile_patch_b, textile_patch_m, textile_patch_e, survival_kit, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, helm_cloth_mask,cloth_brown,cloth_white,cloth_black,cloth_green,plate_small,plate_unload,plate_monolith,plate_military,plate_cloth,plate_light,plate_medium,plate_heavy,plate_seva, plastic_pieces
+repair_parts_include	                 = fieldcraft_plate_attch, dis_metalplate, dis_scrap, copper_wire, swiss_knife, toolkit_u, toolkit_u_2, toolkit_u_3, toolkit_u_4, armor_repair_pro, armor_repair_pro_2, armor_repair_pro_3, armor_repair_pro_4, sewing_kit_h, sewing_kit_h_2, sewing_kit_h_3, sewing_kit_h_4, sewing_kit_a, sewing_kit_a_2, sewing_kit_a_3, sewing_kit_a_4, sewing_kit_b, sewing_kit_b_2, sewing_kit_b_3, sewing_kit_b_4, glue_e, glue_e_2, glue_b, glue_b_2, af_kevlar, armor_repair_fa, armor_repair_fa_2, duct_tape, textile_patch_b, textile_patch_m, textile_patch_e, survival_kit, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, helm_cloth_mask,cloth_brown,cloth_white,cloth_black,cloth_green,plate_small,plate_unload,plate_monolith,plate_military,plate_cloth,plate_light,plate_medium,plate_heavy,plate_seva, plastic_pieces
 repair_parts_exclude	                 = outfit, helmet, helmet_light
 repair_use_actor_effects                 = true      ;;--Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
 ;use_sound			                     = interface\inv_glue
@@ -1134,6 +1099,7 @@ uses_base					             = glue_a
 uses_index					             = 1
 use2_functor         		             = itms_manager.menu_separate
 use2_action_functor  		             = itms_manager.use_separate
+disassemble_parts				 		 = jar,textile_patch_m,basic_textolite
 
 [glue_a_2]:glue_a
 $spawn 				                     = "devices\repair_kit_10"
@@ -1146,7 +1112,6 @@ uses_index					             = 2
 
 [glue_e]:repair_kit_base ;;-- (Extreme glue) ;;--x2
 $spawn 				                     = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description			                     = st_glue_e_descr
 inv_name			                     = st_glue_e
 inv_name_short		                     = st_glue_e
@@ -1172,7 +1137,7 @@ repair_use_parts	 	                 = true		;;--Allows the use of lesser conditi
 repair_type			 	                 = outfit 	;;--weapon	;;--weapon or outfit
 repair_refuse			                 = 
 repair_only				                 = outfit, helmet, helmet_light
-repair_parts_include	                 = fieldcraft_plate_attch, dis_metalplate, dis_scrap, copper_wire, swiss, toolkit_u, toolkit_u_2, toolkit_u_3, toolkit_u_4, armor_repair_pro, armor_repair_pro_2, armor_repair_pro_3, armor_repair_pro_4, sewing_kit_h, sewing_kit_h_2, sewing_kit_h_3, sewing_kit_h_4, sewing_kit_a, sewing_kit_a_2, sewing_kit_a_3, sewing_kit_a_4, sewing_kit_b, sewing_kit_b_2, sewing_kit_b_3, sewing_kit_b_4, glue_a, glue_a_2, glue_b, glue_b_2, af_kevlar, af_plates, armor_repair_fa, armor_repair_fa_2, textile_patch_b, textile_patch_m, textile_patch_e, survival_kit, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, helm_cloth_mask,cloth_brown,cloth_white,cloth_black,cloth_green,plate_small,plate_unload,plate_monolith,plate_military,plate_cloth,plate_light,plate_medium,plate_heavy,plate_seva, plastic_pieces		;;--Add sections of items to include to be considered repair parts
+repair_parts_include	                 = fieldcraft_plate_attch, dis_metalplate, dis_scrap, copper_wire, swiss_knife, toolkit_u, toolkit_u_2, toolkit_u_3, toolkit_u_4, armor_repair_pro, armor_repair_pro_2, armor_repair_pro_3, armor_repair_pro_4, sewing_kit_h, sewing_kit_h_2, sewing_kit_h_3, sewing_kit_h_4, sewing_kit_a, sewing_kit_a_2, sewing_kit_a_3, sewing_kit_a_4, sewing_kit_b, sewing_kit_b_2, sewing_kit_b_3, sewing_kit_b_4, glue_a, glue_a_2, glue_b, glue_b_2, af_kevlar, af_plates, armor_repair_fa, armor_repair_fa_2, duct_tape, textile_patch_b, textile_patch_m, textile_patch_e, survival_kit, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, helm_cloth_mask,cloth_brown,cloth_white,cloth_black,cloth_green,plate_small,plate_unload,plate_monolith,plate_military,plate_cloth,plate_light,plate_medium,plate_heavy,plate_seva, plastic_pieces		;;--Add sections of items to include to be considered repair parts
 repair_parts_exclude	                 = outfit, helmet, helmet_light
 repair_use_actor_effects                 = true      ;;--Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
 ;use_sound			                     = interface\inv_glue
@@ -1180,6 +1145,7 @@ uses_base					             = glue_e
 uses_index					             = 1
 use2_functor         		             = itms_manager.menu_separate
 use2_action_functor  		             = itms_manager.use_separate
+disassemble_parts				 		 = jar,textile_patch_m,basic_textolite
 
 [glue_e_2]:glue_e
 $spawn 				                     = "devices\repair_kit_10"
@@ -1192,7 +1158,6 @@ uses_index					             = 2
 
 [armor_repair_fa]:repair_kit_base ;;-- (First aid armor repair set (Textile residues and duct tape)) ;;--x2
 $spawn 				                     = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description			                     = st_armor_repair_fa_descr
 inv_name			                     = st_armor_repair_fa
 inv_name_short			                 = st_armor_repair_fa
@@ -1218,7 +1183,7 @@ repair_use_parts	 	                 = true		;;--Allows the use of lesser conditi
 repair_type			 	                 = outfit 	;;--weapon	;;--weapon or outfit
 repair_refuse			                 = 
 repair_only				                 = outfit, helmet_light
-repair_parts_include	                 = dis_metalplate, dis_scrap, copper_wire, swiss, toolkit_u, toolkit_u_2, toolkit_u_3, toolkit_u_4, armor_repair_pro, armor_repair_pro_2, armor_repair_pro_3, armor_repair_pro_4, sewing_kit_h, sewing_kit_h_2, sewing_kit_h_3, sewing_kit_h_4, sewing_kit_a, sewing_kit_a_2, sewing_kit_a_3, sewing_kit_a_4, sewing_kit_b, sewing_kit_b_2, sewing_kit_b_3, sewing_kit_b_4, glue_e, glue_e_2, glue_a, glue_a_2, glue_b, glue_b_2, textile_patch_b, textile_patch_m, textile_patch_e, survival_kit, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, helm_cloth_mask,cloth_brown,cloth_white,cloth_black,cloth_green,plate_small,plate_unload,plate_cloth,plate_light, plastic_pieces	;;--Add sections of items to include to be considered repair parts
+repair_parts_include	                 = dis_metalplate, dis_scrap, copper_wire, swiss_knife, toolkit_u, toolkit_u_2, toolkit_u_3, toolkit_u_4, armor_repair_pro, armor_repair_pro_2, armor_repair_pro_3, armor_repair_pro_4, sewing_kit_h, sewing_kit_h_2, sewing_kit_h_3, sewing_kit_h_4, sewing_kit_a, sewing_kit_a_2, sewing_kit_a_3, sewing_kit_a_4, sewing_kit_b, sewing_kit_b_2, sewing_kit_b_3, sewing_kit_b_4, glue_e, glue_e_2, glue_a, glue_a_2, glue_b, glue_b_2, duct_tape, textile_patch_b, textile_patch_m, textile_patch_e, survival_kit, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, helm_cloth_mask,cloth_brown,cloth_white,cloth_black,cloth_green,plate_small,plate_unload,plate_cloth,plate_light, plastic_pieces	;;--Add sections of items to include to be considered repair parts
 repair_parts_exclude	                 = outfit, helmet, helmet_light
 repair_use_actor_effects                 = true      ;;--Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
 ;use_sound			                     = interface\inv_tape
@@ -1226,6 +1191,7 @@ uses_base					             = armor_repair_fa
 uses_index					             = 1
 use2_functor         		             = itms_manager.menu_separate
 use2_action_functor  		             = itms_manager.use_separate
+disassemble_parts				 		 = duct_tape,duct_tape,textile_patch_m,basic_textolite
 
 [armor_repair_fa_2]:armor_repair_fa
 $spawn 				                     = "devices\repair_kit_10"
@@ -1238,7 +1204,6 @@ uses_index					             = 2
 
 [armor_repair_pro]:repair_kit_base ;;-- (Professional armor repair set (Chemical substance to fix closed respiratory material shredding)) ;;--x4
 $spawn 				                     = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description			                     = st_armor_repair_pro_descr
 inv_name			                     = st_armor_repair_pro
 inv_name_short			                 = st_armor_repair_pro
@@ -1264,7 +1229,7 @@ repair_use_parts	 	                 = true		;;--Allows the use of lesser conditi
 repair_type			 	                 = outfit 	;;--weapon	;;--weapon or outfit
 repair_refuse			                 = 
 repair_only				                 = outfit, helmet, helmet_light
-repair_parts_include	                 = fieldcraft_plate_attch, dis_metalplate, dis_scrap, copper_wire, helmet_repair_kit, helmet_repair_kit_2, helmet_repair_kit_3, af_camelbak, af_aam, af_aac, af_iam, af_cooler, af_surge, af_grid, af_frames,swiss, boots, rope, synthrope, mutant_part_snork_mask, toolkit_u, toolkit_u_2, toolkit_u_3, toolkit_u_4, sewing_kit_h, sewing_kit_h_2, sewing_kit_h_3, sewing_kit_h_4, sewing_kit_a, sewing_kit_a_2, sewing_kit_a_3, sewing_kit_a_4, sewing_kit_b, sewing_kit_b_2, sewing_kit_b_3, sewing_kit_b_4, glue_e, glue_e_2, glue_a, glue_a_2, glue_b, glue_b_2, armor_repair_fa, armor_repair_fa_2, hide_chimera, hide_pseudogiant, hide_psy_dog, hide_pseudodog, hide_burer, hide_controller, hide_bloodsucker, hide_boar, hide_flesh, textile_patch_b, textile_patch_m, textile_patch_e, af_kevlar, af_plates, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, survival_kit, helm_cloth_mask, tarpaulin, bedspread, underwear, hammer_inv, crowbar, toolkit_p_0, toolkit_s_0, toolkit_r5_0, toolkit_r7_0, toolkit_u_0, helmet_repair_kit_0, armor_repair_pro_0, explo_jerrycan_fuel_empty, explo_balon_gas, explo_balon_gas2, explo_balon_gas3, explo_balon_gas4, explo_balon_gas5, explo_balon_gas6, explo_balon_gas7, explo_balon_gas8, explo_balon_gas_empty, cloth_brown,cloth_white,cloth_black,cloth_green,plate_small,plate_unload,plate_monolith,plate_military,plate_cloth,plate_light,plate_medium,plate_heavy,plate_seva, plastic_pieces		;;--Add sections of items to include to be considered repair parts
+repair_parts_include	                 = fieldcraft_plate_attch, dis_metalplate, dis_scrap, copper_wire, helmet_repair_kit, helmet_repair_kit_2, helmet_repair_kit_3, af_camelbak, af_aam, af_aac, af_iam, af_cooler, af_surge, af_grid, af_frames,swiss_knife, boots, rope, synthrope, mutant_part_snork_mask, toolkit_u, toolkit_u_2, toolkit_u_3, toolkit_u_4, sewing_kit_h, sewing_kit_h_2, sewing_kit_h_3, sewing_kit_h_4, sewing_kit_a, sewing_kit_a_2, sewing_kit_a_3, sewing_kit_a_4, sewing_kit_b, sewing_kit_b_2, sewing_kit_b_3, sewing_kit_b_4, glue_e, glue_e_2, glue_a, glue_a_2, glue_b, glue_b_2, armor_repair_fa, armor_repair_fa_2, hide_chimera, hide_pseudogiant, hide_psy_dog, hide_pseudodog, hide_burer, hide_controller, hide_bloodsucker, hide_boar, hide_flesh, duct_tape, textile_patch_b, textile_patch_m, textile_patch_e, af_kevlar, af_plates, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, survival_kit, helm_cloth_mask, tarpaulin, bedspread, underwear, hammer_inv, crowbar, toolkit_p_0, toolkit_s_0, toolkit_r5_0, toolkit_r7_0, toolkit_u_0, helmet_repair_kit_0, armor_repair_pro_0, explo_jerrycan_fuel_empty, explo_balon_gas, explo_balon_gas2, explo_balon_gas3, explo_balon_gas4, explo_balon_gas5, explo_balon_gas6, explo_balon_gas7, explo_balon_gas8, explo_balon_gas_empty, cloth_brown,cloth_white,cloth_black,cloth_green,plate_small,plate_unload,plate_monolith,plate_military,plate_cloth,plate_light,plate_medium,plate_heavy,plate_seva, plastic_pieces		;;--Add sections of items to include to be considered repair parts
 repair_parts_exclude	                 = outfit, helmet, helmet_light
 repair_use_actor_effects                 = true      ;;--Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
 ;use_sound			                     = interface\inv_repair_kit
@@ -1294,13 +1259,7 @@ cost				                     = 15872
 inv_weight			                     = 2.196
 uses_index					             = 4
 
-[armor_repair_pro_0]:identity_immunities
-$spawn 				                     = "devices\roubles"
-$prefetch 			                     = 16
-class				                     = S_PDA
-cform				                     = skeleton
-radius				                     = 68;;-- 50
-class_dbg			                     = S_REPAIR
+[armor_repair_pro_0]:repair_kit_base
 description			                     = st_armor_repair_pro_empty_descr
 inv_name			                     = st_armor_repair_pro_empty
 inv_name_short		                     = st_armor_repair_pro_empty
@@ -1321,7 +1280,6 @@ repair_part_bonus	 	                 = 0.03
 
 [helmet_repair_kit]:repair_kit_base ;;--x3
 $spawn 				                     = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description			                     = st_helmet_repair_kit_descr
 inv_name			                     = st_helmet_repair_kit
 inv_name_short			                 = st_helmet_repair_kit
@@ -1347,7 +1305,7 @@ repair_use_parts	 	                 = true		;;--Allows the use of lesser conditi
 repair_type			 	                 = outfit 	;;--weapon	;;--weapon or outfit
 repair_refuse			                 = 
 repair_only				                 = helmet, helmet_light
-repair_parts_include	                 = dis_metalplate, dis_scrap, copper_wire, af_aam, af_aac, af_iam, af_cooler, af_surge, af_grid, af_frames, swiss, toolkit_u, toolkit_u_2, toolkit_u_3, toolkit_u_4, armor_repair_pro, armor_repair_pro_2, armor_repair_pro_3, armor_repair_pro_4, sewing_kit_h, sewing_kit_h_2, sewing_kit_h_3, sewing_kit_h_4, sewing_kit_a, sewing_kit_a_2, sewing_kit_a_3, sewing_kit_a_4, sewing_kit_b, sewing_kit_b_2, sewing_kit_b_3, sewing_kit_b_4, glue_e, glue_e_2, glue_a, glue_a_2, glue_b, glue_b_2, textile_patch_e, hammer_inv, crowbar, toolkit_p_0, toolkit_s_0, toolkit_r5_0, toolkit_r7_0, toolkit_u_0, helmet_repair_kit_0, armor_repair_pro_0, explo_jerrycan_fuel_empty, explo_balon_gas, explo_balon_gas2, explo_balon_gas3, explo_balon_gas4, explo_balon_gas5, explo_balon_gas6, explo_balon_gas7, explo_balon_gas8, explo_balon_gas_empty,cloth_brown,cloth_white,cloth_black,cloth_green,plate_monolith,plate_military,plate_cloth,plate_light,plate_medium,plastic_pieces,glass_pieces		;;--Add sections of items to include to be considered repair parts
+repair_parts_include	                 = dis_metalplate, dis_scrap, copper_wire, af_aam, af_aac, af_iam, af_cooler, af_surge, af_grid, af_frames, swiss_knife, toolkit_u, toolkit_u_2, toolkit_u_3, toolkit_u_4, armor_repair_pro, armor_repair_pro_2, armor_repair_pro_3, armor_repair_pro_4, sewing_kit_h, sewing_kit_h_2, sewing_kit_h_3, sewing_kit_h_4, sewing_kit_a, sewing_kit_a_2, sewing_kit_a_3, sewing_kit_a_4, sewing_kit_b, sewing_kit_b_2, sewing_kit_b_3, sewing_kit_b_4, glue_e, glue_e_2, glue_a, glue_a_2, glue_b, glue_b_2, textile_patch_e, hammer_inv, crowbar, toolkit_p_0, toolkit_s_0, toolkit_r5_0, toolkit_r7_0, toolkit_u_0, helmet_repair_kit_0, armor_repair_pro_0, explo_jerrycan_fuel_empty, explo_balon_gas, explo_balon_gas2, explo_balon_gas3, explo_balon_gas4, explo_balon_gas5, explo_balon_gas6, explo_balon_gas7, explo_balon_gas8, explo_balon_gas_empty,cloth_brown,cloth_white,cloth_black,cloth_green,plate_monolith,plate_military,plate_cloth,plate_light,plate_medium,plastic_pieces,glass_pieces		;;--Add sections of items to include to be considered repair parts
 repair_parts_exclude	                 = outfit, helmet, helmet_light
 repair_use_actor_effects                 = true      ;;--Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
 ;use_sound			                     = interface\inv_repair_kit
@@ -1370,13 +1328,7 @@ cost				                     = 8820
 inv_weight			                     = 1.642
 uses_index					             = 3
 
-[helmet_repair_kit_0]:identity_immunities
-$spawn 				                     = "devices\roubles"
-$prefetch 			                     = 16
-class				                     = S_PDA
-cform				                     = skeleton
-radius				                     = 68;;-- 50
-class_dbg			                     = S_REPAIR
+[helmet_repair_kit_0]:repair_kit_base
 description			                     = st_helmet_repair_kit_empty_descr
 inv_name			                     = st_helmet_repair_kit_empty
 inv_name_short		                     = st_helmet_repair_kit_empty
@@ -1397,7 +1349,6 @@ repair_part_bonus	 	                 = 0.04
 
 [toolkit_u]:repair_kit_base ;;--x4
 $spawn 				                     = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description			                     = st_repair_kit_descr
 inv_name			                     = st_repair_kit
 inv_name_short		                     = st_repair_kit
@@ -1423,7 +1374,7 @@ repair_use_parts	 	                 = true		;;--Allows the use of lesser conditi
 repair_type			 	                 = outfit 	;;--weapon	;;--weapon or outfit
 repair_refuse			                 = 
 repair_only				                 = outfit, helmet, helmet_light
-repair_parts_include	                 = fieldcraft_plate_attch dis_metalplate, dis_scrap, copper_wire, helmet_repair_kit, helmet_repair_kit_2, helmet_repair_kit_3, af_camelbak, af_aam, af_aac, af_iam, af_cooler, af_surge, af_grid, af_frames, swiss, boots, rope, synthrope, mutant_part_snork_mask, armor_repair_pro, armor_repair_pro_2, armor_repair_pro_3, armor_repair_pro_4, sewing_kit_h, sewing_kit_h_2, sewing_kit_h_3, sewing_kit_h_4, sewing_kit_a, sewing_kit_a_2, sewing_kit_a_3, sewing_kit_a_4, sewing_kit_b, sewing_kit_b_2, sewing_kit_b_3, sewing_kit_b_4, glue_e, glue_e_2, glue_a, glue_a_2, glue_b, glue_b_2, armor_repair_fa, armor_repair_fa_2, hide_chimera, hide_pseudogiant, hide_psy_dog, hide_pseudodog, hide_burer, hide_controller, hide_bloodsucker, hide_boar, hide_flesh, textile_patch_b, textile_patch_m, textile_patch_e, af_kevlar, af_plates, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, survival_kit, helm_cloth_mask, tarpaulin, bedspread, underwear, hammer_inv, crowbar, toolkit_p_0, toolkit_s_0, toolkit_r5_0, toolkit_r7_0, toolkit_u_0, helmet_repair_kit_0, armor_repair_pro_0, explo_jerrycan_fuel_empty, explo_balon_gas, explo_balon_gas2, explo_balon_gas3, explo_balon_gas4, explo_balon_gas5, explo_balon_gas6, explo_balon_gas7, explo_balon_gas8, explo_balon_gas_empty, cloth_brown,cloth_white,cloth_black,cloth_green,plate_small,plate_unload,plate_monolith,plate_military,plate_cloth,plate_light,plate_medium,plate_heavy,plate_seva,glass_pieces,plastic_pieces		;;--Add sections of items to include to be considered repair parts
+repair_parts_include	                 = fieldcraft_plate_attch dis_metalplate, dis_scrap, copper_wire, helmet_repair_kit, helmet_repair_kit_2, helmet_repair_kit_3, af_camelbak, af_aam, af_aac, af_iam, af_cooler, af_surge, af_grid, af_frames, swiss_knife, boots, rope, synthrope, mutant_part_snork_mask, armor_repair_pro, armor_repair_pro_2, armor_repair_pro_3, armor_repair_pro_4, sewing_kit_h, sewing_kit_h_2, sewing_kit_h_3, sewing_kit_h_4, sewing_kit_a, sewing_kit_a_2, sewing_kit_a_3, sewing_kit_a_4, sewing_kit_b, sewing_kit_b_2, sewing_kit_b_3, sewing_kit_b_4, glue_e, glue_e_2, glue_a, glue_a_2, glue_b, glue_b_2, armor_repair_fa, armor_repair_fa_2, hide_chimera, hide_pseudogiant, hide_psy_dog, hide_pseudodog, hide_burer, hide_controller, hide_bloodsucker, hide_boar, hide_flesh, duct_tape, textile_patch_b, textile_patch_m, textile_patch_e, af_kevlar, af_plates, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, survival_kit, helm_cloth_mask, tarpaulin, bedspread, underwear, hammer_inv, crowbar, toolkit_p_0, toolkit_s_0, toolkit_r5_0, toolkit_r7_0, toolkit_u_0, helmet_repair_kit_0, armor_repair_pro_0, explo_jerrycan_fuel_empty, explo_balon_gas, explo_balon_gas2, explo_balon_gas3, explo_balon_gas4, explo_balon_gas5, explo_balon_gas6, explo_balon_gas7, explo_balon_gas8, explo_balon_gas_empty, cloth_brown,cloth_white,cloth_black,cloth_green,plate_small,plate_unload,plate_monolith,plate_military,plate_cloth,plate_light,plate_medium,plate_heavy,plate_seva,glass_pieces,plastic_pieces		;;--Add sections of items to include to be considered repair parts
 repair_parts_exclude	                 = outfit, helmet, helmet_light
 repair_use_actor_effects                 = true      ;;--Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
 ;use_sound			                     = interface\inv_repair_kit
@@ -1454,13 +1405,7 @@ inv_weight			                     = 6.484
 uses_index					             = 4
 
 
-[toolkit_u_0]:identity_immunities
-$spawn 				                     = "devices\roubles"
-$prefetch 			                     = 16
-class				                     = S_PDA
-cform				                     = skeleton
-radius				                     = 68;;-- 50
-class_dbg			                     = S_REPAIR
+[toolkit_u_0]:repair_kit_base
 description			                     = st_repair_kit_empty_descr
 inv_name			                     = st_repair_kit_empty
 inv_name_short		                     = st_repair_kit_empty
@@ -1484,7 +1429,6 @@ repair_part_bonus	 	                 = 0.05
 
 [exo_repair_kit]:toolkit_u ;;--x4
 $spawn 							         = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description						         = st_exo_repair_kit_descr
 inv_name						         = st_exo_repair_kit
 inv_name_short					         = st_exo_repair_kit
@@ -1510,7 +1454,7 @@ repair_use_parts	 			         = true		;;--Allows the use of lesser conditioned w
 repair_type			 			         = outfit 	;;--weapon	;;--weapon or outfit
 repair_refuse					         = cs_exo_outfit_worn, cs_exo_outfit_bad, renegade_exo_outfit_worn, renegade_exo_outfit_bad, military_exo_outfit_worn, military_exo_outfit_bad, ecolog_exo_outfit_worn, ecolog_exo_outfit_bad, monolith_exo_outfit_worn, monolith_exo_outfit_bad, dolg_exo_outfit_worn, dolg_exo_outfit_bad, bandit_exo_outfit_worn, bandit_exo_outfit_bad, merc_exo_outfit_worn, merc_exo_outfit_bad, svoboda_exo_outfit_worn, svoboda_exo_outfit_bad, exo_outfit_worn, exo_outfit_bad			;;-- cs_exo_outfit, renegade_exo_outfit, military_exo_outfit, ecolog_exo_outfit, monolith_exo_outfit, dolg_exo_outfit, bandit_exo_outfit, merc_exo_outfit, svoboda_exo_outfit, exo_outfit
 repair_only						         = cs_exo_outfit, renegade_exo_outfit, military_exo_outfit, ecolog_exo_outfit, monolith_exo_outfit, dolg_exo_outfit, bandit_exo_outfit, merc_exo_outfit, svoboda_exo_outfit, exo_outfit          ;;--Add sections separated by commas that exclude all sections but these
-repair_parts_include			         = fieldcraft_plate_attch, dis_metalplate, dis_scrap, copper_wire, swiss, boots, rope, synthrope, textile_patch_b, textile_patch_m, textile_patch_e, af_kevlar, af_plates, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, tarpaulin, bedspread, underwear, hammer_inv, crowbar, cs_exo_outfit_worn, cs_exo_outfit_bad, renegade_exo_outfit_worn, renegade_exo_outfit_bad, military_exo_outfit_worn, military_exo_outfit_bad, ecolog_exo_outfit_worn, ecolog_exo_outfit_bad, monolith_exo_outfit_worn, monolith_exo_outfit_bad, dolg_exo_outfit_worn, dolg_exo_outfit_bad, bandit_exo_outfit_worn, bandit_exo_outfit_bad, merc_exo_outfit_worn, merc_exo_outfit_bad, svoboda_exo_outfit_worn, svoboda_exo_outfit_bad, exo_outfit_worn, exo_outfit_bad		;;--Add sections of items to include to be considered repair parts
+repair_parts_include			         = fieldcraft_plate_attch, dis_metalplate, dis_scrap, copper_wire, swiss_knife, boots, rope, synthrope, duct_tape, textile_patch_b, textile_patch_m, textile_patch_e, af_kevlar, af_plates, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, tarpaulin, bedspread, underwear, hammer_inv, crowbar, cs_exo_outfit_worn, cs_exo_outfit_bad, renegade_exo_outfit_worn, renegade_exo_outfit_bad, military_exo_outfit_worn, military_exo_outfit_bad, ecolog_exo_outfit_worn, ecolog_exo_outfit_bad, monolith_exo_outfit_worn, monolith_exo_outfit_bad, dolg_exo_outfit_worn, dolg_exo_outfit_bad, bandit_exo_outfit_worn, bandit_exo_outfit_bad, merc_exo_outfit_worn, merc_exo_outfit_bad, svoboda_exo_outfit_worn, svoboda_exo_outfit_bad, exo_outfit_worn, exo_outfit_bad		;;--Add sections of items to include to be considered repair parts
 repair_parts_exclude			         = cs_exo_outfit, renegade_exo_outfit, military_exo_outfit, ecolog_exo_outfit, monolith_exo_outfit, dolg_exo_outfit, bandit_exo_outfit, merc_exo_outfit, svoboda_exo_outfit, exo_outfit			;;-- novice_outfit,specops_outfit,military_outfit,stalker_outfit,stalker_outfit_barge,scientific_outfit,exo_outfit,svoboda_light_outfit,svoboda_heavy_outfit,cs_heavy_outfit,dolg_outfit,dolg_heavy_outfit,ecologist_red_outfit,ecologist_green_outfit,coat_outfit,coat_heavy_outfit,helm_cloth_mask,helm_battle,helm_hardhat,helm_protective,helm_respirator,helm_m40,helm_tactic,helm_respirator_joker,helm_hardhat_snag
 repair_use_actor_effects 		         = true      ;;--Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
 ;use_sound						         = interface\inv_repair_kit
@@ -1518,6 +1462,7 @@ uses_base					             = exo_repair_kit
 uses_index					             = 1
 use2_functor         		             = itms_manager.menu_separate
 use2_action_functor  		             = itms_manager.use_separate
+disassemble_parts				 		 = basic_scrap,basic_scrap,basic_scrap,textile_patch_e,textile_patch_e
 
 [exo_repair_kit_2]:exo_repair_kit
 $spawn 							         = "devices\repair_kit_10"
@@ -1540,13 +1485,7 @@ cost							         = 79360
 inv_weight						         = 16.484
 uses_index					             = 4
 
-[exo_repair_kit_0]:identity_immunities
-$spawn 							         = "devices\roubles"
-$prefetch 						         = 16
-class							         = S_PDA
-cform							         = skeleton
-radius							         = 68;;-- 50
-class_dbg			                     = S_REPAIR
+[exo_repair_kit_0]:repair_kit_base
 description						         = st_exo_repair_kit_descr
 inv_name						         = st_exo_repair_kit
 inv_name_short					         = st_exo_repair_kit
@@ -1567,7 +1506,6 @@ repair_part_bonus	 			         = 0.05
 
 [exolight_repair_kit]:toolkit_u ;;--x4
 $spawn 							         = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description						         = st_exolight_repair_kit_descr
 inv_name						         = st_exolight_repair_kit
 inv_name_short					         = st_exolight_repair_kit
@@ -1593,7 +1531,7 @@ repair_use_parts	 			         = true		;;--Allows the use of lesser conditioned w
 repair_type			 			         = outfit 	;;--weapon	;;--weapon or outfit
 repair_refuse					         = military_exolight_outfit_worn, military_exolight_outfit_bad, cs_exolight_outfit_worn, cs_exolight_outfit_bad, bandit_exolight_outfit_worn, bandit_exolight_outfit_bad, monolith_exolight_outfit_worn, monolith_exolight_outfit_bad, dolg_exolight_outfit_worn, dolg_exolight_outfit_bad, merc_exolight_outfit_worn, merc_exolight_outfit_bad, exolight_outfit_worn, exolight_outfit_bad, svoboda_exolight_outfit_worn, svoboda_exolight_outfit_bad			
 repair_only						         = military_exolight_outfit, cs_exolight_outfit, bandit_exolight_outfit, monolith_exolight_outfit, dolg_exolight_outfit, merc_exolight_outfit, exolight_outfit, svoboda_exolight_outfit         ;;--Add sections separated by commas that exclude all sections but these
-repair_parts_include			         = fieldcraft_plate_attch, dis_metalplate, dis_scrap, copper_wire, swiss, boots, rope, synthrope, textile_patch_b, textile_patch_m, textile_patch_e, af_kevlar, af_plates, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, tarpaulin, bedspread, underwear, hammer_inv, crowbar, military_exolight_outfit_worn, military_exolight_outfit_bad, cs_exolight_outfit_worn, cs_exolight_outfit_bad, bandit_exolight_outfit_worn, bandit_exolight_outfit_bad, monolith_exolight_outfit_worn, monolith_exolight_outfit_bad, dolg_exolight_outfit_worn, dolg_exolight_outfit_bad, merc_exolight_outfit_worn, merc_exolight_outfit_bad, exolight_outfit_worn, exolight_outfit_bad, svoboda_exolight_outfit_worn, svoboda_exolight_outfit_bad		;;--Add sections of items to include to be considered repair parts
+repair_parts_include			         = fieldcraft_plate_attch, dis_metalplate, dis_scrap, copper_wire, swiss_knife, boots, rope, synthrope, duct_tape, textile_patch_b, textile_patch_m, textile_patch_e, af_kevlar, af_plates, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, tarpaulin, bedspread, underwear, hammer_inv, crowbar, military_exolight_outfit_worn, military_exolight_outfit_bad, cs_exolight_outfit_worn, cs_exolight_outfit_bad, bandit_exolight_outfit_worn, bandit_exolight_outfit_bad, monolith_exolight_outfit_worn, monolith_exolight_outfit_bad, dolg_exolight_outfit_worn, dolg_exolight_outfit_bad, merc_exolight_outfit_worn, merc_exolight_outfit_bad, exolight_outfit_worn, exolight_outfit_bad, svoboda_exolight_outfit_worn, svoboda_exolight_outfit_bad		;;--Add sections of items to include to be considered repair parts
 repair_parts_exclude			         = military_exolight_outfit, cs_exolight_outfit, bandit_exolight_outfit, monolith_exolight_outfit, dolg_exolight_outfit, merc_exolight_outfit, exolight_outfit, svoboda_exolight_outfit 		
 repair_use_actor_effects 		         = true      ;;--Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
 ;use_sound						         = interface\inv_repair_kit
@@ -1601,6 +1539,7 @@ uses_base					             = exolight_repair_kit
 uses_index					             = 1
 use2_functor         		             = itms_manager.menu_separate
 use2_action_functor  		             = itms_manager.use_separate
+disassemble_parts				 		 = basic_scrap,basic_scrap,basic_scrap,textile_patch_e,textile_patch_e
 
 [exolight_repair_kit_2]:exolight_repair_kit
 $spawn 							         = "devices\repair_kit_10"
@@ -1623,13 +1562,7 @@ cost							         = 54360
 inv_weight						         = 10.484
 uses_index					             = 4
 
-[exolight_repair_kit_0]:identity_immunities
-$spawn 							         = "devices\roubles"
-$prefetch 						         = 16
-class							         = S_PDA
-cform							         = skeleton
-radius							         = 68;;-- 50
-class_dbg			                     = S_REPAIR
+[exolight_repair_kit_0]:repair_kit_base
 description						         = st_exolight_repair_kit_descr
 inv_name						         = st_exolight_repair_kit
 inv_name_short					         = st_exolight_repair_kit
@@ -1650,7 +1583,6 @@ repair_part_bonus	 			         = 0.05
 
 [seva_repair_kit]:toolkit_u ;;--x4
 $spawn 							         = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description						         = st_seva_repair_kit_descr
 inv_name						         = st_seva_repair_kit
 inv_name_short					         = st_seva_repair_kit
@@ -1676,7 +1608,7 @@ repair_use_parts	 			         = true		;;--Allows the use of lesser conditioned w
 repair_type			 			         = outfit 	;;--weapon	;;--weapon or outfit
 repair_refuse					         = ecolog_outfit_red_worn, ecolog_outfit_red_bad, ecolog_outfit_yello_worn, ecolog_outfit_yello_bad, ecolog_outfit_white_worn, ecolog_outfit_white_bad, ecolog_outfit_blue_worn, ecolog_outfit_blue_bad, ecolog_outfit_orange_worn, ecolog_outfit_orange_bad, ecolog_outfit_green_worn, ecolog_outfit_green_bad, bandit_scientific_outfit_worn, bandit_scientific_outfit_bad, cs_scientific_outfit_worn, cs_scientific_outfit_bad, merc_scientific_outfit_worn, merc_scientific_outfit_bad, svoboda_scientific_outfit_worn, svoboda_scientific_outfit_bad, monolith_scientific_outfit_worn, monolith_scientific_outfit_bad, scientific_outfit_worn, scientific_outfit_bad			
 repair_only						         = ecolog_outfit_red, ecolog_outfit_yello, ecolog_outfit_white, ecolog_outfit_blue, ecolog_outfit_orange, ecolog_outfit_green, bandit_scientific_outfit, cs_scientific_outfit, cs_scientific_outfit_good, merc_scientific_outfit, svoboda_scientific_outfit, monolith_scientific_outfit, scientific_outfit         ;;--Add sections separated by commas that exclude all sections but these
-repair_parts_include			         = fieldcraft_plate_attch, dis_metalplate, dis_scrap, copper_wire, swiss, boots, rope, synthrope, textile_patch_b, textile_patch_m, textile_patch_e, af_kevlar, af_plates, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, tarpaulin, bedspread, underwear, hammer_inv, crowbar, ecolog_outfit_red_worn, ecolog_outfit_red_bad, ecolog_outfit_yello_worn, ecolog_outfit_yello_bad, ecolog_outfit_white_worn, ecolog_outfit_white_bad, ecolog_outfit_blue_worn, ecolog_outfit_blue_bad, ecolog_outfit_orange_worn, ecolog_outfit_orange_bad, ecolog_outfit_green_worn, ecolog_outfit_green_bad, bandit_scientific_outfit_worn, bandit_scientific_outfit_bad, cs_scientific_outfit_worn, cs_scientific_outfit_bad, merc_scientific_outfit_worn, merc_scientific_outfit_bad, svoboda_scientific_outfit_worn, svoboda_scientific_outfit_bad, monolith_scientific_outfit_worn, monolith_scientific_outfit_bad, scientific_outfit_worn, scientific_outfit_bad		;;--Add sections of items to include to be considered repair parts
+repair_parts_include			         = fieldcraft_plate_attch, dis_metalplate, dis_scrap, copper_wire, swiss_knife, boots, rope, synthrope, duct_tape, textile_patch_b, textile_patch_m, textile_patch_e, af_kevlar, af_plates, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, tarpaulin, bedspread, underwear, hammer_inv, crowbar, ecolog_outfit_red_worn, ecolog_outfit_red_bad, ecolog_outfit_yello_worn, ecolog_outfit_yello_bad, ecolog_outfit_white_worn, ecolog_outfit_white_bad, ecolog_outfit_blue_worn, ecolog_outfit_blue_bad, ecolog_outfit_orange_worn, ecolog_outfit_orange_bad, ecolog_outfit_green_worn, ecolog_outfit_green_bad, bandit_scientific_outfit_worn, bandit_scientific_outfit_bad, cs_scientific_outfit_worn, cs_scientific_outfit_bad, merc_scientific_outfit_worn, merc_scientific_outfit_bad, svoboda_scientific_outfit_worn, svoboda_scientific_outfit_bad, monolith_scientific_outfit_worn, monolith_scientific_outfit_bad, scientific_outfit_worn, scientific_outfit_bad		;;--Add sections of items to include to be considered repair parts
 repair_parts_exclude			         = ecolog_outfit_red, ecolog_outfit_yello, ecolog_outfit_white, ecolog_outfit_blue, ecolog_outfit_orange, ecolog_outfit_green, bandit_scientific_outfit, cs_scientific_outfit, cs_scientific_outfit_good, merc_scientific_outfit, svoboda_scientific_outfit, monolith_scientific_outfit, scientific_outfit		
 repair_use_actor_effects 		         = true      ;;--Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
 ;use_sound						         = interface\inv_repair_kit
@@ -1706,13 +1638,7 @@ cost							         = 44360
 inv_weight						         = 8.484
 uses_index					             = 4
 
-[seva_repair_kit_0]:identity_immunities
-$spawn 							         = "devices\roubles"
-$prefetch 						         = 16
-class							         = S_PDA
-cform							         = skeleton
-radius							         = 68;;-- 50
-class_dbg			                     = S_REPAIR
+[seva_repair_kit_0]:repair_kit_base
 description						         = st_seva_repair_kit_descr
 inv_name						         = st_seva_repair_kit
 inv_name_short					         = st_seva_repair_kit
@@ -1733,7 +1659,6 @@ repair_part_bonus	 			         = 0.05
 
 [proto_repair_kit]:toolkit_u ;;--x4
 $spawn 							         = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description						         = st_proto_repair_kit_descr
 inv_name						         = st_proto_repair_kit
 inv_name_short					         = st_proto_repair_kit
@@ -1759,7 +1684,7 @@ repair_use_parts	 			         = true		;;--Allows the use of lesser conditioned w
 repair_type			 			         = outfit 	;;--weapon	;;--weapon or outfit
 repair_refuse					         = 		
 repair_only						         = stalker_proto_exo_outfit, dolg_proto_exo_outfit, svoboda_light_proto_exo_outfit, cs_stalker_proto_exo_outfit, monolith_proto_exo_outfit, dolg_heavy_proto_exo_outfit, military_proto_exo_outfit        ;;--Add sections separated by commas that exclude all sections but these
-repair_parts_include			         = fieldcraft_plate_attch, dis_metalplate, dis_scrap, copper_wire, swiss, boots, rope, synthrope, textile_patch_b, textile_patch_m, textile_patch_e, af_kevlar, af_plates, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, tarpaulin, bedspread, underwear, hammer_inv, crowbar, stalker_proto_exo_outfit, dolg_proto_exo_outfit, svoboda_light_proto_exo_outfit, cs_stalker_proto_exo_outfit, monolith_proto_exo_outfit, dolg_heavy_proto_exo_outfit, military_proto_exo_outfit	;;--Add sections of items to include to be considered repair parts
+repair_parts_include			         = fieldcraft_plate_attch, dis_metalplate, dis_scrap, copper_wire, swiss_knife, boots, rope, synthrope, duct_tape, textile_patch_b, textile_patch_m, textile_patch_e, af_kevlar, af_plates, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, tarpaulin, bedspread, underwear, hammer_inv, crowbar, stalker_proto_exo_outfit, dolg_proto_exo_outfit, svoboda_light_proto_exo_outfit, cs_stalker_proto_exo_outfit, monolith_proto_exo_outfit, dolg_heavy_proto_exo_outfit, military_proto_exo_outfit	;;--Add sections of items to include to be considered repair parts
 repair_parts_exclude			         = 	
 repair_use_actor_effects 		         = true      ;;--Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
 ;use_sound						         = interface\inv_repair_kit
@@ -1789,13 +1714,7 @@ cost							         = 40360
 inv_weight						         = 8.112
 uses_index					             = 4
 
-[proto_repair_kit_0]:identity_immunities
-$spawn 							         = "devices\roubles"
-$prefetch 						         = 16
-class							         = S_PDA
-cform							         = skeleton
-radius							         = 68;;-- 50
-class_dbg			                     = S_REPAIR
+[proto_repair_kit_0]:repair_kit_base
 description						         = st_proto_repair_kit_descr
 inv_name						         = st_proto_repair_kit
 inv_name_short					         = st_proto_repair_kit
@@ -1816,7 +1735,6 @@ repair_part_bonus	 			         = 0.05
 
 [light_repair_kit]:toolkit_u ;;--x4
 $spawn 							         = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description						         = st_light_repair_kit_descr
 inv_name						         = st_light_repair_kit
 inv_name_short					         = st_light_repair_kit
@@ -1842,7 +1760,7 @@ repair_use_parts	 			         = true		;;--Allows the use of lesser conditioned w
 repair_type			 			         = outfit 	;;--weapon	;;--weapon or outfit
 repair_refuse					         = trenchcoat_brown_outfit_worn, trenchcoat_brown_outfit_bad, trenchcoat_outfit_worn, trenchcoat_outfit_bad, bandit_novice_outfit_worn, bandit_novice_outfit_bad, dolg_novice_outfit_bad, dolg_novice_outfit_worn, cs_novice_outfit_worn, cs_novice_outfit_bad, novice_outfit_bad, novice_outfit_worn, army_outfit_worn, army_outfit_bad		
 repair_only						         = army_outfit, trenchcoat_brown_outfit, trenchcoat_outfit, bandit_novice_outfit, bandit_novice_outfit_alt, dolg_novice_outfit, cs_novice_outfit, novice_outfit, novice_outfit_tourist, novice_outfit_camo         ;;--Add sections separated by commas that exclude all sections but these
-repair_parts_include			         = fieldcraft_plate_attch, dis_metalplate, dis_scrap, copper_wire, swiss, boots, rope, synthrope, textile_patch_b, textile_patch_m, textile_patch_e, af_kevlar, af_plates, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, dolg_novice_outfit_worn, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, tarpaulin, bedspread, underwear, hammer_inv, crowbar, trenchcoat_brown_outfit_worn, trenchcoat_brown_outfit_bad, trenchcoat_outfit_worn, trenchcoat_outfit_bad, bandit_novice_outfit_worn, bandit_novice_outfit_bad, dolg_novice_outfit_bad, cs_novice_outfit_worn, cs_novice_outfit_bad, novice_outfit_bad, novice_outfit_worn, army_outfit_worn, army_outfit_bad		;;--Add sections of items to include to be considered repair parts
+repair_parts_include			         = fieldcraft_plate_attch, dis_metalplate, dis_scrap, copper_wire, swiss_knife, boots, rope, synthrope, duct_tape, textile_patch_b, textile_patch_m, textile_patch_e, af_kevlar, af_plates, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, dolg_novice_outfit_worn, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, tarpaulin, bedspread, underwear, hammer_inv, crowbar, trenchcoat_brown_outfit_worn, trenchcoat_brown_outfit_bad, trenchcoat_outfit_worn, trenchcoat_outfit_bad, bandit_novice_outfit_worn, bandit_novice_outfit_bad, dolg_novice_outfit_bad, cs_novice_outfit_worn, cs_novice_outfit_bad, novice_outfit_bad, novice_outfit_worn, army_outfit_worn, army_outfit_bad		;;--Add sections of items to include to be considered repair parts
 repair_parts_exclude			         = army_outfit, trenchcoat_brown_outfit, trenchcoat_outfit, bandit_novice_outfit, bandit_novice_outfit_alt, dolg_novice_outfit, cs_novice_outfit, novice_outfit, novice_outfit_tourist, novice_outfit_camo		
 repair_use_actor_effects 		         = true      ;;--Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
 ;use_sound						         = interface\inv_repair_kit
@@ -1872,13 +1790,7 @@ cost							         = 16360
 inv_weight						         = 4.484
 uses_index					             = 4
 
-[light_repair_kit_0]:identity_immunities
-$spawn 							         = "devices\roubles"
-$prefetch 						         = 16
-class							         = S_PDA
-cform							         = skeleton
-radius							         = 68;;-- 50
-class_dbg			                     = S_REPAIR
+[light_repair_kit_0]:repair_kit_base
 description						         = st_light_repair_kit_descr
 inv_name						         = st_light_repair_kit
 inv_name_short					         = st_light_repair_kit
@@ -1899,7 +1811,6 @@ repair_part_bonus	 			         = 0.05
 
 [medium_repair_kit]:toolkit_u ;;--x4
 $spawn 							         = "devices\repair_kit_10"
-class_dbg			                     = S_REPAIR
 description						         = st_medium_repair_kit_descr
 inv_name						         = st_medium_repair_kit
 inv_name_short					         = st_medium_repair_kit
@@ -1925,7 +1836,7 @@ repair_use_parts	 			         = true		;;--Allows the use of lesser conditioned w
 repair_type			 			         = outfit 	;;--weapon	;;--weapon or outfit
 repair_refuse					         = merc_sun_outfit_worn, merc_sun_outfit_bad, bandit_sun_outfit_worn, bandit_sun_outfit_bad, ecolog_guard_outfit_worn, ecolog_guard_outfit_bad, cs_stalker_outfit_worn, cs_stalker_outfit_bad, banditmerc_outfit_worn, banditmerc_outfit_bad, monolith_outfit_worn, monolith_outfit_bad, dolg_heavy_outfit_worn, dolg_heavy_outfit_bad, merc_outfit_worn, merc_outfit_bad, specops_outfit_worn, specops_outfit_bad, military_outfit_worn, military_outfit_bad, svoboda_heavy_outfit_worn, svoboda_heavy_outfit_bad, svoboda_heavy_outfit_2_worn, svoboda_heavy_outfit_2_bad, cs_medium_outfit_worn, cs_medium_outfit_bad, cs_heavy_outfit_worn, cs_heavy_outfit_bad, cs_light_novice_outfit_worn, cs_light_novice_outfit_bad, cs_light_outfit_worn, cs_light_outfit_bad, svoboda_light_outfit_worn, svoboda_light_outfit_bad, dolg_outfit_worn, dolg_outfit_bad, stalker_outfit_bad, stalker_outfit_worn 		
 repair_only						         = merc_sun_outfit, bandit_sun_outfit, ecolog_guard_outfit, cs_stalker_outfit, banditmerc_outfit, monolith_outfit, dolg_heavy_outfit, merc_outfit, specops_outfit, military_outfit, svoboda_heavy_outfit, svoboda_heavy_outfit_2, cs_medium_outfit, cs_heavy_outfit, cs_light_novice_outfit, cs_light_outfit, svoboda_light_outfit, dolg_outfit, stalker_outfit, stalker_outfit_alt, stalker_outfit_camo         ;;--Add sections separated by commas that exclude all sections but these
-repair_parts_include			         = fieldcraft_plate_attch, dis_metalplate, dis_scrap, copper_wire, swiss, boots, rope, synthrope, textile_patch_b, textile_patch_m, textile_patch_e, af_kevlar, af_plates, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, dolg_novice_outfit_worn, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, tarpaulin, bedspread, underwear, hammer_inv, crowbar, merc_sun_outfit_worn, merc_sun_outfit_bad, bandit_sun_outfit_worn, bandit_sun_outfit_bad, ecolog_guard_outfit_worn, ecolog_guard_outfit_bad, cs_stalker_outfit_worn, cs_stalker_outfit_bad, banditmerc_outfit_worn, banditmerc_outfit_bad, monolith_outfit_worn, monolith_outfit_bad, dolg_heavy_outfit_worn, dolg_heavy_outfit_bad, merc_outfit_worn, merc_outfit_bad, specops_outfit_worn, specops_outfit_bad, military_outfit_worn, military_outfit_bad, svoboda_heavy_outfit_worn, svoboda_heavy_outfit_bad, svoboda_heavy_outfit_2_worn, svoboda_heavy_outfit_2_bad, cs_medium_outfit_worn, cs_medium_outfit_bad, cs_heavy_outfit_worn, cs_heavy_outfit_bad, cs_light_novice_outfit_worn, cs_light_novice_outfit_bad, cs_light_outfit_worn, cs_light_outfit_bad, svoboda_light_outfit_worn, svoboda_light_outfit_bad, dolg_outfit_worn, dolg_outfit_bad, stalker_outfit_bad, stalker_outfit_worn 		;;--Add sections of items to include to be considered repair parts
+repair_parts_include			         = fieldcraft_plate_attch, dis_metalplate, dis_scrap, copper_wire, swiss_knife, boots, rope, synthrope, duct_tape, textile_patch_b, textile_patch_m, textile_patch_e, af_kevlar, af_plates, csky_patch, duty_patch, ecolog_patch, freedom_patch, stalker_patch, dolg_novice_outfit_worn, renegade_patch, bandit_patch, monolith_patch, army_patch, merc_patch, tarpaulin, bedspread, underwear, hammer_inv, crowbar, merc_sun_outfit_worn, merc_sun_outfit_bad, bandit_sun_outfit_worn, bandit_sun_outfit_bad, ecolog_guard_outfit_worn, ecolog_guard_outfit_bad, cs_stalker_outfit_worn, cs_stalker_outfit_bad, banditmerc_outfit_worn, banditmerc_outfit_bad, monolith_outfit_worn, monolith_outfit_bad, dolg_heavy_outfit_worn, dolg_heavy_outfit_bad, merc_outfit_worn, merc_outfit_bad, specops_outfit_worn, specops_outfit_bad, military_outfit_worn, military_outfit_bad, svoboda_heavy_outfit_worn, svoboda_heavy_outfit_bad, svoboda_heavy_outfit_2_worn, svoboda_heavy_outfit_2_bad, cs_medium_outfit_worn, cs_medium_outfit_bad, cs_heavy_outfit_worn, cs_heavy_outfit_bad, cs_light_novice_outfit_worn, cs_light_novice_outfit_bad, cs_light_outfit_worn, cs_light_outfit_bad, svoboda_light_outfit_worn, svoboda_light_outfit_bad, dolg_outfit_worn, dolg_outfit_bad, stalker_outfit_bad, stalker_outfit_worn 		;;--Add sections of items to include to be considered repair parts
 repair_parts_exclude			         = merc_sun_outfit, bandit_sun_outfit, ecolog_guard_outfit, cs_stalker_outfit, banditmerc_outfit, monolith_outfit, dolg_heavy_outfit, merc_outfit, specops_outfit, military_outfit, svoboda_heavy_outfit, svoboda_heavy_outfit_2, cs_medium_outfit, cs_heavy_outfit, cs_light_novice_outfit, cs_light_outfit, svoboda_light_outfit, dolg_outfit, stalker_outfit, stalker_outfit_alt, stalker_outfit_camo 		
 repair_use_actor_effects 		         = true      ;;--Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
 ;use_sound						         = interface\inv_repair_kit
@@ -1955,13 +1866,7 @@ cost							         = 25360
 inv_weight						         = 6.484
 uses_index					             = 4
 
-[medium_repair_kit_0]:identity_immunities
-$spawn 							         = "devices\roubles"
-$prefetch 						         = 16
-class							         = S_PDA
-cform							         = skeleton
-radius							         = 68;;-- 50
-class_dbg			                     = S_REPAIR
+[medium_repair_kit_0]:repair_kit_base
 description						         = st_light_repair_kit_descr
 inv_name						         = st_light_repair_kit
 inv_name_short					         = st_light_repair_kit
