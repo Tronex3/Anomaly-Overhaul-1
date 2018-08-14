@@ -19,6 +19,13 @@
 		<texture id="encyclopedia_achievements_well_dressed_image" x="0" y="0" width="0" height="0"/>
 		<texture id="encyclopedia_achievements_wishful_thinking_image" x="0" y="0" width="0" height="0"/>
 		
+		<texture id="encyclopedia_artefacts_af_bracelet_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_af_itcher_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_af_monolith_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_af_gimlet_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_af_geliy_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia_artefacts_af_vaselisk_image" x="0" y="0" width="0" height="0"/>
+		
 		<texture id="encyclopedia_features_azazel_mode_image" x="0" y="0" width="0" height="0"/>
 		<texture id="encyclopedia_features_ironman_mode_image" x="0" y="0" width="0" height="0"/>
 		<texture id="encyclopedia_features_story_mode_image" x="0" y="0" width="0" height="0"/>
@@ -172,7 +179,42 @@
 	
 	<!-- Artefacts -->
 	<file name="ui\guide\encyclopedia_artefacts">
-		<texture id="encyclopedia_artefacts_image" x="0" y="0" width="512" height="256"/>
+		<texture id="encyclopedia_artefacts__about_image" x="1536" y="767" width="512" height="256"/>
+		
+		<texture id="encyclopedia_artefacts_af_gravi_image" x="0" y="0" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_dummy_glassbeads_image" x="256" y="0" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_full_empty_image" x="512" y="0" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_fireball_image" x="768" y="0" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_mincer_meat_image" x="1024" y="0" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_fuzz_kolobok_image" x="1280" y="0" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_dummy_battery_image" x="1536" y="0" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_oasis_heart_image" x="1792" y="0" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_electra_moonlight_image" x="0" y="256" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_electra_flash_image" x="256" y="256" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_fire_image" x="512" y="256" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_glass_image" x="768" y="256" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_eye_image" x="1024" y="256" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_cristall_flower_image" x="1280" y="256" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_compass_image" x="1536" y="256" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_baloon_image" x="1792" y="256" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_vyvert_image" x="0" y="512" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_electra_sparkler_image" x="256" y="512" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_soul_image" x="512" y="512" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_ice_image" x="768" y="512" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_night_star_image" x="1024" y="512" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_gold_fish_image" x="1280" y="512" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_dummy_dummy_image" x="1536" y="512" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_cristall_image" x="1792" y="512" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_pin_image" x="0" y="768" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_blood_image" x="256" y="768" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_medusa_image" x="512" y="768" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_death_lamp_image" x="768" y="768" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_empty_image" x="1024" y="768" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_ring_image" x="1280" y="768" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_lobster_eyes_image" x="0" y="1024" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_sponge_image" x="256" y="1024" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_black_spray_image" x="512" y="1024" width="256" height="256"/>
+		
 	</file>
 	
 	<!-- Characters -->

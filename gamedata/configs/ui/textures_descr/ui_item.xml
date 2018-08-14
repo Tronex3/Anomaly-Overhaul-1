@@ -31,12 +31,12 @@
 	<file name="ui\items\ui_repair_4">
 		<texture id="ui_itm_repair_4" x="0" y="0" width="1024" height="768"/>
 	</file>
-	<file name="ui\items\ui_repair_5">
+	<file name="ui\items\ui_repair_4">
 		<texture id="ui_itm_repair_5" x="0" y="0" width="1024" height="768"/>
 	</file>
 	
 	<!-- Cook -->
-	<file name="ui\items\ui_cook">
+	<file name="ui\items\ui_cook_0">
 		<texture id="ui_itm_cook" x="0" y="0" width="1024" height="768"/>
 	</file>
 	
