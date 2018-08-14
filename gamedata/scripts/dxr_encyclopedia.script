@@ -89,7 +89,7 @@ function scan_objects()
 	ResetTimeEvent(0,"ScanForGuide",10)
 	
 	-- Return if the player didn't spend 3 hours in the zone
-	if (not trx_utils.is_time_spent_in_zone(0,0,3)) then
+	if (not trx_utils.is_time_spent_in_zone(0,0,2)) then
 		return false
 	end
 	
@@ -160,6 +160,7 @@ function detect_item_interaction(item)
 	end
 		
 	if IsArtefact(item) then
+		create_interaction("artefacts", "about_artefacts")
 		create_interaction("artefacts", item:section())
 	end
 end
