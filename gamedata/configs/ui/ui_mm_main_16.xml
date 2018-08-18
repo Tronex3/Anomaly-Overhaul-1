@@ -102,7 +102,7 @@
     </menu_sound>
 
 	<static_version x="14" y="740">
-		<text align="l" font="graffiti22" r="0" g="0" b="0" complex_mode="0"/>
+		<text align="l" font="letterica16" r="0" g="0" b="0" complex_mode="0"/>
 	</static_version>
 	
 	<msg_wnd x="0" y="0" width="210" height="100">

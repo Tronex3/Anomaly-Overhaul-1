@@ -1,38 +1,50 @@
 [econ_1]
+max_weight						= 60
 factor_loot						= 1.2
-factor_goodwill					= 1.25
-factor_repair					= 0.5
-factor_buy						= 1.25
-factor_sell						= 0.75
-factor_money					= 1.25
-factor_wpn_condition			= 1.5
-chance_stash					= 0.3
-enable_fast_travel				= true
-enable_multiuse_medkits			= true
-
-[econ_2]
-factor_loot						= 1.0
-factor_goodwill					= 1.0
+;factor_goodwill				= 1.0
 factor_repair					= 1.0
+factor_upgrade					= 1.0
 factor_buy						= 1.0
 factor_sell						= 1.0
 factor_money					= 1.0
 factor_wpn_condition			= 1.0
 chance_stash					= 0.2
-enable_fast_travel				= true
-enable_multiuse_medkits			= true
+multiuse_medkits				= 4
+fast_travel				        = true
+backpack_travel					= true
+
+
+[econ_2]
+max_weight						= 60
+factor_loot						= 1.0
+;factor_goodwill				= 1.0
+factor_repair					= 1.25
+factor_upgrade					= 1.25
+factor_buy						= 0.85
+factor_sell						= 1.15
+factor_money					= 0.8
+factor_wpn_condition			= 1.0
+chance_stash					= 0.15
+multiuse_medkits				= 2
+fast_travel				        = true
+backpack_travel					= true
+
 
 [econ_3]
+max_weight						= 50
 factor_loot						= 1.0
-factor_goodwill					= 0.75
-factor_repair					= 2.0
+;factor_goodwill				= 0.75
+factor_repair					= 1.5
+factor_upgrade					= 1.5
 factor_buy						= 0.75
 factor_sell						= 1.25
 factor_money					= 0.75
 factor_wpn_condition			= 1.0
-chance_stash					= 0.15
-enable_fast_travel				= false
-enable_multiuse_medkits			= false
+chance_stash					= 0.1
+multiuse_medkits			    = 1
+fast_travel				        = false
+backpack_travel					= false
+
 
 [exclude_from_multi]
 itm_pda_common

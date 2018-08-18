@@ -126,7 +126,7 @@
 		<text>Scar</text>
 	</string>
 	<string id="st_af_zhelch_descr">
-		<text>The artefact has a calming effect on the human nervous system. Also very valued by jewelers. Has no useful properties. Generates a very weak gravitational field. Not radioactive.\n \n
+		<text>The artefact has a calming effect on the human nervous system. Also very valued by jewelers. Has no useful properties. Generates a very weak gravitational and electric field. Not radioactive.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,225,225,225] • %c[0,140,140,140] junk\n
 		%c[0,153,255,255] • %c[0,140,140,140] can not be placed in a container</text>

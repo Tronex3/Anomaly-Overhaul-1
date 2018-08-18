@@ -322,7 +322,7 @@
 		\n• You have to remove artifacts from the container prior to selling them.
 		\n• Drag and drop an artefact on the container to store it inside.
 		\n• Weight: %c[0,250,250,250]2.4 kg%c[0,170,170,170]
-		\n• The Maximum permissible level of radiation: %c[0,250,250,250]7 mSv%c[0,170,170,170]
+		\n• Maximum permissible level of contained radiation: %c[0,250,250,250]7 mSv%c[0,170,170,170]
 		\n• Consumes %c[0,250,250,250]0.25 mAh%c[0,170,170,170] per second of continuous usage.
 		</text>
 	</string>
@@ -345,7 +345,7 @@
 		\n• You have to remove artifacts from the container prior to selling them.
 		\n• Drag and drop an artefact on the container to store it inside.
 		\n• Weight: %c[0,250,250,250]2.73 kg%c[0,170,170,170]
-		\n• The Maximum permissible level of radiation: %c[0,250,250,250]12 mSv%c[0,170,170,170]
+		\n• Maximum permissible level of contained radiation: %c[0,250,250,250]12 mSv%c[0,170,170,170]
 		\n• Consumes %c[0,250,250,250]0.5 mAh%c[0,170,170,170] per second of continuous usage.
 		</text>
 	</string>
@@ -370,7 +370,7 @@
 		\n• You have to remove artifacts from the container prior to selling them.
 		\n• Drag and drop an artefact on the container to store it inside.
 		\n• Weight: %c[0,250,250,250]3.06 kg%c[0,170,170,170]
-		\n• The Maximum permissible level of radiation: %c[0,250,250,250]23 mSv%c[0,170,170,170]
+		\n• Maximum permissible level of contained radiation: %c[0,250,250,250]23 mSv%c[0,170,170,170]
 		\n• Consumes %c[0,250,250,250]0.75 mAh%c[0,170,170,170] per second of continuous usage.
 		</text>
 	</string>

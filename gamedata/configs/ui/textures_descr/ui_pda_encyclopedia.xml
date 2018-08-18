@@ -19,8 +19,6 @@
 		<texture id="encyclopedia_achievements_well_dressed_image" x="0" y="0" width="0" height="0"/>
 		<texture id="encyclopedia_achievements_wishful_thinking_image" x="0" y="0" width="0" height="0"/>
 		
-		<texture id="encyclopedia_artefacts_af_bracelet_image" x="0" y="0" width="0" height="0"/>
-		<texture id="encyclopedia_artefacts_af_itcher_image" x="0" y="0" width="0" height="0"/>
 		<texture id="encyclopedia_artefacts_af_monolith_image" x="0" y="0" width="0" height="0"/>
 		<texture id="encyclopedia_artefacts_af_gimlet_image" x="0" y="0" width="0" height="0"/>
 		<texture id="encyclopedia_artefacts_af_geliy_image" x="0" y="0" width="0" height="0"/>
@@ -214,6 +212,8 @@
 		<texture id="encyclopedia_artefacts_af_lobster_eyes_image" x="0" y="1024" width="256" height="256"/>
 		<texture id="encyclopedia_artefacts_af_sponge_image" x="256" y="1024" width="256" height="256"/>
 		<texture id="encyclopedia_artefacts_af_black_spray_image" x="512" y="1024" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_bracelet_image" x="768" y="1024" width="256" height="256"/>
+		<texture id="encyclopedia_artefacts_af_itcher_image" x="1024" y="1024" width="256" height="256"/>
 		
 	</file>
 	

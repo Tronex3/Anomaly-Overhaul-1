@@ -5,536 +5,787 @@
 -->
 
 <string_table>
-	<string id="st_af_misery_bread_af_aac_name">
-		<text>AAC w/ anomalous bread</text>
-	</string>
-	<string id="st_af_misery_bread_af_aac_descr">
-		<text>Anomalous bread in an Artefact Application Container. As dark as the soul of the person that left it. Radiation output decreased owing to the container.\n \n
+	<string id="st_af_itcher_af_aac_name">
+		<text>AAC w/ Itcher</text>
+	</string>  
+	<string id="st_af_itcher_af_aac_descr">
+		<text>
+		A formation of thermal nature. The Itcher consists of two separated layers. The surface is a hard, dense metamorphic rock with deep scars covering the entire body. Completely inactive and doesn't hold any noticeable properties. On the other hand, the soft, yellow glowing core is from unknown organic nature. It actively consumes excessive heat and remains cool at all times.
+		\nHowever, it is unrecommended to approach chemical and acid anomalies when in possession of the artefact as it will increase the adverse effects of acids and toxins in user's bloodstream.
+		\n \nRadiation output is low on the artefact radiation scale.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
 		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
 		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
 		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
 		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains anomalous bread artefact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
-	</string>
-	<string id="st_af_medusa_af_aac_name">
-		<text>AAC w/ Jellyfish</text>
-	</string>
-	<string id="st_af_medusa_af_aac_descr">
-		<text>Jellyfish in Artefact Application Container. This gravitational artefact attracts and absorbs toxic/chemical particles, reducing the effects of toxic poisoning on the body. Very common in the Zone and unofficially used outside the Zone for treating people who have been exposed to hazardous or deadly chemical and toxic agents. This artefact is quite heavy as the gravitational field seems to increase mass. It will slightly protect its user against extreme heat and acids produced respectively by fire and chemical anomalies. Radiation output decreased owing to the container.\n \n
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
+	</string> 
+
+	<string id="st_af_pin_af_aac_name">
+		<text>AAC w/ Pin</text>
+	</string>  
+	<string id="st_af_pin_af_aac_descr">
+		<text>
+		A small artefact formed by thermal anomalies in the Zone under extreme temperatures. The look of this artefact suggests that it was an organ of a vascular plant. Further studies showed that other organic tissues are fused deep inside.
+		\nThe stem doesn't hold any useful properties. On the contrary, the small pins reduce temperature of user's body and cool all objects in their vicinity.
+		\nThis artefact offers a slight psy-protection as it will resonate under the influence of psy-waves. On the other hand, it is unrecommended to approach chemical and acid anomalies when in possession of the artefact as it will increase the adverse effects of acids and toxins in user's bloodstream.
+		\n \nRadiation output is average on the artefact radiation scale.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
 		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
 		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
 		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
 		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Jellyfish artefact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
-	</string>
-	<string id="st_af_cristall_flower_af_aac_name">
-		<text>AAC w/ Stone Flower</text>
-	</string>
-	<string id="st_af_cristall_flower_af_aac_descr">
-		<text>Stone Flower in Artefact Application Container. This artefact resembles melted cheese interspersed with sapphire-like stones. Only yellow outer shell of the artefact appears to give off radiation and by careful processing it is possible to extract the non-radioactive blue parts for jewelery and other industrial purposes. This is due to the fact that if cleaned properly and polished, sapphire comparison becomes much more explicit: the stones are as hard and durable as this beautiful gem. This quality of theirs and their appearance make them perfect gemstones and jewelers all over the world strive to have them in stock. The usefulness of the artefact, however, is not limited to its industrial applications. There is scientific evidence suggesting that sapphire-like stones effectively protect from toxicity, whereas the outer shell slightly increases resistance to heat. Due to its density the weight of artefact has increased beyond normal standards, and thus it is one of the heaviest anomalous creations in the Zone. Radiation output decreased owing to the container.\n \n
-		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
-		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
-		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
-		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Stone Flower artefact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
-	</string>
-	<string id="st_af_night_star_af_aac_name">
-		<text>AAC w/ Nightstar</text>
-	</string>
-	<string id="st_af_night_star_af_aac_descr">
-		<text>Nightstar in Artefact Application Container. This glowing artefact can generate a locally directed gravity field which increases its mass. For this reason, Nightstar is extremely heavy. It provides protection against acids as well as heat. Due to its beautiful inner core it is highly sought after by jewelers all over the world, however it is best to proceed with caution as unskilled treatment can cause the artefact to explode with power sufficient to level a small building. It is thus highly advised to perform the polishing by means of specialized machinery, which minimizes the probability of explosion. Moreover, only the outer core of the artefact emits radiation. Nightstar will also absorb toxic and chemical agents from the environment, which makes it a valuable artefact for artefact hunters, although the amount of toxicity absorbed is negligible. It is, however, relatively cheap and even stalkers with pretty tight budgets can afford it if opportunity to buy it arises. Radiation output decreased owing to the container.\n \n
-		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
-		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
-		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
-		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Nightstar artefact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
-	</string>
-	<string id="st_af_vyvert_af_aac_name">
-		<text>AAC w/ Wrenched</text>
-	</string>
-	<string id="st_af_vyvert_af_aac_descr">
-		<text>Wrenched in Artefact Application Container. This bizarrely-shaped artefact appears in places with increased gravitational activity. Acting as a kind of sponge that absorbs chemical and toxic elements, this artefact provides protection from external toxic agents as well as from chemical particles that have already made their way into the body. Although it appears almost organic, it is actually more similar to coral. Due to its non-organic nature, it is nonflammable. It provides protection against acids as well as heat. There is no particular faction that takes great interest in it, so it is mostly sold to scientists who study and experiment on the artefact in order to find the use for it. It has high density and is thus extremely heavy. Radiation output decreased owing to the container.\n \n
-		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
-		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
-		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
-		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Wrenched artefact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
-	</string>
-	<string id="st_af_gravi_af_aac_name">
-		<text>AAC w/ Gravi</text>
-	</string>
-	<string id="st_af_gravi_af_aac_descr">
-		<text>Gravi in Artefact Application Container. Gravi is formed from metallic substances exposed to prolonged gravitation. This makes it capable of sustaining a gravitational field, which causes it to have various properties, among others increasing weight of all objects in its close proximity. For a long time, the artefact was a mystery, and it was scientist Sakharov at Yantar who first discovered that Gravi creates a minute singularity field of gravitational nature, the phenomenon which occurs in intervals of 30 minutes. This artefact may yield beneficial results in medicine or warfare if the mechanism behind its functioning is harnessed for the purposes of science. Suffice it to say, its positive properties completely outweigh its negative aspects. Namely, it increases weight of objects as a result of gravitational field and emits lethal doses of radiation. On the other hand, it will protect the user from harmful effects of fire anomalies found throughout the Zone and from acids of chemical/toxic anomalies. However, instead of absorbing deadly chemicals and toxins, Gravi causes chemical compounds to be broken down to simpler substances thanks to its singularity field. As noted above, it is extremely heavy and it is not recommended to use it on long excursions into the Zone, especially for extended periods of time. Radiation output decreased owing to the container.\n \n
-		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
-		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
-		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
-		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Gravi artefact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable </text>
-	</string>
-	<string id="st_af_gold_fish_af_aac_name">
-		<text>AAC w/ Goldfish</text>
-	</string>
-	<string id="st_af_gold_fish_af_aac_descr">
-		<text>Goldfish in Artefact Application Container. Direct successor to and a superior version of Gravi artefact. As was the case with Gravi, it was scientist Sakharov at Yantar who discovered its unique properties after a massive blowout/emission hit the Zone. Thanks to meticulous research that followed, it was established that this new artefact is produced when three Gravi artefacts interact and get sucked into one another's singularity fields. This phenomenon is extremely rare, due to which the artefact is highly valued. It is rumored within Ukrainian Spetsnaz circles that in the Zone there are agents from the Ministry of Defense of the Russian Federation whose sole objective is acquiring and transporting Goldfish to specialized laboratories located outside of the Zone. The artefact creates a constant gravitational singularity field which affects only its closest vicinity. However, some stalkers have been known to disappear for no apparent reason leaving only a Goldfish behind. The artefact provides exceptional thermal and acid protection. Furthermore, it also forms a protective and almost greasy film around its user which has qualities of strong fire retardant and also protects the user against acid by breaking down elements comprising acids into simpler substances. It is extremely heavy and it is not recommended to use it on long excursions into the Zone, especially for extended periods of time. Radiation output decreased owing to the container.\n \n
-		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
-		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
-		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
-		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Goldfish artefact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
-	</string>
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
+	</string>  
+	
 	<string id="st_af_cristall_af_aac_name">
 		<text>AAC w/ Crystal</text>
 	</string>
 	<string id="st_af_cristall_af_aac_descr">
-		<text>Crystal in Artefact Application Container. This artefact is formed in anomalous zones with intense thermal activity. Actively consumes excessive heat and remains cool at all times. It will also protect the user against acids found in toxic and chemical anomalies. On the other hand, exposure to such environments makes the artefact increase the corrosivity of acids due to unknown as of now mechanism. For this reason, one is forced to weigh pros and cons of Crystal when in the vicinity of areas of high toxicity. It also acts as a conductor of electricity. Another positive effect possessed by this artefact is that it accelerates clotting if worn close to the body. (Side note: it is not recommended to keep this artefact in your possession for longer periods of time as blood clots can be hazardous to your health.) This artefact is also highly sought for by jewelers outside the Zone as its inner core is not radioactive and considered to be of exceptional beauty if polished and refined. Only the first 1 cm of its outer layer emits radiation. It is, however, highly advised to proceed with caution when planning to bring the artefact to the market as prolonged exposure to even minimal amounts of radioactive materials can result in death of the user. Covered with very hard layer. Relatively heavy due to high density. Radiation output decreased owing to the container.\n \n
+		<text>
+		This artefact is formed in anomalous zones with intense thermal activity. Actively consumes excessive heat and remains cool at all times.
+		\nIt will also protect the user against electrical currents. On the other hand, exposure to such environments makes the artefact increase the conductivity due to unknown as of now mechanism. For this reason, one is forced to weigh pros and cons of Crystal when in the vicinity of areas of high conductivity.
+		\nThis artefact is also highly sought for by jewelers outside the Zone as its inner core is not radioactive and considered to be of exceptional beauty if polished and refined. Only the first 1 cm of its outer layer emits radiation.
+		\nIt is, however, highly advised to proceed with caution when planning to bring the artefact to the market as prolonged exposure to even minimal amounts of radioactive materials can result in death of the user. Covered with very hard layer. Relatively heavy due to high density.
+		\n \nRadiation output is average on the artefact radiation scale.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
 		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
 		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
 		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
 		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Crystal artefact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
 	</string>
+	
 	<string id="st_af_fireball_af_aac_name">
 		<text>AAC w/ Fireball</text>
 	</string>
 	<string id="st_af_fireball_af_aac_descr">
-		<text>Fireball in in Artefact Application Container. It is a spherical artefact made of red-colored crystal, created in the Burner anomaly. It has an unique property - it has a constant temperature of 75 degrees Fahrenheit/24 degrees Celsius, regardless of its surroundings. This allows it to absorb heat from its vicinity and to create a little pocket around the user which prevents the flames from damaging the body. Stability of temperature is the cause of another of its positive effects: it accelerates healing rate and stops bleeding. It will also protect the user from chemical burns. However, it is unrecommended to approach chemical and acid anomalies when in possession of the artefact as it will increase the adverse effects of acids and toxins in user's bloodstream. It also makes the user vulnerable to electrical currents. It is quite heavy due to high density of crystal-like material. Radiation output decreased owing to the container.\n \n
+		<text>
+		It is a spherical artefact made of red-colored crystal, created in the Burner anomaly.
+		\nIt has an unique property: it has a constant temperature of 75 degrees Fahrenheit/24 degrees Celsius, regardless of its surroundings. This allows it to absorb heat from its vicinity and to create a little pocket around the user which prevents the flames from damaging the body.
+		\nA dangerous effect of this artefact is the fact that it will increase electrical conductivity, so the probability of electrocution while wearing this artefact is much higher, especially during storms and in the vicinity of electrical anomalies.It is quite heavy due to high density of crystal-like material.
+		\n \nRadiation output is hight on the artefact radiation scale.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
 		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
 		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
 		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
 		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Fireball artefact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
 	</string>
-	<string id="st_af_dummy_glassbeads_af_aac_name">
-		<text>AAC w/ Mama's Beads</text>
-	</string>
-	<string id="st_af_dummy_glassbeads_af_aac_descr">
-		<text>Mama's Beads in Artefact Application Container. Shaped like a DNA helix, "Mama's beads" are created in the Burner anomaly. One of their most characteristic features is that they constantly pulsate, generating emissions beneficial to the human body. These emissions increase the metabolism of any living creature, accelerating coagulation and healing of wounds. The mechanism behind the effects of this artefact is still unknown. "Mama's beads" also possess potent protective qualities: they are able to shield the body and objects from extreme heat and acids. On the other hand, it should be noted that the presence of this artefact increases the corrosivity of acids, leading to accelerated deterioration of equipment and higher damage to tissues of any living organism. It is thus strongly advised to proceed with caution in acidic as well as in toxic environments when in possession of "Mama's beads". Another dangerous effect of this artefact is the fact that it will increase electrical conductivity, so the probability of electrocution while wearing this artefact is much higher, especially during storms and in the vicinity of electrical anomalies. The weight is also quite high for such a small artefact, which leads to a conclusion that is of extremely high density. Radiation output decreased owing to the container.\n \n
-		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
-		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
-		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
-		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Mama's Beads artefact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
-	</string>
-	<string id="st_af_eye_af_aac_name">
-		<text>AAC w/ Eye</text>
-	</string>
-	<string id="st_af_eye_af_aac_descr">
-		<text>Eye in Artefact Application Container. This artefact, which resembles the human eye, considerably increases metabolism of the body, helping wounds heal quicker. Experienced stalkers say that Eye also brings luck. Irrespective of the validity of that statement, its positive effects are indeed quite potent. First of all, it reduces temperature of user's body and cools all objects in its vicinity. Secondly, it provides substantial protection against all types of acids by gradually increasing their pH to the level of water (pH of 7). Thirdly, this artefact soothes the pain and is extremely useful when treating wounds. These beneficial qualities, however, come at a price. This artefact is extremely dangerous when exposed to chemical anomalies as it amplifies their toxicity and increases their potency. It is hence highly recommended to keep the artefact in your backpack, never on the body, when exploring toxic areas unless you have a death wish. The artefact is also known colloquially as "Copper eye" as it conducts electricity and amplifies its dangerous effects in the same way as copper does. Radiation output decreased owing to the container.\n \n
-		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
-		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
-		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
-		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Eye artefact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
-	</string>
-	<string id="st_af_fire_af_aac_name">
-		<text>AAC w/ Flame</text>
-	</string>
-	<string id="st_af_fire_af_aac_descr">
-		<text>Flame in Artefact Application Container. This artefact forms in areas of high thermal activity. Produces powerful infrared emissions which intensify metabolic processes, healing wounds before its bearer's very eyes. As this artefact is very rare, it is extremely valuable. As regards its effects, it is similar to the Eye in that it will reduce the temperature of user's body, which is especially useful when exposed to potent heat sources. It also acts as powerful resistor, and negates the effect of acids. Moreover, its healing capabilities are even stronger than in case of the Eye as stalkers in possession of this artefact are said to have survived being wounded by chimeras. Thanks to that, it has earned the reputation of a miraculous artefact. Many stalkers owe it their lives, and most veteran mutant hunters carry it in case they run into danger. However, it shares not only positive but also negative properties of its cousin: entering a toxic or chemical anomaly with this artefact on the belt is suicide. It will increase the corrosivity of chemical particles and enhance the adverse effect of the toxins within user's bloodstream. It can also be used as a reusable medkit of sorts since it heals wounds very quickly. Radiation output decreased owing to the container.\n \n
-		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
-		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
-		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
-		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Flame artefact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
-	</string>
+	
 	<string id="st_af_blood_af_aac_name">
 		<text>AAC w/ Stone Blood</text>
 	</string>
 	<string id="st_af_blood_af_aac_descr">
-		<text>Stone Blood in Artefact Application Container. A reddish formation of compressed fossilized plants, soil and animal debris. Can partially neutralize chemical poisons by absorbing them and reducing overall toxicity level in user's bloodstream. Quite widespread and not very effective as it makes chemical burns fester. It will catch fire when exposed to open flame or even spontaneously combust. Another downside to this artefact is that it will increase the negative effects of psy-waves and is a potent conductor. It also drains energy from user's body. Stone blood will, however, speed up wound recovery due to its organic nature. Radiation output decreased owing to the container.\n \n
+		<text>
+		A reddish formation of compressed fossilized plants, soil and animal debris. Can partially neutralize chemical poisons by absorbing them and reducing overall toxicity level in user's bloodstream. Quite widespread and not very effective as it makes chemical burns fester. It will catch fire when exposed to open flame or even spontaneously combust. 
+		\nAnother positive effect possessed by this artefact is that it accelerates clotting if worn close to the body. Although it is not recommended to keep this artefact in your possession for longer periods of time as blood clots can be hazardous to your health.
+		\n \nRadiation output is low on the artefact radiation scale.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
 		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
 		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
 		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
 		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Stone Blood artefact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
 	</string>
+	
 	<string id="st_af_mincer_meat_af_aac_name">
 		<text>AAC w/ Meat Chunk</text>
 	</string>
 	<string id="st_af_mincer_meat_af_aac_descr">
-		<text>Meat Chunk in Artefact Application Container. This artefact has soft, porous, skin-like texture and is said to be able to compress. It resembles and acts like a sponge in this regard, but reveals its special characteristics only when exposed to certain external conditions. Firstly, when in the closest proximity of heat source it emits odor of burning flesh. Prolonged exposure may enhance its flammability and cause it to ignite. While this phenomenon leaves the artefact undamaged, it can cause objects in its vicinity to heat up and in extreme cases to ignite along with the artefact. For this reason, it is safe to conclude that it absorbs heat and is able to convey it to other objects. Secondly, to carry the sponge metaphor further, the pores on its surface are known to absorb small amounts of toxicity from environment. Thirdly, the artefact slightly amplifies the damaging effects of psy-fields to living organisms by absorbing psy energy and emitting it at a small rate. Fourthly, Meat Chunk is also known to be a conductor of electricity much like the skin of a living creature. Certain sources within stalker community indicate further that it makes one feel physically drained when used for even short periods of time. Fifthly, probably the most beneficial feature of this artefact is its ability to slowly close up wounds and heal damaged tissues. Radiation output decreased owing to the container.\n \n
+		<text>
+		This artefact has soft, porous, skin-like texture and is said to be able to compress. It resembles and acts like a sponge in this regard, but reveals its special characteristics only when exposed to certain external conditions.
+		\nFirstly, to carry the sponge metaphor further, the pores on its surface are known to absorb small amounts of toxicity from environment.
+		\nSecondly, the artefact slightly amplifies the damaging effects of psy-fields to living organisms by absorbing psy energy and emitting it at a small rate.
+		\nThirdly, Meat Chunk is also known to be a conductor of electricity much like the skin of a living creature.
+		\n \nRadiation output is average on the artefact radiation scale.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
 		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
 		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
 		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
 		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Meat Chunk artefact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
 	</string>
-	<string id="st_af_soul_af_aac_name">
-		<text>AAC w/ Soul</text>
-	</string>
-	<string id="st_af_soul_af_aac_descr">
-		<text>Soul in Artefact Application Container. Soul is a unique organic artefact with properties just as unique - it secretes slimy goo that dramatically increases recovery rate of wounds. Thanks to its reasonable price and attractive appearance, this artefact is a valuable collector's item. Because of its organic nature, Soul is highly flammable and should not be carried near a campfire or most heat sources. It is known to spontaneously combust when exposed to temperature exceeding 60°C. The artefact provides a high level of toxic and chemical protection by absorbing chemical agents. It then uses them as basis for producing its gooey substance which, when applied to wounds, soothes the pain and speeds up healing process. On the other hand, Soul amplifies the effects of psy-waves and increases the damage of electricity to one's body. It is also known to drain power from its user. The artefact does not have high density and thus is not very heavy. Radiation output decreased owing to the container.\n \n
+	
+	<string id="st_af_bracelet_af_aac_name">
+		<text>AAC w/ Bracelet</text>
+	</string>  
+	<string id="st_af_bracelet_af_aac_descr">
+		<text>
+		Bracelet is known for its green glow. Formed from common species of bryophytes plants under high exposure to radioactive and chemical anomalies, which explains its organic nature.
+		\nIt provides substantial protection against all types of acids by gradually increasing their pH to the level of water (pH of 7).
+		\nWhen worn, the artefact is also known to slightly counter the harmful effects of psy-anomalies or psy-waves of some mutants.
+		\n \nRadiation output is average on the artefact radiation scale.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
 		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
 		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
 		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
 		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Soul artefact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable1 kevlar sheet </text>
-	</string>
-	<string id="st_af_fuzz_kolobok_af_aac_name">
-		<text>AAC w/ Kolobok</text>
-	</string>
-	<string id="st_af_fuzz_kolobok_af_aac_descr">
-		<text>Kolobok in Artefact Application Container. A relatively rare artefact forming in chemical areas, Kolobok is highly valued for its ability to heal most kinds of wounds and stop bleeding in a matter of minutes. For unknown reasons, scientists are spreading rumors among stalkers that the artefact modifies bearer's genetic code, which is unproven and should be regarded as conscious attempt at monopolizing the supply of the artefact by the scientific community. This does not, however, mean that it is completely harmless. One drawback of this artefact is the fact that it will increase electrical conductivity, so it is best to avoid electro anomalies when in possession of the artefact, especially since its negative effects are not balanced with positive ones. It will also reduce energy recovery, which is the result of its sharp needle-like appendages. The needles cause small and quickly healing wounds which bring constant pain and itch, thus reducing stamina. This artefact also weakens protection against psy-emissions produced by anomalies or mutants as well as from heat and acids due to its high flammability. Given its chemical origin, it is also well known for its ability to increase user's protection against toxicity. Lightweight and not too much of a burden to carry around. Radiation output decreased owing to the container.\n \n
-		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
-		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
-		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
-		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Kolobok artefact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
-	</string>
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
+	</string>  
+	
 	<string id="st_af_baloon_af_aac_name">
 		<text>AAC w/ Bubble</text>
 	</string>
 	<string id="st_af_baloon_af_aac_descr">
-		<text>Bubble in Artefact Application Container. A compound of several hollow organic formations, this artefact emits a gaseous substance that can neutralize chemical or toxic particles inside the body without harming it. Apart from that Bubble, however, possesses numerous negative properties. For example, it greatly amplifies the effects of psy-waves as well as fields produced by mutants and anomalies. This disadvantage is not to be taken lightly: some stalkers have reported that psy influence was so potent when in possession of a Bubble that they felt their heads cracking from the inside and the only thing they could do was scream in pain and run as far as they could. The same mechanism seems to be at work in case of electro anomalies: the artefact will conduct electricity and increase amps of electric current. Moreover, many reports by stalkers indicate that Bubble needs a power source to be functional. This power source is the body itself: the artefact drains vitality and willpower from the user, often on such a scale that it induces dizziness and in extreme cases causes the user to faint. The only other positive aspect to this artefact is the fact that it speeds up healing process and closes up wounds, however it is so potent in this regard that its high price on the market and the demand for it are perfectly justified. Radiation output decreased owing to the container. \n\n%c[0,204,0,51]WARNING:%c[0,140,140,140] Because of its organic nature and instability this artefact is well known to spontaneously combust more so than any other organic artefact and for this reason it is advised to abstain from wearing it in the vicinity of a fire or acid anomaly.\n \n
+		<text>
+		A compound of several hollow organic formations, this artefact emits a gaseous substance that can neutralize chemical or toxic particles inside the body without harming it. Thus providing a a great level of toxic and chemical protection.
+		\nIt also has a constant temperature regardless of its surroundings. This allows it to absorb heat from its vicinity and to create a little pocket around the user which prevents the flames from damaging the body. 
+		\nApart from that Bubble, however, possesses numerous negative properties. For example, it greatly amplifies the effects of psy-waves as well as fields produced by mutants and anomalies. This disadvantage is not to be taken lightly: some stalkers have reported that psy influence was so potent when in possession of a Bubble that they felt their heads cracking from the inside and the only thing they could do was scream in pain and run as far as they could. 
+		\n \nRadiation output is high on the artefact radiation scale.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
 		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
 		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
 		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
 		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Bubble artefact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
 	</string>
-	<string id="st_af_glass_af_aac_name">
-		<text>AAC w/ Firefly</text>
-	</string>
-	<string id="st_af_glass_af_aac_descr">
-		<text>Firefly in Artefact Application Container. Firefly interacts with fields unknown to science, considerably speeding up regeneration of tissue and organs in living beings, as well as normalizing metabolic processes. This artefact can literally get a badly wounded stalker back on his feet in a matter of minutes. On the other hand, Firefly can spontaneously combust when exposed to potent heat sources. It also amplifies the harmful effects of both psy-fields and electro anomalies, and seems to drain stamina and decrease stamina recovery. However, it will absorb any and all deadly chemicals within one's body. Furthermore, it admirably protects against toxicity, and seems to inject neutralizing chemical agents into user's bloodstream, which negate the effects of toxins and nerve damage. For this reason, it is in high demand in military circles as it can make terrorist attacks with chemical or biological weapons more easily manageable. Unfortunately, Firefly is extremely rare. Radiation output decreased owing to the container.\n \n
-		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
-		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
-		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
-		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Firefly artefact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
-	</string>
+	
 	<string id="st_af_electra_sparkler_af_aac_name">
 		<text>AAC w/ Sparkler</text>
 	</string>
 	<string id="st_af_electra_sparkler_af_aac_descr">
-		<text>Sparkler in Artefact Application Container. This artefact has the appearance of translucent spider webs. Just as proteinaceous spider silk, it is sticky and has properties of glue. It can be found most commonly in or near electro anomalies and it seems to have absorbed their certain characteristics: it is able to smooth fluctuations in electric field density and acts as a weak resistor, protecting the wearer from electricity and reducing its damaging effects. When worn, the artefact is also known to slightly counter the harmful effects of psy-anomalies or psy-waves of some mutants. Because of its electrical nature, it provides the body with additional albeit weak source of energy. It does not possess any beneficial healing properties, as the gluey fluid produced by the artefact is damaging to living tissue and will prevent blood clotting. It is extremely light. Radiation output decreased owing to the container.\n \n
+		<text>
+		This artefact has the appearance of translucent spider webs. Just as proteinaceous spider silk, it is sticky and has properties of glue.
+		\nIt can be found most commonly in or near electro anomalies and it seems to have absorbed their certain characteristics: it is able to smooth fluctuations in electric field density and acts as a weak resistor, protecting the wearer from electricity and reducing its damaging effects.
+		\nOn the other hand, it should be noted that the presence of this artefact increases the corrosivity of acids, leading to accelerated deterioration of equipment and higher damage to tissues of any living organism.
+		\n \nRadiation output is low on the artefact radiation scale.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
 		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
 		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
 		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
 		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Sparkler artefact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
 	</string>
+	
+	<string id="st_af_sponge_af_aac_name">
+		<text>AAC w/ Sponge</text>
+	</string>  
+	<string id="st_af_sponge_af_aac_descr">
+		<text>
+		Sponge has always been under debate among the Ecologists. Some suggest that this artefact is driven from basic form of organisms, while others believe its an advanced life form with self-awareness inherited from living creatures.
+		\nDespite the theories surrounding the artefact, all can agree on one thing: it moves. The sponge sometimes tries to "grab" an object it touches. Putting it in a container might be a hard task, as if it wants to escape.
+		\nThis artefact acts as a powerful resistor and will absorb even lethal doses of electricity. On the other hand, it will catch fire when exposed to open flame or even spontaneously combust.
+		\n \nRadiation output is average on the artefact radiation scale.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
+		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
+		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
+		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
+	</string> 
+	
+	<string id="st_af_ring_af_aac_name">
+		<text>AAC w/ Ring</text>
+	</string>  
+	<string id="st_af_ring_af_aac_descr">
+		<text>
+		A very small artefact of electric nature. Difficult to spot. Consists of two ring-shaped materials of organic nature, hence the given name.
+		When the Ring spins, it never stops spinning, defying the first law of thermodynamics. Scientists suggest that this artefact inherits gravitational properties from Vortex anomalies.
+		\nThe outer ring has a high-conductivity. It absorbs electrical current from relative sources then ground it in the inner ring. Despite the basic function, the mechanism behind the disappearance of electrical power inside the second ring is still unknown.
+		\nOn the other side, the Ring is flammable. Prolonged exposure may enhance its flammability and cause it to ignite.
+		\n \nRadiation output is average on the artefact radiation scale.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
+		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
+		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
+		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
+	</string> 
+	
 	<string id="st_af_electra_flash_af_aac_name">
 		<text>AAC w/ Flash</text>
 	</string>
 	<string id="st_af_electra_flash_af_aac_descr">
-		<text>Flash in Artefact Application Container. This artefact is very similar in appearance to Moonlight and resembles a plasma globe or a plasma lamp. When worn, it is known to slightly counter harmful effects of psy-anomalies or psy-waves of certain mutants. Flash acts as a powerful resistor and will absorb even lethal doses of electricity. On the other hand, it is extremely important to note that each time it comes into contact with electricity, it will release a static build-up which, while not deadly, can have an effect similar to a Taser shock. The artefact has weak regenerative properties and its direct touch has similar effect to a plasma globe, making one feel energized. However, it also hinders healing process, thus caution is advised especially when wounded or bleeding. This artefact is also extremely light and very portable. Radiation output decreased owing to the container.\n \n
+		<text>
+		This artefact is very similar in appearance to Moonlight and resembles a plasma globe or a plasma lamp.
+		\nBeing a powerful resistor, it is well known for its ability to shield its user from lethal doses of electricity.
+		\nWhen worn, it is known to slightly counter harmful effects of psy-anomalies or psy-waves of certain mutants. Flash acts as a powerful resistor and will absorb even lethal doses of electricity.
+		\nHowever, it also hinders healing process, thus caution is advised especially when wounded or bleeding. This artefact is also extremely light and very portable.
+		\n \nRadiation output is high on the artefact radiation scale.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
 		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
 		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
 		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
 		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Flash artefact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
 	</string>
+	
+	<string id="st_af_cristall_flower_af_aac_name">
+		<text>AAC w/ Stone Flower</text>
+	</string>
+	<string id="st_af_cristall_flower_af_aac_descr">
+		<text>
+		This artefact resembles melted cheese interspersed with sapphire-like stones. Only yellow outer shell of the artefact appears to give off radiation and by careful processing it is possible to extract the non-radioactive blue parts for jewelery and other industrial purposes. This is due to the fact that if cleaned properly and polished, sapphire comparison becomes much more explicit: the stones are as hard and durable as this beautiful gem. This quality of theirs and their appearance make them perfect gemstones and jewelers all over the world strive to have them in stock. 
+		\nThe usefulness of the artefact, however, is not limited to its industrial applications. There is scientific evidence suggesting that sapphire-like stones effectively protect from psy-waves, whereas the outer shell slightly increases resistance to toxicity.
+		\nHowever, it can cause objects in its vicinity to heat up and in extreme cases to ignite along with the artefact. For this reason, it is safe to conclude that it absorbs heat and is able to convey it to other objects.
+		\nDue to its density the weight of artefact has increased beyond normal standards, and thus it is one of the heaviest anomalous creations in the Zone.
+		\n \nRadiation output is low on the artefact radiation scale.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
+		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
+		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
+		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
+	</string>
+	
+	<string id="st_af_lobster_eyes_af_aac_name">
+		<text>AAC w/ Lobster Eyes</text>
+	</string>  
+	<string id="st_af_lobster_eyes_af_aac_descr">
+		<text>
+		As the name suggests, this artefact has the shape of two eggs fused together. The outer surface is very thick, the high density of its formation might be the reason behind its deep color.
+		\nThis artefact offers slightly more psy-protection than its cousin, Stone Flower. It resonates under the influence of psy-waves to some degree and absorbs the dangerous effect.
+		\nAnother positive property is the ability to consume excessive heat while remaining cool at all times.
+		\nDue to its density of the surface, the Lobster Eyes is quite heavy.
+		\n \nRadiation output is average on the artefact radiation scale.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
+		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
+		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
+		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
+	</string> 
+	
 	<string id="st_af_electra_moonlight_af_aac_name">
 		<text>AAC w/ Moonlight</text>
 	</string>
 	<string id="st_af_electra_moonlight_af_aac_descr">
-		<text>Moonlight in Artefact Application Container. This unique electrostatic artefact can resonate under the influence of psy-waves. Stalkers have learned to fine-tune the artefact so that it resonates in opposite phase to the main source of emissions, thus significantly neutralizing their effects. This orb of considerable beauty also increases electrical protection by reducing conductivity in the body when exposed to high levels of electricity. It also enhances energy and stamina recovery, allowing its user to feel energetic and refreshed. An unwanted side effect is that it decreases healing rate and coagulation. This artefact is also extremely light and very portable. Radiation output decreased owing to the container.\n \n
+		<text>
+		This unique electrostatic artefact can resonate under the influence of psy-waves. Stalkers have learned to fine-tune the artefact so that it resonates in opposite phase to the main source of emissions, thus significantly neutralizing their effects. This orb of considerable beauty also increases electrical protection by reducing conductivity in the body when exposed to high levels of electricity.
+		\nIt should be noted that Moonlight will catch fire when exposed to open flame or even spontaneously combust. 
+		\n \nRadiation output is average on the artefact radiation scale.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
 		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
 		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
 		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
 		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Moonlight artefact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
 	</string>
+	
+	<string id="st_af_black_spray_af_aac_name">
+		<text>AAC w/ Black Spray</text>
+	</string>  
+	<string id="st_af_black_spray_af_aac_descr">
+		<text>
+		Being a rare artefact, little is known about its properties and origins. 
+		\nBlack Spray shares a similar shape to other sapphire-like artefacts. However, the organic nature of the stem (which shares similar properties to Pin artefacts) suggests that its formed from vascular plants under exposure to dangerous psy-fields and electromagnetic waves.
+		\nAnother unique property is the ability to delay the transmission of light that enters it. The said mysterious mechanism is applied to psy-waves surrounding the artefct as well. For this particular reason, Black Spray significantly neutralizes psy interferences in a large radius.
+		\nThese beneficial properties, however, come at a price. This artefact is extremely dangerous when exposed in toxic environments as it amplifies their effect and increases their potency. When exploring toxic areas, it is hence highly recommended to keep the artefact in your backpack.
+		\nDue to the beautiful blue aura it emits, it is highly sought after by jewelers all over the world.
+		\n \nRadiation output is high on the artefact radiation scale.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
+		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
+		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
+		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
+	</string>  
+	
+	<string id="st_af_medusa_af_aac_name">
+		<text>AAC w/ Jellyfish</text>
+	</string>
+	<string id="st_af_medusa_af_aac_descr">
+		<text>
+		Very common in the Zone. This gravitational artefact is able to slightly shield the body and objects from physical impacts.
+		\nIt will slightly protect its user against extreme heat produced respectively by fire anomalies.
+		\nThis artefact is quite heavy as the gravitational field seems to increase mass. Another downside to this artefact is that it will increase the negative effects of psy-waves and is a potent conductor.
+		\n \nRadiation output is low on the artefact radiation scale.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
+		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
+		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
+		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
+	</string>
+	
+	<string id="st_af_vyvert_af_aac_name">
+		<text>AAC w/ Wrenched</text>
+	</string>
+	<string id="st_af_vyvert_af_aac_descr">
+		<text>
+		This bizarrely-shaped artefact appears in places with increased gravitational activity.
+		\nAlthough it appears almost organic, it is actually more similar to coral. Due to its gravitational nature, It provides protection against physical impacts as it greatly reduces the friction caused by fast objects.
+		\nActing as a kind of sponge that absorbs chemical and toxic elements as well, this artefact provides protection from external toxic agents as well as from chemical particles that have already made their way into the body.
+		\nWrenced can generate a locally directed gravity field which increases its mass. For this reason, this artefact is heavy.
+		\n \nRadiation output is average on the artefact radiation scale.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
+		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
+		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
+		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
+	</string>
+	
+	<string id="st_af_empty_af_aac_name">
+		<text>AAC w/ Empty</text>
+	</string>  
+	<string id="st_af_empty_af_aac_descr">
+		<text>
+		Two disks of organic formation (commonly lipids, cellulose and lignin) with nothing but empty space in between. This is due to a unique gravitation field formed in the center that stabilize the distance between the disks.
+		\nAny attempt to press the disks together, or pull them apart will fail due to rapid positive/negative changes in the gravitational field. As if the artefact reacts to any physical power that breaks its balance.
+		\nBecause of this mechanism, moving with an Empty is a hard task. As the gravitational field increases the density of surrounding air and slows the body down.
+		\nThe real usefulness of this effect comes to the ability to reduce friction, thus obtaining great protection against physical impacts.
+		\n \nRadiation output is average on the artefact radiation scale.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
+		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
+		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
+		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
+	</string> 
+ 	
+	<string id="st_af_full_empty_af_aac_name">
+		<text>AAC w/ Full Empty</text>
+	</string>  
+	<string id="st_af_full_empty_af_aac_descr">
+		<text>
+		Similar to Empty, this artefact consist of two disks of organic formation connected by a unique gravitational field in between. However, the said field in Full Empty is extraordinary: all atoms entering the center, regardless of their nature, become interactive under the unknown effects of the field. Thus releasing photons (light emitting).
+		\nScientists usually refer to it as the "galaxy effect", which gives the artefact an exceptional orbit of light.
+		\nThe density increment of surrounding air caused by moving is higher comparing to Empty. Because of this, the artefact will greatly hinder its holder's movement.
+		\nBeing superior artefact to Empty, the protection against physical impacts is remarkable. Some claims that Full Empty is capable of stopping 9mm bullets fired at point blank.
+		\n \nRadiation output is high on the artefact radiation scale.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
+		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
+		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
+		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
+	</string> 
+	
+	<string id="st_af_night_star_af_aac_name">
+		<text>AAC w/ Nightstar</text>
+	</string>
+	<string id="st_af_night_star_af_aac_descr">
+		<text>
+		This glowing artefact can generate a local directed low-gravity field. Widely used by stalkers along with Gravi, a similar artefact, to increase maximum load.
+		\nDue to its beautiful inner core it is highly sought after by jewelers all over the world, however it is best to proceed with caution as unskilled treatment can cause the artefact to explode with power sufficient to level a small building. It is thus highly advised to perform the polishing by means of specialized machinery, which minimizes the probability of explosion. Moreover, only the outer core of the artefact emits radiation.
+		\nNightstar will also absorb toxic and chemical agents from the environment, which makes it a valuable artefact for artefact hunters, although the amount of toxicity absorbed is negligible. It is, however, relatively cheap and even stalkers with pretty tight budgets can afford it if opportunity to buy it arises. 
+		\nThat being said, Nightstar emits odor of burning flesh when in the closest proximity of heat source. Prolonged exposure may enhance its flammability and cause it to ignite.
+		\n \nRadiation output is low on the artefact radiation scale.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
+		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
+		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
+		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
+	</string>
+	
+	<string id="st_af_gravi_af_aac_name">
+		<text>AAC w/ Gravi</text>
+	</string>
+	<string id="st_af_gravi_af_aac_descr">
+		<text>
+		Gravi is formed from metallic substances exposed to prolonged gravitation. This makes it capable of sustaining an powerful anti-gravitational field, which causes it to have various properties, among others reducing weight of all objects in its close proximity. For a long time, the artefact was a mystery, and it was scientist Sakharov at Yantar who first discovered that Gravi creates a minute singularity field of anti-gravitational nature, the phenomenon which occurs in intervals of 30 minutes.
+		\nA dangerous effect of this artefact is the fact that it will increase electrical conductivity, so the probability of electrocution while wearing this artefact is much higher, especially during storms and in the vicinity of electrical anomalies.
+		\nAnother downside is that it will increase the negative effects of psy-waves and is a potent conductor.
+		\n \nRadiation output is average on the artefact radiation scale.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
+		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
+		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
+		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
+	</string>
+	
+	<string id="st_af_gold_fish_af_aac_name">
+		<text>AAC w/ Goldfish</text>
+	</string>
+	<string id="st_af_gold_fish_af_aac_descr">
+		<text>
+		Direct successor to and a superior version of Gravi artefact. As was the case with Gravi, it was scientist Sakharov at Yantar who discovered its unique properties after a massive blowout/emission hit the Zone.
+		\nThanks to meticulous research that followed, it was established that this new artefact is produced when three Gravi artefacts interact and get sucked into one another's singularity fields. This phenomenon is extremely rare, due to which the artefact is highly valued.
+		\nIt is rumored within Ukrainian Spetsnaz circles that in the Zone there are agents from the Ministry of Defense of the Russian Federation whose sole objective is acquiring and transporting Goldfish to specialized laboratories located outside of the Zone.
+		\nThe artefact creates a constant anti-gravitational singularity field which affects only its closest vicinity. However, some stalkers have been known to disappear for no apparent reason leaving only a Goldfish behind.
+		\nBig downside, however, comes along with this powerful anti-gravitational field: the velocity of moving objects inside its radius will rapidly increase, causing dangerous impacts on surrounding objects, including the holder.
+		\n \nRadiation output is highest on the artefact radiation scale.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
+		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
+		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
+		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
+	</string>
+	
+	<string id="st_af_dummy_glassbeads_af_aac_name">
+		<text>AAC w/ Mama's Beads</text>
+	</string>
+	<string id="st_af_dummy_glassbeads_af_aac_descr">
+		<text>
+		Shaped like a DNA helix, Mama's Beads are created in the Burner anomaly. One of their most characteristic features is that they constantly pulsate, generating emissions beneficial to the human body. These emissions increase the metabolism of any living creature, accelerating coagulation and healing of wounds.The mechanism behind the effects of this artefact is still unknown.
+		\nMama's Beads also possess potent protective qualities: they are able to shield the body and objects from extreme heat.
+		\nOn the other hand, it should be noted that the presence of this artefact increases electrical conductivity, so the probability of electrocution while wearing this artefact is much higher, especially during storms and in the vicinity of electrical anomalies.
+		\nThe weight is also quite high for such a small artefact, which leads to a conclusion that is of high density.
+		\n \nRadiation output is low on the artefact radiation scale.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
+		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
+		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
+		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
+	</string>
+	
+	<string id="st_af_eye_af_aac_name">
+		<text>AAC w/ Eye</text>
+	</string>
+	<string id="st_af_eye_af_aac_descr">
+		<text>
+		This artefact, which resembles the human eye, considerably increases metabolism of the body, helping wounds heal quicker. Experienced stalkers say that Eye also brings luck. Irrespective of the validity of that statement, its positive effects are indeed quite potent. 
+		\nThis artefact soothes the pain and is extremely useful when treating wounds.
+		\nWhen worn, it is known to slightly counter harmful effects of psy-anomalies or psy-waves of certain mutants.
+		\nThese beneficial qualities, however, come at a price. This artefact is extremely dangerous when exposed to chemical anomalies as it amplifies their toxicity and increases their potency. It is hence highly recommended to keep the artefact in your backpack, never on the body, when exploring toxic areas unless you have a death wish.
+		\nThe artefact is also known colloquially as "copper eye" as it conducts electricity and amplifies its dangerous effects in the same way as copper does. 
+		\n \nRadiation output is average on the artefact radiation scale.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
+		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
+		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
+		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
+	</string>
+	
+	<string id="st_af_fire_af_aac_name">
+		<text>AAC w/ Flame</text>
+	</string>
+	<string id="st_af_fire_af_aac_descr">
+		<text>
+		This artefact forms in areas of high thermal activity. Produces powerful infrared emissions which intensify metabolic processes, healing wounds before its bearer's very eyes.
+		\nIts healing capabilities are even stronger than in case of the Eye as stalkers in possession of this artefact are said to have survived being wounded by chimeras. Thanks to that, it has earned the reputation of a miraculous artefact.
+		\nMany stalkers owe it their lives, and most veteran mutant hunters carry it in case they run into danger. However, it shares not only positive but also negative properties of its cousin: entering a psy-field with this artefact on the belt is suicide. It will absorb psy energy and emitting it at a considerable rate.
+		\nAlso, it is highly advised to proceed with caution when planning to bring the artefact to the market as prolonged exposure to even minimal amounts of radioactive materials can result in death of the user.
+		\nIt can also be used as a reusable medkit of sorts since it heals wounds very quickly.
+		\n \nRadiation output is high on the artefact radiation scale.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
+		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
+		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
+		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
+	</string>
+	
 	<string id="st_af_dummy_battery_af_aac_name">
 		<text>AAC w/ Battery</text>
 	</string>
 	<string id="st_af_dummy_battery_af_aac_descr">
-		<text>Battery in Artefact Application Container. This artefact offers slightly more psy-protection than its cousin, Moonlight. It comprises electrostatic elements, but scientists have yet to determine the exact physical conditions required for its formation. The artefact is quite popular in the Zone and is valued by its residents and visitors alike for its energizing properties, although it has an adverse effect on the body when used for prolonged periods of time. One should take note, however, that this artefact hinders blood clotting and increases bleeding rate of open wounds. On the other hand, being a powerful resistor, it is well known for its ability to shield its user from lethal doses of electricity. This artefact is also extremely light and very portable. Radiation output decreased owing to the container.\n \n
+		<text>
+		\nThe artefact is quite popular in the Zone and is valued by its residents and visitors alike for its energizing properties, although it has an adverse effect on the body when used for prolonged periods of time.
+		\nOne should take note, however, that this artefact hinders blood clotting and increases bleeding rate of open wounds. On the other hand, being a powerful resistor, it is well known for its ability to shield its user from lethal doses of electricity.
+		\nBeing an artefact of electric nature, it is well known for its ability to shield its user from lethal doses of electricity. On the contrary, it should be noted that Battery absorbs heat and is able to convey it to other objects.
+		\nThis artefact is also extremely light and very portable. 
+		\n \nRadiation output is low on the artefact radiation scale.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
 		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
 		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
 		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
 		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Battery artefact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
 	</string>
+	
 	<string id="st_af_dummy_dummy_af_aac_name">
 		<text>AAC w/ Shell</text>
 	</string>
 	<string id="st_af_dummy_dummy_af_aac_descr">
-		<text>Shell in Artefact Application Container. Shell is composed of two disk of bluish color connected by semitransparent material of unknown nature. This strange artefact was considered devoid of any useful properties by many scientists for a long time. Only recently has it been discovered that it is indeed quite beneficial. It provides a high level of psy protection and absorbs electromagnetic interference, acting as a grounding material. When the artefact comes into contact with the body, it will make one feel rejuvenated and thus it increases stamina recovery. This effect has in case of some stalkers induced hyperactivity. One downside of this artefact, however, is that it reduces the number of platelets in blood, thus increasing bleeding rate. Shell is extremely light and very portable. Radiation output decreased owing to the container.\n \n
+		<text>
+		Shell is composed of two disk of bluish color connected by semitransparent material of unknown nature.
+		\nThis strange artefact was considered devoid of any useful properties by many scientists for a long time. Only recently has it been discovered that it is indeed quite beneficial.
+		\nWhen the artefact comes into contact with the body, it will make one feel rejuvenated and thus it increases stamina recovery. This effect has in case of some stalkers induced hyperactivity. One downside of this artefact, however, is that it reduces the number of platelets in blood, thus increasing bleeding rate.
+		\nIt provides a considerable level of psy protection and absorbs electromagnetic interference, acting as a grounding material.
+		\nIt will catch fire when exposed to open flame or even spontaneously combust. Caution must be taken when approaching heat sources with this artefact.
+		\nShell is extremely light and very portable.
+		\n \nRadiation output is average on the artefact radiation scale.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
 		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
 		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
 		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
 		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Shell artefact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable </text>
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
 	</string>
+	
 	<string id="st_af_ice_af_aac_name">
 		<text>AAC w/ Snowflake</text>
 	</string>
 	<string id="st_af_ice_af_aac_descr">
-		<text>Snowflake in Artefact Application Container. Also colloquially known as "Radioactive Snowflake". At first glance, this artefact resembles a white Kolobok. Some claim that it actually is a form of Kolobok as it greatly increases resistance to electric currents by creating its own electric field and absorbing electricity that passes through user's body. Thanks to its unique properties, the artefact can significantly increase the bearer's muscle tone, thus greatly improving stamina recovery. Due to its high radioactivity, stalkers in possession of it are sometimes jokingly referred to as "Radioactive Snowflakes". When faced with the decision whether to carry it on the belt during a mission, you have to carefully weigh its pros and cons: does it pay to have greater endurance and high protection against electricity at the cost of being constantly exposed to its deadly radiation? Even if you are determined to take it with you, it should be noted that it is not to be used on long excursions to the Zone. Its usefulness in a fight is also debatable as it increases bleeding rate and prevents wounds from closing due to its very sharp appendages which sting the user and irritate the skin. It is, however, as light as a snowflake and very easy to carry around. Radiation output decreased owing to the container.\n \n
+		<text>
+		Also colloquially known as "Radioactive Snowflake". At first glance, this artefact resembles a white Kolobok.
+		\nThanks to its unique properties, the artefact can significantly increase the bearer's muscle tone, thus greatly improving stamina recovery. Due to its high radioactivity, stalkers in possession of it are sometimes jokingly referred to as "Radioactive Snowflakes".
+		\nWhen faced with the decision whether to carry it on the belt during a mission, you have to carefully weigh its pros and cons: does it pay to have greater endurance and high protection against electricity at the cost of being constantly exposed to its deadly radiation? Even if you are determined to take it with you, it should be noted that it is not to be used on long excursions to the Zone.
+		\nSnowflake, however, holds a big downside: it interacts with surrounding energy sources by absorbing and amplifying their effects. For this reason, approaching heat sources, toxic areas and psy-fields while holding this artefact is a suicide.
+		\nIt is as light as a snowflake and very easy to carry around.
+		\n \nRadiation output is high on the artefact radiation scale.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
 		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
 		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
 		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
 		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Snowflake artefact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
 	</string>
+	
+	<string id="st_af_soul_af_aac_name">
+		<text>AAC w/ Soul</text>
+	</string>
+	<string id="st_af_soul_af_aac_descr">
+		<text>
+		Soul is a unique organic artefact with properties just as unique: it secretes slimy goo that dramatically increases recovery rate of wounds. Thanks to its reasonable price and attractive appearance, this artefact is a valuable collector's item.
+		\nApplying its gooey substance to wounds will soothes the pain and speeds up healing process. 
+		\It also reduces the effects of psy-waves and their damage to one's brain. But it should be known that Soul drains power from its user. The artefact does not have high density and thus is not very heavy.
+		\n \nRadiation output is low on the artefact radiation scale.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
+		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
+		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
+		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
+	</string>
+	
+	<string id="st_af_fuzz_kolobok_af_aac_name">
+		<text>AAC w/ Kolobok</text>
+	</string>
+	<string id="st_af_fuzz_kolobok_af_aac_descr">
+		<text>
+		A relatively rare artefact forming in chemical areas, Kolobok is highly valued for its ability to heal most kinds of wounds and stop bleeding in a matter of minutes.
+		\nFor unknown reasons, scientists are spreading rumors among stalkers that the artefact modifies bearer's genetic code, which is unproven and should be regarded as conscious attempt at monopolizing the supply of the artefact by the scientific community. This does not, however, mean that it is completely harmless.
+		\nOne drawback of this artefact is the fact that it will interact to radioactive particles, so it is best to avoid radiation fields when in possession of the artefact, especially since its negative effects are not balanced with positive ones. It will also reduce energy recovery, which is the result of its sharp needle-like appendages. The needles cause small and quickly healing wounds which bring constant pain and itch, thus reducing stamina.
+		\nThis artefact also weakens protection against heat and acids due to its high flammability. 
+		\nLightweight and not too much of a burden to carry around.
+		\nRadiation output is average on the artefact radiation scale.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
+		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
+		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
+		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
+	</string>
+	
+	<string id="st_af_glass_af_aac_name">
+		<text>AAC w/ Firefly</text>
+	</string>
+	<string id="st_af_glass_af_aac_descr">
+		<text>
+		Firefly interacts with fields unknown to science, considerably speeding up regeneration of tissue and organs in living beings, as well as normalizing metabolic processes.
+		\nThis artefact can literally get a badly wounded stalker back on his feet in a matter of minutes. On the other hand, Firefly can spontaneously combust when exposed to potent radioactive sources.
+		\nA big downside to this artefact is that it weakens the body and reduce the number of platelets in blood during heal process, thus increasing bleeding rate.
+		\nIt seems to drain stamina and decrease stamina recovery greatly as well. Some of those who used Firefly for its healing purposes have reported that they couldn't walk for hours afterwards.
+		\nUnfortunately, Firefly is extremely rare.
+		\nRadiation output is high on the artefact radiation scale.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
+		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
+		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
+		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
+	</string>
+	
 	<string id="st_af_compass_af_aac_name">
 		<text>AAC w/ Compass</text>
 	</string>
 	<string id="st_af_compass_af_aac_descr">
-		<text>Compass in in Artefact Application Container. A rare artefact - it's been several years since one was found. The artefact can locate gaps in anomaly fields. It is believed that it can help one traverse the most complex anomaly fields completely unharmed. However, very few know how to handle it properly. Radiation output decreased owing to the container.\n \n
+		<text>
+		A very rare artefact. It's been several years since one was found.
+		\nIt can locate gaps in anomaly fields. It is believed that it can help one traverse the most complex anomaly fields completely unharmed. However, very few know how to handle it properly.
+		\nThe Compass showed few unique properties under last experiments. It can interact to moving objects, causing some to completely disappear. Or perhaps teleport?
+		\nIt also weakens the body by draining stamina and increasing bleeding rate constantly. But the biggest draw however, is the dangerous radiation output this artefact emits comparing to the artefact radiation scale.
+		\nHolding this artefact near the body will cause death in matter of few minutes.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
 		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
 		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
 		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
 		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Compass artefact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
 	</string>
+	
 	<string id="st_af_oasis_heart_af_aac_name">
 		<text>AAC w/ Heart of the Oasis</text>
 	</string>
 	<string id="st_af_oasis_heart_af_aac_descr">
-		<text>Heart of the Oasis in Artefact Application Container. This artefact was found at the center of the legendary Oasis. It appears that the Heart is a crystallized plant, which has acquired the healing properties of the Oasis. Unlike the Oasis itself, however, this artefact is extremely radioactive. Radiation output decreased owing to the container.\n \n
+		<text>
+		This artefact was found at the center of the legendary Oasis. It appears that the Heart is a crystallized plant, which has acquired the healing properties of the Oasis.
+		\nNot only it dramatically increases recovery rate of wounds and healing process, but also provides the body with strong source of energy. It is a true miracle.
+		\nThat being said, the Oasis is very sensitive to outer sources of energy and surrounding environment. For this reason, interacting with anomaly fields will bring death to the holder.
+		\n \nRadiation output is highest on the artefact radiation scale.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
 		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
 		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
 		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
 		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains the Heart of the Oasis)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable</text>
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
 	</string>
-	<string id="st_jup_b1_half_artifact_af_aac_name">
-		<text>AAC w/ Altered Insulator</text>
-	</string>
-	<string id="st_jup_b1_half_artifact_af_aac_descr">
-		<text>Altered Insulator in Artefact Application Container. This used to be an insulator. It has now almost turned into an unstable artefact. It is probably the source of intermittent psy-emissions. Radiation output decreased owing to the container.\n \n
-		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
-		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
-		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
-		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains the Altered Insulator)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable\n%c[0,204,0,51] • %c[0,140,140,140] extremely radioactive</text>
-	</string>
-	<string id="st_af_quest_b14_twisted_af_aac_name">
-		<text>AAC w/ Altered Wheel</text>
-	</string>
-	<string id="st_af_quest_b14_twisted_af_aac_descr">
-		<text>Altered Wheel in Artefact Application Container. This was once the dredge station wheel. It has now half-converted into a strange artefact. No properties are notable, other than active glowing and a little radioactivity. Radiation output decreased owing to the container.\n \n
-		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
-		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
-		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
-		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains the Altered Wheel)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable\n%c[0,204,0,51] • %c[0,140,140,140] extremely radioactive</text>
-	</string>
-		<string id="st_af_black_spray_aac_name">
-		<text>AAC w/ Black Spray</text>
-	</string>
-	<string id="st_af_black_spray_aac_descr">
-		<text>Black Spray in Artifact Application Container. Black Sprays are artifacts with unknown properties, often used as jewelry outside the Zone. The Black Spray seems to delay the transmission of light that enters it. Radiation output decreased owing to the container.\n \n
-		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
-		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
-		%c[0,225,225,225] • %c[0,140,140,140] artifact storage device\n
-		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Black Spray artifact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable </text>
-	</string>
-	<string id="st_af_bracelet_aac_name">
-		<text>AAC w/ Bracelet</text>
-	</string>
-	<string id="st_af_bracelet_aac_descr">
-		<text>Bracelet in Artifact Application Container. The bracelet has to be worn outside of a container to use its healing ability. Radiation output decreased owing to the container.\n \n
-		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
-		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
-		%c[0,225,225,225] • %c[0,140,140,140] artifact storage device\n
-		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Bracelet artifact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable </text>
-	</string>
-	<string id="st_af_death_lamp_aac_name">
+	
+	<string id="st_af_death_lamp_af_aac_name">
 		<text>AAC w/ Death Lamp</text>
-	</string>
-	<string id="st_af_death_lamp_aac_descr">
-		<text>Death Lamp in Artifact Application Container. Radiation output is extremely high. The container does not reduce the output at all. The death lamp is a legendary artefact, killing anyone who wears it within a very short time.\n \n
+	</string>  
+	<string id="st_af_death_lamp_af_aac_descr">
+		<text>
+		"Big, red and cursed."
+		\nThis is how the locals prefer to describe the Death Lamp, while some refer to it as the "Seed of Satan". Many traders believe the rumors surrounding the artefact, thus refusing to buy it.
+		Little is known about its origins, and nothing of value has been discovered so far.
+		\nDeath Lamp was first discovered few years ago by a group of three experienced stalkers. Shortly after delivering the artefact to the Ecologists in Yantar, two of them found dead with a horrific expression on their faces. Nothing is known about the fate of the third stalker.
+		\nFollowing the accident, members of the science team who studied the artefact had reported having nightmare disorder in the days to follow.
+		\nApart from the mysterious effects, the artefact drains vitality and willpower from the user, often on such a scale that it induces dizziness and in extreme cases causes the user to faint. 
+		\n \nRadiation output is highest on the artefact radiation scale.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
 		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
 		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
-		%c[0,225,225,225] • %c[0,140,140,140] artifact storage device\n
+		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
 		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Death Lamp artifact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable </text>
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
+	</string> 
+	
+	<string id="st_af_misery_bread_af_aac_name">
+		<text>AAC w/ anomalous bread</text>
 	</string>
-	<string id="st_af_empty_aac_name">
-		<text>AAC w/ Empty</text>
-	</string>
-	<string id="st_af_empty_aac_descr">
-		<text>Empty in Artifact Application Container.An Empty is made out of two disks the size of a saucer with nothing but empty space in between. There is no way to press the disks together, or pull them apart. Empties are common in the Zone, and a mystery to the scientists. Radiation output decreased owing to the container.\n \n
+	<string id="st_af_misery_bread_af_aac_descr">
+		<text>
+		Anomalous bread in a Lead-Lined Container. As dark as the soul of the person that left it.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
+		%c[0,153,255,255] • %c[0,140,140,140] technological item\n
 		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
 		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
-		%c[0,225,225,225] • %c[0,140,140,140] artifact storage device\n
+		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
 		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Empty artifact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable </text>
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
+		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)
+		</text>
 	</string>
-	<string id="st_af_full_empty_aac_name">
-		<text>AAC w/ Full Empty</text>
-	</string>
-	<string id="st_af_full_empty_aac_descr">
-		<text>Full Empty in Artifact Application Container. This is a filled "Empty" artefact. Normally there isn't anything between the two disks of the Empty at all. The Full Empty contains a blue fluid that slowly moves between its two disks. It is extremely heavy for one person to carry around, but you can sell it for a lot of cash. Radiation output decreased owing to the container.\n \n
-		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
-		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
-		%c[0,225,225,225] • %c[0,140,140,140] artifact storage device\n
-		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Full Empty artifact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable </text>
-	</string>
-	<string id="st_af_itcher_aac_name">
-		<text>AAC w/ Itcher</text>
-	</string>
-	<string id="st_af_itcher_aac_descr">
-		<text>Itcher in Artifact Application Container. The Itcher is a soft, artefact that can be squeezed. When it's squeezed it may cause panic, depression and madness in people nearby. For most people, it just causes nosebleeds. It is a terrifying thing, that should be sold quickly. Somehow it affects the release of adrenaline in my body. Radiation output decreased owing to the container.\n \n
-		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
-		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
-		%c[0,225,225,225] • %c[0,140,140,140] artifact storage device\n
-		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Itcher artifact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable </text>
-	</string>
-	<string id="st_af_lobster_eyes_aac_name">
-		<text>AAC w/ Lobster Eyes</text>
-	</string>
-	<string id="st_af_lobster_eyes_aac_descr">
-		<text>Lobster Eyes in Artifact Application Container. The Lobster eyes has the shape of two large eggs fused together. From a distance they look like eyes that follow you everywhere you go. It has only been found a few times, one of its unique properties is curing radiation sickness over time. Resistance against anomalies will be lowered while touching it, and it's very heavy.\n \n
-		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
-		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
-		%c[0,225,225,225] • %c[0,140,140,140] artifact storage device\n
-		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Lobster Eyes artifact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable </text>
-	</string>
-	<string id="st_af_pin_aac_name">
-		<text>AAC w/ Pin</text>
-	</string>
-	<string id="st_af_pin_aac_descr">
-		<text>Pin in Artifact Application Container. Pins are small artefacts that can emit red, green and yellow light when it is squeezed. Some Pins need a special machine before they show any light at all. The light it creates should mean something important, but what? Radiation output decreased owing to the container.\n \n
-		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
-		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
-		%c[0,225,225,225] • %c[0,140,140,140] artifact storage device\n
-		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Pin artifact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable </text>
-	</string>
-	<string id="st_af_ring_aac_name">
-		<text>AAC w/ Ring</text>
-	</string>
-	<string id="st_af_ring_aac_descr">
-		<text>Ring in Artifact Application Container. When the Ring spins, it never stops spinning, defying the first law of thermodynamics. It looks like a "ring" and is difficult to spot because of its size. Radiation output decreased owing to the container.\n \n
-		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
-		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
-		%c[0,225,225,225] • %c[0,140,140,140] artifact storage device\n
-		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Ring artifact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable </text>
-	</string>
-	<string id="st_af_sponge_aac_name">
-		<text>AAC w/ Sponge</text>
-	</string>
-	<string id="st_af_sponge_aac_descr">
-		<text>Sponge in Artifact Application Container. The Sponge is an artefact made out of a web like material that sometimes tries to 'grab' an object it touches. This makes it almost impossible to close any container. The Sponge artefact creates a web like material around the container, as if it wants to escape. Radiation output can not be nullified.\n \n
-		%c[0,140,140,140]PROPERTIES:\n
-		%c[0,225,225,225] • %c[0,140,140,140] technological item\n
-		%c[0,153,255,255] • %c[0,140,140,140] valuable\n
-		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
-		%c[0,225,225,225] • %c[0,140,140,140] artifact storage device\n
-		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
-		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] full (contains Sponge artifact)\n
-		%c[0,153,255,255] • %c[0,140,140,140] attachable </text>
-	</string>	
+	
 </string_table>

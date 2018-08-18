@@ -880,5 +880,6 @@ function can_upgrade_item( item_name, mechanic )
 end
 
 function mech_discount(perc)
-	cur_price_percent = perc
+	local eco_factor = hardcore_economy.get_factor("upgrade") or 1
+	cur_price_percent = perc * eco_factor
 end

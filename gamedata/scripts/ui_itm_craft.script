@@ -28,7 +28,7 @@ function list_element:__init(idx, name) super(idx, name)
 	self.text:SetFont			(GetFontLetterica16Russian())
 	self.text:SetWndSize		(vector2():set(400,22))
 	self.text:SetEllipsis		(true)
-	self.text:SetText			(game.translate_string(ini:r_string_ex (self.name,"inv_name") or ""))
+	self.text:SetText			(alun_utils.get_inv_name(self.name) or "")
 end
 
 function list_element:__finalize()

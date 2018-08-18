@@ -109,7 +109,7 @@
 		<text>Lurker chops (Zone-produced)</text>
 	</string>
 	<string id="st_meat_lurker_descr">
-		<text>A small portion of lurker meat, grilled and seasoned with salt and mixed with peppers. Wrapped in brown paper and ready to be eaten. Good nutrition value due to thick muscles of the mutant.\n \n
+		<text>A small portion of lurker meat, grilled and seasoned with salt and mixed with peppers. Wrapped in paper and ready to be eaten. Good nutrition value due to thick muscles of the mutant.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,204,0,51] • %c[0,140,140,140] unhealthy food\n
 		%c[0,204,0,51] • %c[0,140,140,140] radiation poisoning: 
@@ -189,7 +189,7 @@
 		<text>Psy-sucker meat</text>
 	</string>
 	<string id="mutant_psysucker_meat_description">
-		<text>Psy-sucker meat is stringy and thus not suited for eating. Although psy-suckers are fearsome beasts, the price of the meat is not very high due to its limited use. Can be sold to the scientists. Moreover, it can also serve as a source of animal fat for gun lubrication.\n \n
+		<text>Similar to bloodsuckers, Psy-sucker meat is stringy and thus not suited for eating. The price of the meat is not very high due to its limited use. Can be sold to the scientists. Moreover, it can also serve as a source of animal fat for gun lubrication.\n \n
 		%c[0,204,0,51]WARNING:\n \n%c[default]Stalkers are advised to refrain from eating raw meat as animals and mutants in the Zone are likely to be carrying trichinellosis or brucellosis. These diseases are transmitted by ingesting infected meat. The symptoms include fever, fatigue and appetite loss, all of which are extremely dangerous given the conditions in the Zone. Abscesses, fungal growth and tumors on the surface of the body indicate that the meat is infected and should be disposed of.\n \n
 		%c[0,0,255,30] • %c[0,140,140,140] high-tier mutant meat\n
 		%c[0,0,255,30] • %c[0,140,140,140] cookable\n
@@ -250,7 +250,7 @@
 		<text>Lurker meat</text>
 	</string>
 	<string id="mutant_lurker_meat_description">
-		<text>A good chunk of lurker meat.\n \n
+		<text>A good chunk of lurker meat. Nutritious and hardly contaminated. Can be sold to the scientists. However, it can also serve as a source of animal fat for gun lubrication.\n \n
 		%c[0,204,0,51]WARNING:\n \n%c[default]Stalkers are advised to refrain from eating raw meat as animals and mutants in the Zone are likely to be carrying trichinellosis or brucellosis. These diseases are transmitted by ingesting infected meat. The symptoms include fever, fatigue and appetite loss, all of which are extremely dangerous given the conditions in the Zone. Abscesses, fungal growth and tumors on the surface of the body indicate that the meat is infected and should be disposed of.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,0,255,30] • %c[0,140,140,140] high-tier mutant meat\n

@@ -1,7 +1,6 @@
 ;--;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;--;;;;;;; ARMOUR ATTACHEMENTS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;--;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 ;-- 'Artificial' artifacts system. 30.05.2013 N.Aaroe (concept & text), r_populik (GFX), trojanuch (gameplay implementation)
 
 ;--=====================================================================
@@ -14,15 +13,12 @@ visual                                             = dynamics\equipments\aa\surg
 description			                               = st_af_surge_descr
 inv_name			                               = st_af_surge_name
 inv_name_short			                           = st_af_surge_name
-inv_weight			                               = 4.95
-
+inv_weight			                               = 1.56	;4.95
 inv_grid_x			                               = 1
 inv_grid_y			                               = 1
 inv_grid_width			                           = 1
 inv_grid_height			                           = 1
-
 cost				                               = 5460 ; 6200
-
 jump_height			                               = 0.0
 ;particles		                                   = artefact\af_thermal_idle
 det_show_particles		                           = artefact\af_thermal_show
@@ -32,12 +28,10 @@ af_rank				                               = 0
 lights_enabled                                     = false
 trail_light_color 		                           = 0.9,0.4,0.2
 trail_light_range 		                           = 2.0
-
 attach_angle_offset		                           = 1.922,1.551,-0.740   
 attach_position_offset                             = 0.15,0.002,0.25
 attach_bone_name		                           = bip01_r_hand
 auto_attach			                               = false
-
 ;скорости увеличения (уменьшения)
 health_restore_speed		                       = 0
 radiation_restore_speed		                       = 0
@@ -45,14 +39,10 @@ satiety_restore_speed		                       = 0
 power_restore_speed		                           = 0
 bleeding_restore_speed		                       = 0
 hit_absorbation_sect		                       = af_surge_absorbation
-
-additional_inventory_weight	                       = 3.385
-additional_inventory_weight2	                   = 3.385
-
+;additional_inventory_weight	                       = 3.385
+;additional_inventory_weight2	                   = 3.385
 artefact_activation_seq		                       = af_activation_bold
-
 repair_part_bonus	 	                           = 0.08
-
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
 disassemble_parts								   = basic_scrap,basic_scrap,textile_patch_e
@@ -79,14 +69,11 @@ description			                               = st_af_frames_descr
 inv_name			                               = st_af_frames_name
 inv_name_short			                           = st_af_frames_name
 inv_weight			                               = 0.53
-
 inv_grid_x			                               = 0
 inv_grid_y			                               = 0
 inv_grid_width			                           = 1
 inv_grid_height			                           = 1
-
 cost				                               = 6380 ; 6200
-
 jump_height			                               = 0.0
 ;particles		                                   = artefact\af_thermal_idle
 det_show_particles		                           = artefact\af_thermal_show
@@ -96,12 +83,10 @@ af_rank				                               = 0
 lights_enabled                                     = false
 trail_light_color 		                           = 0.9,0.4,0.2
 trail_light_range 		                           = 2.0
-
 attach_angle_offset		                           = 1.922,1.551,-0.740   
 attach_position_offset                             = 0.15,0.002,0.25
 attach_bone_name		                           = bip01_r_hand
 auto_attach			                               = false
-
 ;скорости увеличения (уменьшения)
 health_restore_speed		                       = 0
 radiation_restore_speed		                       = 0
@@ -109,14 +94,10 @@ satiety_restore_speed		                       = 0
 power_restore_speed		                           = 0
 bleeding_restore_speed		                       = 0
 hit_absorbation_sect		                       = af_frames_absorbation
-
-additional_inventory_weight	                       = 3.58
-additional_inventory_weight2	                   = 3.58
-
+additional_inventory_weight	                       = 1.79	;3.58
+additional_inventory_weight2	                   = 1.79	;3.58
 artefact_activation_seq		                       = af_activation_bold
-
 repair_part_bonus	 	                           = 0.07
-
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
 disassemble_parts								   = basic_scrap,basic_scrap,basic_scrap
@@ -143,14 +124,11 @@ description			                               = st_af_grid_descr
 inv_name			                               = st_af_grid_name
 inv_name_short			                           = st_af_grid_name
 inv_weight			                               = 0.44
-
 inv_grid_x			                               = 3
 inv_grid_y			                               = 0
 inv_grid_width			                           = 1
 inv_grid_height			                           = 1
-
 cost				                               = 8450 ; 6200
-
 jump_height			                               = 0.0
 ;particles		                                   = artefact\af_thermal_idle
 det_show_particles		                           = artefact\af_thermal_show
@@ -160,12 +138,10 @@ af_rank				                               = 0
 lights_enabled                                     = false
 trail_light_color 		                           = 0.9,0.4,0.2
 trail_light_range 		                           = 2.0
-
 attach_angle_offset		                           = 1.922,1.551,-0.740   
 attach_position_offset                             = 0.15,0.002,0.25
 attach_bone_name		                           = bip01_r_hand
 auto_attach			                               = false
-
 ;скорости увеличения (уменьшения)
 health_restore_speed		                       = 0
 radiation_restore_speed		                       = 0
@@ -173,14 +149,10 @@ satiety_restore_speed		                       = 0
 power_restore_speed		                           = 0
 bleeding_restore_speed		                       = 0
 hit_absorbation_sect		                       = af_grid_absorbation
-
-additional_inventory_weight		                   = 4.42
-additional_inventory_weight2		               = 4.42
-
+additional_inventory_weight		                   = 3.21	;4.42
+additional_inventory_weight2		               = 3.21	;4.42
 artefact_activation_seq		                       = af_activation_bold
-
 repair_part_bonus	 	                           = 0.11
-
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
 disassemble_parts								   = basic_scrap,basic_scrap
@@ -206,15 +178,12 @@ visual                                             = dynamics\equipments\aa\freo
 description			                               = st_af_freon_descr
 inv_name			                               = st_af_freon_name
 inv_name_short			                           = st_af_freon_name
-inv_weight			                               = 2.34
-
+inv_weight			                               = 0.72	;2.34
 inv_grid_x			                               = 1
 inv_grid_y			                               = 0
 inv_grid_width			                           = 1
 inv_grid_height			                           = 1
-
 cost				                               = 4580 ; 6200
-
 jump_height			                               = 0.0
 ;particles		                                   = artefact\af_thermal_idle
 det_show_particles		                           = artefact\af_thermal_show
@@ -224,12 +193,10 @@ af_rank				                               = 0
 lights_enabled                                     = false
 trail_light_color 		                           = 0.9,0.4,0.2
 trail_light_range 		                           = 2.0
-
 attach_angle_offset		                           = 1.922,1.551,-0.740   
 attach_position_offset                             = 0.15,0.002,0.25
 attach_bone_name		                           = bip01_r_hand
 auto_attach			                               = false
-
 ;скорости увеличения (уменьшения)
 health_restore_speed		                       = 0
 radiation_restore_speed		                       = 0
@@ -237,12 +204,9 @@ satiety_restore_speed		                       = 0
 power_restore_speed		                           = 0
 bleeding_restore_speed		                       = 0
 hit_absorbation_sect		                       = af_freon_absorbation
-
-additional_inventory_weight	                       = 1.62
-additional_inventory_weight2	                   = 1.62
-
+;additional_inventory_weight	                       = 1.62
+;additional_inventory_weight2	                   = 1.62
 artefact_activation_seq		                       = af_activation_bold
-
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
 disassemble_parts								   = basic_scrap,basic_scrap,textile_patch_e
@@ -268,15 +232,12 @@ visual                                             = dynamics\equipments\aa\cool
 description			                               = st_af_cooler_descr
 inv_name			                               = st_af_cooler_name
 inv_name_short			                           = st_af_cooler_name
-inv_weight			                               = 3.56
-
+inv_weight			                               = 0.98	;3.56
 inv_grid_x			                               = 2
 inv_grid_y			                               = 0
 inv_grid_width			                           = 1
 inv_grid_height			                           = 1
-
 cost				                               = 6080 ; 6200
-
 jump_height			                               = 0.0
 ;particles		                                   = artefact\af_thermal_idle
 det_show_particles		                           = artefact\af_thermal_show
@@ -286,12 +247,10 @@ af_rank				                               = 0
 lights_enabled                                     = false
 trail_light_color 		                           = 0.9,0.4,0.2
 trail_light_range 		                           = 2.0
-
 attach_angle_offset		                           = 1.922,1.551,-0.740   
 attach_position_offset                             = 0.15,0.002,0.25
 attach_bone_name		                           = bip01_r_hand
 auto_attach			                               = false
-
 ;скорости увеличения (уменьшения)
 health_restore_speed		                       = 0
 radiation_restore_speed		                       = 0
@@ -299,14 +258,10 @@ satiety_restore_speed		                       = 0
 power_restore_speed			                       = 0
 bleeding_restore_speed		                       = 0
 hit_absorbation_sect		                       = af_cooler_absorbation
-
-additional_inventory_weight		                   = 2.58
-additional_inventory_weight2	                   = 2.58
-
+;additional_inventory_weight		                   = 2.58
+;additional_inventory_weight2	                   = 2.58
 artefact_activation_seq		                       = af_activation_bold
-
 repair_part_bonus	 	                           = 0.09
-
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
 disassemble_parts								   = basic_scrap,basic_scrap,textile_patch_e
@@ -332,15 +287,12 @@ visual                                             = dynamics\equipments\aa\kevl
 description			                               = st_af_kevlar_descr
 inv_name			                               = st_af_kevlar_name
 inv_name_short			                           = st_af_kevlar_name
-inv_weight			                               = 1.743
-
+inv_weight			                               = 0.483	;1.743
 inv_grid_x			                               = 2
 inv_grid_y			                               = 1
 inv_grid_width			                           = 1
 inv_grid_height			                           = 1
-
 cost				                               = 6380 ; 6200
-
 jump_height			                               = 0.0
 ;particles		                                   = artefact\af_thermal_idle
 det_show_particles		                           = artefact\af_thermal_show
@@ -350,12 +302,10 @@ af_rank				                               = 0
 lights_enabled                                     = false
 trail_light_color 		                           = 0.9,0.4,0.2
 trail_light_range 		                           = 2.0
-
 attach_angle_offset		                           = 1.922,1.551,-0.740   
 attach_position_offset                             = 0.15,0.002,0.25
 attach_bone_name		                           = bip01_r_hand
 auto_attach			                               = false
-
 ;скорости увеличения (уменьшения)
 health_restore_speed		                       = 0
 radiation_restore_speed		                       = 0
@@ -363,14 +313,10 @@ satiety_restore_speed		                       = 0
 power_restore_speed		                           = 0
 bleeding_restore_speed		                       = 0 ; 0.00065
 hit_absorbation_sect		                       = af_kevlar_absorbation
-
-additional_inventory_weight	                       = 1.26
-additional_inventory_weight2	                   = 1.26
-
+;additional_inventory_weight	                       = 1.26
+;additional_inventory_weight2	                   = 1.26
 artefact_activation_seq		                       = af_activation_bold
-
 repair_part_bonus	 	                           = 0.12
-
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
 disassemble_parts								   = basic_scrap,textile_patch_e,textile_patch_e
@@ -396,15 +342,12 @@ visual                                             = dynamics\equipments\aa\plat
 description			                               = st_af_plates_descr
 inv_name			                               = st_af_plates_name
 inv_name_short			                           = st_af_plates_name
-inv_weight			                               = 2.826
-
+inv_weight			                               = 1.246	;2.826
 inv_grid_x			                               = 0
 inv_grid_y			                               = 1
 inv_grid_width			                           = 1
 inv_grid_height			                           = 1
-
 cost				                               = 7860 ; 6200
-
 jump_height			                               = 0.0
 ;particles		                                   = artefact\af_thermal_idle
 det_show_particles		                           = artefact\af_thermal_show
@@ -414,12 +357,10 @@ af_rank				                               = 0
 lights_enabled                                     = false
 trail_light_color 		                           = 0.9,0.4,0.2
 trail_light_range 		                           = 2.0
-
 attach_angle_offset		                           = 1.922,1.551,-0.740   
 attach_position_offset                             = 0.15,0.002,0.25
 attach_bone_name		                           = bip01_r_hand
 auto_attach			                               = false
-
 ;скорости увеличения (уменьшения)
 health_restore_speed		                       = 0
 radiation_restore_speed		                       = 0
@@ -427,14 +368,10 @@ satiety_restore_speed		                       = 0
 power_restore_speed		                           = 0
 bleeding_restore_speed		                       = 0 ; 0.00118
 hit_absorbation_sect		                       = af_plates_absorbation
-
-additional_inventory_weight	                       = 1.58
-additional_inventory_weight2	                   = 1.58
-
+;additional_inventory_weight	                       = 1.58
+;additional_inventory_weight2	                   = 1.58
 artefact_activation_seq		                       = af_activation_bold
-
 repair_part_bonus	 	                           = 0.20
-
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
 disassemble_parts								   = basic_scrap,basic_scrap
@@ -461,15 +398,12 @@ visual                                             = dynamics\equipments\aa\came
 description			                               = st_af_camelbak_descr
 inv_name			                               = st_af_camelbak_name
 inv_name_short			                           = st_af_camelbak_name
-inv_weight			                               = 1.53
-
+inv_weight			                               = 0.31	;1.53
 inv_grid_x			                               = 3
 inv_grid_y			                               = 1
 inv_grid_width			                           = 1
 inv_grid_height			                           = 1
-
 cost				                               = 6540 ; 6200
-
 jump_height			                               = 0.0
 ;particles		                                   = artefact\af_thermal_idle
 det_show_particles		                           = artefact\af_thermal_show
@@ -479,12 +413,10 @@ af_rank				                               = 0
 lights_enabled                                     = false
 trail_light_color 		                           = 0.9,0.4,0.2
 trail_light_range 		                           = 2.0
-
 attach_angle_offset		                           = 1.922,1.551,-0.740   
 attach_position_offset                             = 0.15,0.002,0.25
 attach_bone_name		                           = bip01_r_hand
 auto_attach			                               = false
-
 ;скорости увеличения (уменьшения)
 health_restore_speed		                       = 0
 radiation_restore_speed		                       = 0
@@ -492,14 +424,10 @@ satiety_restore_speed		                       = 0
 power_restore_speed			                       = 0.00045
 bleeding_restore_speed		                       = 0
 hit_absorbation_sect		                       = af_camelbak_absorbation
-
-additional_inventory_weight	                       = 1.22
-additional_inventory_weight2	                   = 1.22
-
+;additional_inventory_weight	                      = 1.22
+;additional_inventory_weight2	                   = 1.22
 artefact_activation_seq		                       = af_activation_bold
-
 repair_part_bonus	 	                           = 0.07
-
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
 disassemble_parts								   = basic_scrap,basic_scrap,textile_patch_e,textile_patch_e
@@ -514,7 +442,6 @@ telepatic_immunity 		                           = 0
 chemical_burn_immunity 		                       = 0
 explosion_immunity 			                       = 0
 fire_wound_immunity  		                       = 0
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;; NEW ARMOUR ATTACHEMENTS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -530,14 +457,11 @@ description			                               = st_af_surge_up_descr
 inv_name			                               = st_af_surge_up_name
 inv_name_short			                           = st_af_surge_up_name
 inv_weight			                               = 4.95
-
 inv_grid_x			                               = 10
 inv_grid_y			                               = 62
 inv_grid_width			                           = 1
 inv_grid_height			                           = 1
-
 cost				                               = 46220 ; 6200
-
 jump_height			                               = 0.0
 ;particles		                                   = artefact\af_thermal_idle
 det_show_particles		                           = artefact\af_thermal_show
@@ -547,27 +471,21 @@ af_rank				                               = 0
 lights_enabled                                     = false
 trail_light_color 		                           = 0.9,0.4,0.2
 trail_light_range 		                           = 2.0
-
 attach_angle_offset		                           = 1.922,1.551,-0.740   
 attach_position_offset                             = 0.15,0.002,0.25
 attach_bone_name		                           = bip01_r_hand
 auto_attach			                               = false
-
 ;скорости увеличения (уменьшения)
 health_restore_speed		                       = 0.0001
 radiation_restore_speed		                       = 0
 satiety_restore_speed		                       = 0
-power_restore_speed		                           = 0.0025
+power_restore_speed		                           = 0.00044	;0.0025
 bleeding_restore_speed		                       = 0.00049
 hit_absorbation_sect		                       = af_surge_absorbation
-
 additional_inventory_weight	                       = 6.77
 additional_inventory_weight2	                   = 6.77
-
 artefact_activation_seq		                       = af_activation_bold
-
 repair_part_bonus	 	                           = 0.08
-
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
 disassemble_parts								   = basic_scrap,basic_scrap,textile_patch_e
@@ -594,14 +512,11 @@ description			                               = st_af_frames_up_descr
 inv_name			                               = st_af_frames_up_name
 inv_name_short			                           = st_af_frames_up_name
 inv_weight			                               = 1.03
-
 inv_grid_x			                               = 9
 inv_grid_y			                               = 61
 inv_grid_width			                           = 1
 inv_grid_height			                           = 1
-
 cost				                               = 24660 ; 6200
-
 jump_height			                               = 0.0
 ;particles		                                   = artefact\af_thermal_idle
 det_show_particles		                           = artefact\af_thermal_show
@@ -611,12 +526,10 @@ af_rank				                               = 0
 lights_enabled                                     = false
 trail_light_color 		                           = 0.9,0.4,0.2
 trail_light_range 		                           = 2.0
-
 attach_angle_offset		                           = 1.922,1.551,-0.740   
 attach_position_offset                             = 0.15,0.002,0.25
 attach_bone_name		                           = bip01_r_hand
 auto_attach			                               = false
-
 ;скорости увеличения (уменьшения)
 health_restore_speed		                       = 0
 radiation_restore_speed		                       = 0
@@ -624,14 +537,10 @@ satiety_restore_speed		                       = 0
 power_restore_speed		                           = 0
 bleeding_restore_speed		                       = 0
 hit_absorbation_sect		                       = af_frames_absorbation
-
-additional_inventory_weight	                       = 7.16
-additional_inventory_weight2	                   = 7.16
-
+additional_inventory_weight	                       = 4.16	;7.16
+additional_inventory_weight2	                   = 4.16	;7.16
 artefact_activation_seq		                       = af_activation_bold
-
 repair_part_bonus	 	                           = 0.07
-
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
 disassemble_parts								   = basic_scrap,basic_scrap,basic_scrap
@@ -658,14 +567,11 @@ description			                               = st_af_grid_up_descr
 inv_name			                               = st_af_grid_up_name
 inv_name_short			                           = st_af_grid_up_name
 inv_weight			                               = 1.23
-
 inv_grid_x			                               = 12
 inv_grid_y			                               = 61
 inv_grid_width			                           = 1
 inv_grid_height			                           = 1
-
 cost				                               = 38800 ; 6200
-
 jump_height			                               = 0.0
 ;particles		                                   = artefact\af_thermal_idle
 det_show_particles		                           = artefact\af_thermal_show
@@ -675,12 +581,10 @@ af_rank				                               = 0
 lights_enabled                                     = false
 trail_light_color 		                           = 0.9,0.4,0.2
 trail_light_range 		                           = 2.0
-
 attach_angle_offset		                           = 1.922,1.551,-0.740   
 attach_position_offset                             = 0.15,0.002,0.25
 attach_bone_name		                           = bip01_r_hand
 auto_attach			                               = false
-
 ;скорости увеличения (уменьшения)
 health_restore_speed		                       = 0
 radiation_restore_speed		                       = 0
@@ -688,14 +592,10 @@ satiety_restore_speed		                       = 0
 power_restore_speed		                           = 0
 bleeding_restore_speed		                       = 0
 hit_absorbation_sect		                       = af_grid_absorbation
-
-additional_inventory_weight		                   = 17.68
-additional_inventory_weight2		               = 17.68
-
+additional_inventory_weight		                   = 7.68	;17.68
+additional_inventory_weight2		               = 7.68	;17.68
 artefact_activation_seq		                       = af_activation_bold
-
 repair_part_bonus	 	                           = 0.11
-
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
 disassemble_parts								   = basic_scrap,basic_scrap
@@ -722,14 +622,11 @@ description			                               = st_af_freon_up_descr
 inv_name			                               = st_af_freon_up_name
 inv_name_short			                           = st_af_freon_up_name
 inv_weight			                               = 2.34
-
 inv_grid_x			                               = 10
 inv_grid_y			                               = 61
 inv_grid_width			                           = 1
 inv_grid_height			                           = 1
-
 cost				                               = 46320 ; 6200
-
 jump_height			                               = 0.0
 ;particles		                                   = artefact\af_thermal_idle
 det_show_particles		                           = artefact\af_thermal_show
@@ -739,25 +636,20 @@ af_rank				                               = 0
 lights_enabled                                     = false
 trail_light_color 		                           = 0.9,0.4,0.2
 trail_light_range 		                           = 2.0
-
 attach_angle_offset		                           = 1.922,1.551,-0.740   
 attach_position_offset                             = 0.15,0.002,0.25
 attach_bone_name		                           = bip01_r_hand
 auto_attach			                               = false
-
 ;скорости увеличения (уменьшения)
 health_restore_speed		                       = 0
 radiation_restore_speed		                       = -0.000033
 satiety_restore_speed		                       = 0
-power_restore_speed		                           = 0.0025
+power_restore_speed		                           = 0.00088	;0.0025
 bleeding_restore_speed		                       = 0
 hit_absorbation_sect		                       = af_freon_absorbation
-
 additional_inventory_weight	                       = 3.24
 additional_inventory_weight2	                   = 3.24
-
 artefact_activation_seq		                       = af_activation_bold
-
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
 disassemble_parts								   = basic_scrap,basic_scrap,textile_patch_e
@@ -784,14 +676,11 @@ description			                               = st_af_cooler_up_descr
 inv_name			                               = st_af_cooler_up_name
 inv_name_short			                           = st_af_cooler_up_name
 inv_weight			                               = 3.56
-
 inv_grid_x			                               = 11
 inv_grid_y			                               = 61
 inv_grid_width			                           = 1
 inv_grid_height			                           = 1
-
 cost				                               = 64560 ; 6200
-
 jump_height			                               = 0.0
 ;particles		                                   = artefact\af_thermal_idle
 det_show_particles		                           = artefact\af_thermal_show
@@ -801,27 +690,21 @@ af_rank				                               = 0
 lights_enabled                                     = false
 trail_light_color 		                           = 0.9,0.4,0.2
 trail_light_range 		                           = 2.0
-
 attach_angle_offset		                           = 1.922,1.551,-0.740   
 attach_position_offset                             = 0.15,0.002,0.25
 attach_bone_name		                           = bip01_r_hand
 auto_attach			                               = false
-
 ;скорости увеличения (уменьшения)
 health_restore_speed		                       = 0
 radiation_restore_speed		                       = -0.00015
 satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0.0025
+power_restore_speed			                       = 0.00062 ;0.0025
 bleeding_restore_speed		                       = 0
 hit_absorbation_sect		                       = af_cooler_absorbation
-
 additional_inventory_weight		                   = 5.16
 additional_inventory_weight2	                   = 5.16
-
 artefact_activation_seq		                       = af_activation_bold
-
 repair_part_bonus	 	                           = 0.09
-
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
 disassemble_parts								   = basic_scrap,basic_scrap,textile_patch_e
@@ -847,15 +730,12 @@ visual                                             = dynamics\equipments\aa\kevl
 description			                               = st_af_kevlar_up_descr
 inv_name			                               = st_af_kevlar_up_name
 inv_name_short			                           = st_af_kevlar_up_name
-inv_weight			                               = 1.743
-
+inv_weight			                               = 0.483	;1.743
 inv_grid_x			                               = 11
 inv_grid_y			                               = 62
 inv_grid_width			                           = 1
 inv_grid_height			                           = 1
-
 cost				                               = 43380 ; 6200
-
 jump_height			                               = 0.0
 ;particles		                                   = artefact\af_thermal_idle
 det_show_particles		                           = artefact\af_thermal_show
@@ -865,12 +745,10 @@ af_rank				                               = 0
 lights_enabled                                     = false
 trail_light_color 		                           = 0.9,0.4,0.2
 trail_light_range 		                           = 2.0
-
 attach_angle_offset		                           = 1.922,1.551,-0.740   
 attach_position_offset                             = 0.15,0.002,0.25
 attach_bone_name		                           = bip01_r_hand
 auto_attach			                               = false
-
 ;скорости увеличения (уменьшения)
 health_restore_speed		                       = 0
 radiation_restore_speed		                       = 0
@@ -878,14 +756,10 @@ satiety_restore_speed		                       = 0
 power_restore_speed		                           = 0
 bleeding_restore_speed		                       = 0 ; 0.00065
 hit_absorbation_sect		                       = af_kevlar_absorbation
-
-additional_inventory_weight	                       = 1.26
-additional_inventory_weight2	                   = 1.26
-
+;additional_inventory_weight	                       = 1.26
+;additional_inventory_weight2	                   = 1.26
 artefact_activation_seq		                       = af_activation_bold
-
 repair_part_bonus	 	                           = 0.12
-
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
 disassemble_parts								   = basic_scrap,textile_patch_e,textile_patch_e
@@ -912,14 +786,11 @@ description			                               = st_af_plates_up_descr
 inv_name			                               = st_af_plates_up_name
 inv_name_short			                           = st_af_plates_up_name
 inv_weight			                               = 2.826
-
 inv_grid_x			                               = 9
 inv_grid_y			                               = 62
 inv_grid_width			                           = 1
 inv_grid_height			                           = 1
-
 cost				                               = 81860 ; 6200
-
 jump_height			                               = 0.0
 ;particles		                                   = artefact\af_thermal_idle
 det_show_particles		                           = artefact\af_thermal_show
@@ -929,12 +800,10 @@ af_rank				                               = 0
 lights_enabled                                     = false
 trail_light_color 		                           = 0.9,0.4,0.2
 trail_light_range 		                           = 2.0
-
 attach_angle_offset		                           = 1.922,1.551,-0.740   
 attach_position_offset                             = 0.15,0.002,0.25
 attach_bone_name		                           = bip01_r_hand
 auto_attach			                               = false
-
 ;скорости увеличения (уменьшения)
 health_restore_speed		                       = 0
 radiation_restore_speed		                       = 0
@@ -942,11 +811,8 @@ satiety_restore_speed		                       = 0
 power_restore_speed		                           = 0
 bleeding_restore_speed		                       = 0 ; 0.00118
 hit_absorbation_sect		                       = af_plates_absorbation
-
 artefact_activation_seq		                       = af_activation_bold
-
 repair_part_bonus	 	                           = 0.20
-
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
 disassemble_parts								   = basic_scrap,basic_scrap
@@ -974,14 +840,11 @@ description			                               = st_af_camelbak_up_descr
 inv_name			                               = st_af_camelbak_up_name
 inv_name_short			                           = st_af_camelbak_up_name
 inv_weight			                               = 1.53
-
 inv_grid_x			                               = 12
 inv_grid_y			                               = 62
 inv_grid_width			                           = 1
 inv_grid_height			                           = 1
-
 cost				                               = 27620 ; 6200
-
 jump_height			                               = 0.0
 ;particles		                                   = artefact\af_thermal_idle
 det_show_particles		                           = artefact\af_thermal_show
@@ -991,26 +854,21 @@ af_rank				                               = 0
 lights_enabled                                     = false
 trail_light_color 		                           = 0.9,0.4,0.2
 trail_light_range 		                           = 2.0
-
 attach_angle_offset		                           = 1.922,1.551,-0.740   
 attach_position_offset                             = 0.15,0.002,0.25
 attach_bone_name		                           = bip01_r_hand
 auto_attach			                               = false
-
 ;скорости увеличения (уменьшения)
 health_restore_speed		                       = 0
 radiation_restore_speed		                       = 0
 satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0.0033
+power_restore_speed			                       = 0.00053	;0.0033
 bleeding_restore_speed		                       = 0
 hit_absorbation_sect		                       = af_camelbak_absorbation
 additional_inventory_weight	                       = 3.66
 additional_inventory_weight2	                   = 3.66
-
 artefact_activation_seq		                       = af_activation_bold
-
 repair_part_bonus	 	                           = 0.07
-
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
 disassemble_parts								   = basic_scrap,basic_scrap,textile_patch_e,textile_patch_e
@@ -1025,8 +883,6 @@ telepatic_immunity 		                           = 0
 chemical_burn_immunity 		                       = 0
 explosion_immunity 			                       = 0
 fire_wound_immunity  		                       = 0
-
-
 ;;;;;;;;;;;;; FIELDCRAFT - CRAFTABLE ITEMS SECTION ;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [fieldcraft_plate_attch]:af_base
@@ -1038,14 +894,11 @@ description			                               = fieldcraft_plate_attch_descr
 inv_name			                               = fieldcraft_plate_attch_name
 inv_name_short			                           = fieldcraft_plate_attch_name
 inv_weight			                               = 1.79
-
 inv_grid_x			                               = 109
 inv_grid_y			                               = 60
 inv_grid_width			                           = 1
 inv_grid_height			                           = 1
-
 cost				                               = 1912 ; 6380
-
 jump_height			                               = 0.0
 ;particles		                                   = artefact\af_thermal_idle
 det_show_particles		                           = artefact\af_thermal_show
@@ -1055,12 +908,10 @@ af_rank				                               = 0
 lights_enabled                                     = false
 trail_light_color 		                           = 0.9,0.4,0.2
 trail_light_range 		                           = 2.0
-
 attach_angle_offset		                           = 1.922,1.551,-0.740   
 attach_position_offset                             = 0.15,0.002,0.25
 attach_bone_name		                           = bip01_r_hand
 auto_attach			                               = false
-
 ;скорости увеличения (уменьшения)
 health_restore_speed		                       = 0
 radiation_restore_speed		                       = 0
@@ -1068,12 +919,9 @@ satiety_restore_speed		                       = 0
 power_restore_speed		                           = 0
 bleeding_restore_speed		                       = 0 ; 0.00065
 hit_absorbation_sect		                       = fieldcraft_plate_attch_absorbation
-
 additional_inventory_weight	                       = 1.06
 additional_inventory_weight2	                   = 1.06
-
 artefact_activation_seq		                       = af_activation_bold
-
 repair_part_bonus	 	                           = 0.09
 
 [fieldcraft_plate_attch_absorbation]

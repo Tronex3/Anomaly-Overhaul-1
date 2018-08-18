@@ -5,30 +5,21 @@
 [lead_box]:af_iam
 class 									 		   = II_ATTCH
 class_dbg			                               = S_ART_C
-inv_weight 			                               = 3.62;;--5.48 W;;--
+inv_weight 			                               = 2.12;;--5.48 W;;--
 cost				                               = 3630;;--2420 W;;--
 description			                               = st_lead_box_descr
 inv_name			                               = st_lead_box_name
 inv_name_short		                               = st_lead_box_name
-
 visual				                               = dynamics\equipments\lead_box_open.ogf
 inv_grid_width			                           = 1
 inv_grid_height			                           = 2
 inv_grid_x			                               = 0
 inv_grid_y			                               = 27
-
-radiation_restore_speed                            = 0 ;;-- -0.00500
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
 repair_part_bonus	 	                           = 0.10
-
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
 auto_attach				                           = false
-
 use1_functor         					           = itms_manager.menu_open
 use1_action_functor  					           = itms_manager.use_arty_container
 use2_functor         		             		   = itms_manager.menu_disassemble
@@ -42,22 +33,16 @@ inv_grid_y			                               = 42
 ;;----===============================================================================================
 
 [lead_box_closed]:lead_box
-inv_weight 			                               = 3.62;;--5.48 W;;--
+inv_weight 			                               = 2.12;;--5.48 W;;--
 cost 				                               = 0
 description			                               = st_lead_box_closed_descr
 inv_name			                               = st_lead_box_closed_name
 inv_name_short		                               = st_lead_box_closed_name
-
 visual				                               = dynamics\equipments\lead_box_closed.ogf
 inv_grid_width			                           = 1
 inv_grid_height			                           = 2
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-radiation_restore_speed                            = 0 ;;-- -0.00500
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
 
 [lead_box_closed_dummy]:lead_box_closed
 inv_grid_x			                               = 1
@@ -69,7 +54,6 @@ inv_grid_y			                               = 27
 description			                               = st_lead_box_half_descr
 inv_name			                               = st_lead_box_half_name
 inv_name_short		                               = st_lead_box_half_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
 
@@ -79,10 +63,11 @@ inv_grid_y			                               = 42
 
 ;;----===============================================================================================
 ;;-----------------------------LEAD BOX WITH ARTEFACT----------------------------------------------
+
 ;;----===============================================================================================
 
 [af_misery_bread_lead_box]:lead_box_closed
-inv_weight			                               = 3.92;;--10.721 W;;--
+inv_weight			                               = 2.42;;--10.721 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
@@ -90,19 +75,9 @@ quest_item 			                               = true
 description			                               = st_af_misery_bread_lead_box_descr
 inv_name			                               = st_af_misery_bread_lead_box_name
 inv_name_short			                           = st_af_misery_bread_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed 		                       = 0
-satiety_restore_speed 		                       = 0
-power_restore_speed 		                       = 0
-satiety_restore_speed                              = 0.00001
-hit_absorbation_sect 		                       = af_misery_bread_absorbation
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
+;hit_absorbation_sect 		                       = af_misery_bread_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -111,27 +86,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_medusa_lead_box]:lead_box_closed
-inv_weight			                               = 6.69;;--10.13 W;;--
+inv_weight			                               = 5.19;;--10.13 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_medusa_lead_box_descr
 inv_name			                               = st_af_medusa_lead_box_name
 inv_name_short			                           = st_af_medusa_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-radiation_restore_speed		                       = 0.000
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0
-bleeding_restore_speed		                       = 0
-hit_absorbation_sect		                       = af_medusa_absorbation
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
+;hit_absorbation_sect		                       = af_medusa_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -140,28 +104,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_cristall_flower_lead_box]:lead_box_closed
-inv_weight			                               = 8.09;;--12.26 W;;--
+inv_weight			                               = 6.59;;--12.26 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_cristall_flower_lead_box_descr
 inv_name			                               = st_af_cristall_flower_lead_box_name
 inv_name_short			                           = st_af_cristall_flower_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-radiation_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0
-bleeding_restore_speed		                       = 0
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
-hit_absorbation_sect 		                       = af_cristall_flower_absorbation
-
+;hit_absorbation_sect 		                       = af_cristall_flower_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -170,27 +122,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_night_star_lead_box]:lead_box_closed
-inv_weight			                               = 8.0;;--12.12 W;;--
+inv_weight			                               = 6.5;;--12.12 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_night_star_lead_box_descr
 inv_name			                               = st_af_night_star_lead_box_name
 inv_name_short			                           = st_af_night_star_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0
-bleeding_restore_speed		                       = 0
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
-hit_absorbation_sect 		                       = af_night_star_absorbation
-
+;hit_absorbation_sect 		                       = af_night_star_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -199,27 +140,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_vyvert_lead_box]:lead_box_closed
-inv_weight			                               = 8.1;;--12.27 W;;--
+inv_weight			                               = 6.6;;--12.27 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_vyvert_lead_box_descr
 inv_name			                               = st_af_vyvert_lead_box_name
 inv_name_short			                           = st_af_vyvert_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0
-bleeding_restore_speed		                       = 0
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
-hit_absorbation_sect 		                       = af_vyvert_absorbation
-
+;hit_absorbation_sect 		                       = af_vyvert_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -228,27 +158,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_gravi_lead_box]:lead_box_closed
-inv_weight			                               = 4.29	;8.16;;--12.36 W;;--
+inv_weight			                               = 2.79	;8.16;;--12.36 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_gravi_lead_box_descr
 inv_name			                               = st_af_gravi_lead_box_name
 inv_name_short			                           = st_af_gravi_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0
-bleeding_restore_speed		                       = 0
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
-hit_absorbation_sect                               = af_gravi_absorbation
-
+;hit_absorbation_sect                               = af_gravi_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -257,27 +176,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_gold_fish_lead_box]:lead_box_closed
-inv_weight			                               = 4.09	;8.56;;--12.97 W;;--
+inv_weight			                               = 2.59	;8.56;;--12.97 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_gold_fish_lead_box_descr
 inv_name			                               = st_af_gold_fish_lead_box_name
 inv_name_short			                           = st_af_gold_fish_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0
-bleeding_restore_speed		                       = 0
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
-hit_absorbation_sect                               = af_gold_fish_absorbation
-
+;hit_absorbation_sect                               = af_gold_fish_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -286,28 +194,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_cristall_lead_box]:lead_box_closed
-inv_weight			                               = 6.08;;--9.21 W;;--
+inv_weight			                               = 4.58;;--9.21 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_cristall_lead_box_descr
 inv_name			                               = st_af_cristall_lead_box_name
 inv_name_short			                           = st_af_cristall_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-radiation_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0
-bleeding_restore_speed		                       = 0.00069
-
-hit_absorbation_sect		                       = af_cristall_absorbation
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
+;hit_absorbation_sect		                       = af_cristall_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -316,27 +212,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_fireball_lead_box]:lead_box_closed
-inv_weight			                               = 6.24;;--9.45 W;;--
+inv_weight			                               = 4.74;;--9.45 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_fireball_lead_box_descr
 inv_name			                               = st_af_fireball_lead_box_name
 inv_name_short			                           = st_af_fireball_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0 ;;-- -0.00045
-bleeding_restore_speed		                       = 0.000124
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
-hit_absorbation_sect                               = af_fireball_absorbation
-
+;hit_absorbation_sect                               = af_fireball_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -345,27 +230,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_dummy_glassbeads_lead_box]:lead_box_closed
-inv_weight			                               = 6.28;;--9.51 W;;--
+inv_weight			                               = 4.78;;--9.51 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_dummy_glassbeads_lead_box_descr
 inv_name			                               = st_af_dummy_glassbeads_lead_box_name
 inv_name_short			                           = st_af_dummy_glassbeads_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0 ;;-- -0.00081
-bleeding_restore_speed		                       = 0.00173
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
-hit_absorbation_sect                               = af_dummy_glassbeads_absorbation
-
+;hit_absorbation_sect                               = af_dummy_glassbeads_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -374,27 +248,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_eye_lead_box]:lead_box_closed
-inv_weight			                               = 6.34;;--9.6 W;;--
+inv_weight			                               = 4.84;;--9.6 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_eye_lead_box_descr
 inv_name			                               = st_af_eye_lead_box_name
 inv_name_short			                           = st_af_eye_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0 ;;-- -0.00134
-bleeding_restore_speed		                       = 0.00327
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
-hit_absorbation_sect                               = af_eye_absorbation
-
+;hit_absorbation_sect                               = af_eye_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -403,27 +266,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_fire_lead_box]:lead_box_closed
-inv_weight			                               = 6.38;;--9.66 W;;--
+inv_weight			                               = 4.88;;--9.66 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_fire_lead_box_descr
 inv_name			                               = st_af_fire_lead_box_name
 inv_name_short			                           = st_af_fire_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0 ;;-- -0.00194
-bleeding_restore_speed		                       = 0.00394
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
-hit_absorbation_sect                               = af_fire_absorbation
-
+;hit_absorbation_sect                               = af_fire_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -432,28 +284,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_blood_lead_box]:lead_box_closed
-inv_weight			                               = 4.75;;--7.20 W;;--
+inv_weight			                               = 3.25;;--7.20 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_blood_lead_box_descr
 inv_name			                               = st_af_blood_lead_box_name
 inv_name_short			                           = st_af_blood_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-radiation_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = -0.00025
-bleeding_restore_speed		                       = 0.00094
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
-hit_absorbation_sect                               = af_blood_absorbation
-
+;hit_absorbation_sect                               = af_blood_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -462,27 +302,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_mincer_meat_lead_box]:lead_box_closed
-inv_weight			                               = 4.77;;--7.22 W;;--
+inv_weight			                               = 3.27;;--7.22 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_mincer_meat_lead_box_descr
 inv_name			                               = st_af_mincer_meat_lead_box_name
 inv_name_short			                           = st_af_mincer_meat_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = -0.00027
-bleeding_restore_speed		                       = 0.00148
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
-hit_absorbation_sect                               = af_mincer_meat_absorbation
-
+;hit_absorbation_sect                               = af_mincer_meat_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -491,27 +320,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_soul_lead_box]:lead_box_closed
-inv_weight			                               = 4.83;;--7.32 W;;--
+inv_weight			                               = 3.33;;--7.32 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_soul_lead_box_descr
 inv_name			                               = st_af_soul_lead_box_name
 inv_name_short			                           = st_af_soul_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = -0.00038
-bleeding_restore_speed		                       = 0.00238
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
-hit_absorbation_sect                               = af_soul_absorbation
-
+;hit_absorbation_sect                               = af_soul_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -520,27 +338,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_fuzz_kolobok_lead_box]:lead_box_closed
-inv_weight			                               = 4.86;;--7.36 W;;--
+inv_weight			                               = 3.34;;--7.36 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_fuzz_kolobok_lead_box_descr
 inv_name			                               = st_af_fuzz_kolobok_lead_box_name
 inv_name_short			                           = st_af_fuzz_kolobok_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = -0.00042
-bleeding_restore_speed		                       = 0.00312
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
-hit_absorbation_sect                               = af_fuzz_kolobok_absorbation
-
+;hit_absorbation_sect                               = af_fuzz_kolobok_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -549,27 +356,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_baloon_lead_box]:lead_box_closed
-inv_weight			                               = 4.9;;--7.42 W;;--
+inv_weight			                               = 3.4;;--7.42 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_baloon_lead_box_descr
 inv_name			                               = st_af_baloon_lead_box_name
 inv_name_short			                           = st_af_baloon_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = -0.0136
-bleeding_restore_speed		                       = 0.00366
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
-hit_absorbation_sect                               = af_baloon_absorbation
-
+;hit_absorbation_sect                               = af_baloon_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -578,27 +374,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_glass_lead_box]:lead_box_closed
-inv_weight			                               = 4.88;;--7.39 W;;--
+inv_weight			                               = 3.38;;--7.39 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_glass_lead_box_descr
 inv_name			                               = st_af_glass_lead_box_name
 inv_name_short			                           = st_af_glass_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = -0.00077
-bleeding_restore_speed		                       = 0.00435
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
-hit_absorbation_sect                               = af_glass_absorbation
-
+;hit_absorbation_sect                               = af_glass_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -607,28 +392,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_electra_sparkler_lead_box]:lead_box_closed
-inv_weight			                               = 3.74;;--5.66 W;;--
+inv_weight			                               = 2.24;;--5.66 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_electra_sparkler_lead_box_descr
 inv_name			                               = st_af_electra_sparkler_lead_box_name
 inv_name_short			                           = st_af_electra_sparkler_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-radiation_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0.000124
-bleeding_restore_speed		                       = -0.00089
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight	                       = 0.0
-
-hit_absorbation_sect                               = af_electra_sparkler_absorbation
-
+;hit_absorbation_sect                               = af_electra_sparkler_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -637,27 +410,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_electra_flash_lead_box]:lead_box_closed
-inv_weight			                               = 3.75;;--5.68 W;;--
+inv_weight			                               = 2.25;;--5.68 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_electra_flash_lead_box_descr
 inv_name			                               = st_af_electra_flash_lead_box_name
 inv_name_short			                           = st_af_electra_flash_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0.00015
-bleeding_restore_speed		                       = -0.00094
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
-hit_absorbation_sect                               = af_electra_flash_absorbation
-
+;hit_absorbation_sect                               = af_electra_flash_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -666,27 +428,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_electra_moonlight_lead_box]:lead_box_closed
-inv_weight			                               = 3.76;;--5.70 W;;--
+inv_weight			                               = 2.26;;--5.70 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_electra_moonlight_lead_box_descr
 inv_name			                               = st_af_electra_moonlight_lead_box_name
 inv_name_short			                           = st_af_electra_moonlight_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0.00025
-bleeding_restore_speed		                       = -0.00128
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
-hit_absorbation_sect                               = af_electra_moonlight_absorbation
-
+;hit_absorbation_sect                               = af_electra_moonlight_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -695,27 +446,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_dummy_battery_lead_box]:lead_box_closed
-inv_weight			                               = 3.89;;--5.90 W;;--
+inv_weight			                               = 2.39;;--5.90 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_dummy_battery_lead_box_descr
 inv_name			                               = st_af_dummy_battery_lead_box_name
 inv_name_short			                           = st_af_dummy_battery_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0.00062
-bleeding_restore_speed		                       = -0.00192
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
-hit_absorbation_sect                               = af_dummy_battery_absorbation
-
+;hit_absorbation_sect                               = af_dummy_battery_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -724,27 +464,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_dummy_dummy_lead_box]:lead_box_closed
-inv_weight			                               = 3.9;;--5.913 W;;--
+inv_weight			                               = 2.4;;--5.913 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_dummy_dummy_lead_box_descr
 inv_name			                               = st_af_dummy_dummy_lead_box_name
 inv_name_short			                           = st_af_dummy_dummy_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0.00092
-bleeding_restore_speed		                       = -0.00281
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
-hit_absorbation_sect                               = af_dummy_dummy_absorbation
-
+;hit_absorbation_sect                               = af_dummy_dummy_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -753,27 +482,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_ice_lead_box]:lead_box_closed
-inv_weight			                               = 4.06;;--6.147 W;;--
+inv_weight			                               = 2.56;;--6.147 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_ice_lead_box_descr
 inv_name			                               = st_af_ice_lead_box_name
 inv_name_short			                           = st_af_ice_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0.00122
-bleeding_restore_speed		                       = -0.00346
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
-hit_absorbation_sect                               = af_ice_absorbation
-
+;hit_absorbation_sect                               = af_ice_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -782,7 +500,7 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_compass_lead_box]:lead_box_closed
-inv_weight			                               = 7.08;;--10.721 W;;--
+inv_weight			                               = 5.58;;--10.721 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
@@ -790,19 +508,9 @@ quest_item 			                               = true
 description			                               = st_af_compass_lead_box_descr
 inv_name			                               = st_af_compass_lead_box_name
 inv_name_short			                           = st_af_compass_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed 		                       = 0
-satiety_restore_speed 		                       = 0
-power_restore_speed 		                       = 0.00324
-bleeding_restore_speed 		                       = 0
-hit_absorbation_sect 		                       = af_compass_absorbation
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
+;hit_absorbation_sect 		                       = af_compass_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -811,7 +519,7 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_oasis_heart_lead_box]:lead_box_closed
-inv_weight			                               = 6.05;;--9.174 W;;--
+inv_weight			                               = 4.55;;--9.174 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
@@ -819,19 +527,9 @@ quest_item 			                               = true
 description			                               = st_af_oasis_heart_lead_box_descr
 inv_name			                               = st_af_oasis_heart_lead_box_name
 inv_name_short			                           = st_af_oasis_heart_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-satiety_restore_speed 		                       = 0
-power_restore_speed			                       = 0.00241
-bleeding_restore_speed		                       = 0.00876
-hit_absorbation_sect 		                       = af_oasis_heart_absorbation
-
-additional_inventory_weight	                       = 0.0
-additional_inventory_weight2	                   = 0.0
-
+;hit_absorbation_sect 		                       = af_oasis_heart_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -840,7 +538,7 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [jup_b1_half_artifact_lead_box]:lead_box_closed
-inv_weight			                               = 7.2;;--10.908 W;;--
+inv_weight			                               = 5.7;;--10.908 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
@@ -848,20 +546,9 @@ quest_item 			                               = true
 description			                               = st_jup_b1_half_artifact_lead_box_descr
 inv_name			                               = st_jup_b1_half_artifact_lead_box_name
 inv_name_short			                           = st_jup_b1_half_artifact_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0
-bleeding_restore_speed		                       = 0
-
-additional_inventory_weight	                       = 0.0
-additional_invenotry_weight2                       = 0.0
-
-hit_absorbation_sect                               = jup_b1_half_artifact_absorbation
-
+;hit_absorbation_sect                               = jup_b1_half_artifact_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -869,9 +556,8 @@ auto_attach				                           = false
 
 ;;----===============================================================================================
 
-
 [af_quest_b14_twisted_lead_box]:lead_box_closed
-inv_weight			                               = 6.67;;--10.104 W;;--
+inv_weight			                               = 5.17;;--10.104 W;;--
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
@@ -879,19 +565,9 @@ quest_item 			                               = true
 description			                               = st_af_quest_b14_twisted_lead_box_descr
 inv_name			                               = st_af_quest_b14_twisted_lead_box_name
 inv_name_short			                           = st_af_quest_b14_twisted_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed 		                       = 0
-satiety_restore_speed 		                       = 0
-power_restore_speed 		                       = 0.00189
-bleeding_restore_speed 		                       = 0
-hit_absorbation_sect 		                       = af_control_absorbation
-
-additional_inventory_weight                        = 0.0
-addition_inventory_weight2                         = 0.0
-
+;hit_absorbation_sect 		                       = af_control_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -900,28 +576,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_black_spray_lead_box]:lead_box_closed
-inv_weight			                               = 3.64
+inv_weight			                               = 2.14
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_black_spray_lead_box_descr
 inv_name			                               = st_af_black_spray_lead_box_name
 inv_name_short			                           = st_af_black_spray_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-radiation_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0
-bleeding_restore_speed		                       = 0
-
-additional_inventory_weight	                       = 0
-additional_inventory_weight2	                   = 0
-
-hit_absorbation_sect 		                       = af_black_spray_absorbation
-
+;hit_absorbation_sect 		                       = af_black_spray_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -930,28 +594,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_bracelet_lead_box]:lead_box_closed
-inv_weight			                               = 3.74
+inv_weight			                               = 2.24
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_bracelet_lead_box_descr
 inv_name			                               = st_af_bracelet_lead_box_name
 inv_name_short			                           = st_af_bracelet_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-radiation_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0
-bleeding_restore_speed		                       = 0
-
-additional_inventory_weight	                       = 0
-additional_inventory_weight2	                   = 0
-
-hit_absorbation_sect 		                       = af_bracelet_absorbation
-
+;hit_absorbation_sect 		                       = af_bracelet_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -961,56 +613,32 @@ auto_attach				                           = false
 
 [af_death_lamp_lead_box]:af_death_lamp_af_iam ;;-- fix
 visual				                               = dynamics\equipments\lead_box_closed.ogf
-inv_weight			                               = 11.74
+inv_weight			                               = 10.24
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_death_lamp_lead_box_descr
 inv_name			                               = st_af_death_lamp_lead_box_name
 inv_name_short			                           = st_af_death_lamp_lead_box_name
-
 inv_grid_width			                           = 1
 inv_grid_height			                           = 2
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-radiation_restore_speed		                       = 0.0035
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0
-bleeding_restore_speed		                       = 0
-
-additional_inventory_weight	                       = 0
-additional_inventory_weight2	                   = 0
-
-hit_absorbation_sect 		                       = af_death_lamp_absorbation
-
+;hit_absorbation_sect 		                       = af_death_lamp_absorbation
 
 ;;----===============================================================================================
 
 [af_empty_lead_box]:lead_box_closed
-inv_weight			                               = 3.49
+inv_weight			                               = 1.99
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_empty_lead_box_descr
 inv_name			                               = st_af_empty_lead_box_name
 inv_name_short			                           = st_af_empty_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-radiation_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0
-bleeding_restore_speed		                       = 0
-
-additional_inventory_weight	                       = 0
-additional_inventory_weight2	                   = 0
-
-hit_absorbation_sect 		                       = af_empty_absorbation
-
+;hit_absorbation_sect 		                       = af_empty_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -1019,28 +647,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_full_empty_lead_box]:lead_box_closed
-inv_weight			                               = 22.74
+inv_weight			                               = 8.35
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_full_empty_lead_box_descr
 inv_name			                               = st_af_full_empty_lead_box_name
 inv_name_short			                           = st_af_full_empty_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-radiation_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0
-bleeding_restore_speed		                       = 0
-
-additional_inventory_weight	                       = 0
-additional_inventory_weight2	                   = 0
-
-hit_absorbation_sect 		                       = af_full_empty_absorbation
-
+;hit_absorbation_sect 		                       = af_full_empty_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -1049,28 +665,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_itcher_lead_box]:lead_box_closed
-inv_weight			                               = 3.54
+inv_weight			                               = 2.04
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_itcher_lead_box_descr
 inv_name			                               = st_af_itcher_lead_box_name
 inv_name_short			                           = st_af_itcher_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed                               = -0.000062
-radiation_restore_speed                            = 0
-satiety_restore_speed		                       = 0
-power_restore_speed                                = 0.00060
-bleeding_restore_speed		                       = -0.001
-
-additional_inventory_weight	                       = 2
-additional_inventory_weight2	                   = 2
-
-hit_absorbation_sect 		                       = af_itcher_absorbation
-
+;hit_absorbation_sect 		                       = af_itcher_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -1079,29 +683,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_lobster_eyes_lead_box]:lead_box_closed
-inv_weight			                               = 6.49
+inv_weight			                               = 4.99
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_lobster_eyes_lead_box_descr
 inv_name			                               = st_af_lobster_eyes_lead_box_name
 inv_name_short			                           = st_af_lobster_eyes_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-radiation_restore_speed		                       = -0.00012
-satiety_restore_speed		                       = -0.00025
-power_restore_speed			                       = 0
-bleeding_restore_speed		                       = 0
-
-additional_inventory_weight	                       = 0
-additional_inventory_weight2	                   = 0
-
-hit_absorbation_sect 		                       = af_lobster_eyes_absorbation
-
-
+;hit_absorbation_sect 		                       = af_lobster_eyes_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -1110,28 +701,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_pin_lead_box]:lead_box_closed
-inv_weight			                               = 3.74
+inv_weight			                               = 2.24
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_pin_lead_box_descr
 inv_name			                               = st_af_pin_lead_box_name
 inv_name_short			                           = st_af_pin_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-radiation_restore_speed		                       = 0
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0.0002
-bleeding_restore_speed		                       = -0.002
-
-additional_inventory_weight	                       = 0
-additional_inventory_weight2	                   = 0
-
-hit_absorbation_sect 		                       = af_pin_absorbation
-
+;hit_absorbation_sect 		                       = af_pin_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -1140,28 +719,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_ring_lead_box]:lead_box_closed
-inv_weight			                               = 3.84
+inv_weight			                               = 2.34
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_ring_lead_box_descr
 inv_name			                               = st_af_ring_lead_box_name
 inv_name_short			                           = st_af_ring_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-radiation_restore_speed		                       = -0.00006
-satiety_restore_speed		                       = -0.00015
-power_restore_speed			                       = 0
-bleeding_restore_speed		                       = 0
-
-additional_inventory_weight	                       = 0
-additional_inventory_weight2	                   = 0
-
-hit_absorbation_sect 		                       = af_ring_absorbation
-
+;hit_absorbation_sect 		                       = af_ring_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -1170,28 +737,16 @@ auto_attach				                           = false
 ;;----===============================================================================================
 
 [af_sponge_lead_box]:lead_box_closed
-inv_weight			                               = 4.99
+inv_weight			                               = 3.49
 cost				                               = 0
 can_trade 			                               = false
 belt				                               = false
 description			                               = st_af_sponge_lead_box_descr
 inv_name			                               = st_af_sponge_lead_box_name
 inv_name_short			                           = st_af_sponge_lead_box_name
-
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
-
-health_restore_speed		                       = 0
-radiation_restore_speed		                       = 0.00005
-satiety_restore_speed		                       = 0
-power_restore_speed			                       = -0.0004
-bleeding_restore_speed		                       = 0
-
-additional_inventory_weight	                       = 1.5
-additional_inventory_weight2	                   = 1.5
-
-hit_absorbation_sect 		                       = af_sponge_absorbation
-
+;hit_absorbation_sect 		                       = af_sponge_absorbation
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand

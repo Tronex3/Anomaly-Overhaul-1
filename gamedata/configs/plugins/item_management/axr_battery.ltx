@@ -25,12 +25,42 @@ gps_drain_speed = 0.05 	  ;;-- on use
 batteries_ccell
 batteries
 batteries_dead
+af_electra_sparkler
+af_sponge
+af_ring
+af_electra_flash
 
 [batteries_ccell]
 power = 0.93		;;--  0.99 because condition is never 1.0, it's 0.999e+
+output = batteries_ccell_empty
 
 [batteries]
 power = 0.52
+output = batteries_empty
 
 [batteries_dead]
 power = 0.14
+output = batteries_dead_empty
+
+[af_electra_sparkler]
+power = 0.52
+required = basic_copper
+output = af_lighthouse
+remove_after_use  = true
+
+[af_sponge]
+power = 0.56
+required = basic_copper
+output = af_zhelch
+remove_after_use  = true
+
+[af_ring]
+power = 0.75
+required = basic_copper
+remove_after_use  = true
+
+[af_electra_flash]
+power = 0.94
+required = basic_copper
+output = af_elektron
+remove_after_use  = true

@@ -34,6 +34,7 @@ disassemble_tools = {}
 cook_tools = {}
 map_tools = {}
 letter_tools = {}
+battery_tools = alun_utils.collect_section(ini_battery,"battery_sections",true)
 artefact_containers = alun_utils.collect_section(ini_container,"containers",true) or {}
 ini:section_for_each(function(section) -- search all sections
 	if ini:r_bool_ex(section,"craft_tool") then
@@ -161,6 +162,14 @@ function on_game_load()
 		end
 	end
 	--]]
+	
+	-- Set up maximum weight
+	local cw = hardcore_economy.get_factor("weight") or 60
+	local mww = cw + (math.ceil(cw / 5) * 2)
+	if (cw ~= db.actor:get_actor_max_weight()) then
+		db.actor:set_actor_max_weight(cw)
+		db.actor:set_actor_max_walk_weight(mww)
+	end
 end
 
 function actor_on_update()
@@ -378,6 +387,9 @@ function actor_on_item_use(obj) -- bind_stalker on_item_use
 	-- GPS Tracker
 	if (name == "gps_tracker") then use_tracker(obj,nil) end
 	
+	-- Watch
+	if (name == "hand_watch") then use_watch(obj) end
+	
 	local se_obj = alife_object(obj:id())
 	if se_obj then
 		
@@ -414,9 +426,9 @@ function actor_on_item_take(obj) -- explosive item special
 	-- Set medkits uses to 1 on hardcore economy
 	if (string.find(obj:section(),"medkit")) then
 		local uses = obj:get_remaining_uses()
-		local allow = hardcore_economy.get_factor("multiuse_medkits")
-		if (uses > 1) and (not allow) then
-			obj:set_remaining_uses(1)
+		local num = hardcore_economy.get_factor("multiuse_medkits")
+		if (uses > num) then
+			obj:set_remaining_uses(num)
 		end
 	end
 	
@@ -506,16 +518,39 @@ function on_item_drag_dropped(obj_1, obj_2, slot_from, slot_to)
     end
 	
 	-- Put artefact in container
-	if artefact_containers[obj_2:section()] and (ini:r_string_ex(obj_1:section(),"class") == "ARTEFACT") then
-		local cont = obj_2:section()
-		local arty = obj_1:section()
-		if ini:section_exist(arty .. "_" .. cont) then
-			trx_utils.create_inv_obj(arty .. "_" .. cont)
-			trx_utils.release_obj(obj_1)
-			trx_utils.release_obj(obj_2)
-			if actor_effects.use_item("container_tool_" .. cont .. "_dummy") then
-				actor_effects.use_item("container_tool_" .. cont .. "_dummy")
-				--level_weathers.get_weather_manager():forced_weather_change()
+	if artefact_containers[obj_2:section()] then
+		if (ini:r_string_ex(obj_1:section(),"class") == "ARTEFACT") or (ini:r_string_ex(obj_1:section(),"class") == "SCRPTART") then
+			--local delay = 30
+			local cont = obj_2:section()
+			local arty = obj_1:section()
+			--local arty_o = level.object_by_id(obj_1:id())
+			--local arty_cond = arty_o:condition()
+			
+			if ini:section_exist(arty .. "_" .. cont) then
+				trx_utils.create_inv_obj(arty .. "_" .. cont)
+				trx_utils.release_obj(obj_1)
+				trx_utils.release_obj(obj_2)
+				
+				if actor_effects.use_item("container_tool_" .. cont .. "_dummy") then
+					actor_effects.use_item("container_tool_" .. cont .. "_dummy")
+					--level_weathers.get_weather_manager():forced_weather_change()
+				end
+				
+				--[[ Carrying artefact condition over the container
+				-- Funnily enough, the new added item in inventory don't register quickly? so a timer is necessary
+				local function timer()
+					local cont_arty = trx_utils.collect_inv_obj(arty .. "_" .. cont , 0) or {}
+					for i=1,#cont_arty do
+						local cont_arty_o = level.object_by_id(cont_arty[i]:id())
+						if (cont_arty_o:condition() > 0.99) then
+							cont_arty_o:set_condition(arty_cond)
+							break
+						end
+					end
+					return true
+				end
+				CreateTimeEvent("container","delay",delay,timer)
+				--]]
 			end
 		end
 		
@@ -603,6 +638,15 @@ function menu_reveal(itm) -- return "Reveal" name
 	return game.translate_string("st_item_reveal")
 end
 
+function menu_charge(itm) -- return "Reveal" name
+	local p = itm:parent()
+	if not (p and p:id() == db.actor:id()) then return end
+	
+	if (not battery_tools[itm:section()]) then return end
+	
+	return game.translate_string("st_item_charge")
+end
+
 function menu_read(itm) -- return "Read" name
 	local p = itm:parent()
 	if not (p and p:id() == db.actor:id()) then return end
@@ -648,6 +692,16 @@ function menu_disassemble(itm) -- return "Reveal" name
 	if not (p and p:id() == db.actor:id()) then return end
 	
 	if (not ini:r_string_ex(itm:section(),"disassemble_parts")) then return end
+	
+	if (string.find(itm:section(), "(lead.-_box)",3)) then
+		return	
+	elseif (string.find(itm:section(), "(af.-_iam)",3)) then
+		return
+	elseif (string.find(itm:section(), "(af.-_aac)",3)) then
+		return
+	elseif (string.find(itm:section(), "(af.-_aam)",3)) then
+		return
+	end
 	
 	return game.translate_string("st_awr_disassembly_cloth")
 end
@@ -991,9 +1045,12 @@ function use_harmonica(obj)
 end
 
 function use_arty_container(obj)
+	local delay = 30
 	local break_con
 	local break_arty
 	local sec = obj:section()
+	--local con_o = level.object_by_id(obj:id())
+	--local cond = con_o:condition()
 	
 	if (string.find(sec, "(lead.-_box)",3)) then
 		break_con = "lead_box"
@@ -1009,15 +1066,48 @@ function use_arty_container(obj)
 		break_arty = sec:gsub("_af_aam", "")
 	end
 	
-	if break_con and break_arty then
+	if break_con and break_arty and ini:section_exist(break_con) and ini:section_exist(break_arty) then
 		trx_utils.create_inv_obj(break_con)
 		trx_utils.create_inv_obj(break_arty)
 		trx_utils.release_obj(obj)
+		
 		if (actor_effects.use_item(break_con .. "_dummy")) then
 			actor_effects.use_item(break_con .. "_dummy")
 			--level_weathers.get_weather_manager():forced_weather_change()
 		end
+		
+		--[[ Carrying container's condition over the artefact
+		-- Funnily enough, the new added item in inventory don't register quickly? so a timer is necessary
+		local function timer()
+			local arty = trx_utils.collect_inv_obj(break_arty , 0) or {}
+			for i=1,#arty do
+				local arty_o = level.object_by_id(arty[i]:id())
+				if (arty_o:condition() > 0.99) then
+					arty_o:set_condition(cond)
+					break
+				end
+			end
+			return true
+		end
+		CreateTimeEvent("container","delay",delay,timer)
+		--]]
 	end
+end
+
+function use_watch(obj)
+	local Y, M, D, h, mint, sec, ms = game.get_game_time():get()
+	local pharse = game.translate_string("st_dyn_news_day_part_am")
+	if (h > 12) then
+		h = 12 - h
+		pharse = game.translate_string("st_dyn_news_day_part_pm")
+	end
+	
+	trx_utils.hide_menu()
+	SetHudMsg(tostring(h) .. ":" .. tostring(mint) .. " " .. pharse , 3)
+end
+
+function use_charger(obj)
+	axr_battery.use_battery(obj)
 end
 
 --=======================================< Others >=======================================--

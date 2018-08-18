@@ -1,18 +1,22 @@
 local eco_ini = ini_file("plugins\\economy_difficulty.ltx")
-local economy = 2
+local economy = 1
 local factors = {}
 
 function set_factors(eco)
+	factors["weight"]			= eco_ini:r_float_ex("econ_" .. eco , "max_weight") or 60
 	factors["loot"]				= eco_ini:r_float_ex("econ_" .. eco , "factor_loot") or 1
 	factors["goodwill"]			= eco_ini:r_float_ex("econ_" .. eco , "factor_goodwill") or 1
 	factors["repair"]			= eco_ini:r_float_ex("econ_" .. eco , "factor_repair") or 1
+	factors["upgrade"]			= eco_ini:r_float_ex("econ_" .. eco , "factor_upgrade") or 1
 	factors["buy"]				= eco_ini:r_float_ex("econ_" .. eco , "factor_buy") or 1
 	factors["sell"]				= eco_ini:r_float_ex("econ_" .. eco , "factor_sell") or 1
+	factors["artefact"]			= eco_ini:r_float_ex("econ_" .. eco , "factor_artefact") or 1
 	factors["money"]			= eco_ini:r_float_ex("econ_" .. eco , "factor_money") or 1
 	factors["stash"]			= eco_ini:r_float_ex("econ_" .. eco , "chance_stash") or 0.2
 	factors["wpn_condition"]	= eco_ini:r_float_ex("econ_" .. eco , "factor_wpn_condition") or 1
-	factors["fast_travel"]		= eco_ini:r_bool_ex("econ_" .. eco , "enable_fast_travel") or false
-	factors["multiuse_medkits"]	= eco_ini:r_bool_ex("econ_" .. eco , "enable_multiuse_medkits") or false
+	factors["multiuse_medkits"]	= eco_ini:r_float_ex("econ_" .. eco , "multiuse_medkits") or 4
+	factors["fast_travel"]		= eco_ini:r_bool_ex("econ_" .. eco , "fast_travel") and true
+	factors["backpack_travel"]	= eco_ini:r_bool_ex("econ_" .. eco , "backpack_travel") and true
 end
 
 function get_factor(key)
@@ -21,7 +25,7 @@ end
 
 --=======================================< Callbacks >=======================================--
 local function on_game_load()
-	economy = alife_storage_manager.get_state().economy or 2
+	economy = alife_storage_manager.get_state().economy or 1
 	set_factors(economy)
 end
 

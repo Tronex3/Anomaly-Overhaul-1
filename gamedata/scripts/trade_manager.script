@@ -317,6 +317,7 @@ function get_sell_discount(npc_id)
 	local factor = tm[npc_id].config:r_float_ex(sect,"sell") or 1
 	local eco_factor = hardcore_economy.get_factor("sell") or 1
 	
+	
 	factor = factor * eco_factor
 
 	return factor

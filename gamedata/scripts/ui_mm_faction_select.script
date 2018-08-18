@@ -1242,7 +1242,7 @@ function faction_ui:LoadEconomy (rand)
 	for i=1,#self.table_economy do
 		self.list_economy:AddItem(gs(self.table_economy[i]), i)
 	end
-	local pick = rand and self.table_economy[math.random(#self.table_economy)] or self.table_economy[2]
+	local pick = rand and self.table_economy[math.random(#self.table_economy)] or self.table_economy[1]
 	self.list_economy:SetText(gs(pick))
 	self.selected_economy = pick
 end
@@ -1738,10 +1738,10 @@ function faction_ui:OnStartGame()
 
 	-- preparing economy values
 	if (self.selected_economy == nil or self.selected_economy == "") then
-		self.selected_economy = self.table_economy[2]
+		self.selected_economy = self.table_economy[1]
 	end
 	local econ = self.selected_economy:gsub("st_econ_","")
-	econ = tonumber(econ) or 2
+	econ = tonumber(econ) or 1
 	
 	axr_main.config:w_value("character_creation","new_game_difficulty",self.selected_difficulty)
 	axr_main.config:w_value("character_creation","new_game_economy",econ)

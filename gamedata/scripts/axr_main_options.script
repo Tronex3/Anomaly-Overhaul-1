@@ -16,7 +16,7 @@ function opt_menu_on_init(menu)
     
 	if DEV_DEBUG then
 		-- Debug HUD
-		menu.gameplay_options["debug_hud"]			= {default=false, 	debug_only=false, 	typ="check", on_accept=function(handler,optMgr,ctrl)
+		menu.gameplay_options["debug_hud"]			= {default=false, 	debug_only=true, 	typ="check", on_accept=function(handler,optMgr,ctrl)
 			if (level.present() and xrs_debug_tools) then
 				if (ctrl:GetCheck()) then
 					xrs_debug_tools.deactivate_feature()
@@ -134,7 +134,7 @@ function opt_menu_on_init(menu)
 	menu.gameplay_options["show_enemy_health"]	= {default=false, 	debug_only=false, 	typ="check"}	
 	
 	-- Rob money on sleeping
-	menu.gameplay_options["robbery_at_sleep_option"] = {default=true,  debug_only=false, 	typ="check"}
+	--menu.gameplay_options["robbery_at_sleep_option"] = {default=true,  debug_only=false, 	typ="check"}
    
 	-- Show reputation in tips
 	menu.gameplay_options["show_tip_reputation_option"] = {default=true,  debug_only=false, 	typ="check"}		
@@ -178,9 +178,8 @@ function opt_menu_on_init(menu)
 	-- Enable actor animations
 	menu.gameplay_options["extra_animations"]	= {default=true, 	debug_only=false, 	typ="check"}
 
-	if DEV_DEBUG then
-		menu.gameplay_options["debug_autosave"]		= {default=false, 	debug_only=false, 	typ="check"}
-	end
+	-- Autosave (Debug mode)
+	menu.gameplay_options["debug_autosave"]		= {default=false, 	debug_only=true, 	typ="check"}
 
 	-- Disassemble on CTRL button
     menu.gameplay_options["awr_disassembly"] 	= {default=true,  debug_only=false, 	typ="check"}
@@ -192,10 +191,10 @@ function opt_menu_on_init(menu)
 	menu.gameplay_options["release_dropped_items"]	= {default=true, 	debug_only=false, 	typ="check"}
     
 	-- Money rewards multiplier
-	menu.gameplay_options["multi_rewards_money"]			= {default=1.0, 	debug_only=false, 	typ="list", list={0.50,0.75,1.0,1.25,1.5,2.0,3.0}}
+	menu.gameplay_options["multi_rewards_money"]			= {default=1.0, 	debug_only=true, 	typ="list", list={0.50,0.75,1.0,1.25,1.5,2.0,3.0}}
 	
 	-- Earned goodwill multiplier
-	menu.gameplay_options["multi_rewards_goodwill"]			= {default=1.0, 	debug_only=false, 	typ="list", list={0.50,0.75,1.0,1.25,1.5,2.0,3.0}}
+	menu.gameplay_options["multi_rewards_goodwill"]			= {default=1.0, 	debug_only=true, 	typ="list", list={0.50,0.75,1.0,1.25,1.5,2.0,3.0}}
 	
 	-- Dynamic news
 	menu.gameplay_options["dynamic_news"]		= {default=true, 	debug_only=false, 	typ="check", on_accept=function(handler,optMgr,ctrl)
@@ -219,7 +218,7 @@ function opt_menu_on_init(menu)
 		end
 	end}
 	
-	-- Artefact degradation
+	--[[ Artefact degradation
 	menu.gameplay_options["art_degrade"]		= {default=true, 	debug_only=false, 	typ="check", on_accept=function(handler,optMgr,ctrl)
 		if (level.present() and artefact_degradation) then
 			if (ctrl:GetCheck()) then
@@ -228,7 +227,7 @@ function opt_menu_on_init(menu)
 				artefact_degradation.deactivate_feature()
 			end
 		end
-	end}
+	end} --]]
 	
 	-- I do not recommend allowing a factor greater than 1.5 because there are not enough smart terrain jobs
 	menu.gameplay_options["alife_mutant_pop"]			= {default=1.0, 	debug_only=false, 	typ="list", list={0.25,0.50,0.75,1.00,1.25,1.50}}

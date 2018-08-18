@@ -81,7 +81,21 @@ function use_battery(obj)
 		local con = upd:condition()
 		local power
 		local bb,bp
-		alife():create(name.."_empty", db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+		
+		local required = ini:r_string_ex(name,"required")
+		if required and system_ini():section_exist(required) then
+			if (not trx_utils.check_inv_obj(required)) then
+				trx_utils.hide_menu()
+				SetHudMsg( strformat(game.translate_string("st_ui_need_charger"),alun_utils.get_inv_name(required)) , 3)
+				return
+			end
+		end
+		
+		local output = ini:r_string_ex(name,"output")
+		if output and system_ini():section_exist(output) then
+			alife():create(output, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+		end
+		
 		power = alun_utils.read_from_ini(ini,name,"power","float",0.6)
 		bp = con + power;
 		if bp > 1 then
@@ -89,6 +103,12 @@ function use_battery(obj)
 		end
 		upd:set_condition(bp)
 		db.actor:transfer_item(upd,db.actor)
+		
+		local remove_after_use = ini:r_bool_ex(name,"remove_after_use") or false
+		if remove_after_use then
+			trx_utils.release_obj(obj)
+		end
+		
 	else
 		if (itms_manager) then show_message("st_upd_disconnected",35) end
 		alife():create(name, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
@@ -305,6 +325,10 @@ function updateContainers(battery)
 end
 
 function updateBatteryCondition(battery, batcon, device)
+	if (axr_main.config:r_value("mm_options","enable_use_battery",1,false) ~= true) then 
+		return
+	end
+	
 	local newbatcon = batcon - alun_utils.read_from_ini(ini,"main",device.."_drain_speed","float",0.0001)
 	battery:set_condition(newbatcon)
 end

@@ -201,6 +201,7 @@
 		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
 		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
 		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 7 mSv\n
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] empty\n
 		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+6%)</text>
 	</string>
@@ -216,6 +217,7 @@
 		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
 		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
 		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 12 mSv\n
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] empty\n
 		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+10%)</text>
 	</string>
@@ -232,6 +234,7 @@
 		%c[0,153,255,255] • %c[0,140,140,140] low UPD consumption\n
 		%c[0,225,225,225] • %c[0,140,140,140] artefact storage device\n
 		%c[0,225,225,225] • %c[0,140,140,140] maximum capacity:%c[0,170,170,170] 1\n
+		%c[0,225,225,225] • %c[0,140,140,140] permissible radiation level:%c[0,170,170,170] 23 mSv\n
 		%c[0,225,225,225] • %c[0,140,140,140] state:%c[0,170,170,170] empty\n
 		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] outfit repairs (+14%)</text>
 	</string>
@@ -275,7 +278,7 @@
 		<text>Psysucker skin</text>
 	</string>
 	<string id="st_hide_psysucker_descr">
-		<text>Psysuckers as a species evolved from bloodsuckers and this affinity can still be seen in the texture of their skin. What is most characteristic, the skin is very soft and pleasant in touch, almost like the skin of a child. This applies, however, only to the outer layer - underneath, Psysuckers boast well developed muscles which can be utilized to form a coat of sorts with considerable damage reducing potential, especially in regard to melee attacks. This makes Psysucker skin a popular choice among experienced hunters who also wear it as a sign of their proficiency. The most unique property and at the same time the main drawback of the skin is its very intense reaction to temperature change - although the tissue itself will only burn in very high temperatures, it can get very hot making it increasingly damaging to wearer and equipment underneath it.\n \n
+		<text>Psysuckers as a species evolved from bloodsuckers and this affinity can still be seen in the texture of their skin. What is most characteristic, the skin is very soft and pleasant in touch, almost like the skin of a child. This applies, however, only to the outer layer - underneath, Psysuckers boast well developed muscles which can be utilized to form a coat of sorts with considerable damage reducing potential, especially in regard to melee attacks. This makes Psysucker skin a popular choice among experienced hunters who also wear it as a sign of their proficiency. The most unique property and at the same time the main drawback of the skin is its very intense reaction to temperature change - although the tissue itself will only burn in very high temperatures, it can get very hot making it increasingly damaging to wearer and equipment underneath it. Reports indicate that whereas the skin offers relatively low physical protection it can be used to absorb and disperse significant amounts of incoming psy waves when worn over the head.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,153,255,255] • %c[0,140,140,140] medium mutant pelt\n
 		%c[0,153,255,255] • %c[0,140,140,140] valuable \n

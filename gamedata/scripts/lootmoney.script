@@ -54,7 +54,7 @@ function lootmoney_effect(npc,corpse_npc)
 	end
 	
 	if corpse_npc:money() < 10000 then
-		local num = c orpse_npc:money() 
+		local num = corpse_npc:money() 
 		if num and num > 0 then 
 			local deadmoney = num
 			local gi_rank

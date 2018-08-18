@@ -432,6 +432,9 @@
 	<string id="st_news_dis_items">
 		<text>%c[0,255,0,0]A proper disassembling tool is required.</text>
 	</string>
+	<string id="st_ui_need_charger">
+		<text>%s is required to conduct electricity</text>
+	</string>
 	
 	<string id="st_item_use">
 		<text>use</text>
@@ -457,7 +460,10 @@
 	<string id="st_item_disassemble">
 		<text>disassemble</text>
 	</string>
-		<string id="st_awr_r_detail">
+	<string id="st_item_charge">
+		<text>charge UPD</text>
+	</string>
+	<string id="st_awr_r_detail">
 		<text>restore part [!]</text>
 	</string>
 	<string id="st_awr_disassembly_weapon">

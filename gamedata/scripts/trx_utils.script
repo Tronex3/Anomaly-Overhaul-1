@@ -203,6 +203,12 @@ function is_time_spent_in_zone(s,m,h,d,w,mo)
 	return false
 end
 
+function hide_menu()
+	local hud = get_hud()
+	if (hud) then
+		hud:HideActorMenu()
+	end
+end
 --============================================< Items >============================================--
 
 function get_item_axis (sec)
@@ -276,8 +282,8 @@ function collect_inv_obj (sec , num , ... )
 -- Input: section of the target item , number of objects to obtain , id of items that should be excluded from the search
 -- Output: a table of the obtained objects of our item
 
-	local item_tbl = {}
-	local item_finale = {}
+	local item_all = {}
+	local item_parts = {}
 	local p = {...}
 	local allow = true
 	
@@ -294,25 +300,26 @@ function collect_inv_obj (sec , num , ... )
 			end
 		end
 		if (item:section() == sec) and allow then
-			item_tbl[#item_tbl+1] = item
+			item_all[#item_all+1] = item
 			--printf("TRX - collect_inv_obj | found viable item: " .. item:section() .. " | id: " .. item:id())
 		end
 		allow = true
 	end
 	db.actor:iterate_inventory(search,nil)
 	
-	if (#item_tbl == 0) then
+	if (#item_all == 0) then
+		--printf("TRX - collect_inv_obj | no viable item found")
 		return false
 	end
 	
-	if (#item_tbl >= num) then
+	if (num > 0) and (#item_all >= num) then
 		for i=1,num do
-			item_finale[#item_finale+1] = item_tbl[num]
+			item_parts[#item_parts+1] = item_all[num]
 		end
-		return item_finale
+		return item_parts
+	else
+		return item_all
 	end
-	
-	return false
 end
 
 function collect_inv()
