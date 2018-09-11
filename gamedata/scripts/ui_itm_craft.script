@@ -8,8 +8,7 @@
 
 
 --=======================================< Controls >=======================================--
-local ico_size = 0.7
-local ico_width = (device().width / device().height > (1024/768+0.01)) and 0.8 or 1
+local ico_size, ico_width, rw, rh, _le = 1,1,1,1,50
 local ini = system_ini()
 local ini_craft = ini_file("plugins\\item_management\\recipes.ltx")
 
@@ -23,10 +22,10 @@ function list_element:__init(idx, name) super(idx, name)
 	self.name					= name
 
 	self.text					= self:GetTextItem()
-	self.text:SetWndRect		(Frect():set(0,0,300,22))
+	self.text:SetWndRect		(Frect():set(0,0,300*rw,22*rh))
 	self:SetTextColor			(GetARGB(255, 130, 128, 120))
-	self.text:SetFont			(GetFontLetterica16Russian())
-	self.text:SetWndSize		(vector2():set(400,22))
+	self.text:SetFont			(GetFontGraffiti50Russian())	--(GetFontLetterica16Russian()) 
+	self.text:SetWndSize		(vector2():set(400*rw,22*rh))
 	self.text:SetEllipsis		(true)
 	self.text:SetText			(alun_utils.get_inv_name(self.name) or "")
 end
@@ -43,7 +42,10 @@ function craft_ui:__init(owner,obj,section) super()
 	self.obj = obj
 	self.section = section
 	
+	ico_size, ico_width, rw, rh, _le = trx_utils.get_ui_settings(0.7)
+	
 	self.recipes = {} -- self.recipes[number][craft_item] = {{item_1,count_1},{item_2,count_2},{item_3,count_3}}
+	self.recipe_chosen = {}
 	self.allow = {}
 	self.size = 3
 	self.base = ini:r_string_ex(section,"uses_base") or section
@@ -76,9 +78,6 @@ function craft_ui:__init(owner,obj,section) super()
 	else
 		trx_utils.play_sound("interface\\inv_briefcase_light_open")
 	end
-	
-	-- Hide weapon
-	actor_effects.use_weapon(0)
 end
 
 function craft_ui:__finalize()
@@ -95,10 +94,12 @@ function craft_ui:InitControls()
 	self.dialog					= xml:InitStatic("itm_craft:frame", self)
 	self.dialog:InitTexture(self.craft_frame)
 	self.dialog:SetStretchTexture(true)
+	trx_utils.adjust_main_ui(self.dialog)
 	
 	self.box_lines = xml:InitStatic("itm_craft:box_lines",self.dialog)
 	self.box_lines:InitTexture("ui_craft_lines_3i")
 	self.box_lines:SetStretchTexture(true)
+	trx_utils.adjust_ui(self.box_lines)
 	
 	self.item = {}
 	self.box_item = {}
@@ -108,25 +109,61 @@ function craft_ui:InitControls()
 	for i=1,4 do
 		self.item[i] = {}
 		self.box_item[i] = xml:InitStatic("itm_craft:box_item_" .. tostring(i) , self.dialog)
+		trx_utils.adjust_ui(self.box_item[i])
+		
 		self.box_item_temp[i] = xml:InitStatic("itm_craft:box_item_" .. tostring(i) , self.dialog) -- temp item
+		trx_utils.adjust_ui(self.box_item_temp[i])
+		
 		self.text_item[i] = xml:InitTextWnd("itm_craft:text_item_" .. tostring(i) , self.dialog)
+		trx_utils.adjust_ui(self.text_item[i])
+		
 		self.text_multi[i] = xml:InitTextWnd("itm_craft:text_multi_" .. tostring(i) , self.dialog)
+		trx_utils.adjust_ui(self.text_multi[i])
 	end
 	
 	-- Item List
 	self.list_itms = xml:InitListBox("itm_craft:list_itms",self.dialog)
+	trx_utils.adjust_ui(self.list_itms)
 	self.list_itms:ShowSelectedItem(true)
 	self.list_itms:Show(true)
 	self:Register(self.list_itms, "list_itms")
-	self:LoadItemList()
 	
 	-- Main Buttons
-	local btn
-	btn = xml:Init3tButton("itm_craft:btn_craft", self.dialog)
-	self:Register(btn,"btn_craft")
+	self.btn_craft_pic = xml:InitStatic("itm_craft:btn_craft_pic", self.dialog)
+	self.btn_craft_pic:InitTexture("ui_button_ordinary_e")
+	self.btn_craft_pic:SetStretchTexture(true)
+	trx_utils.adjust_ui(self.btn_craft_pic)
 	
-	btn = xml:Init3tButton("itm_craft:btn_cancel", self.dialog)
-	self:Register(btn,"btn_cancel")
+	self.btn_cancel_pic = xml:InitStatic("itm_craft:btn_cancel_pic", self.dialog)
+	self.btn_cancel_pic:InitTexture("ui_button_ordinary_e")
+	self.btn_cancel_pic:SetStretchTexture(true)
+	trx_utils.adjust_ui(self.btn_cancel_pic)
+	
+	self.btn_craft = xml:Init3tButton("itm_craft:btn_craft", self.dialog)
+	trx_utils.adjust_ui(self.btn_craft)
+	self:Register(self.btn_craft,"btn_craft")
+	
+	self.btn_cancel = xml:Init3tButton("itm_craft:btn_cancel", self.dialog)
+	trx_utils.adjust_ui(self.btn_cancel)
+	self:Register(self.btn_cancel,"btn_cancel")
+	
+	-- Hint Window
+	self.hint_wnd = xml:InitFrame("hint_wnd:background",self)
+	self.hint_wnd:SetAutoDelete(false)
+	self.hint_wnd_text = xml:InitTextWnd("hint_wnd:text",self.hint_wnd)
+	self.hint_wnd:Show(false)
+	
+	-- Message Window 
+	self.msg_wnd = xml:InitFrame("hint_wnd:background",self)
+	self.msg_wnd:SetAutoDelete(false)
+	self.msg_wnd_text = xml:InitTextWnd("hint_wnd:text",self.msg_wnd)
+	self.msg_wnd_text:SetTextAlignment(2)
+	
+	self.msg_wnd:Show(false)
+	self.msg_wnd:SetColor(GetARGB(255,0,0,0))
+	
+	
+	self:LoadItemList()
 end
 
 function craft_ui:InitCallBacks()
@@ -144,6 +181,62 @@ function craft_ui:LoadItemList()
 		local _itm = list_element(i, name)
 		self.list_itms:AddExistingItem(_itm)
 	end
+end
+
+function craft_ui:Update()
+	CUIScriptWnd.Update(self)
+	
+	-- Warning messages timer 
+	if (self.msg_wnd_timer and time_global() > self.msg_wnd_timer) then 
+		self.msg_wnd_timer = nil
+		self.msg_wnd:Show(false)
+	end
+	
+	for i=1,#self.box_item do 
+		if (self.box_item[i] and self.box_item[i]:IsCursorOverWindow()) then
+			local str = ""
+			if (self.recipe_chosen[i] and self.recipe_chosen[i][1]) then
+				str = game.translate_string(ini:r_string_ex(self.recipe_chosen[i][1],"description") or "")
+				--str = "%c[0,140,140,140]" .. str
+			end
+			self:SetHint(str)
+			return
+		end
+	end
+	self.hint_wnd:Show(false)
+end 
+
+function craft_ui:SetMsg(text,tmr)
+	if (text == "") then 
+		return 
+	end
+	self.msg_wnd:Show(true)
+	self.msg_wnd_text:SetText(text)
+	self.msg_wnd_text:AdjustHeightToText()
+	self.msg_wnd_text:SetWndSize(vector2():set(820,self.msg_wnd_text:GetHeight()+10))
+	self.msg_wnd_text:SetWndPos(vector2():set(0,20))
+	
+	self.msg_wnd:SetWndSize(vector2():set(820,self.msg_wnd_text:GetHeight()+44))
+	self.msg_wnd:SetWndPos(vector2():set(0,80))
+
+	self.msg_wnd_timer = time_global() + 1000*tmr
+end
+
+function craft_ui:SetHint(text,pos)
+	if (text == "") then
+		return
+	end
+	self.hint_wnd:Show(true)
+	self.hint_wnd_text:SetText(text)
+	self.hint_wnd_text:AdjustHeightToText()
+	self.hint_wnd:SetWndSize(vector2():set(self.hint_wnd:GetWidth(),self.hint_wnd_text:GetHeight()+44))
+	
+	pos = pos or GetCursorPosition()
+	pos.y = pos.y - self.hint_wnd:GetHeight()
+	pos.x = pos.x - self.hint_wnd:GetWidth()
+	self.hint_wnd:SetWndPos(pos)
+	
+	FitInRect(self.hint_wnd,Frect():set(0,0,1024,768),0,100)
 end
 
 
@@ -185,13 +278,10 @@ function craft_ui:OnCraft()
 	-- Play effect
 	if (self.craft_use_actor_effects and actor_effects) then
 		actor_effects.use_item("toolkit_u_dummy")
-	else
-		actor_effects.use_weapon(1)
 	end
 end
 
 function craft_ui:OnCancel()
-	actor_effects.use_weapon(1)
 	trx_utils.play_sound("interface\\inv_close")
 	self:HideDialog()
 end
@@ -203,6 +293,9 @@ function craft_ui:OnItemClicked()
 	end
 	
 	local parts = self.recipes[item.idx][item.name] or {}
+	self.recipe_chosen = parts
+	self.recipe_chosen[4] = {}
+	self.recipe_chosen[4][1] = item.name
 	
 	-- Item 1
 	if parts[1] and parts[1][1] and parts[1][2] then
@@ -257,8 +350,9 @@ function craft_ui:UpdateItem (n, sec, amount, result)
 	
 	-- Text (Amount)
 	local amt = amount
+	local box = 1
 	if utils.is_ammo(sec) then
-		local box = ini:r_float_ex(sec,"box_size")
+		box = ini:r_float_ex(sec,"box_size")
 		amt = box * amount
 	end
 	--self.text_multi[n]:SetText("x" .. tostring(amt))
@@ -284,9 +378,11 @@ function craft_ui:UpdateItem (n, sec, amount, result)
 		for _ in pairs(parts_id) do count = count + 1 end
 		if utils.is_ammo(sec) then -- ammo
 			local full_ammo = 0
+			local full_ammo_txt = 0
 			for k,v in pairs(parts_id) do
 				local size = v:ammo_get_count()
 				local box_size = v:ammo_box_size()
+				full_ammo_txt = full_ammo_txt + size
 				if (size >= box_size) then
 					full_ammo = full_ammo + 1
 				else
@@ -297,7 +393,7 @@ function craft_ui:UpdateItem (n, sec, amount, result)
 					self.allow[n] = true
 				end
 			end
-			self.text_multi[n]:SetText(tostring(full_ammo) .. "/" .. tostring(amt))
+			self.text_multi[n]:SetText(tostring(full_ammo_txt) .. "/" .. tostring(amt))
 		else -- normal items
 			if (count >= amount) then
 				self.text_item[n]:SetTextColor(GetARGB(200, 50, 255, 50))
@@ -318,6 +414,9 @@ function craft_ui:UpdateItem (n, sec, amount, result)
 		if ((self.size == 2) and self.allow[1] and self.allow[2]) or ((self.size == 3) and self.allow[1] and self.allow[2] and self.allow[3]) then
 			self.allow[4] = true
 			self.text_item[n]:SetTextColor(GetARGB(200, 50, 255, 50))
+		end
+		if utils.is_ammo(sec) then
+			amount = box
 		end
 		self.item[n] = {sec , amount}
 		self.text_multi[n]:SetText("")

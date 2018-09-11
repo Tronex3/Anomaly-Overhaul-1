@@ -97,10 +97,17 @@
 
 	<!-- Official theme by Noxx -->
 	<!-- https://www.youtube.com/watch?v=zP-SQJuSFos -->
-	<menu_sound random="1" >
+	<menu_sound random="0" >
 		<menu_music>music\_anomaly</menu_music>
+		<menu_music>music\_menu_misery_atriumcarcerieraser_stereo</menu_music>
+		<menu_music>music\_menu_misery_last_day_9</menu_music>
+		<menu_music>music\_menu_misery_last_day_10</menu_music>
+		<menu_music>music\_menu_misery_last_day_15</menu_music>
     </menu_sound>
 
+	<static_help x="14" y="720">
+		<text align="l" font="letterica16" r="0" g="0" b="0" complex_mode="0"/>
+	</static_help>
 	<static_version x="14" y="740">
 		<text align="l" font="letterica16" r="0" g="0" b="0" complex_mode="0"/>
 	</static_version>

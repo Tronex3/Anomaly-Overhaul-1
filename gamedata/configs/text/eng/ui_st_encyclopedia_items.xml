@@ -32,7 +32,7 @@
 		\nThe UPD has a total power capacity of 3 Ah (ampere-hours).
 		\nAll active devices will consume electric power out of the UPD. Consumption varies between devices.
 		\nWhen the UPD runs out of charge, all connected devices will stop working. 
-		\nAlways Keep an eye on the power left, and make sure you have some backup batteries in case your UPD ran out of power.
+		\nAlways keep an eye on the remaining power. Make sure you have some backup batteries, just in case.
 		</text>
 	</string>
 	
@@ -46,7 +46,7 @@
 		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
 		\nUnlikely to be suitable for advanced maintenance, but they could be useful in the hands of a thrifty technician.
 		\nThe kit Contains different types and sizes of pliers, screws, adhesives and assorted fasteners.
-		\n%c[0,250,250,250]Survival guides%c[0,170,170,170] usually provide informations about basic equipment and survival kits. With enough knowledge, a thrifty stalker can make a great use out of this kit.
+		\n \n%c[0,250,250,250]Survival guides%c[0,170,170,170] usually provide informations about basic equipment and survival kits. With enough knowledge, a thrifty stalker can make a great use out of this kit.
 		\nA good idea is to keep basic materials around. After all, you can't craft things out of thin air.
 		</text>
 	</string>
@@ -61,7 +61,7 @@
 		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
 		\nA decent set of old tools, but despite their age they appear to be in good condition.
 		\nContains a handful set of small pliers, tipped tweezers, probe and pick set.
-		\n%c[0,250,250,250]Mechanics manuals%c[0,170,170,170] provide informations about mechanical engineering. With enough knowledge, a thrifty stalker can make a great use out of this kit.
+		\n \n%c[0,250,250,250]Mechanics manuals%c[0,170,170,170] provide informations about mechanical engineering. With enough knowledge, a thrifty stalker can make a great use out of this kit.
 		\nA good idea is to keep basic materials around. After all, you can't craft things out of thin air.
 		</text>
 	</string>
@@ -76,7 +76,7 @@
 		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
 		\nA professional set of high quality tools for fine-tuning equipment.
 		\nContains drill bit set, precision tweezers, soldiering iron, 4 mm Screwdriver bits and a multimeter.
-		\n%c[0,250,250,250]Engineering manuals%c[0,170,170,170] provide informations about industrial engineering. With enough knowledge, a thrifty stalker can make a great use out of this kit.
+		\n \n%c[0,250,250,250]Engineering manuals%c[0,170,170,170] provide informations about industrial engineering. With enough knowledge, a thrifty stalker can make a great use out of this kit.
 		\nA good idea is to keep basic materials around. After all, you can't craft things out of thin air.
 		</text>
 	</string>
@@ -90,7 +90,7 @@
 		
 		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
 		\nSmall cases and various metal objects constitute a kit for managing and producing drugs. Contains some plastic packages, tablets and ampoules.
-		\nFew people with enough knowledge on drugs can make use out of these kits. Keep an eye on those who possess informative %c[0,250,250,250]recipes%c[0,170,170,170].
+		\n \nFew people with enough knowledge on drugs can make use out of these kits. Keep an eye on those who possess informative %c[0,250,250,250]recipes%c[0,170,170,170].
 		\nA good idea is to keep basic materials around. After all, you can't craft things out of thin air.
 		</text>
 	</string>
@@ -105,7 +105,7 @@
 		\n \n%c[0,56,209,115]Information%c[0,170,170,170]
 		\nA decent set of old gunsmithing tools and accessories.
 		\nContains a pin punch set, wheeler hammer, press tool and a black powder measure kit.
-		\n%c[0,250,250,250]Safety guides to ammunition%c[0,170,170,170] provides in-depth view about the operation of bullet, the components and recycling damaged cartridges. With enough knowledge, a thrifty stalker can make a great use out of this kit.
+		\n \n%c[0,250,250,250]Safety guides to ammunition%c[0,170,170,170] provides informations about various types of ammunition, plus an in-depth view about the basic components of cartridges. With enough knowledge, a thrifty stalker can make a great use out of this kit.
 		\nA good idea is to keep damaged ammunition around. After all, you can't craft things out of thin air.
 		</text>
 	</string>
@@ -301,7 +301,7 @@
 		\n \n%c[0,56,166,209]Details%c[0,170,170,170]
 		\n• You have to remove artifacts from the container prior to selling them.
 		\n• Drag and drop an artefact on the container to store it inside.
-		\n• Weight: %c[0,250,250,250]3.62 kg%c[0,170,170,170]
+		\n• Weight: %c[0,250,250,250]2.12 kg%c[0,170,170,170]
 		</text>
 	</string>
 	

@@ -5,6 +5,32 @@
 		<text>Artifacts</text>
 	</string>
 	
+	<string id="pda_encyclopedia_name">
+		<text>Name</text>
+	</string>
+	<string id="pda_encyclopedia_weight">
+		<text>Weight</text>
+	</string>
+	<string id="pda_encyclopedia_tier">
+		<text>Tier</text>
+	</string>
+	<string id="pda_encyclopedia_tier_0">
+		<text>-</text>
+	</string>
+	<string id="pda_encyclopedia_tier_1">
+		<text>Low</text>
+	</string>
+	<string id="pda_encyclopedia_tier_2">
+		<text>Average</text>
+	</string>
+	<string id="pda_encyclopedia_tier_3">
+		<text>High</text>
+	</string>
+	
+	<string id="pda_encyclopedia_origin">
+		<text>Origins</text>
+	</string>
+	
 	<string id="encyclopedia_artefacts__about">
 		<text>About</text>
 	</string>

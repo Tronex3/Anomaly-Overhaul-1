@@ -1,37 +1,71 @@
-local eco_ini = ini_file("plugins\\economy_difficulty.ltx")
-local economy = 1
-local factors = {}
+-- =======================================================================================
+-- Tronex
+-- 2018/8/10
+-- Economy factors
 
-function set_factors(eco)
-	factors["weight"]			= eco_ini:r_float_ex("econ_" .. eco , "max_weight") or 60
-	factors["loot"]				= eco_ini:r_float_ex("econ_" .. eco , "factor_loot") or 1
-	factors["goodwill"]			= eco_ini:r_float_ex("econ_" .. eco , "factor_goodwill") or 1
-	factors["repair"]			= eco_ini:r_float_ex("econ_" .. eco , "factor_repair") or 1
-	factors["upgrade"]			= eco_ini:r_float_ex("econ_" .. eco , "factor_upgrade") or 1
-	factors["buy"]				= eco_ini:r_float_ex("econ_" .. eco , "factor_buy") or 1
-	factors["sell"]				= eco_ini:r_float_ex("econ_" .. eco , "factor_sell") or 1
-	factors["artefact"]			= eco_ini:r_float_ex("econ_" .. eco , "factor_artefact") or 1
-	factors["money"]			= eco_ini:r_float_ex("econ_" .. eco , "factor_money") or 1
-	factors["stash"]			= eco_ini:r_float_ex("econ_" .. eco , "chance_stash") or 0.2
-	factors["wpn_condition"]	= eco_ini:r_float_ex("econ_" .. eco , "factor_wpn_condition") or 1
-	factors["multiuse_medkits"]	= eco_ini:r_float_ex("econ_" .. eco , "multiuse_medkits") or 4
-	factors["fast_travel"]		= eco_ini:r_bool_ex("econ_" .. eco , "fast_travel") and true
-	factors["backpack_travel"]	= eco_ini:r_bool_ex("econ_" .. eco , "backpack_travel") and true
+-- Set by progression options (ui_mm_opt_economy) or new game (ui_mm_faction_select)
+-- Called by other scripts for gathering required values
+-- =======================================================================================
+
+local eco_ini = ini_file("plugins\\economy_difficulty.ltx")
+local eco_num = 1
+local economy,factors = {},{}
+
+function setup_factors(eco)
+	factors["type"]				= economy["type"] or eco_num
+	factors["weight"]			= economy["weight"] or eco_ini:r_float_ex("econ_" .. eco , "max_weight") or 60
+	factors["goodwill"]			= economy["goodwill"] or eco_ini:r_float_ex("econ_" .. eco , "goodwill") or 1
+	factors["rewards"]			= economy["rewards"] or eco_ini:r_float_ex("econ_" .. eco , "rewards") or 1
+	factors["repair"]			= economy["repair"] or eco_ini:r_float_ex("econ_" .. eco , "repair") or 1
+	factors["upgrade"]			= economy["upgrade"] or eco_ini:r_float_ex("econ_" .. eco , "upgrade") or 1
+	factors["buy"]				= economy["buy"] or eco_ini:r_float_ex("econ_" .. eco , "buy") or 1
+	factors["sell"]				= economy["sell"] or eco_ini:r_float_ex("econ_" .. eco , "sell") or 1
+	factors["artefact"]			= economy["artefact"] or eco_ini:r_float_ex("econ_" .. eco , "artefact") or 1
+	factors["loots"]			= economy["loots"] or eco_ini:r_float_ex("econ_" .. eco , "loots") or 1
+	factors["money_loots"]		= economy["money_loots"] or eco_ini:r_float_ex("econ_" .. eco , "money_loots") or 1
+	factors["wpn_condition"]	= economy["wpn_condition"] or eco_ini:r_float_ex("econ_" .. eco , "wpn_condition") or 1
+	factors["stash_chance"]		= economy["stash_chance"] or eco_ini:r_float_ex("econ_" .. eco , "stash_chance") or 0.2
+	factors["max_medkit_uses"]	= economy["max_medkit_uses"] or eco_ini:r_float_ex("econ_" .. eco , "max_medkit_uses") or 4
+	factors["fast_travel"]		= economy["fast_travel"] or eco_ini:r_bool_ex("econ_" .. eco , "fast_travel") and true
+	factors["backpack_travel"]	= economy["backpack_travel"] or eco_ini:r_bool_ex("econ_" .. eco , "backpack_travel") and true
+end
+
+function set_factor(key, val)
+	alife_storage_manager.get_state().economy[key] = val
+	economy[key] = val
+	setup_factors(eco_num)
+	if (key == "weight") then set_actor_weight() end
+	--printf("Economy factor saved: [" .. key .. "] = " .. tostring(val))
 end
 
 function get_factor(key)
+	--printf("Economy factor interaction detected: [" .. key .. "] = " .. tostring(factors[key]))
 	return factors[key]
+end
+
+function set_actor_weight()
+	-- Set up maximum carry weight 
+	local cw = get_factor("weight") or 60
+	local mww = cw + (math.ceil(cw / 5) * 2)
+	if (cw ~= db.actor:get_actor_max_weight()) then
+		db.actor:set_actor_max_weight(cw)
+		db.actor:set_actor_max_walk_weight(mww)
+	end
 end
 
 --=======================================< Callbacks >=======================================--
 local function on_game_load()
-	economy = alife_storage_manager.get_state().economy or 1
-	set_factors(economy)
+	economy = alife_storage_manager.get_state().economy
+	if not (type(economy) == "table") then -- for old saves
+		alife_storage_manager.get_state().economy = {}
+		alife_storage_manager.get_state().economy["type"] = eco_num
+		economy = alife_storage_manager.get_state().economy
+	end
+	eco_num = economy["type"] or eco_num
+	setup_factors(eco_num)
+	set_actor_weight()
 end
 
 function on_game_start()
 	RegisterScriptCallback("on_game_load",on_game_load)
 end
-
--- Fill
-set_factors(economy)

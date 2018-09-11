@@ -1,6 +1,11 @@
 --------------------------------
 ----- Written by Darryl123 -----
 --------------------------------
+-- =======================================================================================
+-- Modified by Tronex
+-- 2018/7/19 - Added anomalies interaction (triggered by close distance, works by timer)
+-- 2018/7/23 - Added support for notes section
+-- =======================================================================================
 
 --------------------------
 ----- Initialisation -----
@@ -89,14 +94,20 @@ function scan_objects()
 	ResetTimeEvent(0,"ScanForGuide",10)
 	
 	-- Return if the player didn't spend 3 hours in the zone
-	if (not trx_utils.is_time_spent_in_zone(0,0,2)) then
-		return false
+	if (not has_alife_info("actor_spent_2_hrs_in_zone")) then
+		if (not trx_utils.is_time_spent_in_zone(0,0,2)) then
+			return false
+		else
+			give_info("actor_spent_2_hrs_in_zone")
+		end
 	end
+	
+	local pos = db.actor:position()
 	
 	for k,v in pairs (db.storage) do
 		if v and v.object then
 			local st = v and v.object or level.object_by_id(v.object:id())
-			if (st:position():distance_to(db.actor:position()) < 10) then
+			if (pos:distance_to(st:position()) < 10) then
 				--printf("TRX - scan_objects | name: " .. tostring(st:name()) .. " | section: " .. tostring(st:section()))
 				for i=1,#anomaly_match do
 					if string.find(st:section(),anomaly_match[i]) then
@@ -159,7 +170,7 @@ function detect_item_interaction(item)
 		create_interaction("items", item:section())
 	end
 		
-	if IsArtefact(item) then
+	if IsArtefact(item) and (system_ini():r_string_ex(item:section(),"class_dbg") ~= "S_ART_E") then
 		create_interaction("artefacts", "about_artefacts")
 		create_interaction("artefacts", item:section())
 	end
@@ -334,9 +345,9 @@ function unlock_article(section)
 		for k, v in pairs(locked_articles) do
 			if (v <= lowest_tier) then
 				if (v > 0) then
-					table.insert(tiered_articles, k)
+					tiered_articles[#tiered_articles+1] = k
 				end
-				table.insert(valid_articles, k)
+				valid_articles[#valid_articles+1] = k
 			end
 		end
 		-- 50% chance of selecting from exclusively tiered articles if available.
@@ -355,7 +366,7 @@ function unlock_article(section)
 	-- Update the required counters.
 	guide.articles_locked_count = guide.articles_locked_count - 1
 	guide.articles_unlocked_count = guide.articles_unlocked_count + 1
-	xr_statistic.inc_counter("articles")
+	xr_statistic.inc_counter("articles_unlocked")
 	
 	-- Set the article and retrieve the indices.
 	local index_a, index_c = set_article(section)
@@ -374,7 +385,7 @@ function unlock_article(section)
 		local header = game.translate_string("st_tip")
 		local texture = news_manager.tips_icons["guide_unlock"] or "ui_inGame2_Poslednie_razrabotki"
 		db.actor:give_game_news(header, strformat(message, text_c, text_a), texture, 0, 5000, 0)
-		trx_utils.play_sound("device\\pda\\pda_guide")
+		trx_utils.play_sound("device\\pda\\pda_guide_2") --trx_utils.play_sound("device\\pda\\pda_guide")
 	end
 	
 	return true
@@ -410,7 +421,7 @@ function unlock_note(section)
 	-- Update the required counters.
 	guide.notes_locked_count = guide.notes_locked_count - 1
 	guide.notes_unlocked_count = guide.notes_unlocked_count + 1
-	xr_statistic.inc_counter("notes")
+	xr_statistic.inc_counter("notes_unlocked")
 	
 	-- Set the article and retrieve the indices.
 	local index_a, index_c = set_article(section)

@@ -71,7 +71,7 @@ end
 function actor_on_first_update()
 	awr_sf.dout('actor_on_first_update', "Called on first update")
 	for i=1, 65534 do
-		local s_obj = alife():object(i)
+		local s_obj = alife_object(i)
 		if s_obj then
 			local name = s_obj:name()
 
@@ -280,7 +280,7 @@ function physic_object_on_use_callback(_obj,who)
 	end
 	
 	local m_name = _obj:name()
-	local ch_obj = alife():object(_obj:id())
+	local ch_obj = alife_object(_obj:id())
 	local pos, lvID, gvID = _obj:position(), _obj:level_vertex_id(), _obj:game_vertex_id()
 	delay = axr_main.config:r_value("mm_options","enable_extra_animations",1) and 50 or 0
 	
@@ -317,7 +317,7 @@ function physic_object_on_use_callback(_obj,who)
 				wpn_id = wpn:id()
 
 				--// Читаем апгрейды оружия
-				local _upgrades = stpk_utils.get_weapon_data(alife():object(wpn_id))
+				local _upgrades = stpk_utils.get_weapon_data(alife_object(wpn_id))
 				--awr_sf.print_table(_upgrades)
 				wpn_upgrades = _upgrades.upgrades
 
@@ -369,7 +369,7 @@ function physic_object_on_use_callback(_obj,who)
 		db.actor:drop_item(wpn)
 		
 		--// Удаляем его
-		local se_obj = alife():object(wpn:id())
+		local se_obj = alife_object(wpn:id())
 		if (se_obj) then
 			awr_sf.del_obj(se_obj)
 		end
@@ -609,7 +609,7 @@ function SetMarker(name)
 	else
 		--// Добавление маркера на карту, если меш родительский
 		for i=1, 65534 do
-			local s_obj = alife():object(i)
+			local s_obj = alife_object(i)
 			if s_obj then
 				local c_name = s_obj:name()
 				if c_name:match(name) then
@@ -625,7 +625,7 @@ end
 function CloseDl()
 
 	for i=1, 65534 do
-		local s_obj = alife():object(i)
+		local s_obj = alife_object(i)
 		if s_obj then
 			local c_obj = level.object_by_id(s_obj.id)
 			if c_obj then

@@ -1,0 +1,89 @@
+local CLT = { -- ChangeLevelTbl
+	yantar_guid_from_freedom_base = {170.966796875,1.8648002147675,87.093704223633,147072,2213},
+	ds_soviet_store			    = {-56.60,8.92,37.57,96425,2367},
+	zat_trash_station			= {430.74,30.45,-420.38,1671704,4454},
+	mil_to_yant_on_heli			= {53.360538482666,-11.887294769287,-280.54272460938,91046,2288},
+	jup_guid_bandit_cont		= {-436.17681884766,0.023663967847824,-352.67199707031, 4818, 4632},
+	red_forest_guid_mon			= {-174.38987731934,0.39412915706635,-268.97796630859, 3338, 2790},
+	l11_pripyat_guid_mon		= {-125.87271881104,-2.3243350982666,79.815246582031, 5834, 2930},
+	pripyat_guid_mon			= {-118.44010162354,-0.50860524177551,103.26635742188, 77100, 5050},
+	jupiter_guid_mon			= {388.51870727539,4.2755246162415,-127.71376800537, 1328885, 4677},
+	escp_guid_mil_speed			= {-17.040597915649,0.69932228326797,277.01373291016, 279632, 632},
+	agroprom_guid_military		= {-175.5033416748,5.3152875900269,-186.05902099609, 46523, 1037},
+	escape_guid_military		= {-132.42623901367,-30.139842987061,-394.85430908203, 122849, 373},
+	darkscape_guid_military		= {416.24505615234,-2.0682604312897,-381.73083496094, 896271, 1114},
+	jup_bunker_guid				= {-203.84951782227,-4.2126941680908,66.718566894531, 372256, 4486},
+	agroprom_guid				= {-8.4884414672852,-4.9986891746521,-321.14392089844, 190767, 874},
+	marsh_guid					= {641.22045898438,9.9145269393921,463.4518737793, 531344, 226},
+	escape_village_guid			= {-168.36848449707,-20.235736846924,-155.74464416504, 81102, 452},
+	trucks_cemetery_guid		= {232.85961914063,7.5902180671692,308.79092407227, 749878, 5167},
+	stancia_guid				= {993.24591064453,-0.12632231414318,-317.42514038086, 461400, 3214},
+	pripyat_2_guid				= {203.07299804688,-0.39944335818291,207.8582611084, 261726, 3067},
+	radar_guid					= {659.78375244141,-43.879955291748,170.1953125, 227224, 2538},
+	jupiter_underground_2_guid	= {82.033393859863,4.0361824035645,-217.11773681641, 40763, 4877},
+	zaton_guid					= {120.02467346191,-7.3487234115601,185.89865112305, 1172089, 4457},
+	pripyat_guid				= {-247.2088470459,-0.51004129648209,-133.41319274902, 5072, 615},
+	l11_pripyat_guid			= {-124.84135437012,-0.4021889269352,100.8790435791, 6083, 3068},
+	red_forest_guid				= {30.185470581055,-0.0034164488315582,16.55979347229, 81736, 2812},
+	l05_bar_guid				= {57.820430755615,-0.0016859173774719,123.71918487549, 26958, 1745},
+	jupiter_underground_guid	= {-35.938255310059,8.0647020339966,409.55804443359, 4828, 2874},
+	yantar_guid					= {209.00457763672,6.3322243690491,-246.66212463379, 151270, 2190},
+	military_guid				= {-323.85864257813,-25.816766738892,55.820461273193, 23506, 2110},
+	garbage_guid				= {20.42943572998,0.3997375369072,239.76965332031, 178228, 858},
+	escape_guid					= {-238.27073669434,-19.558448791504,-118.61843109131, 20181, 507},
+	jupiter_guid				= {-50.628776550293,3.4879410266876,199.19316101074, 635022, 4478}
+}
+function ch_lvl(p) -- ChangeLevel
+	ChangeLevel(
+	vector():set(CLT[p][1], 
+	CLT[p][2], 
+	CLT[p][3]), 
+	CLT[p][4], 
+	CLT[p][5], 
+	vector():set(
+	CLT[p][6] or 0, 
+	CLT[p][7] or 0, 
+	CLT[p][8] or 0))
+end
+
+function act_h_s(sect, needed) -- actor_have_section -- Имеет ли актор опред. кол-во секций
+	if not needed then
+		needed = 1
+	end
+	local count = 0
+	local function itr(actor, item) 
+		if item:section() == sect then 
+			count = count + 1 
+		end 
+	end
+	db.actor:iterate_inventory(itr, db.actor)
+	return count >= needed 
+end
+
+function act_h_m(count) -- actor_have_money  -- Имеет ли актор опред. кол-во денег
+	return db.actor:money() >= count
+end
+
+function save_var(name, value)
+	if not alife_storage_manager.get_state()['mlr'] then
+		alife_storage_manager.get_state()['mlr'] = {}
+	end
+	alife_storage_manager.get_state()['mlr'][name] = value
+end
+
+function load_var(name)
+	if not alife_storage_manager.get_state()['mlr'] then
+		return
+	end
+	return alife_storage_manager.get_state()['mlr'][name]
+end
+
+function death_heli(obj, enemy_id)
+		local heli_pos = obj:position()
+		local heli_id = obj:id()
+		local drop = alife():create('blackbox_mlr',heli_pos,obj:level_vertex_id(),obj:game_vertex_id())
+end
+
+function give_task(name)
+    task_manager.get_task_manager():give_task(name)
+end

@@ -108,6 +108,12 @@
 	<string id="ui_mm_cancel">
 		<text>Cancel</text>
 	</string>
+	<string id="ui_mm_next">
+		<text>Next</text>
+	</string>
+	<string id="ui_mm_previous">
+		<text>Previous</text>
+	</string>
 	<string id="ui_mm_craft">
 		<text>Craft</text>
 	</string>
@@ -638,5 +644,8 @@
 	</string>
 	<string id="ui_mm_multi_rewards_goodwill">
 		<text>Factor of goodwill gain</text>
+	</string>
+	<string id="ui_mm_war_goodwill_reset">
+		<text>Reset goodwill with hostile factions</text>
 	</string>
 </string_table>

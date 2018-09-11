@@ -13,7 +13,7 @@ local ini_ico = ini_file("plugins\\player_icons.ltx")
 local ini_itm = ini_file("plugins\\new_game_loadouts.ltx")
 local ini_map = ini_file("plugins\\new_game_start_locations.ltx")
 local ini_opt = ini_file("plugins\\new_game_options.ltx")
--->>local ini_eco = ini_file("misc\\economy_difficulty.ltx")
+local ini_eco = ini_file("plugins\\economy_difficulty.ltx")
 local gs = game.translate_string
 
 
@@ -66,6 +66,11 @@ local function on_game_load(binder)
 			config:w_value("character_creation","new_game_timer_mode")
 			need_save = true
 		end
+		if (config:r_value("character_creation","new_game_opened_routes",1) == true) then
+			alife_storage_manager.get_state().opened_routes = true
+			config:w_value("character_creation","new_game_opened_routes")
+			need_save = true
+		end
 		
 		
 		if (config:r_value("character_creation","new_game_difficulty",3)) then
@@ -78,7 +83,22 @@ local function on_game_load(binder)
 	
 		-- Economy
 		if (config:r_value("character_creation","new_game_economy",2)) then
-			alife_storage_manager.get_state().economy = config:r_value("character_creation","new_game_economy",2)
+			alife_storage_manager.get_state().economy = {}
+			local eco = config:r_value("character_creation","new_game_economy",2)
+			alife_storage_manager.get_state().economy["type"]               = eco
+			alife_storage_manager.get_state().economy["weight"]	            = ini_eco:r_float_ex("econ_" .. eco , "max_weight") or 60
+			alife_storage_manager.get_state().economy["goodwill"]           = ini_eco:r_float_ex("econ_" .. eco , "goodwill") or 1
+			alife_storage_manager.get_state().economy["rewards"]            = ini_eco:r_float_ex("econ_" .. eco , "rewards") or 1
+			alife_storage_manager.get_state().economy["repair"]             = ini_eco:r_float_ex("econ_" .. eco , "repair") or 1
+			alife_storage_manager.get_state().economy["upgrade"]            = ini_eco:r_float_ex("econ_" .. eco , "upgrade") or 1
+			alife_storage_manager.get_state().economy["buy"]                = ini_eco:r_float_ex("econ_" .. eco , "buy") or 1
+			alife_storage_manager.get_state().economy["sell"]               = ini_eco:r_float_ex("econ_" .. eco , "sell") or 1
+			alife_storage_manager.get_state().economy["artefact"]           = ini_eco:r_float_ex("econ_" .. eco , "artefact") or 1
+			alife_storage_manager.get_state().economy["loots"]              = ini_eco:r_float_ex("econ_" .. eco , "loots") or 1
+			alife_storage_manager.get_state().economy["money_loots"]        = ini_eco:r_float_ex("econ_" .. eco , "money_loots") or 1
+			alife_storage_manager.get_state().economy["wpn_condition"]	    = ini_eco:r_float_ex("econ_" .. eco , "wpn_condition") or 1
+			alife_storage_manager.get_state().economy["stash_chance"]		= ini_eco:r_float_ex("econ_" .. eco , "stash_chance") or 0.2
+			alife_storage_manager.get_state().economy["max_medkit_uses"]	= ini_eco:r_float_ex("econ_" .. eco , "max_medkit_uses") or 4
 			config:w_value("character_creation","new_game_economy")
 			need_save = true
 		end
@@ -340,7 +360,7 @@ local function actor_on_first_update(binder,delta)
 	end
 
 	if start_pos and #start_pos == 3 then
-		ChangeLevel(start_pos[3],start_pos[1],start_pos[2],vector():set(0,0,0))
+		ChangeLevel(start_pos[3],start_pos[1],start_pos[2],VEC_ZERO)
 	end
 end
 
@@ -624,6 +644,10 @@ function faction_ui:Main_Controls()
 		self.ck_campfire = xml:InitCheck("main_dialog:options:check_campfire",	self.templ_options)
 		self:Register(self.ck_campfire,"check_campfire")
 		
+		self.ck_routes_cap = xml:InitStatic("main_dialog:options:cap_check_routes",self.templ_options)
+		self.ck_routes = xml:InitCheck("main_dialog:options:check_routes",	self.templ_options)
+		self:Register(self.ck_routes,"check_routes")
+		
 		self.ck_conditions_cap = xml:InitStatic("main_dialog:options:cap_check_conditions",self.templ_options)
 		self.ck_conditions = xml:InitCheck("main_dialog:options:check_conditions",	self.templ_options)
 		self:Register(self.ck_conditions,"check_conditions")
@@ -658,6 +682,7 @@ function faction_ui:Main_Controls()
 							["ck_story"] = false,
 							["ck_campfire"] = false,
 							["ck_conditions"] = false,
+							["ck_routes"] = false,
 							
 							["list_difficulty"] = false,
 							["list_economy"] = false,
@@ -1638,6 +1663,7 @@ function faction_ui:OnQuit()
 		self:HideDialog()
 	end
 	self:Show(false)
+	ui_main_menu.RemoveFactionUI()
 end
 
 function faction_ui:OnRandomize()
@@ -1745,7 +1771,8 @@ function faction_ui:OnStartGame()
 	
 	axr_main.config:w_value("character_creation","new_game_difficulty",self.selected_difficulty)
 	axr_main.config:w_value("character_creation","new_game_economy",econ)
-
+	axr_main.config:w_value("character_creation","new_game_economy_treasure",econ) -- special for coc_treasure_manager
+	
 	axr_main.config:w_value("character_creation","new_game_hardcore_mode",self.ck_hardcore and self.ck_hardcore:GetCheck() and true or nil)
 	axr_main.config:w_value("character_creation","new_game_hardcore_mode_lives",self.ck_hardcore and self.selected_hardcore_lives[1] or nil)
 	axr_main.config:w_value("character_creation","new_game_hardcore_mode_regenerate",self.ck_hardcore and hardcore_regen or nil)
@@ -1754,6 +1781,7 @@ function faction_ui:OnStartGame()
 	axr_main.config:w_value("character_creation","new_game_survival_mode",self.ck_survival and self.ck_survival:GetCheck() and true or nil)
 	axr_main.config:w_value("character_creation","new_game_campfire_mode",self.ck_campfire and self.ck_campfire:GetCheck() and true or nil)
 	axr_main.config:w_value("character_creation","new_game_conditions_mode",self.ck_conditions and self.ck_conditions:GetCheck() and true or nil)
+	axr_main.config:w_value("character_creation","new_game_opened_routes",self.ck_routes and self.ck_routes:GetCheck() and true or nil)
 	axr_main.config:w_value("character_creation","new_game_timer_mode",timer or nil)
 	
 	axr_main.config:w_value("character_creation","new_game_character_name",character_name:gsub(" ","_") )

@@ -1,4 +1,9 @@
---=====================< created by av661194 >=====================
+-- ==============================================================================================
+-- Original script by av661194
+-- Created by Tronex
+-- 2018/5/22 - GUI part for radio options menu 
+-- 2018/8/25 - The menu is a part of extra options menu
+-- ==============================================================================================
 
 
 
@@ -8,54 +13,8 @@
 -- //////////////////////////////////////////////////////////////////////////////////////////////
 -- ==============================================================================================
 
-local dlg_is_show
-local options_btn = 201
-
-local btn_tbl = {
-	["Page_Up"] = 201,
-	["Tab"] = 15,
-	["Caps_Lock"] = 58,
-	["Left_Control"] = 29,
-	["Left_Shift"] = 42,
-	["Left_Alt"] = 56,
-	["Left_Win"] = 219,
-	["Application"] = 221,
-
-	["Num1"] = 79,
-	["Num2"] = 80,
-	["Num3"] = 81,
-	["Num4"] = 75,
-	["Num5"] = 76,
-	["Num6"] = 77,
-	["Num7"] = 71,
-	["Num8"] = 72,
-	["Num9"] = 73,
-	["Num/"] = 181,
-	["Num*"] = 55,
-	["Num-"] = 74,
-	["Num+"] = 78,
-	["Num_Del"] = 83,
-	["NumEnter"] = 156
-}
-
 --option table
 local options = { 
-	["options_btn"] = {
-		typ = "list",
-		list = {"Tab", "Caps_Lock", "Left_Control", "Left_Shift", "Left_Alt", "Left_Win", "Num1", "Num2", "Num3", "Num4", "Num5", "Num6", "Num7", "Num8", "Num9", "Num/", "Num*", "Num-", "Num+", "Num_Del", "NumEnter","Page_Up",},
-		default = "Page_Up",
-		txt = game.translate_string("ui_st_dyn_news_btn_access"),
-		on_accept = function(handler,optMgr,ctrl)
-			options_btn = btn_tbl[ctrl:GetText()]
-			--[[local file = io.open(game.translate_string("ui_st_dyn_news_btn_call"), "w")
-				if io.type(file) == "file" then
-					file:write(ctrl:GetText(), "\n")
-					file:flush()
-					file:close()
-				end]]--
-		end,
-		num = 0.1
-	},
 	["message_duration"] 			= {typ = "edit", default = 10, txt = game.translate_string("ui_st_dyn_news_message_duration"), num = 0.2},
 	
 	["space_news_event"] 			= {typ = "text", default = game.translate_string("ui_st_dyn_news_space_news_event"), cap = "tab_gameplay:cap_text_axr", num = 1.01},
@@ -97,17 +56,6 @@ local options = {
 	["cycle_of_companions_news"] 	= {typ = "edit", default = 240, txt = game.translate_string("ui_st_dyn_news_cycle_of_companions_news"), num = 6.3}
 }
 
-function start_ui(main_menu,level_present,options)
-	if not dlg_is_show then
-		dlg_is_show = true
-		local ui = DynamicNewsOptionsDialog(main_menu,level_present,options)
-		main_menu:HideDialog()
-		main_menu:Show(false)
-		ui:ShowDialog(true)
-	end
-end
-
-
 
 -- ==============================================================================================
 -- //////////////////////////////////////////////////////////////////////////////////////////////
@@ -145,7 +93,6 @@ end
 -- ==============================================================================================
 
 local function options_default_config()
-	options_btn = btn_tbl[axr_main.config:r_value("mm_dynamic_news_options","options_btn",0,"Page_Up")] or 201
 	local need_save
 	for k,v in pairs(options) do
 		local key = ((v.typ=="check" and "enable_") or "") .. k
@@ -160,18 +107,9 @@ local function options_default_config()
 	dynamic_news_manager.update_options()
 end
 
-local function main_menu_on_keyboard(dik,keyboard_action,main_menu,level_present)
-	if keyboard_action ~= ui_events.WINDOW_KEY_RELEASED then
-		return
-	end
-	if dik == options_btn then
-		start_ui(main_menu,level_present,options)
-	end
-end
-
 function on_game_start()
+	options_default_config()
 	RegisterScriptCallback("on_game_load",options_default_config)
-	RegisterScriptCallback("main_menu_on_keyboard",main_menu_on_keyboard)
 end
 
 
@@ -183,7 +121,7 @@ end
 -- ==============================================================================================
 
 class "DynamicNewsOptionsDialog" (CUIScriptWnd)
-function DynamicNewsOptionsDialog:__init(main_menu,level_present,options) super()
+function DynamicNewsOptionsDialog:__init(main_menu,level_present) super()
 	self.owner = main_menu
 	self.level_present = level_present
 	self.options = options or {}
@@ -281,10 +219,14 @@ function DynamicNewsOptionsDialog:InitControls()
 	self:Enable(true)
 
 	self.xml = CScriptXmlInit()
-	self.xml:ParseFile("ui_mm_opt_dynamic_news.xml")
+	self.xml:ParseFile("ui_mm_opt_extra_option.xml")
 	self.xml:InitStatic("background", self)
+	
 	self.dialog = self.xml:InitStatic("main_dialog:dialog", self)
-	self.xml:InitStatic("main_dialog:cap_news_opt", self.dialog)
+	trx_utils.adjust_main_ui(self.dialog,true)
+	
+	self.cap = self.xml:InitTextWnd("main_dialog:cap_opt", self.dialog)
+	self.cap:SetText(game.translate_string("ui_mm_opt_extra_news"))
 
 	self.opt_dialog = news_options_window()
 	self.opt_dialog:InitControls(0,0, self.xml, self)
@@ -342,7 +284,7 @@ local optMgr = COptionsManager()
 			v.on_accept(self,optMgr,v.ctrl)
 		end
 	end
-	if db.actor and db.actor:alive() and self.level_present then
+	if db.actor and db.actor:alive() then --and self.level_present then
 		dynamic_news_manager.update_options()
 		--printf(">>> Tronex: changes accepted")
 	end
@@ -368,7 +310,7 @@ function DynamicNewsOptionsDialog:OnBtnCancel()
 	self.owner:ShowDialog(true)
 	--if (self:IsShown()) then
 		self:HideDialog()
-		dlg_is_show = nil
+		--dlg_is_show = nil
 	--end
 	self.owner:Show(true)
 end

@@ -44,7 +44,7 @@ end
 
 --=======================================< Callbacks and messing around >=======================================--
 
-function turn_into_bandit() -- turn into bandit once your rep get shitty
+function turn_into_bandit(current_reputation) -- turn into bandit once your rep get shitty
 	if (character_community(db.actor) == "actor_stalker") and (current_reputation <= -2000) then
 		actor:set_character_community("actor_bandit", 0, 0)
 		disguise.update_default("bandit")

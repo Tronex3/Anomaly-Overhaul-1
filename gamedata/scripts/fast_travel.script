@@ -37,9 +37,6 @@ local function bbp_extra_weight()
 end
 
 local function map_spot_menu_add_property(property_ui,id,level_name)
-	local allow = hardcore_economy.get_factor("fast_travel")
-	if (not allow) and (not DEV_DEBUG) then return end
-	
 	local se_obj = alife_object(id)
 	if not (se_obj) then
 		return
@@ -54,9 +51,6 @@ local function map_spot_menu_add_property(property_ui,id,level_name)
 end
 
 local function map_spot_menu_property_clicked(property_ui,id,level_name,prop)
-	local allow = hardcore_economy.get_factor("fast_travel")
-	if (not allow) and (not DEV_DEBUG) then return end
-	
 	local se_obj = alife_object(id)
 	if not (se_obj) then
 		return
@@ -131,15 +125,12 @@ local function map_spot_menu_property_clicked(property_ui,id,level_name,prop)
 		db.actor:set_actor_position(se_obj.position)
 		get_hud():HidePdaMenu()
 	else
-		ChangeLevel(se_obj.position,se_obj.m_level_vertex_id,se_obj.m_game_vertex_id,vector():set(0,0,0))
+		ChangeLevel(se_obj.position,se_obj.m_level_vertex_id,se_obj.m_game_vertex_id,VEC_ZERO)
 	end
 end
 
 -- Used for Visit_Only mode, catches the player near the marker and updates things.
 local function check_visit(id,level_name)
-	local allow = hardcore_economy.get_factor("fast_travel")
-	if (not allow) and (not DEV_DEBUG) then return end
-	
 	if (enabled ~= 1) then
 		return true
 	end
@@ -171,9 +162,6 @@ local function check_visit(id,level_name)
 end
 
 local function on_game_load()
-	local allow = hardcore_economy.get_factor("fast_travel")
-	if (not allow) and (not DEV_DEBUG) then return end
-	
 	local stxt = axr_main.config:r_string_ex("mm_options","fast_travel")
 	if (stxt == game.translate_string("ui_mm_visited_only_travel")) then
 		enabled = 1
@@ -230,9 +218,6 @@ local function on_game_load()
 end
 
 local function opt_menu_on_accept()
-	local allow = hardcore_economy.get_factor("fast_travel")
-	if (not allow) and (not DEV_DEBUG) then return end
-	
 	if (level.present() and db.actor) then
 		RemoveTimeEvent("fast_travel_load","fast_travel_load")
 		CreateTimeEvent("fast_travel_load","fast_travel_load",2,on_game_load)
@@ -240,9 +225,6 @@ local function opt_menu_on_accept()
 end
 
 local function opt_menu_on_init(menu)
-	local allow = hardcore_economy.get_factor("fast_travel")
-	if (not allow) and (not DEV_DEBUG) then return end
-	
 	menu.gameplay_options["fast_travel"] = {default=game.translate_string("ui_mm_show_all_travel"), debug_only=false, typ="list", list={game.translate_string("ui_mm_disable_travel"),game.translate_string("ui_mm_visited_only_travel"),game.translate_string("ui_mm_show_all_travel")}}
 	menu.gameplay_options["combat_travel"] = {default=false, debug_only=false, typ="check"}
 	menu.gameplay_options["weight_travel"] = {default=false, debug_only=false, typ="check"}

@@ -1,0 +1,142 @@
+-------------------------------------------------------------------
+class "load_item" (CUIListBoxItem)
+function load_item:__init(height) super(height)
+	self.file_name		= "filename"
+
+	self:SetTextColor(GetARGB(255, 40, 26, 20))
+
+	self.fn = self:GetTextItem()
+	self.fn:SetFont(GetFontLetterica18Russian())
+	self.fn:SetEllipsis(true)
+end
+
+function load_item:__finalize()
+end
+
+-------------------------------------------------------------------
+class "con_checker_ui" (CUIScriptWnd)
+
+function con_checker_ui:__init(owner,section) super()
+	self.owner = owner
+	self.section = section
+
+	self.repair_type = alun_utils.read_from_ini(nil,section,"repair_type","string","all")
+
+	self:InitControls()
+	self:InitCallBacks()
+end
+
+function con_checker_ui:__finalize()
+end
+
+function con_checker_ui:FillList()
+	self.list_box_weapons:RemoveAll()
+	self.list_box_outfits:RemoveAll()
+
+	local function fill_list(actor,obj)
+		if (obj) then
+			local con = obj:condition()
+			if (self.repair_type == "all" and (IsWeapon(obj))) then
+				self:AddItemToList(obj,self.list_box_weapons,con)
+			end
+			if (self.repair_type == "all" and (IsOutfit(obj) or IsHeadgear(obj))) then
+				self:AddItemToList(obj,self.list_box_outfits,con)
+			end
+		end
+	end
+
+	db.actor:iterate_inventory(fill_list,db.actor)
+
+	-- Plaargath
+	if self.list_box_outfits:GetSize() == 0 then
+		if self.list_box_weapons:GetSize() == 0 then
+			self:OnButton_ok_clicked()
+			itms_manager.show_message(game.translate_string("st_con_checker_futile"),25)
+		end
+	end
+	-- end Plaargath
+
+end
+
+function con_checker_ui:InitControls()
+	self:SetWndRect			(Frect():set(0,0,1024,768))
+
+	self:SetAutoDelete(true)
+
+	self.xml				= CScriptXmlInit()
+	local ctrl
+	self.xml:ParseFile			("ui_con_checker.xml")
+
+	ctrl					= CUIWindow()
+	self.xml:InitWindow			("con_checker:file_item:main",0,ctrl)
+
+	self.file_item_main_sz	= vector2():set(ctrl:GetWidth(),ctrl:GetHeight())
+
+	self.xml:InitWindow			("con_checker:file_item:fn",0,ctrl)
+	self.file_item_fn_sz	= vector2():set(ctrl:GetWidth(),ctrl:GetHeight())
+
+	self.xml:InitWindow			("con_checker:file_item:fd",0,ctrl)
+	self.file_item_fd_sz	= vector2():set(ctrl:GetWidth(),ctrl:GetHeight())
+
+	self.form				= self.xml:InitStatic("con_checker:form",self)
+
+	-- Caption
+	self.caption_weapons 		= self.xml:InitTextWnd("con_checker:form:caption_weapons",self.form)
+	self.caption_outfits		= self.xml:InitTextWnd("con_checker:form:caption_outfits",self.form)
+
+	-- Weapon List Box
+	self.xml:InitFrame		("con_checker:form:list_frame_weapons",self.form)
+	self.list_box_weapons		= self.xml:InitListBox("con_checker:form:list_weapons",self.form)
+
+	-- Outfit List Box
+	self.xml:InitFrame		("con_checker:form:list_frame_outfits",self.form)
+	self.list_box_outfits		= self.xml:InitListBox("con_checker:form:list_outfits",self.form)
+
+	-- Button OK
+	ctrl = self.xml:Init3tButton	("con_checker:form:btn_ok", self.form)
+	self:Register			(ctrl, "button_ok")
+end
+
+function con_checker_ui:InitCallBacks()
+	self:AddCallback("button_ok", ui_events.BUTTON_CLICKED, self.OnButton_ok_clicked, self)
+
+end
+
+function con_checker_ui:OnButton_ok_clicked()
+	alife():create(self.section,db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id(),db.actor:id())
+	self:HideDialog()
+end
+
+function con_checker_ui:OnKeyboard(dik, keyboard_action)
+-- Plaargath input convenience addition
+	CUIScriptWnd.OnKeyboard(self,dik,keyboard_action)
+	if (keyboard_action == ui_events.WINDOW_KEY_PRESSED) then
+		if (dik ~= nil) then
+			self:OnButton_ok_clicked()
+		end
+	end
+	return true
+end
+
+function con_checker_ui:AddItemToList(item,listbox,condition)
+
+	local _itm			= load_item(self.file_item_main_sz.y)
+	local sec = item and item:section()
+	local inv_name 		= item and game.translate_string(alun_utils.read_from_ini(nil,sec,"inv_name","string","error")) or "none"
+
+	_itm:SetWndSize		(self.file_item_main_sz)
+
+	_itm.fn:SetWndPos(vector2():set(0,0))
+	_itm.fn:SetWndSize	(self.file_item_fn_sz)
+	_itm.fn:SetText		(inv_name)
+
+	condition = math.ceil(condition*100)
+	if (item) then
+		_itm.fage     = _itm:AddTextField(condition.."%", self.file_item_fd_sz.x)
+		_itm.fage:SetFont	(GetFontLetterica18Russian())
+		_itm.fage:SetWndPos	(vector2():set(self.file_item_fn_sz.x+4, 0))
+		_itm.fage:SetWndSize(self.file_item_fd_sz)
+	end
+
+	listbox:AddExistingItem(_itm)
+end

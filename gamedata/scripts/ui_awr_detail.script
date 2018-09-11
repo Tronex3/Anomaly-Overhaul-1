@@ -180,15 +180,15 @@ function awr_mini_ui:OnButtonDetailClicked()
 	for _, k in ipairs(t) do
 		if t[1] then
 			db.actor:mark_item_dropped(k)
-			local temp = alife():object(k:id())
+			local temp = alife_object(k:id())
 			self.awr_sf.del_obj(temp)
 		elseif t[2] then
 			db.actor:mark_item_dropped(k)
-			local temp = alife():object(k:id())
+			local temp = alife_object(k:id())
 			self.awr_sf.del_obj(temp)
 		elseif t[3] then
 			db.actor:mark_item_dropped(k)
-			local temp = alife():object(k:id())
+			local temp = alife_object(k:id())
 			self.awr_sf.del_obj(temp)
 		end
 	end

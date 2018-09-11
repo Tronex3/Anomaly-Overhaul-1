@@ -478,4 +478,7 @@
 	<string id="st_awr_disassembly_cloth">
 		<text>disassemble [!]</text>
 	</string>
+	<string id="st_new_anomaly_map">
+		<text>New anomaly map is discovered</text>
+	</string>
 </string_table>

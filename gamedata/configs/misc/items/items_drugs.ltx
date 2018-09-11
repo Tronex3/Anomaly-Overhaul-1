@@ -248,6 +248,8 @@ inv_grid_x					             = 3
 inv_grid_y					             = 62
 uses_base					             = drug_psy_blockade
 uses_index					             = 1
+use1_functor         		             = itms_manager.menu_separate
+use1_action_functor  		             = itms_manager.use_separate
 		
 [drug_psy_blockade_use]:drug_psy_blockade
 inv_grid_width				             = 1
@@ -315,6 +317,8 @@ eat_sleepiness				             = 0.053
 use_sound					             = interface\inv_eat_pills_2
 uses_base					             = drug_antidot
 uses_index					             = 1
+use1_functor         		             = itms_manager.menu_separate
+use1_action_functor  		             = itms_manager.use_separate
 
 [drug_antidot_2]:drug_antidot
 cost						             = 2240
@@ -343,15 +347,15 @@ inv_grid_width				             = 1
 inv_grid_height				             = 1
 inv_grid_x					             = 4
 inv_grid_y					             = 62
-uses_base					             = drug_radioprotector
-uses_index					             = 1
-use1_functor         		             = itms_manager.menu_separate
-use1_action_functor  		             = itms_manager.use_separate
 boost_time					             = 331
 boost_radiation_protection	             = 0.0154
 eat_satiety 				             = -0.102
 eat_sleepiness				             = 0.069
 use_sound					             = interface\inv_eat_pills_2
+uses_base					             = drug_radioprotector
+uses_index					             = 1
+use1_functor         		             = itms_manager.menu_separate
+use1_action_functor  		             = itms_manager.use_separate
 
 [drug_radioprotector_2]:drug_radioprotector
 cost						             = 1720
@@ -606,7 +610,7 @@ $spawn 						             = "food and drugs\yadylin"
 visual 						             = dynamics\equipments\medical\item_yad.ogf
 class_dbg			                     = S_MED
 description			    	             = st_yadylin_descr
-cost						             = 1316
+cost						             = 816
 inv_name		     		             = st_yadylin
 inv_name_short				             = st_yadylin
 inv_weight					             = 0.1

@@ -17,6 +17,11 @@ the "spawn excess battery" function, for a few reasons.
 
 ]]
 
+-- =======================================================================================
+-- Modified by Tronex
+-- 2018/8/15 - added support for electric artefacts (used to recharge the UPD) + more configs controls
+-- =======================================================================================
+
 local ini = ini_file("plugins\\item_management\\axr_battery.ltx")
 local Batteries = alun_utils.collect_section(ini,"battery_sections",true)
 local pda_open = false
@@ -104,11 +109,23 @@ function use_battery(obj)
 		upd:set_condition(bp)
 		db.actor:transfer_item(upd,db.actor)
 		
+		-- Remove after use
 		local remove_after_use = ini:r_bool_ex(name,"remove_after_use") or false
 		if remove_after_use then
 			trx_utils.release_obj(obj)
 		end
 		
+		-- Play sound
+		local snd = ini:r_string_ex(name,"play_sound") or false
+		if snd then
+			trx_utils.play_sound(snd)
+		end
+		
+		-- Hide inventory hud
+		local hud = get_hud()
+		if (hud) then
+			hud:HideActorMenu()
+		end
 	else
 		if (itms_manager) then show_message("st_upd_disconnected",35) end
 		alife():create(name, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())

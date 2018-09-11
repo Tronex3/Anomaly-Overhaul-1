@@ -27,6 +27,9 @@
 	<string id="st_itm_basickit7_name">
 		<text>Basic tools (7 uses)</text>
 	</string>
+	<string id="st_itm_repairkit_tier_1_name">
+		<text>Basic tools</text>
+	</string>
 	<string id="st_itm_basickit_descr">
 		<text>A basic repair toolkit. Unlikely to be suitable for advanced maintenance, but they could be useful in the hands of a thrifty technician. Contains different types and sizes of pliers, screws, adhesives and assorted fasteners. With enough knowledge and experience, this kit can be used for the creation of basic equipment.\n \n
 		%c[0,200,200,200]NOTES:\n
@@ -59,6 +62,9 @@
 	<string id="st_itm_advancedkit7_name">
 		<text>Advanced tools (7 uses)</text>
 	</string>
+	<string id="st_itm_repairkit_tier_2_name">
+		<text>Advanced tools</text>
+	</string>
 	<string id="st_itm_advancedkit_descr">
 		<text>A decent set of old tools, but despite their age they appear to be in good condition. Contains a handful set of small pliers, tipped tweezers, probe and pick set. With enough knowledge and experience, this kit can be used for the creation of better equipment.\n \n
 		%c[0,200,200,200]NOTES:\n
@@ -89,6 +95,9 @@
 	</string>
 	<string id="st_itm_expertkit7_name">
 		<text>Expert tools (7 uses)</text>
+	</string>
+	<string id="st_itm_repairkit_tier_3_name">
+		<text>Expert tools</text>
 	</string>
 	<string id="st_itm_expertkit_descr">
 		<text>A professional set of high quality tools for fine-tuning equipment. Contains drill bit set, precision tweezers, soldiering iron, 4 mm Screwdriver bits and a multimeter. With enough knowledge and experience, this kit can be used for the creation of advanced equipment.\n \n
@@ -152,7 +161,7 @@
 		<text>Gunsmithing tools (7 uses)</text>
 	</string>
 	<string id="st_itm_ammokit_descr">
-		<text>A decent set of old gunsmithing tools and accessories. Contains a pin punch set, wheeler hammer, press tool and a black powder measure kit. With enough knowledge and experience, this kit can be used for recycling damaged ammunition and creation of better variants.\n \n
+		<text>A decent set of old gunsmithing tools and accessories. Contains a pin punch set, wheeler hammer, press tool and a black powder measure kit. With enough knowledge and experience, this kit can be used for recycling damaged ammunition and the creation of better variants.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,93,0,116] • %c[0,140,140,140] craftsman tool kit\n
 		%c[0,100,100,255] • %c[0,140,140,140] high quality\n

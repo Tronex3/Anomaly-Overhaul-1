@@ -1331,7 +1331,7 @@
 		<text>%sYou were unable to restore the part %s</text>
 	</string>
 	<string id="st_dis_text_7">
-		<text>%s %s %s %s %s has been disassembled</text>
+		<text>%s %s %s %s %s</text> <!--text>%s %s %s %s has been disassembled</text-->
 	</string>
 	<string id="st_dis_text_8">
 		<text>%s %s %s %s %s has been cut</text>

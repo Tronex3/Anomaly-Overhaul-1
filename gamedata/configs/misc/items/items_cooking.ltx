@@ -31,14 +31,15 @@ cooking_use_actor_effects                          = true      ;Uses actor_effec
 ;use_sound			                               = interface\inv_cooking
 
 ;;--==========================< Multi-fuel Stove >=============================
-[fieldcooker]:identity_immunities
-$spawn 									           = "devices\roubles"
-$prefetch 								           = 16
+[fieldcooker]:booster
+$spawn 				                               = "devices\repair_kit_10"
+;$spawn 									           = "devices\roubles"
+;$prefetch 								           = 16
 class_dbg			                               = S_TOOL
-class 									           = II_ATTCH
-cform									           = skeleton
+;class 									           = II_ATTCH
+;cform									           = skeleton
 visual					                           = dynamics\cooking\multi_fuel_stove.ogf
-cost					                           = 6055
+cost					                           = 10155
 inv_name				                           = st_fieldcooker
 inv_name_short				                       = st_fieldcooker
 description				                           = st_fieldcooker_descr
@@ -48,6 +49,9 @@ inv_grid_height			                           = 1
 inv_grid_x				                           = 13
 inv_grid_y				                           = 0
 cooking_ui								           = ui_itm_cook
+use_condition                            		   = false
+max_uses                                 		   = 1
+remove_after_use                         		   = false
 cooking_tool							           = true
 cooking_limited							           = false
 cooking_tier							           = 2
@@ -56,19 +60,20 @@ cooking_campfire_tier					           = 2
 cooking_fuel							           = kerosene5,kerosene4,kerosene3,kerosene2,kerosene,explo_balon_gas,explo_balon_gas2,explo_balon_gas3,explo_balon_gas4,explo_balon_gas5,explo_balon_gas6,explo_balon_gas7,explo_balon_gas8,explo_jerrycan_fuel,explo_jerrycan_fuel2,explo_jerrycan_fuel3,explo_jerrycan_fuel4,explo_jerrycan_fuel5,explo_jerrycan_fuel6,explo_jerrycan_fuel7,explo_jerrycan_fuel8
 cooking_use_actor_effects				           = true
 ;use_sound			                               = interface\inv_cooking
-use1_functor         		                       = itms_manager.menu_open
-use1_action_functor  		                       = itms_manager.use_tool
+;use1_functor         		                       = itms_manager.menu_open
+;use1_action_functor  		                       = itms_manager.use_tool
 use2_functor         		             		   = itms_manager.menu_disassemble
 use2_action_functor  		             		   = itms_manager.use_disassemble
 disassemble_parts								   = basic_scrap,basic_scrap,basic_scrap,basic_scrap
 
 ;;--==========================< Field cooking kit >=============================
-[cooking]:identity_immunities
-$spawn 									           = "devices\roubles"
-$prefetch 								           = 16
+[cooking]:booster
+$spawn 				                               = "devices\repair_kit_10"
+;$spawn 									           = "devices\roubles"
+;$prefetch 								           = 16
 class_dbg			                               = S_TOOL
-class 									           = II_ATTCH
-cform									           = skeleton
+;class 									           = II_ATTCH
+;cform									           = skeleton
 visual				                               = dynamics\equipments\trade\ckit.ogf
 inv_name			                               = st_cooking
 inv_name_short		                               = st_cooking
@@ -78,7 +83,10 @@ inv_grid_width		                               = 2
 inv_grid_height		                               = 1
 inv_grid_x			                               = 96
 inv_grid_y			                               = 80
-cost				                               = 270
+cost				                               = 770
+use_condition                            		   = false
+max_uses                                 		   = 1
+remove_after_use                         		   = false
 cooking_ui								           = ui_itm_cook
 cooking_tool							           = true
 cooking_limited							           = true
@@ -89,36 +97,37 @@ cooking_fuel							           = charcoal,charcoal2,charcoal3
 cooking_use_actor_effects				           = true
 uses_base								           = cooking
 uses_index					                       = 1
-use1_functor         		                       = itms_manager.menu_open
-use1_action_functor  		                       = itms_manager.use_tool
+;use1_functor         		                       = itms_manager.menu_open
+;use1_action_functor  		                       = itms_manager.use_tool
 use2_functor         		                       = itms_manager.menu_separate
 use2_action_functor  		                       = itms_manager.use_separate
 use3_functor         		             		   = itms_manager.menu_disassemble
 use3_action_functor  		             		   = itms_manager.use_disassemble
-disassemble_parts								   = basic_scrap,textile_patch_b
+disassemble_parts								   = cutlery,textile_patch_b
 
 [cooking_2]:cooking
 inv_grid_y                                         = 79
-cost                                               = 540
+cost                                               = 1540
 inv_weight				    			           = 1.62
 uses_index					                       = 2
 
 [cooking_3]:cooking
 inv_grid_y                                         = 78
-cost                                               = 810
+cost                                               = 2310
 inv_weight				    			           = 1.92
 uses_index					                       = 3
 
 
 ;;--==========================< Army Kettle >=============================
-[army_bowler]:identity_immunities
-$spawn 									           = "devices\roubles"
-$prefetch 								           = 16
+[army_bowler]:booster
+$spawn 				                               = "devices\repair_kit_10"
+;$spawn 									           = "devices\roubles"
+;$prefetch 								           = 16
 class_dbg			                               = S_TOOL
-class 									           = II_ATTCH
-cform									           = skeleton
+;class 									           = II_ATTCH
+;cform									           = skeleton
 visual					                           = dynamics\cooking\wood_stove.ogf
-cost					                           = 420
+cost					                           = 880
 inv_name				                           = st_army_bowler
 inv_name_short				                       = st_army_bowler
 description				                           = st_army_bowler_descr
@@ -127,6 +136,9 @@ inv_grid_width			                           = 2
 inv_grid_height			                           = 1
 inv_grid_x				                           = 94
 inv_grid_y				                           = 80
+use_condition                            		   = false
+max_uses                                 		   = 1
+remove_after_use                         		   = false
 cooking_ui								           = ui_itm_cook
 cooking_tool							           = true
 cooking_limited							           = true
@@ -137,8 +149,8 @@ cooking_fuel							           = charcoal,charcoal2,charcoal3
 cooking_use_actor_effects				           = true
 uses_base								           = army_bowler
 uses_index					                       = 1
-use1_functor         		                       = itms_manager.menu_open
-use1_action_functor  		                       = itms_manager.use_tool
+;use1_functor         		                       = itms_manager.menu_open
+;use1_action_functor  		                       = itms_manager.use_tool
 use2_functor         		                       = itms_manager.menu_separate
 use2_action_functor  		                       = itms_manager.use_separate
 use3_functor         		             		   = itms_manager.menu_disassemble
@@ -147,37 +159,37 @@ disassemble_parts								   = basic_scrap,basic_scrap
 
 [army_bowler_2]:army_bowler
 inv_grid_y                                         = 79
-cost                                               = 840
+cost                                               = 1760
 inv_weight				    			           = 1.67
 uses_index					                       = 2
 
 [army_bowler_3]:army_bowler
 inv_grid_y                                         = 78
-cost                                               = 1260
+cost                                               = 2640
 inv_weight				    			           = 1.79
 uses_index					                       = 3
 
 [army_bowler_4]:army_bowler
 inv_grid_y                                         = 77
-cost                                               = 1680
+cost                                               = 3520
 inv_weight				    			           = 1.91
 uses_index					                       = 4
 
 [army_bowler_5]:army_bowler
 inv_grid_y                                         = 76
-cost                                               = 2100
+cost                                               = 4400
 inv_weight				    			           = 2.03
 uses_index					                       = 5
 
 [army_bowler_6]:army_bowler
 inv_grid_y                                         = 75
-cost                                               = 2520
+cost                                               = 5280
 inv_weight				    			           = 2.15
 uses_index					                       = 6
 
 [army_bowler_7]:army_bowler
 inv_grid_y                                         = 74
-cost                                               = 2940
+cost                                               = 6160
 inv_weight				    			           = 2.27
 uses_index					                       = 7
 

@@ -1,0 +1,12 @@
+-- Keybind: Release the button will toggle the Camera
+local key = "DIK_F10"
+local a = 1
+
+axr_keybind.bind(key,function(p)
+	if p == 0 and db.actor and not info then
+		a = a + 1
+		if a == 4 then a = 1 end
+		get_console():execute("bind cam_" .. tostring(a) .. " " .. string.gsub(key, "DIK_", "k"))
+	end
+end, "toggle_camera")
+

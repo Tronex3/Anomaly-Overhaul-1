@@ -18,10 +18,10 @@ iam_drain_speed = 0.00005 ;;-- continuous
 aac_drain_speed = 0.0001  ;;-- continuous
 aam_drain_speed = 0.00015 ;;-- continuous
 exo_drain_speed = 0.00026 ;;-- continuous
-gei_drain_speed = 0.01 	  ;;-- on use
+gei_drain_speed = 0.005	  ;;-- on use
 gps_drain_speed = 0.05 	  ;;-- on use
 
-[battery_sections]
+[battery_sections] ;;-- items that can recharge the UPD
 batteries_ccell
 batteries
 batteries_dead
@@ -46,21 +46,25 @@ output = batteries_dead_empty
 power = 0.52
 required = basic_copper
 output = af_lighthouse
+play_sound = anomaly\electra_hit
 remove_after_use  = true
 
 [af_sponge]
 power = 0.56
 required = basic_copper
 output = af_zhelch
+play_sound = anomaly\electra_hit
 remove_after_use  = true
 
 [af_ring]
 power = 0.75
 required = basic_copper
+play_sound = anomaly\electra_hit
 remove_after_use  = true
 
 [af_electra_flash]
 power = 0.94
 required = basic_copper
 output = af_elektron
+play_sound = anomaly\electra_hit
 remove_after_use  = true

@@ -53,7 +53,7 @@ function update_options()
 	
 	msg_duration		= tonumber(axr_main.config:r_value("mm_dynamic_news_options","message_duration",2))
 	
-	if (axr_main.config:r_value("mm_options","enable_dynamic_news",1,true) == true) then
+	if (level.present()) and (axr_main.config:r_value("mm_options","enable_dynamic_news",1,true) == true) then
 		ResetTimeEvent("DynamicNewsManager","TickSpecial",math.random(cycle_TickSpecial + 1, cycle_TickSpecial*2 + 1)*TimeFactor)
 		ResetTimeEvent("DynamicNewsManager","TickTask",math.random(cycle_TickTask + 1, cycle_TickTask*2 + 1)*TimeFactor)
 		ResetTimeEvent("DynamicNewsManager","TickRandom",math.random(cycle_TickRandom + 1, cycle_TickRandom*2 + 1)*TimeFactor)
@@ -466,7 +466,7 @@ function DynamicNewsManager:TickCompanion()
 		sender = self:PickCompanion()
 	end
 	
-	if not sender then										
+	if (not sender) or (not sender.character_name) then										
 		return false
 	end
 	
@@ -758,7 +758,7 @@ function DynamicNewsManager:FindSpeakerAndTarget(not_in_combat,distance,speaker_
 	
 	-- Find an enemy to sender
 	for i=1,65534 do 
-		local se_obj = alife():object(i)
+		local se_obj = alife_object(i)
 		if (se_obj and se_obj.position:distance_to(sender:position()) < dis and se_obj.group_id ~= 65535) then 
 			if (IsStalker(nil,se_obj:clsid()) and se_obj:community() ~= "trader" and game_relations.is_factions_enemies(sender:character_community(), se_obj:community())) or (IsMonster(nil,se_obj:clsid())) then
 				if se_obj:alive() then
@@ -802,7 +802,7 @@ function DynamicNewsManager:PickCompanion() -- pick a random companion
 	local picked = npcs[math.random(#npcs)]
 	
 	--printf(">>> Dyn News: help PickCompanion | #npcs = " .. #npcs)
-	return alife():object(picked)
+	return alife_object(picked)
 end
 
 function DynamicNewsManager:PickNewCompanion() -- pick a random "new" companion
@@ -844,7 +844,7 @@ function DynamicNewsManager:PickNewCompanion() -- pick a random "new" companion
 	local picked = new_npcs[math.random(#new_npcs)]
 	
 	--printf(">>> Dyn News: help PickNewCompanion | #new_npcs = " .. #new_npcs)
-	return alife():object(picked)
+	return alife_object(picked)
 end
 
 function DynamicNewsManager:GetLootValue(item_tbl) -- get value of whole loot
@@ -1978,7 +1978,7 @@ function DynamicNewsManager:CompanionAboutLevel(sender) -- companion talk about 
 end
 
 function DynamicNewsManager:CompanionAboutActor(sender) -- companion talk about player's rank and reputation
-	if (not sender) then
+	if (not sender) or (not sender.character_name) then
 		return false
 	end
 	

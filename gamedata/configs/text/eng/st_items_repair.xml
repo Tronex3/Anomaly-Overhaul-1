@@ -19,12 +19,9 @@
 		%c[0,100,100,255] • %c[0,140,140,140] toolkit\n
 		%c[0,100,100,255] • %c[0,140,140,140] high quality\n
 		%c[255,238,153,26] • %c[0,140,140,140] usable for repairing equipment\n
-		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]48%\n
-		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]11%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] steel wool %c[0,170,170,170]+5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] 'diamond powder' %c[0,170,170,170]+28%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cleaning solvents %c[0,170,170,170]+3-7%</text>
+		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]10%\n
+		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]21%\n \n
+		</text>
 	</string>
 	
 	<string id="st_gun_oil">
@@ -42,13 +39,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] usable for repairing equipment\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]85%\n
 		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]5%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional gun oils %c[0,170,170,170]+3-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cleaning solvents %c[0,170,170,170]+3-7%\n
-		%c[255,238,153,26] • %c[0,140,140,140] light tools %c[0,170,170,170]+2-5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] paper (sheets) %c[0,170,170,170]+1-2%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cloth (sheets) %c[0,170,170,170]+2-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] textile (sheets) %c[0,170,170,170]+2-4%</text>
+		</text>
 	</string>
 	
 	<string id="st_gun_oil_ru_d">
@@ -65,13 +56,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] usable for repairing equipment\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]90%\n
 		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]8%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional gun oils %c[0,170,170,170]+3-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional cleaning solvents %c[0,170,170,170]+3-7%\n
-		%c[255,238,153,26] • %c[0,140,140,140] light tools %c[0,170,170,170]+2-5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] paper (sheets) %c[0,170,170,170]+1-2%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cloth (sheets) %c[0,170,170,170]+2-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] textile (sheets) %c[0,170,170,170]+2-4%</text>
+		</text>
 	</string>
 	
 	<string id="st_gun_oil_ru">
@@ -88,13 +73,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] usable for repairing equipment\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]90%\n
 		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]3%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional gun oils %c[0,170,170,170]+3-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cleaning solvents %c[0,170,170,170]+3-7%\n
-		%c[255,238,153,26] • %c[0,140,140,140] light tools %c[0,170,170,170]+2-5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] paper (sheets) %c[0,170,170,170]+1-2%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cloth (sheets) %c[0,170,170,170]+2-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] textile (sheets) %c[0,170,170,170]+2-4%</text>
+		</text>
 	</string>
 	
 	<string id="st_solvent">
@@ -113,13 +92,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] usable for repairing equipment\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]87%\n
 		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]7%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] gun oils %c[0,170,170,170]+3-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional cleaning solvents %c[0,170,170,170]+3-7%\n
-		%c[255,238,153,26] • %c[0,140,140,140] light tools %c[0,170,170,170]+2-5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] paper (sheets) %c[0,170,170,170]+1-2%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cloth (sheets) %c[0,170,170,170]+2-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] textile (sheets) %c[0,170,170,170]+2-4%</text>
+		</text>
 	</string>
 	
 	<string id="st_cleaning_kit_p">
@@ -136,15 +109,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] usable for repairing equipment\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]75%\n
 		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]8%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] gun oils %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] light tools %c[0,170,170,170]+2-5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cleaning solvents %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] industrial grease %c[0,170,170,170]+5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] steel wool %c[0,170,170,170]+5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] alcohol %c[0,170,170,170]+2-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] animal fat %c[0,170,170,170]+1-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] clean water %c[0,170,170,170]+1%</text>
+		</text>
 	</string>
 	
 	<string id="st_cleaning_kit_s">
@@ -161,15 +126,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] usable for repairing equipment\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]75%\n
 		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]8%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] gun oils %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] light tools %c[0,170,170,170]+2-5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cleaning solvents %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] industrial grease %c[0,170,170,170]+5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] steel wool %c[0,170,170,170]+5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] alcohol %c[0,170,170,170]+2-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] animal fat %c[0,170,170,170]+1-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] clean water %c[0,170,170,170]+1%</text>
+		</text>
 	</string>
 	
 	<string id="st_cleaning_kit_r5">
@@ -186,15 +143,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] usable for repairing equipment\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]75%\n
 		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]8%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] gun oils %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] light tools %c[0,170,170,170]+2-5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cleaning solvents %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] industrial grease %c[0,170,170,170]+5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] steel wool %c[0,170,170,170]+5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] alcohol %c[0,170,170,170]+2-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] animal fat %c[0,170,170,170]+1-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] clean water %c[0,170,170,170]+1%</text>
+		</text>
 	</string>
 	
 	<string id="st_cleaning_kit_r7">
@@ -211,15 +160,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] usable for repairing equipment\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]75%\n
 		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]8%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] gun oils %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] light tools %c[0,170,170,170]+2-5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cleaning solvents %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] industrial grease %c[0,170,170,170]+5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] steel wool %c[0,170,170,170]+5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] alcohol %c[0,170,170,170]+2-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] animal fat %c[0,170,170,170]+1-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] clean water %c[0,170,170,170]+1%</text>
+		</text>
 	</string>
 	
 	<string id="st_cleaning_kit_u">
@@ -236,15 +177,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] usable for repairing equipment\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]65%\n
 		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]11%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] gun oils %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] light tools %c[0,170,170,170]+2-5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cleaning solvents %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] industrial grease %c[0,170,170,170]+5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] steel wool %c[0,170,170,170]+5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] alcohol %c[0,170,170,170]+2-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] animal fat %c[0,170,170,170]+1-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] clean water %c[0,170,170,170]+1%</text>
+		</text>
 	</string>
 	
 	<string id="st_repair_kit_p">
@@ -261,17 +194,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] usable for repairing equipment\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]25%\n
 		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]18%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional fixing kits %c[0,170,170,170]+12%\n
-		%c[255,238,153,26] • %c[0,140,140,140] spare part sets %c[0,170,170,170]+10%\n
-		%c[255,238,153,26] • %c[0,140,140,140] universal cleaning kits %c[0,170,170,170]+8%\n
-		%c[255,238,153,26] • %c[0,140,140,140] gun oils %c[0,170,170,170]+3-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cleaning solvents %c[0,170,170,170]+3-7%\n
-		%c[255,238,153,26] • %c[0,140,140,140] industrial grease %c[0,170,170,170]+5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] heavy tools %c[0,170,170,170]+4-5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] alcohol %c[0,170,170,170]+2-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] animal fat %c[0,170,170,170]+1-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] clean water %c[0,170,170,170]+1%</text>
+		</text>
 	</string>
 	
 	<string id="st_repair_kit_s">
@@ -288,17 +211,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] usable for repairing equipment\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]25%\n
 		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]18%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional fixing kits %c[0,170,170,170]+12%\n
-		%c[255,238,153,26] • %c[0,140,140,140] spare part sets %c[0,170,170,170]+10%\n
-		%c[255,238,153,26] • %c[0,140,140,140] universal cleaning kits %c[0,170,170,170]+8%\n
-		%c[255,238,153,26] • %c[0,140,140,140] gun oils %c[0,170,170,170]+3-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cleaning solvents %c[0,170,170,170]+3-7%\n
-		%c[255,238,153,26] • %c[0,140,140,140] industrial grease %c[0,170,170,170]+5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] heavy tools %c[0,170,170,170]+4-5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] alcohol %c[0,170,170,170]+2-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] animal fat %c[0,170,170,170]+1-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] clean water %c[0,170,170,170]+1%</text>
+		</text>
 	</string>
 	
 	<string id="st_repair_kit_r5">
@@ -315,17 +228,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] usable for repairing equipment\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]25%\n
 		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]18%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional fixing kits %c[0,170,170,170]+12%\n
-		%c[255,238,153,26] • %c[0,140,140,140] spare part sets %c[0,170,170,170]+10%\n
-		%c[255,238,153,26] • %c[0,140,140,140] universal cleaning kits %c[0,170,170,170]+8%\n
-		%c[255,238,153,26] • %c[0,140,140,140] gun oils %c[0,170,170,170]+3-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cleaning solvents %c[0,170,170,170]+3-7%\n
-		%c[255,238,153,26] • %c[0,140,140,140] industrial grease %c[0,170,170,170]+5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] heavy tools %c[0,170,170,170]+4-5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] alcohol %c[0,170,170,170]+2-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] animal fat %c[0,170,170,170]+1-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] clean water %c[0,170,170,170]+1%</text>
+		</text>
 	</string>
 	
 	<string id="st_repair_kit_r7">
@@ -342,17 +245,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] usable for repairing equipment\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]25%\n
 		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]18%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional fixing kits %c[0,170,170,170]+12%\n
-		%c[255,238,153,26] • %c[0,140,140,140] spare part sets %c[0,170,170,170]+10%\n
-		%c[255,238,153,26] • %c[0,140,140,140] universal cleaning kits %c[0,170,170,170]+8%\n
-		%c[255,238,153,26] • %c[0,140,140,140] gun oils %c[0,170,170,170]+3-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cleaning solvents %c[0,170,170,170]+3-7%\n
-		%c[255,238,153,26] • %c[0,140,140,140] industrial grease %c[0,170,170,170]+5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] heavy tools %c[0,170,170,170]+4-5%\n
-		%c[255,238,153,26] • %c[0,140,140,140] alcohol %c[0,170,170,170]+2-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] animal fat %c[0,170,170,170]+1-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] clean water %c[0,170,170,170]+1%</text>
+		</text>
 	</string>
 	
 	<string id="st_repair_kit_p_empty">
@@ -408,16 +301,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] usable for repairing equipment\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]85%\n
 		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]6%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] outfit repair kits 
-		%c[0,170,170,170]+6-18%\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional sewing kits %c[0,170,170,170]+3-9%\n
-		%c[255,238,153,26] • %c[0,140,140,140] adhesives %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] reinforced textile %c[0,170,170,170]+5-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] textile %c[0,170,170,170]+3-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cloth %c[0,170,170,170]+2-3%\n
-		%c[255,238,153,26] • %c[0,140,140,140] mutant pelts (medium) 
-		%c[0,170,170,170]+3-6%</text>
+		</text>
 	</string>
 	
 	<string id="st_sewing_kit_a">
@@ -433,18 +317,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] usable for repairing equipment\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]70%\n
 		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]9%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] outfit repair kits 
-		%c[0,170,170,170]+6-18%\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional sewing kits %c[0,170,170,170]+3-9%\n
-		%c[255,238,153,26] • %c[0,140,140,140] adhesives %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] reinforced textile %c[0,170,170,170]+5-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] textile %c[0,170,170,170]+3-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cloth %c[0,170,170,170]+2-3%\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional outfit and headgear sets (light) 
-		%c[0,170,170,170]+11-32\n
-		%c[255,238,153,26] • %c[0,140,140,140] mutant pelts (medium) 
-		%c[0,170,170,170]+3-9%</text>
+		</text>
 	</string>
 	
 	<string id="st_sewing_kit_h">
@@ -462,18 +335,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] usable for repairing equipment\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]55%\n
 		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]12%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] outfit repair kits 
-		%c[0,170,170,170]+6-18%\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional sewing kits %c[0,170,170,170]+3-9%\n
-		%c[255,238,153,26] • %c[0,140,140,140] adhesives %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] reinforced textile %c[0,170,170,170]+5-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] textile %c[0,170,170,170]+3-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cloth %c[0,170,170,170]+2-3%\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional outfit and headgear sets (light) 
-		%c[0,170,170,170]+11-32\n
-		%c[255,238,153,26] • %c[0,140,140,140] mutant pelts (heavy) 
-		%c[0,170,170,170]+3-14%</text>
+		</text>
 	</string>
 	
 	<string id="st_glue_b">
@@ -489,14 +351,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] usable for repairing equipment\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]90%\n
 		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]2%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] outfit repair kits 
-		%c[0,170,170,170]+6-18%\n
-		%c[255,238,153,26] • %c[0,140,140,140] sewing kits %c[0,170,170,170]+3-9%\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional adhesives %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] reinforced textile (sheets) %c[0,170,170,170]+5-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] textile (sheets) %c[0,170,170,170]+3-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cloth (sheets) %c[0,170,170,170]+2-3%</text>
+		</text>
 	</string>
 	
 	<string id="st_glue_a">
@@ -512,15 +367,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] usable for repairing equipment\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]75%\n
 		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]4%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] outfit repair kits 
-		%c[0,170,170,170]+6-18%\n
-		%c[255,238,153,26] • %c[0,140,140,140] sewing kits %c[0,170,170,170]+3-9%\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional adhesives %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] reinforced textile (sheets) %c[0,170,170,170]+5-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] textile (sheets) %c[0,170,170,170]+3-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cloth (sheets) %c[0,170,170,170]+2-3%\n
-		%c[255,238,153,26] • %c[0,140,140,140] kevlar plates %c[0,170,170,170]+12%</text>
+		</text>
 	</string>
 	
 	<string id="st_glue_e">
@@ -538,16 +385,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] usable for repairing equipment\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]60%\n
 		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]6%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] outfit repair kits 
-		%c[0,170,170,170]+6-18%\n
-		%c[255,238,153,26] • %c[0,140,140,140] sewing kits %c[0,170,170,170]+3-9%\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional adhesives %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] reinforced textile (sheets) %c[0,170,170,170]+5-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] textile (sheets) %c[0,170,170,170]+3-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cloth (sheets) %c[0,170,170,170]+2-3%\n
-		%c[255,238,153,26] • %c[0,140,140,140] kevlar plates %c[0,170,170,170]+12%\n
-		%c[255,238,153,26] • %c[0,140,140,140] steel plates %c[0,170,170,170]+18%</text>
+		</text>
 	</string>
 	
 	<string id="st_armor_repair_fa">
@@ -564,13 +402,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] usable for repairing equipment\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]85%\n
 		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]6%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional repair kits %c[0,170,170,170]+6-18%\n
-		%c[255,238,153,26] • %c[0,140,140,140] sewing kits %c[0,170,170,170]+3-9%\n
-		%c[255,238,153,26] • %c[0,140,140,140] adhesives %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] reinforced textile (sheets) %c[0,170,170,170]+5-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] textile (sheets) %c[0,170,170,170]+3-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cloth (sheets) %c[0,170,170,170]+2-3%</text>
+		</text>
 	</string>
 	
 	<string id="st_armor_repair_pro">
@@ -588,17 +420,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] usable for repairing equipment\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]40%\n
 		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]14%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional repair kits %c[0,170,170,170]+6-18%\n
-		%c[255,238,153,26] • %c[0,140,140,140] sewing kits %c[0,170,170,170]+3-9%\n
-		%c[255,238,153,26] • %c[0,140,140,140] adhesives %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] reinforced textile (sheets) %c[0,170,170,170]+5-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] textile %c[0,170,170,170]+3-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cloth %c[0,170,170,170]+2-3%\n
-		%c[255,238,153,26] • %c[0,140,140,140] kevlar plates %c[0,170,170,170]+12%\n
-		%c[255,238,153,26] • %c[0,140,140,140] steel plates %c[0,170,170,170]+18%\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional outfit and headgear sets (all) %c[0,170,170,170]+11-32\n
-		%c[255,238,153,26] • %c[0,140,140,140] mutant pelts (all) %c[0,170,170,170]+3-14%</text>
+		</text>
 	</string>
 	
 	<string id="st_armor_repair_pro_empty">
@@ -626,13 +448,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] usable for repairing equipment\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]45%\n
 		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]12%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional repair kits %c[0,170,170,170]+6-18%\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional adhesives %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] kevlar plates %c[0,170,170,170]+12%\n
-		%c[255,238,153,26] • %c[0,140,140,140] steel plates %c[0,170,170,170]+18%\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional headgear sets (all) 
-		%c[0,170,170,170]+11-20%</text>
+		</text>
 	</string>
 	
 	<string id="st_helmet_repair_kit_empty">
@@ -660,17 +476,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] usable for repairing equipment\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]30%\n
 		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]22%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional repair kits %c[0,170,170,170]+6-18%\n
-		%c[255,238,153,26] • %c[0,140,140,140] sewing kits %c[0,170,170,170]+3-9%\n
-		%c[255,238,153,26] • %c[0,140,140,140] adhesives %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] reinforced textile (sheets) %c[0,170,170,170]+5-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] textile %c[0,170,170,170]+3-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cloth %c[0,170,170,170]+2-3%\n
-		%c[255,238,153,26] • %c[0,140,140,140] kevlar plates %c[0,170,170,170]+12%\n
-		%c[255,238,153,26] • %c[0,140,140,140] steel plates %c[0,170,170,170]+18%\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional outfit and headgear sets (all) %c[0,170,170,170]+11-32\n
-		%c[255,238,153,26] • %c[0,140,140,140] mutant pelts (all) %c[0,170,170,170]+3-14%</text>
+		</text>
 	</string>
 	
 	<string id="st_repair_kit_empty">
@@ -678,9 +484,9 @@
 	</string>
 	<string id="st_repair_kit_empty_descr">
 		<text>Empty reinforced metal box which previously contained tools and spare parts usable for complex maintenance of combat armors. Even in its current state it can prove useful in repairing metal parts of outfits. A low-value trading commodity.\n \n
-%c[0,200,200,200]PROPERTIES:\n
-%c[0,100,100,255] • %c[0,140,140,140] technological item\n
-%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,140,140,140] outfit repairs (+5%)</text>
+		%c[0,200,200,200]PROPERTIES:\n
+		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,140,140,140] outfit repairs (+5%)</text>
 	</string>
 	
 	<string id="st_exo_repair_kit">
@@ -698,16 +504,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] usable for repairing equipment\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]20%\n
 		%c[255,238,153,26] • %c[0,140,140,140] base condition gain: %c[0,170,170,170]14%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional repair kits %c[0,170,170,170]+6-18%\n
-		%c[255,238,153,26] • %c[0,140,140,140] sewing kits %c[0,170,170,170]+3-9%\n
-		%c[255,238,153,26] • %c[0,140,140,140] adhesives %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] reinforced textile (sheets) %c[0,170,170,170]+5-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] textile %c[0,170,170,170]+3-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cloth %c[0,170,170,170]+2-3%\n
-		%c[255,238,153,26] • %c[0,140,140,140] kevlar plates %c[0,170,170,170]+12%\n
-		%c[255,238,153,26] • %c[0,140,140,140] steel plates %c[0,170,170,170]+18%\n
-		%c[255,238,153,26] • %c[0,140,140,140] worn and damaged exoskeletons %c[0,170,170,170]+39-43%</text>
+		</text>
 	</string>
 	
 	<string id="st_exolight_repair_kit">
@@ -724,16 +521,7 @@
 		%c[0,100,100,255] • %c[0,140,140,140] valuable\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]20%\n
 		%c[255,238,153,26] • %c[0,140,140,140] basic improvement to the state of the equipment by: %c[0,170,170,170]14%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional repair kits %c[0,170,170,170]+6-18%\n
-		%c[255,238,153,26] • %c[0,140,140,140] sewing kits %c[0,170,170,170]+3-9%\n
-		%c[255,238,153,26] • %c[0,140,140,140] adhesives %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] reinforced textile (sheets) %c[0,170,170,170]+5-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] textile %c[0,170,170,170]+3-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cloth %c[0,170,170,170]+2-3%\n
-		%c[255,238,153,26] • %c[0,140,140,140] kevlar plates %c[0,170,170,170]+12%\n
-		%c[255,238,153,26] • %c[0,140,140,140] steel plates %c[0,170,170,170]+18%\n
-		%c[255,238,153,26] • %c[0,140,140,140] worn and damaged heavy armor %c[0,170,170,170]+32-38%</text>
+		</text>
 	</string>
 	
 	<string id="st_seva_repair_kit">
@@ -751,16 +539,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] used for repairing suits with a closed breathing system\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]20%\n
 		%c[255,238,153,26] • %c[0,140,140,140] basic improvement to the state of the equipment by: %c[0,170,170,170]14%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional repair kits %c[0,170,170,170]+6-18%\n
-		%c[255,238,153,26] • %c[0,140,140,140] sewing kits %c[0,170,170,170]+3-9%\n
-		%c[255,238,153,26] • %c[0,140,140,140] adhesives %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] reinforced textile (sheets) %c[0,170,170,170]+5-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] textile %c[0,170,170,170]+3-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cloth %c[0,170,170,170]+2-3%\n
-		%c[255,238,153,26] • %c[0,140,140,140] kevlar plates %c[0,170,170,170]+12%\n
-		%c[255,238,153,26] • %c[0,140,140,140] steel plates %c[0,170,170,170]+18%\n
-		%c[255,238,153,26] • %c[0,140,140,140] worn and damaged suits featuring a closed-cycle respiratory module %c[0,170,170,170]+21-35%</text>
+		</text>
 	</string>
 	
 	<string id="st_proto_repair_kit">
@@ -778,16 +557,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] used for repairing prototype exoskeletons\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]20%\n
 		%c[255,238,153,26] • %c[0,140,140,140] basic improvement to the state of the equipment by: %c[0,170,170,170]14%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional repair kits %c[0,170,170,170]+6-18%\n
-		%c[255,238,153,26] • %c[0,140,140,140] sewing kits %c[0,170,170,170]+3-9%\n
-		%c[255,238,153,26] • %c[0,140,140,140] adhesives %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] reinforced textile (sheets) %c[0,170,170,170]+5-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] textile %c[0,170,170,170]+3-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cloth %c[0,170,170,170]+2-3%\n
-		%c[255,238,153,26] • %c[0,140,140,140] kevlar plates %c[0,170,170,170]+12%\n
-		%c[255,238,153,26] • %c[0,140,140,140] steel plates %c[0,170,170,170]+18%\n
-		%c[255,238,153,26] • %c[0,140,140,140] proto-exo suits %c[0,170,170,170]+26-36%</text>
+		</text>
 	</string>
 	
 	<string id="st_light_repair_kit">
@@ -805,16 +575,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] used for repairing light armor\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]20%\n
 		%c[255,238,153,26] • %c[0,140,140,140] basic improvement to the state of the equipment by: %c[0,170,170,170]14%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional repair kits %c[0,170,170,170]+6-18%\n
-		%c[255,238,153,26] • %c[0,140,140,140] sewing kits %c[0,170,170,170]+3-9%\n
-		%c[255,238,153,26] • %c[0,140,140,140] adhesives %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] reinforced textile (sheets) %c[0,170,170,170]+5-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] textile %c[0,170,170,170]+3-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cloth %c[0,170,170,170]+2-3%\n
-		%c[255,238,153,26] • %c[0,140,140,140] kevlar plates %c[0,170,170,170]+12%\n
-		%c[255,238,153,26] • %c[0,140,140,140] steel plates %c[0,170,170,170]+18%\n
-		%c[255,238,153,26] • %c[0,140,140,140] worn and damaged light armor %c[0,170,170,170]+4-19%</text>
+		</text>
 	</string>
 	
 	<string id="st_medium_repair_kit">
@@ -832,17 +593,7 @@
 		%c[255,238,153,26] • %c[0,140,140,140] used for repairing medium armor\n
 		%c[255,238,153,26] • %c[0,140,140,140] not usable below condition level: %c[0,170,170,170]20%\n
 		%c[255,238,153,26] • %c[0,140,140,140] basic improvement to the state of the equipment by: %c[0,170,170,170]14%\n \n
-		%c[0,140,140,140]SUPPORTED MATERIALS:\n
-		%c[255,238,153,26] • %c[0,140,140,140] additional repair kits %c[0,170,170,170]+6-18%\n
-		%c[255,238,153,26] • %c[0,140,140,140] sewing kits %c[0,170,170,170]+3-9%\n
-		%c[255,238,153,26] • %c[0,140,140,140] adhesives %c[0,170,170,170]+2-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] reinforced textile (sheets) %c[0,170,170,170]+5-6%\n
-		%c[255,238,153,26] • %c[0,140,140,140] textile %c[0,170,170,170]+3-4%\n
-		%c[255,238,153,26] • %c[0,140,140,140] cloth %c[0,170,170,170]+2-3%\n
-		%c[255,238,153,26] • %c[0,140,140,140] kevlar plates %c[0,170,170,170]+12%\n
-		%c[255,238,153,26] • %c[0,140,140,140] steel plates %c[0,170,170,170]+18%\n
-		%c[255,238,153,26] • %c[0,140,140,140] worn and damaged medium armor 
-		%c[0,170,170,170]+12-22%</text>
+		</text>
 	</string>
 	
 </string_table>

@@ -209,6 +209,7 @@ function awr_main_ui:InitControls()
 	self.xml:ParseFile					("ui_awr_main.xml")
 			
 	ctrl								= CUIWindow()
+	ctrl:SetAutoDelete(true)
 	self.xml:InitWindow					("itm_awr_menu:lbox_ui:main",0,ctrl)
 		
 	self.lbox_ui_main_sz				= vector2():set(ctrl:GetWidth(),ctrl:GetHeight())
@@ -505,7 +506,7 @@ function awr_main_ui:OnListItemClicked()
 		return
 	end
 	
-	local se_item = alife():object(item.item_id)
+	local se_item = alife_object(item.item_id)
 	if (se_item == nil or not (db.actor:object(se_item:section_name()))) then
 		self.list_box:RemoveItem(item)
 		return
@@ -596,7 +597,7 @@ function awr_main_ui:OnListItemDbClicked()
 		return
 	end
 
-	local se_item = item.item_id and alife():object(item.item_id)
+	local se_item = item.item_id and alife_object(item.item_id)
 	if (se_item == nil or not (db.actor:object(se_item:section_name()))) then
 		self.list_box:RemoveItem(item)
 		return
@@ -1015,11 +1016,13 @@ end
 
 --// Функция расчета шанса
 function awr_main_ui:GetRandom(m)
-	if m == "w" then
-		return self.chance.w >= math.random(1, 100)
-	elseif m == "n" then
-		return self.chance.n >= math.random(1, 100)
-	end
+	return true -- override (part replacement always success)
+
+	--if m == "w" then
+		--return self.chance.w >= math.random(1, 100)
+	--elseif m == "n" then
+		--return self.chance.n >= math.random(1, 100)
+	--end
 end
 
 --// Функция перезагрузки изображения оружия
@@ -1107,7 +1110,7 @@ function awr_main_ui:ReloadUI_2(chk)
 	local item = self.list_box:GetSelectedItem()
 
 	if item then
-		se_item = alife():object(item.item_id)
+		se_item = alife_object(item.item_id)
 	end
 
 	local c_obj = se_item and db.actor:object(se_item:section_name())
@@ -1199,12 +1202,12 @@ function awr_main_ui:ButtonUI(table, upg_s)
 		return
 	end
 
-	local se_item = alife():object(item.item_id)
+	local se_item = alife_object(item.item_id)
 	if (se_item == nil or not (db.actor:object(se_item:section_name()))) then
 		return
 	end
 
-	local c_obj = db.actor:object(alife():object(item.item_id):section_name()) or self.awr_sf.dout('ButtonUI', "![ERROR] Object not found")
+	local c_obj = db.actor:object(alife_object(item.item_id):section_name()) or self.awr_sf.dout('ButtonUI', "![ERROR] Object not found")
 	local c_sec = c_obj and c_obj:section() or self.awr_sf.dout('ButtonUI', "![ERROR] Object section not found")
 	local detail = c_sec and game.translate_string(rx_utils.read_from_ini2(nil,c_sec,"inv_name","string",0))
 	
@@ -1277,7 +1280,7 @@ function awr_main_ui:ButtonUI(table, upg_s)
 	self:RemoveKit()
 	
 	db.actor:mark_item_dropped(c_obj)
-	local old_obj = alife():object(c_obj:id())
+	local old_obj = alife_object(c_obj:id())
 	if old_obj then
 		self.awr_sf.del_obj(old_obj)
 	end
@@ -1306,7 +1309,7 @@ function awr_main_ui:RemoveKit()
 		end
 
 		db.actor:mark_item_dropped(self.repairkit)
-		local old_obj = alife():object(self.repairkit:id())
+		local old_obj = alife_object(self.repairkit:id())
 		if old_obj then
 			self.awr_sf.del_obj(old_obj)
 		end

@@ -409,7 +409,7 @@ function drx_sl_meet_random_honcho( actor, npc, p )
 
 	-- Create list of valid honchos:
 	local honcho_list = {}
-
+	local size_t = 0
 	-- Examine each honcho:
 	for i = 1, #drx_sl_honchos_table do
 
@@ -429,7 +429,8 @@ function drx_sl_meet_random_honcho( actor, npc, p )
 
 			-- Add the current honcho to the list of valid honchos:
 			if ( is_enemy == false ) then
-				table.insert( honcho_list, honcho )
+				size_t = size_t + 1
+				honcho_list[size_t] = honcho
 			end
 
 		end
@@ -438,8 +439,8 @@ function drx_sl_meet_random_honcho( actor, npc, p )
 
 	-- Pick next honcho:
 	local next_honcho = alun_utils.load_var( db.actor, "drx_sl_current_honcho", "" )
-	if ( #honcho_list > 0 ) then
-		next_honcho = honcho_list[math.random( #honcho_list )]
+	if ( size_t > 0 ) then
+		next_honcho = honcho_list[math.random( size_t )]
 	end
 	alun_utils.save_var( db.actor, "drx_sl_current_honcho", next_honcho )
 
@@ -450,12 +451,14 @@ function drx_sl_meet_random_honcho( actor, npc, p )
 	-- Build list of available meet current honcho tasks:
 	task_ltx_file = ini_file("misc\\task_manager.ltx")
 	local honcho_task_list = {}
+	size_t = 0
 	local honcho_task_id = ""
 	local i = 1
 	while ( true ) do
 		honcho_task_id = ("drx_sl_" .. next_honcho .. "_meet_task_" .. i)
 		if ( task_ltx_file:section_exist( honcho_task_id ) ) then
-			table.insert( honcho_task_list, honcho_task_id )
+			size_t = size_t + 1
+			honcho_task_list[size_t] = honcho_task_id
 			i = (i + 1)
 		else
 			break
@@ -463,8 +466,8 @@ function drx_sl_meet_random_honcho( actor, npc, p )
 	end
 
 	-- Give player meet next honcho task:
-	if ( #honcho_task_list > 0 ) then
-		honcho_task_id = honcho_task_list[math.random( #honcho_task_list )]
+	if ( size_t > 0 ) then
+		honcho_task_id = honcho_task_list[math.random( size_t )]
 		alun_utils.save_var( db.actor, "drx_sl_current_task", honcho_task_id )
 		printf( ("DRX SL current storyline task: " .. honcho_task_id) )
 		give_info( ("drx_sl_meet_honcho_" .. next_honcho) )  -- (\configs\gameplay\info_portions.xml)
@@ -697,7 +700,7 @@ function drx_sl_setup_assault_local( actor, npc, p )
 	local target_id
 	local target_list = {}
 	for name,smart in pairs( SIMBOARD.smarts_by_names ) do
-		if ( (smart.online) and (smart.sim_avail == nil or xr_logic.pick_section_from_condlist( actor, smart, smart.sim_avail ) == "true") ) then
+		if ((smart.online) and (simulation_objects.available_by_id[smart.id] == true)) then
 			local smrt = SIMBOARD.smarts[smart.id]
 			if ( smrt ) then
 				for k, squad in pairs( smrt.squads ) do
@@ -808,7 +811,7 @@ function drx_sl_setup_assault_remote( actor, npc, p )
 	local target_id
 	local target_list = {}
 	for name,smart in pairs( SIMBOARD.smarts_by_names ) do
-		if ( smart.sim_avail == nil or xr_logic.pick_section_from_condlist( actor, smart, smart.sim_avail ) == "true" ) then
+		if (simulation_objects.available_by_id[smart.id] == true) then
 			local smrt = SIMBOARD.smarts[smart.id]
 			if ( smrt ) then
 				local smart_level = alife( ):level_name( game_graph( ):vertex( smart.m_game_vertex_id ):level_id( ) )
@@ -881,7 +884,7 @@ function drx_sl_setup_assault_mutant( actor, npc, p )
 	local target_id
 	local target_list = {}
 	for name,smart in pairs( SIMBOARD.smarts_by_names ) do
-		if ( (smart.online) and (smart.sim_avail == nil or xr_logic.pick_section_from_condlist( actor, smart, smart.sim_avail ) == "true") ) then
+		if ((smart.online) and (simulation_objects.available_by_id[smart.id] == true)) then
 			local smrt = SIMBOARD.smarts[smart.id]
 			if ( smrt ) then
 				for k,squad in pairs( smrt.squads ) do
@@ -1360,9 +1363,9 @@ end
 function drx_sl_reward_random_money( actor, npc, p )
 
 	-- Give actor money reward:
-	local multi = (axr_main.config:r_value("mm_options","multi_rewards_money",2) or 1) -->>
+	local multi = hardcore_economy.get_factor("rewards") or 1 -->>
 	local money = math.random( math.ceil( (tonumber( p[1] ) / 50) ), math.ceil( (tonumber( p[2] ) / 50) ) )
-	money = (money * 50)*multi
+	money = (money * 50) * multi
 	dialogs.relocate_money( db.actor, money, "in" )
 
 end
@@ -3384,7 +3387,7 @@ function find_smart_under_faction_control(actor,npc,p)
 
 	local target_id
 	for name,smart in pairs(SIMBOARD.smarts_by_names) do
-		if (smart.online) and (smart.sim_avail == nil or xr_logic.pick_section_from_condlist(actor, smart, smart.sim_avail) == "true") then
+		if (smart.online) and (simulation_objects.available_by_id[smart.id] == true) then
 			local smrt = SIMBOARD.smarts[smart.id]
 			if (smrt) then
 				for k,squad in pairs(smrt.squads) do
@@ -3414,7 +3417,7 @@ function find_smart_under_faction_control_ex(actor,npc,p)
 
 	local target_id
 	for name,smart in pairs(SIMBOARD.smarts_by_names) do
-		if (smart.sim_avail == nil or xr_logic.pick_section_from_condlist(actor, smart, smart.sim_avail) == "true") then
+		if (simulation_objects.available_by_id[smart.id] == true) then
 			local smrt = SIMBOARD.smarts[smart.id]
 			if (smrt) then
 				local smart_level = alife():level_name(game_graph():vertex(smart.m_game_vertex_id):level_id())
@@ -3559,7 +3562,7 @@ function on_init_bounty_hunt(actor,npc,p)
 end
 
 function fail_task_dec_goodwill(actor,npc,p)
-	local multi = (axr_main.config:r_value("mm_options","multi_rewards_goodwill",2) or 1) -->>
+	local multi = hardcore_economy.get_factor("goodwill") or 1 -->>
 	local amt = tonumber(p[1])*multi or 50
 	for i=2,#p do
 		inc_faction_goodwill_to_actor(db.actor, nil, {p[i], -(amt)})
@@ -3569,7 +3572,7 @@ end
 -- param1 - amount of goodwill to increase
 -- param2+ - community
 function complete_task_inc_goodwill(actor,npc,p)
-	local multi = (axr_main.config:r_value("mm_options","multi_rewards_goodwill",2) or 1) -->>
+	local multi = hardcore_economy.get_factor("goodwill") or 1 -->>
 	local amt = tonumber(p[1])*multi or 50
 	for i=2,#p do
 		inc_faction_goodwill_to_actor(db.actor, nil, {p[i], amt})
@@ -3577,7 +3580,7 @@ function complete_task_inc_goodwill(actor,npc,p)
 end
 
 function reward_money(actor,npc,p)
-	local multi = (axr_main.config:r_value("mm_options","multi_rewards_money",2) or 1) -->>
+	local multi = hardcore_economy.get_factor("rewards") or 1 -->>
 	dialogs.relocate_money(db.actor,tonumber(p[1] or 500)*multi,"in")
 end
 
@@ -3606,7 +3609,7 @@ function reward_item_cost_mult_and_remove(actor,npc,p)
 	if (item:condition()) then
 		cond = item:condition()
 	end
-	local multi = (axr_main.config:r_value("mm_options","multi_rewards_money",2) or 1) -->>
+	local multi = hardcore_economy.get_factor("rewards") or 1 -->>
 	dialogs.relocate_money(db.actor, math.floor((tonumber(p[2]) or 1)*item:cost()*cond*cond*cond*multi) ,"in")
 	remove_item(actor, npc, {sec,p[3]})
 end
@@ -3621,7 +3624,7 @@ function reward_random_item(actor,npc,p)
 end
 
 function reward_random_money(actor,npc,p)
-	local multi = (axr_main.config:r_value("mm_options","multi_rewards_money",2) or 1) -->>
+	local multi = hardcore_economy.get_factor("rewards") or 1 -->>
 	dialogs.relocate_money(db.actor,math.random(tonumber(p[1] or 500)*multi,tonumber(p[2] or 1000)*multi),"in")
 end
 
@@ -3642,7 +3645,7 @@ end
 -- param 5 - is a hostage
 function setup_companion_task(actor,npc,p)
 	local id = p[3] and p[3] ~= "nil" and utils.load_var(db.actor,p[3])
-	local smart = id and alife():object(id) or p[2] and p[2] ~= "nil" and SIMBOARD.smarts_by_names[p[2]]
+	local smart = id and alife_object(id) or p[2] and p[2] ~= "nil" and SIMBOARD.smarts_by_names[p[2]]
 	if not (smart) then
 		return
 	end
@@ -4877,7 +4880,7 @@ end
 
 function hit_actor(actor, npc, p)
 	local h = hit()
-	h.direction = vector():set(0,0,0)
+	h.direction = VEC_ZERO
 	h.draftsman = actor
 	h.type = hit.shock
 	h:bone("bip01_spine")
@@ -5101,7 +5104,7 @@ function turn_on_and_force(actor, npc, p)
 	end
 	if p[2] == nil then p[2] = 55 end
 	if p[3] == nil then p[3] = 14000 end
-	obj:set_const_force(vector():set(0,1,0), p[2], p[3])
+	obj:set_const_force(VEC_Y, p[2], p[3])
 	obj:start_particles("weapons\\light_signal", "link")
 	obj:get_hanging_lamp():turn_on()
 end
@@ -5806,7 +5809,7 @@ function create_squad_member(actor, obj, p)
 		board:setup_squad_and_group(se_obj)
 	end
 
-	board:setup_squad_and_group(alife():object(new_member_id))
+	board:setup_squad_and_group(alife_object(new_member_id))
 	--squad_smart:refresh()
 	squad:update()
 end
@@ -7630,7 +7633,7 @@ function force_obj(actor, npc, p)
 	end
 	if p[2] == nil then p[2] = 20 end
 	if p[3] == nil then p[3] = 100 end
-	obj:set_const_force(vector():set(0,1,0), p[2], p[3])
+	obj:set_const_force(VEC_Y, p[2], p[3])
 end
 
 function pri_a28_check_zones()
@@ -7845,7 +7848,7 @@ function make_a_wish(actor,npc,p)
 --			local gvid = spawn_path:game_vertex_id(0)
 --			local gg = game_graph()
 --			if (gvid and gg:valid_vertex_id(gvid)) then
---				ChangeLevel(pos,lvid,gvid,vector():set(0,0,0))
+--				ChangeLevel(pos,lvid,gvid,VEC_ZERO)
 --			end
 --		end
 
@@ -7853,7 +7856,7 @@ function make_a_wish(actor,npc,p)
 --		Goodwill is increased with the Monolith and Zombified faction to ensure they aren't hostile.
 		inc_faction_goodwill_to_actor(db.actor, nil, {"monolith", 5000})
 		inc_faction_goodwill_to_actor(db.actor, nil, {"zombied", 5000})
-		ChangeLevel(vector():set(266.99, 0.00, -131.07), 310937, 181, vector():set(0,0,0))
+		ChangeLevel(vector():set(266.99, 0.00, -131.07), 310937, 181, VEC_ZERO)
 		return
 	end
 

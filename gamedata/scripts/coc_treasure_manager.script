@@ -34,6 +34,20 @@ To debug the actual results, start a new game. Then while in the loadscreen menu
 will find the <filename>.lua in your savegame folder. Search the file for 'caches'
 --]]
 
+
+
+-- =======================================================================================
+-- Modified by Tronex
+-- 2018/9/4 
+
+-- The manager no longer relies on blacklists. A whitelist is used instead to spawn specified items
+-- This has been done thanks to the massive amount of sections and the headache coming from it
+-- A new feature is the ability to blacklist specific items from being included in stashes in specific progression difficulties
+-- Check coc_treasure_manager.ltx for more info
+-- =======================================================================================
+
+
+
 caches = {}
 local caches_count = 0
 
@@ -135,7 +149,7 @@ end
 --local reward stashes mod
 function box_in_same_map(id)
 	local obj1 = alife():actor()
-	local obj2 = alife():object(id)
+	local obj2 = alife_object(id)
 	return simulation_objects.is_on_the_same_level(obj1, obj2) or simulation_objects.is_on_the_linked_level(obj1, obj2)
 end
 
@@ -154,21 +168,24 @@ function create_random_stash(no_spot, hint, bonus_items, spawn_local)
 
 	-- create a temporary table to use math.random
 	local t = {}
+	local size_t = 0
 	for id,v in pairs(caches) do
 		-- false means box is available
 		--local reward stashes mod
 		if (v == false) then
 			if(spawn_local) then
 				if(box_in_same_map(id)) then
-					table.insert(t,id)
+					size_t = size_t + 1
+					t[size_t] = id
 				end
 			else
-				table.insert(t,id)
+				size_t = size_t + 1
+				t[size_t] = id
 			end
 		end
 	end
 
-	local index = #t > 0 and math.random(#t)
+	local index = size_t > 0 and math.random(size_t)
 	if not (index) then
 		return
 	end
@@ -213,7 +230,7 @@ function create_random_stash(no_spot, hint, bonus_items, spawn_local)
 			local new_max = math.random(min,max)
 			for i=1,new_max do
 				if ((math.random(1,100)/100) <= chance) then
-					table.insert(spawned_item,sec)
+					spawned_item[#spawned_item+1] = sec
 					max_weight = max_weight - weight
 				end
 			end
@@ -357,6 +374,7 @@ function drx_create_random_stash( no_spot, hint, bonus_items, bonus_lottery, spa
 
 	-- Create a temporary table to use math.random:
 	local t = {}
+	local size_t = 0
 	for id, v in pairs( caches ) do
 		-- False means box is available:
 		if ( v == false ) then
@@ -366,18 +384,20 @@ function drx_create_random_stash( no_spot, hint, bonus_items, bonus_lottery, spa
 				-- This feature only works with inventory boxes:
 				if ( se_box and se_box:clsid( ) == clsid.inventory_box_s) then
 					if not spawn_local or box_in_same_map(id) then
-						table.insert( t, id )
+						size_t = size_t + 1
+						t[size_t] = id
 					end
 				end
 			else
 				if not spawn_local or box_in_same_map(id) then
-					table.insert(t,id)
+					size_t = size_t + 1
+					t[size_t] = id
 				end
 			end
 		end
 	end
 
-	local index = #t > 0 and math.random( #t )
+	local index = size_t > 0 and math.random( size_t )
 	if not ( index ) then
 		return
 	end
@@ -455,7 +475,8 @@ function drx_create_random_stash( no_spot, hint, bonus_items, bonus_lottery, spa
 	loot[13] = {}
 	loot[14] = {}
 	loot[15] = {}
--- com
+	
+	-- CoM
 	local spawned_item = bonus_items or {}
 	local max_weight = ( max_roll * math.random( 1, 100 ) / 25 )
 	local lottery = 0
@@ -481,7 +502,7 @@ function drx_create_random_stash( no_spot, hint, bonus_items, bonus_lottery, spa
 
 		max_weight = (max_weight - (rnd + 1))
 
-		table.insert( spawned_item, loot[rnd][math.random( #loot[rnd] )] )
+		spawned_item[#spawned_item+1] = loot[rnd][math.random( #loot[rnd] )]
 
 		if ( (max_roll - 1) >= 1 ) then
 			max_roll = (max_roll - 1)
@@ -653,28 +674,51 @@ function load(pk)
 end
 
 function get_valid_item_sections()
+	
+	local eco = 1
+	local config = axr_main.config
+	if (config:r_value("character_creation","new_game_economy_treasure",2)) then
+		eco = config:r_value("character_creation","new_game_economy_treasure",2)
+		config:w_value("character_creation","new_game_economy_treasure")
+	else
+		eco = alife_storage_manager.get_state().economy and alife_storage_manager.get_state().economy["type"] or eco
+	end
+	
 	local t = {}
 	local ini = system_ini()
-	ini:section_for_each(function(section)
-		if not (ltx:line_exist("ignore_sections",section)) then
-			if (ini:line_exist(section,"cform")) then
+	local n = ltx:line_count("allowed_sections")
+	for i=0, n-1 do
+		local junk, section, value = ltx:r_line("allowed_sections" , i , "", "")
+		local eco_blacklist = {}
+		local block
+		if value and value ~= "" then 
+			block = true
+			local v = alun_utils.str_explode(value,",")
+			for i=1,#v do
+				eco_blacklist[tonumber(v[i])] = true
+			end
+		end
+		if ini:section_exist(section) then
+			if (not block) or (block and (not eco_blacklist[eco])) then
 				if (ini:r_bool_ex(section,"can_trade",true) == true) then
 					if (ini:r_bool_ex(section,"quest_item",false) == false) then
 						if not (string.find(section,"mp_")) then
 							local name = ini:r_string_ex(section,"inv_name")
 							if (name and name ~= "" and name ~= "default") then
 								local cost = ini:r_float_ex(section,"cost") or 0
-								if (cost > 0) then
+								if (cost > 1) then
 									t[section] = cost
 								end
 							end
 						end
 					end
 				end
+			else
+				--printf("CoC Treasure Manager | item blacklisted in progression difficulty(" .. eco .. "): " .. section)
 			end
 		end
 	end
-	)
+	
 
 	-- List of all items in game that are not quest items
 	if (DEV_DEBUG) then
@@ -687,26 +731,25 @@ function get_valid_item_sections()
 	return t
 end
 
-
 function stash_names(hint,id)
-local sim = alife()
-local stash = sim:object(id)
-local stash_name = tostring(stash:name())
+	local sim = alife()
+	local stash = sim:object(id)
+	local stash_name = tostring(stash:name())
 	if string.find(stash_name,"level_prefix") ~= nil then
-	local level = sim:level_name(game_graph():vertex(stash.m_game_vertex_id):level_id())
-	stash_name = string.gsub(stash_name,"level_prefix",level,1)
+		local level = sim:level_name(game_graph():vertex(stash.m_game_vertex_id):level_id())
+		stash_name = string.gsub(stash_name,"level_prefix",level,1)
 	end
 
-local name = "st_" .. stash_name .. "_name"
-local descr = "st_" .. stash_name .. "_descr"
-local new_name = game.translate_string(name)
-local new_descr = game.translate_string(descr)
+	local name = "st_" .. stash_name .. "_name"
+	local descr = "st_" .. stash_name .. "_descr"
+	local new_name = game.translate_string(name)
+	local new_descr = game.translate_string(descr)
 
 	if new_name == name or descr == new_descr then
-	return hint
+		return hint
 	end
 
-stash_name = "%c[255,255,160,0]" .. new_name .. "\\n%c[default]" .. new_descr .. "\\n%c[160,100,100,200]" .. (hint or "")
+	stash_name = "%c[255,255,160,0]" .. new_name .. "\\n%c[default]" .. new_descr .. "\\n%c[160,100,100,200]" .. (hint or "")
 
 	return stash_name
 end

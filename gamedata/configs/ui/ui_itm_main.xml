@@ -6,18 +6,18 @@
 			</auto_static>
 		</background>
 
-		<btn_cancel x="35" y="52" width="70" height="28" check_mode="0">
-			<text font="letterica16">ui_inv_cancel</text>
+		<btn_cancel x="35" y="52" width="70" height="28" stretch="1" check_mode="0">
+			<text font="graffiti50">ui_inv_cancel</text>
 			<texture>ui_button_ordinary</texture>
 		</btn_cancel>
 
-		<btn_ok x="125" y="52" width="70" height="28" check_mode="0">
-			<text font="letterica16">ui_inv_ok</text>
+		<btn_ok x="125" y="52" width="70" height="28" stretch="1" check_mode="0">
+			<text font="graffiti50">ui_inv_ok</text>
 			<texture>ui_button_ordinary</texture>
 		</btn_ok>
 
-		<input x="415" y="355" width="200" height="30">
-			<text x="5" font="letterica16" vert_align="c" align="l"/>
+		<input x="415" y="355" width="200" height="30" stretch="1">
+			<text x="5" font="graffiti50" vert_align="c" align="l"/>
 			<texture>ui_inGame2_edit_box_2</texture>
 		</input>
 	</itm_backpack>
@@ -25,7 +25,7 @@
 	<itm_craft>
 		<frame x="143" y="95" width="737" height="578"/> <!-- base -->
 		<list_itms x="407" y="181" width="211" height="256" item_height="18" can_select="1" always_show_scroll="0">
-			<font font="letterica16"/>
+			<font font="graffiti50"/>
 		</list_itms>
 		
 		<box_lines x="97" y="164" width="536" height="304"/>
@@ -36,40 +36,42 @@
 		<box_item_4 x="106" y="387" width="74" height="74"/>
 		
 		<text_item_3 x="221" y="249" width="139" height="15">
-			<text complex_mode="1" r="150" g="150" b="150" align="c" font="letterica16"/>
+			<text complex_mode="1" r="150" g="150" b="150" align="c" font="graffiti50"/>
 		</text_item_3>
 		<text_item_2 x="221" y="357" width="139" height="15">
-			<text complex_mode="1" r="150" g="150" b="150" align="c" font="letterica16"/>
+			<text complex_mode="1" r="150" g="150" b="150" align="c" font="graffiti50"/>
 		</text_item_2>
 		<text_item_1 x="221" y="463" width="139" height="15">
-			<text complex_mode="1" r="150" g="150" b="150" align="c" font="letterica16"/>
+			<text complex_mode="1" r="150" g="150" b="150" align="c" font="graffiti50"/>
 		</text_item_1>
 		<text_item_4 x="73" y="463" width="139" height="15">
-			<text complex_mode="1" r="150" g="150" b="150" align="c" font="letterica16"/>
+			<text complex_mode="1" r="150" g="150" b="150" align="c" font="graffiti50"/>
 		</text_item_4>
 		
 		<text_multi_3 x="333" y="222" width="60" height="15">
-			<text complex_mode="1" r="150" g="150" b="150" align="l" font="letterica16"/>
+			<text complex_mode="1" r="150" g="150" b="150" align="l" font="graffiti50"/>
 		</text_multi_3>
 		<text_multi_2 x="333" y="330" width="60" height="15">
-			<text complex_mode="1" r="150" g="150" b="150" align="l" font="letterica16"/>
+			<text complex_mode="1" r="150" g="150" b="150" align="l" font="graffiti50"/>
 		</text_multi_2>
 		<text_multi_1 x="333" y="436" width="60" height="15">
-			<text complex_mode="1" r="150" g="150" b="150" align="l" font="letterica16"/>
+			<text complex_mode="1" r="150" g="150" b="150" align="l" font="graffiti50"/>
 		</text_multi_1>
 		<text_multi_4 x="186" y="436" width="60" height="15">
-			<text complex_mode="1" r="150" g="150" b="150" align="l" font="letterica16"/>
+			<text complex_mode="1" r="150" g="150" b="150" align="l" font="graffiti50"/>
 		</text_multi_4>
 		
-		<btn_craft x="401" y="452" width="100" height="29" stretch="1">
-			<text r="150" g="150" b="150" font="letterica16" align="c">ui_mm_craft</text>
-			<texture>ui_button_ordinary</texture>
+		<btn_craft x="401" y="452" width="100" height="29">
+			<text r="150" g="150" b="150" font="graffiti50" align="c">ui_mm_craft</text>
+			<texture>ui_button_empty</texture>
 		</btn_craft>
+		<btn_craft_pic x="401" y="452" width="100" height="29"/>
 		
-		<btn_cancel x="524" y="452" width="100" height="29" stretch="1">
-			<text r="150" g="150" b="150" font="letterica16" align="c">ui_mm_cancel</text>
-			<texture>ui_button_ordinary</texture>
+		<btn_cancel x="524" y="452" width="100" height="29">
+			<text r="150" g="150" b="150" font="graffiti50" align="c">ui_mm_cancel</text>
+			<texture>ui_button_empty</texture>
 		</btn_cancel>
+		<btn_cancel_pic x="524" y="452" width="100" height="29"/>
 	</itm_craft>
 	
 	<itm_repair>
@@ -77,45 +79,49 @@
 		
 		<!-- Item 1 -->
 		<cap_1 x="610" y="187" width="147" height="18">
-			<text r="190" g="190" b="190" font="letterica18"  align="c">st_ui_itm_repair_base</text>
+			<text r="190" g="190" b="190" font="letterica25"  align="c">st_ui_itm_repair_base</text>
 		</cap_1>
-		<list_1 x="583" y="221" width="213" height="125" item_height="18" can_select="1" always_show_scroll="0">
-			<font font="letterica16"/>
+		<list_1 x="583" y="221" width="210" height="125" item_height="18" can_select="1" always_show_scroll="0">
+			<font font="graffiti50"/>
 		</list_1>
 		<box_item_1 x="589" y="364" width="194" height="107"/>
 		<text_item_1 x="560" y="481" width="253" height="12">
-			<text complex_mode="1" r="50" g="155" b="50" align="c" font="letterica16"/>
+			<text complex_mode="1" r="50" g="155" b="50" align="c" font="graffiti50"/>
 		</text_item_1>	
 		<con_item_1 x="594" y="447" width="89" height="22">
-			<text complex_mode="1" r="110" g="110" b="110" align="l"  vert_align="c" font="letterica16"/>
+			<text complex_mode="1" r="110" g="110" b="110" align="l"  vert_align="c" font="graffiti50"/>
 		</con_item_1>
 		
 		<!-- Item 2 -->
 		<cap_2 x="289" y="187" width="147" height="18">
-			<text r="190" g="190" b="190" font="letterica18"  align="c">st_ui_itm_repair_support</text>
+			<text r="190" g="190" b="190" font="letterica25" align="c">st_ui_itm_repair_support</text>
 		</cap_2>
-		<list_2 x="262" y="221" width="213" height="125" item_height="18" can_select="1" always_show_scroll="0">
-			<font font="letterica16"/>
+		<list_2 x="262" y="221" width="210" height="125" item_height="18" can_select="1" always_show_scroll="0">
+			<font font="graffiti50"/>
 		</list_2>
 		<box_item_2 x="269" y="364" width="194" height="107"/>
 		<text_item_2 x="237" y="481" width="253" height="12">
-			<text complex_mode="1" r="50" g="155" b="50" align="c" font="letterica16"/>
+			<text complex_mode="1" r="50" g="155" b="50" align="c" font="graffiti50"/>
 		</text_item_2>
 		<con_item_2 x="274" y="447" width="89" height="22">
-			<text complex_mode="1" r="100" g="100" b="100" align="l"  vert_align="c" font="letterica16"/>
+			<text complex_mode="1" r="100" g="100" b="100" align="l"  vert_align="c" font="graffiti50"/>
 		</con_item_2>
 		
 		<con_item_b x="274" y="365" width="89" height="22">
-			<text complex_mode="1" r="100" g="100" b="100" align="l"  vert_align="c" font="letterica16"/>
+			<text complex_mode="1" r="100" g="100" b="100" align="l"  vert_align="c" font="graffiti50"/>
 		</con_item_b>
-		<btn_repair x="636" y="509" width="101" height="28" stretch="1">
-			<text r="150" g="150" b="150" font="letterica16" align="c">ui_mm_repair</text>
-			<texture>ui_button_ordinary</texture>
+		
+		<btn_repair x="636" y="509" width="101" height="28">
+			<text r="150" g="150" b="150" font="graffiti50" align="c">ui_mm_repair</text>
+			<texture>ui_button_empty</texture>
 		</btn_repair>
-		<btn_cancel x="312" y="509" width="101" height="28" stretch="1">
-			<text r="150" g="150" b="150" font="letterica16" align="c">ui_mm_cancel</text>
-			<texture>ui_button_ordinary</texture>
+		<btn_repair_pic x="636" y="509" width="101" height="28"/>
+		
+		<btn_cancel x="312" y="509" width="101" height="28">
+			<text r="150" g="150" b="150" font="graffiti50" align="c">ui_mm_cancel</text>
+			<texture>ui_button_empty</texture>
 		</btn_cancel>
+		<btn_cancel_pic x="312" y="509" width="101" height="28"/>
 	</itm_repair>
 	
 	<itm_cook>
@@ -123,82 +129,111 @@
 		
 		<!-- Item 1 -->
 		<cap_1 x="600" y="217" width="147" height="18">
-			<text r="190" g="190" b="190" font="letterica18"  align="c">st_ui_itm_cook_fuel</text>
+			<text r="190" g="190" b="190" font="letterica25"  align="c">st_ui_itm_cook_fuel</text>
 		</cap_1>
 		<list_1 x="573" y="251" width="203" height="125" item_height="18" can_select="1" always_show_scroll="0">
-			<font font="letterica16"/>
+			<font font="graffiti50"/>
 		</list_1>
 		<box_item_1 x="579" y="394" width="206" height="116"/>
 		<text_item_1 x="550" y="511" width="253" height="12">
-			<text complex_mode="1" r="50" g="155" b="50" align="c" font="letterica16"/>
+			<text complex_mode="1" r="50" g="155" b="50" align="c" font="graffiti50"/>
 		</text_item_1>	
 		
 		<!-- Item 2 -->
 		<cap_2 x="279" y="217" width="147" height="18">
-			<text r="190" g="190" b="190" font="letterica18"  align="c">st_ui_itm_cook_food</text>
+			<text r="190" g="190" b="190" font="letterica25"  align="c">st_ui_itm_cook_food</text>
 		</cap_2>
 		<list_2 x="252" y="251" width="203" height="124" item_height="18" can_select="1" always_show_scroll="0">
-			<font font="letterica16"/>
+			<font font="graffiti50"/>
 		</list_2>
 		<box_item_2 x="259" y="394" width="206" height="116"/>
 		<text_item_2 x="227" y="511" width="253" height="12">
-			<text complex_mode="1" r="50" g="155" b="50" align="c" font="letterica16"/>
+			<text complex_mode="1" r="50" g="155" b="50" align="c" font="graffiti50"/>
 		</text_item_2>
 		
-		<btn_cook x="626" y="539" width="101" height="28" stretch="1">
-			<text r="150" g="150" b="150" font="letterica16" align="c">ui_mm_cook</text>
-			<texture>ui_button_ordinary</texture>
+		<btn_cook x="626" y="539" width="101" height="28">
+			<text r="150" g="150" b="150" font="graffiti50" align="c">ui_mm_cook</text>
+			<texture>ui_button_empty</texture>
 		</btn_cook>
-		<btn_cancel x="302" y="539" width="101" height="28" stretch="1">
-			<text r="150" g="150" b="150" font="letterica16" align="c">ui_mm_cancel</text>
-			<texture>ui_button_ordinary</texture>
+		<btn_cook_pic x="626" y="539" width="101" height="28"/>
+		
+		<btn_cancel x="302" y="539" width="101" height="28">
+			<text r="150" g="150" b="150" font="graffiti50" align="c">ui_mm_cancel</text>
+			<texture>ui_button_empty</texture>
 		</btn_cancel>
+		<btn_cancel_pic x="302" y="539" width="101" height="28"/>
 	</itm_cook>
 	
 	<itm_map>
-		<frame x="0" y="0" width="1024" height="768"> <!-- base -->
-			<auto_static x="0" y="0" width="1024" height="768" stretch="1">
-				<texture>ui_itm_map_frame</texture>
-			</auto_static>
-		</frame>	
+		<frame x="0" y="0" width="1024" height="768"/> <!-- base -->
+	
 		<box_map x="166" y="137" width="711" height="504"/>
-		<btn_ok x="190" y="595" width="68" height="32" stretch="1">
-			<text r="150" g="150" b="150" font="letterica16" align="c">ui_mm_ok</text>
-			<texture>ui_inGame2_button</texture>
+		<text_map x="371" y="595" width="300" height="32">
+			<text complex_mode="1" r="255" g="255" b="255" align="c" vert_align="c" font="letterica25"/>
+		</text_map>	
+		
+		<btn_previous x="190" y="595" width="68" height="32">
+			<text r="150" g="150" b="150" font="graffiti50" align="c">ui_mm_previous</text>
+			<texture>ui_button_empty</texture>
+		</btn_previous>
+		<btn_previous_pic x="190" y="595" width="68" height="32"/>
+		
+		<btn_next x="785" y="595" width="68" height="32">
+			<text r="150" g="150" b="150" font="graffiti50" align="c">ui_mm_next</text>
+			<texture>ui_button_empty</texture>
+		</btn_next>
+		<btn_next_pic x="785" y="595" width="68" height="32"/>
+		
+		<btn_ok x="190" y="151" width="68" height="32">
+			<text r="150" g="150" b="150" font="graffiti50" align="c">ui_mm_ok</text>
+			<texture>ui_button_empty</texture>
 		</btn_ok>
+		<btn_ok_pic x="190" y="151" width="68" height="32"/>
 	</itm_map>
 	
 	<mutant_loot>
 		<file_item>
-			<main width="490" height="18"/>
+			<main width="295" height="18"/>
 			<fn width="250" height="18"/>
-			<fd width="50" height="18"/>
+			<fd width="45" height="18"/>
 		</file_item>
-		<form x="360" y="110" width="305" height="460" stretch="1">
-			<texture>ui_loot_window</texture>
-			<image  x="6" y="6" width="295" height="150" stretch="1"/>
+		<form x="360" y="110" width="305" height="460">
+			<image  x="6" y="6" width="295" height="150"/>
 			<caption  x="200" y="160" width="245" height="30">
-				<text font="letterica18" align="c"/>
+				<text font="letterica25" align="c"/>
 			</caption>
-			<icon  x="6" y="160" width="295" height="60" stretch="1"/>
-			<list_frame x="6" y="220" width="295" height="140">
-				<texture>ui_inGame2_servers_list_frame</texture>
-			</list_frame>
+			<icon  x="6" y="160" width="295" height="60"/>
+			<list_frame x="6" y="220" width="295" height="140"/>
 			<list x="9" y="220" width="290" height="140" item_height="18" can_select="1">
-				<font font="letterica16"/>
+				<font font="graffiti50"/>
 			</list>
+			
 			<btn_loot x="67" y="367" width="170" height="25">
-				<texture>ui_button_ordinary</texture>
-				<text font="letterica16">ui_mm_loot_selected</text>
+				<text font="graffiti50">ui_mm_loot_selected</text>
+				<texture>ui_button_empty</texture>
 			</btn_loot>
+			<btn_loot_pic x="67" y="367" width="170" height="25"/>
+			
 			<btn_loot_all x="67" y="394" width="170" height="25">
-				<texture>ui_button_ordinary</texture>
-				<text font="letterica16">ui_mm_loot_all</text>
+				<text font="graffiti50">ui_mm_loot_all</text>
+				<texture>ui_button_empty</texture>
 			</btn_loot_all>
+			<btn_loot_all_pic x="67" y="394" width="170" height="25"/>
+			
 			<btn_cancel x="67" y="421" width="170" height="25">
-				<texture>ui_button_ordinary</texture>
-				<text font="letterica16">ui_mm_cancel</text>
+				<text font="graffiti50">ui_mm_cancel</text>
+				<texture>ui_button_empty</texture>
 			</btn_cancel>
+			<btn_cancel_pic x="67" y="421" width="170" height="25"/>
 		</form>
 	</mutant_loot>
+	
+	<hint_wnd x="0" y="0" width="300" height="100">
+	    <background x="0" y="0" width="300" height="100">
+		    <texture>ui_icons_PDA_tooltips</texture>
+	    </background>
+	    <text x="20" y="20" width="275" height="100">
+	    	<text font="letterica16" r="140" g="140" b="140" complex_mode="1" align="l" vert_align="t"/>
+	    </text>
+	</hint_wnd>
 </w>

@@ -1,0 +1,80 @@
+local condition_multiplier = {}
+	condition_multiplier["good"] = 1
+	condition_multiplier["worn"] = 0.5
+	condition_multiplier["rusty"] = 0.25
+
+local part_cost = {}
+	part_cost["barrel"] = 500
+	part_cost["trigger_components"] = 500
+	part_cost["bolt_carrier"] = 500
+	part_cost["bolt"] = 500
+	part_cost["gas_tube"] = 500
+	
+local part_text = {}
+	part_text["barrel"] = "barrels"
+	part_text["trigger_components"] = "trigger components"
+	part_text["bolt_carrier"] = "bolt carriers"
+	part_text["bolt"] = "bolts"
+	part_text["gas_tube"] = "gas tubes"
+	
+function tell_prices()
+	local text = "I can give you "
+	for part,value in pairs(part_cost) do
+		text = text .. value .. " for the " .. part_text[part] .. ", "
+	end
+	text = text .. "if they're good I'll pay you full price otherwise I'll give you " .. (condition_multiplier["worn"]*100) .. "%, for the really shitty ones i can offer just " .. (condition_multiplier["rusty"]*100) .. "%."
+	return text
+end
+
+function actor_has_parts(a,b)
+	local cnt = 0
+	local function section_count(npc, item)
+		if (get_cost(item:section())>0) then
+			cnt = cnt + 1
+		end
+	end
+	db.actor:iterate_inventory(section_count, nil)
+	printf("--actor_has_parts() => %s",cnt)
+	
+	return cnt > 0
+end
+
+function get_cost(name)
+	
+	for part,n in pairs(part_cost) do
+		if(string.find(name, "awr_"..part)) then
+			printf("--get_cost(%s) => %s",name,part_cost[part])
+			return part_cost[part]
+		end
+	end
+	printf("--get_cost(%s) => %s",name,0)
+	return 0
+end
+
+function sell_parts(a,b)
+	local se_item
+	local item_name
+	local item_cost
+	local total = 0
+	local sim = alife()
+	local function selling(npc, item)
+		item_name = item:section()
+		item_cost = get_cost(item_name)
+		if (item_cost>0) then
+			se_item = sim:object(item:id())
+			if (se_item) then
+				sim:release(se_item,true)
+				if(string.find(item_name,"rusty")) then
+					total = total + item_cost * condition_multiplier["rusty"]
+				elseif (string.find(item_name,"worn")) then
+					total = total + item_cost * condition_multiplier["worn"]
+				else
+					total = total + item_cost * condition_multiplier["good"]
+				end
+			end
+		end
+	end
+	db.actor:iterate_inventory(selling, nil)
+	db.actor:give_money(total)
+	news_manager.relocate_money(db.actor, "in", total)
+end

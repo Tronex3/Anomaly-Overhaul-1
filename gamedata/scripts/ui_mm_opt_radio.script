@@ -1,0 +1,444 @@
+
+--==============================================================================================
+-- Original script by av661194
+-- Created by Tronex
+-- 2018/5/22 - GUI part for radio options menu 
+-- 2018/8/25 - The menu is a part of extra options menu
+--==============================================================================================
+
+
+
+-- ==============================================================================================
+-- //////////////////////////////////////////////////////////////////////////////////////////////
+--											Options
+-- //////////////////////////////////////////////////////////////////////////////////////////////
+-- ==============================================================================================
+
+-- table of buttons and their codes, used for option lists
+local btn_tbl = {
+	["-None-"] = 9999,
+	
+	["Page_Up"] = 201,
+	["Tab"] = 15,
+	["Caps_Lock"] = 58,
+	["Left_Control"] = 29,
+	["Left_Shift"] = 42,
+	["Left_Alt"] = 56,
+	["Left_Win"] = 219,
+	["Application"] = 221,
+	["Num1"] = 79,
+	["Num2"] = 80,
+	["Num3"] = 81,
+	["Num4"] = 75,
+	["Num5"] = 76,
+	["Num6"] = 77,
+	["Num7"] = 71,
+	["Num8"] = 72,
+	["Num9"] = 73,
+	["Num/"] = 181,
+	["Num*"] = 55,
+	["Num-"] = 74,
+	["Num+"] = 78,
+	["Num_Del"] = 83,
+	["NumEnter"] = 156,
+	["F1"] = 59,
+	["F2"] = 60,
+	["F3"] = 61,
+	["F4"] = 62,
+	["F5"] = 63,
+	["F6"] = 64,
+	["F7"] = 65,
+	["F8"] = 66,
+	["F9"] = 67,
+	["F10"] = 68,
+	["F11"] = 87,
+	["F12"] = 88
+}
+
+-- table of radio options, their values are stored in (axr_option.ltx)
+local options = {
+	["radio_plyr_1_on"] = {
+		typ = "list",
+		list = {"-None-","Tab", "Caps_Lock", "Left_Control", "Left_Shift", "Left_Alt", "Left_Win", "Num1", "Num2", "Num3", "Num4", "Num5", "Num6", "Num7", "Num8", "Num9", "Num/", "Num*", "Num-", "Num+", "Num_Del", "NumEnter","Page_Up","F1","F2","F3","F4","F5","F6","F7","F8","F9","F10","F11","F12"},
+		default = "-None-",
+		txt = game.translate_string("ui_mm_radio_1_play"),
+		num = 0.3
+	},
+	["radio_plyr_2_on"] = {
+		typ = "list",
+		list = {"-None-","Tab", "Caps_Lock", "Left_Control", "Left_Shift", "Left_Alt", "Left_Win", "Num1", "Num2", "Num3", "Num4", "Num5", "Num6", "Num7", "Num8", "Num9", "Num/", "Num*", "Num-", "Num+", "Num_Del", "NumEnter","Page_Up","F1","F2","F3","F4","F5","F6","F7","F8","F9","F10","F11","F12"},
+		default = "-None-",
+		txt = game.translate_string("ui_mm_radio_2_play"),
+		num = 0.4
+	},
+	["radio_plyr_vol_up"] = {
+		typ = "list",
+		list = {"-None-","Tab", "Caps_Lock", "Left_Control", "Left_Shift", "Left_Alt", "Left_Win", "Num1", "Num2", "Num3", "Num4", "Num5", "Num6", "Num7", "Num8", "Num9", "Num/", "Num*", "Num-", "Num+", "Num_Del", "NumEnter","Page_Up","F1","F2","F3","F4","F5","F6","F7","F8","F9","F10","F11","F12"},
+		default = "-None-",
+		txt = game.translate_string("ui_mm_radio_vol_up"),
+		num = 0.5
+	},
+	["radio_plyr_vol_down"] = {
+		typ = "list",
+		list = {"-None-","Tab", "Caps_Lock", "Left_Control", "Left_Shift", "Left_Alt", "Left_Win", "Num1", "Num2", "Num3", "Num4", "Num5", "Num6", "Num7", "Num8", "Num9", "Num/", "Num*", "Num-", "Num+", "Num_Del", "NumEnter","Page_Up","F1","F2","F3","F4","F5","F6","F7","F8","F9","F10","F11","F12"},
+		default = "-None-",
+		txt = game.translate_string("ui_mm_radio_vol_down"),
+		num = 0.6
+	},
+	["radio_plyr_next"] = {
+		typ = "list",
+		list = {"-None-","Tab", "Caps_Lock", "Left_Control", "Left_Shift", "Left_Alt", "Left_Win", "Num1", "Num2", "Num3", "Num4", "Num5", "Num6", "Num7", "Num8", "Num9", "Num/", "Num*", "Num-", "Num+", "Num_Del", "NumEnter","Page_Up","F1","F2","F3","F4","F5","F6","F7","F8","F9","F10","F11","F12"},
+		default = "-None-",
+		txt = game.translate_string("ui_mm_radio_next"),
+		num = 0.7
+	},
+	["radio_plyr_previous"] = {
+		typ = "list",
+		list = {"-None-","Tab", "Caps_Lock", "Left_Control", "Left_Shift", "Left_Alt", "Left_Win", "Num1", "Num2", "Num3", "Num4", "Num5", "Num6", "Num7", "Num8", "Num9", "Num/", "Num*", "Num-", "Num+", "Num_Del", "NumEnter","Page_Up","F1","F2","F3","F4","F5","F6","F7","F8","F9","F10","F11","F12"},
+		default = "-None-",
+		txt = game.translate_string("ui_mm_radio_previous"),
+		num = 0.8
+	},
+	["radio_plyr_playlist"] = {
+		typ = "list",
+		list = {"-None-","Tab", "Caps_Lock", "Left_Control", "Left_Shift", "Left_Alt", "Left_Win", "Num1", "Num2", "Num3", "Num4", "Num5", "Num6", "Num7", "Num8", "Num9", "Num/", "Num*", "Num-", "Num+", "Num_Del", "NumEnter","Page_Up","F1","F2","F3","F4","F5","F6","F7","F8","F9","F10","F11","F12"},
+		default = "-None-",
+		txt = game.translate_string("ui_mm_radio_playlist"),
+		num = 0.9
+	},
+	["radio_plyr_space_1"] 			= {typ = "text", default = game.translate_string("ui_mm_radio_spacing_2"), cap = "tab_gameplay:cap_text_axr", num = 1.0},
+	["radio_plyr_lost_emission"] 	= {typ = "check", default = true, txt = game.translate_string("ui_mm_radio_lost_emission"), num = 1.1},
+	["radio_plyr_lost_lab"] 		= {typ = "check", default = true, txt = game.translate_string("ui_mm_radio_lost_lab"), num = 1.2},
+	["radio_plyr_display_names"] 	= {typ = "check", default = false, txt = game.translate_string("ui_mm_radio_display_names"), num = 1.3},
+	["radio_plyr_space_2"] 			= {typ = "text", default = game.translate_string("ui_mm_radio_spacing_3"), cap = "tab_gameplay:cap_text_axr", num = 1.4}
+}
+
+for i=1,trx_radio.trx_get_num_of_plyr() do
+	local default_name
+	if (i == 1) then default_name = "OST"
+	elseif (i == 2) then default_name = "TRX_Special"
+	else default_name = "Playlist_" .. tostring(i)
+	end
+	
+	options["radio_plyr_playlist_name_" .. tostring(i)] = {typ = "edit", default = default_name, txt = (game.translate_string("ui_mm_radio_playlist_name") .. " " .. tostring(i)), num = (1.4 + (i/10))}
+end
+
+function get_key_number(key) -- called/used by (trx_radio.script)
+	return btn_tbl[key]
+end
+
+
+
+-- ==============================================================================================
+-- //////////////////////////////////////////////////////////////////////////////////////////////
+--									Text input with Cyrillic support
+-- //////////////////////////////////////////////////////////////////////////////////////////////
+-- ==============================================================================================
+
+local tbl, valid_tbl = {}, {}
+
+local function get_str(symbol)
+	return  lang_prm and (valid_tbl[symbol] or "") or tbl[symbol] or ""
+end
+
+function translate(str)
+	local input_str = game.translate_string("st_trx_input_symbols_full")
+	local output_str = game.translate_string("st_trx_output_symbols_full")
+		for n = 1, #output_str do
+			local input = string.sub(input_str, n, n)
+			local output = string.sub(output_str, n, n)
+			tbl[input] = output
+			valid_tbl[output] = output
+		end
+		tbl[""] = ""
+		valid_tbl[""] = ""
+		translate = get_str
+	return  get_str(str)
+end
+
+
+
+-- ==============================================================================================
+-- //////////////////////////////////////////////////////////////////////////////////////////////
+--											Callbacks
+-- //////////////////////////////////////////////////////////////////////////////////////////////
+-- ==============================================================================================
+
+local function options_default_config() -- called upon loading a game
+	local need_save
+	for k,v in pairs(options) do
+		local key = ((v.typ=="check" and "enable_") or "") .. k
+		if not axr_main.config:line_exist("mm_radio_plyr_options", key) and v.typ~="text" then
+			axr_main.config:w_value("mm_radio_plyr_options", key, v.default)
+			need_save = true
+		end
+	end
+	if (need_save) then
+		axr_main.config:save()
+	end
+	trx_radio.update_options()
+end
+
+
+function on_game_start()
+	options_default_config()
+	RegisterScriptCallback("on_game_load",options_default_config)
+end
+
+
+
+-- ==============================================================================================
+-- //////////////////////////////////////////////////////////////////////////////////////////////
+--											Radio Menu Options (GUI)
+-- //////////////////////////////////////////////////////////////////////////////////////////////
+-- ==============================================================================================
+
+class "RadioOptionsDialog" (CUIScriptWnd)
+
+function RadioOptionsDialog:__init(main_menu,level_present) super()
+	self.owner = main_menu
+	self.level_present = level_present
+	self.options = options or {}
+
+	self:InitControls()
+	self:InitCallBacks()
+
+	self.edit_opt = {}
+	-- auto-generate UI elements for Gameplay Tab
+	local abc_opt, opts, elements = {}, {}, {}
+	local _st 
+	self.scroll_v:Clear()
+	-- add UI elements to scroll view in specific order
+	for cap,t in pairs(self.options) do
+		_st = self.xml:InitStatic("tab_gameplay:templ_item", nil)
+		local ctrl	-- control
+
+		if (t.typ == "check") then
+			-- caption
+			ctrl = self.xml:InitStatic("tab_gameplay:cap_check_axr",_st)
+			-- set caption text
+			ctrl:TextControl():SetText(t.txt)
+			-- sort by name and type
+			opts[t.num] = ctrl:TextControl():GetText()
+			elements[ctrl:TextControl():GetText()] = _st
+			-- create control
+			ctrl = self.xml:InitCheck("tab_gameplay:check_axr",_st)
+			-- register for callbacks
+			self:Register(ctrl,"ck_"..cap)
+
+		elseif(t.typ == "list") then
+			ctrl = self.xml:InitStatic("tab_gameplay:cap_list_axr",_st)
+			ctrl:TextControl():SetText(t.txt) 
+			-- sort by name and type
+			opts[t.num] = ctrl:TextControl():GetText()
+			elements[ctrl:TextControl():GetText()] = _st
+			-- create control
+			ctrl = self.xml:InitComboBox("tab_gameplay:list_axr",_st)
+			for i,v in ipairs(t.list) do 
+				ctrl:AddItem(v,i-1)
+			end
+			self:Register(ctrl,"lst_"..cap)
+			if (t.on_list_item_select) then
+				local _wrapper = function(handler)
+				t.on_list_item_select(handler,ctrl)
+				end
+			self:AddCallback("lst_"..cap, ui_events.LIST_ITEM_SELECT,_wrapper,self)
+			end
+
+		elseif(t.typ == "edit") then
+			ctrl = self.xml:InitStatic("tab_gameplay:cap_edit_axr",_st)
+			ctrl:TextControl():SetText(t.txt) 
+			-- sort by name and type
+			opts[t.num] = ctrl:TextControl():GetText()
+			elements[ctrl:TextControl():GetText()] = _st
+				
+			-- create control
+			ctrl = self.xml:InitEditBox("tab_gameplay:edit_axr",_st)
+			-- register for callbacks
+			self:Register(ctrl,"edt_"..cap)
+			self.edit_opt[cap] = axr_main.config:r_value("mm_radio_plyr_options",cap,0,t.default)
+
+		elseif (t.typ == "text") then
+			ctrl = self.xml:InitStatic("tab_gameplay:cap_text_axr",_st)
+			ctrl:TextControl():SetText(t.default)
+			opts[t.num] = ctrl:TextControl():GetText()
+			elements[ctrl:TextControl():GetText()] = _st
+		end
+		self.options[cap].ctrl = ctrl
+	end
+	-- sort ui elements to display in alphabetical order
+	for k in pairs(opts) do
+		abc_opt[#abc_opt + 1] = k
+	end
+	table.sort(abc_opt)
+	for i=1,#abc_opt do
+		abc_opt[i] =  opts[abc_opt[i]]
+		-- add to UIScrollView
+		self.scroll_v:AddWindow(elements[abc_opt[i]],true) 
+		elements[abc_opt[i]]:SetAutoDelete(false)
+	end
+	self:SetCurrentValues()
+end
+
+function RadioOptionsDialog:__finalize()
+end
+
+function RadioOptionsDialog:InitControls()
+	self:SetWndRect(Frect():set(0,0,1024,768))
+	self:SetAutoDelete(true)
+	self:Enable(true)
+
+	self.xml = CScriptXmlInit()
+	self.xml:ParseFile("ui_mm_opt_extra_option.xml")
+	self.xml:InitStatic("background", self)
+	
+	self.dialog = self.xml:InitStatic("main_dialog:dialog", self)
+	trx_utils.adjust_main_ui(self.dialog,true)
+	
+	self.cap = self.xml:InitTextWnd("main_dialog:cap_opt", self.dialog)
+	self.cap:SetText(game.translate_string("ui_mm_opt_extra_radio"))
+
+	self.opt_dialog = radio_options_window()
+	self.opt_dialog:InitControls(0,0, self.xml, self)
+	self.opt_dialog:Show(true)
+	self.dialog:AttachChild(self.opt_dialog)
+	self.xml:InitWindow("tab_size", 0, self.opt_dialog)
+
+	local btn
+	btn = self.xml:Init3tButton("main_dialog:btn_accept", self.dialog)
+	self:Register(btn, "btn_accept")
+	btn = self.xml:Init3tButton("main_dialog:btn_cancel", self.dialog)
+	self:Register(btn, "btn_cancel")
+	btn = self.xml:Init3tButton("main_dialog:btn_default", self.dialog)
+	self:Register(btn, "btn_default")
+end
+
+function RadioOptionsDialog:InitCallBacks()
+	self:AddCallback("btn_accept",ui_events.BUTTON_CLICKED,	self.OnBtnAccept,self)
+	self:AddCallback("btn_cancel",ui_events.BUTTON_CLICKED,	self.OnBtnCancel,self)
+	self:AddCallback("btn_default",ui_events.BUTTON_CLICKED,self.SetDefValues,self)
+end
+
+function RadioOptionsDialog:SetDefValues()
+	for k,v in pairs(self.options) do
+		if (v.typ == "check") then
+		v.ctrl:SetCheck(v.default)
+		elseif (v.typ == "list") or (v.typ == "edit") then
+		v.ctrl:SetText(v.default)
+		end
+	end
+	self.edit_opt = self.edit_opt or {}
+	for k in pairs(self.edit_opt) do
+		local v = self.options[k]
+		local t = v.ctrl:GetText()
+		self.edit_opt[k] = t
+	end
+end
+
+function RadioOptionsDialog:SetCurrentValues()
+	for k,v in pairs(self.options) do
+		if (v.typ=="check") then
+			v.ctrl:SetCheck(axr_main.config:r_value("mm_radio_plyr_options","enable_"..k,1,v.default))
+		elseif (v.typ=="edit") then
+			v.ctrl:SetText(axr_main.config:r_value("mm_radio_plyr_options",k,0,v.default))
+		elseif (v.typ=="list") then
+			v.ctrl:SetText(axr_main.config:r_value("mm_radio_plyr_options",k,0,v.default))
+		end
+	end 
+end
+
+function RadioOptionsDialog:OnBtnAccept()
+	local optMgr = COptionsManager()
+	for k,v in pairs(self.options) do
+		if (v.typ=="check") then
+		axr_main.config:w_value("mm_radio_plyr_options","enable_"..k,v.ctrl:GetCheck())
+		elseif (v.typ=="edit") then
+			local value_c = v.ctrl:GetText()
+			local value =  value_c ~= "" and value_c or v.default
+			axr_main.config:w_value("mm_radio_plyr_options",k,value)
+
+		elseif (v.typ=="list") then
+			axr_main.config:w_value("mm_radio_plyr_options",k,v.ctrl:GetText() or v.default)
+		end
+		if (v.on_accept) then 
+			v.on_accept(self,optMgr,v.ctrl)
+		end
+	end
+	if db.actor and db.actor:alive() then --and self.level_present then
+		trx_radio.update_options()
+		--printf(">>> Tronex: changes accepted")
+	end
+	axr_main.config:save()
+	self:OnBtnCancel()
+end
+
+function RadioOptionsDialog:OnBtnCancel()
+	self:TextChange()
+	self.owner:ShowDialog(true)
+	--if (self:IsShown()) then
+		self:HideDialog()
+		dlg_is_show = nil
+	--end
+	self.owner:Show(true)
+end
+
+function RadioOptionsDialog:OnKeyboard(dik, keyboard_action)
+	local res = CUIScriptWnd.OnKeyboard(self,dik,keyboard_action)
+	if res == false then
+		if keyboard_action == ui_events.WINDOW_KEY_PRESSED then
+			if dik_to_bind(dik) == key_bindings.kQUIT then
+				self:OnBtnCancel()
+			end
+		end
+	else
+		if keyboard_action == ui_events.WINDOW_KEY_PRESSED then
+			if dik == DIK_keys.DIK_TAB then
+				lang_prm = not lang_prm
+			end
+			for k,t in pairs(self.edit_opt) do
+			local ctrl = self.options[k].ctrl
+				if dik == DIK_keys.DIK_BACK then
+					self.edit_opt[k] = ctrl:GetText()
+				else
+					local txt = ctrl:GetText()
+					txt = t == "" and txt or string.sub(txt,string.len(t)+1,-1)
+					t = t .. translate(txt)
+					ctrl:SetText(t)
+					self.edit_opt[k] = t
+				end
+			end
+		end
+	end
+	return res
+end
+
+function RadioOptionsDialog:TextChange()
+	self.edit_opt = self.edit_opt or {}
+	for k in pairs(self.edit_opt) do
+		local v = self.options[k]
+		local t = axr_main.config:r_value("mm_radio_plyr_options",k,0,v.default)
+		v.ctrl:SetText(t)
+		self.edit_opt[k] = t
+	end
+end
+
+function RadioOptionsDialog:Update()
+	CUIScriptWnd.Update(self)
+end
+
+
+class "radio_options_window" (CUIWindow)
+
+function radio_options_window:__init() super()
+end
+
+function radio_options_window:__finalize()
+end
+
+function radio_options_window:InitControls(x, y, xml, handler)
+	self:SetWndPos(vector2():set(x,y))
+	self:SetWndSize(vector2():set(738,416))
+	self:SetAutoDelete(true)
+	self.scroll_v = xml:InitScrollView("tab_gameplay:scroll_v", self)
+	handler.scroll_v = self.scroll_v
+end

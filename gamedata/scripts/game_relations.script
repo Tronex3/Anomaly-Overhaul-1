@@ -24,25 +24,6 @@
 
 --]]
 
-local dynamically_change = true
-
-local function opt_on_accept(handler,optMgr,ctrl)
-	dynamically_change = ctrl:GetCheck()
-end
-
-local function menu_on_init(menu)
-	menu.gameplay_options["dynamic_relation_changes"]	= {default=true, debug_only=false, typ="check", on_accept=opt_on_accept}
-end
-
--- called directly from axr_main
-function main_menu_on_quit()
-	UnregisterScriptCallback("opt_menu_on_init",menu_on_init)
-end
-
--- called directly from axr_main
-function main_menu_on_init()
-	RegisterScriptCallback("opt_menu_on_init",menu_on_init)
-end
 
 --========================================< Controls >========================================--
 local ini_r = ini_file("plugins\\dynamic_faction_relations.ltx")
@@ -138,10 +119,12 @@ local function send_news (faction_1 , faction_2 , text , icon) -- Send news upon
 end
 
 local function reset_goodwill (faction_1 , faction_2) -- Reset the goodwill for actors of both factions
-	if ( character_community( db.actor ) == faction_1 or ("actor_" .. faction_1) ) then
-		relation_registry.set_community_goodwill( faction_2, db.actor:id( ), 0 )
-	elseif ( character_community( db.actor ) == faction_2 or ("actor_" .. faction_2) ) then
-		relation_registry.set_community_goodwill( faction_1, db.actor:id( ), 0 )
+	if (axr_main.config:r_value("mm_options","enable_war_goodwill_reset",1,true)) then
+		if ( character_community( db.actor ) == faction_1 or ("actor_" .. faction_1) ) then
+			relation_registry.set_community_goodwill( faction_2, db.actor:id( ), 0 )
+		elseif ( character_community( db.actor ) == faction_2 or ("actor_" .. faction_2) ) then
+			relation_registry.set_community_goodwill( faction_1, db.actor:id( ), 0 )
+		end
 	end
 end
 
@@ -294,7 +277,7 @@ end
 local function npc_on_death_callback ( victim, killer ) -- NPC killed callback - raises or lowers faction relations when an NPC is killed
 
 	-- Return if Dynamic Relations option is off
-	if ( not dynamically_change ) then
+	if ( not (axr_main.config:r_value("mm_options","enable_dynamic_relations",1,true)) ) then
 		return
 	end
 	if ( not IsStalker( victim ) ) or ( not IsStalker( killer ) ) then

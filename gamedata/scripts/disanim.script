@@ -1,0 +1,152 @@
+------------------------------
+-- Disable Animation HotKey
+-- author: ssregibility
+------------------------------
+local ikey
+local tkey = {["1"] = 2,
+["2"] = 3,
+["3"] = 4,
+["4"] = 5,
+["5"] = 6,
+["6"] = 7,
+["7"] = 8,
+["8"] = 9,
+["9"] = 10,
+["0"] = 11,
+["A"] = 30,
+["B"] = 48,
+["C"] = 46,
+["D"] = 32,
+["E"] = 18,
+["F"] = 33,
+["G"] = 34,
+["H"] = 35,
+["I"] = 23,
+["J"] = 36,
+["K"] = 37,
+["L"] = 38,
+["M"] = 50,
+["N"] = 49,
+["O"] = 24,
+["P"] = 25,
+["Q"] = 16,
+["R"] = 19,
+["S"] = 31,
+["T"] = 20,
+["U"] = 22,
+["V"] = 47,
+["W"] = 17,
+["X"] = 45,
+["Y"] = 21,
+["Z"] = 44,
+["NumLock"] = 69,
+["NumEnter"] = 156,
+["Num0"] = 82,
+["Num1"] = 79,
+["Num2"] = 80,
+["Num3"] = 81,
+["Num4"] = 75,
+["Num5"] = 76,
+["Num6"] = 77,
+["Num7"] = 71,
+["Num8"] = 72,
+["Num9"] = 73,
+["Num/"] = 181,
+["Num-"] = 74,
+["Num*"] = 55,
+["Num+"] = 78,
+["Num."] = 83,
+["Minus"] = 12,
+["Escape"] = 1,
+["CapsLock"] = 58,
+["ScrollLock"] = 70,
+["Equals"] = 13,
+["Up"] = 200,
+["Down"] = 208,
+["Left"] = 203,
+["Right"] = 205,
+["Insert"] = 210,
+["Delete"] = 211,
+["Home"] = 199,
+["End"] = 207,
+["PageUp"] = 201,
+["PageDown"] = 209,
+["Backspace"] = 14,
+["Tab"] = 15,
+["Enter"] = 28,
+["Space"] = 57,
+["Pause"] = 197,
+["LeftAlt"] = 56,
+["RightAlt"] = 184,
+["LeftControl"] = 29,
+["RightControl"] = 157,
+["LeftShift"] = 42,
+["RightShift"] = 54,
+["Apostrophe"] = 40,
+["LeftBracket"] = 26,
+["RightBracket"] = 27,
+["Backslash"] = 43,
+["ForwardSlash"] = 53,
+["Semicolen"] = 39,
+["Comma"] = 51,
+["Period"] = 52,
+["F1"] = 59,
+["F2"] = 60,
+["F3"] = 61,
+["F4"] = 62,
+["F5"] = 63,
+["F6"] = 64,
+["F7"] = 65,
+["F8"] = 66,
+["F9"] = 67,
+["F10"] = 68,
+["F11"] = 87,
+["F12"] = 88}
+
+local function on_key_press(key)
+	if (key == ikey) then
+		if ( axr_main.config:r_value("mm_options","enable_extra_animations",1,false) )	then
+			sound_object([[device\pda\pda_alarm]]):play(db.actor,0,sound_object.s2d)
+		else
+			sound_object([[device\pda\pda_news]]):play(db.actor,0,sound_object.s2d)
+		end
+		
+		axr_main.config:w_value("mm_options","enable_extra_animations", not axr_main.config:r_value("mm_options","enable_extra_animations",1,false))
+		
+		
+	end
+end
+
+local function opt_menu_on_init(menu)
+	menu.gameplay_options["disanim"] = {default="RightBracket", debug_only=false, typ="list",
+	list={"1","2","3","4","5","6","7","8","9","0","A","B","C","D","E","F","G","H","I","J","K",
+	"L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","NumLock","NumEnter","Num0",
+	"Num1","Num2","Num3","Num4","Num5","Num6","Num7","Num8","Num9","Num/","Num-","Num*","Num+",
+	"Num.","Minus","Escape","CapsLock","ScrollLock","Equals","Up","Down","Left","Right","Insert",
+	"Delete","Home","End","PageUp","PageDown","Backspace","Tab","Enter","Space","Pause","LeftAlt",
+	"RightAlt","LeftControl","RightControl","LeftShift","RightShift","Apostrophe","LeftBracket",
+	"RightBracket","BackSlash","ForwardSlash","Semicolen","Comma","Period",
+	"F1","F2","F3","F4","F5","F6","F7","F8","F9","F10","F11","F12"},
+		on_accept=function(handler,optMgr,ctrl)
+			local s = ctrl:GetText()
+			if (s and s ~= "") then
+				ikey = tkey[s]
+			end
+		end
+	}
+end
+
+local function on_game_load()
+	local s = axr_main.config:r_string_ex("mm_options","disanim")
+	if (s and s ~= "") then
+		ikey = tkey[s]
+	else
+		ikey = tkey["Num9"]
+	end
+end
+
+function on_game_start()
+	RegisterScriptCallback("on_key_press",on_key_press)
+	RegisterScriptCallback("opt_menu_on_init",opt_menu_on_init)
+	RegisterScriptCallback("on_game_load",on_game_load)
+end

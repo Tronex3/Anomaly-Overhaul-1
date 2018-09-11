@@ -1,14 +1,21 @@
--- ===================================== Made by TKGP ====================================
--- ================================== Modified by Tronex =================================
+-- =======================================================================================
+-- Created by TKGP
+-- Hotkey to toggle suppressor
+-- =======================================================================================
+-- Modified by Tronex
+-- Suppressor Toggle can be binded from keybinds in options
+-- 2018/9/2 - Removed actor_on_update callback, the script relies on a timer instead. No need to run check at all times
+-- =======================================================================================
+
+
 --| Hotkey to toggle suppressor
 
--- Additional time (milliseconds) before weapon is reequipped
-local IMMERSIVE_DELAY = 1500
+local delay = 1500 -- Additional time (milliseconds) before weapon is reequipped
 local ATTACH_SOUND = "interface\\inv_attach_addon"
 local DETACH_SOUND = "interface\\inv_detach_addon"
 
 local config = system_ini()
-local info, attach, sound, restoreTime
+local info, attach, sound, restore
 
 axr_keybind.bind("kCUSTOM13",function(p)
 	if p == 1 and db.actor and not info then
@@ -16,35 +23,42 @@ axr_keybind.bind("kCUSTOM13",function(p)
 		if weapon and weapon:weapon_silencer_status() == 2 then
 			local supSection = config:r_string(weapon:section(), "silencer_name")
 			local proceed = false
-			if weapon:weapon_is_silencer() then
+			if weapon:weapon_is_silencer() then -- if active weapon has silencer
 				proceed = true
 				attach = false
-			elseif db.actor:object(supSection) then
+			elseif db.actor:object(supSection) then -- if active weapon doesn't have silencer and silencer is in inv
 				proceed = true
 				attach = true
 			end
 			if proceed then
 				db.actor:hide_weapon()
 				info = {id = weapon:id(), section = supSection}
+				CreateTimeEvent("Silencer","delay",1,toggle)
 			end
 		end
 	end
 end)
 
-RegisterScriptCallback("actor_on_update", function ()
+function toggle()
+	if restore then
+		restore = false
+		db.actor:restore_weapon()
+		RemoveTimeEvent("Silencer","delay")
+	end
+	
 	if info and not db.actor:active_item() then
 		local success = false
 		local weapon = level.object_by_id(info.id)
 		if weapon and weapon:parent() and weapon:parent():id() == db.actor:id() then
 			local newSound
-			if attach then
+			if attach then -- if attach the silencer
 				local suppressor = db.actor:object(info.section)
 				if suppressor then
 					weapon:weapon_addon_attach(suppressor)
 					newSound = ATTACH_SOUND
 					success = true
 				end
-			else
+			else -- if de-attach the silencer
 				weapon:weapon_addon_detach(info.section)
 				newSound = DETACH_SOUND
 				success = true
@@ -62,14 +76,13 @@ RegisterScriptCallback("actor_on_update", function ()
 		
 		info = nil
 		if success then
-			restoreTime = time_global() + IMMERSIVE_DELAY
+			restore = true
+			ResetTimeEvent("Silencer","delay",(delay/1000)*level.get_time_factor())
 		else
+			--restore = true
 			db.actor:restore_weapon()
+			RemoveTimeEvent("Silencer","delay")
 		end
 	end
-	
-	if restoreTime and restoreTime <= time_global() then
-		restoreTime = nil
-		db.actor:restore_weapon()
-	end
-end)
+end
+

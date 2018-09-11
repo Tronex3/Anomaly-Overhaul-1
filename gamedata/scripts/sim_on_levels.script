@@ -1,0 +1,6 @@
+--==============( Edited by Tronex || last edit 2018/2/16 || comments with -->> are the edited part )==============--
+-- Rule: check (sim_on_all_levels) option's state from (axr_main_options.script), then enable/disable full a-life simulation from _g.script
+
+function on_game_start()
+_G.DEACTIVATE_SIM_ON_NON_LINKED_LEVELS = not axr_main.config:r_value("mm_options","enable_sim_on_all_levels",1,false)
+end

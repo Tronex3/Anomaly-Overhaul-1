@@ -456,7 +456,7 @@ function CSurgeManager:calculate_best_surge_cover()
 	end
 	
 	if not self.actor_in_cover then
-		self.actor_in_cover = is_in_any_cover or (ui_sleep_dialog and ui_sleep_dialog.tent_sleep())
+		self.actor_in_cover = is_in_any_cover or (bind_tent and bind_tent.get_nearby_tent(1.5))
 	end
 	
 	--printf("cover_id = %s",self.best_cover_id)

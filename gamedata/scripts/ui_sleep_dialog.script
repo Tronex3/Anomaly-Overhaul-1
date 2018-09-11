@@ -147,27 +147,6 @@ function sleep_dialog:TestAndShow()
 	self:ShowDialog(true)
 end
 
-function tent_sleep()
-	--printf("TENT search started")
-	for i=1,65535 do
-		local zx = alife():object(i)
-		if zx then
-			local zn = level.object_by_id(zx.id)
-			if zn then
-				local cfm = zn:section()
-				if cfm == "ph_tent" then
-					local tent_distance = zn:position():distance_to(db.actor:position())
-					--printf("TENT found " .. tostring(tent_distance))
-					if tent_distance < 1.5 then
-						return true
-					end
-					return false
-				end
-			end
-		end
-	end
-end
-
 function sleep_dialog:Update()
 	CUIScriptWnd.Update(self)
 	if self:IsShown() then

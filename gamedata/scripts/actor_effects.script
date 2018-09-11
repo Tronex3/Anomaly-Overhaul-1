@@ -264,7 +264,7 @@ function ammo_check()
 	local wpn = rx_utils.item_is_fa(db.actor:active_item()) and db.actor:active_item()
 	if wpn and wpn_fx[wpn:section()] then
 		local id = wpn:id()
-		local sobj = alife():object(id)
+		local sobj = alife_object(id)
 		if sobj then
 			local t = {upgrades = {}}
 			stpk:w_begin(0)

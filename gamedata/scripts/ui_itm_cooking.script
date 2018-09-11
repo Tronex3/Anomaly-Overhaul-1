@@ -8,8 +8,7 @@
 
 
 --=======================================< Controls >=======================================--
-local ico_size = 1
-local ico_width = (device().width / device().height > (1024/768+0.01)) and 0.8 or 1
+local ico_size, ico_width, rw, rh, _le = 1,1,1,1,50
 local ini = system_ini()
 
 
@@ -23,10 +22,10 @@ function list_element:__init(sec, id, tier) super(sec, id, tier)
 	self.tier					= tier
 	
 	self.text					= self:GetTextItem()
-	self.text:SetWndRect		(Frect():set(0,0,300,22))
+	self.text:SetWndRect		(Frect():set(0,0,300*rw,22*rh))
 	self:SetTextColor			(GetARGB(255, 170, 170, 170))
-	self.text:SetFont			(GetFontLetterica16Russian())
-	self.text:SetWndSize		(vector2():set(400, 22))
+	self.text:SetFont			(GetFontGraffiti50Russian())	--(GetFontLetterica16Russian())
+	self.text:SetWndSize		(vector2():set(400*rw, 22*rh))
 	self.text:SetEllipsis		(true)
 	self.text:SetText			(alun_utils.get_inv_name(self.sec) or "")
 end
@@ -43,6 +42,8 @@ function cook_ui:__init(owner,obj,section) super()
 	self.section = section
 	self.obj = obj
 	
+	ico_size, ico_width, rw, rh, _le = trx_utils.get_ui_settings()
+	
 	self.cooking_frame 			   = ini:r_string_ex(section,"cooking_ui") or "ui_itm_cook"
 	self.cooking_tier              = ini:r_float_ex(section,"cooking_tier") or 1
 	self.cooking_campfire          = ini:r_bool_ex(section,"cooking_campfire") or false
@@ -50,7 +51,7 @@ function cook_ui:__init(owner,obj,section) super()
 	self.cooking_limited		   = ini:r_bool_ex(self.section,"cooking_limited") or false
 	self.cooking_fuel              = ini:r_string_ex(section,"cooking_fuel")
 	self.cooking_fuel			   = self.cooking_fuel and alun_utils.str_explode(self.cooking_fuel,",") or {}
-	self.cooking_campfire_close    = trx_utils.get_nearby_campfire(1.5, false) or false
+	self.cooking_campfire_close    = bind_campfire.get_nearby_campfire(1.5) or false
 	self.cooking_use_actor_effects = ini:r_bool_ex(section,"cooking_use_actor_effects") or true
 	self.active_wep				   = db.actor:active_item() or false
 	
@@ -64,7 +65,6 @@ function cook_ui:__init(owner,obj,section) super()
 	-- Play sound
 	trx_utils.play_sound("interface\\inv_cooking_open")
 	
-	actor_effects.use_weapon(0)
 end
 
 function cook_ui:__finalize()
@@ -81,34 +81,51 @@ function cook_ui:InitControls()
 	self.dialog					= xml:InitStatic("itm_cook:frame", self)
 	self.dialog:InitTexture(self.cooking_frame)
 	self.dialog:SetStretchTexture(true)
-
+	trx_utils.adjust_main_ui(self.dialog)
+	
+	self.cap = {}
 	self.list = {} -- List of items
 	self.box_item = {} -- Item's Icon
 	self.box_item_temp = {} -- temp item
 	self.text_item = {} -- Item's Name
 	for i=1,2 do
-		xml:InitStatic("itm_cook:cap_" .. tostring(i),self.dialog)
-		--xml:InitStatic("itm_cook:frame_list_" .. tostring(i),self.dialog)
-		--xml:InitStatic("itm_cook:frame_item_" .. tostring(i),self.dialog)
+		self.cap[i] = xml:InitStatic("itm_cook:cap_" .. tostring(i),self.dialog)
+		trx_utils.adjust_ui(self.cap[i])
 		
 		self.list[i] = xml:InitListBox("itm_cook:list_" .. tostring(i),self.dialog)
+		trx_utils.adjust_ui(self.list[i])
 		self.list[i]:ShowSelectedItem(true)
 		self.list[i]:Show(true)
 		self:Register(self.list[i], "list_" .. tostring(i))
 		
 		self.box_item[i] = xml:InitStatic("itm_cook:box_item_" .. tostring(i) , self.dialog)
+		trx_utils.adjust_ui(self.box_item[i])
+		
 		self.box_item_temp[i] = xml:InitStatic("itm_cook:box_item_" .. tostring(i) , self.dialog)
+		trx_utils.adjust_ui(self.box_item_temp[i])
 		
 		self.text_item[i] = xml:InitTextWnd("itm_cook:text_item_" .. tostring(i) , self.dialog)
+		trx_utils.adjust_ui(self.text_item[i])
 	end
 	
 	-- Main Buttons
-	local btn
-	btn = xml:Init3tButton("itm_cook:btn_cook", self.dialog)
-	self:Register(btn,"btn_cook")
+	self.btn_cook_pic = xml:InitStatic("itm_cook:btn_cook_pic", self.dialog)
+	self.btn_cook_pic:InitTexture("ui_button_ordinary_e")
+	self.btn_cook_pic:SetStretchTexture(true)
+	trx_utils.adjust_ui(self.btn_cook_pic)
 	
-	btn = xml:Init3tButton("itm_cook:btn_cancel", self.dialog)
-	self:Register(btn,"btn_cancel")
+	self.btn_cancel_pic = xml:InitStatic("itm_cook:btn_cancel_pic", self.dialog)
+	self.btn_cancel_pic:InitTexture("ui_button_ordinary_e")
+	self.btn_cancel_pic:SetStretchTexture(true)
+	trx_utils.adjust_ui(self.btn_cancel_pic)
+	
+	self.btn_cook = xml:Init3tButton("itm_cook:btn_cook", self.dialog)
+	trx_utils.adjust_ui(self.btn_cook)
+	self:Register(self.btn_cook,"btn_cook")
+	
+	self.btn_cancel = xml:Init3tButton("itm_cook:btn_cancel", self.dialog)
+	trx_utils.adjust_ui(self.btn_cancel)
+	self:Register(self.btn_cancel,"btn_cancel")
 	
 	self:LoadItemList_1()
 end
@@ -280,8 +297,6 @@ function cook_ui:OnCook()
 		itm_base = itm_base or self.section
 		actor_effects.use_item(itm_base .. "_dummy")
 		--level_weathers.get_weather_manager():forced_weather_change()
-	else
-		actor_effects.use_weapon(1)
 	end
 	
 	-- Hide dialog
@@ -289,7 +304,6 @@ function cook_ui:OnCook()
 end
 
 function cook_ui:OnCancel()
-	actor_effects.use_weapon(1)
 	trx_utils.play_sound("interface\\inv_close")
 	self:HideDialog()
 end

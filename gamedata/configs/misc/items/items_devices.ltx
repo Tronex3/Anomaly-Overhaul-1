@@ -3,65 +3,6 @@
 ;;--================| Devices |================
 ;;--===========================================
 
-; For Information broker
-;mlr
-[itm_pda_common]:booster_script
-$spawn                                             = "devices\pda"
-class_dbg								           = S_TOOL
-description                                        = st_pda_mlr_descr
-visual                                             = dynamics\devices\dev_pda\dev_pda.ogf
-inv_weight                                         = 0.1  
-inv_name                                           = st_pda_name
-inv_name_short                                     = st_pda_name
-inv_grid_width                                     = 1
-inv_grid_height                                    = 1
-inv_grid_x                                         = 7
-inv_grid_y                                         = 3
-cost                                               = 0
-can_take                                           = true 
-can_trade                                          = true
-use1_functor         		             		   = itms_manager.menu_disassemble
-use1_action_functor  		             		   = itms_manager.use_disassemble
-disassemble_parts								   = basic_capacitors,basic_transistors,basic_copper,batteries_dead
-
-[itm_pda_uncommon]:booster_script
-$spawn                                             = "devices\pda"
-class_dbg								           = S_TOOL
-description                                        = st_pda_mlr_descr
-visual                                             = dynamics\devices\dev_pda\dev_pda.ogf
-inv_weight                                         = 0.1  
-inv_name                                           = st_pda_name
-inv_name_short                                     = st_pda_name
-inv_grid_width                                     = 1
-inv_grid_height                                    = 1
-inv_grid_x                                         = 7
-inv_grid_y                                         = 3
-cost                                               = 0
-can_take                                           = true 
-can_trade                                          = true
-use1_functor         		             		   = itms_manager.menu_disassemble
-use1_action_functor  		             		   = itms_manager.use_disassemble
-disassemble_parts								   = basic_capacitors,basic_transistors,basic_copper,batteries_dead
-
-[itm_pda_rare]:booster_script
-$spawn                                             = "devices\pda"
-class_dbg								           = S_TOOL
-description                                        = st_pda_mlr_descr
-visual                                             = dynamics\devices\dev_pda\dev_pda.ogf
-inv_weight                                         = 0.1  
-inv_name                                           = st_pda_name
-inv_name_short                                     = st_pda_name
-inv_grid_width                                     = 1
-inv_grid_height                                    = 1
-inv_grid_x                                         = 7
-inv_grid_y                                         = 3
-cost                                               = 0
-can_take                                           = true 
-can_trade                                          = true
-use1_functor         		             		   = itms_manager.menu_disassemble
-use1_action_functor  		             		   = itms_manager.use_disassemble
-disassemble_parts								   = basic_capacitors,basic_transistors,basic_copper,batteries_dead
-
 ; For Encyclopedia.
 [itm_guide_usb_1]:booster
 can_trade                                          = false
@@ -904,7 +845,7 @@ use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
 disassemble_parts								   = basic_capacitors,basic_transistors,basic_transistors,basic_copper,batteries_dead
 
-[gps_tracker]:booster
+[gps_tracker]:booster ;;--(new)
 class                                              = II_ANTIR
 class_dbg								           = S_TOOL
 inv_weight			                               = 0.1

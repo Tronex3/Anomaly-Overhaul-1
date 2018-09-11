@@ -356,7 +356,7 @@ end
 --// Функция включения ламп, добавленных в AWR
 function LampOn(npc_name)
 	for i=1, 65534 do
-		local s_obj = alife():object(i)
+		local s_obj = alife_object(i)
 		if s_obj then
 			local c_obj = level.object_by_id(s_obj.id)
 			if c_obj then
@@ -372,7 +372,7 @@ end
 --// Функция выключения ламп, добавленных в AWR
 function LampOff(npc_name)
 	for i=1, 65534 do
-		local s_obj = alife():object(i)
+		local s_obj = alife_object(i)
 		if s_obj then
 			local c_obj = level.object_by_id(s_obj.id)
 			if c_obj then
@@ -403,7 +403,7 @@ end
 --// Функция получения имени оружия по имени меша тисков
 function GetAWRWpn()
 	for i=1, 65534 do
-		local s_obj = alife():object(i)
+		local s_obj = alife_object(i)
 		if s_obj then
 			local c_obj = level.object_by_id(s_obj.id)
 			if c_obj then
@@ -572,7 +572,7 @@ function del_obj(obj)
 	local name = obj:name()
 	alife():release(obj)
 
-	local s_obj = alife():object(id) or nil
+	local s_obj = alife_object(id) or nil
 	if s_obj then
 		dout(nil, '![ERROR] Object %s was NOT REMOVED!',name)	
 	else

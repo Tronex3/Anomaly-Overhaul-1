@@ -1,0 +1,5 @@
+if(xr_effects.damage_actor_items) then
+	xr_effects.damage_actor_items = function()
+		--nothing happens!
+	end
+end

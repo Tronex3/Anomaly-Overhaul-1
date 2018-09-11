@@ -1,0 +1,9 @@
+function actor_on_weapon_jammed()
+    if math.random(1,100) > 80 then
+    sound_object("cutscenes\\jam_"..math.random(4,9)):play(db.actor,0,sound_object.s2d)
+    end
+end
+
+function on_game_start()
+	RegisterScriptCallback("actor_on_weapon_jammed", actor_on_weapon_jammed)
+end

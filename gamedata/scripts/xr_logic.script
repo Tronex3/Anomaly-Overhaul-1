@@ -349,6 +349,145 @@ function check_action(npc, st, event_fn, p)
 	return true
 end
 
+function pick_section_from_condlist(obj, npc, condlist) -- New
+	if not (condlist) then
+		return ""
+	end
+	
+	local npc_id = npc and (npc.id and type(npc.id) == "function" and npc:id() or npc.id)
+	npc_id = npc_id == 0 and nil or npc_id -- we want only npc not actor
+	local actor = db.actor 
+
+	local sim = alife()	
+	for i=1,#condlist do
+		local cond = condlist[i]
+		local infop_conditions_met = true
+		
+		if (cond[2]) then
+			for j=1,#cond[2] do
+				local infop = cond[2][j]
+				if (infop[2] == 1) then
+					if (infop[3]) then
+						if (npc_id) then
+							if not (npc:has_info(infop[1])) then 
+								infop_conditions_met = false
+								break
+							end
+						end
+					else
+						if (actor) then 
+							if not (actor:has_info(infop[1])) then 
+								infop_conditions_met = false
+								break
+							end
+						else
+						if not (sim:has_info(0,infop[1])) then
+							infop_conditions_met = false
+							break
+						end
+					end
+					end
+				elseif (infop[2] == 2) then 
+					if (infop[3]) then
+						if (npc_id) then 
+							if (npc:has_info(infop[1])) then 
+								infop_conditions_met = false
+								break
+							end
+						end
+					else
+						if (actor) then 
+							if (actor:has_info(infop[1])) then 
+								infop_conditions_met = false
+								break
+							end
+						else
+						if (sim:has_info(0,infop[1])) then
+							infop_conditions_met = false
+							break
+						end
+					end
+					end
+				elseif (infop[2] == 3) then
+					if not (xr_conditions[infop[1]]) then
+						printf("pick_section_from_condlist xr_conditions fail! obj=%s functor=%s",npc and npc:name(),infop[1])
+					end
+					if not xr_conditions[infop[1]](obj, npc, infop[3]) then
+						infop_conditions_met = false
+						break
+					end
+				elseif (infop[2] == 4) then
+					if not (xr_conditions[infop[1]]) then
+						printf("pick_section_from_condlist xr_conditions fail! obj=%s functor=%s",npc and npc:name(),infop[1])
+					end
+					if xr_conditions[infop[1]](obj, npc, infop[3]) then
+						infop_conditions_met = false
+						break
+					end
+				elseif (infop[2] == 5) then 
+					if (infop[3] and infop[3] < math.random(100)) then 
+						infop_conditions_met = false
+						break
+					end
+				end
+			end 
+		end
+		
+		if (infop_conditions_met) then 
+			if (cond[3]) then 
+				for j=1,#cond[3] do
+					local infop = cond[3][j]
+					if (infop[2] == 1) then 
+						if (infop[3]) then
+							if (npc_id) then
+								if not (npc:has_info(infop[1])) then
+									npc:give_info_portion(infop[1])
+								end
+							end
+						else
+							if (actor) then
+								if not (actor:has_info(infop[1])) then
+									actor:give_info_portion(infop[1])
+								end
+							else
+							if not (sim:has_info(0,infop[1])) then 
+								sim:give_info(0,infop[1])
+							end
+						end
+						end
+					elseif (infop[2] == 2) then 
+						if (infop[3]) then
+							if (npc_id) then
+								if (npc:has_info(infop[1])) then
+									npc:disable_info_portion(infop[1])
+								end
+							end
+						else
+							if (actor) then 
+								if (actor:has_info(infop[1])) then
+									actor:disable_info_portion(infop[1])
+								end
+							else
+							if (sim:has_info(0,infop[1])) then 
+								sim:disable_info(0,infop[1])
+							end
+						end
+						end
+					elseif (infop[2] == 3 or infop[2] == 4) then
+						if not (xr_effects[infop[1]]) then
+							printf("pick_section_from_condlist xr_effects fail! obj=%s functor=%s",npc and npc:name(),infop[1])
+						end
+						xr_effects[infop[1]](obj, npc, infop[3])
+					end
+				end
+			end
+			return cond[1] or ""
+		end
+	end
+	return
+end
+
+--[[
 function pick_section_from_condlist(actor, npc, condlist, p)
 	--alun_utils.debug_write("pick_section_from_condlist start")
 	actor = actor or db.actor
@@ -456,6 +595,7 @@ function pick_section_from_condlist(actor, npc, condlist, p)
 	--printf("_bp: pick_section_from_condlist: nil")
 	return nil
 end
+--]]
 
 -- Выполняет переключение на указанную секцию, если задана.
 -- Если section == nil, остается работать старая секция.
@@ -589,8 +729,9 @@ end
 
 
 function abort_syntax_error_in_cond(npc, section, field)
--- 	printf("object '%s': section '%s': field '%s': syntax error in switch condition",npc:name(), section, field)
-	printf( "object: section: field: syntax error in switch condition" )
+	printf("object '%s': section '%s': field '%s': syntax error in switch condition",npc and npc:name(), section, field)
+	--callstack()
+	--printf( "object: section: field: syntax error in switch condition" )
 end
 
 -- На входе имеем пустой массив и строку вида "  +infop1  -infop2 +infop3 ... "
@@ -628,8 +769,11 @@ function parse_func_params(str)
 	local n
 	for par in string.gmatch(str, "%s*([^:]+)%s*") do
 		n = tonumber(par)
-		if n then table.insert(lst, n)
-		else table.insert(lst, par) end
+		if n then
+			lst[#lst+1] = n -->> might be an error
+		else
+			lst[#lst+1] = par
+		end
 	end
 	return lst
 end
@@ -689,88 +833,71 @@ end
 --   2 = { infop_check = { 1 = {"infop3" = true}, 2 = {"infop4" = false} }, infop_set = {}, section = "section2" },
 -- }
 
-
--- ////////////////////////////////////////////////////////////////////////////////////////////////
---
--- parse_condlist function
---
--- ------------------------------------------------------------------------------------------------
---
---	Description:
---		-
---
---	Usage:
---		parse_condlist( )
---
---	Parameters:
---
---
---	Return value (type: ):
---
---
 -- ------------------------------------------------------------------------------------------------
 --	Created by DoctorX
 --	for DoctorX Questlines 1.14
 --	Last modified November 11, 2016
 -- ------------------------------------------------------------------------------------------------
 
+--[[ Example: npc=nil | section=spawn_all_normal_c_1_2 | field=spawn_num | src={=actor_week_in_zone(1) +brain_scorcher_off}true , {!actor_week_in_zone(2)}true , false
 function parse_condlist(npc, section, field, src)
 	if (src == nil or type(src) == "boolean") then
 		callstack()
 -- 		printf("ERROR!! xr_logic.parse_condlist npc=%s section=%s field=%s src=%s",npc:name(),section,field,src)
 		printf( "ERROR!! xr_logic.parse_condlist" )
 		return
+	else
+		printf("TRX xr_logic.parse_condlist npc=%s section=%s field=%s src=%s",npc and npc:name(),section,field,src)
 	end
 
 	local lst = {}
 	local at, to, infop_check_lst, remainings, infop_set_lst, newsect
 
 	local n = 1
-	for fld in string.gmatch(src, "%s*([^,]+)%s*") do
-		-- Здесь fld это набор infoportions в {} и имя секции, на которую переключиться.
+	for fld in string.gmatch(src, "%s*([^,]+)%s*") do -- trim and iterate through conditionlists separated by "," | {=actor_week_in_zone(1) +brain_scorcher_off}true , {!actor_week_in_zone(2)}true , false ============> iterate through  {=actor_week_in_zone(1) +brain_scorcher_off}true  and  {!actor_week_in_zone(2)}true  and   false
 		lst[n] = {}
-		--printf("_bp: iter %d: fld = %s", n, fld)
+		--printf("_bp: iter %s: fld = %s", n, fld)
 
-		-- Выделяем список infoportions для проверки:
-		at, to, infop_check_lst = string.find(fld, "{%s*(.*)%s*}")
+		-- Select the list of infoportions to check:
+		at, to, infop_check_lst = string.find(fld, "{%s*(.*)%s*}") -- start of capture(num),end of capture(num),infoportion(string) | find infoporations between {}, we get nil if no conditionlist found
 		if infop_check_lst then
 			--printf("_bp: infop_check_lst: [%s]", infop_check_lst)
 
-			-- Выделяем оставшуюся часть поля, т.е. имя секции плюс список infoportions для установки:
+			-- We select the rest of the field, i.e. section name plus a list of infoportions to install:
 			remainings = string.sub(fld, 1, at - 1) .. string.sub(fld, to + 1)
 		else
-			-- Список infoportions для проверки не был задан, следовательно, ничего не удаляем:
+			-- The list of infoportions for validation has not been set, therefore, we do not delete anything:
 			remainings = fld
 		end
 		--printf("_bp: remainings: %s", remainings)
 
-		-- Выделяем список infoportions для установки из remainings:
+		-- Select the list of infoportions to install from the remainings:
 		at, to, infop_set_lst = string.find(remainings, "%%%s*(.*)%s*%%")
 		if infop_set_lst then
-			-- Выделяем оставшуюся часть поля, т.е. имя секции:
+			-- We select the rest of the field, i.e. section name:
 			newsect = string.sub(remainings, 1, at - 1) .. string.sub(remainings, to + 1)
 		else
-			-- Список infoportions для установки не был задан, следовательно, remainings и есть имя секции.
+			-- The infoportions list for the installation was not set, hence, the remainings are the name of the section.
 			newsect = remainings
 		end
 		--printf("_bp: newsect: %s", newsect)
 
-		-- И сразу trim имя секции:
+		-- And immediately trim the name of the section:
 		at, to, newsect = string.find(newsect, "%s*(.*)%s*")
 		if not newsect then
 			abort_syntax_error_in_cond(npc, section, field)
 		end
 
-		-- Имя секции теперь можно сохранить:
+		-- The name of the section can now be saved:
 		lst[n].section = newsect
 
-		-- Теперь нужно распарсить infoportions в строке infop_check_lst и
-		-- заполнить массив infop_check: { "infop_name" = true/false }.
-		-- На входе имеем строку вида "  +infop1  -infop2 +infop3 ... "
+		-- Now we need to parse the infoportions in the infop_check_lst line and
+		-- fill an array infop_check: { "infop_name" = true/false }.
+		-- At the input we have a string of the form "  +infop1  -infop2 +infop3 ... "
 		lst[n].infop_check = {}
 		parse_infop(lst[n].infop_check, infop_check_lst)
 
-		-- То же самое для устанавливаемых infoportions:
+		-- The same is for installed infoportions:
 		lst[n].infop_set = {}
 		parse_infop(lst[n].infop_set, infop_set_lst)
 
@@ -779,9 +906,93 @@ function parse_condlist(npc, section, field, src)
 
 	return lst
 end
-
+--]]
 -- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
+local sign_add = "+" -- 1
+local sign_sub = "-" -- 2
+local sign_equ = "=" -- 3
+local sign_neg = "!" -- 4
+local sign_prb = "~" -- 5
+function extract_conditions(c,lst,n,index) -- New
+	for sign,infop in c:gmatch("([=%-%+!~]+)([^=%-%+!~%s]+)") do
+		if not (lst[n][index]) then
+			lst[n][index] = {} -- because we don't want empty tables
+		end
+		if (sign == sign_add) then 
+			table.insert(lst[n][index],{infop,1,(string.find(infop,"npcx_"))})
+		elseif (sign == sign_sub) then
+			table.insert(lst[n][index],{infop,2,(string.find(infop,"npcx_"))})
+		elseif (sign == sign_equ or sign == sign_neg) then 
+			a = string.find(infop,"(",1,true)
+			if (a) then 
+				b = string.find(infop,")",1,true)
+				if (b) then 
+					local params = infop:sub(a+1,b-1)
+					infop = infop:sub(1,a-1) --.. infop:sub(b+1)
+					local t
+					for p in params:gmatch("%s*([^:]+)%s*") do
+						if not (t) then 
+							t = {}
+						end 
+						table.insert(t,tonumber(p) or p)
+					end
+					table.insert(lst[n][index],{infop,sign == sign_equ and 3 or 4,t})
+				else
+					abort_syntax_error_in_cond(section,field,c)
+				end
+			else
+				table.insert(lst[n][index],{infop,sign == sign_equ and 3 or 4})
+			end
+		elseif (sign == sign_prb) then 
+			table.insert(lst[n][index],{infop,5,tonumber(infop)})
+		else 
+			abort_syntax_error_in_cond(section,field,c)
+		end
+	end
+end
+
+local memoize_condlist = {} -- Because there are many condlist that are identical, they will have identical results
+function parse_condlist(npc, section, field, src) -- New
+	if (src == nil or type(src) == "boolean") then
+		callstack()
+		printf("ERROR!! xr_logic.parse_condlist npc=%s section=%s field=%s src=%s",npc and npc:name(),section,field,src)
+		return
+	end
+	
+	if (memoize_condlist[src]) then 
+		--printf("%s (%s:%s) | %s",npc and npc:name(),section,field,src)
+		return memoize_condlist[src]
+	end
+	
+	local lst = {}
+	local n = 0
+	for fld in src:gmatch("%s*([^,]+)%s*") do
+		local a,b
+		
+		n = n + 1
+		lst[n] = {}
+		
+		local a,b,c = string.find(fld, "{%s*(.*)%s*}")
+		if (c) then
+			fld = string.sub(fld,1,a-1) .. string.sub(fld,b+1)
+			extract_conditions(c,lst,n,2)
+		end
+		
+		a,b,c = string.find(fld, "%%%s*(.*)%s*%%")
+		if (c) then
+			fld = string.sub(fld,1,a-1) .. string.sub(fld,b+1)
+			extract_conditions(c,lst,n,3)
+		end
+		
+		fld = fld:trim()
+		lst[n][1] = fld
+	end
+	
+	memoize_condlist[src] = lst
+	
+	return lst
+end
 
 function cfg_get_number_and_condlist(ini, section, field, npc,cond_name)
 	local str = ini:r_string_ex(section,field)

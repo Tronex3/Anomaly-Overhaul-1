@@ -71,8 +71,8 @@ function sim_squad_scripted.sim_squad_scripted.show(self)
 		["monster"]  	= "alife_presentation_squad_monster_1",
 		["friends"]  	= "alife_presentation_squad_friend_1",
 		["neutral"]  	= "alife_presentation_squad_neutral_1",
-		["enemy"]    	= "alife_presentation_squad_enemy_1",
-		["companion"]	= "companion_spot"
+		["enemy"]    	= "alife_presentation_squad_enemy_1"
+		--["companion"]	= "companion_spot"
 	}
 	
 	local param = squad_smart.get_params() or {}
@@ -82,14 +82,10 @@ function sim_squad_scripted.sim_squad_scripted.show(self)
 	
 	
 	-- 1. Debug mode + Debug HUD enabled
-	if (DEV_DEBUG and axr_main.config:r_value("mm_options","enable_debug_hud",1,false) == true) then
+	if (DEV_DEBUG and axr_main.config:r_value("mm_options","enable_debug_map_hud",1,false) == true) then
 		spot = squad_icons[self.player_id] or "warfare_mutant_spot"
     
-	-- 2. Companions
-	elseif (axr_companions.companion_squads[self.id]) then
-		spot = squad_icons["companion"]
-	
-	-- 3. GPS Tracker active
+	-- 2. GPS Tracker active
 	elseif param["allow"] then
 		local pass = false
 		local gg = game_graph()
@@ -138,7 +134,7 @@ function sim_squad_scripted.sim_squad_scripted.get_squad_props(self)
 	local t = ""
 	
 	-- 1. Debug mode + Debug HUD enabled
-	if (DEV_DEBUG and axr_main.config:r_value("mm_options","enable_debug_hud",1,false) == true) then
+	if (DEV_DEBUG and axr_main.config:r_value("mm_options","enable_debug_map_hud",1,false) == true) then
 		local assigned_target = self.assigned_target_id and alife_object(self.assigned_target_id)
 		local current_target = self.current_target_id and alife_object(self.current_target_id)
 
@@ -159,11 +155,7 @@ function sim_squad_scripted.sim_squad_scripted.get_squad_props(self)
 
 		return t
 	
-	-- 2. Companions
-	elseif (axr_companions.companion_squads[self.id]) then
-		return game.translate_string(self.player_id) .. "\\n" .. game.translate_string("st_sq_count_companions") .. " " .. self:npc_count()
-		
-	-- 3. Everything else
+	-- 2. Everything else
 	elseif (not is_squad_monster[self.player_id]) then
 		return game.translate_string(self.player_id)
 	end

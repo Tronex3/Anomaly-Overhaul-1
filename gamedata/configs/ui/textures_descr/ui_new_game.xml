@@ -11,6 +11,8 @@
 	<file name="ui\new_game\ui_new_game_popup">
 		<texture id="ui_new_game_popup_faction" x="648" y="0" width="376" height="395" />
 		<texture id="ui_new_game_popup_icon" x="431" y="0" width="216" height="515" />
+		<texture id="ui_new_game_popup_options_extra" x="640" y="540" width="384" height="401" />
+		<texture id="ui_new_game_popup_option" x="0" y="543" width="644" height="397" />
 		<texture id="ui_new_game_black_back" x="649" y="400" width="374" height="114" />
 	
 		<texture id="ui_new_game_btn_icon_e" x="268" y="0" width="123" height="87" />

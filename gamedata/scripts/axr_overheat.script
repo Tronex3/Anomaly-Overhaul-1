@@ -1,0 +1,100 @@
+function on_game_start()
+	RegisterScriptCallback("actor_on_update",update)
+end
+
+
+can_overheat = true
+
+local overheat_threshold = 100
+local time_quant
+local decrease_quant
+
+local max_overheat = 150
+
+local overheat = 0
+local smoke
+local last_wpn_id
+
+function update()
+
+	if overheat < overheat_threshold then
+		decrease_quant = 0.2
+	else
+		decrease_quant = 0.1
+	end
+
+
+	local wpn = db.actor:active_item()
+	if not wpn then return end
+	if (string.match(tostring(wpn:section()),"knife")) then return end
+	
+	
+	if IsWeapon(wpn) then
+		-- reset overheat value on weapon change
+		if not (last_wpn_id) then
+			last_wpn_id = wpn:id()
+		end
+
+		if (last_wpn_id ~= wpn:id()) then
+			overheat = 0
+			last_wpn_id = wpn:id()
+		end
+
+		if not (can_overheat) then
+			return
+		end
+
+		local rpm = ui_wpn_params.GetRPM(wpn:section())
+		
+		-- Grab packet data
+		local se_wpn = alife_object(wpn:id())
+		local data = stpk_utils.get_weapon_data(se_wpn)
+
+		if not data then return end
+		
+		--printf("RPM: "..rpm)
+		time_quant = rpm/100
+		
+		-- Check if weapon firing
+		if (data.weapon_state == 5) then
+
+			-- increase overheat quantity over time
+			overheat = overheat + time_quant <= max_overheat and overheat + time_quant or max_overheat
+
+		else
+			-- Stop playing particle if value less then threshold
+			if (overheat < overheat_threshold) then
+				if (smoke and smoke:playing()) then
+					smoke:stop()
+				end
+			end
+		end
+		
+		--printf("-heat: "..overheat.."/"..overheat_threshold)
+
+		-- if overheating greater then threshold
+		if (overheat >= overheat_threshold) then
+			-- create particle if not exist
+			if not (smoke) then
+				smoke = particles_object("industrial_particles\\weapon_smoke")
+			end
+
+			-- play at bone position
+			if not (smoke:playing()) then
+				smoke:play_at_pos( wpn:bone_position("wpn_body") )
+			end
+
+			-- move to firepoint
+			local hud = alun_utils.read_from_ini(nil,wpn:section(),"hud","string",nil)
+			local fire_bone = alun_utils.read_from_ini(nil,hud,"fire_bone","string",nil) or "wpn_body"
+			local offset = alun_utils.read_from_ini(nil,hud,"fire_point","string",nil) or VEC_ZERO
+			offset = offset and alun_utils.string_to_vector(offset)
+			smoke:move_to( wpn:bone_position(fire_bone), offset )
+		end
+
+		-- decrease quantity over time
+		overheat = overheat - decrease_quant >= 0 and overheat - decrease_quant or 0
+	end
+end
+
+

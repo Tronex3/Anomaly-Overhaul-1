@@ -107,7 +107,7 @@ function se_smart_terrain:on_register()
 	end
 	
 	story_objects.check_spawn_ini_for_story_id(self)
-	simulation_objects.get_sim_obj_registry():register(self)
+	simulation_objects.register(self)
 	
 	self:load_jobs()
 	self.b_registred = true
@@ -128,7 +128,7 @@ end
 function se_smart_terrain:on_unregister()
 	SIMBOARD:unregister_smart(self)
 	unregister_story_object_by_id(self.id)
-	simulation_objects.get_sim_obj_registry():unregister(self)
+	simulation_objects.unregister(self)
 	db.del_smart_terrain(self)
 	--if (USE_MARSHAL) then 
 	--	UnregisterScriptCallback("save_state",self)
@@ -169,7 +169,7 @@ function se_smart_terrain:read_params()
 	self.def_restr				= ini:r_string_ex(smart_sect,"def_restr")	-- default out_restrictor for npc on jobs here
 	self.default_faction 		= ini:r_string_ex(smart_sect,"default_faction")
 	self.faction_controlled 	= ini:r_string_ex(smart_sect,"faction_controlled")
-	self.max_population 		= tonumber(xr_logic.pick_section_from_condlist(get_story_object("actor"), nil, xr_logic.parse_condlist(nil, smart_sect, "max_population", ini:r_string_ex(smart_sect,"max_population") or ""))) or 0
+	self.max_population 		= tonumber(xr_logic.pick_section_from_condlist(get_story_object("actor"), nil, xr_logic.parse_condlist(nil, smart_sect, "max_population", ini:r_string_ex(smart_sect,"max_population") or "")) or 0) or 0
 	self.respawn_idle 			= ini:r_float_ex(smart_sect,"respawn_idle") or 43200
 	self.respawn_only_level 	= ini:r_bool_ex(smart_sect,"respawn_only_level",false)
 	self.respawn_only_smart 	= ini:r_bool_ex(smart_sect,"respawn_only_smart",false)
@@ -1236,7 +1236,7 @@ function se_smart_terrain:update()
 	
 	--alun_utils.debug_write(strformat("%s:update ",self:name()))
 	
-	simulation_objects.get_sim_obj_registry():update_avaliability(self)
+	--simulation_objects.get_sim_obj_registry():update_avaliability(self)
 	self:update_jobs()
 	
 	
@@ -1580,8 +1580,13 @@ function se_smart_terrain:try_respawn()
 		end
 	end
 
-	if self.sim_avail ~= nil and xr_logic.pick_section_from_condlist(db.actor, self, self.sim_avail) ~= "true" then return end
+	--if self.sim_avail ~= nil and xr_logic.pick_section_from_condlist(db.actor, self, self.sim_avail) ~= "true" then return end
 
+	-- simulation_objects.available_by_id[self.id]  nil is unprocessed false is unavail
+	if (simulation_objects.available_by_id[self.id] == false) then 
+		return 
+	end
+	
 	--[[
 	local squad_count = smart_terrain_squad_count(SIMBOARD.smarts[self.id].squads)
 	if self.max_population <= squad_count then
@@ -1602,7 +1607,8 @@ function se_smart_terrain:try_respawn()
 	if self.last_respawn_update == nil or curr_time:diffSec(self.last_respawn_update) > self.respawn_idle then
 		self.last_respawn_update = curr_time
 		
-		empty_table(available_sects)
+		iempty_table(available_sects)
+		local size_t = 0
 		
 		-- check self.faction
 		if not (self.faction) then 
@@ -1627,7 +1633,8 @@ function se_smart_terrain:try_respawn()
 					end
 					
 					if max_respawn_count > self.already_spawned[k].num then
-						table.insert(available_sects,k)
+						size_t = size_t + 1
+						available_sects[size_t] = k
 					end
 				end
 			else 
@@ -1635,8 +1642,8 @@ function se_smart_terrain:try_respawn()
 			end
 		end
 		
-		if #available_sects > 0 then
-			local sect_to_spawn = available_sects[math.random(1,#available_sects)]
+		if size_t > 0 then
+			local sect_to_spawn = available_sects[math.random(1,size_t)]
 			local sect_to_spawn_params = self.respawn_params[sect_to_spawn]
 			
 			if (sect_to_spawn_params.squads) then

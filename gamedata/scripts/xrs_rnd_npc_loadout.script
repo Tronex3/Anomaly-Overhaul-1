@@ -1,0 +1,198 @@
+--[[
+************************************************************
+					xrs_rnd_npc_loadout
+by Alundaio
+************************************************************
+
+Copyright (C) 2012 Alundaio
+This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License-]]
+--]]
+
+local ini = ini_file("ai_tweaks\\xrs_rnd_npc_loadout.ltx")
+function on_game_start()
+	local Enabled = alun_utils.read_from_ini(ini,"plugin","enable","bool",true)
+	if not (Enabled) then return end
+	RegisterScriptCallback("se_stalker_on_spawn",on_creation)
+end
+
+function on_creation(se_npc)
+	if not (se_npc) then
+		return
+	end
+	
+	local squad = se_npc.group_id and se_npc.group_id ~= 65535 and alife_object(se_npc.group_id)
+	local player_id = squad and squad.player_id
+	local comm = se_npc:community()
+	local rank = ranks.get_obj_rank_name(se_npc)
+
+	create_weapon_on_npc(se_npc,comm,rank,player_id,"primary")
+	create_weapon_on_npc(se_npc,comm,rank,player_id,"secondary")
+	create_weapon_on_npc(se_npc,comm,rank,player_id,"tertiary")
+	create_items_on_npc(se_npc,comm,rank,player_id)
+end
+
+function ini_get_list(se_npc,comm,rank,player_id,val)
+	local src = alun_utils.read_from_ini(ini,se_npc:section_name(),val,"string",nil) or player_id and alun_utils.read_from_ini(ini,player_id.."_"..rank,val,"string",nil) or alun_utils.read_from_ini(ini,comm.."_"..rank,val,"string",nil)
+	
+	if not (src) then
+		return
+	end
+	
+	return alun_utils.collect_section(ini,src)
+	
+	--[[local sec = xr_logic2.pick_section_from_condlist(db.actor,se_npc,xr_logic2.parse_condlist(se_npc,se_npc:section_name(),val,src))
+	
+	if (ini:section_exist(sec)) then
+		return alun_utils.collect_section(ini,sec)
+	end]--]]
+end
+
+function create_items_on_npc(se_npc,comm,rank,player_id)
+	local t = ini_get_list(se_npc,comm,rank,player_id,"extra")
+	if not (t) then return end
+	for i,v in ipairs(t) do
+		spawn_extra_items(se_npc,v)
+	end
+end
+
+function spawn_extra_items(se_npc,str)
+	if not (str) then return end
+	if (str == "") then return end
+
+	local item = alun_utils.str_explode(str,":")
+
+	if (system_ini():section_exist(item[1])) then
+		item[2] = item[2] and tonumber(item[2]) or 1
+		item[3] = item[3] and tonumber(item[3]) or 1
+		local amt = math.random(item[2],item[3])
+		if (amt > 0) then
+			for i=1,amt do
+				alife():create(item[1],se_npc.position,0,0,se_npc.id)
+			end
+		end
+	end
+end
+
+function create_weapon_on_npc(se_npc,comm,rank,player_id,slot)
+	local t = ini_get_list(se_npc,comm,rank,player_id,slot)
+	if not (t) then
+		return
+	end
+	
+	--[[
+	printf("--COMM: "..comm.." RANK: "..rank)
+	printf("-WEAPONS:")
+	
+	for i=1,#t do
+		printf("-"..t[i])
+	end--]]
+
+	local info = select_random_index(t)
+	if not (info) or (info == "") or (info == "none") then
+		return
+	end
+
+	local weapon = alun_utils.str_explode(info,":")
+
+	if (system_ini():section_exist(weapon[1])) then
+
+		--alun_utils.printf("xrs_rnd_npc_loadout: before create %s",weapon[1])
+		local se_wpn = alife():create(weapon[1],se_npc.position,0,0,se_npc.id)
+		--alun_utils.printf("xrs_rnd_npc_loadout: after create %s",weapon[1])
+		if (se_wpn) then
+
+			--alun_utils.printf("xrs_rnd_npc_loadout: spawn weapon [start] = %s",se_wpn:section_name())
+			local ammos = alun_utils.parse_list(system_ini(),se_wpn:section_name(),"ammo_class")
+
+			local ct = ammos and #ammos
+			local ammo_type = ammos and weapon[3] and weapon[3] == "r" and ct and math.random(0,ct-1) or ammos and weapon[3] and tonumber(weapon[3]) or 0
+			local ammo_section = ammo_type and ammos[ammo_type+1]
+
+			if not (ammo_section) then
+				ammo_type = 0
+				ammo_section = ammo_type and ammos[ammo_type+1]
+				alun_utils.printf("xrs_rnd_npc_loadout: error wrong ammo_type set for %s, missing value in ammo_class",weapon[1])
+			end
+
+
+			if (weapon[2] or weapon[3]) then
+				local data = stpk_utils.get_weapon_data(se_wpn)
+
+				local flag = tonumber(weapon[2]) or 0
+				if (weapon[2] == "r") then
+					flag = 0
+					if (alun_utils.read_from_ini(nil,weapon[1],"scope_status","float",nil)) then
+						flag = flag + 1
+					end
+
+					if (alun_utils.read_from_ini(nil,weapon[1],"grenade_launcher_status","float",nil)) then
+						flag = flag + 2
+					end
+
+					if (alun_utils.read_from_ini(nil,weapon[1],"silencer_status","float",nil)) then
+						flag = flag + 4
+					end
+
+					flag = math.random(0,flag)
+				end
+
+				data.addon_flags = flag
+
+
+				data.ammo_type = ammo_type
+				stpk_utils.set_weapon_data(data,se_wpn)
+			end
+
+			local ammo_count
+			if (weapon[4] and weapon[5]) then
+				ammo_count = math.random( tonumber(weapon[4]) or 1, tonumber(weapon[5]) or 1 )
+			else
+				ammo_count = ini_get_list(se_npc,comm,rank,player_id,slot == "primary" and "ammo_1" or slot == "secondary" and "ammo_2" or slot == "tertiary" and "ammo_3")
+
+				if (ammo_count) then
+					ammo_count[1] = ammo_count[1] and tonumber(ammo_count[1]) or 1
+					ammo_count[2] = ammo_count[2] and tonumber(ammo_count[2]) or 1
+
+					ammo_count = ammo_count[1] < ammo_count[2] and math.random(ammo_count[1],ammo_count[2]) or math.random(ammo_count[2],ammo_count[1])
+				end
+			end
+
+			if not (ammo_count) then
+				ammo_count = 1
+			end
+
+			if (system_ini():section_exist(ammo_section)) then
+				create_ammo(ammo_section,se_npc.position,0,0,se_npc.id,ammo_count)
+			else
+				--alun_utils.printf("xrs_rnd_npc_loadout: Section %s does not exist",ammo_section)
+			end
+
+			--alun_utils.printf("xrs_rnd_npc_loadout: spawn weapon [END] = %s",se_wpn:section_name())
+		end
+	end
+end
+
+function select_random_index(t)
+	if not (t) or (#t == 0) then
+		return
+	end
+	local n = alun_utils.rand_num(1,#t)
+	return t[n]
+end
+
+function get_comb_coeff(rank,comm)
+	local rank_coeffs_table = {novice = 0.3, trainee = 0.4, experienced = 0.5, professional = 0.6, veteran = 0.7, expert = 0.8, master = 0.9, legend = 1}
+	local comm_coeffs_table = {zombied = 1, ecolog = 7, bandit = 10, freedom = 15, stalker = 17, clearsky = 20, dolg = 23, killer = 25, army = 27, monolith = 30}
+	local rank_coeff = rank_coeffs_table[rank] or 0
+	local comm_coeff = comm_coeffs_table[comm] or 0
+	return rank_coeff * comm_coeff / (rank_coeffs_table.legend * comm_coeffs_table.monolith)
+end
+function radiate(section)
+	local ini = system_ini()
+	local section_rad = string.gsub(section,"_radiated","")
+	local section_work = (section_rad ~= section) and section_rad or section
+	local section_cut = string.sub(section,1,-3)
+	local mass = ini:r_float_ex((ini:section_exist(section_cut) and section_cut or section_work),"inv_weight")
+	local rads = utils.mean_random(1,math.floor(mass*1000),0,3)/4000
+	return section_work.."_radiated", rads
+end

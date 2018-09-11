@@ -1,49 +1,69 @@
+;;-- This config controls all economy aspects regarding progression difficulty (factors and multipliers)
+;;-- These will be applied on new games, later on you can control them from "Extra Options" menu in-game
+
+;;-- [econ_1] is for (Normal difficulty) | [econ_2] is for (Scavenger) | [econ_3] is for (Survivalist)
+;;-- Edit the values under the economy option you play on (if you play on Scavenger difficulty, then you need to edit the values under [econ_2] section)
+
+;;-- Details about the values:
+;;-- -------------------------
+;;-- "max_weight"      --> controls the carry weight (60 = 60 kg, the default value)
+;;-- "goodwill"        --> multiplier for the amount of goodwill earned by doing quests (1.0 = 100%, the default value)
+;;-- "rewards"         --> multiplier for the amount of money earned by doing quests (1.0 = 100%, the default value)
+;;-- "repair"          --> multiplier for the cost of repair services by mechanics (1.0 = 100%, the default value)
+;;-- "upgrade"         --> multiplier for the cost of upgrading services by mechanics (1.0 = 100%, the default value)
+;;-- "buy"             --> multiplier for prices of items sold to other traders and stalkers (1.0 = 100%, the default value)
+;;-- "sell"            --> multiplier for prices of items bought from traders and stalkers (1.0 = 100%, the default value)
+;;-- "loots"           --> multiplier for chances of finding items from looted corpses (1.0 = 100%, the default value)
+;;-- "money_loots"     --> multiplier for the amount of money looted from corpses (1.0 = 100%, the default value)
+;;-- "wpn_condition"   --> controls the condition range of looted weapons (0.25 = 25%, the default value) (range goes between (value x 0.6 ) and (value  x 2.6), so 25% factor cause conditions to range between %15 and %65 (depends on rank)
+;;-- "stash_chance"    --> controls the chance of discovering stashes upon looting corpses (0.2 = 20% chance per corpse, the default value)
+;;-- "max_medkit_uses" --> controls the maximum number of uses for medkits (4 = 4 uses maximum, the default value)
+;;-- "fast_travel"     --> enables or disables Fast Travel feature (disabling it will remove all fast travel options) (true = enabled | false = disabled)
+;;-- "backpack_travel" --> enables or disables Travel to Backpack feature (disabling it will remove all backpack travel options) (true = enabled | false = disabled)
+
 [econ_1]
 max_weight						= 60
-factor_loot						= 1.2
-;factor_goodwill				= 1.0
-factor_repair					= 1.0
-factor_upgrade					= 1.0
-factor_buy						= 1.0
-factor_sell						= 1.0
-factor_money					= 1.0
-factor_wpn_condition			= 1.0
-chance_stash					= 0.2
-multiuse_medkits				= 4
-fast_travel				        = true
-backpack_travel					= true
+goodwill					    = 1.5
+rewards							= 2.0
+repair					        = 1.3
+upgrade					        = 1.0
+buy						        = 1.0
+sell						    = 1.0
+loots						    = 1.5
+money_loots					    = 1.0
+wpn_condition			        = 0.3
+stash_chance					= 0.2
+max_medkit_uses					= 4
 
 
 [econ_2]
 max_weight						= 60
-factor_loot						= 1.0
-;factor_goodwill				= 1.0
-factor_repair					= 1.25
-factor_upgrade					= 1.25
-factor_buy						= 0.85
-factor_sell						= 1.15
-factor_money					= 0.8
-factor_wpn_condition			= 1.0
-chance_stash					= 0.15
-multiuse_medkits				= 2
-fast_travel				        = true
-backpack_travel					= true
+goodwill					    = 1.0
+rewards							= 1.5
+repair					        = 1.6
+upgrade					        = 1.25
+buy						        = 0.85
+sell						    = 1.15
+loots						    = 1.0
+money_loots					    = 0.75
+wpn_condition			        = 0.25
+stash_chance					= 0.15
+max_medkit_uses					= 2
 
 
 [econ_3]
 max_weight						= 50
-factor_loot						= 1.0
-;factor_goodwill				= 0.75
-factor_repair					= 1.5
-factor_upgrade					= 1.5
-factor_buy						= 0.75
-factor_sell						= 1.25
-factor_money					= 0.75
-factor_wpn_condition			= 1.0
-chance_stash					= 0.1
-multiuse_medkits			    = 1
-fast_travel				        = false
-backpack_travel					= false
+goodwill					    = 1.0
+rewards							= 1.0
+repair					        = 2.0
+upgrade					        = 1.5
+buy						        = 0.75
+sell						    = 1.25
+loots						    = 1.0
+money_loots					    = 0.5
+wpn_condition			        = 0.15
+stash_chance					= 0.1
+max_medkit_uses			    	= 1
 
 
 [exclude_from_multi]

@@ -1,3 +1,8 @@
+-- =======================================================================================
+-- Modified by Tronex
+-- 2018/8/2 - Moved toggle option to axr_main_options.script
+-- =======================================================================================
+
 -- ### Config ###
 -- autosave every x seconds, default 90
 local autosave_interval = 900

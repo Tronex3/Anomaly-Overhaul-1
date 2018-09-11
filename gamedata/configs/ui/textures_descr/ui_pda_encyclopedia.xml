@@ -2,6 +2,7 @@
 	<!-- No images -->
 	<file name="ui\ui_console">
 		<texture id="encyclopedia_empty_image" x="0" y="0" width="0" height="0"/>
+		<texture id="encyclopedia__notes__ironman_image" x="0" y="0" width="0" height="0"/>
 		
 		<texture id="encyclopedia_achievements_bookworm_food_image" x="0" y="0" width="0" height="0"/>
 		<texture id="encyclopedia_achievements_completionist_image" x="0" y="0" width="0" height="0"/>

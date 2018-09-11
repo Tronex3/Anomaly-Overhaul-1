@@ -51,7 +51,7 @@
 		<text>Steel wool, also known as wire wool or wire sponge, is a bundle of strands of very fine soft steel filaments. It is used as an abrasive in finishing and repair work for polishing wood or metal objects, cleaning household cookware, and sanding in light painting. Steel wool is made from low-carbon steel (carbon content is low enough to be close to plain iron). It is not made by drawing "steel wool wire" through a tapered die, but rather by a process more like broaching where a heavy steel wire is pulled through a toothed die that removes a thin wire shaving. Bundles of steel wool can be used in precision equipment cleaning and to improve spreading of lubricants and cleaning solvents.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] technological item\n
-		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+6%)</text>
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+10%)</text>
 	</string>
 	
 	<string id="st_grease">
@@ -461,7 +461,7 @@
 		Also known as a machinist's hammer. Ball-peen hammer is a type of peening hammer used in metalworking. Despite being old and rusty, you can never go wrong with having one for small repair jobs.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
-		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+3%)\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+6%)\n
 		</text>
 	</string>
 	
@@ -473,7 +473,7 @@
 		Duct tape is commonly used in situations that require a strong, flexible, and very sticky tape. An easy and temporary solution for quick repair jobs. This type also has a long-lasting adhesive and resistance to weathering.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
-		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+3%)
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+8%)
 		</text>
 	</string>
 		
@@ -485,7 +485,7 @@
 	</string>
 	<string id="st_jar_descr">
 		<text>
-		A tiny plastic jar. Such jars are always handy for keeping small items safe, especially medicines. It protects the contents from moisture and ensures the moisture content of the product remains the same.\n \n
+		A tiny plastic jar. Such jars are always handy for keeping small items safe, especially drugs and medicine. It protects the contents from moisture and ensures the moisture content of the product remains the same.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] basic material\n
 		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
@@ -496,7 +496,7 @@
 		<text>Empty syringe</text>
 	</string>
 	<string id="st_e_syringe_descr">
-		<text>A 12mL medical syringe with a lousy plunger. Seems like it has been used quite frequently. With a drug-making kit and proper knowledge, this syringe can come in handy for the creation of various types of medicines.\n \n
+		<text>A 12mL medical syringe with a lousy plunger. Seems like it has been used quite frequently. With a drug-making kit and proper knowledge, this syringe can come in handy for the creation of various types of drugs.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] basic material\n
 		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
@@ -504,11 +504,11 @@
 	</string>
 	
 	<string id="st_ammo_bad">
-		<text>Bad ammo</text>
+		<text>Ammo parts</text>
 	</string>
 	<string id="st_ammo_bad_descr">
 		<text>
-		Even with good supplies, it’s not uncommon to end up with one or more cartridges of what might be considered as “bad” ammunition. Unlucky stalkers might find themselves in very bad situations when their weapons jam at critical moments due to bad cartridges. On the contrary, this ammo can be reused for the creation of better variants. That's why some stalkers prefer to keep them around.\n \n
+		Even with good supplies, it’s not uncommon to end up with one or more cartridges of what might be considered as “bad” ammunition. Unlucky stalkers might find themselves in very bad situations when their weapons jam at critical moments due to bad cartridges. On the contrary, these ammo parts can be reused for the creation of better variants. That's why some stalkers prefer to keep them around.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,153,255,255] • %c[0,140,140,140] basic material\n
 		</text>
@@ -526,16 +526,16 @@
 		</text>
 	</string>
 	
-	<string id="st_paper">
+	<string id="st_basic_paper">
 		<text>Paper sheets</text>
 	</string>
-	<string id="st_paper_descr">
+	<string id="st_basic_paper_descr">
 		<text>
 		Torn sheets of silk coated paper. Even in a place like the Zone, it can be used for all kind of things. The cheapest way for packaging food or cleaning dirt.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n
 		%c[0,153,255,255] • %c[0,140,140,140] basic material\n
-		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+1%)
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+1%)
 		</text>
 	</string>
 	
@@ -571,7 +571,7 @@
 		Sheet of military-grade textile that can be used for field repairs of clothing and light armor. Valued for its relatively low price and high versatility, this material is commonly used by the Zoners. Medium-grade sewing equipment and advanced glue required for use. It can also be used to improve spread of liquids during weapon maintenance.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] basic material\n
-		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+4%)
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+5%)
 		</text>
 	</string>
 	
@@ -583,7 +583,7 @@
 		Thick textile patch reinforced with kevlar padding. Can be used to repair medium and heavy armors. Large enough to cover multiple damaged areas. High quality sewing kits and adhesives are required to make use of it. Its alternative usage is weapon lubrication and cleaning - due to increased hardness it's able reach even less accessible areas of firearm parts.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] basic material\n
-		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+6%)
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs, weapon maintenance (+8%)
 		</text>
 	</string>
 	
@@ -639,7 +639,7 @@
 		Handful of metal bolts, screws, bits and pieces of equipment. A variety of many different types and grades of steel and aluminum alloys. Could be used to aid in repairing gear in the field, or perhaps even in crafting.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,153,255,255] • %c[0,140,140,140] basic material\n
-		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] weapon maintenance (+2%)
+		%c[255,238,153,26] • %c[0,140,140,140] usable for: %c[0,170,170,170] outfit repairs (+3%)
 		</text>
 	</string>
 	
@@ -653,10 +653,10 @@
 		</text>
 	</string>
 	
-	<string id="basic_ceramic">
+	<string id="st_basic_ceramic">
 		<text>Ceramic base</text>
 	</string>
-	<string id="basic_ceramic_descr">
+	<string id="st_basic_ceramic_descr">
 		<text>
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,153,255,255] • %c[0,140,140,140] basic material\n
@@ -677,7 +677,7 @@
 		<text>Plastic film</text>
 	</string>
 	<string id="st_basic_plastic_descr">
-		<text>A small pack made of low density polyethylene film. These thin plastic membranes are used to separate areas or volumes, hold items and act as barriers. Plastic films are used in a wide variety of applications. Despite being partly torn, polyethylene's characteristics makes it a great solution for packaging and isolating, especially for food and medicines.\n \n
+		<text>A small pack made of low density polyethylene film. These thin plastic membranes are used to separate areas or volumes, hold items and act as barriers. Plastic films are used in a wide variety of applications. Despite being partly torn, polyethylene's characteristics makes it a great solution for packaging and isolating, especially for food and medicine.\n \n
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,153,255,255] • %c[0,140,140,140] basic material\n
 		</text>
@@ -691,6 +691,34 @@
 		%c[0,140,140,140]PROPERTIES:\n
 		%c[0,153,255,255] • %c[0,140,140,140] basic material\n
 		</text>
+	</string>
+	
+	<string id="st_basic_triggermechanism">
+		<text>Trigger mechanism</text>
+	</string>
+	<string id="st_basic_triggermechanism_descr">
+		<text>The trigger mechanism and assembly from an unknown firearm. Most triggers are very similar, and there's no reasno this one couldn't be shaved down to fit almost any weapon.\n \n
+		%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] basic material\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] handgun maintenance (+8%)</text>
+	</string>
+	
+	<string id="st_basic_spring">
+		<text>Spring</text>
+	</string>
+	<string id="st_basic_spring_descr">
+		<text>A small spring from either the trigger assembly or inner workings of an unknown firearm. Could probably be adapted to replace most any small spring.\n \n%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] basic material\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] handgun maintenance (+7%)</text>
+	</string>
+	
+	<string id="st_basic_pistolgrip">
+		<text>Pistol grip</text>
+	</string>
+	<string id="st_basic_pistolgrip_descr">
+		<text>Pistol grips from some unknown weapon. This rubberized handle could probably be shaped or molded to fit almost any firearm.\n \n%c[0,140,140,140]PROPERTIES:\n
+		%c[0,153,255,255] • %c[0,140,140,140] basic material\n
+		%c[255,238,153,26] • %c[0,140,140,140] usable for:%c[0,170,170,170] handgun maintenance (+9%)</text>
 	</string>
 	
 </string_table>

@@ -1,4 +1,3 @@
-local eco_ini = ini_file("plugins\\economy_difficulty.ltx")
 
 local tm = {}
 function trade_init(npc, cfg)

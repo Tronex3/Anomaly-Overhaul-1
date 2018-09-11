@@ -1,3 +1,8 @@
+-- =======================================================================================
+-- Modified by Tronex
+-- 2018/8/2 - Moved toggle option to axr_main_options.script
+-- =======================================================================================
+
 --the faction you will be recognized as when discovered
 local default_faction -- = "stalker"
 --list of possibe factions

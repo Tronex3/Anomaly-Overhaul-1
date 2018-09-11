@@ -15,7 +15,7 @@ This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAl
 -- 2018/7/26 - Added the ability to disassemble misc items
 -- 2018/7/26 - Rewrote a lot of function with better codes
 -- 2018/7/31 - Added new items, battery consumption for geiger counter and gps tracker
--- 2018/8/2  - Drag artefacts on containers to put them, container tool is not used
+-- 2018/8/2  - Drag artefacts on containers to put them in, container tool is no longer used
 -- =======================================================================================
 
 -- Prepare ini files
@@ -60,14 +60,6 @@ local BackPackStashAllowInBase = BackPackStashEnable and ini_manager:r_bool_ex("
 local BackPackStashSpot = BackPackStashEnable and ini_manager:r_string_ex("backpack_stash","map_spot") or "treasure" 
 local BackPackStashEnableTip = BackPackStashEnable and ini_manager:r_bool_ex("backpack_stash","enable_news_tip",false)
 local BackPackStashEnableUi = BackPackStashEnable and ini_manager:r_bool_ex("backpack_stash","enable_ui",false)
-
--- Sleep bag mod
-local SleepBagEnable = ini_manager:r_bool_ex("sleeping_bag","enable",true)
-local SleepBagRadius = SleepBagEnable and ini_manager:r_float_ex("sleeping_bag","unsafe_radius") or 5000
-local SleepBagPlaceable = SleepBagEnable and ini_manager:r_bool_ex("sleeping_bag","use_placeable",false)
-local SleepBagGameStart = SleepBagEnable and ini_manager:r_bool_ex("sleeping_bag","have_at_start",false)
-local SleepBagSections = SleepBagEnable and alun_utils.collect_section(ini_manager,"sleeping_bag_sections",true)
-local SleepBagPlaceableSections = SleepBagEnable and alun_utils.collect_section(ini_manager,"sleeping_bag_ph_sections",true)
 
 -- Actor backpack mod
 local ActorBackPackEnable = ini_manager:r_bool_ex("actor_backpack","enable",false)
@@ -131,7 +123,6 @@ function on_game_start()
 	RegisterScriptCallback("actor_on_item_use",actor_on_item_use)
 	RegisterScriptCallback("actor_on_item_take",actor_on_item_take)
 	RegisterScriptCallback("actor_on_item_take_from_box",actor_on_item_take_from_box)
-	RegisterScriptCallback("physic_object_on_use_callback",physic_object_on_use_callback)
 	RegisterScriptCallback("on_key_press",on_key_press)
 	RegisterScriptCallback("on_key_release",on_key_release)
 	RegisterScriptCallback("CUIActorMenu_OnItemDropped",on_item_drag_dropped)
@@ -139,8 +130,6 @@ function on_game_start()
 end
 
 function on_game_load()
-
-
 	if (ActorBackPackEnable and ActorBackPackForced) then
 		local actor_itm_backpack_id= utils.load_var(db.actor,"actor_itm_backpack_id",nil)
 		local actor_inv_backpack_id = utils.load_var(db.actor,"actor_inv_backpack_id",nil)
@@ -151,24 +140,6 @@ function on_game_load()
 				utils.save_var(db.actor,"actor_itm_backpack_id",se_obj.id)
 			end
 		end
-	end
-
-	--[[
-	if (SleepBagEnable and SleepBagGameStart) then
-		local sleepbag_id = utils.load_var(db.actor,"itm_sleepbag_id",nil)
-		if (not sleepbag_id) then
-			local se_obj = alife():create("itm_sleepbag",db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id(),0)
-			utils.save_var(db.actor,"itm_sleepbag_id",se_obj.id)
-		end
-	end
-	--]]
-	
-	-- Set up maximum weight
-	local cw = hardcore_economy.get_factor("weight") or 60
-	local mww = cw + (math.ceil(cw / 5) * 2)
-	if (cw ~= db.actor:get_actor_max_weight()) then
-		db.actor:set_actor_max_weight(cw)
-		db.actor:set_actor_max_walk_weight(mww)
 	end
 end
 
@@ -184,14 +155,14 @@ function actor_on_update()
 	if (FlashlightModEnable) then
 		local obj = db.actor:active_detector()
 		local torch = db.actor:object("device_torch")
-		if (obj and FlashlightSections[obj:section()]) then
-			if (has_alife_info("enable_device_torch")) then
+		if (obj and FlashlightSections[obj:section()]) then -- if flashlight is being used
+			if (has_alife_info("enable_device_torch")) then -- if torch item is equipped , disconnect it
 				db.actor:disable_info_portion("enable_device_torch")
 				alife():create("device_torch_dummy",db.actor:position(),0,0,0)
 				SetHudMsg(game.translate_string("st_lamp_disconnected"),5)
 			end
 
-			if not (torch) then
+			if not (torch) then -- if there is no torch, create one
 				alife():create("device_torch",db.actor:position(),0,0,0)
 			end
 
@@ -201,7 +172,7 @@ function actor_on_update()
 				TorchType = 2
 			end
 			
-			if (torch and not torch:torch_enabled()) then
+			if (torch and not torch:torch_enabled()) then -- if there is touch but its not working, start it after 1 sec
 				if not (torch_delay) then
 					torch_delay = time_global() + 1000
 				end
@@ -210,8 +181,8 @@ function actor_on_update()
 					torch:enable_torch(true)
 				end
 			end
-		else
-			if (torch and not has_alife_info("enable_device_torch")) then
+		else -- if flashlight is not used
+			if (torch and not has_alife_info("enable_device_torch")) then -- if torch exists and touch item is disconnected, disable the torch
 				TorchType = 0
 				FlashlightFar = false;
 				if (torch:torch_enabled()) then
@@ -235,7 +206,7 @@ function actor_on_item_drop(obj) -- bind_stalker on_item_drop
 		end
 
 		utils.save_var(db.actor,"actor_itm_backpack_id",se_itm.id)
-		alife():release( alife():object(obj:id()) )
+		alife():release( alife_object(obj:id()) )
 	end
 	
 	if (db.actor:has_info("actor_made_wish_for_riches")) then 
@@ -324,26 +295,6 @@ function actor_on_item_use(obj) -- bind_stalker on_item_use
 		return
 	end
 
-	-- Sleeping bag
-	if (SleepBagEnable and SleepBagSections[name]) then
-		local sec = name
-		if (SleepBagPlaceable) then
-			local ph_sec = ini:r_string_ex(sec,"placeable_section")
-			local se_obj = alife():create(ph_sec or "ph_sleepbag",db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id())
-			local compr = alife():create("compression_bag",db.actor:position(),0,0,0)
-		else
-			local se_obj = alife():create(sec,db.actor:position(),0,0,0)
-			local hud = get_hud()
-			if (hud) then
-				hud:HideActorMenu()
-			end
-			local ui = ui_sleep_dialog.sleep_bag(se_obj,sec)
-		end
-		return
-	end
-	
-	if (name == "compression_bag") then use_compression_bag(obj) end
-
 	-- Actor backpack
 	if (ActorBackPackEnable and name == "itm_actor_backpack") then
 		local id = ActorBackPackForced and utils.load_var(db.actor,"actor_inv_backpack_id",nil)
@@ -375,8 +326,8 @@ function actor_on_item_use(obj) -- bind_stalker on_item_use
 	-- Condition Checker
 	-- if (name == "con_checker") then use_con_checker(obj) end
 	
-	-- Repair tools
-	--if repair_tools[name] then use_tool(obj) end
+	-- Tools
+	if repair_tools[name] or craft_tools[name] or map_tools[name] or cook_tools[name] then use_tool(obj) end
 
 	-- Deployable mgun
 	if (name == "itm_deployable_mgun") then use_deployable_mgun(obj) end
@@ -418,7 +369,7 @@ end
 
 function actor_on_item_take(obj) -- explosive item special
 	if (obj:section() == "explosive_mobiltank") or (obj:section() == "explosive_tank") then
-		alife():release( alife():object(obj:id()) ,true)
+		alife():release( alife_object(obj:id()) ,true)
 		local fuel = math.random(6,8)
 		alife():create("explo_jerrycan_fuel" .. fuel,db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id(),db.actor:id())
 	end
@@ -426,12 +377,23 @@ function actor_on_item_take(obj) -- explosive item special
 	-- Set medkits uses to 1 on hardcore economy
 	if (string.find(obj:section(),"medkit")) then
 		local uses = obj:get_remaining_uses()
-		local num = hardcore_economy.get_factor("multiuse_medkits")
+		local num = hardcore_economy.get_factor("max_medkit_uses") or 4
 		if (uses > num) then
 			obj:set_remaining_uses(num)
 		end
+		
+	-- Replace old repair kits with the new ones
+	elseif (obj:section() == "itm_repairkit_tier_1") then
+		trx_utils.release_obj(obj)
+		trx_utils.create_inv_obj("itm_basickit_3")
+	elseif (obj:section() == "itm_repairkit_tier_2") then
+		trx_utils.release_obj(obj)
+		trx_utils.create_inv_obj("itm_advancedkit_3")
+	elseif (obj:section() == "itm_repairkit_tier_3") then
+		trx_utils.release_obj(obj)
+		trx_utils.create_inv_obj("itm_expertkit_3")
 	end
-	
+		
 	--db.actor:give_game_news(" ", "%c[0,170,170,100]" .. alun_utils.get_inv_name(obj:section()), "ui_inGame2_D_Ohotnik_na_mutantov", 0, 1500, 0)
 end
 
@@ -455,7 +417,7 @@ function actor_on_item_take_from_box(box,obj) -- bind_stalker take_item_from_ive
 			level.map_remove_object_spot(box:id(), BackPackStashSpot)
 			alife():create("itm_backpack",db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id(),db.actor:id())
 
-			alife():release( alife():object(box:id()) ,true)
+			alife():release( alife_object(box:id()) ,true)
 		end
 	end
 
@@ -469,23 +431,13 @@ function actor_on_item_take_from_box(box,obj) -- bind_stalker take_item_from_ive
 
 			level.map_remove_object_spot(box:id(), BackPackActorSpot)
 
-			alife():release( alife():object(box:id()) ,true)
+			alife():release( alife_object(box:id()) ,true)
 
 			alife():create("itm_actor_backpack",db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id(),db.actor:id())
 
 			utils.save_var(db.actor,"actor_inv_backpack_id",nil)
 			db.actor:disable_info_portion("actor_filled_backpack")
 		end
-	end
-end
-
-function physic_object_on_use_callback(obj,who) -- bind_physic_object use_callback
-	if (SleepBagEnable and SleepBagPlaceableSections[obj:section()]) then
-		local hud = get_hud()
-		if (hud) then
-			hud:HideActorMenu()
-		end
-		ui_sleep_dialog.sleep_bag(obj:id(),SleepBagPlaceableSections[obj:section()])
 	end
 end
 
@@ -529,7 +481,7 @@ function on_item_drag_dropped(obj_1, obj_2, slot_from, slot_to)
 			if ini:section_exist(arty .. "_" .. cont) then
 				trx_utils.create_inv_obj(arty .. "_" .. cont)
 				trx_utils.release_obj(obj_1)
-				trx_utils.release_obj(obj_2)
+				trx_utils.release_obj(obj_2,0.07)
 				
 				if actor_effects.use_item("container_tool_" .. cont .. "_dummy") then
 					actor_effects.use_item("container_tool_" .. cont .. "_dummy")
@@ -584,14 +536,12 @@ function on_item_drag_dropped(obj_1, obj_2, slot_from, slot_to)
 		local item_2 = item_2_tbl and item_2_tbl[1] or nil
 		if (not item_2) then return end
 		
-		printf("TRX - Combine Items | item_1: " .. item_1:section() .. " [" .. item_1:id() .. "] | item_2: " .. item_2:section() .. " [" .. item_2:id() .. "] | New: " .. sec)
+		--printf("TRX - Combine Items | item_1: " .. item_1:section() .. " [" .. item_1:id() .. "] | item_2: " .. item_2:section() .. " [" .. item_2:id() .. "] | New: " .. sec)
 		
 		-- Remove old items, create the new one
-		local se_obj_1 = alife_object(item_1:id())
-		local se_obj_2 = alife_object(item_2:id())
-		alife():release(se_obj_1,true)
-		alife():release(se_obj_2,true)
-		alife():create(sec, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+		trx_utils.release_obj(item_1)
+		trx_utils.release_obj(item_2,0.07)
+		trx_utils.create_inv_obj(sec)
 	end
 end
 
@@ -710,7 +660,6 @@ end
 --=======================================< Special item use functions >=======================================--
 
 function use_tool(obj) -- use item
-	local se_obj = alife():object(obj:id())
 	local p = obj:parent()
 	if not (p and p:id() == db.actor:id()) then
 		return
@@ -758,7 +707,7 @@ function use_tool(obj) -- use item
 	-- Personal Journal
 	if (section == "journal") then
 		coc_treasure_manager.create_random_stash(nil,nil,nil)
-		alife():release(se_obj,true)
+		trx_utils.release_obj(obj)
 	end
 end
 
@@ -766,7 +715,7 @@ function use_separate(obj) -- separate item
 	local base = ini:r_string_ex(obj:section(),"uses_base")
 	
 	if trx_utils.adjust_item_charge(obj,-1) then
-		alife():create(base, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+		trx_utils.create_inv_obj(base)
 		--printf("TRX - inv_item_separate | Get new base item : " .. base)
 	end
 end
@@ -805,9 +754,11 @@ function use_disassemble(obj) -- disassemble item
 	end
 
 	-- Delete old disassemble item or one use
-	if (not trx_utils.adjust_item_charge(dis_itm,-1)) then
-		trx_utils.release_obj(dis_itm)
-		--printf("TRX - inv_item_disassemble | Delete disassembling tool: " .. dis_itm:section())
+	if (trx_utils.check_inv_obj("leatherman_tool") ~= true) then -- ignore Multitool 
+		if (not trx_utils.adjust_item_charge(dis_itm,-1)) then
+			trx_utils.release_obj(dis_itm)
+			--printf("TRX - inv_item_disassemble | Delete disassembling tool: " .. dis_itm:section())
+		end
 	end
 		
 	-- Delete old item or one use
@@ -824,7 +775,7 @@ function use_disassemble(obj) -- disassemble item
 		-- Give disassemble parts
 		for i=1,#parts_tbl do
 			if ini:section_exist(parts_tbl[i]) then
-				alife():create(parts_tbl[i], db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+				trx_utils.create_inv_obj(parts_tbl[i])
 				--printf("TRX - inv_item_disassemble | Get new part from disassembling: " .. parts_tbl[i])
 			end
 		end
@@ -890,7 +841,7 @@ function use_gieger(obj)
 	
 	-- Check out UPD power, return if power is low
 	local power = axr_battery.getBatteryCondition()
-	if power < threshold + 0.05 then
+	if (power < threshold + 0.05) then
 		SetHudMsg(game.translate_string("st_upd_low"),3)
 		return
 	end
@@ -899,12 +850,15 @@ function use_gieger(obj)
 	local text = game.translate_string("st_rad_level") .. ": " .. math.floor(db.actor.radiation*10000*0.387) .. " " .. game.translate_string("st_msv")
 	SetHudMsg(text,3)
 	
-	-- Consume power
-	local battery = db.actor:object("wpn_upd")
-	axr_battery.updateBatteryCondition(battery,power,"gei")
-	
 	-- Play sound
 	--trx_utils.play_sound("interface\\inv_geiger")
+	
+	-- Consume power
+	if (axr_main.config:r_value("mm_options","enable_use_battery",1,false) ~= true) then 
+		return
+	end
+	local battery = db.actor:object("wpn_upd")
+	axr_battery.updateBatteryCondition(battery,power,"gei")
 end
 
 function use_tracker(obj,target)
@@ -936,32 +890,15 @@ function use_tracker(obj,target)
 	-- Show npc markers
 	squad_smart.active_tracker(period,all,target)
 	
-	-- Consume power
-	local battery = db.actor:object("wpn_upd")
-	axr_battery.updateBatteryCondition(battery,power,"gps")
-	
 	-- Play sound
 	trx_utils.play_sound("interface\\inv_gps")
-end
-
-function use_compression_bag(obj)
-	-- Compression bag
-	for i=1,65535 do
-		local s = alife():object(i)
-		if s then
-			local o = level.object_by_id(s.id)
-			if o  then
-				local slbag = o:section()
-				if slbag == "ph_sleepbag" and o:position():distance_to(db.actor:position()) < 1 then
-					alife():create("itm_sleepbag",db.actor:position(),0,0,0)
-					alife():release(s)
-					alife():release(alife():object(obj:id()))
-					actor_effects.use_item("itm_sleepbag")
-					break
-				end
-			end
-		end
+	
+	-- Consume power
+	if (axr_main.config:r_value("mm_options","enable_use_battery",1,false) ~= true) then 
+		return
 	end
+	local battery = db.actor:object("wpn_upd")
+	axr_battery.updateBatteryCondition(battery,power,"gps")
 end
 
 function use_deployable_mgun(obj)
@@ -1123,7 +1060,7 @@ function check_actor_backpack()
 		return
 	end
 
-	local se_obj = alife():object(id)
+	local se_obj = alife_object(id)
 	if not (se_obj) then 
 		return 
 	end

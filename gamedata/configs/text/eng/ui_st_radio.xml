@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<string_table>
+
+	<!-- PDA -->
+	<string id="pda_btn_radio">
+		<text>Radio</text>
+	</string>
+	<string id="pda_btn_radio_title">
+		<text>Radio</text>
+	</string>
+	<string id="pda_btn_plyr_title">
+		<text>Music Player</text>
+	</string>
+	<string id="pda_btn_radio_hint">
+		<text>Show the radio and music player</text>
+	</string>
+	<string id="ui_st_radio_playing">
+		<text>Playing</text>
+	</string>
+	<string id="ui_st_radio_playlist">
+		<text>Playlist</text>
+	</string>
+	<string id="ui_st_radio_loop_off">
+		<text>Loop Off</text>
+	</string>
+	<string id="ui_st_radio_loop_all">
+		<text>Loop All</text>
+	</string>
+	<string id="ui_st_radio_loop_one">
+		<text>Loop One</text>
+	</string>
+	<string id="ui_st_radio_shuffle_on">
+		<text>Shuffle On</text>
+	</string>
+	<string id="ui_st_radio_shuffle_off">
+		<text>Shuffle Off</text>
+	</string>
+	
+</string_table>

@@ -1,8 +1,11 @@
 -- =======================================================================================
--- Modified by Tronex
--- Added new gameplay options (Last Day 2018/2/18)
+-- Tronex - Last Day (2018/2/18):
+-- Added new gameplay options
 -- AI die in anomalies, debug_hud_map, Full A-Life Simulation, Thirst Simulation, art_degrade, reward multi-pliers
 -- Removed hardcore save options from appearing, instead they can be controlled from axr_options.ltx (Anomaly 2018/7/17)
+-- =======================================================================================
+-- Tronex - Anomaly (2018/8/31):
+-- Fixed few bugged options + cleaning
 -- =======================================================================================
 
 -- Extensions to Game Options
@@ -12,9 +15,8 @@
 
 function opt_menu_on_init(menu)
 	-- simply add new line and a ui_mm_<name> in ui_st_mm.xml to create a new option. Script automatically does the rest for you
-	-- debug_hud
     
-	if DEV_DEBUG then
+	if DEV_DEBUG then -- Options will only appear in Debug mode
 		-- Debug HUD
 		menu.gameplay_options["debug_hud"]			= {default=false, 	debug_only=true, 	typ="check", on_accept=function(handler,optMgr,ctrl)
 			if (level.present() and xrs_debug_tools) then
@@ -35,23 +37,26 @@ function opt_menu_on_init(menu)
 					ui_map_debug_ex.deactivate_feature()
 				end
 			end
-		end}	
+		end}
+		
+		-- Autosave (Debug mode)
+		menu.gameplay_options["debug_autosave"]		= {default=false, 	debug_only=true, 	typ="check"}
+
+		menu.gameplay_options["debug_autosave_interval"]	= {default=1, 	    debug_only=true, 	typ="list", list={1,5,10,15,20}}
 	end
 	
     -- Language
-	menu.gameplay_options["localization"] = 	{default = "eng",	debug_only = false,	typ = "list",	list = {"eng","rus"},
-		on_accept=function(handler,optMgr,ctrl)
-			local language = ctrl:GetText()
-			if (language and language ~= "") then
-				local loc_ini = ini_file_ex("localization.ltx",true)
-				if (loc_ini:r_value("string_table","language") ~= language) then
-					loc_ini:w_value("string_table","language",language)
-					loc_ini:save()
-					menu.b__require_restart = true
-				end
+	menu.gameplay_options["localization"] = 	{default = "eng",	debug_only = false,	typ = "list",	list = {"eng","rus"}, on_accept=function(handler,optMgr,ctrl)
+		local language = ctrl:GetText()
+		if (language and language ~= "") then
+			local loc_ini = ini_file_ex("localization.ltx",true)
+			if (loc_ini:r_value("string_table","language") ~= language) then
+				loc_ini:w_value("string_table","language",language)
+				loc_ini:save()
+				menu.b__require_restart = true
 			end
 		end
-	}
+	end}
 	
 	-- AI die in anomalies
 	menu.gameplay_options["ai_die_in_anomaly"] = {default = false, debug_only = false, typ = "check", on_accept = function(handler,optMgr,ctrl)
@@ -112,38 +117,47 @@ function opt_menu_on_init(menu)
 	-- Dynamic Anomalies
 	menu.gameplay_options["dynamic_anomalies"]		= {default=false, 	debug_only=false, 	typ="check"}
 	
+	-- Dynamic relations
+	menu.gameplay_options["dynamic_relations"]		= {default=true, 	debug_only=false, 	typ="check"}
+	
 	-- Disguise feature
 	menu.gameplay_options["disguise_system"]	= {default=true, debug_only=false, typ="check", on_accept=function(handler,optMgr,ctrl)
-		if (ctrl:GetCheck()) then
-			disguise.activate_feature()
-		else
-			disguise.deactivate_feature()
+		if (level.present() and disguise) then
+			if (ctrl:GetCheck()) then
+				disguise.activate_feature()
+			else
+				disguise.deactivate_feature()
+			end
 		end
 	end}
 	
 	-- Autosave every 15 minutes
 	menu.gameplay_options["autosave_every_15_min"]	= {default=true, debug_only=false, typ="check", on_accept=function(handler,optMgr,ctrl)
-		if (ctrl:GetCheck()) then
-			autosave_on_interval.activate_feature()
-		else
-			autosave_on_interval.deactivate_feature()
+		if (level.present() and autosave_on_interval) then
+			if (ctrl:GetCheck()) then
+				autosave_on_interval.activate_feature()
+			else
+				autosave_on_interval.deactivate_feature()
+			end
 		end
 	end}
 	
     -- Show enemy health
 	menu.gameplay_options["show_enemy_health"]	= {default=false, 	debug_only=false, 	typ="check"}	
-	
-	-- Rob money on sleeping
-	--menu.gameplay_options["robbery_at_sleep_option"] = {default=true,  debug_only=false, 	typ="check"}
-   
+	  
 	-- Show reputation in tips
 	menu.gameplay_options["show_tip_reputation_option"] = {default=true,  debug_only=false, 	typ="check"}		
     
 	-- Drop outfits on loot
-	menu.gameplay_options["outfit_drop"]		= {default=true, 	debug_only=false, 	typ="check"}		
-    
-	-- Open all transitions
-	menu.gameplay_options["transitions_closed_disable"]	= {default=false, 	debug_only=false, 	typ="check"}
+	menu.gameplay_options["outfit_drop"]		= {default=true, 	debug_only=false, 	typ="check", on_accept=function(handler,optMgr,ctrl)
+		if (level.present() and outfit_marauder) then
+			if (ctrl:GetCheck()) then
+				outfit_marauder.activate_feature()
+			else
+				outfit_marauder.deactivate_feature()
+			end
+		end
+	end}		
     
 	-- Loot money from corpses
 	menu.gameplay_options["lootmoney_option"] = {default=false,  debug_only=false, 	typ="check"}
@@ -170,16 +184,13 @@ function opt_menu_on_init(menu)
 	menu.gameplay_options["use_battery"]		= {default=true, 	debug_only=false, 	typ="check"}
 	
 	-- Enable HUD masks
-	
 	menu.gameplay_options["mask_hud"]			= {default=true, 	debug_only=false, 	typ="check"}
+	
 	-- Enchanted shoot effects
 	menu.gameplay_options["shoot_effect"]		= {default=true, 	debug_only=false, 	typ="check"}
 
 	-- Enable actor animations
 	menu.gameplay_options["extra_animations"]	= {default=true, 	debug_only=false, 	typ="check"}
-
-	-- Autosave (Debug mode)
-	menu.gameplay_options["debug_autosave"]		= {default=false, 	debug_only=true, 	typ="check"}
 
 	-- Disassemble on CTRL button
     menu.gameplay_options["awr_disassembly"] 	= {default=true,  debug_only=false, 	typ="check"}
@@ -187,15 +198,12 @@ function opt_menu_on_init(menu)
 	-- Thirst simulation
 	menu.gameplay_options["thirst_option"] = {default=true,  debug_only=false, 	typ="check"}
 	
-	-- release dropped items 
+	-- Release dropped items 
 	menu.gameplay_options["release_dropped_items"]	= {default=true, 	debug_only=false, 	typ="check"}
     
-	-- Money rewards multiplier
-	menu.gameplay_options["multi_rewards_money"]			= {default=1.0, 	debug_only=true, 	typ="list", list={0.50,0.75,1.0,1.25,1.5,2.0,3.0}}
-	
-	-- Earned goodwill multiplier
-	menu.gameplay_options["multi_rewards_goodwill"]			= {default=1.0, 	debug_only=true, 	typ="list", list={0.50,0.75,1.0,1.25,1.5,2.0,3.0}}
-	
+	-- Reset goodwill on war
+	menu.gameplay_options["war_goodwill_reset"]	= {default=true, 	debug_only=false, 	typ="check"}
+    
 	-- Dynamic news
 	menu.gameplay_options["dynamic_news"]		= {default=true, 	debug_only=false, 	typ="check", on_accept=function(handler,optMgr,ctrl)
 		if (level.present() and dynamic_news_manager) then 
@@ -231,10 +239,8 @@ function opt_menu_on_init(menu)
 	
 	-- I do not recommend allowing a factor greater than 1.5 because there are not enough smart terrain jobs
 	menu.gameplay_options["alife_mutant_pop"]			= {default=1.0, 	debug_only=false, 	typ="list", list={0.25,0.50,0.75,1.00,1.25,1.50}}
+	
 	menu.gameplay_options["alife_stalker_pop"]			= {default=0.75, 	debug_only=false, 	typ="list", list={0.25,0.50,0.75,1.00,1.25,1.50}}
-	if DEV_DEBUG then
-    menu.gameplay_options["debug_autosave_interval"]	= {default=1, 	    debug_only=false, 	typ="list", list={1,5,10,15,20}}
-	end
 	
 	-- Exclusion radius
 	-- note: shouldn't be greater than switch distance or no simulation squads will come online. Instead it should create a border zone between excl_dist and switch_distance where stuff can come online
@@ -243,6 +249,7 @@ function opt_menu_on_init(menu)
 	
 	-- Quicksave count
 	menu.gameplay_options["quicksave_cnt"]		= {default=3, 		debug_only=false, 	typ="list", list={1,5,10,15,20}}
+	
 	
 	if (db.actor) then -- Options will only show while in-game
 	
@@ -364,7 +371,7 @@ function get_character_icon_list()
 	local n = ini:section_exist(section) and ini:line_count(section) or 0
 	for i=0, n-1 do
 		local result, id, value = ini:r_line(section,i,"","" )
-		table.insert(t,id)
+		t[#t+1] = id
 	end
 
 	return t

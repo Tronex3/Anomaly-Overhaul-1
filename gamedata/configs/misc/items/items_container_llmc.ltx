@@ -15,6 +15,9 @@ inv_grid_width			                           = 1
 inv_grid_height			                           = 2
 inv_grid_x			                               = 0
 inv_grid_y			                               = 27
+1icon_layer_x       	                           = 0
+1icon_layer_y      		                           = 170
+1icon_layer_scale   	                           = 0.45
 repair_part_bonus	 	                           = 0.10
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
@@ -39,14 +42,14 @@ description			                               = st_lead_box_closed_descr
 inv_name			                               = st_lead_box_closed_name
 inv_name_short		                               = st_lead_box_closed_name
 visual				                               = dynamics\equipments\lead_box_closed.ogf
+can_trade 			                               = false
+belt				                               = false
 inv_grid_width			                           = 1
 inv_grid_height			                           = 2
 inv_grid_x			                               = 1
 inv_grid_y			                               = 27
 
 [lead_box_closed_dummy]:lead_box_closed
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
 
 ;;----===============================================================================================
 
@@ -54,8 +57,6 @@ inv_grid_y			                               = 27
 description			                               = st_lead_box_half_descr
 inv_name			                               = st_lead_box_half_name
 inv_name_short		                               = st_lead_box_half_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
 
 [lead_box_half_dummy]:lead_box_half
 inv_grid_x			                               = 22
@@ -63,691 +64,368 @@ inv_grid_y			                               = 42
 
 ;;----===============================================================================================
 ;;-----------------------------LEAD BOX WITH ARTEFACT----------------------------------------------
-
 ;;----===============================================================================================
 
 [af_misery_bread_lead_box]:lead_box_closed
 inv_weight			                               = 2.42;;--10.721 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 quest_item 			                               = true
 description			                               = st_af_misery_bread_lead_box_descr
 inv_name			                               = st_af_misery_bread_lead_box_name
 inv_name_short			                           = st_af_misery_bread_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect 		                       = af_misery_bread_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_misery_bread
 
 ;;----===============================================================================================
 
 [af_medusa_lead_box]:lead_box_closed
 inv_weight			                               = 5.19;;--10.13 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_medusa_lead_box_descr
 inv_name			                               = st_af_medusa_lead_box_name
 inv_name_short			                           = st_af_medusa_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect		                       = af_medusa_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_medusa
 
 ;;----===============================================================================================
 
 [af_cristall_flower_lead_box]:lead_box_closed
 inv_weight			                               = 6.59;;--12.26 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_cristall_flower_lead_box_descr
 inv_name			                               = st_af_cristall_flower_lead_box_name
 inv_name_short			                           = st_af_cristall_flower_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect 		                       = af_cristall_flower_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_cristall_flower
 
 ;;----===============================================================================================
 
 [af_night_star_lead_box]:lead_box_closed
 inv_weight			                               = 6.5;;--12.12 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_night_star_lead_box_descr
 inv_name			                               = st_af_night_star_lead_box_name
 inv_name_short			                           = st_af_night_star_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect 		                       = af_night_star_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_night_star
 
 ;;----===============================================================================================
 
 [af_vyvert_lead_box]:lead_box_closed
 inv_weight			                               = 6.6;;--12.27 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_vyvert_lead_box_descr
 inv_name			                               = st_af_vyvert_lead_box_name
 inv_name_short			                           = st_af_vyvert_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect 		                       = af_vyvert_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_vyvert
 
 ;;----===============================================================================================
 
 [af_gravi_lead_box]:lead_box_closed
 inv_weight			                               = 2.79	;8.16;;--12.36 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_gravi_lead_box_descr
 inv_name			                               = st_af_gravi_lead_box_name
 inv_name_short			                           = st_af_gravi_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect                               = af_gravi_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_gravi
 
 ;;----===============================================================================================
 
 [af_gold_fish_lead_box]:lead_box_closed
 inv_weight			                               = 2.59	;8.56;;--12.97 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_gold_fish_lead_box_descr
 inv_name			                               = st_af_gold_fish_lead_box_name
 inv_name_short			                           = st_af_gold_fish_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect                               = af_gold_fish_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_gold_fish
 
 ;;----===============================================================================================
 
 [af_cristall_lead_box]:lead_box_closed
 inv_weight			                               = 4.58;;--9.21 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_cristall_lead_box_descr
 inv_name			                               = st_af_cristall_lead_box_name
 inv_name_short			                           = st_af_cristall_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect		                       = af_cristall_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_cristall
 
 ;;----===============================================================================================
 
 [af_fireball_lead_box]:lead_box_closed
 inv_weight			                               = 4.74;;--9.45 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_fireball_lead_box_descr
 inv_name			                               = st_af_fireball_lead_box_name
 inv_name_short			                           = st_af_fireball_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect                               = af_fireball_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_fireball
 
 ;;----===============================================================================================
 
 [af_dummy_glassbeads_lead_box]:lead_box_closed
 inv_weight			                               = 4.78;;--9.51 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_dummy_glassbeads_lead_box_descr
 inv_name			                               = st_af_dummy_glassbeads_lead_box_name
 inv_name_short			                           = st_af_dummy_glassbeads_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect                               = af_dummy_glassbeads_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_dummy_glassbeads
 
 ;;----===============================================================================================
 
 [af_eye_lead_box]:lead_box_closed
 inv_weight			                               = 4.84;;--9.6 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_eye_lead_box_descr
 inv_name			                               = st_af_eye_lead_box_name
 inv_name_short			                           = st_af_eye_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect                               = af_eye_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_eye
 
 ;;----===============================================================================================
 
 [af_fire_lead_box]:lead_box_closed
 inv_weight			                               = 4.88;;--9.66 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_fire_lead_box_descr
 inv_name			                               = st_af_fire_lead_box_name
 inv_name_short			                           = st_af_fire_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect                               = af_fire_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_fire
 
 ;;----===============================================================================================
 
 [af_blood_lead_box]:lead_box_closed
 inv_weight			                               = 3.25;;--7.20 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_blood_lead_box_descr
 inv_name			                               = st_af_blood_lead_box_name
 inv_name_short			                           = st_af_blood_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect                               = af_blood_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_blood
 
 ;;----===============================================================================================
 
 [af_mincer_meat_lead_box]:lead_box_closed
 inv_weight			                               = 3.27;;--7.22 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_mincer_meat_lead_box_descr
 inv_name			                               = st_af_mincer_meat_lead_box_name
 inv_name_short			                           = st_af_mincer_meat_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect                               = af_mincer_meat_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_mincer_meat
 
 ;;----===============================================================================================
 
 [af_soul_lead_box]:lead_box_closed
 inv_weight			                               = 3.33;;--7.32 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_soul_lead_box_descr
 inv_name			                               = st_af_soul_lead_box_name
 inv_name_short			                           = st_af_soul_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect                               = af_soul_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_soul
 
 ;;----===============================================================================================
 
 [af_fuzz_kolobok_lead_box]:lead_box_closed
 inv_weight			                               = 3.34;;--7.36 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_fuzz_kolobok_lead_box_descr
 inv_name			                               = st_af_fuzz_kolobok_lead_box_name
 inv_name_short			                           = st_af_fuzz_kolobok_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect                               = af_fuzz_kolobok_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_fuzz_kolobok
 
 ;;----===============================================================================================
 
 [af_baloon_lead_box]:lead_box_closed
 inv_weight			                               = 3.4;;--7.42 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_baloon_lead_box_descr
 inv_name			                               = st_af_baloon_lead_box_name
 inv_name_short			                           = st_af_baloon_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect                               = af_baloon_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_baloon
 
 ;;----===============================================================================================
 
 [af_glass_lead_box]:lead_box_closed
 inv_weight			                               = 3.38;;--7.39 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_glass_lead_box_descr
 inv_name			                               = st_af_glass_lead_box_name
 inv_name_short			                           = st_af_glass_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect                               = af_glass_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_glass
 
 ;;----===============================================================================================
 
 [af_electra_sparkler_lead_box]:lead_box_closed
 inv_weight			                               = 2.24;;--5.66 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_electra_sparkler_lead_box_descr
 inv_name			                               = st_af_electra_sparkler_lead_box_name
 inv_name_short			                           = st_af_electra_sparkler_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect                               = af_electra_sparkler_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_electra_sparkler
 
 ;;----===============================================================================================
 
 [af_electra_flash_lead_box]:lead_box_closed
 inv_weight			                               = 2.25;;--5.68 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_electra_flash_lead_box_descr
 inv_name			                               = st_af_electra_flash_lead_box_name
 inv_name_short			                           = st_af_electra_flash_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect                               = af_electra_flash_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_electra_flash
 
 ;;----===============================================================================================
 
 [af_electra_moonlight_lead_box]:lead_box_closed
 inv_weight			                               = 2.26;;--5.70 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_electra_moonlight_lead_box_descr
 inv_name			                               = st_af_electra_moonlight_lead_box_name
 inv_name_short			                           = st_af_electra_moonlight_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect                               = af_electra_moonlight_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_electra_moonlight
 
 ;;----===============================================================================================
 
 [af_dummy_battery_lead_box]:lead_box_closed
 inv_weight			                               = 2.39;;--5.90 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_dummy_battery_lead_box_descr
 inv_name			                               = st_af_dummy_battery_lead_box_name
 inv_name_short			                           = st_af_dummy_battery_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect                               = af_dummy_battery_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_dummy_battery
 
 ;;----===============================================================================================
 
 [af_dummy_dummy_lead_box]:lead_box_closed
 inv_weight			                               = 2.4;;--5.913 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_dummy_dummy_lead_box_descr
 inv_name			                               = st_af_dummy_dummy_lead_box_name
 inv_name_short			                           = st_af_dummy_dummy_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect                               = af_dummy_dummy_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_dummy_dummy
 
 ;;----===============================================================================================
 
 [af_ice_lead_box]:lead_box_closed
 inv_weight			                               = 2.56;;--6.147 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_ice_lead_box_descr
 inv_name			                               = st_af_ice_lead_box_name
 inv_name_short			                           = st_af_ice_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect                               = af_ice_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_ice
 
 ;;----===============================================================================================
 
 [af_compass_lead_box]:lead_box_closed
 inv_weight			                               = 5.58;;--10.721 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 quest_item 			                               = true
 description			                               = st_af_compass_lead_box_descr
 inv_name			                               = st_af_compass_lead_box_name
 inv_name_short			                           = st_af_compass_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect 		                       = af_compass_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_compass
 
 ;;----===============================================================================================
 
 [af_oasis_heart_lead_box]:lead_box_closed
 inv_weight			                               = 4.55;;--9.174 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 quest_item 			                               = true
 description			                               = st_af_oasis_heart_lead_box_descr
 inv_name			                               = st_af_oasis_heart_lead_box_name
 inv_name_short			                           = st_af_oasis_heart_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect 		                       = af_oasis_heart_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_oasis_heart
 
 ;;----===============================================================================================
 
 [jup_b1_half_artifact_lead_box]:lead_box_closed
 inv_weight			                               = 5.7;;--10.908 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 quest_item 			                               = true
 description			                               = st_jup_b1_half_artifact_lead_box_descr
 inv_name			                               = st_jup_b1_half_artifact_lead_box_name
 inv_name_short			                           = st_jup_b1_half_artifact_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect                               = jup_b1_half_artifact_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = jup_b1_half_artifact
 
 ;;----===============================================================================================
 
 [af_quest_b14_twisted_lead_box]:lead_box_closed
 inv_weight			                               = 5.17;;--10.104 W;;--
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 quest_item 			                               = true
 description			                               = st_af_quest_b14_twisted_lead_box_descr
 inv_name			                               = st_af_quest_b14_twisted_lead_box_name
 inv_name_short			                           = st_af_quest_b14_twisted_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect 		                       = af_control_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_quest_b14_twisted
 
 ;;----===============================================================================================
 
 [af_black_spray_lead_box]:lead_box_closed
 inv_weight			                               = 2.14
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_black_spray_lead_box_descr
 inv_name			                               = st_af_black_spray_lead_box_name
 inv_name_short			                           = st_af_black_spray_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect 		                       = af_black_spray_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_black_spray
 
 ;;----===============================================================================================
 
 [af_bracelet_lead_box]:lead_box_closed
 inv_weight			                               = 2.24
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_bracelet_lead_box_descr
 inv_name			                               = st_af_bracelet_lead_box_name
 inv_name_short			                           = st_af_bracelet_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect 		                       = af_bracelet_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_bracelet
 
 ;;----===============================================================================================
 
-[af_death_lamp_lead_box]:af_death_lamp_af_iam ;;-- fix
+[af_death_lamp_lead_box]:af_death_lamp_af_iam ;;-- special case
 visual				                               = dynamics\equipments\lead_box_closed.ogf
 inv_weight			                               = 10.24
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
+cost                                               = 0
 description			                               = st_af_death_lamp_lead_box_descr
 inv_name			                               = st_af_death_lamp_lead_box_name
 inv_name_short			                           = st_af_death_lamp_lead_box_name
 inv_grid_width			                           = 1
 inv_grid_height			                           = 2
-inv_grid_x			                               = 1
+inv_grid_x			                               = 0
 inv_grid_y			                               = 27
-;hit_absorbation_sect 		                       = af_death_lamp_absorbation
+1icon_layer_x       	                           = 0
+1icon_layer_y      		                           = 170
+1icon_layer_scale   	                           = 0.45
+1icon_layer        	                               = af_death_lamp
+can_trade 			                               = false
+belt				                               = false
+health_restore_speed 	                           = 0
+radiation_restore_speed                            = 0.00013
+satiety_restore_speed 	                           = 0
+power_restore_speed 	                           = 0
+bleeding_restore_speed 	                           = 0
+additional_inventory_weight		                   = 0
+additional_inventory_weight2	                   = 0
+hit_absorbation_sect	                           = af_base_absorbation
 
 ;;----===============================================================================================
 
 [af_empty_lead_box]:lead_box_closed
 inv_weight			                               = 1.99
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_empty_lead_box_descr
 inv_name			                               = st_af_empty_lead_box_name
 inv_name_short			                           = st_af_empty_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect 		                       = af_empty_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_empty
 
 ;;----===============================================================================================
 
 [af_full_empty_lead_box]:lead_box_closed
 inv_weight			                               = 8.35
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_full_empty_lead_box_descr
 inv_name			                               = st_af_full_empty_lead_box_name
 inv_name_short			                           = st_af_full_empty_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect 		                       = af_full_empty_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_full_empty
 
 ;;----===============================================================================================
 
 [af_itcher_lead_box]:lead_box_closed
 inv_weight			                               = 2.04
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_itcher_lead_box_descr
 inv_name			                               = st_af_itcher_lead_box_name
 inv_name_short			                           = st_af_itcher_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect 		                       = af_itcher_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_itcher
 
 ;;----===============================================================================================
 
 [af_lobster_eyes_lead_box]:lead_box_closed
 inv_weight			                               = 4.99
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_lobster_eyes_lead_box_descr
 inv_name			                               = st_af_lobster_eyes_lead_box_name
 inv_name_short			                           = st_af_lobster_eyes_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect 		                       = af_lobster_eyes_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_lobster_eyes
 
 ;;----===============================================================================================
 
 [af_pin_lead_box]:lead_box_closed
 inv_weight			                               = 2.24
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_pin_lead_box_descr
 inv_name			                               = st_af_pin_lead_box_name
 inv_name_short			                           = st_af_pin_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect 		                       = af_pin_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_pin
 
 ;;----===============================================================================================
 
 [af_ring_lead_box]:lead_box_closed
 inv_weight			                               = 2.34
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_ring_lead_box_descr
 inv_name			                               = st_af_ring_lead_box_name
 inv_name_short			                           = st_af_ring_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect 		                       = af_ring_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_ring
 
 ;;----===============================================================================================
 
 [af_sponge_lead_box]:lead_box_closed
 inv_weight			                               = 3.49
-cost				                               = 0
-can_trade 			                               = false
-belt				                               = false
 description			                               = st_af_sponge_lead_box_descr
 inv_name			                               = st_af_sponge_lead_box_name
 inv_name_short			                           = st_af_sponge_lead_box_name
-inv_grid_x			                               = 1
-inv_grid_y			                               = 27
-;hit_absorbation_sect 		                       = af_sponge_absorbation
-attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
-attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
+1icon_layer        	                               = af_sponge

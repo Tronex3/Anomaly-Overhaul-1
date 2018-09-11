@@ -75,10 +75,10 @@
 		%c[0,0,255,30] • %c[0,140,140,140] usable for cooking meats of all mutants</text>
 	</string>
 	
-	<string id="st_box_matches_1">
+	<string id="st_box_matches">
 		<text>Matchbox</text>
 	</string>
-	<string id="st_box_matches_1_descr">
+	<string id="st_box_matches_descr">
 		<text>A box of matches is the second most important item in the Zone after a weapon. With the help of matches, a fire can be created, a light can be passed to a friend, and small spaces can be illuminated. This particular box was produced in an unknown underground factory in the roundabouts of the Zone, therefore high quality is not to be expected, though the price is not high, either. The box has been permanently crumpled, crumbling sulfur and broken wet matches. Only a quarter of its contents remains usable. Even so, lighting a fire or a cigarette is very difficult if using the matchbox - thus, stalkers tend to purchase a more expensive but practical lighter.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,100,100,255] • %c[0,140,140,140] everyday item\n

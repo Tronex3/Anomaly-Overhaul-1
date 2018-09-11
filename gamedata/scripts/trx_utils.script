@@ -18,11 +18,18 @@ local clr_table = {
 	["green"]  = {0,51,255,102},
 	["yellow"] = {0,250,250,0},
 	
+	-- Colors used in encyclopedia
 	["e_green"] = {0,56,209,115},
 	["e_blue"] = {0,56,166,209},
 	["e_orange"] = {0,209,209,56},
 	["e_gray"] = {0,170,170,170},
-	["e_white"] = {0,250,250,250}
+	["e_white"] = {0,250,250,250},
+	
+	-- Strong
+	["s_green"]  = {0,0,250,0},
+	["s_yellow"] = {0,250,250,0},
+	["s_orange"] = {0,250,150,0},
+	["s_red"]    = {0,250,0,0}
 }
 
 function get_clr (str , code)
@@ -51,42 +58,18 @@ function play_sound (path, vol)
 	
 	local snd = sound_object(path)
 	if snd then
-		--snd:play(db.actor, 0, sound_object.s2d)
-		snd:play_no_feedback(db.actor, sound_object.s2d, 0, vector(), vol or 1)
-		--snd.volume = vol or 1
+		snd:play(db.actor, 0, sound_object.s2d)
+		--snd:play_no_feedback(db.actor, sound_object.s2d, 0, vector(), vol or 1)
+		snd.volume = vol or 1
 	end
 end
 
-function get_nearby_campfire (dist, result)
-
--- Rule: search for available campfires in a radius of (dist)
--- Input: [1] searching radius in meters (float) | [2] return type (boolean)
--- Output: if a nearby campfire is found, return true or the campfire object (controlled by "result")
-
-	for i=1,65535 do
-		local se = alife_object(i)
-		if se then
-			local obj = level.object_by_id(se.id)
-			if obj then
-				local cf = obj:get_campfire()
-				if cf and (obj:position():distance_to(db.actor:position()) <= dist) then
-					--printf("TRX - get_nearby_campfire | found campfire in a radius of: " .. obj:position():distance_to(db.actor:position()) .. " | id: " .. obj:id())
-					if result then
-						return obj
-					else
-						return true
-					end
-				end
-			end
+function set_msg (str, ignore)
+	if (not ignore) then
+		local hud = ActorMenu.get_actor_menu()
+		if (hud and hud:IsShown()) then 
+			hud:HideDialog()
 		end
-	end
-	return false
-end
-
-function set_msg (str)
-	local hud = ActorMenu.get_actor_menu()
-	if (hud and hud:IsShown()) then 
-		hud:HideDialog()
 	end
 
 	local text = game.translate_string(str)
@@ -123,7 +106,7 @@ function collect_ini_sections (path)
 			-- Find tag			
 			if line:sub(1, 1) == "[" then
 				currentTag = line:gsub('%[(.*)%]%:.*','%1')
-				table.insert(tab, currentTag)						
+				tab[#tab+1] = currentTag
 			end	
 
 		end
@@ -209,6 +192,48 @@ function hide_menu()
 		hud:HideActorMenu()
 	end
 end
+
+function adjust_ui(ui)
+	local rw = 1024/(device().width)
+	local rh = 768/(device().height)
+	local pos = ui:GetWndPos()
+	local w = ui:GetWidth()
+	local h = ui:GetHeight()
+	--printf("TRX adjust_ui | width ratio: " .. rw .. " - height ratio: " .. rh .. " - pos: " .. pos.x .. " " .. pos.y .. " - w: " .. w .. " - h: " .. h)
+	
+	ui:SetWndSize(vector2():set( w*rw , h*rh ))
+	ui:SetWndPos(vector2():set( pos.x*rw , pos.y*rh ))
+end
+
+function adjust_main_ui(ui, only_pos)
+	local rw = 1024/(device().width)
+	local rh = 768/(device().height)
+	local pos = ui:GetWndPos()
+	local w = ui:GetWidth()
+	local h = ui:GetHeight()
+	--printf("TRX adjust_main_ui | width ratio: " .. rw .. " - height ratio: " .. rh .. " - pos: " .. pos.x .. " " .. pos.y .. " - w: " .. w .. " - h: " .. h)
+	
+	local _x = ((device().width - w)/2)
+	local _y = ((device().height - h)/2)
+	
+	ui:SetWndPos(vector2():set(_x*rw , _y*rh))
+	if only_pos then return end
+	ui:SetWndSize(vector2():set( w*rw , h*rh ))
+end
+
+function get_ui_settings(ico_size,_le)
+	local IsWide = (device().width / device().height > (1024/768+0.01)) and true or false
+	local IsBig = 1024/(device().width) < 0.99 and true or false
+	
+	local _le = _le or 50
+	local rw = IsBig and 1024/(device().width) or 1
+	local rh = IsBig and 768/(device().height) or 1
+	local ico_size = ico_size or 1
+	local ico_width = IsWide and rw or 1
+	
+	return ico_size, ico_width, rw, rh, _le
+end
+
 --============================================< Items >============================================--
 
 function get_item_axis (sec)
@@ -243,21 +268,45 @@ function get_item_axis (sec)
 	return a
 end
 
-function create_inv_obj (sec)
-	if sec and ini:section_exist(sec) then
+function create_inv_obj (sec,delay)
+	delay = delay or 0.05
+	local name = sec .. "_" .. tostring(math.random(1000))
+	
+	local function timer_create()
 		alife():create(sec, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+		RemoveTimeEvent("create_obj",name)
+		--printf("TRX create_inv_obj | alife object: " .. sec .. " has been created!")
+		--return true
+	end
+	
+	if sec and ini:section_exist(sec) then
+		CreateTimeEvent("create_obj",name,delay,timer_create)
 	end
 end
 
-function release_obj (obj)
+function release_obj (obj,delay)
+	delay = delay or 0.05
+	db.actor:drop_item(obj)
 	local se_obj = alife_object(obj:id())
+	local sec = obj:section()
+	local id = obj:id()
+	local name = sec .. "_" .. tostring(math.random(1000))
+	
+	local function timer_release()
+		alife():release(se_obj,true)
+		RemoveTimeEvent("release_obj",name)
+		--printf("TRX release_obj | alife object: " .. sec .. "(" .. id .. ") has been released!")
+		--return true
+	end
+	
 	if se_obj then
-		alife():release(se_obj)
+		CreateTimeEvent("release_obj",name,delay,timer_release)
 	end
 end
 
 function release_inv_obj (sec)
 	local obj = db.actor:object(sec)
+	db.actor:drop_item(obj)
 	local se_obj = alife_object(obj:id())
 	if se_obj then
 		alife():release(se_obj)
@@ -353,9 +402,8 @@ function adjust_item_charge (obj , num)
 		return false
 	end
 
-	local se_obj = alife_object(obj:id())
-	alife():release(se_obj,true)
-	alife():create(sec, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+	release_obj(obj)
+	create_inv_obj(sec)
 	--printf("TRX - adjust_charge_item | Delete old item use: " .. obj:section() .. " | Get new item use: " .. sec)
 	
 	return true
@@ -369,11 +417,12 @@ function get_item_charge (base , uses_1 , uses_2)
 -- Example: ( swiss_knife , 2 , 3 ) --> swiss_knife_5 [combine] | ( swiss_knife , 4 , -1 ) --> swiss_knife_3 [separate]
 
 	if (not base) or (not uses_1) or (not uses_2) then
-		return
+		return nil
 	end
 	
 	-- Items with charges
 	local charges = ini:r_float_ex(base,"uses_charges") or false
+	local cls_dbg = ini:r_string_ex(base,"class_dbg") or ""
 	if charges then
 		local str = string.sub(base,1,-2) -- remove last character
 		local tbl = {str}
@@ -390,7 +439,7 @@ function get_item_charge (base , uses_1 , uses_2)
 		end
 	
 	-- Items with special section name
-	elseif (string.sub(base, string.len(base)-1, string.len(base)-1) == "_") then
+	elseif (cls_dbg ~= "S_REPAIR") and (string.sub(base, string.len(base)-1, string.len(base)-1) == "_") then
 		local str = string.sub(base,1,-3) -- remove last 2 characters
 		local tbl = {str,base}
 		local n = 2

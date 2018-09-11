@@ -96,7 +96,7 @@ function awr_take_details(first_speaker, second_speaker)
 	end
 
 	for k,v in pairs(to_sell) do
-		relocate_item_section_from_actor(first_speaker, second_speaker, k, v)
+		dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, k, v)
 	end
 		
 	local result_money = t.good + t.worn + t.rusty
@@ -2380,7 +2380,7 @@ function merc_pri_grifon_mlr_task_target(task_id,field,p,tsk)
 
 			local smart = SIMBOARD.smarts_by_names["pri_b304_monsters_smart_terrain"]
 			local target_id = db.actor and utils.load_var(db.actor,"merc_pri_grifon_mlr_task_3_target_id")
-			local se_target = target_id and alife():object(target_id)
+			local se_target = target_id and alife_object(target_id)
 
 			if (se_target and smart.position:distance_to_sqr(se_target.position) > 2500) then
 				return target_id

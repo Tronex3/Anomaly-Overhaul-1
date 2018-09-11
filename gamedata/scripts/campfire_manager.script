@@ -1,0 +1,141 @@
+
+-- =======================================================================================
+-- Modified by Tronex
+-- 2018/5/22 - Restored file from LD 1.3, it will allow you to save on campfire on DX8 settings just like before.
+-- 2018/9/2 - Optimized script for less scanning
+-- =======================================================================================
+
+
+local timer = time_global()
+local item = nil
+local pre_timer = nil
+local k = 0
+local tab = 0
+
+function on_game_start()
+	RegisterScriptCallback("actor_on_item_use",item_use)
+	RegisterScriptCallback("actor_on_update",check_tab)
+end
+
+
+function item_use(obj)
+	local sec = obj:section()
+	if (sec == "matches") or string.find(sec,"box_matches") then
+		campfire_on(obj)
+	end
+end
+
+function rain_pass() -- chance of start campfire under rain
+	local rain = level.rain_factor()
+	if (rain ~= nil) and (rain > 0 and rain < 0.5) then
+		return (math.random(1,2) == 1)
+	elseif (rain > 0.5) then
+		return (math.random(1,3) == 1)
+	else
+		return true
+	end
+end
+
+
+function a_timer()
+    pre_timer = nil
+end
+ 
+function s_timer()
+	pre_timer = 1
+    local iTimer = time_global() + 30000	-- timer for save-scam blocking
+
+    local function chk_timer()
+		return time_global() > iTimer
+    end
+ 
+    level.add_call(chk_timer, a_timer)
+end
+	
+
+function campfire_on(itm)
+	if (not savegame_conditions.check_and_apply("st_ui_save")) and (not savegame_timer.check_and_apply("st_ui_save")) then -- hardcore save modes compatibility
+		local cf = bind_campfire.get_nearby_campfire(1.5,true)
+		if cf then
+					
+			save() -- save the game
+		
+			if not (cf:is_on()) then
+				if rain_pass() then
+					if (k < 1)then
+						k = k + 1
+						local text = game.translate_string("st_camp_help")	
+						SetHudMsg(text,3)
+					end
+					actor_effects.use_item("matches_script")
+					--local snd_obj = sound_object("interface\\inv_matches")
+					--snd_obj:play(db.actor,0,sound_object.s2d)
+					xr_sound.set_sound_play(db.actor:id(),"inv_matches")
+					cf:turn_on()
+				else
+					actor_effects.use_item("matches_script")
+					SetHudMsg(game.translate_string("st_fail"),3)
+				end
+				
+				if (not trx_utils.adjust_item_charge(itm,-1)) then
+					trx_utils.release_obj(itm)
+				end
+			end
+		end
+	end
+end
+
+function campfire_off()
+	local cf = bind_campfire.get_nearby_campfire(1.5,true)
+	if cf and (cf:is_on()) then
+	    actor_effects.use_item("matches_script")
+	    cf:turn_off()
+	end
+end
+
+function save()
+	local flist = getFS():file_list_open_ex("$game_saves$",	bit_or(FS.FS_ListFiles,FS.FS_RootOnly),"*".. ui_load_dialog.saved_game_extension)
+	local f_cnt = flist and flist:Size() or 0
+	
+	local inc = 0
+	if (f_cnt > 0) then
+		flist:Sort(FS.FS_sort_by_modif_down)
+	
+		for it=0, f_cnt-1 do
+			local file_name = flist:GetAt(it):NameFull():sub(0,-6):lower()
+	
+			-- grab last modified quicksave increment count
+			local d = tonumber( string.match(file_name,"campfire_save_(%d+)") )
+			if (d) then
+				inc = d
+				break 
+			end
+		end
+	end
+	
+	inc = inc >= axr_main.config:r_value("mm_options","quicksave_cnt",2,5) and 1 or inc + 1
+	if (pre_timer == nil) then
+		local comm = lanforse_extra.get_special_txt(db.actor:character_community())
+		local map = lanforse_extra.get_special_txt(level.name())
+		get_console():execute("save " .. comm .. " - " .. map .. " - campfire_" .. inc)
+		s_timer()
+	end
+	
+	if (alife_storage_manager.get_state().enable_timer_mode) then
+		savegame_timer.timer_reset() -- reset timer
+	end
+end
+
+function check_tab() 
+    local hud = get_hud() 
+    if hud:GetCustomStatic("main_task") then
+        if (tab ==0 ) then	
+            campfire_off() 
+			tab = 1
+		end
+	else
+		if (tab == 1) then
+		    tab = 0
+        end
+    end 
+end

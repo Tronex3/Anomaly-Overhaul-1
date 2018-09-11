@@ -86,15 +86,15 @@
 	</string>
 	<string id="st_mm_list_economy_desc">
 		<text>
-			%c[0,150,150,150]The Progression difficulty have a big impact on the Zone's economy and its different aspects, thus reflecting on player's progression through their game.\n \n
+			%c[0,150,150,150]The Progression difficulty has a big impact on economy and gameplay aspects, thus reflecting on player's progression through their game.\n \n
 			
-			%c[200,50,200,50]Stalker%c[0,150,150,150] difficulty is the default option.\n \n
+			%c[200,50,200,50]Stalker%c[0,150,150,150] difficulty is the default option. It offers a stable economy and fast progression.\n \n
 			
 			%c[200,200,150,50]Scavenger%c[0,150,150,150] difficulty increases trade, upgrade and repair costs. In addition, chances of discovering stashes become less. Money and loots gathered from corpses become rarer as well.
 			All taken medkits have a maximum of two uses.\n \n
 			
-			%c[200,200,50,50]Survivalist%c[0,150,150,150] is even harder: costs and expenses are higher. stashes discovery and looted money are rarer. All medkits have a single use. Maximum carry weight is reduced. Fast and backpack travel are completely disabled.
-			\nThis option is recommended for those who prefer survival experience.
+			%c[200,200,50,50]Survivalist%c[0,150,150,150] is even harder: costs and expenses are higher. Stashes discovery and looted money are rarer. All medkits have a single use. Maximum carry weight is reduced.
+			\nThis option is recommended for those who prefer punishing environment.
 		</text>
 	</string>
 	<string id="st_mm_list_difficulty_desc">
@@ -150,6 +150,12 @@
 			\n%c[200,200,200,50]• %c[0,150,150,150]In combat with enemies
 			\n%c[200,200,200,50]• %c[0,150,150,150]Under circumstances of an emission or psi-storm
 			\n \n%c[200,50,200,50]• %c[0,150,150,150]All hardcore save modes are compatible with each other.
+		</text>
+	</string>
+	<string id="st_mm_ck_routes_desc">
+		<text>
+			%c[0,150,150,150]Many levels are not accessible by default. Hidden routes can be discovered by different ways through your playthrough. 
+			\n \nEnabling this option will unlocks all levels upon starting a new game.
 		</text>
 	</string>
 	<string id="st_mm_list_hardcore_lives_desc">
@@ -236,6 +242,9 @@
 	</string>
 	<string id="st_cap_list_timer">
 		<text>Timer mode</text>
+	</string>
+	<string id="st_cap_check_routes">
+		<text>Accessible zone</text>
 	</string>
 	<string id="st_cap_list_hardcore_lives">
 		<text>Ironman lives</text>

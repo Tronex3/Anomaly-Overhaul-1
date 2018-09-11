@@ -134,7 +134,7 @@
 		
 		
 		<!-- temp -->
-		<templ_options x="0" y="0" width="704" height="160"/>
+		<templ_options x="0" y="0" width="704" height="180"/>
 		
 		<!-- Scrolls -->
 		<scroll_desc x="131" y="42" width="211" height="220" right_ident="0" left_ident="0" top_indent="0" bottom_indent="0" vert_interval="0" always_show_scroll="0"/>
@@ -185,6 +185,13 @@
 			<check_survival x="48" y="109" width="28" height="23" stretch="1">
 				<texture>ui_inGame2_checkbox</texture>
 			</check_survival>
+			
+			<cap_check_routes x="80" y="150" width="38" height="20" stretch="1">
+				<text r="170" g="170" b="170" font="letterica16" align="l" vert_align="c">st_cap_check_routes</text>
+			</cap_check_routes>		
+			<check_routes x="48" y="149" width="28" height="23" stretch="1">
+				<texture>ui_inGame2_checkbox</texture>
+			</check_routes>
 		
 		
 			<cap_check_hardcore x="297" y="30" width="32" height="20" stretch="1">
@@ -256,7 +263,7 @@
 			</frame_black>
 			
 			<cap_faction x="7" y="5" width="105" height="22">
-				<text r="190" g="190" b="190" font="letterica18"  align="c">st_mm_new_game_faction</text>
+				<text r="250" g="250" b="250" font="letterica18"  align="c">st_mm_new_game_faction</text>
 			</cap_faction>
 			
 			<scroll_faction x="11" y="42" width="278" height="338" right_ident="0" left_ident="0" top_indent="0" bottom_indent="0" vert_interval="0" always_show_scroll="0"/>
@@ -304,7 +311,7 @@
 			</frame_black>
 			
 			<cap_icon x="7" y="5" width="105" height="22">
-				<text r="190" g="190" b="190" font="letterica18"  align="c">st_mm_new_game_icon</text>
+				<text r="250" g="250" b="250" font="letterica18"  align="c">st_mm_new_game_icon</text>
 			</cap_icon>
 			
 			<scroll_icon x="11" y="42" width="150" height="460" right_ident="0" left_ident="0" top_indent="0" bottom_indent="0" vert_interval="0" always_show_scroll="0"/>

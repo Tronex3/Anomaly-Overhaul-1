@@ -2,6 +2,60 @@
 class									 = S_FOOD
 script_binding 							 = bind_item.bind
 
+;;--==========================< Guitar >=============================
+
+[guitar_a]:identity_immunities 
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+$spawn                                   = "food and drugs\guitar_a"
+cform                                    = skeleton
+class                                    = II_ATTCH
+class_dbg			                     = S_TOOL
+visual                                   = dynamics\devices\dev_guitar\dev_guitar.ogf
+cost                                     = 3220
+inv_name                                 = st_guitar_name
+inv_name_short                           = st_guitar_name
+description                              = st_guitar_descr
+inv_weight                               = 1.5
+inv_grid_width                           = 3
+inv_grid_height                          = 1
+inv_grid_x                               = 0
+inv_grid_y                               = 21
+attach_angle_offset                      = -1.651084, -1.341824, 1.200789
+attach_position_offset                   = 0.077492, -0.030020 , 0.090059
+attach_bone_name                         = bip01_l_hand
+auto_attach                              = false
+use1_functor         					 = itms_manager.menu_play
+use1_action_functor  					 = itms_manager.use_guitar
+use2_functor         		        	 = itms_manager.menu_disassemble
+use2_action_functor  		        	 = itms_manager.use_disassemble
+disassemble_parts				 		 = basic_wood,basic_wood
+
+;;--==========================< Harmonica >=============================
+
+[harmonica_a]:identity_immunities 
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+$spawn                                   = "food and drugs\harmonica_a"
+cform                                    = skeleton
+class                                    = II_ATTCH
+class_dbg			                     = S_TOOL
+visual                                   = dynamics\devices\dev_harmonica\dev_harmonica.ogf
+cost                                     = 655
+inv_name                                 = st_harmonica_name
+inv_name_short                           = st_harmonica_name
+description                              = st_harmonica_descr
+inv_weight                               = 0.35
+inv_grid_width                           = 1
+inv_grid_height                          = 1
+inv_grid_x                               = 1
+inv_grid_y                               = 4
+attach_angle_offset                      = 0.000000, -1.204452, -1.262921
+attach_position_offset                   = 0.081856, -0.035081, 0.011694
+attach_bone_name                         = bip01_l_hand
+auto_attach                              = false
+use1_functor         					 = itms_manager.menu_play
+use1_action_functor  					 = itms_manager.use_harmonica
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;	Scaner B6
@@ -133,7 +187,9 @@ inv_grid_width                           = 1
 inv_grid_height                          = 1
 inv_grid_x                               = 8
 inv_grid_y                               = 9
-
+use1_functor         		        	 = itms_manager.menu_disassemble
+use1_action_functor  		        	 = itms_manager.use_disassemble
+disassemble_parts				 		 = headlamp,basic_capacitors,basic_copper
 
 
 ;aauu? iaeucy oi?aiaaou
@@ -509,6 +565,127 @@ description                              = st_merc_fp_descr
 inv_grid_x                               = 2
 inv_grid_y                               = 4
 
+[itm_gunsmith_toolkit]:booster
+$spawn                                   = "devices\repair_kit_10"
+description                              = st_itm_gunsmith_toolkit_descr
+inv_name                                 = st_itm_gunsmith_toolkit
+inv_name_short                           = st_itm_gunsmith_toolkit
+can_trade                                = true
+quest_item                               = false
+cost                                     = 2400
+inv_weight                               = 3.65
+visual                                   = dynamics\devices\dev_instrument_1\dev_instrument_1.ogf
+inv_grid_width                           = 2
+inv_grid_height                          = 2
+inv_grid_x                               = 14
+inv_grid_y                               = 10
+repair_min_condition                     = 0.00	                                       ;Min required condition to use
+repair_max_condition                     = 0.75	                                       ;Max required condition to use
+repair_add_condition                     = 0.25	                                       ;Amount of condition added to repaired item
+repair_part_bonus                        = 0.10	                                       ;Amount bonus to add_condition if parts are used
+repair_use_parts                         = true	                                       ;Allows the use of lesser conditioned weapons to be used for parts to add overall bonus to repair
+repair_type                              = weapon	                                       ;weapon or outfit
+repair_refuse                            =	                                       ;Add sections separated by commas that cannot be repaired by this item
+repair_only                              =	                                       ;Add sections separated by commas that exclude all sections but these
+repair_parts_include                     =	                                       ;Add sections of items to include to be considered repair parts
+repair_parts_exclude                     =	                                       ;Add sections of items to exclude from being considered repair parts
+use_condition                            = true
+max_uses                                 = 3
+remove_after_use                         = false
+empty_weight                             = 1.65
+
+[itm_outfit_toolkit]:itm_gunsmith_toolkit
+description                              = st_itm_outfit_toolkit_descr
+inv_name                                 = st_itm_outfit_toolkit
+inv_name_short                           = st_itm_outfit_toolkit
+inv_weight                               = 1.65
+visual                                   = dynamics\equipments\item_sewingkit.ogf
+
+inv_grid_height                          = 1
+inv_grid_x                               = 18
+inv_grid_y                               = 23
+
+repair_type                              = outfit	                                       ;weapon or outfit
+
+max_uses                                 = 3
+empty_weight                             = 0.8
+
+[itm_repairkit_tier_1]:itm_gunsmith_toolkit
+inv_grid_x                               = 6
+inv_grid_y                               = 7
+inv_grid_width                           = 2
+inv_grid_height                          = 1
+inv_weight                               = 2.5
+
+cost                                     = 0
+visual                                   = dynamics\equipments\quest\box_toolkit_1.ogf
+
+description                              = st_itm_basickit_descr
+inv_name                                 = st_itm_repairkit_tier_1_name
+inv_name_short                           = st_itm_repairkit_tier_1_name
+
+use_condition                            = false
+
+[itm_repairkit_tier_2]:itm_repairkit_tier_1
+inv_grid_x                               = 8
+inv_grid_y                               = 7
+inv_grid_width                           = 2
+inv_grid_height                          = 1
+inv_weight                               = 3
+
+cost                                     = 0
+visual                                   = dynamics\equipments\quest\box_toolkit_2.ogf
+
+description                              = st_itm_advancedkit_descr
+inv_name                                 = st_itm_repairkit_tier_2_name
+inv_name_short                           = st_itm_repairkit_tier_2_name
+
+[itm_repairkit_tier_3]:itm_repairkit_tier_2
+inv_grid_x                               = 10
+inv_grid_y                               = 7
+inv_grid_width                           = 2
+inv_grid_height                          = 1
+inv_weight                               = 3.5
+
+cost                                     = 0
+visual                                   = dynamics\equipments\quest\box_toolkit_3.ogf
+
+description                              = st_itm_expertkit_descr
+inv_name                                 = st_itm_repairkit_tier_3_name
+inv_name_short                           = st_itm_repairkit_tier_3_name
+
+[itm_pda_common]:identity_immunities
+GroupControlSection                                = spawn_group 
+discovery_dependency                               = 
+$spawn                                             = "devices\pda"
+cform                                              = skeleton
+class                                              = S_PDA 
+class_dbg								           = S_TOOL
+description                                        = st_pda_mlr_descr
+visual                                             = dynamics\devices\dev_pda\dev_pda.ogf
+inv_weight                                         = 0.1  
+inv_name                                           = st_pda_name
+inv_name_short                                     = st_pda_name
+inv_grid_width                                     = 1
+inv_grid_height                                    = 1
+inv_grid_x                                         = 7
+inv_grid_y                                         = 3
+cost                                               = 0
+can_take                                           = true 
+can_trade                                          = true
+radius				                     		   = 68; 50
+attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
+attach_position_offset		                       = 0.096910, -0.013594, 0.107925
+attach_bone_name		                           = bip01_r_hand
+auto_attach				                           = false
+use1_functor         		             		   = itms_manager.menu_disassemble
+use1_action_functor  		             		   = itms_manager.use_disassemble
+disassemble_parts								   = basic_capacitors,basic_transistors,basic_copper,batteries_dead
+
+[itm_pda_uncommon]:itm_pda_common
+
+[itm_pda_rare]:itm_pda_uncommon
+
 [itm_backpack]:booster
 GroupControlSection                      = spawn_group
 discovery_dependency                     =
@@ -556,6 +733,37 @@ inv_grid_height                          = 2
 inv_grid_x                               = 4
 inv_grid_y                               = 39
 cost                                     = 5000
+
+[itm_sleepbag]:booster
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+$spawn                                   = "food and drugs\antirad"
+$prefetch                                = 32
+class                                    = II_ANTIR
+class_dbg								 = S_TOOL
+cform                                    = skeleton
+visual                                   = dynamics\equipments\item_sleepbag.ogf
+inv_weight                               = 2.28
+description                              = st_itm_sleepbag_descr
+inv_name                                 = st_itm_sleepbag_name
+inv_name_short                           = st_itm_sleepbag_name
+inv_grid_width		                     = 3
+inv_grid_height		                     = 2
+inv_grid_x		                         = 0
+inv_grid_y		                         = 45
+cost                                     = 1580
+eat_health                               = 0
+eat_satiety                              = 0
+eat_power                                = 0
+eat_radiation                            = 0
+eat_alcohol                              = 0
+wounds_heal_perc                         = 0
+animation_slot                           = 4
+hud                                      = wpn_vodka_hud
+placeable_section                        = ph_sleepbag	                                       ;Section of placeable physics object
+use1_functor         		        	 = itms_manager.menu_disassemble
+use1_action_functor  		        	 = itms_manager.use_disassemble
+disassemble_parts				 		 = textile_patch_m,textile_patch_m,textile_patch_b,textile_patch_b
 
 [itm_actor_backpack]:itm_backpack
 inv_name                                 = st_itm_actor_backpack_name
@@ -623,6 +831,26 @@ wounds_heal_perc                         = 0
 animation_slot                           = 4
 hud                                      = wpn_vodka_hud
 placeable_section                        = ph_tent	    
+use1_functor         		        	 = itms_manager.menu_disassemble
+use1_action_functor  		        	 = itms_manager.use_disassemble
+disassemble_parts				 		 = textile_patch_m,textile_patch_m,textile_patch_m,textile_patch_b,textile_patch_b
+
+[con_checker]:booster ;;-- (removed)
+class_dbg								 = S_TOOL
+$spawn 									 = "devices\repair_kit_10"
+can_trade								 = false
+quest_item								 = true
+visua									 = dynamics\equipments\con_checker.ogf
+inv_weight      						 = 0.01
+description								 = st_con_checker_descr
+inv_name								 = st_con_checker_name
+inv_name_short							 = st_con_checker_name
+inv_grid_width							 = 1
+inv_grid_height							 = 1
+inv_grid_x								 = 16
+inv_grid_y								 = 1
+cost									 = 3000
+repair_type								 = all    
 
 [itm_campfire]:identity_immunities	;;--fake item
 $spawn 				                               = "devices\roubles"

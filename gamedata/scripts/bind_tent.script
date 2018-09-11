@@ -4,14 +4,25 @@
 Адаптация: Deployable Tent (http://www.moddb.com/mods/call-of-chernobyl/addons/deployable-tent)
 --]]
 
+
 local ini = ini_file("plugins\\item_management\\itms_manager.ltx")
+
+-- Tent mod
 local TentBagRadius = ini:r_float_ex("tent_i_bag","unsafe_radius") or 5000
 local TentBagPlaceable = ini:r_bool_ex("tent_i_bag","use_placeable",false)
 local TentBagSections = alun_utils.collect_section(ini,"tent_i_bag_sections",true)
 
-function on_game_start()
-	RegisterScriptCallback("actor_on_item_use",item_use)
-end
+-- Sleep bag mod
+local SleepBagEnable = ini:r_bool_ex("sleeping_bag","enable",true)
+local SleepBagRadius = SleepBagEnable and ini:r_float_ex("sleeping_bag","unsafe_radius") or 5000
+local SleepBagPlaceable = SleepBagEnable and ini:r_bool_ex("sleeping_bag","use_placeable",false)
+local SleepBagGameStart = SleepBagEnable and ini:r_bool_ex("sleeping_bag","have_at_start",false)
+local SleepBagSections = SleepBagEnable and alun_utils.collect_section(ini,"sleeping_bag_sections",true)
+local SleepBagPlaceableSections = SleepBagEnable and alun_utils.collect_section(ini,"sleeping_bag_ph_sections",true)
+
+-- for m.data
+local spawned_tents = {}
+local spawned_sleepbags = {}
 
 function start_timer(obj)
 	local iTimer = time_global() + 4000
@@ -27,31 +38,68 @@ function start_timer(obj)
 end
 
 function itm_tent_func()
-		local sec = "itm_tent"
-		if (TentBagPlaceable) then
-			local pos = db.actor:position()
-			local dir = db.actor:direction()
-			pos = pos:add(dir:mul(3))
-			local ph_sec = system_ini():r_string_ex(sec,"placeable_section")
-			local se_obj = alife():create(ph_sec or "ph_tent", pos, 1, db.actor:game_vertex_id())
-			local compr = alife():create("itm_tent_bag",db.actor:position(),0,0,0)
-		else
-			local se_obj = alife():create(sec,db.actor:position(),0,0,0)
+	local sec = "itm_tent"
+	if (TentBagPlaceable) then
+		local pos = db.actor:position()
+		local dir = db.actor:direction()
+		pos = pos:add(dir:mul(3))
+		local ph_sec = system_ini():r_string_ex(sec,"placeable_section")
+		local se_obj = alife():create(ph_sec or "ph_tent", pos, 1, db.actor:game_vertex_id())
+		level.map_add_object_spot_ser(se_obj.id, "ui_pda2_actor_sleep_location", alun_utils.get_inv_name(sec))
+		spawned_tents[se_obj.id] = true
+		local compr = alife():create("itm_tent_bag",db.actor:position(),0,0,0)
+	else
+		local se_obj = alife():create(sec,db.actor:position(),0,0,0)
+	end
+	return	
+end
+
+function get_nearby_tent(dist, result)
+	for id, v in pairs(spawned_tents) do
+		local obj = level.object_by_id(id)
+		if obj and (v == true) then
+			local sec = obj:section()
+			if (sec == "ph_tent") then
+				local tent_distance = obj:position():distance_to(db.actor:position())
+				--printf("Tent found | id: " .. tostring(id) .. " | distance: " .. tostring(tent_distance))
+				if (tent_distance < dist) then
+					if (result == true) then
+						return id
+					else
+						return true
+					end
+				end
+				return false
+			end
 		end
-		return	
+	end
 end
 	
 function itm_tent_bag_func()
-	for i=1,65535 do
-		local s = alife():object(i)
-		if s then
-			local o = level.object_by_id(s.id)
-			if o  then
-				local slbag = o:section()
-				if slbag == "ph_tent" and o:position():distance_to(db.actor:position()) < 3.5 then
-					alife():create("itm_tent",db.actor:position(),0,0,0)
-					alife():release(s)
-					alife():release(alife():object(db.actor:object("itm_tent_bag"):id()))
+	local id = get_nearby_tent(3.5,true)
+	local se_obj = id and alife_object(id)
+	if se_obj then
+		alife():create("itm_tent",db.actor:position(),0,0,0)
+		alife():release(se_obj)
+		alife():release(alife_object(db.actor:object("itm_tent_bag"):id()))
+		spawned_tents[id] = nil
+	end
+end
+
+function use_compression_bag(obj_c,dist)
+	for id, v in pairs(spawned_sleepbags) do
+		local obj = level.object_by_id(id)
+		if obj and (v == true) then
+			local sec = obj:section()
+			if (sec == "ph_sleepbag") then
+				local sp_distance = obj:position():distance_to(db.actor:position())
+				--printf("Sleepbag found | id: " .. tostring(id) .. " | distance: " .. tostring(sp_distance))
+				if (sp_distance < dist) then
+					alife():create("itm_sleepbag",db.actor:position(),0,0,0)
+					alife():release(alife_object(obj_c:id()))
+					alife():release(alife_object(id))
+					spawned_sleepbags[id] = nil
+					actor_effects.use_item("itm_sleepbag")
 					break
 				end
 			end
@@ -59,9 +107,82 @@ function itm_tent_bag_func()
 	end
 end
 
-function item_use(obj)
-	if (obj:section() == "itm_tent" or obj:section() == "itm_tent_bag") then
+function get_spawned_tents()
+	return spawned_tents
+end
+
+function get_spawned_sleepbags()
+	return spawned_sleepbags
+end
+
+
+--=======================================< Callbacks >=======================================--
+
+local function actor_on_item_use(obj)
+	local sec = obj:section()
+	
+	-- Tent or Tent bag0
+	if (sec == "itm_tent") or (sec == "itm_tent_bag" and get_nearby_tent(3.5,true)) then
 		actor_effects.use_item("itm_sleepbag")
 		start_timer(obj)
 	end
+	
+	-- Sleeping bag
+	if (SleepBagEnable and SleepBagSections[sec]) then
+		if (SleepBagPlaceable) then
+			local ph_sec = ini:r_string_ex(sec,"placeable_section")
+			local se_obj = alife():create(ph_sec or "ph_sleepbag",db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id())
+			level.map_add_object_spot_ser(se_obj.id, "ui_pda2_actor_sleep_location", alun_utils.get_inv_name(sec))
+			spawned_sleepbags[se_obj.id] = true
+			local compr = alife():create("compression_bag",db.actor:position(),0,0,0)
+		else
+			local se_obj = alife():create(sec,db.actor:position(),0,0,0)
+			local hud = get_hud()
+			if (hud) then
+				hud:HideActorMenu()
+			end
+			local ui = ui_sleep_dialog.sleep_bag(se_obj,sec)
+		end
+	end
+	
+	-- Compression bag
+	if (sec == "compression_bag") then use_compression_bag(obj,1.5) end
+end
+
+local function physic_object_on_use_callback(obj,who) -- bind_physic_object use_callback
+	if (SleepBagEnable and SleepBagPlaceableSections[obj:section()]) then
+		local hud = get_hud()
+		if (hud) then
+			hud:HideActorMenu()
+		end
+		ui_sleep_dialog.sleep_bag(obj:id(),SleepBagPlaceableSections[obj:section()])
+	end
+end
+
+local function save_state(m_data)
+	m_data.spawned_tents = spawned_tents
+	m_data.spawned_sleepbags = spawned_sleepbags
+end
+
+local function load_state(m_data)
+	spawned_tents = m_data.spawned_tents or {}
+	spawned_sleepbags = m_data.spawned_sleepbags or {}
+end
+
+local function on_game_load()
+	if (SleepBagEnable and SleepBagGameStart) then
+		local sleepbag_id = utils.load_var(db.actor,"itm_sleepbag_id",nil)
+		if (not sleepbag_id) then
+			local se_obj = alife():create("itm_sleepbag",db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id(),0)
+			utils.save_var(db.actor,"itm_sleepbag_id",se_obj.id)
+		end
+	end
+end
+
+function on_game_start()
+	--RegisterScriptCallback("on_game_load",on_game_load)
+	RegisterScriptCallback("actor_on_item_use",actor_on_item_use)
+	RegisterScriptCallback("physic_object_on_use_callback",physic_object_on_use_callback)
+	RegisterScriptCallback("save_state",save_state)
+	RegisterScriptCallback("load_state",load_state)
 end

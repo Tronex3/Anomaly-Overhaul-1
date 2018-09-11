@@ -68,8 +68,8 @@
 			%c[0,250,250,250]Campfire save mode%c[0,170,170,170] prevents you from saving your progress the usual way. You can only save on nearby campfires.\n
 			\n%c[0,56,209,115]Information%c[0,170,170,170]
 			\nTo save your progress on a nearby campfire, you need a %c[0,250,250,250]Firestarter set%c[0,170,170,170] or a %c[0,250,250,250]Box of matches%c[0,170,170,170]
-			\nApproach a nearby campfire until you see a message appearing on the HUD about it, then use one of the mentioned items to save your progress.
-			\nYou can save your progress normally without campfires in underground levels.
+			\nApproach a nearby campfire until you see a message appearing on the HUD, then use one of the mentioned items to save.
+			\n \nCampfire mode is automatically disabled in underground levels due to their nature.
 		</text>
 	</string>
 	
@@ -80,7 +80,7 @@
 		<text>
 			%c[0,250,250,250]Agony mode%c[0,170,170,170] adds another layer of difficulty by preventing you from saving your progress if some critical conditions are met.\n
 			\n%c[0,56,209,115]Information%c[0,170,170,170]
-			\n%c[0,56,209,115] You can't save your progress in Agony mode if you're:
+			\nYou can't save your progress in Agony mode if you're:
 			\n%c[200,200,200,50]• %c[0,150,150,150]Injured
 			\n%c[200,200,200,50]• %c[0,150,150,150]Bleeding
 			\n%c[200,200,200,50]• %c[0,150,150,150]Irradiated
@@ -125,7 +125,7 @@
 			\nThis feature was added at much request by players to help explain features and gameplay mechanics, as well as to add a more visual representation of your progression.\n
 			\nArticles are sorted by category, with all tutorial-esque and important content being unlocked right from creating your own character.\n
 			\nWhen you unlock an article its name and category are displayed in the message, allowing you to find the content with relative ease.\n
-			\n%c[0,56,209,115]Disclaimer%c[0,170,170,170]
+			\n%c[0,209,209,56]Disclaimer%c[0,170,170,170]
 			\nFor the first time since S.T.A.L.K.E.R.: Shadow of Chernobyl a serious attempt is being made at reintroducing a complete in-game user guide to all available content.\n
 			\nAlthough this feature is mostly complete in function it is still in an early work-in-progress stage, and as such only a small percentage of articles have been written.\n
 			\nBecause of the magnitude of such a task there is much more yet to be added, with many missing and incomplete categories, and the interactive unlock system not yet being fully integrated.\n
@@ -155,7 +155,7 @@
 			\n%c[0,56,209,115]Information%c[0,170,170,170]
 			\nMany locations and entities have map spots associated with them, making it easier to read the map at a glance without having to worry about remembering tons of information.\n
 			\nYou are able to create your own custom map spots by double-clicking on the map and entering a name to be displayed when hovered over - these can be renamed or removed later by right-clicking them and selecting the appropriate context option.\n
-			\n%c[0,56,209,115]Toggles%c[0,170,170,170]
+			\n%c[0,56,166,209]Toggles%c[0,170,170,170]
 			\nAnomalous areas, important objects (traders, technicians, beds, etc.), stashes, and task waypoints can be toggled within the PDA by pressing the aptly named buttons at the top of the map tab.\n
 			\nRegardless of these settings, those which are attributed to stalkers and other moving objects are always visible on your minimap - as there is no guarantee they will remain stationary and in a single location.
 		</text>
@@ -171,7 +171,7 @@
 			\nActions which you perform throughout your playthrough are recorded and each grant a varying number of points depending on the action in question.\n
 			\nAs you accumulate more and more points your rank will gradually change as you pass through every milestone, with each requiring an additional 1,000 points on top of the requirements of its predecessor.\n
 			\nMost of these actions are logged in the statistics tab of the PDA, which also contains an in-game leaderboard that keeps track of the current top-100 highest ranking stalkers.\n
-			\n%c[0,56,209,115]Ranks%c[0,170,170,170]
+			\n%c[0,56,166,209]Ranks%c[0,170,170,170]
 			\n• Rookie: 0\n• Trainee: 1,000\n• Experienced: 3,000\n• Professional: 6,000\n• Veteran: 10,000\n• Expert: 15,000\n• Master: 21,000\n• Legend: 28,000
 		</text>
 	</string>
@@ -186,7 +186,7 @@
 			\nReputation is similar to rank but differs in that it isn't quite so linear - being able to both increase and decrease - and that it is based on your interactions with other stalkers rather than the environment.\n
 			\nThe easiest ways to increase reputation are by completing tasks, providing first-aid, and killing your faction's enemies, whilst inversely the easiest ways to lose it are by cancelling or failing tasks, and killing neutral or friendly stalkers.\n
 			\nIt should be noted that whilst it is used by some features, reputation is largely immersion-focused and should not be confused with goodwill.\n
-			\n%c[0,56,209,115]Reputations%c[0,170,170,170]
+			\n%c[0,56,166,209]Reputations%c[0,170,170,170]
 			\n• Terrible: -2,000\n• Dreary: -1,500\n• Awful: -1,000\n• Bad: -500\n• Neutral: 0\n• Good: 500\n• Great: 1,000\n• Brilliant: 1,500\n• Excellent: 2,000
 		</text>
 	</string>
@@ -203,7 +203,7 @@
 			\nInformation brokers and traders often give coordinates to stashes as a bonus payment for those who have done good work for them, whereas those in a tight pinch might try to use their own personal stashes to barter for their survival.\n
 			\nYou can create your own stashes by right-clicking and selecting the appropriate option on any backpack in your inventory.\n
 			\nStashes which you create are never looted by other stalkers, so your items will always be safe.\n
-			\n%c[0,56,209,115]Identification%c[0,170,170,170]
+			\n%c[0,56,166,209]]Identification%c[0,170,170,170]
 			\nThe type and/or status of a stash can be easily determined by looking at its icon on the map or by hovering your mouse cursor over it.\n
 			\n• Green: Untouched\n• Purple: Partially looted\n• Yellow: Player-owned\n• Red: Unique
 		</text>

@@ -1,0 +1,157 @@
+--==============================================================================================
+-- Created by Tronex
+-- 2018/8/24 - Extra options menu, accessible from the main menu
+--==============================================================================================
+
+--==============================================================================--
+-------------------------------------< GUI >--------------------------------------
+--==============================================================================--
+class "OptionsExtra" (CUIScriptWnd)
+
+function OptionsExtra:__init(owner) super()
+	self.owner = owner
+	
+	-- Prepare
+	self:SetWndRect				(Frect():set(0,0,1024,768))
+	self:Enable					(true)
+
+	local xml					= CScriptXmlInit()
+	self.xml = xml
+	xml:ParseFile				("ui_mm_opt_extra.xml")
+
+	xml:InitStatic				("background", self)
+	
+	-- Main
+	self:InitControls()
+	self:InitCallBacks()
+end
+
+function OptionsExtra:__finalize()
+
+end
+
+function OptionsExtra:InitControls()
+	local xml = self.xml
+	local x,y = 0,35
+	local offset_y = 35
+	
+	-- Background
+	--self.back					= xml:InitStatic("main_dialog:frame_black", self)
+	self.dialog					= xml:InitStatic("main_dialog:frame", self)
+	trx_utils.adjust_main_ui(self.dialog,true)
+	
+	--self.warning				= xml:InitTextWnd("main_dialog:text_warning",self.dialog)
+	--self.warning:SetText("")
+	
+	xml:InitStatic("main_dialog:cap",self.dialog)
+	
+	-- Buttons
+	self.scroll_v = xml:InitScrollView("main_dialog:scroll_v", self.dialog)
+	
+	self.templ = xml:InitStatic("main_dialog:templ",nil)
+	self.scroll_v:Clear()
+	
+	self.btn_news = xml:Init3tButton("main_dialog:btn_news" , self.templ)
+	x = (self.scroll_v:GetWidth() - self.btn_news:GetWidth())/2
+	self.btn_news:SetWndPos(vector2():set(x, y))
+	self:Register(self.btn_news, "btn_news")
+	y = y + self.btn_news:GetHeight() + offset_y
+	
+	self.btn_radio = xml:Init3tButton("main_dialog:btn_radio" , self.templ)
+	self.btn_radio:SetWndPos(vector2():set(x, y))
+	self:Register(self.btn_radio, "btn_radio")
+	y = y + self.btn_radio:GetHeight() + offset_y
+	
+	if (level.present()) then
+		self.btn_economy = xml:Init3tButton("main_dialog:btn_economy" , self.templ)
+		self.btn_economy:SetWndPos(vector2():set(x, y))
+		self:Register(self.btn_economy, "btn_economy")
+		y = y + self.btn_economy:GetHeight() + offset_y
+	end
+	
+	self.scroll_v:AddWindow(self.templ, true)
+	self.templ:SetAutoDelete(false)
+	
+	-- Back Button
+	self.btn_back = xml:Init3tButton("main_dialog:btn_back" , self.dialog)
+	self:Register(self.btn_back, "btn_back")
+end
+
+function OptionsExtra:InitCallBacks()
+	self:AddCallback("btn_news", ui_events.BUTTON_CLICKED, self.OnNewsClicked, self)
+	self:AddCallback("btn_radio", ui_events.BUTTON_CLICKED, self.OnRadioClicked, self)
+	self:AddCallback("btn_economy", ui_events.BUTTON_CLICKED, self.OnEconomyClicked, self)
+	self:AddCallback("btn_back", ui_events.BUTTON_CLICKED, self.OnBack, self)
+end
+
+--=======================================< Callbacks >=======================================--
+
+function OptionsExtra:OnNewsClicked()
+	--self.warning:SetText("")
+	local news_ui = ui_mm_opt_dynamic_news and ui_mm_opt_dynamic_news.DynamicNewsOptionsDialog(self)
+
+	if (news_ui) then
+		news_ui:ShowDialog(true)
+		--if (self:IsShown()) then
+			self:HideDialog()
+		--end
+		self:Show(false)
+	end
+end
+
+function OptionsExtra:OnRadioClicked()
+	--self.warning:SetText("")
+	local radio_ui = ui_mm_opt_radio and ui_mm_opt_radio.RadioOptionsDialog(self)
+
+	if (radio_ui) then
+		radio_ui:ShowDialog(true)
+		--if (self:IsShown()) then
+			self:HideDialog()
+		--end
+		self:Show(false)
+	end
+end
+
+function OptionsExtra:OnEconomyClicked()
+	--[[
+	if not (level.present()) then
+		printf()
+		self.warning:SetText(game.translate_string("ui_mm_opt_extra_economy_warning"))
+		return
+	end
+	--]]
+	local eco_ui = ui_mm_opt_economy and ui_mm_opt_economy.EconomyOptionsDialog(self)
+
+	if (eco_ui) then
+		eco_ui:ShowDialog(true)
+		--if (self:IsShown()) then
+			self:HideDialog()
+		--end
+		self:Show(false)
+	end
+end
+
+function OptionsExtra:OnBack()
+	--self.warning:SetText("")
+	self.owner:ShowDialog(true)
+	self.owner:Show(true)
+	if (self:IsShown()) then
+		self:HideDialog()
+	end
+	self:Show(false)
+	ui_main_menu.RemoveExtraOptionsUI()
+end
+
+function OptionsExtra:OnKeyboard(dik, keyboard_action)
+	--self.warning:SetText("")
+	local res = CUIScriptWnd.OnKeyboard(self,dik,keyboard_action)
+	if (res == false) then
+		local bind = dik_to_bind(dik)
+		if keyboard_action == ui_events.WINDOW_KEY_PRESSED then
+			if dik == DIK_keys.DIK_ESCAPE then
+				self:OnBack()
+			end
+		end
+	end
+	return res
+end

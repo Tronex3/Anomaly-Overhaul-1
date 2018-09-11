@@ -1,0 +1,113 @@
+-- ================================== Created by Tronex ==================================
+-- Last modification: 2018/5/23
+-- This script grants new lives for ironman playthroughs with enabled life cycle
+-- =======================================================================================
+
+local time_factor = 1
+local granted_lives = 0 
+local sleep_hrs = 0
+local life_cycle
+local life_feature = false
+
+function set_sleep_hrs(hrs) -- called by (ui_sleep_dialog.script)
+	sleep_hrs = sleep_hrs + hrs
+end
+
+function ironman_timer()
+	if not life_cycle then
+		return
+	end
+
+	ResetTimeEvent(0,"IronManTimer",5*time_factor) -- reset every 5 minutes
+
+	if (not db.actor) or (not USE_MARSHAL)then 
+		return true 
+	end
+
+	local s_time = level.get_start_time()
+	local seconds = tonumber(game.get_game_time():diffSec(s_time))
+	local hours = math.floor(seconds/60/60)
+	local true_hrs = hours - sleep_hrs
+	local fc = math.floor(true_hrs/life_cycle)
+	if (granted_lives < fc) then
+		local death_count = alife_storage_manager.get_state().death_count or 0
+		alife_storage_manager.get_state().death_count = death_count - 1
+		granted_lives = granted_lives + 1
+		local deaths = death_count + granted_lives
+		local deathlimit = alife_storage_manager.get_state().death_limit or 0
+		deathlimit = deathlimit + granted_lives
+		local message = "NEW LIFE GRANTED! You died " .. deaths .. " out of " .. deathlimit .. " times so far."
+		news_manager.send_tip(db.actor, message, nil, nil, 15000)
+		SetHudMsg(message, 10)
+	end
+
+	return false
+end
+
+function get_ironman_details()
+	ironman_timer()
+	local a = {}
+	a["life_cycle"] = life_cycle
+	a["life_feature"] = life_feature
+	a["granted_lives"] = granted_lives or 0
+	a["deaths"] = alife_storage_manager.get_state().death_count or 0
+	a["deathlimit"] = alife_storage_manager.get_state().death_limit or 0
+	return a
+end
+
+local function save_state(m_data)
+	--printf("SECOND WIND save 0: uuid: " .. tostring(alife_storage_manager.get_state().uuid))
+	--printf("SECOND WIND save 1: death_limit: " .. tostring(alife_storage_manager.get_state().death_limit) .. " | sleep_hrs: " .. tostring(sleep_hrs) .. " | deaths: " .. tostring(alife_storage_manager.get_state().death_count) .. " | granted_lives: " .. tostring(granted_lives) .. " | life_cycle: " .. tostring(life_cycle) .. " | life_feature: " .. tostring(life_feature))
+	if not life_cycle then
+		life_cycle = alife_storage_manager.get_state().ironman_life_cycle or 120
+		life_feature = alife_storage_manager.get_state().ironman_life_feature or false
+	end
+	--printf("SECOND WIND save 2: death_limit: " .. tostring(alife_storage_manager.get_state().death_limit) .. " | sleep_hrs: " .. tostring(sleep_hrs) .. " | deaths: " .. tostring(alife_storage_manager.get_state().death_count) .. " | granted_lives: " .. tostring(granted_lives) .. " | life_cycle: " .. tostring(life_cycle) .. " | life_feature: " .. tostring(life_feature))
+	m_data.ironman_sleep_hrs = sleep_hrs
+	m_data.ironman_granted_lives = granted_lives
+	m_data.ironman_life_cycle = life_cycle
+	m_data.ironman_life_feature = life_feature
+end
+
+local function load_state(m_data)
+	--printf("SECOND WIND load 0: uuid: " .. tostring(alife_storage_manager.get_state().uuid))
+	--printf("SECOND WIND load 1: death_limit: " .. tostring(alife_storage_manager.get_state().death_limit) .. " | sleep_hrs: " .. tostring(sleep_hrs) .. " | deaths: " .. tostring(alife_storage_manager.get_state().death_count) .. " | granted_lives: " .. tostring(granted_lives) .. " | life_cycle: " .. tostring(life_cycle) .. " | life_feature: " .. tostring(life_feature))
+	sleep_hrs = m_data.ironman_sleep_hrs or sleep_hrs
+	granted_lives = m_data.ironman_granted_lives or granted_lives
+	life_cycle = m_data.ironman_life_cycle or life_cycle or 120
+	life_feature = m_data.ironman_life_feature or life_feature
+	--printf("SECOND WIND load 2: death_limit: " .. tostring(alife_storage_manager.get_state().death_limit) .. " | sleep_hrs: " .. tostring(sleep_hrs) .. " | deaths: " .. tostring(alife_storage_manager.get_state().death_count) .. " | granted_lives: " .. tostring(granted_lives) .. " | life_cycle: " .. tostring(life_cycle) .. " | life_feature: " .. tostring(life_feature))
+end
+
+function on_game_start()
+
+	local function on_game_load()
+		local uuid = alife_storage_manager.get_state().uuid
+		--printf("SECOND WIND start 0: uuid: " .. tostring(alife_storage_manager.get_state().uuid))
+		if (not uuid) then
+			printf("SECOND WIND: NOT IN IRONMAN MODE")
+			return
+		end
+		--printf("SECOND WIND start 1: death_limit: " .. tostring(alife_storage_manager.get_state().death_limit) .. " | sleep_hrs: " .. tostring(sleep_hrs) .. " | deaths: " .. tostring(alife_storage_manager.get_state().death_count) .. " | granted_lives: " .. tostring(granted_lives) .. " | life_cycle: " .. tostring(life_cycle) .. " | life_feature: " .. tostring(life_feature))
+		local lives_granted = granted_lives or 0
+		local death_count = alife_storage_manager.get_state().death_count or 0
+		death_count = death_count + lives_granted
+		local death_limit = alife_storage_manager.get_state().death_limit or 0
+		death_limit = death_limit + lives_granted
+		local lives_left = death_limit - death_count
+		if (not life_feature) then
+			printf("SECOND WIND: died " .. tostring(death_count) .. "/" .. tostring(death_limit) .. " | " .. tostring(lives_left) .. " live(s) left")
+			printf("SECOND WIND: DISABLED")
+			return
+		end
+		printf("SECOND WIND: died " .. tostring(death_count) .. "/" .. tostring(death_limit) .. " (+" .. tostring(lives_granted) .. ") | " .. tostring(lives_left) .. " live(s) left")
+		printf("SECOND WIND: ENABLED")
+		if _G.GAME_VERSION == "1.4.16" then
+			time_factor = level.get_time_factor()
+		end
+		CreateTimeEvent(0,"IronManTimer",10*time_factor,ironman_timer)
+	end
+	RegisterScriptCallback("save_state",save_state)
+	RegisterScriptCallback("load_state",load_state)
+	RegisterScriptCallback("on_game_load",on_game_load)
+end

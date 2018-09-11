@@ -476,7 +476,7 @@ attach_position_offset                             = 0.15,0.002,0.25
 attach_bone_name		                           = bip01_r_hand
 auto_attach			                               = false
 ;скорости увеличения (уменьшения)
-health_restore_speed		                       = 0.0001
+health_restore_speed		                       = 0
 radiation_restore_speed		                       = 0
 satiety_restore_speed		                       = 0
 power_restore_speed		                           = 0.00044	;0.0025
@@ -493,7 +493,7 @@ disassemble_parts								   = basic_scrap,basic_scrap,textile_patch_e
 [af_surge_up_absorbation]
 burn_immunity 			                           = 0				;коэффициенты иммунитета
 strike_immunity 		                           = 0
-shock_immunity 			                           = 0.160
+shock_immunity 			                           = 0
 wound_immunity 			                           = 0
 radiation_immunity 		                           = 0
 telepatic_immunity 		                           = 0
@@ -642,7 +642,7 @@ attach_bone_name		                           = bip01_r_hand
 auto_attach			                               = false
 ;скорости увеличения (уменьшения)
 health_restore_speed		                       = 0
-radiation_restore_speed		                       = -0.000033
+radiation_restore_speed		                       = -0.000033	;-0.000033
 satiety_restore_speed		                       = 0
 power_restore_speed		                           = 0.00088	;0.0025
 bleeding_restore_speed		                       = 0
@@ -696,7 +696,7 @@ attach_bone_name		                           = bip01_r_hand
 auto_attach			                               = false
 ;скорости увеличения (уменьшения)
 health_restore_speed		                       = 0
-radiation_restore_speed		                       = -0.00015
+radiation_restore_speed		                       = -0.000033	;-0.00015
 satiety_restore_speed		                       = 0
 power_restore_speed			                       = 0.00062 ;0.0025
 bleeding_restore_speed		                       = 0
@@ -766,7 +766,7 @@ disassemble_parts								   = basic_scrap,textile_patch_e,textile_patch_e
 
 [af_kevlar_up_absorbation]
 burn_immunity 			                           = 0				;коэффициенты иммунитета
-strike_immunity 		                           = 0
+strike_immunity 		                           = 0.089	;0
 shock_immunity 			                           = 0
 wound_immunity 			                           = 0.089 ; 223 sheets of kevlar eq.
 radiation_immunity 		                           = 0
@@ -862,7 +862,7 @@ auto_attach			                               = false
 health_restore_speed		                       = 0
 radiation_restore_speed		                       = 0
 satiety_restore_speed		                       = 0
-power_restore_speed			                       = 0.00053	;0.0033
+power_restore_speed			                       = 0.001	;0.0033
 bleeding_restore_speed		                       = 0
 hit_absorbation_sect		                       = af_camelbak_absorbation
 additional_inventory_weight	                       = 3.66
@@ -883,6 +883,8 @@ telepatic_immunity 		                           = 0
 chemical_burn_immunity 		                       = 0
 explosion_immunity 			                       = 0
 fire_wound_immunity  		                       = 0
+
+
 ;;;;;;;;;;;;; FIELDCRAFT - CRAFTABLE ITEMS SECTION ;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [fieldcraft_plate_attch]:af_base

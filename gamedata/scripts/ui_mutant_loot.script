@@ -13,9 +13,7 @@
 -- Added Loot all button, organized script
 -- =======================================================================================
 
-local ico_size = 1
-local ico_width = (device().width / device().height > (1024/768+0.01)) and 0.8 or 1
-
+local ico_size, ico_width, rw, rh, _le = 1,1,1,1,50
 
 --=======================================< List Item >=======================================--
 class "load_item" (CUIListBoxItem)
@@ -25,7 +23,7 @@ function load_item:__init(height) super(height)
 	self:SetTextColor(GetARGB(255, 170, 170, 170))
 
 	self.fn = self:GetTextItem()
-	self.fn:SetFont(GetFontLetterica18Russian())
+	self.fn:SetFont(GetFontLetterica25())	--(GetFontLetterica18Russian()) 
 	self.fn:SetEllipsis(true)
 end
 
@@ -38,6 +36,9 @@ class "loot_ui" (CUIScriptWnd)
 
 function loot_ui:__init(owner,obj,for_bug1,for_bug2) super()
 	self.owner = owner
+	
+	ico_size, ico_width, rw, rh, _le = trx_utils.get_ui_settings()
+	
 	local function is_number(var)
 		local function lets_try(var)
 			var = tonumber(var)
@@ -77,12 +78,12 @@ function loot_ui:InitControls()
 	self:SetAutoDelete(true)
 
 	self.xml				= CScriptXmlInit()
-	local ctrl
 	self.xml:ParseFile			("ui_itm_main.xml")
 
-	ctrl					= CUIWindow()
+	local ctrl					= CUIWindow()
+	ctrl:SetAutoDelete(true)
+	
 	self.xml:InitWindow			("mutant_loot:file_item:main",0,ctrl)
-
 	self.file_item_main_sz	= vector2():set(ctrl:GetWidth(),ctrl:GetHeight())
 
 	self.xml:InitWindow			("mutant_loot:file_item:fn",0,ctrl)
@@ -92,34 +93,60 @@ function loot_ui:InitControls()
 	self.file_item_fd_sz	= vector2():set(ctrl:GetWidth(),ctrl:GetHeight())
 
 	self.form				= self.xml:InitStatic("mutant_loot:form",self)
-	--self.form:SetWndPos(vector2():set(device().width/4-(self.form:GetWidth()/4), device().height/2 - self.form:GetHeight()))
+	self.form:InitTexture("ui_loot_window")
+	self.form:SetStretchTexture(true)
+	trx_utils.adjust_main_ui(self.form)
 
 	-- Mutant image
 	self:SetMutantImage()
 
 	-- Item Icon
 	self.icon 				= self.xml:InitStatic("mutant_loot:form:icon",self.form)
+	trx_utils.adjust_ui(self.icon)
+	
 	self.icon_temp			= self.xml:InitStatic("mutant_loot:form:icon",self.form)
+	trx_utils.adjust_ui(self.icon_temp)
 
 	-- List Box
-	self.xml:InitFrame			("mutant_loot:form:list_frame",self.form)
+	self.list_frame 		= self.xml:InitStatic("mutant_loot:form:list_frame",self.form)
+	self.list_frame:InitTexture("ui_mutant_loot_frame")
+	self.list_frame:SetStretchTexture(true)
+	trx_utils.adjust_ui(self.list_frame)
 
 	self.list_box			= self.xml:InitListBox("mutant_loot:form:list",self.form)
-
+	trx_utils.adjust_ui(self.list_box)
 	self.list_box:ShowSelectedItem	(true)
-	self:Register			(self.list_box, "list_window")
+	self:Register(self.list_box, "list_window")
 
 	-- Button Loot one
-	ctrl = self.xml:Init3tButton("mutant_loot:form:btn_loot",self.form)
-	self:Register(ctrl, "button_loot")
+	self.btn_loot_one_pic = self.xml:InitStatic("mutant_loot:form:btn_loot_pic", self.form)
+	self.btn_loot_one_pic:InitTexture("ui_button_ordinary_e")
+	self.btn_loot_one_pic:SetStretchTexture(true)
+	trx_utils.adjust_ui(self.btn_loot_one_pic)
 	
-	-- Button Loot one
-	ctrl = self.xml:Init3tButton("mutant_loot:form:btn_loot_all",self.form)
-	self:Register(ctrl, "button_loot_all")
+	self.btn_loot_one = self.xml:Init3tButton("mutant_loot:form:btn_loot",self.form)
+	trx_utils.adjust_ui(self.btn_loot_one)
+	self:Register(self.btn_loot_one, "button_loot")
 	
-	-- Button Loot one
-	ctrl = self.xml:Init3tButton("mutant_loot:form:btn_cancel",self.form)
-	self:Register(ctrl, "button_cancel")
+	-- Button Loot all
+	self.btn_loot_all_pic = self.xml:InitStatic("mutant_loot:form:btn_loot_all_pic", self.form)
+	self.btn_loot_all_pic:InitTexture("ui_button_ordinary_e")
+	self.btn_loot_all_pic:SetStretchTexture(true)
+	trx_utils.adjust_ui(self.btn_loot_all_pic)
+	
+	self.btn_loot_all = self.xml:Init3tButton("mutant_loot:form:btn_loot_all",self.form)
+	trx_utils.adjust_ui(self.btn_loot_all)
+	self:Register(self.btn_loot_all, "button_loot_all")
+	
+	-- Button Cancel
+	self.btn_cancel_pic = self.xml:InitStatic("mutant_loot:form:btn_cancel_pic", self.form)
+	self.btn_cancel_pic:InitTexture("ui_button_ordinary_e")
+	self.btn_cancel_pic:SetStretchTexture(true)
+	trx_utils.adjust_ui(self.btn_cancel_pic)
+	
+	self.btn_cancel = self.xml:Init3tButton("mutant_loot:form:btn_cancel",self.form)
+	trx_utils.adjust_ui(self.btn_cancel)
+	self:Register(self.btn_cancel, "button_cancel")
 end
 
 function loot_ui:SetMutantImage()
@@ -180,6 +207,8 @@ function loot_ui:SetMutantImage()
 	self.image			= self.xml:InitStatic("mutant_loot:form:image",self.form)
 	self.image:InitTexture(tostring(mutant_f))
 	self.image:SetTextureRect(Frect():set(x1,y1,x2,y2))
+	self.image:SetStretchTexture(true)
+	trx_utils.adjust_ui(self.image)
 end
 
 function loot_ui:InitCallBacks()
@@ -411,9 +440,9 @@ function loot_ui:AddItemToList(sec,count)
 	_itm.fn:SetWndSize	(self.file_item_fn_sz)
 	_itm.fn:SetText		(inv_name)
 
-	_itm.fage			= _itm:AddTextField("x"..count, self.file_item_fd_sz.x)
+	_itm.fage			= _itm:AddTextField("x"..count, (self.file_item_fd_sz.x)*rw)
 	_itm.fage:SetFont	(GetFontLetterica16Russian())
-	_itm.fage:SetWndPos	(vector2():set(self.file_item_fn_sz.x+4, 0))
+	_itm.fage:SetWndPos	(vector2():set((self.file_item_fn_sz.x+4)*rw, 0))
 	_itm.fage:SetWndSize(self.file_item_fd_sz)
 
 	_itm.sec = sec

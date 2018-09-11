@@ -1,0 +1,368 @@
+--==============( Edited by Tronex || last edit 2018/2/18 || comments with -->> are the edited part )==============--
+
+--[[
+		Changed for IMM	by Faustle (2018)
+--]]
+
+last_drink, start_blur_1 	= nil,nil -- to change defaults, edit below in 'create' function
+local items,force,start_blur_2,start_blur_3,start_blur_4,itn_mul,pwr_rate,rng_factor,caff_max,die_chance,last_drink_chk,pwr_chk,force_slp
+
+function create()
+	last_drink 				= 0
+	up_drink				= 2.5
+	in_hour					= 60
+	force 					= 720
+	start_blur_1 			= 144
+	start_blur_2 			= 288
+	start_blur_3 			= 432
+	start_blur_4 			= 576
+	itn_mul 				= 0.001
+	pwr_rate,rng_factor 	= -0.00010, 0.08
+	caff_max				= 3
+	die_chance 				= 5
+	force_slp				= 9000
+	items = {
+	--	Vanilla.
+	--	Drinks.
+		vodka_use						= -96,
+		vodka_2_use             		= -96,
+		vodka_3_use             		= -96,
+		vodka2_use              		= -96,
+		vodka2_2_use            		= -96,
+		vodka2_3_use            		= -96,
+		vodka_script					= -96,
+		vodka_quality_use       		= -96,
+		vodka_quality_2_use     		= -96,
+		vodka_quality_3_use     		= -96,
+		bottle_metal_use        		= -96,
+		bottle_metal_2_use      		= -96,
+		bottle_metal_3_use      		= -96,
+		beer_use                		= -137,
+		drink_crow_use          		= -154,
+		energy_drink_use				= -222,
+		water_drink_use         		= -289,
+		flask_use		        		= -289,
+		flask_2_use             		= -289,
+		flask_3_use             		= -289,
+		tea_use                 		= -389,
+		tea_2_use               		= -389,
+		tea_3_use               		= -389,
+		mineral_water_use       		= -426,
+		mineral_water_2_use     		= -426,
+		mineral_water_3_use     		= -426,
+	--	Eat
+	    mint_use                		= 2,
+		mint_2_use              		= 2,
+		mint_3_use              		= 2,
+	    chocolate           			= 6,
+		protein             			= 8,
+		nuts                			= 12,
+        raisins             			= 12,		
+		bread							= 16,
+		breadold            			= 20,
+		meat_bloodsucker    			= 24,
+		meat_boar           			= 24,
+		meat_chimera        			= 24,
+		meat_dog            			= 24,
+		meat_flesh          			= 24,
+		meat_pseudodog      			= 24,
+		meat_snork          			= 24,
+		meat_tushkano       			= 24,
+		corn_opened                		= 28,
+		tomato_opened              		= 32,
+		salmon              			= 32,
+		sausage             			= 36,
+		tushonka_opened            		= 40,
+		conserva_opened					= 40,
+		kolbasa							= 40,
+		beans_opened               		= 40,
+		chili_opened               		= 48,
+		mre                 			= 58,
+		mre_2               			= 58,
+		mre_3               			= 58,
+		ration_ru           			= 64,
+		ration_ru_2         			= 64,
+		ration_ru_3         			= 64,
+		ration_ru_4         			= 64,
+		ration_ru_5         			= 64,
+		ration_ru_6         			= 64,
+		ration_ru_7         			= 64,
+		ration_ukr          			= 68,
+		ration_ukr_2        			= 68,
+		ration_ukr_3        			= 68,
+		ration_ukr_4        			= 68,
+		ration_ukr_5        			= 68,
+		ration_ukr_6        			= 68,
+	--	Medical supplies.
+	    joint_smoke               		= 15,
+		marijuana_smoke           		= 15,
+		hand_rolling_tobacco_smoke 		= 15,
+		hand_rolling_tobacco_2_smoke 	= 15,
+		hand_rolling_tobacco_3_smoke 	= 15,
+		tobacco_smoke             		= 15,
+		tobacco_2_smoke           		= 15,
+		tobacco_3_smoke           		= 15,
+	    cigar_smoke               		= 15,
+		cigar1_smoke              		= 15,
+		cigar1_2_smoke            		= 15,
+		cigar1_3_smoke            		= 15,
+		cigar2_smoke              		= 15,
+		cigar2_2_smoke            		= 15,
+		cigar2_3_smoke            		= 15,
+		cigar3_smoke              		= 15,
+		cigar3_2_smoke            		= 15,
+		cigar3_3_smoke           		= 15,
+		cigarettes_smoke          		= 15,
+		cigarettes_2_smoke        		= 15,
+		cigarettes_3_smoke        		= 15,
+		cigarettes_lucky_smoke    		= 15,
+		cigarettes_lucky_2_smoke  		= 15,
+		cigarettes_lucky_3_smoke  		= 15,
+		cigarettes_russian_smoke  		= 15,
+		cigarettes_russian_2_smoke		= 15,
+		cigarettes_russian_3_smoke 		= 15,
+		cocaine_use             		= 20,
+		glucose             			= 10,
+		glucose_s           			= 10,
+		survival_kit        			= 10,
+		tetanus             			= 10,
+		morphine            			= 10,
+		salicidic_acid      			= 10,
+		stimpack            			= 10,
+		stimpack_army       			= 10,
+		stimpack_scientic   			= 10,
+		antirad_use						= 20,
+		drug_anabiotic					= 20,
+		drug_antidot					= 20,
+		drug_antidot_2      			= 20,
+		drug_antidot_3      			= 20,
+		drug_coagulant					= 20,
+		drug_coagulant_2    			= 20,
+		drug_coagulant_3    			= 20,
+		drug_coagulant_4    			= 20,
+		drug_coagulant_5    			= 20,
+		drug_psy_blockade_use			= 20,
+		drug_psy_blockade_2_use 		= 20,
+		drug_psy_blockade_3_use 		= 20,
+		drug_psy_blockade_4_use 		= 20,
+		drug_psy_blockade_5_use 		= 20,
+		drug_radioprotector_use			= 20,
+		drug_radioprotector_2_use 		= 20,
+	    drug_sleepingpills				= 20,
+		drug_sleepingpills_2 			= 20,
+		drug_sleepingpills_3 			= 20,
+		drug_sleepingpills_4 			= 20,
+		drug_sleepingpills_5 			= 20,
+		adrenalin_use           		= 20,
+		akvatab_use             		= 20,
+		akvatab_2_use           		= 20,
+		caffeine_use            		= 20,
+		caffeine_2_use          		= 20,
+		caffeine_3_use          		= 20,
+		caffeine_4_use          		= 20,
+		caffeine_5_use          		= 20,
+		medkit							= 10,
+		medkit_army						= 10,
+		medkit_scientic 				= 10,
+		medkit_script					= 10,
+	}
+	RegisterScriptCallback("actor_on_update",actor_on_update)
+	RegisterScriptCallback("actor_on_item_use",actor_on_item_use)
+	if (USE_MARSHAL) then
+		RegisterScriptCallback("save_state",save_state)
+		RegisterScriptCallback("load_state",load_state)
+	end
+end 
+
+function destroy()
+	UnregisterScriptCallback("actor_on_update",actor_on_update)
+	UnregisterScriptCallback("actor_on_item_use",actor_on_item_use)
+	if (USE_MARSHAL) then
+		UnregisterScriptCallback("save_state",save_state)
+		UnregisterScriptCallback("load_state",load_state)
+	end
+	alife_storage_manager.get_state().drink = nil
+end 
+
+function on_game_start()
+	-->> The feature can be enabled from options
+	if (axr_main.config:r_value("mm_options","enable_thirst_option",1,false) == false) then
+		return 
+	end
+	
+	create()
+end
+
+function save(package)
+	if (USE_MARSHAL) then
+		return
+	end
+	package:w_u8(last_drink)
+	package:w_u16(last_drink_chk)
+end
+function load(package)
+	if (USE_MARSHAL) then
+		return
+	end
+	last_drink  = package:r_u8() or 0
+	last_drink_chk 	= package:r_u16() or 0
+end
+--//--------------------------------------------------------------//--
+function save_state(m_data)
+	if (USE_MARSHAL) then
+		m_data.drink = m_data.drink or {}
+		m_data.drink["last_drink"] = last_drink
+		m_data.drink["chk_drink"] = last_drink_chk
+	end
+end
+
+function load_state(m_data)
+	if (USE_MARSHAL) then
+		last_drink = m_data.drink and m_data.drink.last_drink or 0
+		last_drink_chk = m_data.drink and m_data.drink.chk_drink or nil
+	end
+end
+
+function actor_on_item_use(item)
+
+	for i,j in pairs(items) do
+		if item:section() == i then
+		-- log("The item is used: " .. item:section() .. " Change of thirst for: " ..j.. " Thirsty before: " ..last_drink)
+			if j < 0 then
+				last_drink = last_drink + j
+				if last_drink < 0 then last_drink = 0 end
+				test_blur()
+				break
+			elseif j > 0 then
+				last_drink = last_drink + j
+				if last_drink > 1000 then last_drink = 1000 end
+				test_blur()
+				break
+			end
+		end
+	end
+end
+
+function actor_on_update(b,d)
+	-- printf("last_drink_chk=%s last_drink=%s",last_drink_chk and game.get_game_time():diffSec(last_drink_chk) or "nil",last_drink)
+	if last_drink > start_blur_1 then
+		local tg = time_global()
+		if (pwr_chk == nil or tg > pwr_chk) then 
+			if (db.actor.power > 0) then
+				db.actor.power = pwr_rate*((last_drink-start_blur_1)*rng_factor)/10
+				db.actor.health = pwr_rate*((last_drink-start_blur_1)*rng_factor)/100
+			end
+			pwr_chk = tg+100
+		end
+	end
+	if (last_drink_chk and game.get_game_time():diffSec(last_drink_chk) < 300) then 
+		indicator_update()
+		return 
+	end
+	last_drink_chk = game.get_game_time()
+	-- log(" !The usual increase in thirst is 6. Thirst before: " .. "last_drink)
+	last_drink = last_drink + up_drink
+	if last_drink < 0 then last_drink = 0 elseif last_drink > 1000 then last_drink = 1000 end
+	test_blur()
+end
+
+function test_blur()
+	level.remove_pp_effector(39568)
+	if last_drink >= start_blur_1 then
+		level.add_pp_effector("yantar_underground_psi.ppe", 39568, false)
+		if last_drink >= start_blur_1 and last_drink < start_blur_2 then
+			level.remove_pp_effector(39568)
+			-- level.set_pp_effector_factor(39568, (last_drink-start_blur_1) * itn_mul)
+		elseif last_drink >= start_blur_2 and last_drink < start_blur_3 then
+			--level.set_pp_effector_factor(39568, (last_drink-start_blur_1) * itn_mul)
+			-- SetHudMsg(game.translate_string("You have not had a drink, you should drink"),3)
+		elseif last_drink >= start_blur_3 and last_drink < start_blur_4 then
+			level.set_pp_effector_factor(39568, (last_drink-start_blur_1) * itn_mul)
+			-- SetHudMsg(game.translate_string("You have not had a drink, you should drink"),5)
+		elseif last_drink >= start_blur_4 and last_drink < force then
+			level.set_pp_effector_factor(39568, (last_drink-start_blur_1) * itn_mul)
+		elseif last_drink >= force and math.random(100) <= force_slp and not db.actor:has_info("actor_is_sleeping")==true then
+			db.actor:give_info_portion("force_slp")
+			force_sleep()
+			-- SetHudMsg(game.translate_string("You are extremely depleted - you need to drink!"),5)
+		end
+	end
+end
+
+function force_sleep()
+	ui_sleep_dialog.sleep_forced()
+	if math.random(100) < die_chance then
+		SetHudMsg(game.translate_string("st_sleep_deprived"),5)
+		db.actor:kill(db.actor)
+	end
+	disable_info("force_slp")
+end
+--'-----------------------------------------------------------------------------
+--'           INDICATORS NEW
+--'-----------------------------------------------------------------------------
+local d_hud	-->> edited, proper icon's dimensions/position for the related display ratio.
+if not utils.is_widescreen() then
+	d_hud = {x=980,y=310,height=22,weight=20}
+else
+	d_hud = {x=980,y=310,height=22,weight=26}
+end
+
+function indicator_update(bShow)
+  local hud=get_hud()
+  local drk=hud:GetCustomStatic("indicator_drink")
+  local wnd
+  if(bShow==false or db.actor:is_talking() )then
+	if(drk~=nil)then
+      hud:RemoveCustomStatic("indicator_drink")
+      drk=nil
+	end
+    return
+  end
+  if(drk==nil)then
+    hud:AddCustomStatic("indicator_drink",true)
+	drk=hud:GetCustomStatic("indicator_drink")
+    wnd=drk:wnd()
+    if(wnd~=nil)then
+      wnd:SetWndPos(vector2():set(d_hud.x,d_hud.y))
+      if utils.is_widescreen() then
+        wnd:SetWndSize(vector2():set(d_hud.weight-7,d_hud.height))
+      else
+        wnd:SetWndSize(vector2():set(d_hud.weight,d_hud.height))
+      end
+      wnd:SetAutoDelete(true)
+    end
+  end
+  if(drk~=nil)then
+    wnd=drk:wnd()
+    wnd:InitTexture(get_color_drink())
+  end
+end
+
+function get_color_drink()
+  local textures={
+    [0]="ui_inGame2_circle_drink_empty",
+    [1]="ui_inGame2_circle_drink_green",
+    [2]="ui_inGame2_circle_drink_yellow",
+    [3]="ui_inGame2_circle_drink_orange",
+    [4]="ui_inGame2_circle_drink_red"
+  }
+  local color=0
+  if last_drink>start_blur_4 then color=4
+  elseif last_drink>start_blur_3 then color=3
+  elseif last_drink>start_blur_2 then color=2
+  elseif last_drink>start_blur_1 then color=1
+  elseif last_drink<start_blur_1 then color=0
+  end
+	if color2~=color then
+		-- log("!CHANGE OF ICONS!")
+	end
+	color2=color
+	-- log('@'..textures[color])
+	
+  -->> edited, this will show/hide thirst icon alongside the rest of other icons upon pressing (toggle HUD) key
+  if (get_console():get_bool("hud_draw")) then
+	return textures[color]
+  else
+	return textures[0]
+  end
+end

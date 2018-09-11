@@ -42,8 +42,31 @@
 		<text>Subject</text>
 	</string>
 	<string id="pda_encyclopedia_content">
-		<text>Content</text>
+		<text>Table of contents</text>
 	</string>
+	
+	<string id="pda_encyclopedia_ironman_lifes">
+		<text>Granted lives</text>
+	</string>
+	<string id="pda_encyclopedia_ironman_life">
+		<text>Remaining lives</text>
+	</string>
+	<string id="pda_encyclopedia_ironman_deaths">
+		<text>Death count</text>
+	</string>
+	<string id="pda_encyclopedia_ironman_cycle">
+		<text>Granting-life cycle (in hours)</text>
+	</string>
+	<string id="pda_encyclopedia_ironman_1">
+		<text>One mistake, and it's all over...</text>
+	</string>
+	<string id="pda_encyclopedia_ironman_2">
+		<text>Gotta be more careful!</text>
+	</string>
+	<string id="pda_encyclopedia_ironman_3">
+		<text>I'm safe for now.</text>
+	</string>
+	
 	
 	<!-- Locked articles -->
 	<string id="pda_encyclopedia_locked">

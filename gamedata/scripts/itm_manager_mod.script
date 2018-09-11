@@ -3,7 +3,7 @@
 		
 -- =======================================================================================
 -- Modified by Tronex
--- 2018/7/29 - removed (open cans using swiss knife), improved script
+-- 2018/7/29 - removed (open cans using swiss knife), improved script, cleaning
 -- =======================================================================================
 ]]--
 
@@ -17,14 +17,12 @@ local last_obj = {}
 local food_t 	= trx_utils.collect_ini_sections("misc\\items\\items_food.ltx")
 local drink_t 	= trx_utils.collect_ini_sections("misc\\items\\items_drink.ltx")
 local drugs_t 	= trx_utils.collect_ini_sections("misc\\items\\items_drugs.ltx")
-local drugsn_t 	= trx_utils.collect_ini_sections("misc\\items\\items_drugs_new.ltx")
 local medic_t 	= trx_utils.collect_ini_sections("misc\\items\\items_medical.ltx")
 
 -- Merge all tables into one
 for k,v in pairs(food_t) 	do table.insert(all_items, v) end
 for k,v in pairs(drink_t) 	do table.insert(all_items, v) end
 for k,v in pairs(drugs_t) 	do table.insert(all_items, v) end
-for k,v in pairs(drugsn_t) 	do table.insert(all_items, v) end
 for k,v in pairs(medic_t) 	do table.insert(all_items, v) end
 
 table.sort(all_items)
@@ -168,11 +166,15 @@ function discharge(sec) -- Reducing the charge
 	local ini = system_ini()
 	local uses = ini:r_float_ex(sec,"uses_index")
 	local base = ini:r_string_ex(sec,"uses_base")
+	
+	if (sec:match('box_matches') or sec == "matches") and not (m) then
+		trx_utils.release_inv_obj(sec)
+	end
+	
 	if uses and uses >=2 and base and ini:section_exist(base) then
 		local sec_n = trx_utils.get_item_charge (base, uses, -1)
 		trx_utils.create_inv_obj(sec_n)
 	end
-	trx_utils.release_inv_obj(sec)
 end
 
 function get_clear_name(sec) -- Obtaining a "clean" section
@@ -183,6 +185,7 @@ end
 --=======================================< Callbacks >=======================================--
 
 function actor_on_item_use(obj)
+
 	if not (obj) then
 		return
 	end

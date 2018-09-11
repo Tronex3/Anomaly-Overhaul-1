@@ -267,8 +267,8 @@ inv_grid_width			                           = 1
 inv_grid_height			                           = 1
 inv_grid_x			                               = 2
 inv_grid_y			                               = 44
-cost				                               = 1490
-inv_weight			                               = 0.46
+cost				                               = 7490
+inv_weight			                               = 0.76
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -490,7 +490,7 @@ $spawn 				                               = "devices\roubles"
 $prefetch 			                               = 16
 cform                                              = skeleton
 class_dbg			                               = S_MISC
-class					                           = S_PDA
+class					                           = II_ATTCH
 visual                                             = dynamics\equipments\trade\radio.ogf
 cost					                           = 840
 inv_name				                           = st_radio2
@@ -501,7 +501,6 @@ inv_grid_width			                           = 1
 inv_grid_height			                           = 1
 inv_grid_x				                           = 6
 inv_grid_y				                           = 42
-;box_size			                     		   = 1
 attach_angle_offset		                           = 0.000000, -1.204452, -1.262921
 attach_position_offset	                           = 0.081856, -0.035081, 0.011694
 attach_bone_name		                           = bip01_l_hand
@@ -549,7 +548,7 @@ auto_attach				                           = false
 use1_functor         		             		   = itms_manager.menu_disassemble
 use1_action_functor  		             		   = itms_manager.use_disassemble
 disassemble_parts								   = basic_scrap
-repair_part_bonus	 	                           = 0.02
+repair_part_bonus	 	                           = 0.061
 
 ;;-- Steel Wool
 [steel_wool]:junk_base
@@ -567,14 +566,14 @@ attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
 auto_attach				                           = false
-repair_part_bonus	 	                           = 0.05
+repair_part_bonus	 	                           = 0.10
 
 [duct_tape]:junk_base ;;--(new)
 visual                                             = dynamics\repair\armor_repair_fa.ogf
 inv_name			                               = st_duct_tape
 inv_name_short		                               = st_duct_tape
 description			                               = st_duct_tape_descr
-inv_weight   	                                   = 0.267
+inv_weight   	                                   = 0.125
 inv_grid_width		                               = 1
 inv_grid_height		                               = 1
 inv_grid_x			                               = 12
@@ -584,7 +583,7 @@ attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
 auto_attach				                           = false
-repair_part_bonus	 	                           = 0.03
+repair_part_bonus	 	                           = 0.08
 
 [batteries_empty]:junk_base
 visual                                             = dynamics\equipments\trade\battery.ogf
@@ -636,9 +635,9 @@ inv_name_short			                           = st_jar
 inv_grid_width			                           = 1
 inv_grid_height			                           = 1
 inv_grid_x			                               = 3
-inv_grid_y			                               = 84
-cost				                               = 1190
-inv_weight			                               = 0.58
+inv_grid_y			                               = 44
+cost				                               = 290
+inv_weight			                               = 0.09
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -648,14 +647,8 @@ auto_attach				                           = false
 ;disassemble_parts								   = basic_plastic
 
 [e_syringe]:junk_base
-$spawn 				                               = "devices\roubles"
-$prefetch 			                               = 16
 visual						                       = dynamics\devices\glucose_shots\glucose_s.ogf
-radius				                               = 68
-class_dbg			                               = S_MISC
-class				                               = II_ATTCH
-cform				                               = skeleton
-cost						                       = 85
+cost						                       = 285
 inv_weight					                       = 0.012
 inv_name					                       = st_e_syringe
 inv_name_short				                       = st_e_syringe
@@ -666,8 +659,6 @@ inv_grid_x					                       = 19
 inv_grid_y					                       = 46
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
-attach_bone_name		                           = bip01_r_hand
-auto_attach				                           = false
 
 ;;-- Rope
 [rope]:junk_base
@@ -696,8 +687,8 @@ inv_name_short			                           = st_ammo_bad
 inv_grid_width			                           = 1
 inv_grid_height			                           = 1
 inv_grid_x			                               = 19
-inv_grid_y			                               = 64
-cost				                               = 22
+inv_grid_y			                               = 44
+cost				                               = 52
 inv_weight			                               = 0.13
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
@@ -706,17 +697,12 @@ auto_attach				                           = false
 
 ;;-- Paper Sheet
 [basic_paper]:junk_base ;;-- (new)
-$spawn 				                               = "devices\roubles"
-$prefetch 			                               = 16
-class_dbg			                               = S_MISC
-class					                           = II_ATTCH
-cform                                              = skeleton
 visual                                             = dynamics\equipments\quest\notes_letter_1.ogf
 cost				                               = 61
 inv_name                                           = st_basic_paper
 inv_name_short                                     = st_basic_paper
 description                                        = st_basic_paper_descr
-inv_weight                                         = 0.05
+inv_weight                                         = 0.01
 inv_grid_width                                     = 1
 inv_grid_height                                    = 1
 inv_grid_x                                         = 19
@@ -729,14 +715,8 @@ repair_part_bonus	 	                           = 0.01
 
 ;;-- Textolite base
 [basic_textolite]:junk_base ;;-- (new)
-GroupControlSection		                           = spawn_group
-discovery_dependency	                           =
-$spawn					                           = "food and drugs\harmonica_a"
-cform                                              = skeleton
-class_dbg			                               = S_MISC
-class					                           = II_ATTCH
 visual                                             = dynamics\equipments\quest\materials_textolite.ogf
-cost				                               = 78
+cost				                               = 178
 inv_name                                           = st_basic_textolite
 inv_name_short                                     = st_basic_textolite
 description                                        = st_basic_textolite_descr
@@ -753,7 +733,6 @@ repair_part_bonus	 	                           = 0.02
 
 ;;-- Cloth sheet
 [textile_patch_b]:junk_base ; (Basic textile patch)
-radius				                               = 68
 description			                               = st_textile_patch_b_descr
 inv_name			                               = st_textile_patch_b
 inv_name_short			                           = st_textile_patch_b
@@ -762,8 +741,8 @@ inv_grid_width			                           = 1
 inv_grid_height			                           = 1
 inv_grid_x			                               = 1
 inv_grid_y			                               = 24
-cost				                               = 89
-inv_weight			                               = 0.194
+cost				                               = 189
+inv_weight			                               = 0.114
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -772,7 +751,6 @@ repair_part_bonus	 	                           = 0.03
 
 ;;-- Textile sheet
 [textile_patch_m]:junk_base ; (Mil spec textile patch)
-radius				                               = 68
 description			                               = st_textile_patch_m_descr
 inv_name			                               = st_textile_patch_m
 inv_name_short			                           = st_textile_patch_m
@@ -781,17 +759,16 @@ inv_grid_width			                           = 1
 inv_grid_height			                           = 1
 inv_grid_x			                               = 2
 inv_grid_y			                               = 24
-cost				                               = 136
+cost				                               = 246
 inv_weight			                               = 0.283
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
 auto_attach				                           = false
-repair_part_bonus	 	                           = 0.04
+repair_part_bonus	 	                           = 0.05
 
 ;;-- Reinforced textile sheet
 [textile_patch_e]:junk_base ; (Enforced textile patch)
-radius				                               = 68
 description			                               = st_textile_patch_e_descr
 inv_name			                               = st_textile_patch_e
 inv_name_short			                           = st_textile_patch_e
@@ -800,13 +777,13 @@ inv_grid_width			                           = 1
 inv_grid_height			                           = 1
 inv_grid_x			                               = 0
 inv_grid_y			                               = 24
-cost				                               = 672
+cost				                               = 572
 inv_weight			                               = 0.466
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
 auto_attach				                           = false
-repair_part_bonus	 	                           = 0.06
+repair_part_bonus	 	                           = 0.08
 
 ;;-- Pack of Capacitors
 [basic_capacitors]:junk_base ;;-- (new)
@@ -817,11 +794,11 @@ cform                                              = skeleton
 class_dbg			                               = S_MISC
 class					                           = II_ATTCH
 visual                                             = dynamics\equipments\quest\box_condensers.ogf
-cost				                               = 93
+cost				                               = 193
 inv_name                                           = st_basic_capacitors
 inv_name_short                                     = st_basic_capacitors
 description                                        = st_basic_capacitors_descr
-inv_weight                                         = 0.31
+inv_weight                                         = 0.13
 inv_grid_width                                     = 1
 inv_grid_height                                    = 1
 inv_grid_x                                         = 2
@@ -840,11 +817,11 @@ cform                                              = skeleton
 class_dbg			                               = S_MISC
 class					                           = II_ATTCH
 visual                                             = dynamics\equipments\quest\box_transistors.ogf
-cost				                               = 140
+cost				                               = 240
 inv_name                                           = st_basic_transistors
 inv_name_short                                     = st_basic_transistors
 description                                        = st_basic_transistors_descr
-inv_weight                                         = 0.28
+inv_weight                                         = 0.12
 inv_grid_width                                     = 1
 inv_grid_height                                    = 1
 inv_grid_x                                         = 4
@@ -863,11 +840,11 @@ cform                                              = skeleton
 class_dbg			                               = S_MISC
 class					                           = II_ATTCH
 visual                                             = dynamics\equipments\quest\materials_wire.ogf
-cost				                               = 74
+cost				                               = 134
 inv_name                                           = st_basic_copper
 inv_name_short                                     = st_basic_copper
 description                                        = st_basic_copper_descr
-inv_weight                                         = 0.21
+inv_weight                                         = 0.15
 inv_grid_width                                     = 1
 inv_grid_height                                    = 1
 inv_grid_x                                         = 5
@@ -887,7 +864,7 @@ inv_grid_width			                           = 1
 inv_grid_height			                           = 1
 inv_grid_x			                               = 11
 inv_grid_y			                               = 45
-cost				                               = 51
+cost				                               = 132
 inv_weight			                               = 0.27
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
@@ -904,12 +881,13 @@ inv_grid_width			                           = 1
 inv_grid_height			                           = 1
 inv_grid_x			                               = 13
 inv_grid_y			                               = 45
-cost				                               = 53
-inv_weight			                               = 0.28
+cost				                               = 73
+inv_weight			                               = 0.22
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
 auto_attach				                           = false
+repair_part_bonus	 	                           = 0.03
 
 ;;-- Glass parts
 [basic_glass]:junk_base
@@ -972,8 +950,8 @@ inv_grid_width			                           = 1
 inv_grid_height			                           = 1
 inv_grid_x			                               = 16
 inv_grid_y			                               = 45
-cost				                               = 45
-inv_weight			                               = 0.18
+cost				                               = 144
+inv_weight			                               = 0.01
 attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
@@ -996,6 +974,60 @@ attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
 attach_position_offset		                       = 0.096910, -0.013594, 0.107925
 attach_bone_name		                           = bip01_r_hand
 auto_attach				                           = false
+
+;;-- Trigger Mechanism
+[basic_triggermechanism]:junk_base
+visual				                               = dynamics\equipments\trade\parts.ogf
+description			                               = st_basic_triggermechanism_descr
+inv_name			                               = st_basic_triggermechanism
+inv_name_short		                               = st_basic_triggermechanism
+inv_grid_width		                               = 1
+inv_grid_height		                               = 1
+inv_grid_x			                               = 15
+inv_grid_y			                               = 68
+inv_weight			                               = 0.02
+cost                                               = 460
+attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
+attach_position_offset		                       = 0.096910, -0.013594, 0.107925
+attach_bone_name		                           = bip01_r_hand
+auto_attach				                           = false
+repair_part_bonus	                               = 0.08
+
+;;-- Spring
+[basic_spring]:junk_base
+visual				                               = dynamics\equipments\trade\parts.ogf
+description			                               = st_basic_spring_descr
+inv_name			                               = st_basic_spring
+inv_name_short		                               = st_basic_spring
+inv_grid_width		                               = 1
+inv_grid_height		                               = 1
+inv_grid_x			                               = 14
+inv_grid_y			                               = 68
+inv_weight			                               = 0.01
+cost                                               = 290
+attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
+attach_position_offset		                       = 0.096910, -0.013594, 0.107925
+attach_bone_name		                           = bip01_r_hand
+auto_attach				                           = false
+repair_part_bonus	                               = 0.07
+
+;;-- Pistol Grip
+[basic_pistolgrip]:junk_base
+visual				                               = dynamics\equipments\trade\parts.ogf
+description			                               = st_basic_pistolgrip_descr
+inv_name			                               = st_basic_pistolgrip
+inv_name_short		                               = st_basic_pistolgrip
+inv_grid_width		                               = 1
+inv_grid_height		                               = 1
+inv_grid_x			                               = 16
+inv_grid_y			                               = 68
+inv_weight			                               = 0.26
+cost                                               = 510
+attach_angle_offset		                           = -0.287979, 1.560923, 1.544060
+attach_position_offset		                       = 0.096910, -0.013594, 0.107925
+attach_bone_name		                           = bip01_r_hand
+auto_attach				                           = false
+repair_part_bonus	                               = 0.09
 
 ;;===========================================================
 ;;=========================| UNUSED |========================

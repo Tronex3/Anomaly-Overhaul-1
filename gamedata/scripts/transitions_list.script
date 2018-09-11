@@ -1,0 +1,239 @@
+--/-------------------------------------------------------------------
+--/ Открывающиеся переходы(Списки)
+--/ SadBlackFox
+--/ 04.02.2017
+--/-------------------------------------------------------------------
+
+sr_always_open = {
+	general = {
+	    {'pol_space_restrictor_to_escape_1', 'esc_space_restrictor_to_pole_1'},
+	    {'val_space_restrictor_to_pole_1', 'pol_space_restrictor_to_val_1'},
+		{'val_space_restrictor_to_tc', 'tc_space_restrictor_to_darkvalley'},
+		{'esc_space_restrictor_to_marsh_1', 'mar_space_restrictor_to_escape_1'},
+		{'esc_space_restrictor_to_garbage_1', 'gar_space_restrictor_to_escape_1'},
+		{'esc_space_restrictor_to_darkscape_1', 'ds_space_restrictor_to_escape'},
+		{'ds_space_restrictor_to_darkvalley', 'val_space_restrictor_to_darkscape'},
+		{'gar_space_restrictor_to_agroprom_2', 'agr_space_restrictor_to_garbage_2'},
+		{'gar_space_restrictor_to_bar_1', 'bar_space_restrictor_to_garbage_01'},
+		{'gar_space_restrictor_to_darkvalley_2', 'val_space_restrictor_to_garbage_2'},
+		{'bar_space_restrictor_to_military_01', 'mil_space_restrictor_to_bar_1'},
+		{'bar_space_restrictor_to_rostok_01', 'ros_space_restrictor_to_bar_1'},
+		{'ros_space_restrictor_to_yantar_1', 'yan_space_restrictor_to_rostok_1'},
+	},
+	monolith = {
+	    {'pol_space_restrictor_to_escape_1', 'esc_space_restrictor_to_pole_1'},
+	    {'val_space_restrictor_to_pole_1', 'pol_space_restrictor_to_val_1'},
+		{'bar_space_restrictor_to_military_01', 'mil_space_restrictor_to_bar_1'},
+		{'bar_space_restrictor_to_rostok_01', 'ros_space_restrictor_to_bar_1'},
+		{'ros_space_restrictor_to_yantar_1', 'yan_space_restrictor_to_rostok_1'},
+		{'mil_space_restrictor_to_radar_1', 'rad_space_restrictor_to_military_01'},
+		{'rad_space_restrictor_to_pripyat_01', 'pri_space_restrictor_to_radar'},
+		{'lim_space_restrictor_to_hospital', 'katacomb_space_restrictor_to_limansk'},
+		{'lim_space_restrictor_to_red_forest', 'red_space_restrictor_to_limansk'},
+		{'pri_space_restrictor_to_cop_pripyat', 'cop_pripyat_space_restrictor_to_soc_pripyat'},
+		{'pri_space_restrictor_to_stancia', 'aes_space_restrictor_to_pripyat'},
+		{'aes_space_restrictor_to_sarcofag'},
+		{'aes_space_restrictor_to_aes2', 'aes2_space_restrictor_to_aes1'},
+		{'aes2_space_restrictor_to_gen', 'gen_space_restrictor_to_aes2'},
+		{'aes2_space_restrictor_to_hospital', 'katacomb_space_restrictor_to_aes_1'},
+	},
+	killer = {
+	    {'pol_space_restrictor_to_escape_1', 'esc_space_restrictor_to_pole_1'},
+	    {'val_space_restrictor_to_pole_1', 'pol_space_restrictor_to_val_1'},
+		{'esc_space_restrictor_to_marsh_1', 'mar_space_restrictor_to_escape_1'},
+        {'cit_space_restrictor_to_limansk', 'lim_space_restrictor_to_dead_city'},
+		{'esc_space_restrictor_to_garbage_1', 'gar_space_restrictor_to_escape_1'},
+		{'esc_space_restrictor_to_darkscape_1', 'ds_space_restrictor_to_escape'},
+		{'ds_space_restrictor_to_darkvalley', 'val_space_restrictor_to_darkscape'},
+		{'gar_space_restrictor_to_agroprom_2', 'agr_space_restrictor_to_garbage_2'},
+		{'gar_space_restrictor_to_bar_1', 'bar_space_restrictor_to_garbage_01'},
+		{'gar_space_restrictor_to_darkvalley_2', 'val_space_restrictor_to_garbage_2'},
+		{'bar_space_restrictor_to_military_01', 'mil_space_restrictor_to_bar_1'},
+		{'bar_space_restrictor_to_rostok_01', 'ros_space_restrictor_to_bar_1'},
+		{'ros_space_restrictor_to_yantar_1', 'yan_space_restrictor_to_rostok_1'},
+		{'mil_space_restrictor_to_dead_city_1', 'cit_space_restrictor_to_military'},
+	},
+	csky = {
+	    {'pol_space_restrictor_to_escape_1', 'esc_space_restrictor_to_pole_1'},
+	    {'val_space_restrictor_to_pole_1', 'pol_space_restrictor_to_val_1'},
+		{'mar_teleport_from_base_to_west'},
+		{'esc_space_restrictor_to_marsh_1', 'mar_space_restrictor_to_escape_1'},
+		{'esc_space_restrictor_to_garbage_1', 'gar_space_restrictor_to_escape_1'},
+		{'esc_space_restrictor_to_darkscape_1', 'ds_space_restrictor_to_escape'},
+		{'ds_space_restrictor_to_darkvalley', 'val_space_restrictor_to_darkscape'},
+		{'gar_space_restrictor_to_agroprom_2', 'agr_space_restrictor_to_garbage_2'},
+		{'gar_space_restrictor_to_bar_1', 'bar_space_restrictor_to_garbage_01'},
+		{'gar_space_restrictor_to_darkvalley_2', 'val_space_restrictor_to_garbage_2'},
+		{'bar_space_restrictor_to_military_01', 'mil_space_restrictor_to_bar_1'},
+		{'bar_space_restrictor_to_rostok_01', 'ros_space_restrictor_to_bar_1'},
+		{'ros_space_restrictor_to_yantar_1', 'yan_space_restrictor_to_rostok_1'},
+	}	
+}
+
+sr_transitions = { 
+	{'mar_teleport_from_base_to_west'},
+	{'esc_space_restrictor_to_marsh_1', 'mar_space_restrictor_to_escape_1'}, 
+	{'esc_space_restrictor_to_marsh_2', 'mar_space_restrictor_to_escape_2'},
+	{'esc_space_restrictor_to_garbage_1', 'gar_space_restrictor_to_escape_1'},
+	{'esc_space_restrictor_to_garbage_2', 'gar_space_restrictor_to_escape_2'},
+	{'esc_space_restrictor_to_darkscape_1', 'ds_space_restrictor_to_escape'},
+	{'mar_space_restrictor_to_agroprom_1', 'agr_space_restrictor_to_marsh_1'},
+	{'ds_space_restrictor_to_darkvalley', 'val_space_restrictor_to_darkscape'},
+	{'gar_space_restrictor_to_rostok_1', 'ros_space_restrictor_to_garbage_1'},
+	{'gar_space_restrictor_to_agroprom_1', 'agr_space_restrictor_to_garbage_1'},
+	{'gar_space_restrictor_to_agroprom_2', 'agr_space_restrictor_to_garbage_2'},
+	{'gar_space_restrictor_to_bar_1', 'bar_space_restrictor_to_garbage_01'},
+	{'gar_space_restrictor_to_darkvalley_1', 'val_space_restrictor_to_garbage_1'},
+	{'gar_space_restrictor_to_darkvalley_2', 'val_space_restrictor_to_garbage_2'},
+	{'agr_space_restrictor_to_agr_ug_1', 'agr_space_restrictor_to_agr_ug_2'},
+	{'agr_space_restrictor_to_agr_ug_3', 'agr_space_restrictor_to_agr_ug_4', 'agr_space_restrictor_to_agr_ug_5', 'agr_space_restrictor_to_agr_ug_6'},
+	{'agr_space_restrictor_to_yantar_1', 'yan_space_restrictor_to_agroprom_1'},
+	{'val_space_restrictor_to_labx18'},
+	{'bar_space_restrictor_to_tc', 'tc_space_restrictor_to_bar'},
+	{'tc_space_restrictor_to_military_1', 'tc_space_restrictor_to_military_2', 'tc_space_restrictor_to_military_3', 'mil_space_restrictor_to_tc'},
+	{'bar_space_restrictor_to_military_01', 'mil_space_restrictor_to_bar_1'},
+	{'bar_space_restrictor_to_rostok_01', 'ros_space_restrictor_to_bar_1'},
+	{'ros_space_restrictor_to_yantar_1', 'yan_space_restrictor_to_rostok_1'},
+	{'yan_space_restrictor_to_x16'},
+	{'yan_space_restrictor_to_dead_city_1', 'cit_space_restrictor_to_yantar'},
+	{'mil_space_restrictor_to_dead_city_1', 'cit_space_restrictor_to_military'},
+	{'cit_space_restrictor_to_limansk', 'lim_space_restrictor_to_dead_city'},
+	{'mil_space_restrictor_to_radar_1', 'rad_space_restrictor_to_military_01'},
+	{'mil_space_restrictor_to_red_1', 'red_space_restrictor_to_military_1'},
+	{'rad_space_restrictor_to_red_forest', 'red_space_restrictor_to_radar_1'},
+	{'rad_space_restrictor_to_bunker'},
+	{'rad_space_restrictor_to_pripyat_01', 'pri_space_restrictor_to_radar'},
+	{'red_space_restricor_to_jupiter', 'jupiter_space_restrictor_to_red_forest'},
+	{'jupiter_space_restrictor_to_jupiter_ug', 'jupiter_ug_space_restrictor_to_jupiter'},
+	{'lim_space_restrictor_to_hospital', 'katacomb_space_restrictor_to_limansk'},
+	{'lim_space_restrictor_to_red_forest', 'red_space_restrictor_to_limansk'},
+	{'pri_space_restrictor_to_jupiter', 'jupiter_space_restrictor_to_soc_pripyat'},
+	{'pri_space_restrictor_to_cop_pripyat', 'cop_pripyat_space_restrictor_to_soc_pripyat'},
+	{'pri_space_restrictor_to_stancia', 'aes_space_restrictor_to_pripyat'},
+	{'jup_space_restrictor_to_zaton, zaton_space_restrictor_to_jupiter'},
+	{'zaton_space_restrictor_to_stancia_1', 'aes_space_restrictor_to_zaton'},
+	{'aes_space_restrictor_to_sarcofag'},
+	{'aes_space_restrictor_to_aes2', 'aes2_space_restrictor_to_aes1'},
+	{'aes2_space_restrictor_to_gen', 'gen_space_restrictor_to_aes2'},
+	{'gen_space_restrictor_to_warlab'},
+	{'aes2_space_restrictor_to_hospital', 'katacomb_space_restrictor_to_aes_1'},
+	{'aes2_space_restrictor_to_secret_lab'},
+	{'pri_space_restrictor_to_jup_ug'},
+	{'pri_space_restrictor_to_labx8'},
+}
+
+sr_random = { 
+	{'mar_teleport_from_base_to_west'},
+	{'jup_space_restrictor_to_zaton', 'zaton_space_restrictor_to_jupiter'},
+	{'esc_space_restrictor_to_marsh_1', 'mar_space_restrictor_to_escape_1'}, 
+	{'esc_space_restrictor_to_marsh_2', 'mar_space_restrictor_to_escape_2'},
+	{'esc_space_restrictor_to_garbage_1', 'gar_space_restrictor_to_escape_1'},
+	{'esc_space_restrictor_to_garbage_2', 'gar_space_restrictor_to_escape_2'},
+	{'esc_space_restrictor_to_darkscape_1', 'ds_space_restrictor_to_escape'},
+	{'mar_space_restrictor_to_agroprom_1', 'agr_space_restrictor_to_marsh_1'},
+	{'ds_space_restrictor_to_darkvalley', 'val_space_restrictor_to_darkscape'},
+	{'gar_space_restrictor_to_rostok_1', 'ros_space_restrictor_to_garbage_1'},
+	{'gar_space_restrictor_to_agroprom_1', 'agr_space_restrictor_to_garbage_1'},
+	{'gar_space_restrictor_to_agroprom_2', 'agr_space_restrictor_to_garbage_2'},
+	{'gar_space_restrictor_to_bar_1', 'bar_space_restrictor_to_garbage_01'},
+	{'gar_space_restrictor_to_darkvalley_1', 'val_space_restrictor_to_garbage_1'},
+	{'gar_space_restrictor_to_darkvalley_2', 'val_space_restrictor_to_garbage_2'},
+	{'agr_space_restrictor_to_agr_ug_1', 'agr_space_restrictor_to_agr_ug_2'},
+	{'agr_space_restrictor_to_agr_ug_3', 'agr_space_restrictor_to_agr_ug_4'},
+	{'agr_space_restrictor_to_agr_ug_5', 'agr_space_restrictor_to_agr_ug_6'},
+	{'agr_space_restrictor_to_yantar_1', 'yan_space_restrictor_to_agroprom_1'},
+	{'val_space_restrictor_to_labx18'},
+	{'bar_space_restrictor_to_tc', 'tc_space_restrictor_to_bar'},
+	{'tc_space_restrictor_to_military_1', 'mil_space_restrictor_to_tc'},
+	{'tc_space_restrictor_to_military_2'},
+	{'tc_space_restrictor_to_military_3'},
+	{'bar_space_restrictor_to_military_01', 'mil_space_restrictor_to_bar_1'},
+	{'bar_space_restrictor_to_rostok_01', 'ros_space_restrictor_to_bar_1'},
+	{'ros_space_restrictor_to_yantar_1', 'yan_space_restrictor_to_rostok_1'},
+	{'yan_space_restrictor_to_x16'},
+	{'yan_space_restrictor_to_dead_city_1', 'cit_space_restrictor_to_yantar'},
+	{'mil_space_restrictor_to_dead_city_1', 'cit_space_restrictor_to_military'},
+	{'cit_space_restrictor_to_limansk', 'lim_space_restrictor_to_dead_city'},
+	{'mil_space_restrictor_to_radar_1', 'rad_space_restrictor_to_military_01'},
+	{'mil_space_restrictor_to_red_1', 'red_space_restrictor_to_military_1'},
+	{'rad_space_restrictor_to_red_forest', 'red_space_restrictor_to_radar_1'},
+	{'rad_space_restrictor_to_bunker'},
+	{'rad_space_restrictor_to_pripyat_01', 'pri_space_restrictor_to_radar'},
+	{'red_space_restricor_to_jupiter', 'jupiter_space_restrictor_to_red_forest'},
+	{'jupiter_space_restrictor_to_jupiter_ug', 'jupiter_ug_space_restrictor_to_jupiter'},
+	{'lim_space_restrictor_to_hospital', 'katacomb_space_restrictor_to_limansk'},
+	{'lim_space_restrictor_to_red_forest', 'red_space_restrictor_to_limansk'},
+	{'pri_space_restrictor_to_jupiter', 'jupiter_space_restrictor_to_soc_pripyat'},
+	{'pri_space_restrictor_to_cop_pripyat', 'cop_pripyat_space_restrictor_to_soc_pripyat'},
+	{'pri_space_restrictor_to_stancia', 'aes_space_restrictor_to_pripyat'},
+	{'zaton_space_restrictor_to_stancia_1', 'aes_space_restrictor_to_zaton'},
+	{'aes_space_restrictor_to_sarcofag'},
+	{'aes_space_restrictor_to_aes2', 'aes2_space_restrictor_to_aes1'},
+	{'aes2_space_restrictor_to_gen', 'gen_space_restrictor_to_aes2'},
+	{'gen_space_restrictor_to_warlab'},
+	{'aes2_space_restrictor_to_hospital', 'katacomb_space_restrictor_to_aes_1'},
+	{'aes2_space_restrictor_to_secret_lab'},
+	{'pri_space_restrictor_to_jup_ug'},
+	{'pri_space_restrictor_to_labx8'},
+}
+
+
+-- ================================== Added by Tronex =================================
+-- Last modification: 2017/12/20
+-- Full list of map routes
+-- =======================================================================================
+
+sr_transitions_trx = { 
+	{'val_space_restrictor_to_tc', 'tc_space_restrictor_to_darkvalley'},						--(index 1) Dark Valley - Track Cemetery
+	{'ds_space_restrictor_to_darkvalley', 'val_space_restrictor_to_darkscape'},					--(index 2) Dark Valley - Darkscape
+	{'esc_space_restrictor_to_marsh_1', 'mar_space_restrictor_to_escape_1'},					--(index 3) Cordon - Great Swamp (southern route)
+	{'esc_space_restrictor_to_marsh_2', 'mar_space_restrictor_to_escape_2'},					--(index 4) Cordon - Great Swamp (northern route)
+	{'esc_space_restrictor_to_garbage_1', 'gar_space_restrictor_to_escape_1'},					--(index 5) Cordon - Garbage (military checkpoint)
+	{'esc_space_restrictor_to_garbage_2', 'gar_space_restrictor_to_escape_2'},					--(index 6) Cordon - Garbage (hidden route)
+	{'esc_space_restrictor_to_darkscape_1', 'ds_space_restrictor_to_escape'},					--(index 7) Cordon - Darkscape
+	{'gar_space_restrictor_to_agroprom_1', 'agr_space_restrictor_to_garbage_1'},				--(index 8) Garbage - Agroprom (northern route)
+	{'gar_space_restrictor_to_agroprom_2', 'agr_space_restrictor_to_garbage_2'},				--(index 9) Garbage - Agroprom (southern route)
+	{'gar_space_restrictor_to_bar_1', 'bar_space_restrictor_to_garbage_01'},					--(index 10) Garbage - Rostok
+	{'gar_space_restrictor_to_darkvalley_1', 'val_space_restrictor_to_garbage_1'},				--(index 11) Garbage - Dark Valley (southern route)
+	{'gar_space_restrictor_to_darkvalley_2', 'val_space_restrictor_to_garbage_2'},				--(index 12) Garbage - Dark Valley (northern route)
+	{'gar_space_restrictor_to_rostok_1', 'ros_space_restrictor_to_garbage_1'},					--(index 13) Garbage - Wild Territory
+	{'bar_space_restrictor_to_military_01', 'mil_space_restrictor_to_bar_1'},					--(index 14) Army Warehouses - Rostok
+	{'mil_space_restrictor_to_radar_1', 'rad_space_restrictor_to_military_01'},					--(index 15) Army Warehouses - Radar
+	{'mil_space_restrictor_to_dead_city_1', 'cit_space_restrictor_to_military'},				--(index 16) Army Warehouses - Dead City
+	{'tc_space_restrictor_to_military_1', 'tc_space_restrictor_to_military_2', 'tc_space_restrictor_to_military_3', 'mil_space_restrictor_to_tc'}, --(index 17) Army Warehouses - Track Cemetery 
+	{'bar_space_restrictor_to_rostok_01', 'ros_space_restrictor_to_bar_1'},						--(index 18) Wild Territory - Rostok
+	{'ros_space_restrictor_to_yantar_1', 'yan_space_restrictor_to_rostok_1'},					--(index 19) Wild Territory - Yantar 
+	{'rad_space_restrictor_to_pripyat_01', 'pri_space_restrictor_to_radar'},					--(index 20) Pripyat - Radar 
+	{'pri_space_restrictor_to_cop_pripyat', 'cop_pripyat_space_restrictor_to_soc_pripyat'},		--(index 21) Pripyat - Outskirts
+	{'pri_space_restrictor_to_stancia', 'aes_space_restrictor_to_pripyat'},						--(index 22) Pripyat - Chernobyl NPP (South)
+	{'lim_space_restrictor_to_hospital', 'katacomb_space_restrictor_to_limansk'},				--(index 23) Deserted Hospital - Limansk
+	{'zaton_space_restrictor_to_stancia_1', 'aes_space_restrictor_to_zaton'},					--(index 24) Chernobyl NPP (South) - Zaton
+	{'aes2_space_restrictor_to_hospital', 'katacomb_space_restrictor_to_aes_1'},				--(index 25) Chernobyl NPP (South) - Deserted Hospital 
+	{'aes_space_restrictor_to_aes2', 'aes2_space_restrictor_to_aes1'},							--(index 26) Chernobyl NPP (South) - Chernobyl NPP (North)
+	{'mar_space_restrictor_to_agroprom_1', 'agr_space_restrictor_to_marsh_1'},					--(index 27) Agroprom - Great Swamp
+	{'agr_space_restrictor_to_yantar_1', 'yan_space_restrictor_to_agroprom_1'},					--(index 28) Agroprom - Yantar
+	{'bar_space_restrictor_to_tc', 'tc_space_restrictor_to_bar'},								--(index 29) Rostok - Track Cemetery
+	{'yan_space_restrictor_to_dead_city_1', 'cit_space_restrictor_to_yantar'},					--(index 30) Dead City - Yantar 
+	{'cit_space_restrictor_to_limansk', 'lim_space_restrictor_to_dead_city'},					--(index 31) Dead City - Limansk
+	{'mil_space_restrictor_to_red_1', 'red_space_restrictor_to_military_1'},					--(index 32) Red Forest - Army Warehouses
+	{'rad_space_restrictor_to_red_forest', 'red_space_restrictor_to_radar_1'},					--(index 33) Red Forest - Radar
+	{'lim_space_restrictor_to_red_forest', 'red_space_restrictor_to_limansk'},			 		--(index 34) Red Forest - Limansk
+	{'red_space_restricor_to_jupiter', 'jupiter_space_restrictor_to_red_forest'},				--(index 35) Jupiter - Red Forest
+	{'pri_space_restrictor_to_jupiter', 'jupiter_space_restrictor_to_soc_pripyat'},				--(index 36) Jupiter - Pripyat
+	{'jup_space_restrictor_to_zaton', 'zaton_space_restrictor_to_jupiter'},						--(index 37) Jupiter - Zaton
+	
+	{'mar_teleport_from_base_to_west'},															--(index 38) ClearSky's Hidden Base
+	{'jupiter_space_restrictor_to_jupiter_ug', 'jupiter_ug_space_restrictor_to_jupiter'},		--(index 39) Jupiter - Jupiter Underground
+	{'pri_space_restrictor_to_jup_ug'},															--(index 40) Outskirts - Jupiter Underground
+	{'agr_space_restrictor_to_agr_ug_1', 'agr_space_restrictor_to_agr_ug_2'},					--(index 41) Agroprom Underground (Passage 1)
+	{'agr_space_restrictor_to_agr_ug_3', 'agr_space_restrictor_to_agr_ug_4', 'agr_space_restrictor_to_agr_ug_5', 'agr_space_restrictor_to_agr_ug_6'}, --(index 42) Agroprom Underground (Passage 2)
+	{'val_space_restrictor_to_labx18'},															--(index 43) Lab x18 (Dark Valley)
+	{'yan_space_restrictor_to_x16'},															--(index 44) Lab x16 (Yantar)
+	{'rad_space_restrictor_to_bunker'},															--(index 45) Lab x19 (Radar)
+	{'pri_space_restrictor_to_labx8'},															--(index 46) Lab x8 (Outskirts)
+	{'aes_space_restrictor_to_sarcofag'},														--(index 47) Sarcophagus 
+	{'gen_space_restrictor_to_warlab'},															--(index 48) Monolith War Lab
+	{'aes2_space_restrictor_to_secret_lab'},													--(index 49) Monolith Control Center
+	{'aes2_space_restrictor_to_gen', 'gen_space_restrictor_to_aes2'},							--(index 50) Generators
+}
+

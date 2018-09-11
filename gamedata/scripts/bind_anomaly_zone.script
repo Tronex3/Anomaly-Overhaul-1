@@ -16,7 +16,8 @@ local artefacts_table_fill_table = {
 		"af_medusa",
 		"af_vyvert",
 		"af_empty",
-		"af_full_empty"
+		"af_full_empty",
+		"af_death_lamp"
 	},
 
 	af_class_thermo = {
@@ -189,14 +190,14 @@ function anomaly_zone_binder:__init(obj) super(obj)
 				--printf("There is no 'mines_names' in section [%s] in obj [%s]", mines_section, obj:name())
 			end
 
-			self.mines_table[section] = {}
-
+			local t = empty_table(self.mines_table[section])
 			if self.ini:line_count(mines_section) > 0 then
 				for i = 0, self.ini:line_count(mines_section)-1 do
 					temp1, mine_name, temp2 = self.ini:r_line(mines_section, i, "", "")
-					table.insert(self.mines_table[section],mine_name)
+					t[#t+1] = mine_name
 				end
 			end
+			self.mines_table[section] = t
 		end
 	end
 	self.applying_force_xz = self.forces_table[self.cur_layer].xz
@@ -307,7 +308,10 @@ function anomaly_zone_binder:despawn_artefacts()
 		end
 	end
 	for k,v in pairs(self.artefact_ways_by_id) do
-		alife():release(alife():object(tonumber(k)), true)
+		local se_obj = alife_object(tonumber(k))
+		if se_obj then
+			alife():release(se_obj)
+		end
 		artefact_ways_by_id[k] = nil
 		artefact_points_by_id[k] = nil
 		parent_zones_by_artefact_id[k] = nil
@@ -375,6 +379,7 @@ end
 
 function anomaly_zone_binder:get_artefact_path()
 	local temp_table = {}
+	local size_t = 0
 	for k,v in pairs(self.path_table[self.cur_layer]) do
 		local f_spawned = false
 		for kk,vv in pairs(self.artefact_ways_by_id) do
@@ -383,16 +388,17 @@ function anomaly_zone_binder:get_artefact_path()
 			end
 		end
 		if not f_spawned then
-			table.insert(temp_table, v)
+			size_t = size_t + 1
+			temp_table[size_t] = v
 		end
 	end
 
-	if #temp_table < 1 then
+	if size_t < 1 then
 		--printf("No free way to spawn artefact in anomal zone [%s]", tostring(self.object:name()))
 		return self.path_table[self.cur_layer][math.random(1, #self.path_table[self.cur_layer])]
 	end
 
-	local rnd_path_name	= temp_table[math.random(1, #temp_table)]
+	local rnd_path_name	= temp_table[math.random(1, size_t)]
 
 	return rnd_path_name
 end
@@ -449,7 +455,10 @@ function anomaly_zone_binder:turn_off()
 	self.turned_off = true
 	self:disable_anomaly_fields()
 	for k,v in pairs(self.artefact_ways_by_id) do
-		alife():release(alife():object(tonumber(k)), true)
+		local se_obj = alife_object(tonumber(k))
+		if se_obj then
+			alife():release(se_obj)
+		end
 		artefact_ways_by_id[k] = nil
 		artefact_points_by_id[k] = nil
 		parent_zones_by_artefact_id[k] = nil

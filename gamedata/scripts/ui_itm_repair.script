@@ -8,9 +8,7 @@
 
 
 --=======================================< Controls >=======================================--
-local ico_size = 0.7
-local ico_width = (device().width / device().height > (1024/768+0.01)) and 0.8 or 1
-local _le = 50
+local ico_size, ico_width, rw, rh, _le = 1,1,1,1,50
 local ini = system_ini()
 
 
@@ -24,18 +22,18 @@ function list_element:__init(w_m, w_s, sec, id, con) super(w_m, w_s, sec, id, co
 	self.con					= con
 	
 	self.text					= self:GetTextItem()
-	self.text:SetWndRect		(Frect():set(0,0,300,22))
+	self.text:SetWndRect		(Frect():set(0,0,w_m*rw,22*rh))
 	self:SetTextColor			(GetARGB(255, 130, 128, 120))
-	self.text:SetFont			(GetFontLetterica16Russian())
-	self.text:SetWndSize		(vector2():set((w_m - w_s) , 22))
+	self.text:SetFont			(GetFontGraffiti50Russian())	--(GetFontLetterica16Russian())
+	self.text:SetWndSize		(vector2():set((w_m - w_s)*rw , 22*rh))
 	self.text:SetEllipsis		(true)
 	self.text:SetText			(game.translate_string(ini:r_string_ex (self.sec,"inv_name") or ""))
 	
 	self.flag					= self:AddTextField("+" .. con .. "%")
 	self.flag:SetTextColor		(GetARGB(255, 170, 170, 170))
-	self.flag:SetFont			(GetFontLetterica16Russian())
-	self.flag:SetWndSize		(vector2():set(w_s , 22))
-	self.flag:SetWndPos			(vector2():set((w_m - w_s) + 4 , 0))
+	self.flag:SetFont			(GetFontGraffiti50Russian())	--(GetFontLetterica16Russian())
+	self.flag:SetWndSize		(vector2():set(w_s , 22*rh))
+	self.flag:SetWndPos			(vector2():set(((w_m - w_s) + 4) , 0))
 end
 
 function list_element:__finalize()
@@ -49,6 +47,8 @@ function repair_ui:__init(owner,obj,section) super()
 	self.owner = owner
 	self.section = section
 	self.obj = obj
+	
+	ico_size, ico_width, rw, rh, _le = trx_utils.get_ui_settings(0.7)
 	
 	self.repair_frame = ini:r_string_ex(section,"repair_ui") or "ui_itm_repair_1"
 	self.use_condition = ini:r_bool_ex(section,"use_condition") or false
@@ -71,14 +71,12 @@ function repair_ui:__init(owner,obj,section) super()
 	-- Play sound
 	if (self.repair_frame == "ui_itm_repair_1") or (self.repair_frame == "ui_itm_repair_2") then
 		trx_utils.play_sound("interface\\inv_zipper_open")
-	elseif  (self.repair_frame == "ui_itm_repair_3") then
+	--elseif  (self.repair_frame == "ui_itm_repair_3") then
 		--trx_utils.play_sound("interface\\inv_briefcase_light_open")
 	else
 		trx_utils.play_sound("interface\\inv_briefcase_light_open")
 	end
-	
-	-- Hide weapon
-	actor_effects.use_weapon(0)
+
 end
 
 function repair_ui:__finalize()
@@ -95,38 +93,77 @@ function repair_ui:InitControls()
 	self.dialog					= xml:InitStatic("itm_repair:frame", self)
 	self.dialog:InitTexture(self.repair_frame)
 	self.dialog:SetStretchTexture(true)
-
+	trx_utils.adjust_main_ui(self.dialog)
+	
+	self.cap = {}
 	self.item = {} -- Selected item
 	self.list = {} -- List of items
 	self.box_item = {} -- Item's Icon
 	self.box_item_temp = {} -- temp item
 	self.text_item = {} -- Item's Name
+	self.sec_item = {} -- Item's Section
 	self.con_item = {} -- Item's Condition
 	for i=1,2 do
-		xml:InitStatic("itm_repair:cap_" .. tostring(i),self.dialog)
-		--xml:InitStatic("itm_repair:frame_list_" .. tostring(i),self.dialog)
-		--xml:InitStatic("itm_repair:frame_item_" .. tostring(i),self.dialog)
+		self.cap[i] = xml:InitStatic("itm_repair:cap_" .. tostring(i),self.dialog)
+		trx_utils.adjust_ui(self.cap[i])
 		
 		self.list[i] = xml:InitListBox("itm_repair:list_" .. tostring(i),self.dialog)
+		trx_utils.adjust_ui(self.list[i])
 		self.list[i]:ShowSelectedItem(true)
 		self.list[i]:Show(true)
 		self:Register(self.list[i], "list_" .. tostring(i))
 		
 		self.box_item[i] = xml:InitStatic("itm_repair:box_item_" .. tostring(i) , self.dialog)
+		trx_utils.adjust_ui(self.box_item[i])
+		
 		self.box_item_temp[i] = xml:InitStatic("itm_repair:box_item_" .. tostring(i) , self.dialog)
+		trx_utils.adjust_ui(self.box_item_temp[i])
 		
 		self.text_item[i] = xml:InitTextWnd("itm_repair:text_item_" .. tostring(i) , self.dialog)
+		trx_utils.adjust_ui(self.text_item[i])
+		
 		self.con_item[i] = xml:InitTextWnd("itm_repair:con_item_" .. tostring(i) , self.dialog)
+		trx_utils.adjust_ui(self.con_item[i])
 	end
 	self.con_item_b = xml:InitTextWnd("itm_repair:con_item_b" , self.dialog)
+	trx_utils.adjust_ui(self.con_item_b)
 	
 	-- Main Buttons
-	local btn
-	btn = xml:Init3tButton("itm_repair:btn_repair", self.dialog)
-	self:Register(btn,"btn_repair")
+	self.btn_repair_pic = xml:InitStatic("itm_repair:btn_repair_pic", self.dialog)
+	self.btn_repair_pic:InitTexture("ui_button_ordinary_e")
+	self.btn_repair_pic:SetStretchTexture(true)
+	trx_utils.adjust_ui(self.btn_repair_pic)
 	
-	btn = xml:Init3tButton("itm_repair:btn_cancel", self.dialog)
-	self:Register(btn,"btn_cancel")
+	self.btn_cancel_pic = xml:InitStatic("itm_repair:btn_cancel_pic", self.dialog)
+	self.btn_cancel_pic:InitTexture("ui_button_ordinary_e")
+	self.btn_cancel_pic:SetStretchTexture(true)
+	trx_utils.adjust_ui(self.btn_cancel_pic)
+	
+	self.btn_repair = xml:Init3tButton("itm_repair:btn_repair", self.dialog)
+	self.btn_repair:SetStretchTexture(true)
+	trx_utils.adjust_ui(self.btn_repair)
+	self:Register(self.btn_repair,"btn_repair")
+	
+	self.btn_cancel = xml:Init3tButton("itm_repair:btn_cancel", self.dialog)
+	self.btn_cancel:SetStretchTexture(true)
+	trx_utils.adjust_ui(self.btn_cancel)
+	self:Register(self.btn_cancel,"btn_cancel")
+	
+	-- Hint Window
+	self.hint_wnd = xml:InitFrame("hint_wnd:background",self)
+	self.hint_wnd:SetAutoDelete(false)
+	self.hint_wnd_text = xml:InitTextWnd("hint_wnd:text",self.hint_wnd)
+	self.hint_wnd:Show(false)
+	
+	-- Message Window 
+	self.msg_wnd = xml:InitFrame("hint_wnd:background",self)
+	self.msg_wnd:SetAutoDelete(false)
+	self.msg_wnd_text = xml:InitTextWnd("hint_wnd:text",self.msg_wnd)
+	self.msg_wnd_text:SetTextAlignment(2)
+	
+	self.msg_wnd:Show(false)
+	self.msg_wnd:SetColor(GetARGB(255,0,0,0))
+	
 	
 	self:LoadItemList_1()
 end
@@ -136,6 +173,8 @@ function repair_ui:InitCallBacks()
 	self:AddCallback("btn_cancel", ui_events.BUTTON_CLICKED, self.OnCancel, self)
 	self:AddCallback("list_1", ui_events.LIST_ITEM_CLICKED, self.OnItemClicked_1, self)
 	self:AddCallback("list_2", ui_events.LIST_ITEM_CLICKED, self.OnItemClicked_2, self)
+	self:AddCallback("list_1", ui_events.WINDOW_LBUTTON_DB_CLICK, self.OnItemDBClicked_1, self)
+	self:AddCallback("list_2", ui_events.WINDOW_LBUTTON_DB_CLICK, self.OnItemDBClicked_2, self)
 end
 
 function repair_ui:LoadItemList_1()
@@ -143,7 +182,7 @@ function repair_ui:LoadItemList_1()
 	
 	local function fill_list(actor,obj)
 		
-		if not obj then return end
+		if (not obj) then return end
 	
 		local main_section = ini:r_string_ex(obj:section(),"repair_type") or obj:section()
 		if (self.repair_only and self.repair_only[main_section]) then
@@ -175,9 +214,9 @@ function repair_ui:LoadItemList_2()
 
 	local obj = level.object_by_id(item.id)
 	local function fill_list(actor,itm)
-		if (itm and itm:id() ~= item.id) then
+		if (itm) and (itm:id() ~= item.id) and (itm:id() ~= self.obj:id()) then
 			local base = ini:r_string_ex(itm:section(),"uses_base")
-			if (self.parts_include and self.parts_include[itm:section()]) or (self.parts_include and self.parts_include[base]) or (self.parts_exclude == nil and string.find(obj:section(),itm:section())) or (self.parts_exclude and self.parts_exclude[itm:section()] == nil and string.find(obj:section(),itm:section())) then
+			if (self.parts_include and self.parts_include[itm:section()]) or (base and self.parts_include and self.parts_include[base]) or (self.parts_exclude == nil and string.find(obj:section(),itm:section())) or (self.parts_exclude and self.parts_exclude[itm:section()] == nil and string.find(obj:section(),itm:section())) then
 				local part_bonus = ini:r_float_ex(itm:section(),"repair_part_bonus") or self.part_bonus
 				part_bonus = math.ceil(part_bonus*100)
 				local _itm = list_element(self.list[2]:GetWidth(), _le, itm:section(), itm:id(), part_bonus)
@@ -189,6 +228,62 @@ function repair_ui:LoadItemList_2()
 	db.actor:iterate_inventory(fill_list,db.actor)
 end
 
+function repair_ui:Update()
+	CUIScriptWnd.Update(self)
+	
+	-- Warning messages timer 
+	if (self.msg_wnd_timer and time_global() > self.msg_wnd_timer) then 
+		self.msg_wnd_timer = nil
+		self.msg_wnd:Show(false)
+	end
+	
+	for i=1,#self.box_item do 
+		if (self.box_item[i] and self.box_item[i]:IsCursorOverWindow()) then
+			local str = ""
+			if (self.sec_item[i]) then
+				str = game.translate_string(ini:r_string_ex(self.sec_item[i],"description") or "")
+				--str = "%c[0,140,140,140]" .. str
+			end
+			self:SetHint(str)
+			return
+		end
+	end
+	self.hint_wnd:Show(false)
+end 
+
+function repair_ui:SetMsg(text,tmr)
+	if (text == "") then 
+		return 
+	end
+	self.msg_wnd:Show(true)
+	self.msg_wnd_text:SetText(text)
+	self.msg_wnd_text:AdjustHeightToText()
+	self.msg_wnd_text:SetWndSize(vector2():set(820,self.msg_wnd_text:GetHeight()+10))
+	self.msg_wnd_text:SetWndPos(vector2():set(0,20))
+	
+	self.msg_wnd:SetWndSize(vector2():set(820,self.msg_wnd_text:GetHeight()+44))
+	self.msg_wnd:SetWndPos(vector2():set(0,80))
+
+	self.msg_wnd_timer = time_global() + 1000*tmr
+end
+
+function repair_ui:SetHint(text,pos)
+	if (text == "") then
+		return
+	end
+	self.hint_wnd:Show(true)
+	self.hint_wnd_text:SetText(text)
+	self.hint_wnd_text:AdjustHeightToText()
+	self.hint_wnd:SetWndSize(vector2():set(self.hint_wnd:GetWidth(),self.hint_wnd_text:GetHeight()+44))
+	
+	pos = pos or GetCursorPosition()
+	pos.y = pos.y - self.hint_wnd:GetHeight()
+	pos.x = pos.x - self.hint_wnd:GetWidth()
+	self.hint_wnd:SetWndPos(pos)
+	
+	FitInRect(self.hint_wnd,Frect():set(0,0,1024,768),0,100)
+end
+
 
 ---------------< Callbacks >---------------
 function repair_ui:OnItemClicked_1()
@@ -196,6 +291,14 @@ function repair_ui:OnItemClicked_1()
 end
 function repair_ui:OnItemClicked_2()
 	self:OnItemSelect(2)
+end
+function repair_ui:OnItemDBClicked_1()
+	self:OnItemSelect(1)
+	self:OnRepair()
+end
+function repair_ui:OnItemDBClicked_2()
+	self:OnItemSelect(2)
+	self:OnRepair()
 end
 function repair_ui:OnItemSelect(n)
 	local item = self.list[n]:GetSelectedItem()
@@ -205,15 +308,15 @@ function repair_ui:OnItemSelect(n)
 	
 	-- Text (Name)
 	local name = game.translate_string(ini:r_string_ex(item.sec,"inv_name"))
+	self.sec_item[n] = item.sec
 	self.text_item[n]:SetText(name)
 	
 	-- Text (Condition)
-	if (n == 2) then 
-		local con = math.floor((self.add_condition)*100)
-		self.con_item[2]:SetText(game.translate_string("st_ui_repair") .. ": +" .. item.con .. "%")
-		self.con_item_b:SetText(game.translate_string("st_ui_bonus") .. ": +" .. con .. "%")
-		self.con_item[1]:SetText(game.translate_string("st_ui_total") .. ": +" .. (con + item.con) .. "%")
-	end
+	local add_val = math.floor((self.add_condition)*100) 
+	local bon_val = (n == 2) and item.con or 0 --math.floor((self.part_bonus)*100) or 0
+	self.con_item[2]:SetText(game.translate_string("st_ui_repair") .. ": +" .. add_val .. "%")
+	self.con_item_b:SetText(game.translate_string("st_ui_bonus") .. ": +" .. bon_val .. "%")
+	self.con_item[1]:SetText(game.translate_string("st_ui_total") .. ": +" .. (bon_val + add_val) .. "%")
 	
 	-- Icon
 	local ico = trx_utils.get_item_axis (item.sec)
@@ -265,9 +368,9 @@ function repair_ui:OnItemSelect(n)
 		self.box_item[2]:InitTexture("ui\\ui_icon_equipment")
 		self.box_item[2]:SetTextureRect(Frect():set(0, 0, 0, 0))
 		self.text_item[2]:SetText("")
-		self.con_item[1]:SetText("")
-		self.con_item[2]:SetText("")
-		self.con_item_b:SetText("")
+		--self.con_item[1]:SetText("")
+		--self.con_item[2]:SetText("")
+		--self.con_item_b:SetText("")
 	end
 end
 
@@ -280,13 +383,16 @@ function repair_ui:OnRepair()
 	end
 	
 	-- Load item 2
-	local obj_2 = self.item[2] and level.object_by_id(self.item[2])
-	if not (obj_2) then
-		return
+	local obj_2, sec
+	if self.item[2] then
+		obj_2 = self.item[2] and level.object_by_id(self.item[2])
+		if not (obj_2) then
+			return
+		end
+		sec = obj_2:section()
 	end
 	
-	local sec = obj_2:section()
-	local bonus = system_ini():r_float_ex(sec,"repair_part_bonus") or self.part_bonus or 0
+	local bonus = sec and system_ini():r_float_ex(sec,"repair_part_bonus") or 0 --self.part_bonus or 0
 	
 	-- Setting up the new condition for item 1
 	local con = obj_1:condition()
@@ -295,8 +401,10 @@ function repair_ui:OnRepair()
 	obj_1:set_condition(con)
 	
 	-- Remove 1 use of the support item
-	if (not trx_utils.adjust_item_charge(obj_2,-1)) then
-		trx_utils.release_obj(obj_2)
+	if obj_2 then
+		if (not trx_utils.adjust_item_charge(obj_2,-1)) then
+			trx_utils.release_obj(obj_2)
+		end
 	end
 	
 	-- Remove 1 use of the repair kit
@@ -311,13 +419,10 @@ function repair_ui:OnRepair()
 	if (self.use_actor_effects and actor_effects) then
 		actor_effects.use_item(self.section.."_dummy")
 		level_weathers.get_weather_manager():forced_weather_change()
-	else
-		actor_effects.use_weapon(1)
 	end
 end
 
 function repair_ui:OnCancel()
-	actor_effects.use_weapon(1)
 	
 	-- Play sound
 	--if (self.repair_frame == "ui_itm_repair_1") or (self.repair_frame == "ui_itm_repair_2") then

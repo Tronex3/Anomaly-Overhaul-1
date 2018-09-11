@@ -665,7 +665,10 @@
 	</string>
 	
 	<string id="st_recipe_is_known">
-		<text>You know the content of this already</text>
+		<text>You read this before</text>
+	</string>
+	<string id="st_letter_is_known">
+		<text>You read this before</text>
 	</string>
 	
 	<!-- bad turn -->

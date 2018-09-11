@@ -60,7 +60,6 @@
 	</string>
 	<string id="st_recipe_expert_descr">
 		<text>Manual of industrial engineering. Quite informative. It describes the operation of modern electronics: operational amplifiers, semiconductor diodes, bipolar junction transistors, and field effect transistors. The second part of this manual deals with troubleshooting electrical devices.\n \n
-		Recipe for expert tools.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,51,255,102] • %c[0,140,140,140] informative\n
 		%c[0,100,100,255] • %c[0,140,140,140] craft recipe\n
@@ -100,7 +99,7 @@
 		<text>Safety guide to ammunition (4th edition)</text>
 	</string>
 	<string id="st_recipe_ammo_descr">
-		<text>Every stalker should learn to choose a gun, but also know how to choose ammunition for it. This guide not only gives rookies the basics of various types of ammunition available in the zone, it also provides in-depth view about the operation of bullet, the components and recycling damaged cartridges.\n
+		<text>Every stalker should learn to choose a gun, but also know how to choose ammunition for it. This guide provides informations about various types of ammunition, plus an in-depth view about the basic components of cartridges.\n \n
 		%c[0,200,200,200]PROPERTIES:\n
 		%c[0,51,255,102] • %c[0,140,140,140] informative\n
 		%c[0,100,100,255] • %c[0,140,140,140] craft recipe\n

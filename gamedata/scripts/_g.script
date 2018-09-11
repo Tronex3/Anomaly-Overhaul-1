@@ -13,9 +13,9 @@
 --]]
 
 
-if (jit == nil) then
-	profiler.setup_hook	()
-end
+--if (jit == nil) then
+	--profiler.setup_hook	()
+--end
 
 GAME_VERSION = "1.4.16"
 
@@ -70,7 +70,7 @@ function start_game_callback()
 	--xr_sound.start_game_callback()
 	dialog_manager.fill_phrase_table()
 
-	sim_objects.clear()
+	--sim_objects.clear()
 	sr_light.clean_up ()
 	pda.add_quick_slot_items_on_game_start()
 end
@@ -597,7 +597,7 @@ function parse_names( s )
 	local t = {}
 	--for name in string.gmatch( s, "([%w_\\]+)%p*" ) do
 	for name in string.gmatch( s, "([%w_%-.\\]+)%p*" ) do
-		t[#t+1] = name	-->>
+		t[#t+1] = name
 	end
 	return t
 end
@@ -622,7 +622,7 @@ end
 function parse_nums( s )
 	local t = {}
 	for entry in string.gmatch( s, "([%-%d%.]+)%,*" ) do
-		t[#t+1] = tonumber(entry)	-->>
+		t[#t+1] = tonumber(entry)
 	end
 	return t
 end
@@ -669,7 +669,7 @@ function iempty_table (t)
 		return {}
 	end
 	while #t > 0 do
-		table.remove(t)	-->>
+		table.remove(t)
 	end
 	return t
 end
@@ -1229,7 +1229,7 @@ function create_ammo(section, position, lvi, gvi, pid, num)
 	local num_in_box = ini:r_u32(section, "box_size")
 	local t = {}
 	while num > num_in_box do
-		t[#t+1] = alife():create_ammo(section, position, lvi,	gvi, pid, num_in_box)	-->>
+		t[#t+1] = alife():create_ammo(section, position, lvi,	gvi, pid, num_in_box)
 		num = num - num_in_box
 	end
 	local obj = alife():create_ammo(section, position, lvi,	gvi, pid, num)
@@ -1551,6 +1551,27 @@ function give_objects_to_actor(section)
       return nil
    end
 end
+
+function string.gsplit(s, sep, plain)
+	local start = 1
+	local done = false
+	local function pass(i, j, ...)
+		if i then
+			local seg = s:sub(start, i - 1)
+			start = j + 1
+			return seg, ...
+		else
+			done = true
+			return s:sub(start)
+		end
+	end
+	return function()
+		if done then return end
+		if sep == '' then done = true return s end
+		return pass(s:find(sep, start, plain))
+	end
+end
+
 -- INI Extensions
 local ini_cache = { [system_ini()] = {} }
 function clear_ini_cache(ini)
@@ -1733,7 +1754,7 @@ function ini_file_ex:get_sections(keytable)
 		if (keytable) then
 			t[section] = true
 		else
-			t[#t+1] = section -->>
+			t[#t+1] = section
 		end
 	end
 	self.ini:section_for_each(itr)
