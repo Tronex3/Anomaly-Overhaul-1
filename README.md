@@ -10,7 +10,7 @@ This is a part of Anomaly 1.4.0 update
 
 
 
-###Economy
+### Economy
 In an attempt to give the player the ability to choose the difficulty/economy that suits their own preferences, an new option under the name of (progression difficulty) has been added in the new game menu with three choices (stalker, scavenger, survivalist):
 
 - The progression difficulty affects a lot of aspects: Trade, repair and upgrade costs. Loots in general (items, money). Chances of stash discovery. Max uses of medkits. Carry weight. Condition of looted weapons and more. (WIP)
@@ -18,7 +18,7 @@ In an attempt to give the player the ability to choose the difficulty/economy th
 - NOTE: These options will be shown only if your save is loaded. Changes done to progression factors will be applied to your current playthrough only.
 
 
-###Crafting System
+### Crafting System
 Introducing new crafting system. An alternative way to obtain equipment through your playthrough rather than relying completely on traditional trading:
 
 - A set of 5 kits that allow the player to craft all kinds of items:
@@ -33,13 +33,13 @@ Introducing new crafting system. An alternative way to obtain equipment through 
 - Mechanics will ask for full set of basic/advanced/expert tools (7 uses)
 
 
-###Encyclopedia
+### Encyclopedia
 - Dynamic encyclopedia. the player can unlock articles on discovery of all sort of things through their playthrough (factions, levels, important items, artefacts, anomalies etc..)
 - New special category (Notes). Stores personal notes such as crafting recipes, notes and letters from other stalkers (WIP)
 - Ironman states can be seen in a special note in the encyclopedia
 
 
-###Item management
+### Item management
 - Added the ability to combine multi-use items (reduce overall weight)
 - Added the ability to separate multi-use items (selling parts instead of full set)
 - Added the ability to disassemble the majority of available items, the player will obtain basic materials that can be reused for crafting or repairing purposes.
@@ -57,7 +57,7 @@ Introducing new crafting system. An alternative way to obtain equipment through 
 - Added new set of misc items and basic materials, useful for crafting.
 
 
-###Artefacts
+### Artefacts
 The arefacts have been reworked from the ground in order to bring their usefulness back and sperate them in types and tiers (WIP):
 
 - Artefacts now have less tiny / more meaningful values.
@@ -70,7 +70,7 @@ The arefacts have been reworked from the ground in order to bring their usefulne
 - Removed (Artefact Handeling Tool), simply drag and drop artefacts on containers to put them in.
  
 
-###General
+### General
 - Added new (Exta Options) menu, press F1 in the main menu to access it.
 - Removed the inventory grid
 - Added special map marker for companions
@@ -103,7 +103,7 @@ The arefacts have been reworked from the ground in order to bring their usefulne
 - TRX Zone FM: Added the ability to make new music playlists.
 
 
-###Technical:
+### Technical:
 Bug fixes, optimization, cleaning:
 
 - Removed the old location discovery (badly written script)
